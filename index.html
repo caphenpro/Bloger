@@ -34,6 +34,12 @@
       padding: 0;
     }
 
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--bg-page);
@@ -285,13 +291,18 @@
     /* Layout Grids */
     .grid-2col {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.25rem;
+      width: 100%;
     }
     @media (min-width: 900px) {
       .grid-2col {
-        grid-template-columns: 1.55fr 1fr;
+        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
       }
+    }
+    .grid-2col > * {
+      min-width: 0;
+      max-width: 100%;
     }
 
     /* Calendar Grid View */
@@ -575,6 +586,250 @@
     }
     .soc-active-row td {
       background-color: #fff7ed !important;
+    }
+
+    /* Responsive Sóc Section Styling */
+    .soc-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid #f3f4f6;
+      cursor: pointer;
+      user-select: none;
+    }
+    .soc-card-header-left {
+      flex: 1;
+      min-width: 0;
+    }
+    .soc-card-header-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 0;
+      line-height: 1.35;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .soc-card-header-title-text {
+      display: inline;
+    }
+    .soc-card-header-right {
+      flex-shrink: 0;
+    }
+    .soc-toggle-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      color: #374151;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.25rem 0.55rem;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+    .soc-card-header:hover .soc-toggle-badge {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .soc-toolbar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-bottom: 0.75rem;
+    }
+    .soc-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .soc-view-toggle {
+      display: inline-flex;
+      align-self: flex-start;
+      background: #f3f4f6;
+      padding: 0.2rem;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      gap: 0.2rem;
+    }
+    .btn-view-mode {
+      border: none;
+      background: transparent;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #4b5563;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-view-mode.active {
+      background: #fff;
+      color: var(--primary-dark);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Cards View on Mobile */
+    .soc-cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      width: 100%;
+      max-width: 100%;
+    }
+    .soc-mobile-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.65rem 0.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .soc-mobile-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-md);
+    }
+    .soc-mobile-card.soc-active-card {
+      border: 1.5px solid #ea580c;
+      background: #fffcf8;
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.12);
+    }
+    .soc-mcard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.45rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px dashed #e2e8f0;
+      flex-wrap: wrap;
+    }
+    .soc-mcard-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .soc-mcard-month-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .soc-mcard-jump {
+      font-size: 0.72rem;
+      color: #7c3aed;
+      font-weight: 600;
+    }
+    .soc-mcard-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 0.5rem;
+      background: #fafafa;
+      padding: 0.45rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #f1f5f9;
+    }
+    @media (max-width: 360px) {
+      .soc-mcard-grid {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+    }
+    .soc-mcard-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .soc-mcard-lbl {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .soc-mcard-val-main {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+    .soc-mcard-sub {
+      font-size: 0.72rem;
+      color: #4b5563;
+      line-height: 1.35;
+    }
+
+    /* Table View Container */
+    .soc-table-wrapper {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: #fff;
+    }
+    .soc-table-wrapper table {
+      width: 100%;
+      min-width: 600px;
+      border-collapse: collapse;
+      margin-top: 0;
+    }
+    .soc-scroll-hint {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      color: #6b7280;
+      padding: 0.3rem 0.6rem;
+      background: #f9fafb;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .badge-du {
+      background: #dcfce7;
+      color: #166534;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-weight: 600;
+      border: 1px solid #bbf7d0;
+    }
+    .badge-thieu {
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-weight: 600;
+      border: 1px solid #fde68a;
+    }
+    .badge-active-month {
+      background: #ffedd5;
+      color: #c2410c;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-weight: 700;
+      border: 1px solid #fed7aa;
     }
 
     /* Bát Tự (Four Pillars) Styling */
@@ -1383,29 +1638,54 @@
 
           <!-- Bảng Tra Cứu Điểm Sóc & Khởi Đầu Mùng 1 Trong Năm -->
           <div class="card" style="margin-top: 1rem;">
-            <div class="card-header" style="cursor: pointer; user-select: none;" id="btnToggleSocTable" title="Nhấn để mở rộng hoặc thu gọn bảng">
-              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
-                <h3 class="card-title" style="font-size: 0.98rem; color: var(--primary-dark); margin: 0;">
-                  🌑 Bảng Giờ Ngày Sóc &amp; Khởi Đầu Mùng 1 Năm <span id="socYearHeader">2026</span>
+            <div class="soc-card-header" id="btnToggleSocTable" title="Nhấn để mở rộng hoặc thu gọn">
+              <div class="soc-card-header-left">
+                <h3 class="soc-card-header-title">
+                  <span class="soc-card-header-title-text">🌑 Bảng Giờ Ngày Sóc &amp; Mùng 1 Năm <span id="socYearHeader">2026</span></span>
+                  <span class="badge" style="background: #fef3c7; color: #92400e; font-size: 0.7rem; font-weight: 700; border: 1px solid #fde68a;">Thiên Văn UTC+7</span>
                 </h3>
-                <span class="badge" style="background: #fef3c7; color: #92400e; font-size: 0.72rem; font-weight: 700;">Thiên Văn UTC+7</span>
               </div>
-              <span id="socTableToggleIcon" style="font-size: 0.85rem; color: #6b7280; font-weight: bold;">▼</span>
+              <div class="soc-card-header-right">
+                <span class="soc-toggle-badge">
+                  <span id="socTableToggleText">Chi tiết</span>
+                  <span id="socTableToggleIcon">▼</span>
+                </span>
+              </div>
             </div>
             <div id="socYearSectionBody">
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.35rem 0 0.65rem 0; line-height: 1.5;">
-                Thời điểm giao hội Mặt Trăng - Mặt Trời (Điểm Sóc) chính xác từng giây theo giờ Việt Nam (UTC+7), làm cơ sở xác định ngày Mùng 1 và độ dài tháng Âm lịch:
-              </p>
-              <div style="overflow-x: auto;">
-                <table class="hours-table" style="font-size: 0.82rem;">
+              <div class="soc-toolbar">
+                <p class="soc-desc">
+                  Thời điểm giao hội Mặt Trăng - Mặt Trời (Điểm Sóc) chính xác từng giây theo giờ Việt Nam (UTC+7), làm cơ sở xác định ngày Mùng 1 và độ dài tháng Âm lịch:
+                </p>
+                <div class="soc-view-toggle">
+                  <button type="button" class="btn-view-mode active" id="btnSocViewCards" title="Xem dạng thẻ trực quan tối ưu cho màn hình di động">
+                    📱 Dạng Thẻ Gọn
+                  </button>
+                  <button type="button" class="btn-view-mode" id="btnSocViewTable" title="Xem bảng số liệu đầy đủ 6 cột">
+                    📊 Dạng Bảng Đầy Đủ
+                  </button>
+                </div>
+              </div>
+
+              <!-- 1. Danh sách Dạng Thẻ Gọn (Hiển thị mặc định trên điện thoại) -->
+              <div class="soc-cards-container" id="socYearCardsContainer">
+                <!-- Rendered dynamically -->
+              </div>
+
+              <!-- 2. Bảng Tra Cứu Đầy Đủ (Được bọc overflow-x chống tràn giao diện) -->
+              <div class="soc-table-wrapper" id="socYearTableWrapper" style="display: none;">
+                <div class="soc-scroll-hint">
+                  <span>↔ Vuốt ngang bảng để xem đủ 6 cột thông số</span>
+                </div>
+                <table class="hours-table">
                   <thead>
                     <tr>
-                      <th>Tháng Âm</th>
-                      <th>Ngày Dương (Chứa Sóc)</th>
-                      <th>Giờ Sóc Chính Xác (UTC+7)</th>
-                      <th>Can Chi (Ngày • Giờ Sóc)</th>
-                      <th>Khởi Mùng 1</th>
-                      <th>Quy Mô</th>
+                      <th style="min-width: 115px;">Tháng Âm</th>
+                      <th style="min-width: 100px;">Ngày Dương</th>
+                      <th style="min-width: 115px;">Giờ Sóc (UTC+7)</th>
+                      <th style="min-width: 165px;">Can Chi (Ngày • Giờ)</th>
+                      <th style="min-width: 135px;">Khởi Đầu Mùng 1</th>
+                      <th style="min-width: 110px;">Quy Mô</th>
                     </tr>
                   </thead>
                   <tbody id="socYearTableBody">
@@ -1413,6 +1693,7 @@
                   </tbody>
                 </table>
               </div>
+
               <div style="font-size: 0.75rem; color: #4b5563; background: #f9fafb; padding: 0.55rem 0.7rem; border-radius: 6px; border: 1px solid #e5e7eb; margin-top: 0.75rem; line-height: 1.55;">
                 📌 <strong>Nguyên tắc thiên văn học:</strong> Sóc (New Moon) là thời điểm kinh độ hoàng đạo của Mặt Trăng và Mặt Trời trùng nhau. Vì tháng Âm lịch là tháng Mặt Trăng nhưng ngày Âm lịch là ngày Mặt Trời (tính từ 00:00:00 đến 24:00:00), nên ngày Dương lịch có chứa thời điểm Sóc được quy định là ngày Mùng 1 của tháng Âm lịch đó.
               </div>
@@ -1941,7 +2222,7 @@
       </p>
       <p>Thuật toán thiên văn chuyển đổi lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00). Bản quyền thuần Web tĩnh HTML, CSS &amp; JavaScript.</p>
       <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-        <span style="display: inline-block; background: rgba(255,255,255,0.1); padding: 0.15rem 0.55rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15); font-family: var(--font-mono, monospace);">Phiên bản v1.3.1</span>
+        <span style="display: inline-block; background: rgba(255,255,255,0.1); padding: 0.15rem 0.55rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15); font-family: var(--font-mono, monospace);">Phiên bản v1.3.2</span>
         • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
       </p>
     </div>
@@ -3039,8 +3320,9 @@
       if (yearHeaderEl) yearHeaderEl.textContent = year;
 
       const tbody = document.getElementById('socYearTableBody');
-      if (!tbody) return;
-      tbody.innerHTML = '';
+      const cardsContainer = document.getElementById('socYearCardsContainer');
+      if (tbody) tbody.innerHTML = '';
+      if (cardsContainer) cardsContainer.innerHTML = '';
 
       const list = getYearNewMoons(year, 7);
       const selectedMonthStartJD = getNewMoonDetailsForDate(
@@ -3051,11 +3333,7 @@
       ).currentInstant.dayNumber;
 
       list.forEach(item => {
-        const tr = document.createElement('tr');
         const isCurrentMonth = item.dayNumber === selectedMonthStartJD;
-        if (isCurrentMonth) {
-          tr.className = 'soc-active-row';
-        }
 
         const dStr = String(item.d).padStart(2, '0');
         const mStr = String(item.m).padStart(2, '0');
@@ -3069,55 +3347,148 @@
         if (item.isLeap) monthName += ` (Nhuận)`;
 
         const isDu = item.totalDays === 30;
-        const badgeStyle = isDu 
-          ? 'style="background: #dcfce7; color: #166534; font-size: 0.72rem; padding: 0.15rem 0.4rem; border-radius: 3px; font-weight: 600;"' 
-          : 'style="background: #fef3c7; color: #92400e; font-size: 0.72rem; padding: 0.15rem 0.4rem; border-radius: 3px; font-weight: 600;"';
+        const badgeClass = isDu ? 'badge-du' : 'badge-thieu';
+        const badgeText = isDu ? 'Tháng Đủ (30n)' : 'Tháng Thiếu (29n)';
 
-        tr.innerHTML = `
-          <td>
-            <strong>${monthName}</strong>
-            ${isCurrentMonth ? '<span style="font-size: 0.7rem; color: #ea580c; display: block; font-weight: bold;">● Tháng đang chọn</span>' : ''}
-          </td>
-          <td>${dStr}/${mStr}/${item.y}</td>
-          <td><span class="soc-time-code">${hStr}:${minStr}:${sStr}</span></td>
-          <td>Ngày ${item.dayCanChi} • Giờ ${item.hourCanChi}</td>
-          <td style="color: #15803d; font-weight: 600;">00:00:00 ngày ${dStr}/${mStr}</td>
-          <td><span ${badgeStyle}>${isDu ? 'Tháng Đủ (30n)' : 'Tháng Thiếu (29n)'}</span></td>
-        `;
+        // 1. Render Table Row (Dành cho Dạng Bảng Đầy Đủ)
+        if (tbody) {
+          const tr = document.createElement('tr');
+          if (isCurrentMonth) {
+            tr.className = 'soc-active-row';
+          }
 
-        tr.style.cursor = 'pointer';
-        tr.title = `Nhấn để chuyển lịch tới ngày Mùng 1 ${monthName} (${dStr}/${mStr}/${item.y})`;
-        tr.addEventListener('click', () => {
-          selectedDate = new Date(item.y, item.m - 1, item.d);
-          renderCalendar(item.y, item.m - 1);
-          updateBlocView(selectedDate);
-          renderSocYearTable(item.y);
-        });
+          tr.innerHTML = `
+            <td>
+              <strong>${monthName}</strong>
+              ${isCurrentMonth ? '<span style="font-size: 0.7rem; color: #ea580c; display: block; font-weight: bold;">● Tháng đang chọn</span>' : ''}
+            </td>
+            <td>${dStr}/${mStr}/${item.y}</td>
+            <td><span class="soc-time-code">${hStr}:${minStr}:${sStr}</span></td>
+            <td>Ngày ${item.dayCanChi} • Giờ ${item.hourCanChi}</td>
+            <td style="color: #15803d; font-weight: 600;">00:00:00 ngày ${dStr}/${mStr}</td>
+            <td><span class="${badgeClass}">${badgeText}</span></td>
+          `;
 
-        tbody.appendChild(tr);
+          tr.style.cursor = 'pointer';
+          tr.title = `Nhấn để chuyển lịch tới ngày Mùng 1 ${monthName} (${dStr}/${mStr}/${item.y})`;
+          tr.addEventListener('click', () => {
+            selectedDate = new Date(item.y, item.m - 1, item.d);
+            renderCalendar(item.y, item.m - 1);
+            updateBlocView(selectedDate);
+            renderSocYearTable(item.y);
+          });
+
+          tbody.appendChild(tr);
+        }
+
+        // 2. Render Mobile Card (Dành cho Dạng Thẻ Gọn trên di động)
+        if (cardsContainer) {
+          const card = document.createElement('div');
+          card.className = `soc-mobile-card ${isCurrentMonth ? 'soc-active-card' : ''}`;
+          card.title = `Nhấn để xem Mùng 1 ${monthName} (${dStr}/${mStr}/${item.y}) trên lịch`;
+
+          card.innerHTML = `
+            <div class="soc-mcard-header">
+              <div class="soc-mcard-title-wrap">
+                <span class="soc-mcard-month-title">${monthName}</span>
+                <span class="${badgeClass}">${isDu ? 'Tháng Đủ (30 ngày)' : 'Tháng Thiếu (29 ngày)'}</span>
+                ${isCurrentMonth ? '<span class="badge-active-month">● Tháng Đang Xem</span>' : ''}
+              </div>
+              <span class="soc-mcard-jump">Xem trên lịch ➔</span>
+            </div>
+            <div class="soc-mcard-grid">
+              <div class="soc-mcard-cell">
+                <div class="soc-mcard-lbl">🌑 ĐIỂM SÓC CHÍNH XÁC</div>
+                <div class="soc-mcard-val-main">
+                  <span class="soc-time-code">${hStr}:${minStr}:${sStr}</span>
+                </div>
+                <div class="soc-mcard-sub">Ngày ${dStr}/${mStr}/${item.y}</div>
+                <div class="soc-mcard-sub" style="color: #6b7280; font-weight: 500;">${item.dayCanChi} • ${item.hourCanChi}</div>
+              </div>
+              <div class="soc-mcard-cell">
+                <div class="soc-mcard-lbl">🗓️ KHỞI ĐẦU MÙNG 1</div>
+                <div class="soc-mcard-val-main" style="color: #15803d;">
+                  00:00:00
+                </div>
+                <div class="soc-mcard-sub">Ngày <strong>${dStr}/${mStr}/${item.y}</strong></div>
+                <div class="soc-mcard-sub" style="color: #059669; font-weight: 500;">Bắt đầu ngày Âm lịch</div>
+              </div>
+            </div>
+          `;
+
+          card.addEventListener('click', () => {
+            selectedDate = new Date(item.y, item.m - 1, item.d);
+            renderCalendar(item.y, item.m - 1);
+            updateBlocView(selectedDate);
+            renderSocYearTable(item.y);
+          });
+
+          cardsContainer.appendChild(card);
+        }
       });
     }
 
-    // Thiết lập sự kiện ẩn/hiện bảng điểm Sóc
+    // Thiết lập sự kiện ẩn/hiện bảng điểm Sóc & chuyển đổi chế độ xem
     function setupSocYearTable() {
       const toggleBtn = document.getElementById('btnToggleSocTable');
       const bodyEl = document.getElementById('socYearSectionBody');
       const iconEl = document.getElementById('socTableToggleIcon');
+      const textEl = document.getElementById('socTableToggleText');
 
-      // Tự động thu gọn bảng trên thiết bị di động (<= 768px) để Lịch Vạn Niên cân đối, không bị choán chỗ
-      if (window.innerWidth <= 768 && bodyEl && iconEl) {
-        bodyEl.style.display = 'none';
-        iconEl.textContent = '▶';
+      const btnCards = document.getElementById('btnSocViewCards');
+      const btnTable = document.getElementById('btnSocViewTable');
+      const cardsContainer = document.getElementById('socYearCardsContainer');
+      const tableWrapper = document.getElementById('socYearTableWrapper');
+
+      const isMobile = window.innerWidth <= 768;
+
+      // Thiết lập mặc định theo kích thước màn hình
+      if (isMobile) {
+        if (bodyEl) bodyEl.style.display = 'none';
+        if (iconEl) iconEl.textContent = '▶';
+        if (textEl) textEl.textContent = 'Chi tiết';
+        if (cardsContainer) cardsContainer.style.display = 'flex';
+        if (tableWrapper) tableWrapper.style.display = 'none';
+        if (btnCards) btnCards.classList.add('active');
+        if (btnTable) btnTable.classList.remove('active');
+      } else {
+        if (cardsContainer) cardsContainer.style.display = 'none';
+        if (tableWrapper) tableWrapper.style.display = 'block';
+        if (btnCards) btnCards.classList.remove('active');
+        if (btnTable) btnTable.classList.add('active');
       }
 
+      // Chuyển đổi giữa Dạng Thẻ và Dạng Bảng
+      if (btnCards && btnTable && cardsContainer && tableWrapper) {
+        btnCards.addEventListener('click', (e) => {
+          e.stopPropagation();
+          btnCards.classList.add('active');
+          btnTable.classList.remove('active');
+          cardsContainer.style.display = 'flex';
+          tableWrapper.style.display = 'none';
+        });
+
+        btnTable.addEventListener('click', (e) => {
+          e.stopPropagation();
+          btnTable.classList.add('active');
+          btnCards.classList.remove('active');
+          cardsContainer.style.display = 'none';
+          tableWrapper.style.display = 'block';
+        });
+      }
+
+      // Xử lý Thu gọn / Mở rộng khối điểm Sóc
       if (toggleBtn && bodyEl && iconEl) {
         toggleBtn.addEventListener('click', () => {
-          if (bodyEl.style.display === 'none') {
+          const isCollapsed = bodyEl.style.display === 'none';
+          if (isCollapsed) {
             bodyEl.style.display = 'block';
-            iconEl.textContent = '▼';
+            iconEl.textContent = '▲';
+            if (textEl) textEl.textContent = 'Thu gọn';
           } else {
             bodyEl.style.display = 'none';
             iconEl.textContent = '▶';
+            if (textEl) textEl.textContent = 'Chi tiết';
           }
         });
       }
