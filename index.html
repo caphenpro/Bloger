@@ -558,6 +558,24 @@
     .hours-table tr.hoangdao-row {
       background-color: #fffbeb;
     }
+    .soc-time-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 700;
+      color: #991b1b;
+      background: #fef2f2;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      border: 1px solid #fecaca;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .soc-active-row {
+      background-color: #fff7ed !important;
+      border-left: 3px solid #ea580c;
+    }
+    .soc-active-row td {
+      background-color: #fff7ed !important;
+    }
 
     /* Bát Tự (Four Pillars) Styling */
     .battu-pillars-grid {
@@ -998,53 +1016,93 @@
     <!-- TAB 1: LỊCH VẠN NIÊN -->
     <div id="tab-calendar" class="tab-content active">
       <div class="grid-2col">
-        <!-- Calendar Grid Column -->
-        <div class="card">
-          <div class="cal-controls">
-            <div class="cal-title-wrap">
-              <div class="cal-month-title" id="calTitleDisplay">Tháng 9 năm 2026</div>
-            </div>
-            <div class="cal-nav-actions">
-              <div class="cal-nav-btns">
-                <button class="btn btn-outline btn-sm" id="btnPrevMonth" title="Tháng trước">◀</button>
-                <button class="btn btn-gold btn-sm" id="btnToday">Hôm nay</button>
-                <button class="btn btn-outline btn-sm" id="btnNextMonth" title="Tháng sau">▶</button>
+        <!-- Calendar Grid & Astronomical Sóc Table Column -->
+        <div>
+          <div class="card">
+            <div class="cal-controls">
+              <div class="cal-title-wrap">
+                <div class="cal-month-title" id="calTitleDisplay">Tháng 9 năm 2026</div>
               </div>
-              <div class="cal-nav-selects">
-                <select class="form-select" id="quickMonthSelect">
-                  <!-- Filled via JS -->
-                </select>
-                <select class="form-select" id="quickYearSelect">
-                  <!-- Filled via JS -->
-                </select>
+              <div class="cal-nav-actions">
+                <div class="cal-nav-btns">
+                  <button class="btn btn-outline btn-sm" id="btnPrevMonth" title="Tháng trước">◀</button>
+                  <button class="btn btn-gold btn-sm" id="btnToday">Hôm nay</button>
+                  <button class="btn btn-outline btn-sm" id="btnNextMonth" title="Tháng sau">▶</button>
+                </div>
+                <div class="cal-nav-selects">
+                  <select class="form-select" id="quickMonthSelect">
+                    <!-- Filled via JS -->
+                  </select>
+                  <select class="form-select" id="quickYearSelect">
+                    <!-- Filled via JS -->
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calendar Table Header -->
+            <div class="cal-grid" id="calGridHeader">
+              <div class="cal-head-cell weekend">CN</div>
+              <div class="cal-head-cell">T2</div>
+              <div class="cal-head-cell">T3</div>
+              <div class="cal-head-cell">T4</div>
+              <div class="cal-head-cell">T5</div>
+              <div class="cal-head-cell">T6</div>
+              <div class="cal-head-cell weekend">T7</div>
+            </div>
+            <!-- Days container -->
+            <div class="cal-grid" id="calDaysGrid" style="border-top: none;">
+              <!-- Days rendered via JS -->
+            </div>
+
+            <div class="cal-legend">
+              <div class="cal-legend-item">
+                <span class="hd-dot"></span> Ngày Hoàng Đạo
+              </div>
+              <div class="cal-legend-item">
+                <span class="fest-dot"></span> Ngày Lễ / Tết
+              </div>
+              <div class="cal-legend-item">
+                <span style="display:inline-block; width: 10px; height: 10px; border: 1px solid #fb923c; background: #fff7ed; border-radius: 2px;"></span> Hôm nay
               </div>
             </div>
           </div>
 
-          <!-- Calendar Table Header -->
-          <div class="cal-grid" id="calGridHeader">
-            <div class="cal-head-cell weekend">CN</div>
-            <div class="cal-head-cell">T2</div>
-            <div class="cal-head-cell">T3</div>
-            <div class="cal-head-cell">T4</div>
-            <div class="cal-head-cell">T5</div>
-            <div class="cal-head-cell">T6</div>
-            <div class="cal-head-cell weekend">T7</div>
-          </div>
-          <!-- Days container -->
-          <div class="cal-grid" id="calDaysGrid" style="border-top: none;">
-            <!-- Days rendered via JS -->
-          </div>
-
-          <div class="cal-legend">
-            <div class="cal-legend-item">
-              <span class="hd-dot"></span> Ngày Hoàng Đạo
+          <!-- Bảng Tra Cứu Điểm Sóc & Khởi Đầu Mùng 1 Trong Năm -->
+          <div class="card" style="margin-top: 1rem;">
+            <div class="card-header" style="cursor: pointer; user-select: none;" id="btnToggleSocTable" title="Nhấn để mở rộng hoặc thu gọn bảng">
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
+                <h3 class="card-title" style="font-size: 0.98rem; color: var(--primary-dark); margin: 0;">
+                  🌑 Bảng Giờ Ngày Sóc &amp; Khởi Đầu Mùng 1 Năm <span id="socYearHeader">2026</span>
+                </h3>
+                <span class="badge" style="background: #fef3c7; color: #92400e; font-size: 0.72rem; font-weight: 700;">Thiên Văn UTC+7</span>
+              </div>
+              <span id="socTableToggleIcon" style="font-size: 0.85rem; color: #6b7280; font-weight: bold;">▼</span>
             </div>
-            <div class="cal-legend-item">
-              <span class="fest-dot"></span> Ngày Lễ / Tết
-            </div>
-            <div class="cal-legend-item">
-              <span style="display:inline-block; width: 10px; height: 10px; border: 1px solid #fb923c; background: #fff7ed; border-radius: 2px;"></span> Hôm nay
+            <div id="socYearSectionBody">
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.35rem 0 0.65rem 0; line-height: 1.5;">
+                Thời điểm giao hội Mặt Trăng - Mặt Trời (Điểm Sóc) chính xác từng giây theo giờ Việt Nam (UTC+7), làm cơ sở xác định ngày Mùng 1 và độ dài tháng Âm lịch:
+              </p>
+              <div style="overflow-x: auto;">
+                <table class="hours-table" style="font-size: 0.82rem;">
+                  <thead>
+                    <tr>
+                      <th>Tháng Âm</th>
+                      <th>Ngày Dương (Chứa Sóc)</th>
+                      <th>Giờ Sóc Chính Xác (UTC+7)</th>
+                      <th>Can Chi (Ngày • Giờ Sóc)</th>
+                      <th>Khởi Mùng 1</th>
+                      <th>Quy Mô</th>
+                    </tr>
+                  </thead>
+                  <tbody id="socYearTableBody">
+                    <!-- Rendered dynamically -->
+                  </tbody>
+                </table>
+              </div>
+              <div style="font-size: 0.75rem; color: #4b5563; background: #f9fafb; padding: 0.55rem 0.7rem; border-radius: 6px; border: 1px solid #e5e7eb; margin-top: 0.75rem; line-height: 1.55;">
+                📌 <strong>Nguyên tắc thiên văn học:</strong> Sóc (New Moon) là thời điểm kinh độ hoàng đạo của Mặt Trăng và Mặt Trời trùng nhau. Vì tháng Âm lịch là tháng Mặt Trăng nhưng ngày Âm lịch là ngày Mặt Trời (tính từ 00:00:00 đến 24:00:00), nên ngày Dương lịch có chứa thời điểm Sóc được quy định là ngày Mùng 1 của tháng Âm lịch đó.
+              </div>
             </div>
           </div>
         </div>
@@ -1107,10 +1165,60 @@
                   <span class="bloc-meta-lbl">Hướng xuất hành:</span>
                   <span class="bloc-meta-val" id="blocHuongXuatHanh">Hỷ Thần: Đông Bắc • Tài Thần: Nam</span>
                 </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Điểm Sóc tháng này:</span>
+                  <span class="bloc-meta-val" id="blocSocTime" style="color: #991b1b; font-family: monospace; font-size: 0.88rem;">--:--:--</span>
+                </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Cơ sở Mùng 1 &amp; Quy mô:</span>
+                  <span class="bloc-meta-val" id="blocSocRule" style="color: #15803d; font-weight: 600;">--</span>
+                </div>
                 <div class="bloc-meta-row" id="blocFestRow" style="display:none;">
                   <span class="bloc-meta-lbl">Sự kiện / Lễ tết:</span>
                   <span class="bloc-meta-val" id="blocFestText" style="color: var(--primary); font-weight: 700;"></span>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Astronomical New Moon Card (Chi tiết Điểm Sóc & Cơ sở Mùng 1) -->
+          <div class="card" style="margin-top: 1rem; border-left: 3px solid #b45309; background: #fffcf5;">
+            <div class="card-header" style="padding-bottom: 0.4rem; margin-bottom: 0.5rem; border-bottom: 1px dashed #fed7aa;">
+              <h3 class="card-title" style="font-size: 0.95rem; color: #78350f; display: flex; align-items: center; gap: 0.4rem; margin: 0;">
+                🌑 Điểm Sóc &amp; Khởi Ngày Mùng 1 Âm Lịch
+              </h3>
+              <span class="badge" id="cardMonthTypeBadge" style="background: #fef3c7; color: #92400e; font-size: 0.72rem; font-weight: 700;">Tháng Thiếu (29 ngày)</span>
+            </div>
+            
+            <div style="font-size: 0.83rem; line-height: 1.6; color: #374151;">
+              <div style="background: #fff; border: 1px solid #fed7aa; border-radius: 6px; padding: 0.6rem 0.75rem; margin-bottom: 0.6rem;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+                  <span style="color: #6b7280;">Điểm Sóc tháng này:</span>
+                  <strong id="cardSocTime" style="color: #991b1b; font-size: 0.95rem; font-family: monospace;">--:--:-- (UTC+7)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+                  <span style="color: #6b7280;">Ngày Dương lịch:</span>
+                  <span id="cardSocDate" style="font-weight: 600;">--/--/----</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                  <span style="color: #6b7280;">Khởi ngày Mùng 1:</span>
+                  <span id="cardSocMung1" style="font-weight: 700; color: #15803d;">00:00:00 ngày --/--/----</span>
+                </div>
+              </div>
+
+              <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.55rem 0.75rem; margin-bottom: 0.6rem;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+                  <span style="color: #6b7280;">Điểm Sóc tháng sau:</span>
+                  <strong id="cardSocNextTime" style="color: #4b5563; font-size: 0.9rem; font-family: monospace;">--:--:-- (UTC+7)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                  <span style="color: #6b7280;">Khởi Mùng 1 tháng sau:</span>
+                  <span id="cardSocNextMung1" style="font-weight: 600; color: #374151;">00:00:00 ngày --/--/----</span>
+                </div>
+              </div>
+
+              <div style="font-size: 0.75rem; color: #6b7280; background: #fffbeb; padding: 0.5rem 0.65rem; border-radius: 4px; border: 1px dashed #fde68a; line-height: 1.5;">
+                ℹ️ <strong>Cơ sở tính Mùng 1:</strong> Ngày chứa thời điểm Sóc được tính trọn vẹn (00:00 - 24:00) là ngày Mùng 1 Âm lịch theo chuẩn múi giờ UTC+7 Việt Nam. Chu kỳ giữa 2 điểm Sóc quy định tháng đủ (30 ngày) hoặc thiếu (29 ngày).
               </div>
             </div>
           </div>
@@ -1468,8 +1576,8 @@
       return [day, month, year];
     }
 
-    // New Moon Day calculation
-    function getNewMoonDay(k, timeZone) {
+    // Astronomical New Moon (Điểm Sóc) Calculation: Instant with time (hour, min, sec)
+    function getNewMoonInstant(k, timeZone = 7) {
       let T = k / 1236.85;
       let T2 = T * T;
       let T3 = T2 * T;
@@ -1496,7 +1604,102 @@
       dpt += 0.0005 * Math.sin((M + 2 * Mpr) * dr);
 
       let JdNew = Jd1 + dpt;
-      return Math.floor(JdNew + 0.5 + timeZone / 24);
+      let localJD = JdNew + 0.5 + timeZone / 24;
+      let dayNumber = Math.floor(localJD);
+      let frac = localJD - dayNumber;
+      let totalSecs = Math.round(frac * 86400);
+      let hours = Math.floor(totalSecs / 3600);
+      let minutes = Math.floor((totalSecs % 3600) / 60);
+      let seconds = totalSecs % 60;
+      return { JdNew, dayNumber, hours, minutes, seconds, localJD };
+    }
+
+    // New Moon Day calculation (Julian day number of the day containing New Moon)
+    function getNewMoonDay(k, timeZone = 7) {
+      return getNewMoonInstant(k, timeZone).dayNumber;
+    }
+
+    // Chi tiết ngày giờ Sóc và cơ sở tính ngày Mùng 1 của tháng Âm lịch chứa ngày (dd, mm, yy)
+    function getNewMoonDetailsForDate(dd, mm, yy, timeZone = 7) {
+      let dayNumber = jdFromDate(dd, mm, yy);
+      let k = Math.floor((dayNumber - 2451545.0) / 29.530588853);
+      let currentK = k + 1;
+      let monthStart = getNewMoonDay(currentK, timeZone);
+      while (monthStart > dayNumber) {
+        currentK--;
+        monthStart = getNewMoonDay(currentK, timeZone);
+      }
+      let currentInstant = getNewMoonInstant(currentK, timeZone);
+      let nextK = currentK + 1;
+      let nextInstant = getNewMoonInstant(nextK, timeZone);
+      let totalDays = nextInstant.dayNumber - currentInstant.dayNumber;
+
+      let [dStart, mStart, yStart] = jdToDate(currentInstant.dayNumber);
+      let [dNext, mNext, yNext] = jdToDate(nextInstant.dayNumber);
+
+      let [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(dd, mm, yy, timeZone);
+      let dayCanChi = getDayCanChi(dStart, mStart, yStart);
+      let hourChiIdx = Math.floor((currentInstant.hours + 1) / 2) % 12;
+      let hourCanChi = getHourCanChi(dayCanChi.canIndex, hourChiIdx);
+
+      let nextDayCanChi = getDayCanChi(dNext, mNext, yNext);
+      let nextHourChiIdx = Math.floor((nextInstant.hours + 1) / 2) % 12;
+      let nextHourCanChi = getHourCanChi(nextDayCanChi.canIndex, nextHourChiIdx);
+
+      return {
+        currentK,
+        currentInstant,
+        currentDate: [dStart, mStart, yStart],
+        currentDayCanChi: dayCanChi.text,
+        currentHourCanChi: hourCanChi.text,
+        lDay,
+        lMonth,
+        lYear,
+        isLeap,
+        nextK,
+        nextInstant,
+        nextDate: [dNext, mNext, yNext],
+        nextDayCanChi: nextDayCanChi.text,
+        nextHourCanChi: nextHourCanChi.text,
+        totalDays
+      };
+    }
+
+    // Lấy danh sách điểm Sóc các tháng Âm lịch trong năm Dương lịch targetYear
+    function getYearNewMoons(targetYear, timeZone = 7) {
+      let jdStart = jdFromDate(1, 1, targetYear);
+      let jdEnd = jdFromDate(31, 12, targetYear);
+      let kStart = Math.floor((jdStart - 2451545.0) / 29.530588853) - 1;
+      let kEnd = Math.floor((jdEnd - 2451545.0) / 29.530588853) + 1;
+
+      let list = [];
+      for (let k = kStart; k <= kEnd; k++) {
+        let inst = getNewMoonInstant(k, timeZone);
+        if (inst.dayNumber >= jdStart && inst.dayNumber <= jdEnd) {
+          let nextInst = getNewMoonInstant(k + 1, timeZone);
+          let totalDays = nextInst.dayNumber - inst.dayNumber;
+          let [d, m, y] = jdToDate(inst.dayNumber);
+          let [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(d, m, y, timeZone);
+          let dayCanChi = getDayCanChi(d, m, y);
+          let hourChiIdx = Math.floor((inst.hours + 1) / 2) % 12;
+          let hourCanChi = getHourCanChi(dayCanChi.canIndex, hourChiIdx);
+          list.push({
+            k,
+            dayNumber: inst.dayNumber,
+            d, m, y,
+            hours: inst.hours,
+            minutes: inst.minutes,
+            seconds: inst.seconds,
+            lMonth,
+            lYear,
+            isLeap,
+            dayCanChi: dayCanChi.text,
+            hourCanChi: hourCanChi.text,
+            totalDays
+          });
+        }
+      }
+      return list;
     }
 
     // Solar Longitude (Trung khí / Tiết khí)
@@ -1892,6 +2095,7 @@
       setupTabs();
       setupQuickSelectors();
       setupCalendarControls();
+      setupSocYearTable();
       renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
       updateBlocView(selectedDate);
       setupBattuForm();
@@ -2029,6 +2233,9 @@
         const cell = createDayCell(nextDate, true);
         grid.appendChild(cell);
       }
+
+      // Cập nhật bảng tra cứu điểm Sóc cả năm
+      renderSocYearTable(year);
     }
 
     // Tạo một ô ngày trong lịch
@@ -2085,6 +2292,7 @@
         cell.classList.add('selected');
         selectedDate = new Date(dateObj);
         updateBlocView(selectedDate);
+        renderSocYearTable(selectedDate.getFullYear());
       });
 
       return cell;
@@ -2138,6 +2346,69 @@
       // Hướng xuất hành
       document.getElementById('blocHuongXuatHanh').textContent = getHuongXuatHanh(dayCanChi.canIndex);
 
+      // Điểm Sóc và Cơ sở tính Mùng 1 Âm lịch
+      const socInfo = getNewMoonDetailsForDate(d, m, y, 7);
+      const curH = String(socInfo.currentInstant.hours).padStart(2, '0');
+      const curM = String(socInfo.currentInstant.minutes).padStart(2, '0');
+      const curS = String(socInfo.currentInstant.seconds).padStart(2, '0');
+      const curD = String(socInfo.currentDate[0]).padStart(2, '0');
+      const curMo = String(socInfo.currentDate[1]).padStart(2, '0');
+      const curY = socInfo.currentDate[2];
+
+      const nextH = String(socInfo.nextInstant.hours).padStart(2, '0');
+      const nextM = String(socInfo.nextInstant.minutes).padStart(2, '0');
+      const nextS = String(socInfo.nextInstant.seconds).padStart(2, '0');
+      const nextD = String(socInfo.nextDate[0]).padStart(2, '0');
+      const nextMo = String(socInfo.nextDate[1]).padStart(2, '0');
+      const nextY = socInfo.nextDate[2];
+
+      const monthTypeName = socInfo.totalDays === 30 ? "Tháng Đủ (30 ngày)" : "Tháng Thiếu (29 ngày)";
+
+      // Cập nhật tóm tắt trên Bloc
+      const blocSocTimeEl = document.getElementById('blocSocTime');
+      if (blocSocTimeEl) {
+        blocSocTimeEl.textContent = `${curH}:${curM}:${curS} (ngày ${curD}/${curMo})`;
+      }
+      const blocSocRuleEl = document.getElementById('blocSocRule');
+      if (blocSocRuleEl) {
+        blocSocRuleEl.textContent = `Khởi 00:00 ngày ${curD}/${curMo} • ${monthTypeName}`;
+      }
+
+      // Cập nhật Thẻ Thiên Văn Điểm Sóc
+      const cardMonthTypeBadge = document.getElementById('cardMonthTypeBadge');
+      if (cardMonthTypeBadge) {
+        cardMonthTypeBadge.textContent = monthTypeName;
+        if (socInfo.totalDays === 30) {
+          cardMonthTypeBadge.style.background = '#dcfce7';
+          cardMonthTypeBadge.style.color = '#166534';
+        } else {
+          cardMonthTypeBadge.style.background = '#fef3c7';
+          cardMonthTypeBadge.style.color = '#92400e';
+        }
+      }
+
+      const cardSocTimeEl = document.getElementById('cardSocTime');
+      if (cardSocTimeEl) {
+        cardSocTimeEl.textContent = `${curH}:${curM}:${curS} (UTC+7)`;
+      }
+      const cardSocDateEl = document.getElementById('cardSocDate');
+      if (cardSocDateEl) {
+        cardSocDateEl.textContent = `${curD}/${curMo}/${curY} (Ngày ${socInfo.currentDayCanChi} • Giờ ${socInfo.currentHourCanChi})`;
+      }
+      const cardSocMung1El = document.getElementById('cardSocMung1');
+      if (cardSocMung1El) {
+        cardSocMung1El.textContent = `00:00:00 ngày ${curD}/${curMo}/${curY}`;
+      }
+
+      const cardSocNextTimeEl = document.getElementById('cardSocNextTime');
+      if (cardSocNextTimeEl) {
+        cardSocNextTimeEl.textContent = `${nextH}:${nextM}:${nextS} (UTC+7)`;
+      }
+      const cardSocNextMung1El = document.getElementById('cardSocNextMung1');
+      if (cardSocNextMung1El) {
+        cardSocNextMung1El.textContent = `00:00:00 ngày ${nextD}/${nextMo}/${nextY} (${socInfo.nextDayCanChi})`;
+      }
+
       // Lễ Tết
       const festLunar = FESTIVALS_LUNAR.find(f => f.day === lDay && f.month === lMonth);
       const festSolar = FESTIVALS_SOLAR.find(f => f.day === d && f.month === m);
@@ -2173,6 +2444,89 @@
         `;
         tbody.appendChild(tr);
       });
+    }
+
+    // Bảng Tra Cứu Giờ Điểm Sóc & Khởi Đầu Mùng 1 Trong Năm
+    function renderSocYearTable(year) {
+      const yearHeaderEl = document.getElementById('socYearHeader');
+      if (yearHeaderEl) yearHeaderEl.textContent = year;
+
+      const tbody = document.getElementById('socYearTableBody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      const list = getYearNewMoons(year, 7);
+      const selectedMonthStartJD = getNewMoonDetailsForDate(
+        selectedDate.getDate(),
+        selectedDate.getMonth() + 1,
+        selectedDate.getFullYear(),
+        7
+      ).currentInstant.dayNumber;
+
+      list.forEach(item => {
+        const tr = document.createElement('tr');
+        const isCurrentMonth = item.dayNumber === selectedMonthStartJD;
+        if (isCurrentMonth) {
+          tr.className = 'soc-active-row';
+        }
+
+        const dStr = String(item.d).padStart(2, '0');
+        const mStr = String(item.m).padStart(2, '0');
+        const hStr = String(item.hours).padStart(2, '0');
+        const minStr = String(item.minutes).padStart(2, '0');
+        const sStr = String(item.seconds).padStart(2, '0');
+
+        let monthName = `Tháng ${item.lMonth}`;
+        if (item.lMonth === 1) monthName = `Tháng Giêng (1)`;
+        else if (item.lMonth === 12) monthName = `Tháng Chạp (12)`;
+        if (item.isLeap) monthName += ` (Nhuận)`;
+
+        const isDu = item.totalDays === 30;
+        const badgeStyle = isDu 
+          ? 'style="background: #dcfce7; color: #166534; font-size: 0.72rem; padding: 0.15rem 0.4rem; border-radius: 3px; font-weight: 600;"' 
+          : 'style="background: #fef3c7; color: #92400e; font-size: 0.72rem; padding: 0.15rem 0.4rem; border-radius: 3px; font-weight: 600;"';
+
+        tr.innerHTML = `
+          <td>
+            <strong>${monthName}</strong>
+            ${isCurrentMonth ? '<span style="font-size: 0.7rem; color: #ea580c; display: block; font-weight: bold;">● Tháng đang chọn</span>' : ''}
+          </td>
+          <td>${dStr}/${mStr}/${item.y}</td>
+          <td><span class="soc-time-code">${hStr}:${minStr}:${sStr}</span></td>
+          <td>Ngày ${item.dayCanChi} • Giờ ${item.hourCanChi}</td>
+          <td style="color: #15803d; font-weight: 600;">00:00:00 ngày ${dStr}/${mStr}</td>
+          <td><span ${badgeStyle}>${isDu ? 'Tháng Đủ (30n)' : 'Tháng Thiếu (29n)'}</span></td>
+        `;
+
+        tr.style.cursor = 'pointer';
+        tr.title = `Nhấn để chuyển lịch tới ngày Mùng 1 ${monthName} (${dStr}/${mStr}/${item.y})`;
+        tr.addEventListener('click', () => {
+          selectedDate = new Date(item.y, item.m - 1, item.d);
+          renderCalendar(item.y, item.m - 1);
+          updateBlocView(selectedDate);
+          renderSocYearTable(item.y);
+        });
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Thiết lập sự kiện ẩn/hiện bảng điểm Sóc
+    function setupSocYearTable() {
+      const toggleBtn = document.getElementById('btnToggleSocTable');
+      const bodyEl = document.getElementById('socYearSectionBody');
+      const iconEl = document.getElementById('socTableToggleIcon');
+      if (toggleBtn && bodyEl && iconEl) {
+        toggleBtn.addEventListener('click', () => {
+          if (bodyEl.style.display === 'none') {
+            bodyEl.style.display = 'block';
+            iconEl.textContent = '▼';
+          } else {
+            bodyEl.style.display = 'none';
+            iconEl.textContent = '▶';
+          }
+        });
+      }
     }
 
     /**
