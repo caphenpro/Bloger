@@ -832,6 +832,256 @@
       border: 1px solid #fed7aa;
     }
 
+    /* Sub-tabs inside Sóc Section */
+    .soc-subtab-bar {
+      display: flex;
+      gap: 0.35rem;
+      border-bottom: 2px solid #e5e7eb;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .soc-subtab-btn {
+      background: transparent;
+      border: none;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #4b5563;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .soc-subtab-btn:hover {
+      color: var(--primary-dark);
+      background: #f9fafb;
+    }
+    .soc-subtab-btn.active {
+      color: var(--primary-dark);
+      border-bottom-color: #ea580c;
+      background: #fff7ed;
+      border-radius: 6px 6px 0 0;
+    }
+
+    /* Leap Year Analysis Module Styling */
+    .leap-analysis-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 100%;
+    }
+    .leap-banner {
+      padding: 0.75rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .leap-banner.is-leap {
+      background: #fffbeb;
+      border-color: #fde68a;
+    }
+    .leap-banner.is-regular {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+    }
+    .leap-banner-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .leap-banner-desc {
+      font-size: 0.8rem;
+      color: #374151;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .leap-year-selector-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      background: #f8fafc;
+      padding: 0.45rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    .leap-year-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #475569;
+      white-space: nowrap;
+    }
+    .leap-quick-chips {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .chip-year {
+      border: 1px solid #cbd5e1;
+      background: #fff;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #334155;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .chip-year:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .chip-year.active {
+      background: #ea580c;
+      color: #fff;
+      border-color: #ea580c;
+    }
+    .leap-input-year {
+      width: 70px;
+      padding: 0.2rem 0.4rem;
+      font-size: 0.78rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .leap-rules-box {
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 0.65rem 0.8rem;
+    }
+    .leap-rules-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .leap-rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.76rem;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+    .leap-rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+    .leap-rule-num {
+      background: #e0e7ff;
+      color: #3730a3;
+      font-size: 0.68rem;
+      font-weight: 800;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .badge-no-trungkhi {
+      background: #fee2e2;
+      color: #b91c1c;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      border: 1px solid #fca5a5;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .badge-has-trungkhi {
+      background: #ecfdf5;
+      color: #047857;
+      font-size: 0.72rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-weight: 600;
+      border: 1px solid #a7f3d0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* Leap Month Mobile Cards & Table */
+    .leap-months-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .leap-month-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: all 0.15s ease;
+    }
+    .leap-month-card.is-leap-item {
+      background: #fffdf5;
+      border: 1.5px solid #f59e0b;
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.12);
+    }
+    .leap-mcard-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .leap-mcard-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .leap-mcard-details {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0.45rem;
+      font-size: 0.75rem;
+      background: #f8fafc;
+      padding: 0.45rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #f1f5f9;
+    }
+    @media (max-width: 400px) {
+      .leap-mcard-details {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+      }
+    }
+
     /* Bát Tự (Four Pillars) Styling */
     .battu-pillars-grid {
       display: grid;
@@ -1653,49 +1903,129 @@
               </div>
             </div>
             <div id="socYearSectionBody">
-              <div class="soc-toolbar">
-                <p class="soc-desc">
-                  Thời điểm giao hội Mặt Trăng - Mặt Trời (Điểm Sóc) chính xác từng giây theo giờ Việt Nam (UTC+7), làm cơ sở xác định ngày Mùng 1 và độ dài tháng Âm lịch:
-                </p>
-                <div class="soc-view-toggle">
-                  <button type="button" class="btn-view-mode active" id="btnSocViewCards" title="Xem dạng thẻ trực quan tối ưu cho màn hình di động">
-                    📱 Dạng Thẻ Gọn
-                  </button>
-                  <button type="button" class="btn-view-mode" id="btnSocViewTable" title="Xem bảng số liệu đầy đủ 6 cột">
-                    📊 Dạng Bảng Đầy Đủ
-                  </button>
+              <!-- Sub-tabs: Điểm Sóc & Xác Định Tháng Nhuận -->
+              <div class="soc-subtab-bar">
+                <button type="button" class="soc-subtab-btn active" id="tabBtnSocList">
+                  🌑 Lịch Ngày Sóc &amp; Mùng 1
+                </button>
+                <button type="button" class="soc-subtab-btn" id="tabBtnLeapAnalysis">
+                  ✨ Quy Tắc &amp; Xác Định Tháng Nhuận
+                </button>
+              </div>
+
+              <!-- TAB 1: Danh Sách Điểm Sóc & Khởi Đầu Mùng 1 -->
+              <div id="tabContentSocList">
+                <div class="soc-toolbar">
+                  <p class="soc-desc">
+                    Thời điểm giao hội Mặt Trăng - Mặt Trời (Điểm Sóc) chính xác từng giây theo giờ Việt Nam (UTC+7), làm cơ sở xác định ngày Mùng 1 và độ dài tháng Âm lịch:
+                  </p>
+                  <div class="soc-view-toggle">
+                    <button type="button" class="btn-view-mode active" id="btnSocViewCards" title="Xem dạng thẻ trực quan tối ưu cho màn hình di động">
+                      📱 Dạng Thẻ Gọn
+                    </button>
+                    <button type="button" class="btn-view-mode" id="btnSocViewTable" title="Xem bảng số liệu đầy đủ 6 cột">
+                      📊 Dạng Bảng Đầy Đủ
+                    </button>
+                  </div>
+                </div>
+
+                <!-- 1. Danh sách Dạng Thẻ Gọn (Hiển thị mặc định trên điện thoại) -->
+                <div class="soc-cards-container" id="socYearCardsContainer">
+                  <!-- Rendered dynamically -->
+                </div>
+
+                <!-- 2. Bảng Tra Cứu Đầy Đủ (Được bọc overflow-x chống tràn giao diện) -->
+                <div class="soc-table-wrapper" id="socYearTableWrapper" style="display: none;">
+                  <div class="soc-scroll-hint">
+                    <span>↔ Vuốt ngang bảng để xem đủ 6 cột thông số</span>
+                  </div>
+                  <table class="hours-table">
+                    <thead>
+                      <tr>
+                        <th style="min-width: 115px;">Tháng Âm</th>
+                        <th style="min-width: 100px;">Ngày Dương</th>
+                        <th style="min-width: 115px;">Giờ Sóc (UTC+7)</th>
+                        <th style="min-width: 165px;">Can Chi (Ngày • Giờ)</th>
+                        <th style="min-width: 135px;">Khởi Đầu Mùng 1</th>
+                        <th style="min-width: 110px;">Quy Mô</th>
+                      </tr>
+                    </thead>
+                    <tbody id="socYearTableBody">
+                      <!-- Rendered dynamically -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <div style="font-size: 0.75rem; color: #4b5563; background: #f9fafb; padding: 0.55rem 0.7rem; border-radius: 6px; border: 1px solid #e5e7eb; margin-top: 0.75rem; line-height: 1.55;">
+                  📌 <strong>Nguyên tắc thiên văn học:</strong> Sóc (New Moon) là thời điểm kinh độ hoàng đạo của Mặt Trăng và Mặt Trời trùng nhau. Vì tháng Âm lịch là tháng Mặt Trăng nhưng ngày Âm lịch là ngày Mặt Trời (tính từ 00:00:00 đến 24:00:00), nên ngày Dương lịch có chứa thời điểm Sóc được quy định là ngày Mùng 1 của tháng Âm lịch đó.
                 </div>
               </div>
 
-              <!-- 1. Danh sách Dạng Thẻ Gọn (Hiển thị mặc định trên điện thoại) -->
-              <div class="soc-cards-container" id="socYearCardsContainer">
-                <!-- Rendered dynamically -->
-              </div>
+              <!-- TAB 2: Phân Tích & Xác Định Tháng Nhuận Theo Quy Tắc Trung Khí -->
+              <div id="tabContentLeapAnalysis" style="display: none;">
+                <div class="leap-analysis-container">
+                  <!-- Thanh chọn năm phân tích & Năm mẫu -->
+                  <div class="leap-year-selector-wrap">
+                    <span class="leap-year-label">Năm phân tích:</span>
+                    <input type="number" id="inputLeapYear" class="leap-input-year" min="1900" max="2100" value="2026" />
+                    <button type="button" class="btn-primary" id="btnRunLeapAnalysis" style="padding: 0.2rem 0.6rem; font-size: 0.75rem; height: auto;">
+                      Phân Tích
+                    </button>
+                    <div class="leap-quick-chips">
+                      <span style="font-size: 0.72rem; color: #64748b; margin-left: 0.25rem;">Năm mẫu:</span>
+                      <button type="button" class="chip-year" data-year="2023">2023 (Nhuận T2)</button>
+                      <button type="button" class="chip-year" data-year="2025">2025 (Nhuận T6)</button>
+                      <button type="button" class="chip-year active" data-year="2026">2026 (Thường)</button>
+                      <button type="button" class="chip-year" data-year="2028">2028 (Nhuận T5)</button>
+                      <button type="button" class="chip-year" data-year="2031">2031 (Nhuận T3)</button>
+                    </div>
+                  </div>
 
-              <!-- 2. Bảng Tra Cứu Đầy Đủ (Được bọc overflow-x chống tràn giao diện) -->
-              <div class="soc-table-wrapper" id="socYearTableWrapper" style="display: none;">
-                <div class="soc-scroll-hint">
-                  <span>↔ Vuốt ngang bảng để xem đủ 6 cột thông số</span>
-                </div>
-                <table class="hours-table">
-                  <thead>
-                    <tr>
-                      <th style="min-width: 115px;">Tháng Âm</th>
-                      <th style="min-width: 100px;">Ngày Dương</th>
-                      <th style="min-width: 115px;">Giờ Sóc (UTC+7)</th>
-                      <th style="min-width: 165px;">Can Chi (Ngày • Giờ)</th>
-                      <th style="min-width: 135px;">Khởi Đầu Mùng 1</th>
-                      <th style="min-width: 110px;">Quy Mô</th>
-                    </tr>
-                  </thead>
-                  <tbody id="socYearTableBody">
+                  <!-- Banner Tóm Tắt Kết Luận Năm Nhuận -->
+                  <div id="leapResultBanner" class="leap-banner is-regular">
                     <!-- Rendered dynamically -->
-                  </tbody>
-                </table>
-              </div>
+                  </div>
 
-              <div style="font-size: 0.75rem; color: #4b5563; background: #f9fafb; padding: 0.55rem 0.7rem; border-radius: 6px; border: 1px solid #e5e7eb; margin-top: 0.75rem; line-height: 1.55;">
-                📌 <strong>Nguyên tắc thiên văn học:</strong> Sóc (New Moon) là thời điểm kinh độ hoàng đạo của Mặt Trăng và Mặt Trời trùng nhau. Vì tháng Âm lịch là tháng Mặt Trăng nhưng ngày Âm lịch là ngày Mặt Trời (tính từ 00:00:00 đến 24:00:00), nên ngày Dương lịch có chứa thời điểm Sóc được quy định là ngày Mùng 1 của tháng Âm lịch đó.
+                  <!-- Hộp Giải Thích 3 Nguyên Tắc Thiên Văn Cốt Lõi -->
+                  <div class="leap-rules-box">
+                    <div class="leap-rules-title">
+                      <span>📖 Quy Tắc Thiên Văn Xác Định Tháng Nhuận (Âm Lịch Việt Nam &amp; Đông Á)</span>
+                    </div>
+                    <div class="leap-rules-list">
+                      <div class="leap-rule-item">
+                        <span class="leap-rule-num">1</span>
+                        <div>
+                          <strong>Xác định năm nhuận qua 2 Đông Chí:</strong> Khoảng cách từ điểm Sóc tháng 11 năm trước (chứa Đông Chí) đến điểm Sóc tháng 11 năm nay nếu có <strong>13 lần Trăng Sóc (13 tháng âm lịch)</strong> thì năm đó là <em>Năm Nhuận</em>. Nếu chỉ có 12 lần Sóc thì là <em>Năm Thường</em>.
+                        </div>
+                      </div>
+                      <div class="leap-rule-item">
+                        <span class="leap-rule-num">2</span>
+                        <div>
+                          <strong>Quy tắc Trung Khí cốt lõi:</strong> Trong 24 Tiết khí có 12 Tiết và 12 Trung Khí (Mặt Trời đi qua các kinh độ bội số 30°: Vũ Thủy 330°, Xuân Phân 0°, Cốc Vũ 30°, Tiểu Mãn 60°, Hạ Chí 90°, Đại Thử 120°, Xử Thử 150°, Thu Phân 180°, Sương Giáng 210°, Tiểu Tuyết 240°, Đông Chí 270°, Đại Hàn 300°). <strong>Tháng âm lịch đầu tiên sau Đông Chí không chứa Trung khí nào sẽ được chọn làm Tháng Nhuận</strong>.
+                        </div>
+                      </div>
+                      <div class="leap-rule-item">
+                        <span class="leap-rule-num">3</span>
+                        <div>
+                          <strong>Cách gọi tên &amp; Trường hợp đặc biệt:</strong> Tháng nhuận lấy tên tháng liền trước kèm chữ "Nhuận". Tháng 11 (Tý) luôn chứa Đông Chí nên không bao giờ nhuận. Do Trái Đất quay quanh Mặt Trời theo quỹ đạo elip (chuyển động chậm hơn ở viễn điểm mùa hạ), các tháng mùa xuân và hè có khoảng cách Trung khí dài hơn nên tháng nhuận thường rơi vào từ Tháng 2 đến Tháng 8 Âm lịch.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Danh sách phân tích Trung Khí của 12/13 tháng âm lịch trong năm -->
+                  <div style="margin-top: 0.35rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem; flex-wrap: wrap; gap: 0.35rem;">
+                      <h4 style="font-size: 0.85rem; font-weight: 700; color: #0f172a; margin: 0;">
+                        🔍 Bảng Kiểm Tra Trung Khí Từng Tháng Giữa 2 Đông Chí (<span id="leapCycleLabel">2025 - 2026</span>)
+                      </h4>
+                      <span style="font-size: 0.72rem; color: #64748b;">Thuật toán Thiên văn NASA JPL / Jean Meeus</span>
+                    </div>
+                    <div class="leap-months-list" id="leapMonthsContainer">
+                      <!-- Rendered dynamically -->
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -3095,8 +3425,9 @@
         grid.appendChild(cell);
       }
 
-      // Cập nhật bảng tra cứu điểm Sóc cả năm
+      // Cập nhật bảng tra cứu điểm Sóc cả năm & phân tích tháng nhuận
       renderSocYearTable(year);
+      renderLeapAnalysis(year);
     }
 
     // Tạo một ô ngày trong lịch
@@ -3428,6 +3759,222 @@
       });
     }
 
+    // THUẬT TOÁN THIÊN VĂN PHÂN TÍCH & XÁC ĐỊNH THÁNG NHUẬN THEO QUY TẮC TRUNG KHÍ
+    function analyzeLunarLeapYear(targetYear, timeZone = 7) {
+      // 1. Tìm ngày Sóc tháng 11 âm lịch năm trước (chứa Đông Chí Y-1)
+      let a11 = getLunarMonth11(targetYear - 1, timeZone);
+      // 2. Tìm ngày Sóc tháng 11 âm lịch năm nay (chứa Đông Chí Y)
+      let b11 = getLunarMonth11(targetYear, timeZone);
+
+      let kStart = Math.floor((a11 - 2451545.0) / 29.530588853 + 0.5);
+      let kEnd = Math.floor((b11 - 2451545.0) / 29.530588853 + 0.5);
+      let totalMonths = kEnd - kStart; // 12 hoặc 13 tháng âm lịch
+
+      let isLeapYear = (b11 - a11 > 365) || (totalMonths === 13);
+
+      const TRUNG_KHI_DEFS = [
+        { name: "Đông Chí", deg: 270, symbol: "☃️" },
+        { name: "Đại Hàn", deg: 300, symbol: "🧊" },
+        { name: "Vũ Thủy", deg: 330, symbol: "🌧️" },
+        { name: "Xuân Phân", deg: 0, symbol: "🌸" },
+        { name: "Cốc Vũ", deg: 30, symbol: "🌾" },
+        { name: "Tiểu Mãn", deg: 60, symbol: "🌱" },
+        { name: "Hạ Chí", deg: 90, symbol: "🔥" },
+        { name: "Đại Thử", deg: 120, symbol: "♨️" },
+        { name: "Xử Thử", deg: 150, symbol: "⛅" },
+        { name: "Thu Phân", deg: 180, symbol: "🍁" },
+        { name: "Sương Giáng", deg: 210, symbol: "🌨️" },
+        { name: "Tiểu Tuyết", deg: 240, symbol: "🌨️" }
+      ];
+
+      let leapMonthOffset = -1;
+      if (isLeapYear) {
+        leapMonthOffset = getLeapMonthOffset(a11, timeZone); // Vị trí tháng nhuận sau tháng 11 năm trước
+      }
+
+      let monthsList = [];
+      let currentMonthNum = 11;
+
+      for (let i = 0; i < totalMonths; i++) {
+        let k = kStart + i;
+        let nmCur = getNewMoonDay(k, timeZone);
+        let nmNext = getNewMoonDay(k + 1, timeZone);
+        let totalDays = nmNext - nmCur;
+
+        let [dStart, mStart, yStart] = jdToDate(nmCur);
+        let [dEnd, mEnd, yEnd] = jdToDate(nmNext - 1);
+
+        let arc1 = getSunLongitude(nmCur, timeZone);
+        let arc2 = getSunLongitude(nmNext, timeZone);
+
+        // Quy tắc cốt lõi: Nếu arc1 === arc2 thì Mặt Trời không vượt qua kinh độ bội số 30° nào trong suốt tháng
+        // Nghĩa là tháng này KHÔNG CHỨA TRUNG KHÍ
+        let hasNoTrungKhi = (arc1 === arc2);
+        let isLeapMonth = isLeapYear && (i === leapMonthOffset);
+
+        let trungKhiInMonth = null;
+        if (!hasNoTrungKhi) {
+          let targetDeg = (arc2 * 30) % 360;
+          let matchedTK = TRUNG_KHI_DEFS.find(tk => tk.deg === targetDeg);
+          if (matchedTK) {
+            trungKhiInMonth = matchedTK;
+          }
+        }
+
+        let monthLabel = "";
+        if (i === 0) {
+          monthLabel = `Tháng 11 (Năm cũ ${targetYear - 1})`;
+          currentMonthNum = 11;
+        } else if (isLeapMonth) {
+          let prevName = currentMonthNum;
+          if (currentMonthNum === 1) prevName = "Giêng";
+          else if (currentMonthNum === 12) prevName = "Chạp";
+          monthLabel = `Tháng ${prevName} Nhuận`;
+        } else {
+          currentMonthNum = (currentMonthNum % 12) + 1;
+          if (currentMonthNum === 1) monthLabel = "Tháng Giêng (1)";
+          else if (currentMonthNum === 12) monthLabel = "Tháng Chạp (12)";
+          else monthLabel = `Tháng ${currentMonthNum}`;
+        }
+
+        monthsList.push({
+          index: i,
+          monthLabel,
+          isLeapMonth,
+          hasNoTrungKhi,
+          trungKhiInMonth,
+          dStart, mStart, yStart,
+          dEnd, mEnd, yEnd,
+          totalDays,
+          arc1, arc2
+        });
+      }
+
+      let leapMonthItem = isLeapYear && leapMonthOffset >= 0 ? monthsList[leapMonthOffset] : null;
+
+      return {
+        targetYear,
+        isLeapYear,
+        totalMonths,
+        leapMonthOffset,
+        leapMonthName: leapMonthItem ? leapMonthItem.monthLabel : null,
+        monthsList,
+        dWinterPrev: jdToDate(a11),
+        dWinterCurr: jdToDate(b11)
+      };
+    }
+
+    // Hiển thị phân tích quy tắc xác định tháng nhuận cho năm targetYear
+    function renderLeapAnalysis(targetYear) {
+      const bannerEl = document.getElementById('leapResultBanner');
+      const containerEl = document.getElementById('leapMonthsContainer');
+      const cycleLabelEl = document.getElementById('leapCycleLabel');
+      const inputYearEl = document.getElementById('inputLeapYear');
+
+      if (inputYearEl) inputYearEl.value = targetYear;
+
+      const data = analyzeLunarLeapYear(targetYear, 7);
+
+      if (cycleLabelEl) {
+        cycleLabelEl.textContent = `Chu kỳ Đông Chí ${targetYear - 1} ➔ Đông Chí ${targetYear}`;
+      }
+
+      // Cập nhật Banner kết luận
+      if (bannerEl) {
+        if (data.isLeapYear) {
+          bannerEl.className = 'leap-banner is-leap';
+          bannerEl.innerHTML = `
+            <div class="leap-banner-title" style="color: #92400e;">
+              <span>✨ KẾT LUẬN: NĂM NHUẬN (CÓ ${data.leapMonthName.toUpperCase()})</span>
+              <span class="badge" style="background: #f59e0b; color: #fff; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 9999px;">Chu kỳ 13 Tháng Sóc</span>
+            </div>
+            <p class="leap-banner-desc">
+              Khoảng cách giữa Đông Chí năm ${targetYear - 1} và Đông Chí năm ${targetYear} có đúng <strong>13 lần Trăng Sóc (13 tháng âm lịch)</strong>, nhiều hơn 12 tháng thông thường.<br />
+              Theo <strong>Quy tắc Trung Khí cốt lõi</strong>, tháng âm lịch đầu tiên sau Đông chí không chứa Trung khí nào là <strong>${data.leapMonthName}</strong> (không có Trung khí nào xen giữa 2 điểm Sóc). Các tháng sau đó được đặt tên tiếp tục.
+            </p>
+          `;
+        } else {
+          bannerEl.className = 'leap-banner is-regular';
+          bannerEl.innerHTML = `
+            <div class="leap-banner-title" style="color: #166534;">
+              <span>🗓️ KẾT LUẬN: NĂM THƯỜNG (KHÔNG CÓ THÁNG NHUẬN)</span>
+              <span class="badge" style="background: #10b981; color: #fff; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 9999px;">Chu kỳ 12 Tháng Sóc</span>
+            </div>
+            <p class="leap-banner-desc">
+              Khoảng cách giữa 2 Đông Chí của năm ${targetYear} chỉ có đúng <strong>12 lần Trăng Sóc (12 tháng âm lịch, ~354 ngày)</strong>.<br />
+              Tất cả 12 tháng âm lịch trong năm đều chứa đầy đủ đúng 1 Trung khí theo tuần tự thiên văn, do đó <strong>không có tháng nào bị khuyết Trung khí</strong> để lấy làm tháng nhuận.
+            </p>
+          `;
+        }
+      }
+
+      // Cập nhật danh sách từng tháng âm lịch
+      if (containerEl) {
+        containerEl.innerHTML = '';
+        data.monthsList.forEach(mItem => {
+          const card = document.createElement('div');
+          card.className = `leap-month-card ${mItem.isLeapMonth ? 'is-leap-item' : ''}`;
+
+          const dStartStr = `${String(mItem.dStart).padStart(2, '0')}/${String(mItem.mStart).padStart(2, '0')}/${mItem.yStart}`;
+          const dEndStr = `${String(mItem.dEnd).padStart(2, '0')}/${String(mItem.mEnd).padStart(2, '0')}/${mItem.yEnd}`;
+
+          let trungKhiHtml = '';
+          if (mItem.hasNoTrungKhi) {
+            trungKhiHtml = `
+              <span class="badge-no-trungkhi">
+                ⛔ Không chứa Trung khí nào
+              </span>
+            `;
+          } else if (mItem.trungKhiInMonth) {
+            trungKhiHtml = `
+              <span class="badge-has-trungkhi">
+                ${mItem.trungKhiInMonth.symbol} Trung khí: <strong>${mItem.trungKhiInMonth.name}</strong> (${mItem.trungKhiInMonth.deg}°)
+              </span>
+            `;
+          } else {
+            trungKhiHtml = `<span style="font-size: 0.75rem; color: #64748b;">Có Trung khí trong tháng</span>`;
+          }
+
+          const badgeMonthDays = mItem.totalDays === 30 
+            ? '<span class="badge-du">Đủ 30 ngày</span>' 
+            : '<span class="badge-thieu">Thiếu 29 ngày</span>';
+
+          card.innerHTML = `
+            <div class="leap-mcard-top">
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
+                <span class="leap-mcard-name" style="${mItem.isLeapMonth ? 'color: #b45309; font-size: 0.95rem;' : ''}">
+                  ${mItem.isLeapMonth ? '⭐ ' : ''}${mItem.monthLabel}
+                </span>
+                ${mItem.isLeapMonth ? '<span class="badge" style="background: #f59e0b; color: #fff; font-weight: 700; font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 4px;">★ THÁNG NHUẬN</span>' : ''}
+                ${badgeMonthDays}
+              </div>
+              <span style="font-size: 0.72rem; color: #64748b;">Tháng thứ ${mItem.index + 1}/${data.totalMonths}</span>
+            </div>
+            <div class="leap-mcard-details">
+              <div>
+                <div style="font-size: 0.68rem; font-weight: 700; color: #64748b; text-transform: uppercase;">KHOẢNG THỜI GIAN (DƯƠNG LỊCH)</div>
+                <div style="font-weight: 600; color: #1e293b; margin-top: 2px;">
+                  ${dStartStr} ➔ ${dEndStr}
+                </div>
+                <div style="font-size: 0.7rem; color: #64748b;">(Mùng 1 bắt đầu lúc 00:00 ngày ${dStartStr})</div>
+              </div>
+              <div>
+                <div style="font-size: 0.68rem; font-weight: 700; color: #64748b; text-transform: uppercase;">TÌNH TRẠNG TRUNG KHÍ</div>
+                <div style="margin-top: 2px;">
+                  ${trungKhiHtml}
+                </div>
+                ${mItem.isLeapMonth 
+                  ? `<div style="font-size: 0.7rem; color: #b45309; font-weight: 600; margin-top: 3px;">➔ Tháng đầu tiên không có Trung khí nên làm Tháng Nhuận!</div>` 
+                  : ''}
+              </div>
+            </div>
+          `;
+
+          containerEl.appendChild(card);
+        });
+      }
+    }
+
     // Thiết lập sự kiện ẩn/hiện bảng điểm Sóc & chuyển đổi chế độ xem
     function setupSocYearTable() {
       const toggleBtn = document.getElementById('btnToggleSocTable');
@@ -3439,6 +3986,60 @@
       const btnTable = document.getElementById('btnSocViewTable');
       const cardsContainer = document.getElementById('socYearCardsContainer');
       const tableWrapper = document.getElementById('socYearTableWrapper');
+
+      // Sub-tabs: Điểm Sóc vs Tháng Nhuận
+      const tabBtnSocList = document.getElementById('tabBtnSocList');
+      const tabBtnLeap = document.getElementById('tabBtnLeapAnalysis');
+      const tabContentSoc = document.getElementById('tabContentSocList');
+      const tabContentLeap = document.getElementById('tabContentLeapAnalysis');
+
+      if (tabBtnSocList && tabBtnLeap && tabContentSoc && tabContentLeap) {
+        tabBtnSocList.addEventListener('click', () => {
+          tabBtnSocList.classList.add('active');
+          tabBtnLeap.classList.remove('active');
+          tabContentSoc.style.display = 'block';
+          tabContentLeap.style.display = 'none';
+        });
+
+        tabBtnLeap.addEventListener('click', () => {
+          tabBtnLeap.classList.add('active');
+          tabBtnSocList.classList.remove('active');
+          tabContentSoc.style.display = 'none';
+          tabContentLeap.style.display = 'block';
+          const y = selectedDate.getFullYear();
+          renderLeapAnalysis(y);
+        });
+      }
+
+      // Bộ chọn năm phân tích tháng nhuận
+      const btnRunLeap = document.getElementById('btnRunLeapAnalysis');
+      const inputLeapYear = document.getElementById('inputLeapYear');
+      if (btnRunLeap && inputLeapYear) {
+        btnRunLeap.addEventListener('click', () => {
+          let y = parseInt(inputLeapYear.value);
+          if (isNaN(y) || y < 1900 || y > 2100) y = selectedDate.getFullYear();
+          renderLeapAnalysis(y);
+        });
+        inputLeapYear.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            let y = parseInt(inputLeapYear.value);
+            if (isNaN(y) || y < 1900 || y > 2100) y = selectedDate.getFullYear();
+            renderLeapAnalysis(y);
+          }
+        });
+      }
+
+      // Quick Chips chọn năm mẫu
+      const chips = document.querySelectorAll('.chip-year');
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          const y = parseInt(chip.getAttribute('data-year'));
+          if (inputLeapYear) inputLeapYear.value = y;
+          renderLeapAnalysis(y);
+        });
+      });
 
       const isMobile = window.innerWidth <= 768;
 
@@ -3485,6 +4086,8 @@
             bodyEl.style.display = 'block';
             iconEl.textContent = '▲';
             if (textEl) textEl.textContent = 'Thu gọn';
+            // Cập nhật cả phân tích tháng nhuận
+            renderLeapAnalysis(selectedDate.getFullYear());
           } else {
             bodyEl.style.display = 'none';
             iconEl.textContent = '▶';

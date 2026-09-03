@@ -56,12 +56,23 @@
 - Tính toán chính xác thời điểm giao hội Mặt Trời – Mặt Trăng (Điểm Sóc) theo múi giờ UTC+7.
 - Quy định khoa học: Ngày Dương lịch chứa điểm Sóc là ngày Mùng 1 Âm lịch (bắt đầu từ 00:00:00 của ngày đó).
 - Xác định độ dài tháng Âm lịch: Tháng Đủ (30 ngày) hoặc Tháng Thiếu (29 ngày).
-- Bảng danh mục các điểm Sóc trong năm với tính năng mở rộng/thu gọn thông minh.
+- Bảng danh mục các điểm Sóc trong năm với 2 chế độ hiển thị: Dạng Bảng đầy đủ và Dạng Thẻ tối ưu chuyên biệt cho màn hình di động (tránh xô lệch, mất cân đối).
+
+### 7. Xác Định Tháng Nhuận Thiên Văn Theo Quy Tắc Trung Khí
+- **Cơ sở Thiên văn học Cốt lõi**:
+  - Tính khoảng cách thời gian giữa 2 điểm Đông Chí liên tiếp ($b_{11} - a_{11}$).
+  - Nếu khoảng cách chứa **13 lần Trăng Sóc (13 tháng âm lịch)** thì năm đó là **Năm Nhuận**.
+  - Tháng âm lịch đầu tiên sau Đông chí **không chứa bất kỳ Trung Khí nào** (trong số 12 Trung Khí: Đông Chí, Đại Hàn, Vũ Thủy, Xuân Phân, Cốc Vũ, Tiểu Mãn, Hạ Chí, Đại Thử, Xử Thử, Thu Phân, Sương Giáng, Tiểu Tuyết) được quy định làm **Tháng Nhuận**.
+- **Module Phân Tích Trực Quan**:
+  - Tab phân tích chuyên sâu tích hợp ngay trong khối Điểm Sóc với banner kết luận trạng thái Năm Nhuận/Năm Thường.
+  - Danh sách toàn bộ các tháng trong chu kỳ Đông Chí kèm trạng thái Trung khí cụ thể, khoảng thời gian Dương lịch và huy hiệu nhận diện tháng nhuận.
+  - Hỗ trợ nhập năm tùy ý (1900 - 2100) và các nút bấm chọn nhanh các năm điển hình (2023, 2025, 2026, 2028, 2031).
 
 ---
 
 ## 📱 THIẾT KẾ ĐÁP ỨNG (RESPONSIVE DESIGN)
 - Tối ưu hóa đặc biệt cho thiết bị di động (Smartphones & Tablets):
+  - Bổ sung chế độ xem Dạng Thẻ (`soc-mobile-card`) cho bảng ngày giờ Sóc, căn chỉnh bố cục gọn gàng, loại bỏ hoàn toàn hiện tượng tràn viền, méo mó hoặc mất cân đối trên di động.
   - Bố cục khối Bloc Lịch dạng hàng ngang cân xứng (`.bloc-hero-row`), giảm chiều cao chiếm dụng, tạo sự thông thoáng.
   - Tự động thu gọn bảng Điểm Sóc trên màn hình nhỏ để ưu tiên nội dung lịch hàng ngày.
   - Thanh trạng thái thiên văn trực tiếp co giãn tự động theo 2 cột.
@@ -84,6 +95,20 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.4.0] - 2026-09-03
+- **Khắc phục Mất Cân Đối Bảng Ngày Giờ Sóc trên Giao Diện Điện Thoại**:
+  - Thiết kế bộ đôi chế độ xem: **Dạng Thẻ Gọn Di Động** (`soc-mobile-card`) và **Dạng Bảng Máy Tính** (`socYearTableWrapper`).
+  - Trên màn hình di động (≤ 768px), tự động kích hoạt giao diện thẻ 2 cột cân đối: Điểm Sóc Chính Xác (thời gian, ngày tháng, Can Chi ngày giờ) và Khởi Đầu Mùng 1 (00:00:00 ngày Âm lịch).
+  - Khắc phục triệt để tình trạng các cột bị ép hẹp, tràn ngang màn hình, xô lệch chữ số trên điện thoại thông minh.
+- **Tích hợp Thuật Toán Thiên Văn & Giao Diện Xác Định Tháng Nhuận Theo Quy Tắc Trung Khí**:
+  - Triển khai thuật toán cơ học thiên thể phân tích chu kỳ 2 điểm Đông Chí liên tiếp ($a_{11}$ và $b_{11}$).
+  - Tự động xác định năm Nhuận khi chu kỳ Đông Chí có 13 lần Trăng Sóc ($b_{11} - a_{11} > 365$ ngày).
+  - Quét từng tháng âm lịch: đo kinh độ Mặt Trời tại 2 điểm Sóc đầu và cuối tháng. Tháng đầu tiên không vượt qua bất kỳ mốc bội số $30^\circ$ nào (Vô Trung Khí) được xác định chuẩn xác làm **Tháng Nhuận**.
+  - Xây dựng giao diện phụ (Sub-tabs) trong phần Điểm Sóc: Tab "Lịch Ngày Sóc Trong Năm" và Tab "Quy Tắc & Xác Định Tháng Nhuận".
+  - Hiển thị Banner kết luận phân tích năm Nhuận/Năm Thường, kèm danh sách từng tháng với chi tiết Trung khí và các phím chọn nhanh năm mẫu.
+
+---
 
 ### [v1.3.1] - 2026-09-02
 - **Tài liệu hóa & Quản lý phiên bản**:
