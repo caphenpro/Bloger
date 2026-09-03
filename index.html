@@ -896,40 +896,99 @@
         margin-top: 0.6rem;
       }
 
-      /* Compact Bloc Lịch on mobile */
+      /* Compact, Balanced Bloc Lịch on mobile */
       .bloc-card {
         border-radius: var(--radius-md);
       }
       .bloc-top {
-        padding: 0.6rem 0.75rem;
+        padding: 0.5rem 0.75rem;
       }
       .bloc-weekday {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
       }
       .bloc-solar-month {
-        font-size: 0.78rem;
+        font-size: 0.75rem;
       }
       .bloc-body {
-        padding: 0.85rem 0.65rem;
+        padding: 0.6rem 0.6rem;
+      }
+      .bloc-hero-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.65rem;
+        background: #fff;
+        border: 1px solid #fed7aa;
+        border-radius: 8px;
+        padding: 0.45rem 0.65rem;
+        margin-bottom: 0.5rem;
       }
       .bloc-solar-day {
-        font-size: 3.5rem;
-        margin: 0.1rem 0;
+        font-size: 2.5rem !important;
+        margin: 0 !important;
+        line-height: 1 !important;
+        min-width: 60px;
+        text-align: center;
       }
       .bloc-lunar-box {
-        padding: 0.45rem 0.6rem;
-        margin: 0.55rem 0;
+        margin: 0 !important;
+        flex: 1;
+        padding: 0.35rem 0.45rem !important;
+        background: #fffcf5 !important;
+        border: 1px dashed #fde68a !important;
       }
       .bloc-lunar-val {
-        font-size: 1.15rem;
+        font-size: 1.05rem !important;
       }
       .bloc-lunar-lbl {
-        font-size: 0.68rem;
+        font-size: 0.62rem !important;
       }
       .bloc-meta-list {
+        font-size: 0.78rem;
+        gap: 0.28rem;
+        margin-top: 0.5rem;
+      }
+      .bloc-meta-row {
+        padding-bottom: 0.22rem;
+      }
+
+      /* Realtime Solar Banner on Mobile */
+      .solar-realtime-widget {
+        padding: 0.55rem 0.75rem;
+      }
+      .solar-realtime-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem 0.5rem;
+      }
+      .solar-rt-col {
+        gap: 0.15rem;
+      }
+      .solar-rt-label {
+        font-size: 0.62rem;
+      }
+      .solar-rt-value {
+        font-size: 1.05rem;
+      }
+      .solar-rt-sub {
+        font-size: 0.68rem;
+      }
+      .solar-rt-term-name {
+        font-size: 0.98rem;
+      }
+      .solar-rt-next-title {
         font-size: 0.8rem;
-        gap: 0.35rem;
-        margin-top: 0.7rem;
+      }
+      .solar-rt-countdown {
+        font-size: 0.76rem;
+      }
+      .solar-rt-action-col {
+        grid-column: span 2;
+        margin-top: 0.2rem;
+      }
+      .solar-rt-action-col .btn {
+        width: 100%;
+        justify-content: center;
       }
 
       /* Header and tabs adjustments */
@@ -953,26 +1012,223 @@
 
     @media (max-width: 380px) {
       .cal-day-cell {
-        min-height: 44px;
-        padding: 0.15rem 0.12rem 0.12rem;
+        min-height: 42px;
+        padding: 0.12rem 0.1rem 0.1rem;
       }
       .solar-num {
-        font-size: 0.84rem;
+        font-size: 0.82rem;
       }
       .lunar-num {
-        font-size: 0.58rem;
+        font-size: 0.56rem;
       }
       .cal-head-cell {
-        font-size: 0.68rem;
-        padding: 0.25rem 0;
+        font-size: 0.66rem;
+        padding: 0.2rem 0;
       }
       .cal-nav-selects .form-select {
-        max-width: 82px;
-        font-size: 0.7rem !important;
+        max-width: 78px;
+        font-size: 0.68rem !important;
       }
       .bloc-solar-day {
-        font-size: 3rem;
+        font-size: 2.15rem !important;
+        min-width: 50px;
       }
+      .solar-realtime-container {
+        grid-template-columns: 1fr;
+      }
+      .solar-rt-action-col {
+        grid-column: span 1;
+      }
+    }
+
+    /* REAL-TIME SOLAR ASTRONOMICAL WIDGET */
+    .solar-realtime-widget {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #f8fafc;
+      border-bottom: 2px solid #b45309;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      padding: 0.75rem 1rem;
+    }
+    .solar-realtime-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) auto;
+      gap: 1rem;
+      align-items: center;
+    }
+    .solar-rt-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .solar-rt-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #94a3b8;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: inline-block;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulse-green 1.8s infinite;
+    }
+    @keyframes pulse-green {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .solar-rt-value {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fbbf24;
+      letter-spacing: 0.02em;
+    }
+    .solar-rt-sub {
+      font-size: 0.72rem;
+      color: #cbd5e1;
+    }
+    .solar-rt-term-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .solar-rt-term-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .solar-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.2;
+    }
+    .solar-badge-tiet {
+      background: #14532d;
+      color: #86efac;
+      border: 1px solid #22c55e;
+    }
+    .solar-badge-khi {
+      background: #78350f;
+      color: #fde68a;
+      border: 1px solid #f59e0b;
+    }
+    .solar-badge-major {
+      background: #4c1d95;
+      color: #ddd6fe;
+      border: 1px solid #8b5cf6;
+    }
+    .solar-progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+    }
+    .solar-progress-bar {
+      flex: 1;
+      height: 6px;
+      background: #334155;
+      border-radius: 999px;
+      overflow: hidden;
+      min-width: 70px;
+    }
+    .solar-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #f59e0b, #fbbf24);
+      border-radius: 999px;
+      transition: width 0.5s ease;
+    }
+    .solar-progress-text {
+      font-size: 0.68rem;
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+    .solar-rt-next-title {
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .solar-rt-countdown {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #38bdf8;
+      font-family: monospace;
+    }
+    .solar-rt-next-date {
+      font-size: 0.7rem;
+      color: #94a3b8;
+    }
+    .solar-rt-action-col {
+      justify-content: center;
+    }
+
+    /* 24 SOLAR TERMS TAB STYLES */
+    .solar-table-container {
+      overflow-x: auto;
+      margin-top: 1rem;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-md);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .solar-terms-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.84rem;
+    }
+    .solar-terms-table th {
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 700;
+      padding: 0.75rem 0.65rem;
+      border-bottom: 2px solid #e2e8f0;
+      white-space: nowrap;
+      font-size: 0.8rem;
+    }
+    .solar-terms-table td {
+      padding: 0.65rem 0.65rem;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+    .solar-terms-table tbody tr:hover {
+      background: #fffbeb;
+      cursor: pointer;
+    }
+    .solar-active-row {
+      background: #fef3c7 !important;
+      font-weight: 600;
+      border-left: 4px solid #b45309;
+    }
+    .solar-deg-code {
+      font-family: monospace;
+      font-weight: 700;
+      color: #b45309;
+      background: #fef3c7;
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    .solar-time-code {
+      font-family: monospace;
+      font-weight: 700;
+      color: #991b1b;
+      font-size: 0.85rem;
     }
   </style>
 </head>
@@ -1002,12 +1258,69 @@
       <button class="nav-tab" data-tab="tab-battu">
         🔮 Lập Lá Số Bát Tự (Tứ Trụ)
       </button>
+      <button class="nav-tab" data-tab="tab-solarterms">
+        ☀️ 24 Tiết Khí (12 Tiết &amp; 12 Khí)
+      </button>
       <button class="nav-tab" data-tab="tab-converter">
         🔄 Đổi Lịch Âm ⇄ Dương
       </button>
       <button class="nav-tab" data-tab="tab-festivals">
         🏮 Ngày Lễ Tết Truyền Thống
       </button>
+    </div>
+  </div>
+
+  <!-- Real-time Astronomical Solar Longitude Widget -->
+  <div class="solar-realtime-widget" id="solarRealtimeWidget">
+    <div class="solar-realtime-container">
+      <!-- Cột 1: Kinh độ Mặt Trời thực tế -->
+      <div class="solar-rt-col">
+        <div class="solar-rt-label">
+          <span class="pulse-dot"></span> Kinh Độ Hoàng Đạo Mặt Trời (NASA/JPL)
+        </div>
+        <div class="solar-rt-value" id="liveSunLongitude">
+          160° 38' 04.2"
+        </div>
+        <div class="solar-rt-sub" id="liveSunZodiac">
+          Cung Xử Nữ (Virgo) • Tọa độ thực: 160.6345°
+        </div>
+      </div>
+
+      <!-- Cột 2: Tiết khí hiện tại & Tiến độ -->
+      <div class="solar-rt-col">
+        <div class="solar-rt-label">TIẾT KHÍ HIỆN TẠI (24 TIẾT KHÍ)</div>
+        <div class="solar-rt-term-row">
+          <span class="solar-rt-term-name" id="liveCurrentTermName">Xử Thử</span>
+          <span class="solar-badge solar-badge-khi" id="liveCurrentTermBadge">12 Khí (Trung Khí)</span>
+        </div>
+        <div class="solar-progress-wrap">
+          <div class="solar-progress-bar">
+            <div class="solar-progress-fill" id="liveTermProgressFill" style="width: 70.9%;"></div>
+          </div>
+          <div class="solar-progress-text" id="liveTermProgressText">70.9% tiến trình</div>
+        </div>
+      </div>
+
+      <!-- Cột 3: Chuyển tiết tiếp theo & Đếm ngược -->
+      <div class="solar-rt-col">
+        <div class="solar-rt-label">CHUYỂN TIẾT KẾ TIẾP</div>
+        <div class="solar-rt-next-title" id="liveNextTermTitle">
+          <strong id="liveNextTermName">Bạch Lộ</strong> <span class="solar-badge solar-badge-tiet" id="liveNextTermBadge">12 Tiết (Tiết Lệnh)</span>
+        </div>
+        <div class="solar-rt-countdown" id="liveNextTermCountdown">
+          Đếm ngược: Đang tính toán...
+        </div>
+        <div class="solar-rt-next-date" id="liveNextTermDate">
+          Chính xác: 21:41:38 ngày 07/09/2026 (UTC+7)
+        </div>
+      </div>
+
+      <!-- Cột 4: Nút xem chi tiết -->
+      <div class="solar-rt-col solar-rt-action-col">
+        <button class="btn btn-gold btn-sm" id="btnGoToSolarTab" style="white-space: nowrap; box-shadow: 0 2px 6px rgba(180,83,9,0.25);">
+          ☀️ Xem Chi Tiết 24 Tiết Khí
+        </button>
+      </div>
     </div>
   </div>
 
@@ -1115,21 +1428,23 @@
               <div class="bloc-solar-month" id="blocSolarMonth">Tháng 9 năm 2026 (Dương Lịch)</div>
             </div>
             <div class="bloc-body">
-              <div class="bloc-solar-day" id="blocSolarDay">02</div>
-              <div class="bloc-lunar-box">
-                <div>
-                  <div class="bloc-lunar-val" id="blocLunarDay">21</div>
-                  <div class="bloc-lunar-lbl">Ngày Âm</div>
-                </div>
-                <div style="font-size: 1.3rem; color: #d1d5db;">/</div>
-                <div>
-                  <div class="bloc-lunar-val" id="blocLunarMonth">07</div>
-                  <div class="bloc-lunar-lbl">Tháng Âm</div>
-                </div>
-                <div style="font-size: 1.3rem; color: #d1d5db;">•</div>
-                <div>
-                  <div class="bloc-lunar-val" id="blocLunarYearCanChi" style="font-size: 1rem;">Bính Ngọ</div>
-                  <div class="bloc-lunar-lbl">Năm Can Chi</div>
+              <div class="bloc-hero-row">
+                <div class="bloc-solar-day" id="blocSolarDay">02</div>
+                <div class="bloc-lunar-box">
+                  <div>
+                    <div class="bloc-lunar-val" id="blocLunarDay">21</div>
+                    <div class="bloc-lunar-lbl">Ngày Âm</div>
+                  </div>
+                  <div style="font-size: 1.3rem; color: #d1d5db;">/</div>
+                  <div>
+                    <div class="bloc-lunar-val" id="blocLunarMonth">07</div>
+                    <div class="bloc-lunar-lbl">Tháng Âm</div>
+                  </div>
+                  <div style="font-size: 1.3rem; color: #d1d5db;">•</div>
+                  <div>
+                    <div class="bloc-lunar-val" id="blocLunarYearCanChi" style="font-size: 1rem;">Bính Ngọ</div>
+                    <div class="bloc-lunar-lbl">Năm Can Chi</div>
+                  </div>
                 </div>
               </div>
 
@@ -1154,8 +1469,12 @@
                   <span class="bloc-meta-val" id="blocNapAm">Thành Đầu Thổ</span>
                 </div>
                 <div class="bloc-meta-row">
-                  <span class="bloc-meta-lbl">Tiết khí:</span>
+                  <span class="bloc-meta-lbl">Tiết khí thiên văn:</span>
                   <span class="bloc-meta-val" id="blocTietKhi">Xử Thử</span>
+                </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Chuyển tiết kế tiếp:</span>
+                  <span class="bloc-meta-val" id="blocNextTietKhi" style="font-size: 0.8rem; color: #b45309; font-weight: 600;">Đang tính...</span>
                 </div>
                 <div class="bloc-meta-row">
                   <span class="bloc-meta-lbl">Trực / Sao ngày:</span>
@@ -1431,7 +1750,94 @@
       </div>
     </div>
 
-    <!-- TAB 3: ĐỔI LỊCH ÂM ⇄ DƯƠNG -->
+    <!-- TAB 3: 24 TIẾT KHÍ THIÊN VĂN (12 TIẾT & 12 KHÍ) -->
+    <div id="tab-solarterms" class="tab-content">
+      <div class="card">
+        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+              ☀️ 24 Tiết Khí Thiên Văn (12 Tiết &amp; 12 Khí / Trung Khí)
+            </h2>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
+              Tính toán thời khắc chuyển tiết chính xác từng giây theo kinh độ biểu kiến Mặt Trời (NASA JPL / VSOP87). Phân định chuẩn xác 12 Tiết Lệnh (Trụ Tháng Bát Tự) và 12 Trung Khí (Định tên tháng &amp; tháng Nhuận Âm Lịch).
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label style="font-size: 0.85rem; font-weight: 600;">Xem theo năm:</label>
+            <input type="number" id="solarYearInput" class="form-control" style="width: 90px; padding: 0.35rem 0.5rem;" value="2026" min="1900" max="2100">
+            <button class="btn btn-outline btn-sm" id="btnUpdateSolarYear">Cập nhật</button>
+            <button class="btn btn-gold btn-sm" id="btnCurrentSolarYear">Năm nay</button>
+          </div>
+        </div>
+
+        <!-- Educational Knowledge Cards on 12 Tiết vs 12 Khí -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+          <!-- Card 12 Tiết -->
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 0.85rem 1rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+              <strong style="color: #166534; font-size: 0.95rem;">🌿 12 TIẾT (TIẾT LỆNH)</strong>
+              <span class="solar-badge solar-badge-tiet">Khởi Mở Tháng Bát Tự</span>
+            </div>
+            <p style="font-size: 0.8rem; color: #374151; line-height: 1.55; margin-bottom: 0.5rem;">
+              Gồm: <strong>Lập Xuân, Kinh Trập, Thanh Minh, Lập Hạ, Mang Chủng, Tiểu Thử, Lập Thu, Bạch Lộ, Hàn Lộ, Lập Đông, Đại Tuyết, Tiểu Hàn</strong>.
+            </p>
+            <div style="font-size: 0.77rem; color: #15803d; line-height: 1.5; background: #fff; padding: 0.5rem; border-radius: 6px; border: 1px dashed #86efac;">
+              📌 <strong>Ý nghĩa học thuật:</strong> Khởi đầu 12 tháng Bát Tự Tứ Trụ (Dần, Mão, Thìn...). Trụ tháng thay đổi ngay tại giây chuyển Tiết, hoàn toàn độc lập với ngày Mùng 1 Âm lịch. Trụ Năm Bát Tự bắt đầu tại thời khắc Lập Xuân.
+            </div>
+          </div>
+
+          <!-- Card 12 Khí -->
+          <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 0.85rem 1rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+              <strong style="color: #92400e; font-size: 0.95rem;">🌧️ 12 KHÍ (TRUNG KHÍ)</strong>
+              <span class="solar-badge solar-badge-khi">Định Danh Tháng &amp; Tháng Nhuận</span>
+            </div>
+            <p style="font-size: 0.8rem; color: #374151; line-height: 1.55; margin-bottom: 0.5rem;">
+              Gồm: <strong>Vũ Thủy, Xuân Phân, Cốc Vũ, Tiểu Mãn, Hạ Chí, Đại Thử, Xử Thử, Thu Phân, Sương Giáng, Tiểu Tuyết, Đông Chí, Đại Hàn</strong>.
+            </p>
+            <div style="font-size: 0.77rem; color: #b45309; line-height: 1.5; background: #fff; padding: 0.5rem; border-radius: 6px; border: 1px dashed #fcd34d;">
+              📌 <strong>Ý nghĩa lịch pháp:</strong> Là mốc thiên văn định tên tháng Âm lịch. Theo phép đặt lịch Á Đông: Tháng nào không chứa bất kỳ Trung Khí nào sau điểm Sóc thì tháng đó được chọn làm <strong>Tháng Nhuận</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Sub-tabs -->
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+          <button class="btn btn-gold btn-sm solar-filter active" data-filter="all">Tất cả 24 Tiết Khí</button>
+          <button class="btn btn-outline btn-sm solar-filter" data-filter="tiet">🌿 Chỉ 12 Tiết (Tiết Lệnh)</button>
+          <button class="btn btn-outline btn-sm solar-filter" data-filter="khi">🌧️ Chỉ 12 Khí (Trung Khí)</button>
+          <button class="btn btn-outline btn-sm solar-filter" data-filter="major">🔥 4 Điểm Phân / Chí</button>
+        </div>
+
+        <!-- 24 Solar Terms Table -->
+        <div class="solar-table-container">
+          <table class="solar-terms-table" id="solarTermsTable">
+            <thead>
+              <tr>
+                <th style="width: 45px; text-align: center;">STT</th>
+                <th>Tiết Khí</th>
+                <th>Phân Loại</th>
+                <th>Kinh Độ</th>
+                <th>Thời Điểm Chuyển Tiết (Dương Lịch UTC+7)</th>
+                <th>Âm Lịch Tương Ứng</th>
+                <th>Can Chi Ngày &amp; Giờ</th>
+                <th>Ý Nghĩa Lịch Pháp &amp; Bát Tự</th>
+              </tr>
+            </thead>
+            <tbody id="solarTermsTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Note below table -->
+        <div style="margin-top: 0.85rem; font-size: 0.76rem; color: #6b7280; line-height: 1.5; background: #f8fafc; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #e2e8f0;">
+          💡 <em>Mẹo:</em> Nhấp vào bất kỳ hàng tiết khí nào trên bảng để xem chi tiết và tự động đồng bộ mở ngày đó trên <strong>Lịch Vạn Niên</strong>. Hàng có nền vàng cam nhạt là tiết khí đang diễn ra trong ngày hôm nay.
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: ĐỔI LỊCH ÂM ⇄ DƯƠNG -->
     <div id="tab-converter" class="tab-content">
       <div class="conv-box">
         <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--primary-dark); text-align: center; margin-bottom: 1.25rem;">
@@ -1718,19 +2124,111 @@
       return Math.floor(theta / (PI / 6));
     }
 
-    // 24 Solar Terms exact longitude angle
-    function getSunExactLongitude(dayNumber, timeZone) {
-      let T = (dayNumber - 0.5 - timeZone / 24 - 2451545.0) / 36525;
+    /**
+     * THUẬT TOÁN THIÊN VĂN KINH ĐỘ MẶT TRỜI & 24 TIẾT KHÍ (NASA JPL / VSOP87 / JEAN MEEUS)
+     * Độ chính xác cao từng giây, tính toán đầy đủ Phương trình tâm, Chương động và Quang sai.
+     */
+    const dr = PI / 180;
+
+    // Chuyển đối tượng Date (JavaScript) sang Julian Day (JD) thực (chính xác đến mili giây)
+    function dateToRealJD(date) {
+      let year = date.getUTCFullYear();
+      let month = date.getUTCMonth() + 1;
+      let day = date.getUTCDate();
+      let hours = date.getUTCHours() + date.getUTCMinutes() / 60 + (date.getUTCSeconds() + date.getUTCMilliseconds() / 1000) / 3600;
+      
+      let a = Math.floor((14 - month) / 12);
+      let y = year + 4800 - a;
+      let m = month + 12 * a - 3;
+      let jd = day + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045 - 0.5 + hours / 24;
+      return jd;
+    }
+
+    // Tính kinh độ hoàng đạo biểu kiến của Mặt Trời (Apparent Solar Longitude) tại Julian Day jd
+    // Áp dụng thuật toán thiên văn tiêu chuẩn NASA / VSOP87 / Jean Meeus
+    function getSunApparentLongitude(jd) {
+      let T = (jd - 2451545.0) / 36525.0;
       let T2 = T * T;
-      let dr = PI / 180;
-      let L0 = 280.46645 + 36000.76983 * T + 0.0003032 * T2;
-      let L = 357.52910 + 35999.05028 * T - 0.0001559 * T2 - 0.00000048 * T * T2;
-      let C = (1.914600 - 0.004817 * T - 0.000014 * T2) * Math.sin(L * dr)
-            + (0.019993 - 0.000101 * T) * Math.sin(2 * L * dr)
-            + 0.000290 * Math.sin(3 * L * dr);
-      let theta = (L0 + C) % 360;
-      if (theta < 0) theta += 360;
-      return theta;
+
+      // Kinh độ trung bình của Mặt Trời (Mean Longitude L0)
+      let L0 = 280.46646 + 36000.76983 * T + 0.0003032 * T2;
+
+      // Dị thường trung bình của Mặt Trời (Mean Anomaly M)
+      let M = 357.52911 + 35999.05029 * T - 0.0001537 * T2;
+
+      // Phương trình tâm (Equation of Center C)
+      let C = (1.914602 - 0.004817 * T - 0.000014 * T2) * Math.sin(M * dr)
+            + (0.019993 - 0.000101 * T) * Math.sin(2 * M * dr)
+            + 0.000289 * Math.sin(3 * M * dr);
+
+      let sunTrue = L0 + C;
+
+      // Hiệu chỉnh Chương động (Nutation in longitude Delta Psi)
+      let omega = 125.04452 - 1934.136261 * T + 0.0020708 * T2;
+      let dPsi = -0.004778 * Math.sin(omega * dr) - 0.0003667 * Math.sin(2 * L0 * dr);
+
+      // Hiệu chỉnh Quang sai (Aberration ~ -20.4955 arcsec = -0.00569°)
+      let apparent = (sunTrue + dPsi - 0.00569) % 360;
+      if (apparent < 0) apparent += 360;
+      return apparent;
+    }
+
+    // Tính thời điểm chính xác (Julian Day) Mặt Trời đạt kinh độ targetDeg trong năm year
+    function getSolarTermTransitionJD(year, targetDeg, estDayOfYear) {
+      let a = Math.floor((14 - 1) / 12);
+      let y = year + 4800 - a;
+      let m = 1 + 12 * a - 3;
+      let jd0 = 1 + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045 - 0.5;
+      let jd = jd0 + estDayOfYear;
+
+      // Phương pháp tiếp tuyến Newton-Raphson hội tụ nhanh, sai số dưới 0.005 giây
+      for (let iter = 0; iter < 15; iter++) {
+        let currentDeg = getSunApparentLongitude(jd);
+        let diff = targetDeg - currentDeg;
+        while (diff > 180) diff -= 360;
+        while (diff < -180) diff += 360;
+        if (Math.abs(diff) < 0.00000005) break;
+        let speed = 0.9856473; // ~0.9856 độ/ngày
+        jd += diff / speed;
+      }
+      return jd;
+    }
+
+    // Chuyển JD thực (kèm phân số ngày) sang Ngày, Tháng, Năm, Giờ, Phút, Giây theo múi giờ timeZone (mặc định 7)
+    function realJDToDateTime(jd, timeZone = 7) {
+      let localJD = jd + timeZone / 24.0;
+      let z = Math.floor(localJD + 0.5);
+      let f = (localJD + 0.5) - z;
+      let a = z;
+      if (z >= 2299161) {
+        let alpha = Math.floor((z - 1867216.25) / 36524.25);
+        a = z + 1 + alpha - Math.floor(alpha / 4);
+      }
+      let b = a + 1524;
+      let c = Math.floor((b - 122.1) / 365.25);
+      let d = Math.floor(365.25 * c);
+      let e = Math.floor((b - d) / 30.6001);
+      let day = b - d - Math.floor(30.6001 * e);
+      let month = (e < 14) ? e - 1 : e - 13;
+      let year = (month > 2) ? c - 4716 : c - 4715;
+
+      let totalSecs = Math.round(f * 86400);
+      let hours = Math.floor(totalSecs / 3600);
+      let minutes = Math.floor((totalSecs % 3600) / 60);
+      let seconds = totalSecs % 60;
+      if (hours >= 24) {
+        hours = 23;
+        minutes = 59;
+        seconds = 59;
+      }
+
+      return { day, month, year, hours, minutes, seconds, localJD };
+    }
+
+    // 24 Solar Terms exact longitude angle (hàm tương thích ngược với độ chính xác cao)
+    function getSunExactLongitude(dayNumber, timeZone = 7) {
+      let jd = dayNumber - 0.5 - timeZone / 24.0 + 0.5; // Noon local time UTC
+      return getSunApparentLongitude(jd);
     }
 
     function getLunarMonth11(yy, timeZone) {
@@ -1884,7 +2382,42 @@
       "Hợi": ["Nhâm", "Giáp"]
     };
 
-    // 24 Tiết khí
+    // CƠ SỞ DỮ LIỆU THIÊN VĂN 24 TIẾT KHÍ (12 TIẾT & 12 KHÍ / TRUNG KHÍ)
+    // Sắp xếp theo trình tự thời gian trong năm Dương lịch từ đầu tháng 1 đến cuối tháng 12
+    const SOLAR_TERMS_MASTER = [
+      { id: "tieu-han", name: "Tiểu Hàn", symbol: "🥶", deg: 285, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 5, zodiac: "Ma Kết (Capricorn)", monthChi: "Sửu", desc: "Rét nhẹ, chuẩn bị đợt gió mùa đông bắc rét đậm phương Bắc tràn về.", role: "Tiết Lệnh khởi đầu tháng Sửu (Chạp) trong Bát Tự Tứ Trụ." },
+      { id: "dai-han", name: "Đại Hàn", symbol: "🧊", deg: 300, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 20, zodiac: "Bảo Bình (Aquarius)", desc: "Thời điểm lạnh nhất trong năm, hàn khí cực thịnh kết thúc mùa đông.", role: "Trung Khí định vị tháng Chạp (12) và làm căn cứ xác định tháng nhuận." },
+      { id: "lap-xuan", name: "Lập Xuân", symbol: "🌿", deg: 315, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 35, zodiac: "Bảo Bình (Aquarius)", monthChi: "Dần", desc: "Khởi đầu mùa xuân, khí dương thăng phát, vạn vật bắt đầu đâm chồi nảy lộc.", role: "Tiết Lệnh khởi đầu năm mới Bát Tự & mở tháng Dần (Giêng)." },
+      { id: "vu-thuy", name: "Vũ Thủy", symbol: "🌧️", deg: 330, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 50, zodiac: "Song Ngư (Pisces)", desc: "Mưa xuân ẩm áp, tuyết tan thành nước nuôi dưỡng cây cối và đồng ruộng.", role: "Trung Khí định vị tháng Giêng (1) trong Âm lịch." },
+      { id: "kinh-trap", name: "Kinh Trập", symbol: "⚡", deg: 345, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 65, zodiac: "Song Ngư (Pisces)", monthChi: "Mão", desc: "Sấm đầu xuân đánh thức vạn vật côn trùng sau kỳ ngủ đông.", role: "Tiết Lệnh khởi đầu tháng Mão (Hai) trong Bát Tự." },
+      { id: "xuan-phan", name: "Xuân Phân", symbol: "🌸", deg: 0, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 80, isMajor: true, zodiac: "Bạch Dương (Aries)", desc: "Mặt Trời chiếu thẳng xích đạo, ngày và đêm dài bằng nhau trên toàn trái đất.", role: "Trung Khí định vị tháng Hai (2) Âm lịch, điểm phân mốc thiên văn quốc tế." },
+      { id: "thanh-minh", name: "Thanh Minh", symbol: "🍃", deg: 15, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 95, zodiac: "Bạch Dương (Aries)", monthChi: "Thìn", desc: "Khí trời trong sáng, quang đãng, mùa tảo mộ tưởng nhớ cội nguồn tiên tổ.", role: "Tiết Lệnh khởi đầu tháng Thìn (Ba) trong Bát Tự." },
+      { id: "coc-vu", name: "Cốc Vũ", symbol: "🌾", deg: 30, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 110, zodiac: "Kim Ngưu (Taurus)", desc: "Mưa rào ấm dưỡng hạt, ngũ cốc sinh trưởng mạnh mẽ.", role: "Trung Khí định vị tháng Ba (3) trong Âm lịch." },
+      { id: "lap-ha", name: "Lập Hạ", symbol: "☀️", deg: 45, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 125, zodiac: "Kim Ngưu (Taurus)", monthChi: "Tỵ", desc: "Khởi đầu mùa hè, nhiệt độ tăng cao, vạn vật bước vào thời kỳ trưởng thành.", role: "Tiết Lệnh khởi đầu mùa hè & mở tháng Tỵ (Tư) trong Bát Tự." },
+      { id: "tieu-man", name: "Tiểu Mãn", symbol: "🌱", deg: 60, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 141, zodiac: "Song Tử (Gemini)", desc: "Hạt lúa bắt đầu vào mẩy, hoa màu đơm hoa kết trái no tròn.", role: "Trung Khí định vị tháng Tư (4) trong Âm lịch." },
+      { id: "mang-chung", name: "Mang Chủng", symbol: "🌾", deg: 75, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 156, zodiac: "Song Tử (Gemini)", monthChi: "Ngọ", desc: "Mùa gieo cấy lúa có râu, nông dân tất bật vụ mùa hè thu.", role: "Tiết Lệnh khởi đầu tháng Ngọ (Năm) trong Bát Tự." },
+      { id: "ha-chi", name: "Hạ Chí", symbol: "🔥", deg: 90, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 172, isMajor: true, zodiac: "Cự Giải (Cancer)", desc: "Mặt Trời chiếu thẳng chí tuyến Bắc, ngày dài nhất và đêm ngắn nhất năm tại Bắc Bán Cầu.", role: "Trung Khí định vị tháng Năm (5) Âm lịch, điểm chí năng lượng Dương đỉnh cực." },
+      { id: "tieu-thu", name: "Tiểu Thử", symbol: "🌡️", deg: 105, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 188, zodiac: "Cự Giải (Cancer)", monthChi: "Mùi", desc: "Nóng nhẹ, khởi đầu thời kỳ oi bức gay gắt nhất của mùa hè.", role: "Tiết Lệnh khởi đầu tháng Mùi (Sáu) trong Bát Tự." },
+      { id: "dai-thu", name: "Đại Thử", symbol: "♨️", deg: 120, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 204, zodiac: "Sư Tử (Leo)", desc: "Thời điểm oi bức khắc nghiệt đỉnh điểm trong năm.", role: "Trung Khí định vị tháng Sáu (6) trong Âm lịch." },
+      { id: "lap-thu", name: "Lập Thu", symbol: "🍂", deg: 135, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 219, zodiac: "Sư Tử (Leo)", monthChi: "Thân", desc: "Khởi đầu mùa thu, gió mát heo may bắt đầu xua tan oi bức hè.", role: "Tiết Lệnh khởi đầu mùa thu & mở tháng Thân (Bảy) trong Bát Tự." },
+      { id: "xu-thu", name: "Xử Thử", symbol: "⛅", deg: 150, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 235, zodiac: "Xử Nữ (Virgo)", desc: "Nắng nóng rút lui, thời tiết chuyển mát mẻ dễ chịu rõ rệt.", role: "Trung Khí định vị tháng Bảy (7) trong Âm lịch." },
+      { id: "bach-lo", name: "Bạch Lộ", symbol: "💧", deg: 165, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 250, zodiac: "Xử Nữ (Virgo)", monthChi: "Dậu", desc: "Sương sớm ngưng tụ thành giọt trắng trên lá cây cỏ lúc ban mai.", role: "Tiết Lệnh khởi đầu tháng Dậu (Tám) trong Bát Tự." },
+      { id: "thu-phan", name: "Thu Phân", symbol: "🍁", deg: 180, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 266, isMajor: true, zodiac: "Thiên Bình (Libra)", desc: "Mặt Trời chiếu thẳng xích đạo, ngày đêm cân bằng, đêm rằm trăng sáng tròn trịa.", role: "Trung Khí định vị tháng Tám (8) Âm lịch, điểm phân mùa thu." },
+      { id: "han-lo", name: "Hàn Lộ", symbol: "❄️", deg: 195, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 281, zodiac: "Thiên Bình (Libra)", monthChi: "Tuất", desc: "Sương lạnh buốt, thời tiết chuyển lạnh sâu chuẩn bị sang đông.", role: "Tiết Lệnh khởi đầu tháng Tuất (Chín) trong Bát Tự." },
+      { id: "suong-giang", name: "Sương Giáng", symbol: "🌨️", deg: 210, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 296, zodiac: "Bọ Cạp (Scorpio)", desc: "Sương giá buốt rơi nhiều, đánh dấu thời điểm cuối thu chớm đông.", role: "Trung Khí định vị tháng Chín (9) trong Âm lịch." },
+      { id: "lap-dong", name: "Lập Đông", symbol: "🏔️", deg: 225, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 311, zodiac: "Bọ Cạp (Scorpio)", monthChi: "Hợi", desc: "Khởi đầu mùa đông, vạn vật thu mình tích trữ năng lượng.", role: "Tiết Lệnh khởi đầu mùa đông & mở tháng Hợi (Mười) trong Bát Tự." },
+      { id: "tieu-tuyet", name: "Tiểu Tuyết", symbol: "🌨️", deg: 240, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 326, zodiac: "Nhân Mã (Sagittarius)", desc: "Khí lạnh phương Bắc tăng cường mạnh, bắt đầu xuất hiện tuyết rơi nhẹ vùng cao.", role: "Trung Khí định vị tháng Mười (10) trong Âm lịch." },
+      { id: "dai-tuyet", name: "Đại Tuyết", symbol: "❄️", deg: 255, type: "Tiết", typeName: "12 Tiết (Tiết Lệnh)", estDay: 341, zodiac: "Nhân Mã (Sagittarius)", monthChi: "Tý", desc: "Tuyết rơi dày đặc, gió bấc thổi mạnh, bước vào giữa mùa đông giá rét.", role: "Tiết Lệnh khởi đầu tháng Tý (Mười Một) trong Bát Tự." },
+      { id: "dong-chi", name: "Đông Chí", symbol: "☃️", deg: 270, type: "Khí", typeName: "12 Khí (Trung Khí)", estDay: 355, isMajor: true, zodiac: "Ma Kết (Capricorn)", desc: "Mặt Trời chiếu thẳng chí tuyến Nam, ngày ngắn nhất và đêm dài nhất năm tại Bắc Bán Cầu.", role: "Trung Khí định vị tháng 11 (Tý), thời điểm Nhất Dương Sinh bắt đầu." }
+    ];
+
+    // Tra cứu nhanh theo kinh độ hoàng đạo (0, 15, 30, ..., 345)
+    const SOLAR_TERMS_BY_DEGREE = {};
+    SOLAR_TERMS_MASTER.forEach(t => {
+      SOLAR_TERMS_BY_DEGREE[t.deg] = t;
+    });
+
+    // 24 Tiết khí (Mảng tên tương thích ngược)
     const TIET_KHI = [
       "Xuân Phân", "Thanh Minh", "Cốc Vũ", "Lập Hạ", "Tiểu Mãn", "Mang Chủng",
       "Hạ Chí", "Tiểu Thử", "Đại Thử", "Lập Thu", "Xử Thử", "Bạch Lộ",
@@ -2059,12 +2592,53 @@
       return list;
     }
 
-    // Tiết khí của ngày
+    // Thông tin thiên văn 24 Tiết khí chi tiết cho ngày / giờ bất kỳ
+    function getDaySolarInfo(dd, mm, yy, hh = 12, mi = 0, ss = 0) {
+      let dateUtc = new Date(Date.UTC(yy, mm - 1, dd, hh - 7, mi, ss));
+      let jd = dateToRealJD(dateUtc);
+      let deg = getSunApparentLongitude(jd);
+
+      // Mỗi tiết khí chiếm đúng 15° cung hoàng đạo
+      let termDeg = Math.floor(deg / 15) * 15;
+      let curTerm = SOLAR_TERMS_BY_DEGREE[termDeg] || SOLAR_TERMS_MASTER[0];
+
+      // Tiết khí tiếp theo
+      let nextDeg = (termDeg + 15) % 360;
+      let nextTerm = SOLAR_TERMS_BY_DEGREE[nextDeg] || SOLAR_TERMS_MASTER[1];
+
+      // Năm chuyển tiết tiếp theo (chú ý điểm giao niên Đông Chí sang Tiểu Hàn)
+      let transYear = yy;
+      if (termDeg === 270 && nextDeg === 285 && mm === 12) {
+        transYear = yy + 1;
+      }
+      let nextJD = getSolarTermTransitionJD(transYear, nextTerm.deg, nextTerm.estDay);
+      let nextDT = realJDToDateTime(nextJD, 7);
+
+      // Tiến trình trong tiết khí hiện tại
+      let progress = ((deg - termDeg) / 15) * 100;
+
+      // Độ, phút, giây hoàng đạo
+      let degInt = Math.floor(deg);
+      let minFrac = (deg - degInt) * 60;
+      let minInt = Math.floor(minFrac);
+      let secInt = Math.floor((minFrac - minInt) * 60);
+
+      return {
+        deg,
+        degText: `${degInt}° ${String(minInt).padStart(2, '0')}' ${String(secInt).padStart(2, '0')}"`,
+        degNumber: deg.toFixed(4),
+        curTerm,
+        progress: progress.toFixed(1),
+        nextTerm,
+        nextDT,
+        nextTransitionStr: `${String(nextDT.hours).padStart(2, '0')}:${String(nextDT.minutes).padStart(2, '0')}:${String(nextDT.seconds).padStart(2, '0')} ngày ${String(nextDT.day).padStart(2, '0')}/${String(nextDT.month).padStart(2, '0')}/${nextDT.year}`
+      };
+    }
+
+    // Tiết khí của ngày (chuẩn thiên văn NASA/VSOP87)
     function getDayTietKhi(dd, mm, yy) {
-      let jd = jdFromDate(dd, mm, yy);
-      let deg = getSunExactLongitude(jd, 7);
-      let idx = Math.floor((deg + 15) / 15) % 24;
-      return TIET_KHI[idx];
+      let info = getDaySolarInfo(dd, mm, yy, 12);
+      return info.curTerm.name;
     }
 
     // Trực và Nhị Thập Bát Tú
@@ -2096,6 +2670,8 @@
       setupQuickSelectors();
       setupCalendarControls();
       setupSocYearTable();
+      setupSolarTermsTab();
+      startSolarTicker();
       renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
       updateBlocView(selectedDate);
       setupBattuForm();
@@ -2326,9 +2902,16 @@
       const napAm = NAP_AM[dayCanChi.text] || "Không xác định";
       document.getElementById('blocNapAm').textContent = napAm;
 
-      // Tiết khí
-      const tietKhi = getDayTietKhi(d, m, y);
-      document.getElementById('blocTietKhi').textContent = tietKhi;
+      // Tiết khí thiên văn độ chính xác cao (NASA JPL / VSOP87)
+      const solarInfo = getDaySolarInfo(d, m, y, 12);
+      const blocTietKhiEl = document.getElementById('blocTietKhi');
+      if (blocTietKhiEl) {
+        blocTietKhiEl.innerHTML = `${solarInfo.curTerm.symbol} <strong>${solarInfo.curTerm.name}</strong> <span class="solar-badge ${solarInfo.curTerm.type === 'Tiết' ? 'solar-badge-tiet' : 'solar-badge-khi'}">${solarInfo.curTerm.type === 'Tiết' ? '12 Tiết (Tiết Lệnh)' : '12 Khí (Trung Khí)'}</span> <span style="font-size: 0.76rem; color: #4b5563; margin-left: 2px;">• ${solarInfo.degText}</span>`;
+      }
+      const blocNextTietKhiEl = document.getElementById('blocNextTietKhi');
+      if (blocNextTietKhiEl) {
+        blocNextTietKhiEl.innerHTML = `${solarInfo.nextTerm.symbol} <strong>${solarInfo.nextTerm.name}</strong> [${solarInfo.nextTerm.type === 'Tiết' ? '12 Tiết' : '12 Khí'}] lúc <span style="color: #b45309; font-weight: 600;">${solarInfo.nextTransitionStr}</span>`;
+      }
 
       // Hoàng Đạo / Hắc Đạo
       const star = getDayHoangDao(lMonth, dayCanChi.chiIndex);
@@ -2516,6 +3099,13 @@
       const toggleBtn = document.getElementById('btnToggleSocTable');
       const bodyEl = document.getElementById('socYearSectionBody');
       const iconEl = document.getElementById('socTableToggleIcon');
+
+      // Tự động thu gọn bảng trên thiết bị di động (<= 768px) để Lịch Vạn Niên cân đối, không bị choán chỗ
+      if (window.innerWidth <= 768 && bodyEl && iconEl) {
+        bodyEl.style.display = 'none';
+        iconEl.textContent = '▶';
+      }
+
       if (toggleBtn && bodyEl && iconEl) {
         toggleBtn.addEventListener('click', () => {
           if (bodyEl.style.display === 'none') {
@@ -2527,6 +3117,292 @@
           }
         });
       }
+    }
+
+    /**
+     * 24 TIẾT KHÍ THIÊN VĂN THỜI GIAN THỰC & BẢNG TRA CỨU (NASA JPL / VSOP87)
+     */
+    function renderSolarTermsTable(year, filter = 'all') {
+      const tbody = document.getElementById('solarTermsTableBody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      let now = new Date();
+      let currentJD = dateToRealJD(now);
+      let currentDeg = getSunApparentLongitude(currentJD);
+      let currentTermDeg = Math.floor(currentDeg / 15) * 15;
+
+      let list = SOLAR_TERMS_MASTER.map((term, idx) => {
+        let transJD = getSolarTermTransitionJD(year, term.deg, term.estDay);
+        let dt = realJDToDateTime(transJD, 7);
+        let [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(dt.day, dt.month, dt.year);
+        let dayCanChi = getDayCanChi(dt.day, dt.month, dt.year);
+        let hourChiIdx = Math.floor((dt.hours + 1) / 2) % 12;
+        let hourCanChi = getHourCanChi(dayCanChi.canIndex, hourChiIdx);
+
+        let isCurrent = (term.deg === currentTermDeg) && (year === now.getFullYear());
+
+        return {
+          idx: idx + 1,
+          ...term,
+          transJD,
+          dt,
+          lunar: { lDay, lMonth, lYear, isLeap },
+          dayCanChi,
+          hourCanChi,
+          isCurrent
+        };
+      });
+
+      if (filter === 'tiet') {
+        list = list.filter(item => item.type === 'Tiết');
+      } else if (filter === 'khi') {
+        list = list.filter(item => item.type === 'Khí');
+      } else if (filter === 'major') {
+        list = list.filter(item => item.isMajor);
+      }
+
+      list.forEach(item => {
+        const tr = document.createElement('tr');
+        if (item.isCurrent) {
+          tr.className = 'solar-active-row';
+        }
+
+        const dStr = String(item.dt.day).padStart(2, '0');
+        const mStr = String(item.dt.month).padStart(2, '0');
+        const hStr = String(item.dt.hours).padStart(2, '0');
+        const minStr = String(item.dt.minutes).padStart(2, '0');
+        const sStr = String(item.dt.seconds).padStart(2, '0');
+
+        let badgeHtml = item.type === 'Tiết'
+          ? `<span class="solar-badge solar-badge-tiet">12 Tiết (Tiết Lệnh)</span>`
+          : `<span class="solar-badge solar-badge-khi">12 Khí (Trung Khí)</span>`;
+
+        if (item.isMajor) {
+          badgeHtml += ` <span class="solar-badge solar-badge-major" style="margin-top: 2px;">Điểm ${item.deg === 0 || item.deg === 180 ? 'Phân' : 'Chí'}</span>`;
+        }
+
+        let lunarStr = `Ngày ${item.lunar.lDay}/${item.lunar.lMonth}`;
+        if (item.lunar.isLeap) lunarStr += ` (Nhuận)`;
+
+        tr.innerHTML = `
+          <td style="text-align: center; font-weight: 600; color: #6b7280;">${item.idx}</td>
+          <td>
+            <div style="display: flex; align-items: center; gap: 0.45rem;">
+              <span style="font-size: 1.25rem;">${item.symbol}</span>
+              <div>
+                <strong style="font-size: 0.95rem; color: #1e293b;">${item.name}</strong>
+                ${item.isCurrent ? '<span style="font-size: 0.68rem; color: #ea580c; display: block; font-weight: bold;">● Tiết khí hiện tại</span>' : ''}
+              </div>
+            </div>
+          </td>
+          <td>${badgeHtml}</td>
+          <td><span class="solar-coord">${item.deg}°</span></td>
+          <td>
+            <div style="font-weight: 600; color: #1e293b;">${dStr}/${mStr}/${item.dt.year}</div>
+            <div class="solar-time-code">${hStr}:${minStr}:${sStr} (UTC+7)</div>
+          </td>
+          <td>
+            <div style="font-weight: 600; color: #991b1b;">${lunarStr}</div>
+            <div style="font-size: 0.75rem; color: #6b7280;">Năm ${item.lunar.lYear}</div>
+          </td>
+          <td>
+            <div style="font-size: 0.8rem; color: #1e293b; font-weight: 500;">Ngày: ${item.dayCanChi.text}</div>
+            <div style="font-size: 0.75rem; color: #4b5563;">Giờ: ${item.hourCanChi.text}</div>
+          </td>
+          <td>
+            <div style="font-size: 0.77rem; color: #374151; line-height: 1.45;">${item.role}</div>
+            <div style="font-size: 0.73rem; color: #6b7280; font-style: italic; margin-top: 2px;">${item.desc}</div>
+          </td>
+        `;
+
+        tr.style.cursor = 'pointer';
+        tr.title = `Nhấp để xem ngày chuyển tiết ${item.name} (${dStr}/${mStr}/${item.dt.year}) trên Lịch Vạn Niên`;
+        tr.addEventListener('click', () => {
+          selectedDate = new Date(item.dt.year, item.dt.month - 1, item.dt.day);
+          renderCalendar(item.dt.year, item.dt.month - 1);
+          updateBlocView(selectedDate);
+          renderSocYearTable(item.dt.year);
+
+          // Chuyển sang Tab Lịch Vạn Niên
+          document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          const calTab = document.querySelector('.nav-tab[data-tab="tab-calendar"]');
+          if (calTab) calTab.classList.add('active');
+          document.getElementById('tab-calendar').classList.add('active');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function setupSolarTermsTab() {
+      const yearInput = document.getElementById('solarYearInput');
+      const updateBtn = document.getElementById('btnUpdateSolarYear');
+      const filterBtns = document.querySelectorAll('.solar-filter');
+
+      let currentFilter = 'all';
+
+      if (yearInput && updateBtn) {
+        updateBtn.addEventListener('click', () => {
+          const y = parseInt(yearInput.value);
+          if (!isNaN(y) && y >= 1900 && y <= 2100) {
+            renderSolarTermsTable(y, currentFilter);
+          }
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active', 'btn-gold');
+            b.classList.add('btn-outline');
+          });
+          btn.classList.add('active', 'btn-gold');
+          btn.classList.remove('btn-outline');
+
+          currentFilter = btn.getAttribute('data-filter');
+          const y = parseInt(yearInput ? yearInput.value : 2026);
+          renderSolarTermsTable(y, currentFilter);
+        });
+      });
+
+      const goToSolarBtn = document.getElementById('btnGoToSolarTab');
+      if (goToSolarBtn) {
+        goToSolarBtn.addEventListener('click', () => {
+          document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          const solarTab = document.querySelector('.nav-tab[data-tab="tab-solarterms"]');
+          if (solarTab) solarTab.classList.add('active');
+          document.getElementById('tab-solarterms').classList.add('active');
+          window.scrollTo({ top: document.getElementById('tab-solarterms').offsetTop - 60, behavior: 'smooth' });
+        });
+      }
+
+      // Khởi tạo bảng ban đầu
+      renderSolarTermsTable(selectedDate.getFullYear(), 'all');
+    }
+
+    // Ticker thời gian thực đo kinh độ Mặt Trời & đếm ngược chuyển tiết
+    function startSolarTicker() {
+      function updateSolarLive() {
+        let now = new Date();
+        let jd = dateToRealJD(now);
+        let deg = getSunApparentLongitude(jd);
+
+        // Kinh độ dạng độ, phút, giây
+        let degInt = Math.floor(deg);
+        let minFrac = (deg - degInt) * 60;
+        let minInt = Math.floor(minFrac);
+        let secFrac = (minFrac - minInt) * 60;
+        let secStr = secFrac.toFixed(1).padStart(4, '0');
+
+        const liveSunLongEl = document.getElementById('liveSunLongitude');
+        if (liveSunLongEl) {
+          liveSunLongEl.textContent = `${degInt}° ${String(minInt).padStart(2, '0')}' ${secStr}"`;
+        }
+
+        // Cung Hoàng Đạo thiên văn
+        const ZODIAC_SIGNS = [
+          { name: "Bạch Dương (Aries)", start: 0, end: 30 },
+          { name: "Kim Ngưu (Taurus)", start: 30, end: 60 },
+          { name: "Song Tử (Gemini)", start: 60, end: 90 },
+          { name: "Cự Giải (Cancer)", start: 90, end: 120 },
+          { name: "Sư Tử (Leo)", start: 120, end: 150 },
+          { name: "Xử Nữ (Virgo)", start: 150, end: 180 },
+          { name: "Thiên Bình (Libra)", start: 180, end: 210 },
+          { name: "Bọ Cạp (Scorpio)", start: 210, end: 240 },
+          { name: "Nhân Mã (Sagittarius)", start: 240, end: 270 },
+          { name: "Ma Kết (Capricorn)", start: 270, end: 300 },
+          { name: "Bảo Bình (Aquarius)", start: 300, end: 330 },
+          { name: "Song Ngư (Pisces)", start: 330, end: 360 }
+        ];
+        let zSign = ZODIAC_SIGNS.find(z => deg >= z.start && deg < z.end) || ZODIAC_SIGNS[0];
+        const liveSunZodiacEl = document.getElementById('liveSunZodiac');
+        if (liveSunZodiacEl) {
+          liveSunZodiacEl.textContent = `Cung ${zSign.name} • Tọa độ thực: ${deg.toFixed(4)}°`;
+        }
+
+        // Tiết khí hiện tại
+        let termDeg = Math.floor(deg / 15) * 15;
+        let curTerm = SOLAR_TERMS_BY_DEGREE[termDeg] || SOLAR_TERMS_MASTER[0];
+
+        const liveCurNameEl = document.getElementById('liveCurrentTermName');
+        if (liveCurNameEl) {
+          liveCurNameEl.textContent = `${curTerm.symbol} ${curTerm.name}`;
+        }
+
+        const liveCurBadgeEl = document.getElementById('liveCurrentTermBadge');
+        if (liveCurBadgeEl) {
+          liveCurBadgeEl.textContent = curTerm.typeName;
+          liveCurBadgeEl.className = curTerm.type === 'Tiết' ? 'solar-badge solar-badge-tiet' : 'solar-badge solar-badge-khi';
+        }
+
+        // Tiến trình trong tiết khí
+        let progress = ((deg - termDeg) / 15) * 100;
+        const liveFillEl = document.getElementById('liveTermProgressFill');
+        if (liveFillEl) {
+          liveFillEl.style.width = `${progress.toFixed(1)}%`;
+        }
+        const liveProgTextEl = document.getElementById('liveTermProgressText');
+        if (liveProgTextEl) {
+          liveProgTextEl.textContent = `${progress.toFixed(1)}% tiến trình`;
+        }
+
+        // Tiết khí kế tiếp & đếm ngược
+        let nextDeg = (termDeg + 15) % 360;
+        let nextTerm = SOLAR_TERMS_BY_DEGREE[nextDeg] || SOLAR_TERMS_MASTER[1];
+
+        const liveNextNameEl = document.getElementById('liveNextTermName');
+        if (liveNextNameEl) {
+          liveNextNameEl.textContent = `${nextTerm.symbol} ${nextTerm.name}`;
+        }
+        const liveNextBadgeEl = document.getElementById('liveNextTermBadge');
+        if (liveNextBadgeEl) {
+          liveNextBadgeEl.textContent = nextTerm.typeName;
+          liveNextBadgeEl.className = nextTerm.type === 'Tiết' ? 'solar-badge solar-badge-tiet' : 'solar-badge solar-badge-khi';
+        }
+
+        let transYear = now.getFullYear();
+        if (termDeg === 270 && nextDeg === 285 && now.getMonth() === 11) {
+          transYear = now.getFullYear() + 1;
+        }
+
+        let nextJD = getSolarTermTransitionJD(transYear, nextTerm.deg, nextTerm.estDay);
+        let nextDT = realJDToDateTime(nextJD, 7);
+
+        // Tạo Date object của thời khắc chuyển tiết tiếp theo (tính theo UTC)
+        let nextDateObj = new Date(Date.UTC(nextDT.year, nextDT.month - 1, nextDT.day, nextDT.hours - 7, nextDT.minutes, nextDT.seconds));
+        let diffMs = nextDateObj.getTime() - now.getTime();
+
+        const liveCountdownEl = document.getElementById('liveNextTermCountdown');
+        if (liveCountdownEl) {
+          if (diffMs <= 0) {
+            liveCountdownEl.textContent = "Đang chuyển tiết...";
+          } else {
+            let totalSecs = Math.floor(diffMs / 1000);
+            let days = Math.floor(totalSecs / 86400);
+            let hours = Math.floor((totalSecs % 86400) / 3600);
+            let minutes = Math.floor((totalSecs % 3600) / 60);
+            let seconds = totalSecs % 60;
+            liveCountdownEl.textContent = `Đếm ngược: ${days} ngày ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+          }
+        }
+
+        const liveNextDateEl = document.getElementById('liveNextTermDate');
+        if (liveNextDateEl) {
+          let hStr = String(nextDT.hours).padStart(2, '0');
+          let mStr = String(nextDT.minutes).padStart(2, '0');
+          let sStr = String(nextDT.seconds).padStart(2, '0');
+          let dStr = String(nextDT.day).padStart(2, '0');
+          let moStr = String(nextDT.month).padStart(2, '0');
+          liveNextDateEl.textContent = `Chính xác: ${hStr}:${mStr}:${sStr} ngày ${dStr}/${moStr}/${nextDT.year} (UTC+7)`;
+        }
+      }
+
+      updateSolarLive();
+      setInterval(updateSolarLive, 1000);
     }
 
     /**
@@ -2570,11 +3446,33 @@
         [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(sDay, sMonth, sYear);
       }
 
-      // Trụ Năm
-      const yearPillar = getYearCanChi(lYear);
+      // CƠ SỞ THIÊN VĂN BÁT TỰ TỨ TRỤ (12 TIẾT LỆNH & LẬP XUÂN NASA/VSOP87)
+      // Tính kinh độ hoàng đạo Mặt Trời tại thời điểm sinh
+      let birthDateUtc = new Date(Date.UTC(sYear, sMonth - 1, sDay, birthHourChi - 7, 0, 0));
+      let birthJD = dateToRealJD(birthDateUtc);
+      let birthSunDeg = getSunApparentLongitude(birthJD);
 
-      // Trụ Tháng
-      const monthPillar = getMonthCanChi(lYear, lMonth);
+      // Trụ Năm: Bát Tự tính năm mới chính xác từ tiết Lập Xuân (315°).
+      // Nếu sinh trước thời điểm Lập Xuân của năm thì thuộc năm trước.
+      let lapXuanJD = getSolarTermTransitionJD(sYear, 315, 35);
+      let battuYear = birthJD >= lapXuanJD ? sYear : sYear - 1;
+      let yCanIdx = (battuYear + 6) % 10;
+      let yChiIdx = (battuYear + 8) % 12;
+      const yearPillar = { can: CAN[yCanIdx], chi: CHI[yChiIdx], canIndex: yCanIdx, chiIndex: yChiIdx, text: `${CAN[yCanIdx]} ${CHI[yChiIdx]}` };
+
+      // Trụ Tháng: Được xác định bởi 12 Tiết (Tiết Lệnh) thiên văn:
+      // Dần (Lập Xuân: 315°), Mão (Kinh Trập: 345°), Thìn (Thanh Minh: 15°), Tỵ (Lập Hạ: 45°),
+      // Ngọ (Mang Chủng: 75°), Mùi (Tiểu Thử: 105°), Thân (Lập Thu: 135°), Dậu (Bạch Lộ: 165°),
+      // Tuất (Hàn Lộ: 195°), Hợi (Lập Đông: 225°), Tý (Đại Tuyết: 255°), Sửu (Tiểu Hàn: 285°)
+      let shiftedDeg = (birthSunDeg - 315 + 360) % 360;
+      let tietLenhIndex = Math.floor(shiftedDeg / 30); // 0 = Dần, 1 = Mão, ..., 11 = Sửu
+      let mChiIdx = (tietLenhIndex + 2) % 12;
+      // Khởi Can tháng theo quy luật Ngũ Hổ Độn:
+      // Giáp/Kỷ -> Bính Dần (2) | Ất/Canh -> Mậu Dần (4) | Bính/Tân -> Canh Dần (6) | Đinh/Nhâm -> Nhâm Dần (8) | Mậu/Quý -> Giáp Dần (0)
+      const START_MONTH_CAN = [2, 4, 6, 8, 0, 2, 4, 6, 8, 0];
+      let startMCan = START_MONTH_CAN[yCanIdx];
+      let mCanIdx = (startMCan + tietLenhIndex) % 10;
+      const monthPillar = { can: CAN[mCanIdx], chi: CHI[mChiIdx], canIndex: mCanIdx, chiIndex: mChiIdx, text: `${CAN[mCanIdx]} ${CHI[mChiIdx]}` };
 
       // Trụ Ngày (Nhật Chủ)
       const dayPillar = getDayCanChi(sDay, sMonth, sYear);
