@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lịch Âm Dương & Bát Tự Tứ Trụ</title>
+  <meta name="description" content="Ứng dụng Lịch Âm Dương, Bát Tự Tứ Trụ, Tra cứu Ngày Giờ Hoàng Đạo và Các Ngày Lễ Tết Truyền Thống Việt Nam." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #991b1b;
+      --primary-dark: #7f1d1d;
+      --primary-light: #fef2f2;
+      --gold: #b45309;
+      --gold-light: #fef3c7;
+      --gold-border: #f59e0b;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+      --bg-page: #faf8f5;
+      --bg-card: #ffffff;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+      --radius-lg: 14px;
+      --radius-md: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%);
+      color: #fff;
+      padding: 1rem 1.25rem;
+      border-bottom: 3px solid #d97706;
+      box-shadow: 0 2px 10px rgba(127, 29, 29, 0.25);
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fef3c7;
+    }
+    .brand-sub {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      color: #fecaca;
+      font-weight: 400;
+    }
+    .realtime-clock {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      border-radius: 9999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      color: #fef3c7;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    /* Navigation Tabs */
+    .nav-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 0 0.5rem;
+    }
+    .nav-container::-webkit-scrollbar {
+      display: none;
+    }
+    .nav-tab {
+      padding: 0.9rem 1.1rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: none;
+      background: none;
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+    }
+    .nav-tab:hover {
+      color: var(--primary);
+      background-color: var(--primary-light);
+    }
+    .nav-tab.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.25rem;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Buttons & Controls */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-outline {
+      background: #fff;
+      border-color: var(--border-color);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background: #f9fafb;
+      border-color: #d1d5db;
+    }
+    .btn-gold {
+      background: var(--gold-light);
+      color: var(--gold);
+      border-color: #fcd34d;
+    }
+    .btn-gold:hover {
+      background: #fde68a;
+    }
+    .btn-sm {
+      padding: 0.35rem 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    /* Inputs */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 0.35rem;
+    }
+    .form-control, .form-select {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background-color: #fff;
+      color: var(--text-main);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(153, 27, 27, 0.1);
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .badge-hoangdao {
+      background-color: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+    .badge-hacdao {
+      background-color: #f3f4f6;
+      color: #4b5563;
+      border: 1px solid #e5e7eb;
+    }
+    .badge-fest {
+      background-color: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+    }
+
+    /* Layout Grids */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 900px) {
+      .grid-2col {
+        grid-template-columns: 1.55fr 1fr;
+      }
+    }
+
+    /* Calendar Grid View */
+    .cal-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .cal-month-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .cal-nav-btns {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      background: #f3f4f6;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      padding: 4px;
+    }
+    .cal-head-cell {
+      background: #fff;
+      text-align: center;
+      padding: 0.5rem 0.25rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .cal-head-cell.weekend {
+      color: var(--primary);
+    }
+    .cal-day-cell {
+      background: #fff;
+      min-height: 72px;
+      padding: 0.35rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+    .cal-day-cell:hover {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+    }
+    .cal-day-cell.other-month {
+      background: #f9fafb;
+      color: #9ca3af;
+      opacity: 0.55;
+    }
+    .cal-day-cell.selected {
+      background: #fef2f2;
+      outline: 2px solid var(--primary);
+      z-index: 2;
+    }
+    .cal-day-cell.today {
+      background: #fff7ed;
+      border: 1px solid #fb923c;
+    }
+    .solar-num {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1;
+    }
+    .cal-day-cell.weekend .solar-num {
+      color: var(--primary);
+    }
+    .lunar-num {
+      font-size: 0.75rem;
+      color: #4b5563;
+      font-weight: 600;
+    }
+    .lunar-first {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .day-indicators {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .hd-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #f59e0b;
+    }
+    .fest-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #ef4444;
+    }
+
+    /* Bloc Lịch Truyền Thống */
+    .bloc-card {
+      background: #fff;
+      border: 2px solid #b91c1c;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .bloc-top {
+      background: linear-gradient(135deg, #7f1d1d, #991b1b);
+      color: #fff;
+      padding: 0.85rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid #d97706;
+    }
+    .bloc-weekday {
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .bloc-solar-month {
+      font-size: 0.85rem;
+      color: #fef3c7;
+    }
+    .bloc-body {
+      padding: 1.25rem 1rem;
+      text-align: center;
+      background: #fffefb;
+    }
+    .bloc-solar-day {
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: #7f1d1d;
+      line-height: 1;
+      margin: 0.2rem 0;
+      font-family: 'Cinzel', serif;
+    }
+    .bloc-lunar-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: var(--radius-md);
+      padding: 0.65rem 0.85rem;
+      margin: 0.8rem 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .bloc-lunar-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .bloc-lunar-lbl {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .bloc-meta-list {
+      text-align: left;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .bloc-meta-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #f3f4f6;
+      padding-bottom: 0.35rem;
+    }
+    .bloc-meta-lbl {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .bloc-meta-val {
+      font-weight: 600;
+      color: #111827;
+      text-align: right;
+    }
+
+    /* 12 Canh Giờ Hoàng Đạo Table */
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    .hours-table th, .hours-table td {
+      padding: 0.45rem 0.6rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .hours-table th {
+      background: #f9fafb;
+      color: #4b5563;
+      font-weight: 600;
+    }
+    .hours-table tr.hoangdao-row {
+      background-color: #fffbeb;
+    }
+
+    /* Bát Tự (Four Pillars) Styling */
+    .battu-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+      margin: 1.25rem 0;
+    }
+    @media (max-width: 600px) {
+      .battu-pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .pillar-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .pillar-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid #f3f4f6;
+      padding-bottom: 0.25rem;
+    }
+    .pillar-can-box, .pillar-chi-box {
+      margin: 0.4rem 0;
+      padding: 0.35rem 0.2rem;
+      border-radius: 6px;
+    }
+    .can-text, .chi-text {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .nguhanh-sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: block;
+      margin-top: 2px;
+    }
+    .napam-box {
+      font-size: 0.72rem;
+      color: #4b5563;
+      background: #f9fafb;
+      border-radius: 4px;
+      padding: 0.25rem;
+      margin-top: 0.5rem;
+      border: 1px dashed #e5e7eb;
+    }
+
+    /* Ngũ Hành Colors */
+    .hanh-kim { background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
+    .hanh-moc { background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .hanh-thuy { background-color: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+    .hanh-hoa { background-color: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+    .hanh-tho { background-color: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+
+    /* Ngũ Hành Distribution Bar */
+    .nguhanh-bar-container {
+      margin: 1.25rem 0;
+    }
+    .nguhanh-bar {
+      height: 22px;
+      border-radius: 9999px;
+      display: flex;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+      border: 1px solid var(--border-color);
+    }
+    .bar-seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      transition: width 0.3s ease;
+    }
+    .bar-kim { background-color: #64748b; }
+    .bar-moc { background-color: #10b981; }
+    .bar-thuy { background-color: #3b82f6; }
+    .bar-hoa { background-color: #ef4444; }
+    .bar-tho { background-color: #f59e0b; }
+
+    .nguhanh-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .legend-color {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+    }
+
+    /* Festival / Holidays Table & List */
+    .fest-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 0.65rem;
+      background: #fff;
+      transition: transform 0.15s ease;
+    }
+    .fest-card:hover {
+      transform: translateX(3px);
+      border-color: #fca5a5;
+    }
+    .fest-date-badge {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      text-align: center;
+      min-width: 65px;
+    }
+    .fest-date-day {
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .fest-date-type {
+      font-size: 0.68rem;
+      color: #fecaca;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .fest-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 0.2rem;
+    }
+    .fest-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Converter Tool */
+    .conv-box {
+      max-width: 650px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .conv-result {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: #1f2937;
+      color: #9ca3af;
+      padding: 1.5rem 1rem;
+      font-size: 0.82rem;
+      text-align: center;
+      margin-top: auto;
+      border-top: 1px solid #374151;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(2px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      max-width: 550px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+    }
+    .modal-head {
+      background: linear-gradient(135deg, #7f1d1d, #991b1b);
+      color: #fff;
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-body {
+      padding: 1.25rem;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div>
+        <div class="brand-title">
+          <span>🏮</span> Lịch Âm Dương &amp; Bát Tự Tứ Trụ
+        </div>
+        <div class="brand-sub">Tra cứu lịch vạn niên, ngày giờ hoàng đạo, tiết khí và phong tục lễ tết Việt Nam</div>
+      </div>
+      <div class="realtime-clock" id="liveClock">
+        <span>⏰</span> <span id="clockText">Đang tải giờ...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <div class="nav-bar">
+    <div class="nav-container">
+      <button class="nav-tab active" data-tab="tab-calendar">
+        📅 Lịch Vạn Niên &amp; Ngày Đẹp
+      </button>
+      <button class="nav-tab" data-tab="tab-battu">
+        🔮 Lập Lá Số Bát Tự (Tứ Trụ)
+      </button>
+      <button class="nav-tab" data-tab="tab-converter">
+        🔄 Đổi Lịch Âm ⇄ Dương
+      </button>
+      <button class="nav-tab" data-tab="tab-festivals">
+        🏮 Ngày Lễ Tết Truyền Thống
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <main>
+    <!-- TAB 1: LỊCH VẠN NIÊN -->
+    <div id="tab-calendar" class="tab-content active">
+      <div class="grid-2col">
+        <!-- Calendar Grid Column -->
+        <div class="card">
+          <div class="cal-controls">
+            <div class="cal-month-title" id="calTitleDisplay">Tháng 9 năm 2026</div>
+            <div class="cal-nav-btns">
+              <button class="btn btn-outline btn-sm" id="btnPrevMonth" title="Tháng trước">◀</button>
+              <button class="btn btn-gold btn-sm" id="btnToday">Hôm nay</button>
+              <button class="btn btn-outline btn-sm" id="btnNextMonth" title="Tháng sau">▶</button>
+              <select class="form-select" id="quickMonthSelect" style="width: auto; padding: 0.35rem 0.5rem; font-size: 0.82rem; margin-left: 0.3rem;">
+                <!-- Filled via JS -->
+              </select>
+              <select class="form-select" id="quickYearSelect" style="width: auto; padding: 0.35rem 0.5rem; font-size: 0.82rem;">
+                <!-- Filled via JS -->
+              </select>
+            </div>
+          </div>
+
+          <!-- Calendar Table Header -->
+          <div class="cal-grid" id="calGridHeader">
+            <div class="cal-head-cell weekend">CN</div>
+            <div class="cal-head-cell">T2</div>
+            <div class="cal-head-cell">T3</div>
+            <div class="cal-head-cell">T4</div>
+            <div class="cal-head-cell">T5</div>
+            <div class="cal-head-cell">T6</div>
+            <div class="cal-head-cell weekend">T7</div>
+          </div>
+          <!-- Days container -->
+          <div class="cal-grid" id="calDaysGrid" style="border-top: none;">
+            <!-- Days rendered via JS -->
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center; margin-top: 0.85rem; font-size: 0.78rem; color: var(--text-muted);">
+            <div style="display: flex; align-items: center; gap: 0.3rem;">
+              <span class="hd-dot"></span> Ngày Hoàng Đạo
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.3rem;">
+              <span class="fest-dot"></span> Ngày Lễ / Tết
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.3rem;">
+              <span style="display:inline-block; width: 12px; height: 12px; border: 1px solid #fb923c; background: #fff7ed; border-radius: 2px;"></span> Hôm nay
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Day Details (Bloc Lịch) Column -->
+        <div>
+          <div class="bloc-card">
+            <div class="bloc-top">
+              <div class="bloc-weekday" id="blocWeekday">THỨ TƯ</div>
+              <div class="bloc-solar-month" id="blocSolarMonth">Tháng 9 năm 2026 (Dương Lịch)</div>
+            </div>
+            <div class="bloc-body">
+              <div class="bloc-solar-day" id="blocSolarDay">02</div>
+              <div class="bloc-lunar-box">
+                <div>
+                  <div class="bloc-lunar-val" id="blocLunarDay">21</div>
+                  <div class="bloc-lunar-lbl">Ngày Âm</div>
+                </div>
+                <div style="font-size: 1.3rem; color: #d1d5db;">/</div>
+                <div>
+                  <div class="bloc-lunar-val" id="blocLunarMonth">07</div>
+                  <div class="bloc-lunar-lbl">Tháng Âm</div>
+                </div>
+                <div style="font-size: 1.3rem; color: #d1d5db;">•</div>
+                <div>
+                  <div class="bloc-lunar-val" id="blocLunarYearCanChi" style="font-size: 1rem;">Bính Ngọ</div>
+                  <div class="bloc-lunar-lbl">Năm Can Chi</div>
+                </div>
+              </div>
+
+              <!-- Day Meta Details -->
+              <div class="bloc-meta-list">
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Đánh giá ngày:</span>
+                  <span class="bloc-meta-val" id="blocHoangDaoBadge">
+                    <span class="badge badge-hoangdao">Ngày Hoàng Đạo (Kim Quỹ)</span>
+                  </span>
+                </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Can Chi ngày:</span>
+                  <span class="bloc-meta-val" id="blocDayCanChi">Kỷ Mão</span>
+                </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Can Chi tháng:</span>
+                  <span class="bloc-meta-val" id="blocMonthCanChi">Bính Thân</span>
+                </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Nạp Âm ngũ hành:</span>
+                  <span class="bloc-meta-val" id="blocNapAm">Thành Đầu Thổ</span>
+                </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Tiết khí:</span>
+                  <span class="bloc-meta-val" id="blocTietKhi">Xử Thử</span>
+                </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Trực / Sao ngày:</span>
+                  <span class="bloc-meta-val" id="blocTrucSao">Trực Bình • Sao Vĩ</span>
+                </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Hướng xuất hành:</span>
+                  <span class="bloc-meta-val" id="blocHuongXuatHanh">Hỷ Thần: Đông Bắc • Tài Thần: Nam</span>
+                </div>
+                <div class="bloc-meta-row" id="blocFestRow" style="display:none;">
+                  <span class="bloc-meta-lbl">Sự kiện / Lễ tết:</span>
+                  <span class="bloc-meta-val" id="blocFestText" style="color: var(--primary); font-weight: 700;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Auspicious Hours (Giờ Hoàng Đạo trong ngày) -->
+          <div class="card" style="margin-top: 1rem;">
+            <div class="card-header">
+              <h3 class="card-title">⏰ 12 Canh Giờ Trong Ngày</h3>
+              <span style="font-size: 0.75rem; color: var(--gold); font-weight: 600;">Vàng = Hoàng Đạo</span>
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="hours-table">
+                <thead>
+                  <tr>
+                    <th>Canh Giờ</th>
+                    <th>Khoảng Giờ</th>
+                    <th>Can Chi</th>
+                    <th>Hoàng / Hắc Đạo</th>
+                  </tr>
+                </thead>
+                <tbody id="blocHoursList">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: LẬP LÁ SỐ BÁT TỰ (TỨ TRỤ) -->
+    <div id="tab-battu" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">🔮 Lập Lá Số Bát Tự Tứ Trụ (Năm • Tháng • Ngày • Giờ)</h2>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Tính toán Thiên Can, Địa Chi, Ngũ Hành, Nạp Âm &amp; Thân Mệnh</span>
+        </div>
+
+        <!-- Form Input -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group">
+            <label class="form-label" for="btName">Họ và tên:</label>
+            <input type="text" id="btName" class="form-control" placeholder="Ví dụ: Nguyễn Hoàng Đăng" value="Nguyễn Hoàng Đăng">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="btGender">Giới tính:</label>
+            <select id="btGender" class="form-select">
+              <option value="male">Nam (Dương Nam / Âm Nam)</option>
+              <option value="female">Nữ (Dương Nữ / Âm Nữ)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Loại lịch nhập:</label>
+            <div style="display: flex; gap: 1rem; padding-top: 0.4rem;">
+              <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.88rem; cursor: pointer;">
+                <input type="radio" name="btCalendarType" value="solar" checked id="btTypeSolar"> Dương Lịch
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.88rem; cursor: pointer;">
+                <input type="radio" name="btCalendarType" value="lunar" id="btTypeLunar"> Âm Lịch
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="btDate">Ngày tháng năm sinh:</label>
+            <input type="date" id="btDate" class="form-control" value="2000-08-18">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="btHour">Giờ sinh:</label>
+            <select id="btHour" class="form-select">
+              <option value="0">Giờ Tý (23:00 - 00:59)</option>
+              <option value="2">Giờ Sửu (01:00 - 02:59)</option>
+              <option value="4">Giờ Dần (03:00 - 04:59)</option>
+              <option value="6">Giờ Mão (05:00 - 06:59)</option>
+              <option value="8">Giờ Thìn (07:00 - 08:59)</option>
+              <option value="10" selected>Giờ Tỵ (09:00 - 10:59)</option>
+              <option value="12">Giờ Ngọ (11:00 - 12:59)</option>
+              <option value="14">Giờ Mùi (13:00 - 14:59)</option>
+              <option value="16">Giờ Thân (15:00 - 16:59)</option>
+              <option value="18">Giờ Dậu (17:00 - 18:59)</option>
+              <option value="20">Giờ Tuất (19:00 - 20:59)</option>
+              <option value="22">Giờ Hợi (21:00 - 22:59)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button class="btn btn-primary" id="btnCalculateBattu">
+            ✨ Lập Lá Số &amp; Bình Giải
+          </button>
+          <button class="btn btn-outline" id="btnPrintBattu">
+            🖨️ In / Lưu Lá Số
+          </button>
+        </div>
+      </div>
+
+      <!-- Bát Tự Output Result -->
+      <div class="card" id="btResultContainer">
+        <div style="text-align: center; margin-bottom: 1.25rem;">
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-dark);" id="btResultPerson">LÁ SỐ BÁT TỰ TỨ TRỤ</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);" id="btResultInfo">Sinh ngày 18/08/2000 (Dương lịch) • Tức ngày 19/07/2000 (Âm lịch Canh Thìn)</p>
+        </div>
+
+        <!-- 4 Pillars Display Grid -->
+        <div class="battu-pillars-grid">
+          <!-- Trụ Năm -->
+          <div class="pillar-card">
+            <div class="pillar-title">TRỤ NĂM (Tổ Tiên)</div>
+            <div class="pillar-can-box" id="btPillarYearCan">
+              <div class="can-text" id="btYearCan">Canh</div>
+              <span class="nguhanh-sub" id="btYearCanHanh">Dương Kim</span>
+            </div>
+            <div class="pillar-chi-box" id="btPillarYearChi">
+              <div class="chi-text" id="btYearChi">Thìn</div>
+              <span class="nguhanh-sub" id="btYearChiHanh">Dương Thổ</span>
+            </div>
+            <div class="napam-box" id="btYearNapAm">Bạch Lạp Kim</div>
+            <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.35rem;" id="btYearTangCan">Tàng: Mậu, Ất, Quý</div>
+          </div>
+
+          <!-- Trụ Tháng -->
+          <div class="pillar-card">
+            <div class="pillar-title">TRỤ THÁNG (Cha Mẹ)</div>
+            <div class="pillar-can-box" id="btPillarMonthCan">
+              <div class="can-text" id="btMonthCan">Giáp</div>
+              <span class="nguhanh-sub" id="btMonthCanHanh">Dương Mộc</span>
+            </div>
+            <div class="pillar-chi-box" id="btPillarMonthChi">
+              <div class="chi-text" id="btMonthChi">Thân</div>
+              <span class="nguhanh-sub" id="btMonthChiHanh">Dương Kim</span>
+            </div>
+            <div class="napam-box" id="btMonthNapAm">Tuyền Trung Thủy</div>
+            <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.35rem;" id="btMonthTangCan">Tàng: Canh, Nhâm, Mậu</div>
+          </div>
+
+          <!-- Trụ Ngày (Nhật Chủ) -->
+          <div class="pillar-card" style="border: 2px solid var(--gold-border); background: #fffdfa;">
+            <div class="pillar-title" style="color: var(--gold);">TRỤ NGÀY (NHẬT CHỦ)</div>
+            <div class="pillar-can-box" id="btPillarDayCan">
+              <div class="can-text" id="btDayCan">Mậu</div>
+              <span class="nguhanh-sub" id="btDayCanHanh">Dương Thổ</span>
+            </div>
+            <div class="pillar-chi-box" id="btPillarDayChi">
+              <div class="chi-text" id="btDayChi">Dần</div>
+              <span class="nguhanh-sub" id="btDayChiHanh">Dương Mộc</span>
+            </div>
+            <div class="napam-box" id="btDayNapAm">Thành Đầu Thổ</div>
+            <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.35rem;" id="btDayTangCan">Tàng: Giáp, Bính, Mậu</div>
+          </div>
+
+          <!-- Trụ Giờ -->
+          <div class="pillar-card">
+            <div class="pillar-title">TRỤ GIỜ (Con Cái)</div>
+            <div class="pillar-can-box" id="btPillarHourCan">
+              <div class="can-text" id="btHourCan">Đinh</div>
+              <span class="nguhanh-sub" id="btHourCanHanh">Âm Hỏa</span>
+            </div>
+            <div class="pillar-chi-box" id="btPillarHourChi">
+              <div class="chi-text" id="btHourChi">Tỵ</div>
+              <span class="nguhanh-sub" id="btHourChiHanh">Âm Hỏa</span>
+            </div>
+            <div class="napam-box" id="btHourNapAm">Sa Trung Thổ</div>
+            <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.35rem;" id="btHourTangCan">Tàng: Bính, Mậu, Canh</div>
+          </div>
+        </div>
+
+        <!-- Phân bổ Ngũ Hành trong Tứ Trụ -->
+        <div class="card" style="background: #fafafa; border: 1px solid #e5e7eb; margin-top: 1rem;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: #374151; margin-bottom: 0.5rem;">
+            📊 Phân Bổ Ngũ Hành &amp; Cân Bằng Năng Lượng Tứ Trụ
+          </h4>
+          <div class="nguhanh-bar-container">
+            <div class="nguhanh-bar" id="nguHanhBar">
+              <div class="bar-seg bar-kim" style="width: 25%;" id="segKim">Kim 25%</div>
+              <div class="bar-seg bar-moc" style="width: 25%;" id="segMoc">Mộc 25%</div>
+              <div class="bar-seg bar-thuy" style="width: 15%;" id="segThuy">Thủy 15%</div>
+              <div class="bar-seg bar-hoa" style="width: 20%;" id="segHoa">Hỏa 20%</div>
+              <div class="bar-seg bar-tho" style="width: 15%;" id="segTho">Thổ 15%</div>
+            </div>
+            <div class="nguhanh-legend">
+              <div class="legend-item"><span class="legend-color bar-kim"></span> Kim: <strong id="lblScoreKim">2.0</strong></div>
+              <div class="legend-item"><span class="legend-color bar-moc"></span> Mộc: <strong id="lblScoreMoc">2.0</strong></div>
+              <div class="legend-item"><span class="legend-color bar-thuy"></span> Thủy: <strong id="lblScoreThuy">1.0</strong></div>
+              <div class="legend-item"><span class="legend-color bar-hoa"></span> Hỏa: <strong id="lblScoreHoa">1.5</strong></div>
+              <div class="legend-item"><span class="legend-color bar-tho"></span> Thổ: <strong id="lblScoreTho">1.5</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Luận Đoán Sơ Lược -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+          <div class="card" style="margin-bottom: 0; background: #fff;">
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.4rem;">
+              ⚖️ Đánh Giá Thân Vượng / Thân Nhược
+            </h4>
+            <p style="font-size: 0.85rem; color: #374151; line-height: 1.6;" id="btThanStatus">
+              Nhật Chủ <strong>Mậu Thổ</strong> sinh vào tháng Thân (Kim lệnh tiết khí). Bản mệnh được hỏa của trụ giờ tương sinh, có gốc Thổ tàng trong Thìn. Tổng hòa lực lượng: <strong>Thân Trung Hòa thiên Nhược</strong>.
+            </p>
+          </div>
+          <div class="card" style="margin-bottom: 0; background: #fff;">
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 0.4rem;">
+              🍀 Dụng Thần &amp; Hỷ Thần Gợi Ý
+            </h4>
+            <p style="font-size: 0.85rem; color: #374151; line-height: 1.6;" id="btDungThan">
+              • <strong>Dụng Thần:</strong> Hỏa (Chính Ấn / Thiên Ấn) bồi dưỡng sinh lực cho Nhật Chủ.<br>
+              • <strong>Hỷ Thần:</strong> Thổ (Tỷ Kiên / Kiếp Tài) trợ lực vững chắc.<br>
+              • <strong>Màu sắc tương hợp:</strong> Đỏ, hồng, cam, tím (Hỏa) và vàng, nâu đất (Thổ).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: ĐỔI LỊCH ÂM ⇄ DƯƠNG -->
+    <div id="tab-converter" class="tab-content">
+      <div class="conv-box">
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--primary-dark); text-align: center; margin-bottom: 1.25rem;">
+          🔄 Công Cụ Chuyển Đổi Lịch Âm - Dương
+        </h2>
+
+        <!-- Mode Toggle -->
+        <div style="display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <button class="btn btn-primary" id="btnModeS2L">Dương Lịch ➔ Âm Lịch</button>
+          <button class="btn btn-outline" id="btnModeL2S">Âm Lịch ➔ Dương Lịch</button>
+        </div>
+
+        <!-- Input Form -->
+        <div id="convInputForm" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="form-label" id="lblConvDay">Ngày Dương:</label>
+            <input type="number" id="convDay" class="form-control" min="1" max="31" value="2">
+          </div>
+          <div class="form-group">
+            <label class="form-label" id="lblConvMonth">Tháng Dương:</label>
+            <input type="number" id="convMonth" class="form-control" min="1" max="12" value="9">
+          </div>
+          <div class="form-group">
+            <label class="form-label" id="lblConvYear">Năm:</label>
+            <input type="number" id="convYear" class="form-control" min="1900" max="2100" value="2026">
+          </div>
+        </div>
+
+        <div id="lunarLeapCheckboxGroup" style="display: none; margin-bottom: 1rem;">
+          <label style="display: flex; align-items: center; gap: 0.45rem; font-size: 0.88rem; cursor: pointer;">
+            <input type="checkbox" id="convIsLeap"> Là tháng nhuận
+          </label>
+        </div>
+
+        <button class="btn btn-gold" id="btnRunConvert" style="width: 100%;">
+          ⚡ Thực Hiện Chuyển Đổi
+        </button>
+
+        <!-- Result Box -->
+        <div class="conv-result" id="convResultBox">
+          <div style="font-size: 0.82rem; color: #92400e; text-transform: uppercase; font-weight: 700; margin-bottom: 0.35rem;" id="convResultHeader">
+            KẾT QUẢ ÂM LỊCH TƯƠNG ỨNG
+          </div>
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary);" id="convResultMain">
+            Ngày 21 Tháng 7 Năm 2026
+          </div>
+          <div style="font-size: 0.95rem; color: #374151; font-weight: 600; margin-top: 0.4rem;" id="convResultSub">
+            Năm Bính Ngọ • Tháng Bính Thân • Ngày Kỷ Mão
+          </div>
+          <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.35rem;" id="convResultExtra">
+            Tiết khí: Xử Thử • Trực Bình • Ngày Hoàng Đạo (Kim Quỹ)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: LỄ TẾT TRUYỀN THỐNG -->
+    <div id="tab-festivals" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">🏮 Danh Sách Các Ngày Lễ Tết &amp; Phong Tục Truyền Thống</h2>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label style="font-size: 0.85rem; font-weight: 600;">Xem theo năm:</label>
+            <input type="number" id="festYearInput" class="form-control" style="width: 90px; padding: 0.3rem 0.5rem;" value="2026" min="1900" max="2100">
+            <button class="btn btn-outline btn-sm" id="btnUpdateFestYear">Cập nhật</button>
+          </div>
+        </div>
+
+        <!-- Filter Sub-tabs -->
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
+          <button class="btn btn-gold btn-sm fest-filter active" data-filter="all">Tất cả</button>
+          <button class="btn btn-outline btn-sm fest-filter" data-filter="lunar">Lễ Tết Âm Lịch (Cổ truyền)</button>
+          <button class="btn btn-outline btn-sm fest-filter" data-filter="solar">Lễ Dương Lịch &amp; Quốc tế</button>
+        </div>
+
+        <div id="festivalsContainer">
+          <!-- Festivals list rendered via JS -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Chi Tiết Ngày -->
+  <div class="modal-overlay" id="dayDetailModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 style="font-size: 1.1rem; font-weight: 700;" id="modalTitle">Chi Tiết Ngày</h3>
+        <button class="close-btn" id="modalCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body" id="modalContent">
+        <!-- Content filled dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <p style="font-weight: 600; color: #d1d5db; margin-bottom: 0.3rem;">
+        Ứng Dụng Lịch Âm Dương, Bát Tự Tứ Trụ &amp; Ngày Giờ Hoàng Đạo
+      </p>
+      <p>Thuật toán thiên văn chuyển đổi lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00). Bản quyền thuần Web tĩnh HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Complete Javascript Engine -->
+  <script>
+    /**
+     * THUẬT TOÁN THIÊN VĂN ÂM DƯƠNG HỒ NGỌC ĐỨC (VIỆT NAM UTC+7)
+     */
+    const PI = Math.PI;
+
+    // Julian Day Number from Gregorian Date
+    function jdFromDate(dd, mm, yy) {
+      let a = Math.floor((14 - mm) / 12);
+      let y = yy + 4800 - a;
+      let m = mm + 12 * a - 3;
+      let jd = dd + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045;
+      if (jd < 2299161) {
+        jd = dd + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - 32083;
+      }
+      return jd;
+    }
+
+    // Gregorian Date from Julian Day Number
+    function jdToDate(jd) {
+      let a, b, c, d, e, m, day, month, year;
+      if (jd > 2299160) {
+        a = jd + 32044;
+        b = Math.floor((4 * a + 3) / 146097);
+        c = a - Math.floor((b * 146097) / 4);
+      } else {
+        b = 0;
+        c = jd + 32082;
+      }
+      d = Math.floor((4 * c + 3) / 1461);
+      e = c - Math.floor((1461 * d) / 4);
+      m = Math.floor((5 * e + 2) / 153);
+      day = e - Math.floor((153 * m + 2) / 5) + 1;
+      month = m + 3 - 12 * Math.floor(m / 10);
+      year = b * 100 + d - 4800 + Math.floor(m / 10);
+      return [day, month, year];
+    }
+
+    // New Moon Day calculation
+    function getNewMoonDay(k, timeZone) {
+      let T = k / 1236.85;
+      let T2 = T * T;
+      let T3 = T2 * T;
+      let dr = PI / 180;
+      let Jd1 = 2451550.09765 + 29.530588853 * k + 0.0001337 * T2 - 0.000000150 * T3 + 0.00000000073 * T2 * T2;
+      let M = 2.5534 + 29.10535669 * k - 0.0000218 * T2 - 0.00000011 * T3;
+      let Mpr = 201.5643 + 385.81693528 * k + 0.0107438 * T2 + 0.00001239 * T3 - 0.000000058 * T2 * T2;
+      let F = 160.7108 + 390.67050274 * k - 0.0016341 * T2 - 0.00000227 * T3 + 0.000000011 * T2 * T2;
+      let Om = 124.7746 - 1.56375580 * k + 0.0020691 * T2 + 0.00000215 * T3;
+
+      let dpt = 0;
+      dpt += (0.1734 - 0.000393 * T) * Math.sin(M * dr);
+      dpt += 0.0021 * Math.sin(2 * M * dr);
+      dpt += -0.4068 * Math.sin(Mpr * dr);
+      dpt += 0.0161 * Math.sin(2 * Mpr * dr);
+      dpt += -0.0004 * Math.sin(3 * Mpr * dr);
+      dpt += 0.0104 * Math.sin(2 * F * dr);
+      dpt += -0.0051 * Math.sin((M + Mpr) * dr);
+      dpt += -0.0074 * Math.sin((M - Mpr) * dr);
+      dpt += 0.0004 * Math.sin((2 * F + M) * dr);
+      dpt += -0.0004 * Math.sin((2 * F - M) * dr);
+      dpt += -0.0006 * Math.sin((2 * F + Mpr) * dr);
+      dpt += 0.0010 * Math.sin((2 * F - Mpr) * dr);
+      dpt += 0.0005 * Math.sin((M + 2 * Mpr) * dr);
+
+      let JdNew = Jd1 + dpt;
+      return Math.floor(JdNew + 0.5 + timeZone / 24);
+    }
+
+    // Solar Longitude (Trung khí / Tiết khí)
+    function getSunLongitude(dayNumber, timeZone) {
+      let T = (dayNumber - 0.5 - timeZone / 24 - 2451545.0) / 36525;
+      let T2 = T * T;
+      let dr = PI / 180;
+      let L0 = 280.46645 + 36000.76983 * T + 0.0003032 * T2;
+      let L = 357.52910 + 35999.05028 * T - 0.0001559 * T2 - 0.00000048 * T * T2;
+      let C = (1.914600 - 0.004817 * T - 0.000014 * T2) * Math.sin(L * dr)
+            + (0.019993 - 0.000101 * T) * Math.sin(2 * L * dr)
+            + 0.000290 * Math.sin(3 * L * dr);
+      let theta = L0 + C;
+      theta = theta * dr;
+      theta = theta - PI * 2 * Math.floor(theta / (PI * 2));
+      return Math.floor(theta / (PI / 6));
+    }
+
+    // 24 Solar Terms exact longitude angle
+    function getSunExactLongitude(dayNumber, timeZone) {
+      let T = (dayNumber - 0.5 - timeZone / 24 - 2451545.0) / 36525;
+      let T2 = T * T;
+      let dr = PI / 180;
+      let L0 = 280.46645 + 36000.76983 * T + 0.0003032 * T2;
+      let L = 357.52910 + 35999.05028 * T - 0.0001559 * T2 - 0.00000048 * T * T2;
+      let C = (1.914600 - 0.004817 * T - 0.000014 * T2) * Math.sin(L * dr)
+            + (0.019993 - 0.000101 * T) * Math.sin(2 * L * dr)
+            + 0.000290 * Math.sin(3 * L * dr);
+      let theta = (L0 + C) % 360;
+      if (theta < 0) theta += 360;
+      return theta;
+    }
+
+    function getLunarMonth11(yy, timeZone) {
+      let off = jdFromDate(31, 12, yy) - 2451545;
+      let k = Math.floor(off / 29.530588853);
+      let nm = getNewMoonDay(k, timeZone);
+      let sunLong = getSunLongitude(nm, timeZone);
+      if (sunLong >= 9) {
+        nm = getNewMoonDay(k - 1, timeZone);
+      }
+      return nm;
+    }
+
+    function getLeapMonthOffset(a11, timeZone) {
+      let k = Math.floor((a11 - 2451545.0) / 29.530588853 + 0.5);
+      let last = 0;
+      let i = 1;
+      let arc = getSunLongitude(getNewMoonDay(k + i, timeZone), timeZone);
+      do {
+        last = arc;
+        i++;
+        arc = getSunLongitude(getNewMoonDay(k + i, timeZone), timeZone);
+      } while (arc !== last && i < 14);
+      return i - 1;
+    }
+
+    // Convert Solar date to Lunar date [lunarDay, lunarMonth, lunarYear, isLeap]
+    function convertSolar2Lunar(dd, mm, yy, timeZone = 7) {
+      let dayNumber = jdFromDate(dd, mm, yy);
+      let k = Math.floor((dayNumber - 2451545.0) / 29.530588853);
+      let monthStart = getNewMoonDay(k + 1, timeZone);
+      if (monthStart > dayNumber) {
+        monthStart = getNewMoonDay(k, timeZone);
+      }
+      let a11 = getLunarMonth11(yy, timeZone);
+      let b11 = a11;
+      let lunarYear;
+      if (a11 >= monthStart) {
+        lunarYear = yy;
+        a11 = getLunarMonth11(yy - 1, timeZone);
+      } else {
+        lunarYear = yy + 1;
+        b11 = getLunarMonth11(yy + 1, timeZone);
+      }
+      let lunarDay = dayNumber - monthStart + 1;
+      let diff = Math.floor((monthStart - a11) / 29);
+      let lunarLeap = 0;
+      let lunarMonth = diff + 11;
+      if (b11 - a11 > 365) {
+        let leapMonthDiff = getLeapMonthOffset(a11, timeZone);
+        if (diff >= leapMonthDiff) {
+          lunarMonth = diff + 10;
+          if (diff === leapMonthDiff) {
+            lunarLeap = 1;
+          }
+        }
+      }
+      if (lunarMonth > 12) {
+        lunarMonth = lunarMonth - 12;
+      }
+      if (lunarMonth >= 11 && diff < 4) {
+        lunarYear -= 1;
+      }
+      return [lunarDay, lunarMonth, lunarYear, lunarLeap];
+    }
+
+    // Convert Lunar date to Solar date [dd, mm, yy]
+    function convertLunar2Solar(lunarDay, lunarMonth, lunarYear, lunarLeap = 0, timeZone = 7) {
+      let a11, b11;
+      if (lunarMonth < 11) {
+        a11 = getLunarMonth11(lunarYear - 1, timeZone);
+        b11 = getLunarMonth11(lunarYear, timeZone);
+      } else {
+        a11 = getLunarMonth11(lunarYear, timeZone);
+        b11 = getLunarMonth11(lunarYear + 1, timeZone);
+      }
+      let k = Math.floor((a11 - 2451545.0) / 29.530588853 + 0.5);
+      let off = lunarMonth - 11;
+      if (off < 0) off += 12;
+      if (b11 - a11 > 365) {
+        let leapOff = getLeapMonthOffset(a11, timeZone);
+        let leapMonth = leapOff - 2;
+        if (leapMonth < 0) leapMonth += 12;
+        if (lunarLeap !== 0 && lunarMonth !== leapMonth) {
+          return [0, 0, 0];
+        } else if (lunarLeap !== 0 || off >= leapOff) {
+          off += 1;
+        }
+      }
+      let monthStart = getNewMoonDay(k + off, timeZone);
+      return jdToDate(monthStart + lunarDay - 1);
+    }
+
+    /**
+     * DỮ LIỆU CAN CHI, NGŨ HÀNH & BÁT TỰ TỨ TRỤ
+     */
+    const CAN = ["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"];
+    const CHI = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
+    const CAN_HANH = ["Dương Mộc", "Âm Mộc", "Dương Hỏa", "Âm Hỏa", "Dương Thổ", "Âm Thổ", "Dương Kim", "Âm Kim", "Dương Thủy", "Âm Thủy"];
+    const CHI_HANH = ["Dương Thủy", "Âm Thổ", "Dương Mộc", "Âm Mộc", "Dương Thổ", "Âm Hỏa", "Dương Hỏa", "Âm Thổ", "Dương Kim", "Âm Kim", "Dương Thổ", "Âm Thủy"];
+    const CHI_ANIMAL = ["Chuột", "Trâu", "Hổ", "Mèo", "Rồng", "Rắn", "Ngựa", "Dê", "Khỉ", "Gà", "Chó", "Heo"];
+
+    // 60 Lục Thập Hoa Giáp Nạp Âm
+    const NAP_AM = {
+      "Giáp Tý": "Hải Trung Kim", "Ất Sửu": "Hải Trung Kim",
+      "Bính Dần": "Lư Trung Hỏa", "Đinh Mão": "Lư Trung Hỏa",
+      "Mậu Thìn": "Đại Lâm Mộc", "Kỷ Tỵ": "Đại Lâm Mộc",
+      "Canh Ngọ": "Lộ Bàng Thổ", "Tân Mùi": "Lộ Bàng Thổ",
+      "Nhâm Thân": "Kiếm Phong Kim", "Quý Dậu": "Kiếm Phong Kim",
+      "Giáp Tuất": "Sơn Đầu Hỏa", "Ất Hợi": "Sơn Đầu Hỏa",
+      "Bính Tý": "Giản Hạ Thủy", "Đinh Sửu": "Giản Hạ Thủy",
+      "Mậu Dần": "Thành Đầu Thổ", "Kỷ Mão": "Thành Đầu Thổ",
+      "Canh Thìn": "Bạch Lạp Kim", "Tân Tỵ": "Bạch Lạp Kim",
+      "Nhâm Ngọ": "Dương Liễu Mộc", "Quý Mùi": "Dương Liễu Mộc",
+      "Giáp Thân": "Tuyền Trung Thủy", "Ất Dậu": "Tuyền Trung Thủy",
+      "Bính Tuất": "Ốc Thượng Thổ", "Đinh Hợi": "Ốc Thượng Thổ",
+      "Mậu Tý": "Tích Lịch Hỏa", "Kỷ Sửu": "Tích Lịch Hỏa",
+      "Canh Dần": "Tùng Bách Mộc", "Tân Mão": "Tùng Bách Mộc",
+      "Nhâm Thìn": "Trường Lưu Thủy", "Quý Tỵ": "Trường Lưu Thủy",
+      "Giáp Ngọ": "Sa Trung Kim", "Ất Mùi": "Sa Trung Kim",
+      "Bính Thân": "Sơn Hạ Hỏa", "Đinh Dậu": "Sơn Hạ Hỏa",
+      "Mậu Tuất": "Bình Địa Mộc", "Kỷ Hợi": "Bình Địa Mộc",
+      "Canh Tý": "Bích Thượng Thổ", "Tân Sửu": "Bích Thượng Thổ",
+      "Nhâm Dần": "Kim Bạc Kim", "Quý Mão": "Kim Bạc Kim",
+      "Giáp Thìn": "Phúc Đăng Hỏa", "Ất Tỵ": "Phúc Đăng Hỏa",
+      "Bính Ngọ": "Thiên Hà Thủy", "Đinh Mùi": "Thiên Hà Thủy",
+      "Mậu Thân": "Đại Trạch Thổ", "Kỷ Dậu": "Đại Trạch Thổ",
+      "Canh Tuất": "Thoa Xuyến Kim", "Tân Hợi": "Thoa Xuyến Kim",
+      "Nhâm Tý": "Tang Đố Mộc", "Quý Sửu": "Tang Đố Mộc",
+      "Giáp Dần": "Đại Khê Thủy", "Ất Mão": "Đại Khê Thủy",
+      "Bính Thìn": "Sa Trung Thổ", "Đinh Tỵ": "Sa Trung Thổ",
+      "Mậu Ngọ": "Thiên Thượng Hỏa", "Kỷ Mùi": "Thiên Thượng Hỏa",
+      "Canh Thân": "Thạch Lựu Mộc", "Tân Dậu": "Thạch Lựu Mộc",
+      "Nhâm Tuất": "Đại Hải Thủy", "Quý Hợi": "Đại Hải Thủy"
+    };
+
+    // Tàng Can trong 12 Địa Chi
+    const TANG_CAN = {
+      "Tý": ["Quý"],
+      "Sửu": ["Kỷ", "Quý", "Tân"],
+      "Dần": ["Giáp", "Bính", "Mậu"],
+      "Mão": ["Ất"],
+      "Thìn": ["Mậu", "Ất", "Quý"],
+      "Tỵ": ["Bính", "Mậu", "Canh"],
+      "Ngọ": ["Đinh", "Kỷ"],
+      "Mùi": ["Kỷ", "Đinh", "Ất"],
+      "Thân": ["Canh", "Nhâm", "Mậu"],
+      "Dậu": ["Tân"],
+      "Tuất": ["Mậu", "Tân", "Đinh"],
+      "Hợi": ["Nhâm", "Giáp"]
+    };
+
+    // 24 Tiết khí
+    const TIET_KHI = [
+      "Xuân Phân", "Thanh Minh", "Cốc Vũ", "Lập Hạ", "Tiểu Mãn", "Mang Chủng",
+      "Hạ Chí", "Tiểu Thử", "Đại Thử", "Lập Thu", "Xử Thử", "Bạch Lộ",
+      "Thu Phân", "Hàn Lộ", "Sương Giáng", "Lập Đông", "Tiểu Tuyết", "Đại Tuyết",
+      "Đông Chí", "Tiểu Hàn", "Đại Hàn", "Lập Xuân", "Vũ Thủy", "Kinh Trập"
+    ];
+
+    // 12 Thần sát Hoàng Đạo / Hắc Đạo
+    const HOANG_DAO_STARS = [
+      { name: "Thanh Long", isHoangDao: true },
+      { name: "Minh Đường", isHoangDao: true },
+      { name: "Thiên Hình", isHoangDao: false },
+      { name: "Chu Tước", isHoangDao: false },
+      { name: "Kim Quỹ", isHoangDao: true },
+      { name: "Kim Đường", isHoangDao: true },
+      { name: "Bạch Hổ", isHoangDao: false },
+      { name: "Ngọc Đường", isHoangDao: true },
+      { name: "Thiên Lao", isHoangDao: false },
+      { name: "Huyền Vũ", isHoangDao: false },
+      { name: "Tư Mệnh", isHoangDao: true },
+      { name: "Câu Trận", isHoangDao: false }
+    ];
+
+    // 12 Trực
+    const TRUC_LIST = ["Kiến", "Trừ", "Mãn", "Bình", "Định", "Chấp", "Phá", "Nguy", "Thành", "Thâu", "Khai", "Bế"];
+
+    // 28 Tú (Nhị Thập Bát Tú)
+    const SAO_28_TU = [
+      "Giác", "Cang", "Đê", "Phòng", "Tâm", "Vĩ", "Cơ",
+      "Đẩu", "Ngưu", "Nữ", "Hư", "Nguy", "Thất", "Bích",
+      "Khuê", "Lâu", "Vị", "Mão", "Tất", "Chủy", "Sâm",
+      "Tỉnh", "Quỷ", "Liễu", "Tinh", "Trương", "Dực", "Chẩn"
+    ];
+
+    // Danh sách ngày lễ tết truyền thống Việt Nam
+    const FESTIVALS_LUNAR = [
+      { day: 1, month: 1, name: "Tết Nguyên Đán (Mùng 1 Tết)", desc: "Ngày đầu năm mới âm lịch, lễ đoàn viên gia đình, xuất hành cầu may mắn, chúc thọ ông bà." },
+      { day: 2, month: 1, name: "Tết Nguyên Đán (Mùng 2 Tết)", desc: "Mùng một tết Cha, mùng hai tết Mẹ, thăm hỏi chúc tết người thân nội ngoại." },
+      { day: 3, month: 1, name: "Tết Nguyên Đán (Mùng 3 Tết)", desc: "Mùng ba tết Thầy, tri ân thầy cô giáo và những người dạy dỗ." },
+      { day: 15, month: 1, name: "Tết Nguyên Tiêu (Rằm tháng Giêng)", desc: "Lễ Thượng Nguyên, đi chùa cầu an lành, 'Cả năm được rằm tháng Bảy không bằng ngày rằm tháng Giêng'." },
+      { day: 3, month: 3, name: "Tết Hàn Thực (Bánh trôi, bánh chay)", desc: "Dịp tưởng nhớ cội nguồn, con cháu dâng bánh trôi bánh chay thơm thảo cúng tổ tiên." },
+      { day: 10, month: 3, name: "Giỗ Tổ Hùng Vương", desc: "Quốc lễ tri ân công đức các Vua Hùng đã có công dựng nước tại Đền Hùng - Phú Thọ." },
+      { day: 8, month: 4, name: "Đại lễ Phật Đản (Phật Lịch)", desc: "Kỷ niệm ngày Đức Phật Thích Ca Mâu Ni đản sinh, ngày đại hoan hỷ của Phật giáo." },
+      { day: 5, month: 5, name: "Tết Đoan Ngọ (Tết Diệt Sâu Bọ)", desc: "Ăn rượu nếp, mận vải hoa quả vào sáng sớm để trừ khử sâu bọ, phòng trừ tật ách." },
+      { day: 15, month: 7, name: "Lễ Vu Lan Báo Hiếu & Rằm Tháng Bảy", desc: "Mùa báo hiếu công ơn cha mẹ, xá tội vong nhân, nét đẹp nhân văn sâu sắc của người Việt." },
+      { day: 15, month: 8, name: "Tết Trung Thu (Tết Trông Trăng)", desc: "Tết thiếu nhi, ngắm trăng tròn tháng Tám, rước đèn ông sao, múa lân, phá cỗ bánh nướng bánh dẻo." },
+      { day: 9, month: 9, name: "Tết Trùng Cửu (Tết Thưởng Cúc)", desc: "Ngày thanh cao ngắm hoa cúc, uống rượu hoa cúc, leo núi cầu trường thọ theo cổ truyền." },
+      { day: 10, month: 10, name: "Tết Trùng Thập (Tết Thầy Thuốc)", desc: "Lễ mừng cơm mới của người nông dân và tết tôn vinh nghề thuốc y học cổ truyền." },
+      { day: 23, month: 12, name: "Tết Ông Công Ông Táo (Táo Quân Chầu Trời)", desc: "Lễ cúng cá chép tiễn Táo Quân về trời tâu bày việc trần gian suốt một năm qua." },
+      { day: 29, month: 12, name: "Đêm Giao Thừa (Trừ Tịch)", desc: "Thời khắc thiêng liêng chuyển giao năm cũ sang năm mới, thắp hương xua tan xui xẻo đón tài lộc." }
+    ];
+
+    const FESTIVALS_SOLAR = [
+      { day: 1, month: 1, name: "Tết Dương Lịch (Tết Tây)", desc: "Ngày đầu tiên của năm mới theo lịch dương quốc tế." },
+      { day: 14, month: 2, name: "Ngày Lễ Tình Nhân (Valentine)", desc: "Tôn vinh tình yêu lứa đôi." },
+      { day: 27, month: 2, name: "Ngày Thầy Thuốc Việt Nam", desc: "Tri ân đội ngũ y bác sĩ, thầy thuốc chăm sóc sức khỏe nhân dân." },
+      { day: 8, month: 3, name: "Ngày Quốc Tế Phụ Nữ", desc: "Tôn vinh và gửi lời chúc tốt đẹp tới những người phụ nữ." },
+      { day: 26, month: 3, name: "Ngày Thành Lập Đoàn TNCS Hồ Chí Minh", desc: "Kỷ niệm truyền thống thanh niên Việt Nam." },
+      { day: 30, month: 4, name: "Ngày Giải Phóng Miền Nam, Thống Nhất Đất Nước", desc: "Đại thắng mùa xuân 1975, ngày hội non sông toàn thắng." },
+      { day: 1, month: 5, name: "Ngày Quốc Tế Lao Động", desc: "Tôn vinh giá trị của giai cấp công nhân và người lao động toàn cầu." },
+      { day: 1, month: 6, name: "Ngày Quốc Tế Thiếu Nhi", desc: "Ngày hội dành cho trẻ em trên toàn thế giới." },
+      { day: 27, month: 7, name: "Ngày Thương Binh Liệt Sĩ", desc: "Uống nước nhớ nguồn, tri ân anh hùng liệt sĩ đã hy sinh vì Tổ quốc." },
+      { day: 19, month: 8, name: "Ngày Cách Mạng Tháng Tám", desc: "Kỷ niệm thắng lợi của Cách mạng tháng Tám năm 1945." },
+      { day: 2, month: 9, name: "Ngày Quốc Khánh Nước CHXHCN Việt Nam", desc: "Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình lịch sử." },
+      { day: 10, month: 10, name: "Ngày Giải Phóng Thủ Đô", desc: "Kỷ niệm ngày tiếp quản Thủ đô Hà Nội năm 1954." },
+      { day: 20, month: 10, name: "Ngày Phụ Nữ Việt Nam", desc: "Tôn vinh vẻ đẹp anh hùng, bất khuất, trung hậu, đảm đang của phụ nữ Việt Nam." },
+      { day: 20, month: 11, name: "Ngày Nhà Giáo Việt Nam", desc: "Tri ân thầy cô giáo - những người lái đò thầm lặng." },
+      { day: 22, month: 12, name: "Ngày Thành Lập Quân Đội Nhân Dân Việt Nam", desc: "Ngày hội Quốc phòng toàn dân, tôn vinh anh bộ đội Cụ Hồ." },
+      { day: 25, month: 12, name: "Lễ Giáng Sinh (Noel)", desc: "Ngày lễ mừng chúa Giáng sinh an lành." }
+    ];
+
+    /**
+     * TÍNH TOÁN CAN CHI, HOÀNG ĐẠO & PHONG THỦY
+     */
+
+    // Tính Can Chi Năm
+    function getYearCanChi(lunarYear) {
+      let canIndex = (lunarYear + 6) % 10;
+      let chiIndex = (lunarYear + 8) % 12;
+      return {
+        can: CAN[canIndex],
+        chi: CHI[chiIndex],
+        text: `${CAN[canIndex]} ${CHI[chiIndex]}`,
+        canIndex,
+        chiIndex
+      };
+    }
+
+    // Tính Can Chi Tháng
+    function getMonthCanChi(lunarYear, lunarMonth) {
+      let yearCanIndex = (lunarYear + 6) % 10;
+      let canIndex = (yearCanIndex * 2 + lunarMonth + 1) % 10;
+      let chiIndex = (lunarMonth + 1) % 12;
+      return {
+        can: CAN[canIndex],
+        chi: CHI[chiIndex],
+        text: `${CAN[canIndex]} ${CHI[chiIndex]}`,
+        canIndex,
+        chiIndex
+      };
+    }
+
+    // Tính Can Chi Ngày
+    function getDayCanChi(dd, mm, yy) {
+      let jd = jdFromDate(dd, mm, yy);
+      let canIndex = (jd + 9) % 10;
+      let chiIndex = (jd + 1) % 12;
+      return {
+        can: CAN[canIndex],
+        chi: CHI[chiIndex],
+        text: `${CAN[canIndex]} ${CHI[chiIndex]}`,
+        canIndex,
+        chiIndex,
+        jd
+      };
+    }
+
+    // Tính Can Chi Giờ
+    function getHourCanChi(dayCanIndex, hourChiIndex) {
+      let canIndex = (dayCanIndex * 2 + hourChiIndex) % 10;
+      return {
+        can: CAN[canIndex],
+        chi: CHI[hourChiIndex],
+        text: `${CAN[canIndex]} ${CHI[hourChiIndex]}`,
+        canIndex,
+        chiIndex: hourChiIndex
+      };
+    }
+
+    // Xác định sao trực ngày & Hoàng Đạo / Hắc Đạo
+    function getDayHoangDao(lunarMonth, dayChiIndex) {
+      // Bảng khởi sao theo tháng (Tháng Dần/Thân khởi Tý, Mão/Dậu khởi Dần...)
+      const START_CHI = [0, 2, 4, 6, 8, 10, 0, 2, 4, 6, 8, 10];
+      let startChi = START_CHI[(lunarMonth - 1) % 12];
+      let starIndex = (dayChiIndex - startChi + 12) % 12;
+      let star = HOANG_DAO_STARS[starIndex];
+      return star;
+    }
+
+    // Xác định 12 Giờ Hoàng Đạo trong ngày
+    function getHourHoangDaoList(dayChiIndex) {
+      // 6 nhóm ngày theo Địa Chi
+      const HOANG_DAO_HOURS = {
+        0: [0, 1, 3, 6, 8, 9],    // Tý
+        1: [2, 3, 5, 8, 10, 11],  // Sửu
+        2: [0, 1, 4, 5, 7, 10],   // Dần
+        3: [0, 2, 3, 6, 7, 9],    // Mão
+        4: [2, 4, 5, 8, 9, 11],   // Thìn
+        5: [1, 4, 6, 7, 10, 11],  // Tỵ
+        6: [0, 1, 3, 6, 8, 9],    // Ngọ
+        7: [2, 3, 5, 8, 10, 11],  // Mùi
+        8: [0, 1, 4, 5, 7, 10],   // Thân
+        9: [0, 2, 3, 6, 7, 9],    // Dậu
+        10: [2, 4, 5, 8, 9, 11],  // Tuất
+        11: [1, 4, 6, 7, 10, 11]   // Hợi
+      };
+      let auspicious = HOANG_DAO_HOURS[dayChiIndex] || [];
+      let list = [];
+      const HOUR_TIMES = [
+        "23:00 - 00:59", "01:00 - 02:59", "03:00 - 04:59", "05:00 - 06:59",
+        "07:00 - 08:59", "09:00 - 10:59", "11:00 - 12:59", "13:00 - 14:59",
+        "15:00 - 16:59", "17:00 - 18:59", "19:00 - 20:59", "21:00 - 22:59"
+      ];
+      for (let i = 0; i < 12; i++) {
+        let isHD = auspicious.includes(i);
+        list.push({
+          chi: CHI[i],
+          time: HOUR_TIMES[i],
+          isHoangDao: isHD
+        });
+      }
+      return list;
+    }
+
+    // Tiết khí của ngày
+    function getDayTietKhi(dd, mm, yy) {
+      let jd = jdFromDate(dd, mm, yy);
+      let deg = getSunExactLongitude(jd, 7);
+      let idx = Math.floor((deg + 15) / 15) % 24;
+      return TIET_KHI[idx];
+    }
+
+    // Trực và Nhị Thập Bát Tú
+    function getDayTrucVaSao(lunarMonth, dayChiIndex, jd) {
+      let trucIndex = (dayChiIndex - (lunarMonth + 1) + 12) % 12;
+      let truc = TRUC_LIST[trucIndex];
+      let saoIndex = (jd + 11) % 28;
+      let sao = SAO_28_TU[saoIndex];
+      return { truc, sao };
+    }
+
+    // Hướng xuất hành
+    function getHuongXuatHanh(dayCanIndex) {
+      const HY_THAN = ["Đông Bắc", "Tây Bắc", "Tây Nam", "Chính Nam", "Đông Nam", "Đông Bắc", "Tây Bắc", "Tây Nam", "Chính Nam", "Đông Nam"];
+      const TAI_THAN = ["Đông Nam", "Đông Nam", "Chính Đông", "Chính Đông", "Chính Bắc", "Chính Nam", "Tây Nam", "Tây Nam", "Chính Tây", "Chính Bắc"];
+      return `Hỷ Thần: ${HY_THAN[dayCanIndex]} • Tài Thần: ${TAI_THAN[dayCanIndex]}`;
+    }
+
+    /**
+     * QUẢN LÝ GIAO DIỆN & TRẠNG THÁI ỨNG DỤNG
+     */
+    let currentDate = new Date();
+    let selectedDate = new Date();
+
+    // Khởi tạo ứng dụng
+    function initApp() {
+      setupRealtimeClock();
+      setupTabs();
+      setupQuickSelectors();
+      setupCalendarControls();
+      renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+      updateBlocView(selectedDate);
+      setupBattuForm();
+      setupConverterForm();
+      renderFestivals(selectedDate.getFullYear());
+      setupFestivalsFilters();
+    }
+
+    // Đồng hồ thời gian thực
+    function setupRealtimeClock() {
+      function update() {
+        const now = new Date();
+        const days = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+        const dayName = days[now.getDay()];
+        const h = String(now.getHours()).padStart(2, '0');
+        const m = String(now.getMinutes()).padStart(2, '0');
+        const s = String(now.getSeconds()).padStart(2, '0');
+        const d = String(now.getDate()).padStart(2, '0');
+        const mo = String(now.getMonth() + 1).padStart(2, '0');
+        const y = now.getFullYear();
+
+        let hourChiIdx = Math.floor((now.getHours() + 1) / 2) % 12;
+        let [lDay, lMonth, lYear] = convertSolar2Lunar(now.getDate(), now.getMonth() + 1, now.getFullYear());
+        let canChiNgay = getDayCanChi(now.getDate(), now.getMonth() + 1, now.getFullYear());
+        let canChiGio = getHourCanChi(canChiNgay.canIndex, hourChiIdx);
+
+        document.getElementById('clockText').textContent = 
+          `${dayName}, ${d}/${mo}/${y} • ${h}:${m}:${s} (Giờ ${canChiGio.text})`;
+      }
+      update();
+      setInterval(update, 1000);
+    }
+
+    // Điều hướng Tab
+    function setupTabs() {
+      const tabs = document.querySelectorAll('.nav-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          const target = tab.getAttribute('data-tab');
+          document.getElementById(target).classList.add('active');
+        });
+      });
+    }
+
+    // Cài đặt bộ chọn nhanh Tháng / Năm
+    function setupQuickSelectors() {
+      const mSel = document.getElementById('quickMonthSelect');
+      const ySel = document.getElementById('quickYearSelect');
+
+      mSel.innerHTML = '';
+      for (let i = 0; i < 12; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = `Tháng ${i + 1}`;
+        mSel.appendChild(opt);
+      }
+
+      ySel.innerHTML = '';
+      for (let y = 1910; y <= 2090; y++) {
+        const opt = document.createElement('option');
+        opt.value = y;
+        opt.textContent = `Năm ${y}`;
+        ySel.appendChild(opt);
+      }
+
+      mSel.addEventListener('change', () => {
+        selectedDate.setMonth(parseInt(mSel.value));
+        renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+      });
+
+      ySel.addEventListener('change', () => {
+        selectedDate.setFullYear(parseInt(ySel.value));
+        renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+      });
+    }
+
+    // Điều khiển chuyển tháng
+    function setupCalendarControls() {
+      document.getElementById('btnPrevMonth').addEventListener('click', () => {
+        selectedDate.setMonth(selectedDate.getMonth() - 1);
+        renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+      });
+
+      document.getElementById('btnNextMonth').addEventListener('click', () => {
+        selectedDate.setMonth(selectedDate.getMonth() + 1);
+        renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+      });
+
+      document.getElementById('btnToday').addEventListener('click', () => {
+        selectedDate = new Date();
+        renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+        updateBlocView(selectedDate);
+      });
+    }
+
+    // Vẽ lưới lịch tháng (Calendar Grid)
+    function renderCalendar(year, month) {
+      document.getElementById('calTitleDisplay').textContent = `Tháng ${month + 1} năm ${year}`;
+      document.getElementById('quickMonthSelect').value = month;
+      document.getElementById('quickYearSelect').value = year;
+
+      const grid = document.getElementById('calDaysGrid');
+      grid.innerHTML = '';
+
+      const firstDay = new Date(year, month, 1);
+      const startingDay = firstDay.getDay(); // 0 = CN, 1 = T2...
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const prevMonthDays = new Date(year, month, 0).getDate();
+
+      const today = new Date();
+
+      // Render ngày tháng trước
+      for (let i = startingDay - 1; i >= 0; i--) {
+        const d = prevMonthDays - i;
+        const prevDate = new Date(year, month - 1, d);
+        const cell = createDayCell(prevDate, true);
+        grid.appendChild(cell);
+      }
+
+      // Render ngày trong tháng hiện tại
+      for (let d = 1; d <= daysInMonth; d++) {
+        const cellDate = new Date(year, month, d);
+        const cell = createDayCell(cellDate, false);
+        grid.appendChild(cell);
+      }
+
+      // Render ngày tháng sau cho đủ 35 hoặc 42 ô
+      const totalRendered = startingDay + daysInMonth;
+      const remaining = (totalRendered % 7 === 0) ? 0 : 7 - (totalRendered % 7);
+      for (let d = 1; d <= remaining; d++) {
+        const nextDate = new Date(year, month + 1, d);
+        const cell = createDayCell(nextDate, true);
+        grid.appendChild(cell);
+      }
+    }
+
+    // Tạo một ô ngày trong lịch
+    function createDayCell(dateObj, isOtherMonth) {
+      const cell = document.createElement('div');
+      cell.className = 'cal-day-cell';
+      if (isOtherMonth) cell.classList.add('other-month');
+
+      const d = dateObj.getDate();
+      const m = dateObj.getMonth() + 1;
+      const y = dateObj.getFullYear();
+      const dayOfWeek = dateObj.getDay();
+
+      if (dayOfWeek === 0 || dayOfWeek === 6) {
+        cell.classList.add('weekend');
+      }
+
+      const today = new Date();
+      if (d === today.getDate() && m === (today.getMonth() + 1) && y === today.getFullYear()) {
+        cell.classList.add('today');
+      }
+
+      if (d === selectedDate.getDate() && m === (selectedDate.getMonth() + 1) && y === selectedDate.getFullYear()) {
+        cell.classList.add('selected');
+      }
+
+      // Tính âm lịch
+      const [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(d, m, y);
+      const dayCanChi = getDayCanChi(d, m, y);
+      const star = getDayHoangDao(lMonth, dayCanChi.chiIndex);
+
+      // Kiểm tra lễ tết
+      let hasFestival = false;
+      const festLunar = FESTIVALS_LUNAR.find(f => f.day === lDay && f.month === lMonth);
+      const festSolar = FESTIVALS_SOLAR.find(f => f.day === d && f.month === m);
+      if (festLunar || festSolar) hasFestival = true;
+
+      let lunarDisplay = lDay === 1 ? `${lDay}/${lMonth}` : `${lDay}`;
+      let lunarClass = lDay === 1 ? 'lunar-num lunar-first' : 'lunar-num';
+
+      cell.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <span class="solar-num">${d}</span>
+          <span class="${lunarClass}">${lunarDisplay}</span>
+        </div>
+        <div class="day-indicators">
+          ${star.isHoangDao ? '<span class="hd-dot" title="Ngày Hoàng Đạo"></span>' : '<span></span>'}
+          ${hasFestival ? '<span class="fest-dot" title="Ngày Lễ/Tết"></span>' : ''}
+        </div>
+      `;
+
+      cell.addEventListener('click', () => {
+        document.querySelectorAll('.cal-day-cell').forEach(c => c.classList.remove('selected'));
+        cell.classList.add('selected');
+        selectedDate = new Date(dateObj);
+        updateBlocView(selectedDate);
+      });
+
+      return cell;
+    }
+
+    // Cập nhật Bloc Lịch & Chi Tiết Ngày
+    function updateBlocView(dateObj) {
+      const d = dateObj.getDate();
+      const m = dateObj.getMonth() + 1;
+      const y = dateObj.getFullYear();
+      const dayOfWeek = dateObj.getDay();
+
+      const weekdays = ["CHỦ NHẬT", "THỨ HAI", "THỨ BA", "THỨ TƯ", "THỨ NĂM", "THỨ SÁU", "THỨ BẢY"];
+      document.getElementById('blocWeekday').textContent = weekdays[dayOfWeek];
+      document.getElementById('blocSolarMonth').textContent = `Tháng ${m} năm ${y} (Dương Lịch)`;
+      document.getElementById('blocSolarDay').textContent = String(d).padStart(2, '0');
+
+      const [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(d, m, y);
+      document.getElementById('blocLunarDay').textContent = String(lDay).padStart(2, '0');
+      document.getElementById('blocLunarMonth').textContent = isLeap ? `${lMonth} (Nhuận)` : String(lMonth).padStart(2, '0');
+
+      const yearCanChi = getYearCanChi(lYear);
+      const monthCanChi = getMonthCanChi(lYear, lMonth);
+      const dayCanChi = getDayCanChi(d, m, y);
+
+      document.getElementById('blocLunarYearCanChi').textContent = yearCanChi.text;
+      document.getElementById('blocDayCanChi').textContent = `${dayCanChi.text} (${CHI_ANIMAL[dayCanChi.chiIndex]})`;
+      document.getElementById('blocMonthCanChi').textContent = monthCanChi.text;
+
+      // Nạp Âm của Ngày
+      const napAm = NAP_AM[dayCanChi.text] || "Không xác định";
+      document.getElementById('blocNapAm').textContent = napAm;
+
+      // Tiết khí
+      const tietKhi = getDayTietKhi(d, m, y);
+      document.getElementById('blocTietKhi').textContent = tietKhi;
+
+      // Hoàng Đạo / Hắc Đạo
+      const star = getDayHoangDao(lMonth, dayCanChi.chiIndex);
+      const badgeContainer = document.getElementById('blocHoangDaoBadge');
+      if (star.isHoangDao) {
+        badgeContainer.innerHTML = `<span class="badge badge-hoangdao">✨ Hoàng Đạo (${star.name})</span>`;
+      } else {
+        badgeContainer.innerHTML = `<span class="badge badge-hacdao">🌑 Hắc Đạo (${star.name})</span>`;
+      }
+
+      // Trực và Sao
+      const { truc, sao } = getDayTrucVaSao(lMonth, dayCanChi.chiIndex, dayCanChi.jd);
+      document.getElementById('blocTrucSao').textContent = `Trực ${truc} • Sao ${sao}`;
+
+      // Hướng xuất hành
+      document.getElementById('blocHuongXuatHanh').textContent = getHuongXuatHanh(dayCanChi.canIndex);
+
+      // Lễ Tết
+      const festLunar = FESTIVALS_LUNAR.find(f => f.day === lDay && f.month === lMonth);
+      const festSolar = FESTIVALS_SOLAR.find(f => f.day === d && f.month === m);
+      const festRow = document.getElementById('blocFestRow');
+      if (festLunar || festSolar) {
+        festRow.style.display = 'flex';
+        let names = [];
+        if (festLunar) names.push(`🏮 ${festLunar.name}`);
+        if (festSolar) names.push(`🚩 ${festSolar.name}`);
+        document.getElementById('blocFestText').textContent = names.join(' | ');
+      } else {
+        festRow.style.display = 'none';
+      }
+
+      // 12 Giờ Hoàng Đạo trong ngày
+      const hoursList = getHourHoangDaoList(dayCanChi.chiIndex);
+      const tbody = document.getElementById('blocHoursList');
+      tbody.innerHTML = '';
+      hoursList.forEach(h => {
+        let hourChiIdx = CHI.indexOf(h.chi);
+        let hourCanChi = getHourCanChi(dayCanChi.canIndex, hourChiIdx);
+        let tr = document.createElement('tr');
+        if (h.isHoangDao) tr.className = 'hoangdao-row';
+        tr.innerHTML = `
+          <td><strong>Giờ ${h.chi}</strong></td>
+          <td>${h.time}</td>
+          <td>${hourCanChi.text}</td>
+          <td>
+            ${h.isHoangDao 
+              ? '<span class="badge badge-hoangdao">✨ Hoàng Đạo</span>' 
+              : '<span class="badge badge-hacdao">Hắc Đạo</span>'}
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    /**
+     * BÁT TỰ TỨ TRỤ ENGINE
+     */
+    function setupBattuForm() {
+      document.getElementById('btnCalculateBattu').addEventListener('click', calculateBattu);
+      document.getElementById('btnPrintBattu').addEventListener('click', () => {
+        window.print();
+      });
+      calculateBattu(); // Initial run
+    }
+
+    function calculateBattu() {
+      const name = document.getElementById('btName').value.trim() || "Thân Chủ";
+      const gender = document.getElementById('btGender').value;
+      const isLunar = document.getElementById('btTypeLunar').checked;
+      const dateVal = document.getElementById('btDate').value;
+      const birthHourChi = parseInt(document.getElementById('btHour').value);
+
+      if (!dateVal) {
+        alert("Vui lòng chọn ngày tháng năm sinh!");
+        return;
+      }
+
+      const [yStr, mStr, dStr] = dateVal.split('-');
+      let sYear = parseInt(yStr);
+      let sMonth = parseInt(mStr);
+      let sDay = parseInt(dStr);
+
+      let lDay, lMonth, lYear, isLeap;
+
+      if (isLunar) {
+        lDay = sDay;
+        lMonth = sMonth;
+        lYear = sYear;
+        isLeap = 0;
+        let [cDay, cMonth, cYear] = convertLunar2Solar(lDay, lMonth, lYear, 0);
+        sDay = cDay; sMonth = cMonth; sYear = cYear;
+      } else {
+        [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(sDay, sMonth, sYear);
+      }
+
+      // Trụ Năm
+      const yearPillar = getYearCanChi(lYear);
+
+      // Trụ Tháng
+      const monthPillar = getMonthCanChi(lYear, lMonth);
+
+      // Trụ Ngày (Nhật Chủ)
+      const dayPillar = getDayCanChi(sDay, sMonth, sYear);
+
+      // Trụ Giờ
+      const hourChiIdx = Math.floor((birthHourChi + 1) / 2) % 12;
+      const hourPillar = getHourCanChi(dayPillar.canIndex, hourChiIdx);
+
+      // Hiển thị thông tin tổng quan
+      document.getElementById('btResultPerson').textContent = `LÁ SỐ BÁT TỰ: ${name.toUpperCase()} (${gender === 'male' ? 'NAM MỆNH' : 'NỮ MỆNH'})`;
+      document.getElementById('btResultInfo').textContent = 
+        `Dương lịch: ${sDay}/${sMonth}/${sYear} • Âm lịch: Ngày ${lDay} tháng ${lMonth} năm ${yearPillar.text} • Giờ sinh: ${CHI[hourChiIdx]}`;
+
+      // Điền Trụ Năm
+      fillPillar('Year', yearPillar.can, yearPillar.chi, yearPillar.canIndex, yearPillar.chiIndex);
+      // Điền Trụ Tháng
+      fillPillar('Month', monthPillar.can, monthPillar.chi, monthPillar.canIndex, monthPillar.chiIndex);
+      // Điền Trụ Ngày (Nhật Chủ)
+      fillPillar('Day', dayPillar.can, dayPillar.chi, dayPillar.canIndex, dayPillar.chiIndex);
+      // Điền Trụ Giờ
+      fillPillar('Hour', hourPillar.can, hourPillar.chi, hourPillar.canIndex, hourPillar.chiIndex);
+
+      // Tính điểm ngũ hành
+      calculateNguHanhDistribution([
+        yearPillar.canIndex, monthPillar.canIndex, dayPillar.canIndex, hourPillar.canIndex
+      ], [
+        yearPillar.chiIndex, monthPillar.chiIndex, dayPillar.chiIndex, hourPillar.chiIndex
+      ], dayPillar.canIndex);
+    }
+
+    function fillPillar(prefix, can, chi, canIdx, chiIdx) {
+      document.getElementById(`bt${prefix}Can`).textContent = can;
+      document.getElementById(`bt${prefix}Chi`).textContent = chi;
+
+      const canHanh = CAN_HANH[canIdx];
+      const chiHanh = CHI_HANH[chiIdx];
+      document.getElementById(`bt${prefix}CanHanh`).textContent = canHanh;
+      document.getElementById(`bt${prefix}ChiHanh`).textContent = chiHanh;
+
+      const canBox = document.getElementById(`btPillar${prefix}Can`);
+      const chiBox = document.getElementById(`btPillar${prefix}Chi`);
+
+      // Set class ngũ hành
+      canBox.className = 'pillar-can-box ' + getHanhClass(canHanh);
+      chiBox.className = 'pillar-chi-box ' + getHanhClass(chiHanh);
+
+      // Nạp Âm
+      const napAm = NAP_AM[`${can} ${chi}`] || "Chưa xác định";
+      document.getElementById(`bt${prefix}NapAm`).textContent = napAm;
+
+      // Tàng Can
+      const tangCan = TANG_CAN[chi] || [];
+      document.getElementById(`bt${prefix}TangCan`).textContent = `Tàng: ${tangCan.join(', ')}`;
+    }
+
+    function getHanhClass(hanhStr) {
+      if (hanhStr.includes('Kim')) return 'hanh-kim';
+      if (hanhStr.includes('Mộc')) return 'hanh-moc';
+      if (hanhStr.includes('Thủy')) return 'hanh-thuy';
+      if (hanhStr.includes('Hỏa')) return 'hanh-hoa';
+      if (hanhStr.includes('Thổ')) return 'hanh-tho';
+      return '';
+    }
+
+    // Tính phân bổ Ngũ Hành và Luận Đoán Thân Vượng/Nhược
+    function calculateNguHanhDistribution(canIndices, chiIndices, nhatCanIndex) {
+      const scores = { Kim: 0, Mộc: 0, Thủy: 0, Hỏa: 0, Thổ: 0 };
+
+      // Can cho 1.0 điểm
+      canIndices.forEach(idx => {
+        let hanh = CAN_HANH[idx].replace(/Dương |Âm /, '');
+        scores[hanh] += 1.0;
+      });
+
+      // Chi cho 1.5 điểm (đặc biệt Chi Tháng cho 2.0 vì đắc lệnh)
+      chiIndices.forEach((idx, i) => {
+        let hanh = CHI_HANH[idx].replace(/Dương |Âm /, '');
+        let weight = (i === 1) ? 2.0 : 1.5; // Chi Tháng = i:1
+        scores[hanh] += weight;
+      });
+
+      let total = scores.Kim + scores.Mộc + scores.Thủy + scores.Hỏa + scores.Thổ;
+
+      let pctKim = Math.round((scores.Kim / total) * 100);
+      let pctMoc = Math.round((scores.Mộc / total) * 100);
+      let pctThuy = Math.round((scores.Thủy / total) * 100);
+      let pctHoa = Math.round((scores.Hỏa / total) * 100);
+      let pctTho = 100 - (pctKim + pctMoc + pctThuy + pctHoa);
+
+      document.getElementById('segKim').style.width = pctKim + '%';
+      document.getElementById('segKim').textContent = `Kim ${pctKim}%`;
+      document.getElementById('segMoc').style.width = pctMoc + '%';
+      document.getElementById('segMoc').textContent = `Mộc ${pctMoc}%`;
+      document.getElementById('segThuy').style.width = pctThuy + '%';
+      document.getElementById('segThuy').textContent = `Thủy ${pctThuy}%`;
+      document.getElementById('segHoa').style.width = pctHoa + '%';
+      document.getElementById('segHoa').textContent = `Hỏa ${pctHoa}%`;
+      document.getElementById('segTho').style.width = pctTho + '%';
+      document.getElementById('segTho').textContent = `Thổ ${pctTho}%`;
+
+      document.getElementById('lblScoreKim').textContent = scores.Kim.toFixed(1);
+      document.getElementById('lblScoreMoc').textContent = scores.Mộc.toFixed(1);
+      document.getElementById('lblScoreThuy').textContent = scores.Thủy.toFixed(1);
+      document.getElementById('lblScoreHoa').textContent = scores.Hỏa.toFixed(1);
+      document.getElementById('lblScoreTho').textContent = scores.Thổ.toFixed(1);
+
+      // Đánh giá Thân Vượng / Nhược của Nhật Can
+      const nhatHanh = CAN_HANH[nhatCanIndex].replace(/Dương |Âm /, '');
+      let sinhNhatHanh = "";
+      if (nhatHanh === "Mộc") sinhNhatHanh = "Thủy";
+      if (nhatHanh === "Hỏa") sinhNhatHanh = "Mộc";
+      if (nhatHanh === "Thổ") sinhNhatHanh = "Hỏa";
+      if (nhatHanh === "Kim") sinhNhatHanh = "Thổ";
+      if (nhatHanh === "Thủy") sinhNhatHanh = "Kim";
+
+      let troLuc = scores[nhatHanh] + scores[sinhNhatHanh];
+      let khacLuc = total - troLuc;
+
+      let thanStatus = "";
+      let dungThan = "";
+      let hyThan = "";
+      let colors = "";
+
+      if (troLuc > khacLuc * 1.15) {
+        thanStatus = `Nhật Chủ <strong>${CAN[nhatCanIndex]} (${nhatHanh})</strong> được nhiều sinh trợ (tổng điểm đồng hành & tương sinh ${troLuc.toFixed(1)} so với ${khacLuc.toFixed(1)} điểm khắc/tiết). Bản mệnh thuộc <strong>Thân Vượng</strong>. Cần năng lượng chế ngự và tiết bớt khí lực để phát triển hanh thông.`;
+        dungThan = `Khắc chế bớt hoặc Tiết khí (Tài Tinh hoặc Quan Sát)`;
+        hyThan = `Thực Thần / Thương Quan (phát huy tài năng sáng tạo)`;
+        colors = `Màu sắc mang lại cơ hội tài lộc: Các màu sắc hành khắc hoặc tiết bớt năng lượng vượng.`;
+      } else if (troLuc < khacLuc * 0.85) {
+        thanStatus = `Nhật Chủ <strong>${CAN[nhatCanIndex]} (${nhatHanh})</strong> bị khắc tiết nhiều (điểm sinh trợ ${troLuc.toFixed(1)} thấp hơn điểm khắc/tiết ${khacLuc.toFixed(1)}). Bản mệnh thuộc <strong>Thân Nhược</strong>. Cần sinh phù, tương trợ từ quý nhân và nội lực vững bền.`;
+        dungThan = `${sinhNhatHanh} (Chính Ấn / Thiên Ấn - học hành, quý nhân, chỗ dựa tinh thần)`;
+        hyThan = `${nhatHanh} (Tỷ Kiên / Kiếp Tài - bạn bè, đối tác, sự kiên định)`;
+        colors = `Ưu tiên các màu tương sinh (${sinhNhatHanh}) và màu bản mệnh (${nhatHanh}) để tăng cường năng lượng.`;
+      } else {
+        thanStatus = `Nhật Chủ <strong>${CAN[nhatCanIndex]} (${nhatHanh})</strong> có năng lượng hài hòa cân đối (sinh trợ ${troLuc.toFixed(1)} điểm cân bằng với khắc tiết ${khacLuc.toFixed(1)} điểm). Bản mệnh thuộc <strong>Thân Trung Hòa</strong> (cách cục rất quý, tính tình ôn hòa, dẻo dai).`;
+        dungThan = `${sinhNhatHanh} hoặc ${nhatHanh} tùy đại vận thời thế`;
+        hyThan = `Cân bằng ngũ hành hài hòa cả 5 yếu tố`;
+        colors = `Phù hợp sử dụng linh hoạt các gam màu tươi sáng, nhã nhặn.`;
+      }
+
+      document.getElementById('btThanStatus').innerHTML = thanStatus;
+      document.getElementById('btDungThan').innerHTML = `
+        • <strong>Dụng Thần:</strong> ${dungThan}.<br>
+        • <strong>Hỷ Thần:</strong> ${hyThan}.<br>
+        • <strong>Gợi ý phong thủy:</strong> ${colors}
+      `;
+    }
+
+    /**
+     * CÔNG CỤ CHUYỂN ĐỔI ÂM ⇄ DƯƠNG
+     */
+    function setupConverterForm() {
+      let isSolarToLunar = true;
+
+      const btnS2L = document.getElementById('btnModeS2L');
+      const btnL2S = document.getElementById('btnModeL2S');
+      const leapGroup = document.getElementById('lunarLeapCheckboxGroup');
+
+      btnS2L.addEventListener('click', () => {
+        isSolarToLunar = true;
+        btnS2L.className = 'btn btn-primary';
+        btnL2S.className = 'btn btn-outline';
+        document.getElementById('lblConvDay').textContent = 'Ngày Dương:';
+        document.getElementById('lblConvMonth').textContent = 'Tháng Dương:';
+        leapGroup.style.display = 'none';
+        runConvert();
+      });
+
+      btnL2S.addEventListener('click', () => {
+        isSolarToLunar = false;
+        btnL2S.className = 'btn btn-primary';
+        btnS2L.className = 'btn btn-outline';
+        document.getElementById('lblConvDay').textContent = 'Ngày Âm:';
+        document.getElementById('lblConvMonth').textContent = 'Tháng Âm:';
+        leapGroup.style.display = 'block';
+        runConvert();
+      });
+
+      document.getElementById('btnRunConvert').addEventListener('click', runConvert);
+
+      function runConvert() {
+        const d = parseInt(document.getElementById('convDay').value);
+        const m = parseInt(document.getElementById('convMonth').value);
+        const y = parseInt(document.getElementById('convYear').value);
+        const isLeap = document.getElementById('convIsLeap').checked ? 1 : 0;
+
+        if (isNaN(d) || isNaN(m) || isNaN(y) || d < 1 || d > 31 || m < 1 || m > 12) {
+          alert("Vui lòng nhập ngày tháng năm hợp lệ!");
+          return;
+        }
+
+        if (isSolarToLunar) {
+          const [lDay, lMonth, lYear, leap] = convertSolar2Lunar(d, m, y);
+          const yearCanChi = getYearCanChi(lYear);
+          const monthCanChi = getMonthCanChi(lYear, lMonth);
+          const dayCanChi = getDayCanChi(d, m, y);
+          const star = getDayHoangDao(lMonth, dayCanChi.chiIndex);
+          const tietKhi = getDayTietKhi(d, m, y);
+
+          document.getElementById('convResultHeader').textContent = 'KẾT QUẢ ÂM LỊCH TƯƠNG ỨNG';
+          document.getElementById('convResultMain').textContent = 
+            `Ngày ${lDay} Tháng ${lMonth}${leap ? ' (Nhuận)' : ''} Năm ${lYear}`;
+          document.getElementById('convResultSub').textContent = 
+            `Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
+          document.getElementById('convResultExtra').textContent = 
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name})`;
+        } else {
+          const [sDay, sMonth, sYear] = convertLunar2Solar(d, m, y, isLeap);
+          if (sDay === 0) {
+            alert("Ngày âm lịch không tồn tại hoặc tháng nhuận không hợp lệ!");
+            return;
+          }
+          const yearCanChi = getYearCanChi(y);
+          const monthCanChi = getMonthCanChi(y, m);
+          const dayCanChi = getDayCanChi(sDay, sMonth, sYear);
+          const star = getDayHoangDao(m, dayCanChi.chiIndex);
+          const tietKhi = getDayTietKhi(sDay, sMonth, sYear);
+
+          document.getElementById('convResultHeader').textContent = 'KẾT QUẢ DƯƠNG LỊCH TƯƠNG ỨNG';
+          document.getElementById('convResultMain').textContent = 
+            `Ngày ${sDay} Tháng ${sMonth} Năm ${sYear}`;
+          document.getElementById('convResultSub').textContent = 
+            `Can chi: Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
+          document.getElementById('convResultExtra').textContent = 
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name})`;
+        }
+      }
+    }
+
+    /**
+     * LỄ TẾT TRUYỀN THỐNG VIỆT NAM
+     */
+    function renderFestivals(year) {
+      const container = document.getElementById('festivalsContainer');
+      container.innerHTML = '';
+
+      let list = [];
+
+      // Âm lịch festivals convert sang Dương lịch của năm đó
+      FESTIVALS_LUNAR.forEach(fest => {
+        let [sDay, sMonth, sYear] = convertLunar2Solar(fest.day, fest.month, year, 0);
+        list.push({
+          type: 'lunar',
+          lunarDay: fest.day,
+          lunarMonth: fest.month,
+          solarDay: sDay,
+          solarMonth: sMonth,
+          solarYear: sYear,
+          name: fest.name,
+          desc: fest.desc
+        });
+      });
+
+      // Dương lịch festivals
+      FESTIVALS_SOLAR.forEach(fest => {
+        let [lDay, lMonth, lYear] = convertSolar2Lunar(fest.day, fest.month, year);
+        list.push({
+          type: 'solar',
+          solarDay: fest.day,
+          solarMonth: fest.month,
+          solarYear: year,
+          lunarDay: lDay,
+          lunarMonth: lMonth,
+          name: fest.name,
+          desc: fest.desc
+        });
+      });
+
+      // Sắp xếp theo thứ tự ngày dương lịch trong năm
+      list.sort((a, b) => {
+        if (a.solarMonth !== b.solarMonth) return a.solarMonth - b.solarMonth;
+        return a.solarDay - b.solarDay;
+      });
+
+      list.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'fest-card';
+        div.setAttribute('data-type', item.type);
+
+        const dateBadge = item.type === 'lunar'
+          ? `<div class="fest-date-badge" style="background: #991b1b;">
+               <div class="fest-date-day">${item.lunarDay}/${item.lunarMonth}</div>
+               <div class="fest-date-type">Âm Lịch</div>
+             </div>`
+          : `<div class="fest-date-badge" style="background: #1e40af;">
+               <div class="fest-date-day">${item.solarDay}/${item.solarMonth}</div>
+               <div class="fest-date-type">Dương Lịch</div>
+             </div>`;
+
+        const subDate = item.type === 'lunar'
+          ? `Dương lịch tương ứng: <strong>${item.solarDay}/${item.solarMonth}/${item.solarYear}</strong>`
+          : `Âm lịch tương ứng: <strong>${item.lunarDay}/${item.lunarMonth}</strong>`;
+
+        div.innerHTML = `
+          ${dateBadge}
+          <div class="fest-info">
+            <h4>${item.name}</h4>
+            <div style="font-size: 0.78rem; color: #4b5563; margin-bottom: 0.25rem;">${subDate}</div>
+            <p>${item.desc}</p>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function setupFestivalsFilters() {
+      document.getElementById('btnUpdateFestYear').addEventListener('click', () => {
+        const y = parseInt(document.getElementById('festYearInput').value);
+        if (!isNaN(y) && y >= 1900 && y <= 2100) {
+          renderFestivals(y);
+        }
+      });
+
+      const filters = document.querySelectorAll('.fest-filter');
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filters.forEach(b => b.classList.remove('active', 'btn-gold'));
+          filters.forEach(b => b.classList.add('btn-outline'));
+          btn.classList.add('active', 'btn-gold');
+          btn.classList.remove('btn-outline');
+
+          const val = btn.getAttribute('data-filter');
+          const cards = document.querySelectorAll('.fest-card');
+          cards.forEach(card => {
+            if (val === 'all' || card.getAttribute('data-type') === val) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // Khởi chạy khi load trang
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
