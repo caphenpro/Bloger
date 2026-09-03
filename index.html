@@ -4,7 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lịch Âm Dương & Bát Tự Tứ Trụ</title>
-  <meta name="description" content="Ứng dụng Lịch Âm Dương, Bát Tự Tứ Trụ, Tra cứu Ngày Giờ Hoàng Đạo và Các Ngày Lễ Tết Truyền Thống Việt Nam." />
+  <meta name="description" content="Ứng dụng Lịch Âm Dương, Bát Tự Tứ Trụ, Tra cứu Ngày Giờ Hoàng Đạo, 24 Tiết Khí và Quy tắc Xác định Tháng Nhuận chuẩn Thiên văn học Việt Nam UTC+7." />
+  
+  <!-- Biểu tượng Logo / Favicon & Apple Touch Icon -->
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- Hiển thị khi chia sẻ Link (Open Graph: Facebook, Zalo, Telegram, Messenger) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Lịch Âm Dương & Bát Tự Tứ Trụ" />
+  <meta property="og:description" content="Tra cứu lịch vạn niên, lập lá số Bát Tự Tứ Trụ, 24 tiết khí thời gian thực và phân tích tháng nhuận chuẩn thiên văn Việt Nam." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:image:secure_url" content="/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="Logo Lịch Âm Dương & Bát Tự Tứ Trụ" />
+  <meta property="og:site_name" content="Lịch Âm Dương & Bát Tự" />
+  <meta property="og:locale" content="vi_VN" />
+
+  <!-- Hiển thị khi chia sẻ Link Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lịch Âm Dương & Bát Tự Tứ Trụ" />
+  <meta name="twitter:description" content="Tra cứu lịch vạn niên, lập lá số Bát Tự Tứ Trụ, 24 tiết khí thời gian thực và phân tích tháng nhuận chuẩn thiên văn Việt Nam." />
+  <meta name="twitter:image" content="/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -67,6 +92,32 @@
       align-items: center;
       gap: 1rem;
     }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.2s ease;
+    }
+    .brand-wrap:hover {
+      opacity: 0.95;
+    }
+    .brand-logo-img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #f59e0b;
+      background-color: #fbf8f1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      flex-shrink: 0;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .brand-wrap:hover .brand-logo-img {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 6px 16px rgba(245, 158, 11, 0.45);
+    }
     .brand-title {
       font-family: 'Cinzel', serif;
       font-size: 1.45rem;
@@ -76,12 +127,35 @@
       align-items: center;
       gap: 0.5rem;
       color: #fef3c7;
+      line-height: 1.25;
     }
     .brand-sub {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.8rem;
       color: #fecaca;
       font-weight: 400;
+      margin-top: 0.15rem;
+    }
+    .nav-brand-mini {
+      display: flex;
+      align-items: center;
+      padding: 0.4rem 0.5rem;
+      margin-right: 0.35rem;
+      cursor: pointer;
+      border-right: 1px solid var(--border-color);
+      flex-shrink: 0;
+    }
+    .nav-brand-mini-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid #f59e0b;
+      object-fit: cover;
+      background: #fbf8f1;
+      transition: transform 0.2s ease;
+    }
+    .nav-brand-mini:hover .nav-brand-mini-img {
+      transform: scale(1.1);
     }
     .realtime-clock {
       background: rgba(0, 0, 0, 0.25);
@@ -1351,6 +1425,16 @@
 
     /* Responsive Enhancements for Mobile Devices */
     @media (max-width: 640px) {
+      .brand-logo-img {
+        width: 46px;
+        height: 46px;
+      }
+      .brand-title {
+        font-size: 1.22rem;
+      }
+      .brand-sub {
+        font-size: 0.72rem;
+      }
       /* Main layout and card spacing */
       main {
         padding: 0.65rem 0.4rem 2.5rem;
@@ -1779,11 +1863,14 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <div>
-        <div class="brand-title">
-          <span>🏮</span> Lịch Âm Dương &amp; Bát Tự Tứ Trụ
+      <div class="brand-wrap" id="btnHeaderLogo" title="Bấm để xem chi tiết biểu trưng Logo">
+        <img src="/logo.png" alt="Logo Lịch Âm Dương Bát Tự" class="brand-logo-img" width="58" height="58" />
+        <div>
+          <div class="brand-title">
+            Lịch Âm Dương &amp; Bát Tự Tứ Trụ
+          </div>
+          <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
-        <div class="brand-sub">Tra cứu lịch vạn niên, ngày giờ hoàng đạo, tiết khí và phong tục lễ tết Việt Nam</div>
       </div>
       <div class="realtime-clock" id="liveClock">
         <span>⏰</span> <span id="clockText">Đang tải giờ...</span>
@@ -1791,9 +1878,12 @@
     </div>
   </header>
 
-  <!-- Navigation Tabs -->
+  <!-- Navigation Tabs / Thanh Công Cụ -->
   <div class="nav-bar">
     <div class="nav-container">
+      <div class="nav-brand-mini" id="btnNavLogoMini" title="Biểu trưng Lịch Âm Dương & Bát Tự (Bấm xem ý nghĩa)">
+        <img src="/logo.png" alt="Logo Lịch Âm Dương" class="nav-brand-mini-img" width="32" height="32" />
+      </div>
       <button class="nav-tab active" data-tab="tab-calendar">
         📅 Lịch Vạn Niên &amp; Ngày Đẹp
       </button>
@@ -2081,8 +2171,13 @@
         <div>
           <div class="bloc-card">
             <div class="bloc-top">
-              <div class="bloc-weekday" id="blocWeekday">THỨ TƯ</div>
-              <div class="bloc-solar-month" id="blocSolarMonth">Tháng 9 năm 2026 (Dương Lịch)</div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 0.55rem;">
+                  <img src="/logo.png" alt="Logo Lịch Âm Dương" class="bloc-logo-img" id="btnBlocLogo" style="width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.75); box-shadow: 0 2px 6px rgba(0,0,0,0.25); cursor: pointer; background: #fbf8f1;" title="Xem ý nghĩa biểu trưng Logo" />
+                  <span class="bloc-weekday" id="blocWeekday">THỨ TƯ</span>
+                </div>
+                <div class="bloc-solar-month" id="blocSolarMonth">Tháng 9 năm 2026 (Dương Lịch)</div>
+              </div>
             </div>
             <div class="bloc-body">
               <div class="bloc-hero-row">
@@ -2725,17 +2820,62 @@
     </div>
   </div>
 
+  <!-- Modal Biểu Trưng & Ý Nghĩa Logo -->
+  <div class="modal-overlay" id="logoDetailModal">
+    <div class="modal-box" style="max-width: 540px;">
+      <div class="modal-head">
+        <h3 style="font-size: 1.08rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;" id="logoModalTitle">
+          <span>🏮</span> Ý Nghĩa Biểu Trưng (Logo) Lịch Âm Dương Bát Tự
+        </h3>
+        <button class="close-btn" id="logoModalCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body" id="logoModalContent">
+        <div style="text-align: center; margin-bottom: 1.15rem;">
+          <img src="/logo.png" alt="Biểu trưng Logo Lịch Âm Dương Bát Tự" style="width: 156px; height: 156px; border-radius: 50%; border: 3px solid #f59e0b; box-shadow: 0 6px 20px rgba(0,0,0,0.25); background: #fbf8f1; margin: 0 auto; display: block;" />
+          <h4 style="margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 1.25rem; color: #991b1b; font-weight: 700;">
+            LỊCH ÂM DƯƠNG • BÁT TỰ TỨ TRỤ
+          </h4>
+          <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px;">
+            "Thuận theo tự nhiên - Đoán biết mệnh số"
+          </p>
+        </div>
+        <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
+          <p style="margin-bottom: 0.65rem;">
+            <strong>☀️ Âm Dương Nhật Nguyệt:</strong> Vầng Thái Dương rực rỡ cùng Trăng Lưỡi Liềm tỏa sáng giữa bầu trời sao đêm, biểu thị sự hòa hợp nhịp nhàng giữa Lịch Mặt Trời (Dương lịch &amp; 24 Tiết khí) và Lịch Mặt Trăng (Âm lịch &amp; Tuần Trăng Sóc).
+          </p>
+          <p style="margin-bottom: 0.65rem;">
+            <strong>🏛️ Mái Đình Cổ Truyền Việt Nam &amp; La Bàn Kim Chỉ Nam:</strong> Thể hiện truyền thống văn hóa dân tộc ngàn năm, kết hợp cùng la bàn phương vị định hướng cát hung, Tài Thần và Hỷ Thần trong ngày.
+          </p>
+          <p style="margin-bottom: 0.65rem;">
+            <strong>☯️ Vòng Bát Quái &amp; Ngũ Hành:</strong> Các vòng tròn đồng tâm biểu thị Bát Quái (Càn, Khảm, Cấn, Chấn, Tốn, Ly, Khôn, Đoài) cùng 5 biểu tượng Ngũ Hành: Kim, Mộc, Thủy, Hỏa, Thổ – nền tảng khởi sinh của thuật dự đoán Bát Tự Tứ Trụ.
+          </p>
+          <p style="margin-bottom: 0;">
+            <strong>📜 Bát Tự Khởi Nguyên (Giáp Tý, Ất Sửu, Bính Dần, Đinh Mão):</strong> Khởi đầu của chu kỳ Lục Thập Hoa Giáp, hướng dẫn con người ứng xử "Thuận theo tự nhiên" để luôn bình an và hanh thông.
+          </p>
+        </div>
+        <div style="text-align: center; margin-top: 1.15rem;">
+          <button class="btn btn-gold btn-sm" id="btnLogoModalOk" style="padding: 0.45rem 1.8rem; font-weight: 600;">Đã Hiểu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <p style="font-weight: 600; color: #d1d5db; margin-bottom: 0.3rem;">
-        Ứng Dụng Lịch Âm Dương, Bát Tự Tứ Trụ &amp; Ngày Giờ Hoàng Đạo
-      </p>
-      <p>Thuật toán thiên văn chuyển đổi lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00). Bản quyền thuần Web tĩnh HTML, CSS &amp; JavaScript.</p>
-      <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-        <span style="display: inline-block; background: rgba(255,255,255,0.1); padding: 0.15rem 0.55rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15); font-family: var(--font-mono, monospace);">Phiên bản v1.5.0</span>
-        • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
-      </p>
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
+      <img src="/logo.png" alt="Logo Lịch Âm Dương Bát Tự" style="width: 58px; height: 58px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 2px solid #f59e0b; cursor: pointer; background: #fbf8f1; flex-shrink: 0; transition: transform 0.2s ease;" id="footerLogoImg" title="Bấm để xem ý nghĩa biểu trưng Logo" />
+      <div style="text-align: left; max-width: 760px;">
+        <p style="font-weight: 700; color: #fef3c7; margin-bottom: 0.25rem; font-size: 0.95rem; letter-spacing: 0.3px;">
+          LỊCH ÂM DƯƠNG &amp; BÁT TỰ TỨ TRỤ VIỆT NAM
+        </p>
+        <p style="font-size: 0.8rem; color: #d1d5db; line-height: 1.5;">
+          "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
+        </p>
+        <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
+          <span style="display: inline-block; background: rgba(255,255,255,0.1); padding: 0.15rem 0.55rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15); font-family: var(--font-mono, monospace);">Phiên bản v1.5.1</span>
+          • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
+        </p>
+      </div>
     </div>
   </footer>
 
@@ -3463,6 +3603,7 @@
     function initApp() {
       setupRealtimeClock();
       setupTabs();
+      setupLogoModal();
       setupQuickSelectors();
       setupCalendarControls();
       setupSocYearTable();
@@ -3476,6 +3617,38 @@
       setupConverterForm();
       renderFestivals(selectedDate.getFullYear());
       setupFestivalsFilters();
+    }
+
+    // Modal hiển thị và giải thích ý nghĩa biểu trưng (Logo)
+    function setupLogoModal() {
+      const modal = document.getElementById('logoDetailModal');
+      const closeBtn = document.getElementById('logoModalCloseBtn');
+      const okBtn = document.getElementById('btnLogoModalOk');
+      const btnHeader = document.getElementById('btnHeaderLogo');
+      const btnNav = document.getElementById('btnNavLogoMini');
+      const btnBloc = document.getElementById('btnBlocLogo');
+      const btnFooter = document.getElementById('footerLogoImg');
+
+      function openModal(e) {
+        if (e) e.stopPropagation();
+        if (modal) modal.classList.add('active');
+      }
+      function closeModal() {
+        if (modal) modal.classList.remove('active');
+      }
+
+      if (btnHeader) btnHeader.addEventListener('click', openModal);
+      if (btnNav) btnNav.addEventListener('click', openModal);
+      if (btnBloc) btnBloc.addEventListener('click', openModal);
+      if (btnFooter) btnFooter.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (okBtn) okBtn.addEventListener('click', closeModal);
+
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
     }
 
     // Đồng hồ thời gian thực

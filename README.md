@@ -96,6 +96,20 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.5.1] - 2026-09-03
+- **Tích Hợp Toàn Diện Bộ Nhận Diện Thương Hiệu & Logo Biểu Trưng "Thuận Theo Tự Nhiên - Đoán Biết Mệnh Số"**:
+  - **Tối Ưu Hiển Thị Khi Chia Sẻ Link Mạng Xã Hội (Social Share & Metadata)**:
+    - Cấu hình trọn bộ thẻ Open Graph (`og:image`, `og:image:width`, `og:image:height`, `og:title`, `og:description`) và Twitter Card (`twitter:image`, `twitter:card: summary_large_image`) với hình ảnh logo chính thức chuẩn độ phân giải cao ($1024 \times 1024$).
+    - Hỗ trợ hiển thị ảnh thu nhỏ (preview thumbnail) sắc nét khi gửi liên kết qua Zalo, Facebook, Messenger, Telegram, iMessage, Skype.
+    - Cập nhật Favicon (`favicon.png`, `favicon.ico`) và Apple Touch Icon (`apple-touch-icon.png`, `icon-192.png`, `icon-512.png`) cho trình duyệt và màn hình chính điện thoại di động (PWA/Bookmark).
+  - **Tích Hợp Logo Trên Thanh Công Cụ & Thanh Điều Hướng (Header & Toolbar)**:
+    - Đặt logo biểu trưng dạng huy hiệu tròn viền hoàng kim trên thanh tiêu đề ứng dụng (Header) với hiệu ứng rê chuột (hover scale) tinh tế.
+    - Bổ sung biểu trưng mini (`nav-brand-mini`) ngay trên thanh công cụ điều hướng dính (`nav-bar`), nhận diện thương hiệu xuyên suốt khi cuộn trang.
+  - **Hiển Thị Logo Trong Ứng Dụng (In-App Experience)**:
+    - Tích hợp biểu trưng mini trên thanh tiêu đề của thẻ Bloc Lịch Ngày đang chọn.
+    - Tích hợp logo biểu trưng trang trọng kèm châm ngôn *"Thuận theo tự nhiên - Đoán biết mệnh số"* ở phần Chân trang (Footer).
+    - Xây dựng **Hộp Thoại Diễn Giải Ý Nghĩa Biểu Trưng (`#logoDetailModal`)**: Bấm vào logo tại bất kỳ vị trí nào (Header, Toolbar, Bloc Lịch, Footer) sẽ mở bảng tương tác giải thích chi tiết ý nghĩa văn hóa & thiên văn: Âm Dương Nhật Nguyệt, Mái đình cổ truyền & La bàn kim chỉ nam, Vòng tròn Bát Quái Ngũ Hành, và Bát Tự khởi nguyên Giáp Tý - Ất Sửu - Bính Dần - Đinh Mão.
+
 ### [v1.5.0] - 2026-09-03
 - **Tích Hợp Toàn Diện Tab Chuyên Biệt "Xác Định Tháng Nhuận (Quy Tắc Trung Khí)" Vào Chương Trình**:
   - Bổ sung **Tab Chuyên Biệt Cấp 1** trên thanh điều hướng chính (`nav-tab`): `✨ Xác Định Tháng Nhuận (Quy Tắc Trung Khí)` giúp người dùng truy cập trực tiếp mọi lúc từ bất kỳ màn hình nào.
