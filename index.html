@@ -1082,6 +1082,43 @@
       }
     }
 
+    /* Leap Year Full Table & View Options */
+    .leap-table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+    .leap-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+      background: #fff;
+    }
+    .leap-table th {
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 700;
+      padding: 0.65rem 0.65rem;
+      border-bottom: 2px solid #e2e8f0;
+      white-space: nowrap;
+      font-size: 0.8rem;
+      text-align: left;
+    }
+    .leap-table td {
+      padding: 0.65rem 0.65rem;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+    .leap-table tbody tr:hover {
+      background: #f8fafc;
+    }
+    .leap-table tbody tr.is-leap-row {
+      background: #fffdf5 !important;
+      border-left: 4px solid #f59e0b;
+    }
+
     /* Bát Tự (Four Pillars) Styling */
     .battu-pillars-grid {
       display: grid;
@@ -1760,6 +1797,9 @@
       <button class="nav-tab active" data-tab="tab-calendar">
         📅 Lịch Vạn Niên &amp; Ngày Đẹp
       </button>
+      <button class="nav-tab" data-tab="tab-leapyear" id="navTabLeapYear">
+        ✨ Xác Định Tháng Nhuận (Quy Tắc Trung Khí)
+      </button>
       <button class="nav-tab" data-tab="tab-battu">
         🔮 Lập Lá Số Bát Tự (Tứ Trụ)
       </button>
@@ -1825,6 +1865,9 @@
         <button class="btn btn-gold btn-sm" id="btnGoToSolarTab" style="white-space: nowrap; box-shadow: 0 2px 6px rgba(180,83,9,0.25);">
           ☀️ Xem Chi Tiết 24 Tiết Khí
         </button>
+        <button class="btn btn-outline btn-sm" id="btnGoToLeapTab" style="white-space: nowrap; margin-top: 0.25rem; font-size: 0.75rem; background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3);">
+          ✨ Xác Định Tháng Nhuận
+        </button>
       </div>
     </div>
   </div>
@@ -1838,8 +1881,11 @@
         <div>
           <div class="card">
             <div class="cal-controls">
-              <div class="cal-title-wrap">
+              <div class="cal-title-wrap" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
                 <div class="cal-month-title" id="calTitleDisplay">Tháng 9 năm 2026</div>
+                <button class="btn btn-outline btn-sm" id="btnCalLeapBadge" style="font-size: 0.72rem; padding: 0.15rem 0.55rem; border-color: #f59e0b; color: #b45309; background: #fffdf5; border-radius: 9999px;" title="Bấm để mở module Phân tích Quy tắc Tháng Nhuận">
+                  ✨ Năm Thường (Chi tiết ➔)
+                </button>
               </div>
               <div class="cal-nav-actions">
                 <div class="cal-nav-btns">
@@ -2361,6 +2407,141 @@
       </div>
     </div>
 
+    <!-- TAB: XÁC ĐỊNH THÁNG NHUẬN (QUY TẮC TRUNG KHÍ) -->
+    <div id="tab-leapyear" class="tab-content">
+      <div class="card">
+        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 class="card-title" style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem;">
+              ✨ Phân Tích &amp; Xác Định Tháng Nhuận Theo Quy Tắc Trung Khí
+            </h2>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Thuật toán thiên văn chính xác múi giờ Việt Nam (UTC+7:00). Xác định năm Nhuận và vị trí Tháng Nhuận dựa trên khoảng cách giữa 2 điểm Đông Chí và quy luật tháng Vô Trung Khí.
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <label style="font-size: 0.88rem; font-weight: 700;">Năm khảo sát:</label>
+            <input type="number" id="dedicatedLeapYearInput" class="form-control" style="width: 100px; padding: 0.4rem 0.6rem; font-weight: 700; text-align: center;" value="2026" min="1900" max="2100">
+            <button class="btn btn-primary btn-sm" id="btnDedicatedRunLeap">🔍 Phân Tích</button>
+            <button class="btn btn-gold btn-sm" id="btnDedicatedCurrentYear">Năm Nay</button>
+          </div>
+        </div>
+
+        <!-- Quick Sample Year Selection Chips -->
+        <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1.25rem; background: #f8fafc; padding: 0.6rem 0.85rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+          <span style="font-size: 0.78rem; font-weight: 700; color: #475569;">Chọn nhanh năm mẫu điển hình:</span>
+          <div class="leap-quick-chips" id="dedicatedLeapChips">
+            <button class="chip-year" data-year="2020">2020 (Nhuận T4)</button>
+            <button class="chip-year" data-year="2023">2023 (Nhuận T2)</button>
+            <button class="chip-year" data-year="2025">2025 (Nhuận T6)</button>
+            <button class="chip-year active" data-year="2026">2026 (Năm thường)</button>
+            <button class="chip-year" data-year="2028">2028 (Nhuận T5)</button>
+            <button class="chip-year" data-year="2031">2031 (Nhuận T3)</button>
+            <button class="chip-year" data-year="2033">2033 (Nhuận T11)</button>
+            <button class="chip-year" data-year="2036">2036 (Nhuận T6)</button>
+          </div>
+        </div>
+
+        <!-- Conclusion Banner -->
+        <div id="dedicatedLeapResultBanner" class="leap-banner is-regular" style="margin-bottom: 1.25rem;">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- Educational Rules: 3 Core Principles -->
+        <div class="leap-rules-box" style="margin-bottom: 1.25rem;">
+          <div class="leap-rules-title">
+            <span>📚 CƠ SỞ KHOA HỌC THIÊN VĂN &amp; 3 QUY TẮC ĐẶT THÁNG NHUẬN ÂM LỊCH</span>
+          </div>
+          <div class="leap-rules-list">
+            <div class="leap-rule-item">
+              <span class="leap-rule-num">1</span>
+              <div>
+                <strong>Chu kỳ 2 điểm Đông Chí &amp; 13 lần Trăng Sóc:</strong> Điểm Đông Chí luôn luôn nằm trong Tháng 11 Âm lịch. Nếu khoảng cách giữa 2 điểm Đông Chí liên tiếp ($a_{11}$ năm trước và $b_{11}$ năm nay) có <strong>13 lần Trăng Sóc</strong> (chu kỳ dài &gt; 365 ngày) thì năm đó bắt buộc phải có <strong>1 Tháng Nhuận</strong>.
+              </div>
+            </div>
+            <div class="leap-rule-item">
+              <span class="leap-rule-num">2</span>
+              <div>
+                <strong>Nguyên lý Vô Trung Khí (Cốt lõi):</strong> Trong năm nhuận có 13 tháng âm lịch nhưng chỉ có 12 Trung Khí (kinh độ Mặt Trời là bội số $30^\circ$: $0^\circ, 30^\circ, \dots, 330^\circ$). Do đó tất yếu có tháng không chứa Trung Khí nào. <strong>Tháng âm lịch đầu tiên sau Đông chí không có Trung Khí nào thì được chọn làm Tháng Nhuận</strong>.
+              </div>
+            </div>
+            <div class="leap-rule-item">
+              <span class="leap-rule-num">3</span>
+              <div>
+                <strong>Quy ước tên gọi &amp; Sự phân bổ tháng nhuận:</strong> Tháng nhuận mang tên của tháng chính liền trước (ví dụ: Tháng 6 Nhuận). Không nhuận tháng 11 (vì luôn chứa Đông Chí) và tháng Giêng (để bảo toàn Tết Nguyên Đán). Do quỹ đạo elip của Trái Đất, Mặt Trời di chuyển chậm hơn ở điểm viễn nhật (mùa hè) nên các tháng mùa hè có khoảng cách Trung khí dài hơn, dẫn đến tháng nhuận thường rơi vào từ tháng 2 đến tháng 8 âm lịch.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View Mode Switcher & Title -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <div>
+            <h3 style="font-size: 0.95rem; font-weight: 700; color: #1e293b; margin: 0;" id="dedicatedLeapCycleLabel">
+              Chi Tiết Toàn Bộ Các Tháng Trong Chu Kỳ Đông Chí
+            </h3>
+            <p style="font-size: 0.75rem; color: #64748b; margin: 2px 0 0 0;">
+              Kiểm tra kinh độ Mặt Trời tại điểm Sóc đầu tháng &amp; cuối tháng để xác định tháng Vô Trung Khí
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.35rem;">
+            <button class="btn btn-sm btn-gold" id="btnDedicatedViewTable">Dạng Bảng Đầy Đủ</button>
+            <button class="btn btn-sm btn-outline" id="btnDedicatedViewCards">Dạng Thẻ Gọn</button>
+          </div>
+        </div>
+
+        <!-- Container for Table View (Desktop & Tablet) -->
+        <div class="leap-table-wrapper" id="dedicatedLeapTableWrapper">
+          <table class="leap-table">
+            <thead>
+              <tr>
+                <th style="width: 40px; text-align: center;">STT</th>
+                <th>Tháng Âm Lịch</th>
+                <th>Khoảng Thời Gian (Dương Lịch)</th>
+                <th>Quy Mô Tháng</th>
+                <th>Kinh Độ Mặt Trời (Bắt đầu ➔ Kết thúc)</th>
+                <th>Tình Trạng Trung Khí</th>
+                <th>Kết Luận</th>
+              </tr>
+            </thead>
+            <tbody id="dedicatedLeapTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Container for Mobile Cards View -->
+        <div class="leap-months-list" id="dedicatedLeapCardsContainer" style="display: none; margin-top: 0.5rem;">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- Comparison Table: 12 Tiết vs 12 Trung Khí -->
+        <div style="margin-top: 1.5rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.85rem 1rem;">
+          <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+            <span>☀️</span> BẢNG ĐỐI CHIẾU 12 TIẾT VÀ 12 TRUNG KHÍ TRONG 24 TIẾT KHÍ
+          </h4>
+          <p style="font-size: 0.78rem; color: #4b5563; line-height: 1.5; margin-bottom: 0.65rem;">
+            24 Tiết Khí gồm 12 Tiết và 12 Khí (Trung Khí) xen kẽ nhau cách đều $15^\circ$. Bát Tự Tứ Trụ dựa vào <strong>12 Tiết</strong> để đổi Trụ Tháng; trong khi Lịch Âm dựa vào <strong>12 Trung Khí</strong> để định tên tháng và tìm Tháng Nhuận.
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem;">
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.65rem 0.75rem; font-size: 0.78rem;">
+              <strong style="color: #166534; font-size: 0.82rem;">🌿 12 TIẾT (Khởi Đầu Tháng Bát Tự):</strong>
+              <div style="margin-top: 0.35rem; line-height: 1.6; color: #374151;">
+                Lập Xuân (315°), Kinh Trập (345°), Thanh Minh (15°), Lập Hạ (45°), Mang Chủng (75°), Tiểu Thử (105°), Lập Thu (135°), Bạch Lộ (165°), Hàn Lộ (195°), Lập Đông (225°), Đại Tuyết (255°), Tiểu Hàn (285°).
+              </div>
+            </div>
+            <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.65rem 0.75rem; font-size: 0.78rem;">
+              <strong style="color: #92400e; font-size: 0.82rem;">🌧️ 12 TRUNG KHÍ (Định Tên Tháng &amp; Tháng Nhuận):</strong>
+              <div style="margin-top: 0.35rem; line-height: 1.6; color: #374151;">
+                Vũ Thủy (330°), Xuân Phân (0°), Cốc Vũ (30°), Tiểu Mãn (60°), Hạ Chí (90°), Đại Thử (120°), Xử Thử (150°), Thu Phân (180°), Sương Giáng (210°), Tiểu Tuyết (240°), Đông Chí (270°), Đại Hàn (300°).
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- TAB 3: 24 TIẾT KHÍ THIÊN VĂN (12 TIẾT & 12 KHÍ) -->
     <div id="tab-solarterms" class="tab-content">
       <div class="card">
@@ -2552,7 +2733,7 @@
       </p>
       <p>Thuật toán thiên văn chuyển đổi lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00). Bản quyền thuần Web tĩnh HTML, CSS &amp; JavaScript.</p>
       <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-        <span style="display: inline-block; background: rgba(255,255,255,0.1); padding: 0.15rem 0.55rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15); font-family: var(--font-mono, monospace);">Phiên bản v1.3.2</span>
+        <span style="display: inline-block; background: rgba(255,255,255,0.1); padding: 0.15rem 0.55rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15); font-family: var(--font-mono, monospace);">Phiên bản v1.5.0</span>
         • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
       </p>
     </div>
@@ -3285,9 +3466,11 @@
       setupQuickSelectors();
       setupCalendarControls();
       setupSocYearTable();
+      setupDedicatedLeapTab();
       setupSolarTermsTab();
       startSolarTicker();
       renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+      renderDedicatedLeapTab(selectedDate.getFullYear());
       updateBlocView(selectedDate);
       setupBattuForm();
       setupConverterForm();
@@ -3329,7 +3512,12 @@
           document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
           tab.classList.add('active');
           const target = tab.getAttribute('data-tab');
-          document.getElementById(target).classList.add('active');
+          const targetEl = document.getElementById(target);
+          if (targetEl) targetEl.classList.add('active');
+          if (target === 'tab-leapyear') {
+            const curY = selectedDate ? selectedDate.getFullYear() : (new Date()).getFullYear();
+            renderDedicatedLeapTab(curY);
+          }
         });
       });
     }
@@ -3428,6 +3616,24 @@
       // Cập nhật bảng tra cứu điểm Sóc cả năm & phân tích tháng nhuận
       renderSocYearTable(year);
       renderLeapAnalysis(year);
+      renderDedicatedLeapTab(year);
+
+      // Cập nhật trạng thái nhãn Tháng Nhuận trên thanh điều khiển Lịch
+      const leapBadge = document.getElementById('btnCalLeapBadge');
+      if (leapBadge) {
+        const leapInfo = analyzeLunarLeapYear(year, 7);
+        if (leapInfo.isLeapYear) {
+          leapBadge.innerHTML = `✨ Năm Nhuận (${leapInfo.leapMonthName}) ➔`;
+          leapBadge.style.background = '#fef3c7';
+          leapBadge.style.color = '#92400e';
+          leapBadge.style.borderColor = '#fde68a';
+        } else {
+          leapBadge.innerHTML = `✨ Năm Thường (Chi tiết ➔)`;
+          leapBadge.style.background = '#f0fdf4';
+          leapBadge.style.color = '#166534';
+          leapBadge.style.borderColor = '#bbf7d0';
+        }
+      }
     }
 
     // Tạo một ô ngày trong lịch
@@ -4095,6 +4301,280 @@
           }
         });
       }
+    }
+
+    /**
+     * MODULE CHUYÊN BIỆT: XÁC ĐỊNH THÁNG NHUẬN THEO QUY TẮC TRUNG KHÍ (TAB RIÊNG)
+     */
+    function renderDedicatedLeapTab(targetYear) {
+      const bannerEl = document.getElementById('dedicatedLeapResultBanner');
+      const tableBodyEl = document.getElementById('dedicatedLeapTableBody');
+      const cardsContainer = document.getElementById('dedicatedLeapCardsContainer');
+      const cycleLabelEl = document.getElementById('dedicatedLeapCycleLabel');
+      const inputYearEl = document.getElementById('dedicatedLeapYearInput');
+
+      if (inputYearEl) inputYearEl.value = targetYear;
+
+      // Đánh dấu chip năm đang chọn
+      const chips = document.querySelectorAll('#dedicatedLeapChips .chip-year');
+      chips.forEach(ch => {
+        if (parseInt(ch.getAttribute('data-year')) === targetYear) {
+          ch.classList.add('active');
+        } else {
+          ch.classList.remove('active');
+        }
+      });
+
+      const data = analyzeLunarLeapYear(targetYear, 7);
+
+      if (cycleLabelEl) {
+        const d1 = `${String(data.dWinterPrev[0]).padStart(2, '0')}/${String(data.dWinterPrev[1]).padStart(2, '0')}/${data.dWinterPrev[2]}`;
+        const d2 = `${String(data.dWinterCurr[0]).padStart(2, '0')}/${String(data.dWinterCurr[1]).padStart(2, '0')}/${data.dWinterCurr[2]}`;
+        cycleLabelEl.textContent = `Chi Tiết Toàn Bộ ${data.totalMonths} Tháng Trong Chu Kỳ Đông Chí: ${d1} ➔ ${d2}`;
+      }
+
+      // 1. Cập nhật Banner Kết Luận
+      if (bannerEl) {
+        if (data.isLeapYear) {
+          bannerEl.className = 'leap-banner is-leap';
+          bannerEl.innerHTML = `
+            <div class="leap-banner-title" style="color: #92400e;">
+              <span>✨ KẾT LUẬN THIÊN VĂN: NĂM ${targetYear} LÀ NĂM NHUẬN (CÓ ${data.leapMonthName.toUpperCase()})</span>
+              <span class="badge" style="background: #f59e0b; color: #fff; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 9999px;">Chu kỳ 13 Tháng Sóc</span>
+            </div>
+            <p class="leap-banner-desc">
+              • <strong>Số tháng âm lịch trong chu kỳ:</strong> Khoảng cách giữa 2 điểm Đông Chí liên tiếp có đúng <strong>13 lần Trăng Sóc (13 tháng âm lịch, ~384 ngày)</strong>.<br>
+              • <strong>Vị trí Tháng Nhuận theo Quy tắc Trung Khí:</strong> Tháng âm lịch đầu tiên sau Đông chí không chứa bất kỳ Trung khí nào trong 12 Trung khí là <strong>${data.leapMonthName}</strong>.<br>
+              • <strong>Diễn giải khoa học:</strong> Giữa 2 điểm Sóc đầu tháng và cuối tháng này, kinh độ hoàng đạo Mặt Trời hoàn toàn không đi qua bất kỳ mốc chia $30^\circ$ nào, do đó tháng rơi vào tình trạng <em>Vô Trung Khí</em> và được chọn làm Tháng Nhuận theo chuẩn Lịch Âm Việt Nam & Đông Á.
+            </p>
+          `;
+        } else {
+          bannerEl.className = 'leap-banner is-regular';
+          bannerEl.innerHTML = `
+            <div class="leap-banner-title" style="color: #166534;">
+              <span>🗓️ KẾT LUẬN THIÊN VĂN: NĂM ${targetYear} LÀ NĂM THƯỜNG (KHÔNG CÓ THÁNG NHUẬN)</span>
+              <span class="badge" style="background: #10b981; color: #fff; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 9999px;">Chu kỳ 12 Tháng Sóc</span>
+            </div>
+            <p class="leap-banner-desc">
+              • <strong>Số tháng âm lịch trong chu kỳ:</strong> Khoảng cách giữa 2 điểm Đông Chí liên tiếp chỉ có đúng <strong>12 lần Trăng Sóc (12 tháng âm lịch, ~354 ngày)</strong>.<br>
+              • <strong>Phân bố Trung Khí:</strong> Tất cả 12 tháng âm lịch trong năm đều chứa đầy đủ đúng 1 Trung khí theo tuần tự thiên văn ($0^\circ, 30^\circ, \dots, 330^\circ$). Do đó <strong>không có tháng nào bị khuyết Trung khí</strong> để lấy làm tháng nhuận.
+            </p>
+          `;
+        }
+      }
+
+      // 2. Render Dạng Bảng (Table Body)
+      if (tableBodyEl) {
+        tableBodyEl.innerHTML = '';
+        data.monthsList.forEach(mItem => {
+          const tr = document.createElement('tr');
+          if (mItem.isLeapMonth) tr.classList.add('is-leap-row');
+
+          const dStartStr = `${String(mItem.dStart).padStart(2, '0')}/${String(mItem.mStart).padStart(2, '0')}/${mItem.yStart}`;
+          const dEndStr = `${String(mItem.dEnd).padStart(2, '0')}/${String(mItem.mEnd).padStart(2, '0')}/${mItem.yEnd}`;
+
+          let trungKhiContent = '';
+          if (mItem.hasNoTrungKhi) {
+            trungKhiContent = `
+              <span class="badge-no-trungkhi">
+                ⛔ Vô Trung Khí (Không chứa Trung khí nào)
+              </span>
+            `;
+          } else if (mItem.trungKhiInMonth) {
+            trungKhiContent = `
+              <span class="badge-has-trungkhi">
+                ${mItem.trungKhiInMonth.symbol} <strong>${mItem.trungKhiInMonth.name}</strong> (${mItem.trungKhiInMonth.deg}°)
+              </span>
+            `;
+          } else {
+            trungKhiContent = `<span style="font-size: 0.78rem; color: #64748b;">Có Trung khí</span>`;
+          }
+
+          const badgeMonthDays = mItem.totalDays === 30 
+            ? '<span class="badge-du">Đủ 30 ngày</span>' 
+            : '<span class="badge-thieu">Thiếu 29 ngày</span>';
+
+          const statusCol = mItem.isLeapMonth
+            ? '<strong style="color: #ea580c; display: flex; align-items: center; gap: 0.3rem;">⭐ THÁNG NHUẬN</strong>'
+            : '<span style="color: #166534; font-size: 0.8rem;">Tháng chính thông thường</span>';
+
+          const degStart = (mItem.arc1 * 30) % 360;
+          const degEnd = (mItem.arc2 * 30) % 360;
+
+          tr.innerHTML = `
+            <td style="text-align: center; font-weight: 700; color: #64748b;">${mItem.index + 1}</td>
+            <td>
+              <strong style="${mItem.isLeapMonth ? 'color: #b45309; font-size: 0.95rem;' : 'color: #0f172a;'}">
+                ${mItem.isLeapMonth ? '⭐ ' : ''}${mItem.monthLabel}
+              </strong>
+            </td>
+            <td>
+              <div style="font-weight: 600; color: #334151;">${dStartStr} ➔ ${dEndStr}</div>
+              <div style="font-size: 0.72rem; color: #64748b;">(Mùng 1: 00:00:00 ngày ${dStartStr})</div>
+            </td>
+            <td>${badgeMonthDays}</td>
+            <td>
+              <span class="solar-deg-code">${degStart.toFixed(1)}°</span> ➔ <span class="solar-deg-code">${degEnd.toFixed(1)}°</span>
+            </td>
+            <td>${trungKhiContent}</td>
+            <td>${statusCol}</td>
+          `;
+          tableBodyEl.appendChild(tr);
+        });
+      }
+
+      // 3. Render Dạng Thẻ Gọn (Mobile Cards)
+      if (cardsContainer) {
+        cardsContainer.innerHTML = '';
+        data.monthsList.forEach(mItem => {
+          const card = document.createElement('div');
+          card.className = `leap-month-card ${mItem.isLeapMonth ? 'is-leap-item' : ''}`;
+
+          const dStartStr = `${String(mItem.dStart).padStart(2, '0')}/${String(mItem.mStart).padStart(2, '0')}/${mItem.yStart}`;
+          const dEndStr = `${String(mItem.dEnd).padStart(2, '0')}/${String(mItem.mEnd).padStart(2, '0')}/${mItem.yEnd}`;
+
+          let trungKhiHtml = '';
+          if (mItem.hasNoTrungKhi) {
+            trungKhiHtml = `
+              <span class="badge-no-trungkhi">
+                ⛔ Không chứa Trung khí nào
+              </span>
+            `;
+          } else if (mItem.trungKhiInMonth) {
+            trungKhiHtml = `
+              <span class="badge-has-trungkhi">
+                ${mItem.trungKhiInMonth.symbol} Trung khí: <strong>${mItem.trungKhiInMonth.name}</strong> (${mItem.trungKhiInMonth.deg}°)
+              </span>
+            `;
+          } else {
+            trungKhiHtml = `<span style="font-size: 0.75rem; color: #64748b;">Có Trung khí trong tháng</span>`;
+          }
+
+          const badgeMonthDays = mItem.totalDays === 30 
+            ? '<span class="badge-du">Đủ 30 ngày</span>' 
+            : '<span class="badge-thieu">Thiếu 29 ngày</span>';
+
+          card.innerHTML = `
+            <div class="leap-mcard-top">
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
+                <span class="leap-mcard-name" style="${mItem.isLeapMonth ? 'color: #b45309; font-size: 0.95rem;' : ''}">
+                  ${mItem.isLeapMonth ? '⭐ ' : ''}${mItem.monthLabel}
+                </span>
+                ${mItem.isLeapMonth ? '<span class="badge" style="background: #f59e0b; color: #fff; font-weight: 700; font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 4px;">★ THÁNG NHUẬN</span>' : ''}
+                ${badgeMonthDays}
+              </div>
+              <span style="font-size: 0.72rem; color: #64748b;">Tháng thứ ${mItem.index + 1}/${data.totalMonths}</span>
+            </div>
+            <div class="leap-mcard-details">
+              <div>
+                <div style="font-size: 0.68rem; font-weight: 700; color: #64748b; text-transform: uppercase;">KHOẢNG THỜI GIAN (DƯƠNG LỊCH)</div>
+                <div style="font-weight: 600; color: #1e293b; margin-top: 2px;">
+                  ${dStartStr} ➔ ${dEndStr}
+                </div>
+                <div style="font-size: 0.7rem; color: #64748b;">(Mùng 1: 00:00 ngày ${dStartStr})</div>
+              </div>
+              <div>
+                <div style="font-size: 0.68rem; font-weight: 700; color: #64748b; text-transform: uppercase;">TÌNH TRẠNG TRUNG KHÍ</div>
+                <div style="margin-top: 2px;">
+                  ${trungKhiHtml}
+                </div>
+                ${mItem.isLeapMonth 
+                  ? `<div style="font-size: 0.7rem; color: #b45309; font-weight: 600; margin-top: 3px;">➔ Tháng đầu tiên không có Trung khí nên làm Tháng Nhuận!</div>` 
+                  : ''}
+              </div>
+            </div>
+          `;
+
+          cardsContainer.appendChild(card);
+        });
+      }
+    }
+
+    function setupDedicatedLeapTab() {
+      // Xử lý nút Phân Tích
+      const btnRun = document.getElementById('btnDedicatedRunLeap');
+      if (btnRun) {
+        btnRun.addEventListener('click', () => {
+          const y = parseInt(document.getElementById('dedicatedLeapYearInput').value);
+          if (!isNaN(y) && y >= 1900 && y <= 2100) {
+            renderDedicatedLeapTab(y);
+            renderLeapAnalysis(y);
+          } else {
+            alert('Vui lòng nhập năm từ 1900 đến 2100!');
+          }
+        });
+      }
+
+      // Xử lý nút Năm Nay
+      const btnNow = document.getElementById('btnDedicatedCurrentYear');
+      if (btnNow) {
+        btnNow.addEventListener('click', () => {
+          const y = (new Date()).getFullYear();
+          renderDedicatedLeapTab(y);
+          renderLeapAnalysis(y);
+        });
+      }
+
+      // Xử lý chọn nhanh năm mẫu
+      const chips = document.querySelectorAll('#dedicatedLeapChips .chip-year');
+      chips.forEach(ch => {
+        ch.addEventListener('click', () => {
+          const y = parseInt(ch.getAttribute('data-year'));
+          if (!isNaN(y)) {
+            renderDedicatedLeapTab(y);
+            renderLeapAnalysis(y);
+          }
+        });
+      });
+
+      // Chuyển đổi giữa Dạng Bảng và Dạng Thẻ
+      const btnTable = document.getElementById('btnDedicatedViewTable');
+      const btnCards = document.getElementById('btnDedicatedViewCards');
+      const tableWrapper = document.getElementById('dedicatedLeapTableWrapper');
+      const cardsContainer = document.getElementById('dedicatedLeapCardsContainer');
+
+      if (btnTable && btnCards && tableWrapper && cardsContainer) {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          tableWrapper.style.display = 'none';
+          cardsContainer.style.display = 'flex';
+          btnCards.className = 'btn btn-sm btn-gold';
+          btnTable.className = 'btn btn-sm btn-outline';
+        }
+
+        btnTable.addEventListener('click', () => {
+          btnTable.className = 'btn btn-sm btn-gold';
+          btnCards.className = 'btn btn-sm btn-outline';
+          tableWrapper.style.display = 'block';
+          cardsContainer.style.display = 'none';
+        });
+
+        btnCards.addEventListener('click', () => {
+          btnCards.className = 'btn btn-sm btn-gold';
+          btnTable.className = 'btn btn-sm btn-outline';
+          cardsContainer.style.display = 'flex';
+          tableWrapper.style.display = 'none';
+        });
+      }
+
+      // Liên kết điều hướng từ Solar Widget & Lịch
+      const switchToLeapTab = () => {
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        const tabBtn = document.querySelector('.nav-tab[data-tab="tab-leapyear"]');
+        if (tabBtn) tabBtn.classList.add('active');
+        const tabContent = document.getElementById('tab-leapyear');
+        if (tabContent) tabContent.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const y = selectedDate ? selectedDate.getFullYear() : (new Date()).getFullYear();
+        renderDedicatedLeapTab(y);
+      };
+
+      const btnGoToLeap = document.getElementById('btnGoToLeapTab');
+      if (btnGoToLeap) btnGoToLeap.addEventListener('click', switchToLeapTab);
+
+      const btnCalLeap = document.getElementById('btnCalLeapBadge');
+      if (btnCalLeap) btnCalLeap.addEventListener('click', switchToLeapTab);
     }
 
     /**

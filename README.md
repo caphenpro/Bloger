@@ -96,6 +96,20 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.5.0] - 2026-09-03
+- **Tích Hợp Toàn Diện Tab Chuyên Biệt "Xác Định Tháng Nhuận (Quy Tắc Trung Khí)" Vào Chương Trình**:
+  - Bổ sung **Tab Chuyên Biệt Cấp 1** trên thanh điều hướng chính (`nav-tab`): `✨ Xác Định Tháng Nhuận (Quy Tắc Trung Khí)` giúp người dùng truy cập trực tiếp mọi lúc từ bất kỳ màn hình nào.
+  - Tích hợp các phím tắt điều hướng nhanh:
+    - Nút **"✨ Xác Định Tháng Nhuận"** trực tiếp trên thanh Live Solar Ticker thời gian thực.
+    - Huy hiệu tương tác thông minh **"✨ Năm Nhuận / Năm Thường (Chi tiết ➔)"** ngay trên thanh điều khiển tháng của Lịch Vạn Niên.
+  - Xây dựng giao diện phân tích toàn diện:
+    - **Ô nhập năm khảo sát (1900 - 2100)** kèm nút "🔍 Phân Tích" và "Năm Nay".
+    - Bộ chip chọn nhanh các năm điển hình trong lịch sử và tương lai: 2020 (Nhuận T4), 2023 (Nhuận T2), 2025 (Nhuận T6), 2026 (Năm thường), 2028 (Nhuận T5), 2031 (Nhuận T3), 2033 (Nhuận T11), 2036 (Nhuận T6).
+    - **Banner Kết Luận Khoa Học**: Nêu rõ chu kỳ số tháng Sóc (12 hay 13 tháng), nguyên nhân thiên văn và tháng được chọn làm tháng nhuận.
+    - **Khối Diễn Giải 3 Quy Tắc Cốt Lõi**: Chu kỳ 2 điểm Đông Chí, Nguyên lý Vô Trung Khí, và Quy ước phân bổ tháng nhuận Á Đông.
+    - **Hỗ trợ 2 Chế độ hiển thị**: Dạng Bảng đầy đủ kinh độ Mặt Trời tại 2 điểm Sóc và Dạng Thẻ gọn gàng tự động tương thích thiết bị di động.
+    - **Bảng đối chiếu 12 Tiết và 12 Trung Khí**: Phân biệt rõ vai trò của 12 Tiết (khởi đầu tháng Bát Tự) và 12 Trung Khí (định tên tháng & tháng Nhuận Lịch Âm).
+
 ### [v1.4.0] - 2026-09-03
 - **Khắc phục Mất Cân Đối Bảng Ngày Giờ Sóc trên Giao Diện Điện Thoại**:
   - Thiết kế bộ đôi chế độ xem: **Dạng Thẻ Gọn Di Động** (`soc-mobile-card`) và **Dạng Bảng Máy Tính** (`socYearTableWrapper`).
