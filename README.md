@@ -35,11 +35,16 @@
   - **Trụ Tháng**: Được phân định nghiêm ngặt theo **12 Tiết (Tiết Lệnh)** của thiên văn học (Dần từ Lập Xuân, Mão từ Kinh Trập, Thìn từ Thanh Minh...), kết hợp quy luật khởi Can tháng theo khẩu quyết **Ngũ Hổ Độn**.
   - **Trụ Ngày (Nhật Chủ)**: Tính toán dựa trên số ngày Julian ($JD$) chính xác liên tục hàng nghìn năm.
   - **Trụ Giờ**: Tính theo 12 canh giờ và khẩu quyết **Ngũ Thử Độn**.
-- **Phân Tích Chi Tiết**:
-  - Địa Chi Tàng Can (Can ẩn tàng trong từng Chi).
-  - Thập Thần đối chiếu với Nhật Chủ (Chính Ấn, Thiên Ấn, Thực Thần, Thương Quan, Chính Tài, Thiên Tài, Chính Quan, Thất Sát, Tỷ Kiên, Kiếp Tài).
-  - Ngũ hành Nạp Âm của cả 4 trụ.
-  - Bảng thống kê định lượng phân bổ Ngũ Hành (Kim, Mộc, Thủy, Hỏa, Thổ) nhằm tìm Hỷ Thần / Dụng Thần trợ mệnh.
+- **Phân Tích Chi Tiết & Thẩm Định Vượng Nhược Chuyên Sâu**:
+  - **Thập Thần Bốn Trụ**: Hiển thị trực quan Thập Thần của từng Thiên Can đối chiếu với Nhật Can (Chính Ấn, Thiên Ấn, Thực Thần, Thương Quan, Chính Tài, Thiên Tài, Chính Quan, Thất Sát, Tỷ Kiên, Kiếp Tài, kèm huy hiệu Nguyên Thần cho Nhật Chủ).
+  - **12 Cung Trường Sinh Của Nhật Can Tại Từng Trụ**: Xác định cung khí vận (Trường Sinh, Mộc Dục, Quan Đới, Lâm Quan/Lộc, Đế Vượng/Kình Dương, Suy, Bệnh, Tử, Mộ, Tuyệt, Thai, Dưỡng) cùng trạng thái Tọa Chi của Trụ Ngày.
+  - **Địa Chi Tàng Can**: Liệt kê chi tiết từng Can ẩn tàng kèm Thập Thần tương ứng (Bản khí, Trung khí, Dư khí).
+  - **Thước Đo Cân Bằng Năng Lượng (Balance Meter)**: Định lượng chính xác tỷ lệ và điểm số giữa phe **Sinh Phù** (Ấn Kiêu + Tỷ Kiếp) và phe **Khắc - Hao - Tiết** (Quan Sát + Tài Tinh + Thực Thương) trên thang trọng số 100 điểm.
+  - **Hệ Thống 4 Yếu Tố Làm Thân Vượng**: Đắc Lệnh (thời khí lệnh tháng), Đắc Địa (thông căn tại các địa chi), Được Sinh (Ấn che chở), Được Trợ Giúp (Tỷ Kiếp phò tá).
+  - **Hệ Thống 3 Lực Lượng Làm Thân Nhược**: Khắc (Quan Sát), Hao (Tài Tinh), Tiết (Thực Thương) với chi tiết điểm số và danh sách vị trí lộ diện.
+  - **Bình Giải Kết Luận & Định Bậc Thân Vượng/Nhược**: Phân định 7 bậc năng lượng chính xác: Quá Vượng (Vượng tới cực), Thiên Vượng, Thân Vượng, Thân Trung Hòa, Giả Vượng Biến Nhược, Thân Nhược, Cực Nhược (Tòng Nhược Cách).
+  - **Dụng Thần, Hỷ Thần & Lời Khuyên Phong Thủy Thực Tiễn**: Chỉ dẫn hành cần bổ sung, phương hướng phát triển sự nghiệp, lối sống và màu sắc trang phục/không gian cải thiện vận thế.
+  - Ngũ hành Nạp Âm của cả 4 trụ và Bảng phân bổ Ngũ Hành định lượng.
 
 ### 5. Thiên Văn Học NASA/VSOP87 & 24 Tiết Khí Thời Gian Thực
 - **Độ Chính Xác Tuyệt Đối**: Áp dụng các công thức giải tích cơ học thiên thể (VSOP87 / Jean Meeus / NASA JPL) tính toán kinh độ hoàng đạo biểu kiến của Mặt Trời ($L_\odot$) có hiệu chỉnh chương động (nutation) và quang sai (aberration).
@@ -95,6 +100,31 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.6.0] - 2026-09-04
+- **Nâng Cấp Toàn Diện Hệ Thống Thẩm Định Bát Tự Thân Vượng / Thân Nhược Chuyên Sâu**:
+  - **Tích Hợp Thập Thần Bốn Trụ Trực Quan**:
+    - Hiển thị huy hiệu Thập Thần định dạng màu sắc phong thủy cho từng Thiên Can đối chiếu với Nhật Chủ: Chính Ấn, Thiên Ấn (Kiêu), Thực Thần, Thương Quan, Chính Tài, Thiên Tài, Chính Quan, Thất Sát, Tỷ Kiên, Kiếp Tài.
+    - Huy hiệu nổi bật *"🌟 NGUYÊN THẦN"* tại vị trí Trụ Ngày (Nhật Chủ).
+    - Tàng Can trong 12 Địa Chi được chú thích ngắn gọn Thập Thần tương ứng (ví dụ: *Giáp (Tỷ), Bính (Thực), Mậu (Tài)*).
+  - **12 Cung Trường Sinh Cho Nhật Can**:
+    - Xác định chính xác trạng thái khí vận của Nhật Chủ tại từng Địa Chi theo quy luật âm dương thuận nghịch (Trường Sinh, Mộc Dục, Quan Đới, Lâm Quan/Lộc, Đế Vượng/Kình Dương, Suy, Bệnh, Tử, Mộ, Tuyệt, Thai, Dưỡng).
+    - Phân biệt Tọa Chi của Trụ Ngày và Cung khí vận tại Trụ Năm, Tháng, Giờ với hiệu ứng làm nổi bật khi đạt trạng thái vượng/lộc.
+  - **Thước Đo Cân Bằng Năng Lượng (Balance Meter)**:
+    - Biểu đồ thanh ngang hai cực trực quan so sánh sức mạnh giữa **Lực Lượng Sinh Phù** (Ấn Kiêu + Tỷ Kiếp) và **Lực Lượng Khắc - Hao - Tiết** (Quan Sát + Tài Tinh + Thực Thương).
+    - Đo lường định lượng theo hệ số trọng số chuẩn Bát Tự (Chi Tháng: 40 điểm, Chi Ngày: 20 điểm, Can Tháng: 12 điểm, Can Giờ: 12 điểm, Chi Giờ: 8 điểm, Can Năm: 5 điểm, Chi Năm: 3 điểm).
+  - **Lưới 4 Yếu Tố Làm Thân Vượng**:
+    - **1. Đắc Lệnh (Tháng Sinh)**: Đánh giá nắm quyền thời khí lệnh tháng (Đương vượng / Được sinh / Khí vượng) hay Thất lệnh (Hưu tù).
+    - **2. Đắc Địa (Thông Căn Địa Chi)**: Khảo sát gốc rễ tại 4 địa chi (bản khí, trung khí, dư khí, lộc vị, kình dương, trường sinh, mộ khố).
+    - **3. Được Sinh (Ấn Tinh)**: Kiểm tra can lộ và chi tàng Chính Ấn/Thiên Ấn dưỡng thân.
+    - **4. Được Trợ Giúp (Tỷ Kiếp)**: Kiểm tra can lộ và chi tàng Tỷ Kiên/Kiếp Tài trợ lực.
+  - **Lưới 3 Lực Lượng Làm Thân Nhược (Khắc - Hao - Tiết)**:
+    - Bảng điểm và giải trình chi tiết cho từng lực lượng: Khắc (Quan Sát áp chế), Hao (Tài Tinh tiêu hao năng lượng quản lý), Tiết (Thực Thương xuất tú làm hao tổn chân khí).
+  - **Luận Đoán & Định Bậc Năng Lượng Chính Xác**:
+    - Phân cấp chi tiết 7 trạng thái mệnh cục: *Quá Vượng (Vượng tới cực / Tòng Cường), Thiên Vượng (Thiên Cường), Thân Vượng (tiêu chuẩn hoặc có gốc), Thân Trung Hòa (cân bằng hoàn hảo), Giả Vượng Biến Nhược, Thân Nhược, Cực Nhược (Tòng Nhược Cách)*.
+  - **Dụng Thần, Hỷ Thần & Lời Khuyên Phong Thủy Cải Mệnh**:
+    - Chỉ rõ cụ thể ngũ hành làm Dụng thần, Hỷ thần và Kỵ thần cần tránh.
+    - Lời khuyên định hướng sự nghiệp, tâm thế hành xử và màu sắc phong thủy ứng dụng trong đời sống.
 
 ### [v1.5.1] - 2026-09-03
 - **Tích Hợp Toàn Diện Bộ Nhận Diện Thương Hiệu & Logo Biểu Trưng "Thuận Theo Tự Nhiên - Đoán Biết Mệnh Số"**:

@@ -1302,6 +1302,213 @@
       border-radius: 2px;
     }
 
+    /* Enhanced Bát Tự Thập Thần & Trường Sinh Styling */
+    .bt-thapthan-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+    }
+    .bt-thapthan-self { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .bt-thapthan-tro { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .bt-thapthan-sinh { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+    .bt-thapthan-tiet { background: #faf5ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+    .bt-thapthan-hao { background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
+    .bt-thapthan-khac { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+    .bt-truongsinh-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #4b5563;
+      background: #f8fafc;
+      border-radius: 9999px;
+      padding: 0.1rem 0.45rem;
+      margin-top: 0.3rem;
+      border: 1px solid #e2e8f0;
+    }
+    .bt-truongsinh-badge.is-vuong {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: #f59e0b;
+      font-weight: 700;
+    }
+
+    /* Enhanced Bát Tự Evaluation Section */
+    .bt-eval-section {
+      background: #fff;
+      border: 1.5px solid #f3e8d6;
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .bt-eval-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #f3e8d6;
+      padding-bottom: 0.75rem;
+    }
+    .bt-eval-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #78350f;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Balance Meter Card */
+    .bt-meter-card {
+      background: linear-gradient(135deg, #fdfbf7 0%, #faf6ee 100%);
+      border: 1px solid #eeddc5;
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .bt-meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .bt-meter-bar {
+      height: 24px;
+      border-radius: 9999px;
+      background: #e2e8f0;
+      display: flex;
+      overflow: hidden;
+      border: 1.5px solid #cbd5e1;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+    }
+    .bt-meter-sinh {
+      background: linear-gradient(90deg, #10b981, #059669);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      transition: width 0.4s ease;
+      white-space: nowrap;
+      padding: 0 0.5rem;
+    }
+    .bt-meter-khac {
+      background: linear-gradient(90deg, #ef4444, #dc2626);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      transition: width 0.4s ease;
+      white-space: nowrap;
+      padding: 0 0.5rem;
+    }
+    .bt-conclusion-badge {
+      display: inline-block;
+      font-size: 0.98rem;
+      font-weight: 800;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      letter-spacing: 0.5px;
+    }
+    .badge-cuc-vuong { background: #991b1b; color: #fff; border: 1.5px solid #ef4444; }
+    .badge-thien-vuong { background: #c2410c; color: #fff; border: 1.5px solid #fb923c; }
+    .badge-than-vuong { background: #b45309; color: #fff; border: 1.5px solid #f59e0b; }
+    .badge-trung-hoa { background: #065f46; color: #fff; border: 1.5px solid #34d399; }
+    .badge-than-nhuoc { background: #1e40af; color: #fff; border: 1.5px solid #60a5fa; }
+    .badge-cuc-nhuoc { background: #475569; color: #fff; border: 1.5px solid #94a3b8; }
+
+    /* 4 Sinh Factors Grid */
+    .bt-factors-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 900px) {
+      .bt-factors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 550px) {
+      .bt-factors-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .bt-factor-card {
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-radius: var(--radius-md);
+      padding: 0.85rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .bt-factor-card.is-active {
+      background: #fffdf7;
+      border-color: #f59e0b;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.1);
+    }
+    .bt-factor-num {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #92400e;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.3px;
+    }
+    .bt-factor-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 0.4rem;
+    }
+    .bt-factor-status {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.45rem;
+    }
+    .status-ok { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .status-no { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+    .status-warn { background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; }
+
+    /* Weaken Factors Grid (3 columns) */
+    .bt-weaken-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 768px) {
+      .bt-weaken-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .bt-weaken-card {
+      background: #faf8f8;
+      border: 1px solid #f1e6e6;
+      border-radius: var(--radius-md);
+      padding: 0.85rem 0.75rem;
+    }
+
     /* Festival / Holidays Table & List */
     .fest-card {
       display: flex;
@@ -2395,8 +2602,9 @@
         <!-- 4 Pillars Display Grid -->
         <div class="battu-pillars-grid">
           <!-- Trụ Năm -->
-          <div class="pillar-card">
+          <div class="pillar-card" id="cardPillarYear">
             <div class="pillar-title">TRỤ NĂM (Tổ Tiên)</div>
+            <div id="btYearCanThapThanWrap"><span class="bt-thapthan-badge bt-thapthan-tiet" id="btYearCanThapThan">Thực Thần</span></div>
             <div class="pillar-can-box" id="btPillarYearCan">
               <div class="can-text" id="btYearCan">Canh</div>
               <span class="nguhanh-sub" id="btYearCanHanh">Dương Kim</span>
@@ -2406,12 +2614,14 @@
               <span class="nguhanh-sub" id="btYearChiHanh">Dương Thổ</span>
             </div>
             <div class="napam-box" id="btYearNapAm">Bạch Lạp Kim</div>
+            <div class="bt-truongsinh-badge" id="btYearChiTruongSinh">Cung: Quan Đới</div>
             <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.35rem;" id="btYearTangCan">Tàng: Mậu, Ất, Quý</div>
           </div>
 
           <!-- Trụ Tháng -->
-          <div class="pillar-card">
-            <div class="pillar-title">TRỤ THÁNG (Cha Mẹ)</div>
+          <div class="pillar-card" id="cardPillarMonth" style="border: 2px solid #fed7aa; background: #fffdfa;">
+            <div class="pillar-title" style="color: #c2410c;">TRỤ THÁNG (Lệnh Mùa)</div>
+            <div id="btMonthCanThapThanWrap"><span class="bt-thapthan-badge bt-thapthan-khac" id="btMonthCanThapThan">Thất Sát</span></div>
             <div class="pillar-can-box" id="btPillarMonthCan">
               <div class="can-text" id="btMonthCan">Giáp</div>
               <span class="nguhanh-sub" id="btMonthCanHanh">Dương Mộc</span>
@@ -2421,12 +2631,14 @@
               <span class="nguhanh-sub" id="btMonthChiHanh">Dương Kim</span>
             </div>
             <div class="napam-box" id="btMonthNapAm">Tuyền Trung Thủy</div>
+            <div class="bt-truongsinh-badge" id="btMonthChiTruongSinh">Cung: Bệnh</div>
             <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.35rem;" id="btMonthTangCan">Tàng: Canh, Nhâm, Mậu</div>
           </div>
 
           <!-- Trụ Ngày (Nhật Chủ) -->
-          <div class="pillar-card" style="border: 2px solid var(--gold-border); background: #fffdfa;">
+          <div class="pillar-card" id="cardPillarDay" style="border: 2.5px solid var(--gold-border); background: #fffdf5; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.12);">
             <div class="pillar-title" style="color: var(--gold);">TRỤ NGÀY (NHẬT CHỦ)</div>
+            <div id="btDayCanThapThanWrap"><span class="bt-thapthan-badge bt-thapthan-self" id="btDayCanThapThan">🌟 NGUYÊN THẦN</span></div>
             <div class="pillar-can-box" id="btPillarDayCan">
               <div class="can-text" id="btDayCan">Mậu</div>
               <span class="nguhanh-sub" id="btDayCanHanh">Dương Thổ</span>
@@ -2436,12 +2648,14 @@
               <span class="nguhanh-sub" id="btDayChiHanh">Dương Mộc</span>
             </div>
             <div class="napam-box" id="btDayNapAm">Thành Đầu Thổ</div>
+            <div class="bt-truongsinh-badge is-vuong" id="btDayChiTruongSinh">Tọa Chi: Trường Sinh</div>
             <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.35rem;" id="btDayTangCan">Tàng: Giáp, Bính, Mậu</div>
           </div>
 
           <!-- Trụ Giờ -->
-          <div class="pillar-card">
-            <div class="pillar-title">TRỤ GIỜ (Con Cái)</div>
+          <div class="pillar-card" id="cardPillarHour">
+            <div class="pillar-title">TRỤ GIỜ (Con Cái / Quy Túc)</div>
+            <div id="btHourCanThapThanWrap"><span class="bt-thapthan-badge bt-thapthan-sinh" id="btHourCanThapThan">Chính Ấn</span></div>
             <div class="pillar-can-box" id="btPillarHourCan">
               <div class="can-text" id="btHourCan">Đinh</div>
               <span class="nguhanh-sub" id="btHourCanHanh">Âm Hỏa</span>
@@ -2451,6 +2665,7 @@
               <span class="nguhanh-sub" id="btHourChiHanh">Âm Hỏa</span>
             </div>
             <div class="napam-box" id="btHourNapAm">Sa Trung Thổ</div>
+            <div class="bt-truongsinh-badge is-vuong" id="btHourChiTruongSinh">Cung: Lâm Quan (Lộc)</div>
             <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.35rem;" id="btHourTangCan">Tàng: Bính, Mậu, Canh</div>
           </div>
         </div>
@@ -2458,7 +2673,7 @@
         <!-- Phân bổ Ngũ Hành trong Tứ Trụ -->
         <div class="card" style="background: #fafafa; border: 1px solid #e5e7eb; margin-top: 1rem;">
           <h4 style="font-size: 0.95rem; font-weight: 700; color: #374151; margin-bottom: 0.5rem;">
-            📊 Phân Bổ Ngũ Hành &amp; Cân Bằng Năng Lượng Tứ Trụ
+            📊 Phân Bổ Ngũ Hành &amp; Năng Lượng Thô Tứ Trụ
           </h4>
           <div class="nguhanh-bar-container">
             <div class="nguhanh-bar" id="nguHanhBar">
@@ -2478,25 +2693,185 @@
           </div>
         </div>
 
-        <!-- Luận Đoán Sơ Lược -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
-          <div class="card" style="margin-bottom: 0; background: #fff;">
-            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.4rem;">
-              ⚖️ Đánh Giá Thân Vượng / Thân Nhược
-            </h4>
-            <p style="font-size: 0.85rem; color: #374151; line-height: 1.6;" id="btThanStatus">
-              Nhật Chủ <strong>Mậu Thổ</strong> sinh vào tháng Thân (Kim lệnh tiết khí). Bản mệnh được hỏa của trụ giờ tương sinh, có gốc Thổ tàng trong Thìn. Tổng hòa lực lượng: <strong>Thân Trung Hòa thiên Nhược</strong>.
-            </p>
+        <!-- HỆ THỐNG THẨM ĐỊNH THÂN VƯỢNG / THÂN NHƯỢC BÁT TỰ CHUYÊN SÂU -->
+        <div class="bt-eval-section" id="btEvaluationSection">
+          <div class="bt-eval-header">
+            <div>
+              <div class="bt-eval-title">
+                <span>⚖️</span> Thẩm Định Thân Vượng / Thân Nhược (Tứ Trụ Chính Tông)
+              </div>
+              <div style="font-size: 0.82rem; color: #6b7280; margin-top: 2px;">
+                Đánh giá tương quan giữa 4 Yếu Tố Sinh Trợ (Đắc lệnh, Đắc địa, Được sinh, Được trợ giúp) và 3 Lực Lượng Làm Thân Nhược (Khắc, Hao, Tiết)
+              </div>
+            </div>
+            <div id="btConclusionBadgeWrap">
+              <span class="bt-conclusion-badge badge-than-vuong" id="btMainBadge">THÂN VƯỢNG</span>
+            </div>
           </div>
-          <div class="card" style="margin-bottom: 0; background: #fff;">
-            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 0.4rem;">
-              🍀 Dụng Thần &amp; Hỷ Thần Gợi Ý
+
+          <!-- Thước Đo Cân Bằng Năng Lượng Thực Tế -->
+          <div class="bt-meter-card">
+            <div class="bt-meter-labels">
+              <span style="color: #065f46; display: flex; align-items: center; gap: 0.35rem;">
+                <span>🟢</span> Lực Lượng Sinh Phù (Ấn Kiêu + Tỷ Kiếp): <strong id="lblMeterSinhScore">0.0 (0%)</strong>
+              </span>
+              <span style="color: #991b1b; display: flex; align-items: center; gap: 0.35rem;">
+                <span>🔴</span> Lực Lượng Khắc - Hao - Tiết (Quan Sát + Tài + Thực Thương): <strong id="lblMeterKhacScore">0.0 (0%)</strong>
+              </span>
+            </div>
+            <div class="bt-meter-bar">
+              <div class="bt-meter-sinh" id="barMeterSinh" style="width: 50%;">Sinh Phù 50%</div>
+              <div class="bt-meter-khac" id="barMeterKhac" style="width: 50%;">Khắc Hao Tiết 50%</div>
+            </div>
+            <div style="font-size: 0.8rem; color: #4b5563; margin-top: 0.45rem; text-align: center;" id="lblMeterNote">
+              Đang tính toán tương quan năng lượng đa chiều...
+            </div>
+          </div>
+
+          <!-- I. 4 YẾU TỐ SINH TRỢ (LỰC LƯỢNG LÀM THÂN VƯỢNG) -->
+          <div style="margin-bottom: 1rem;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #166534; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;">
+              <span>🌿</span> I. 4 YẾU TỐ SINH TRỢ (LỰC LƯỢNG LÀM THÂN VƯỢNG)
             </h4>
-            <p style="font-size: 0.85rem; color: #374151; line-height: 1.6;" id="btDungThan">
-              • <strong>Dụng Thần:</strong> Hỏa (Chính Ấn / Thiên Ấn) bồi dưỡng sinh lực cho Nhật Chủ.<br>
-              • <strong>Hỷ Thần:</strong> Thổ (Tỷ Kiên / Kiếp Tài) trợ lực vững chắc.<br>
-              • <strong>Màu sắc tương hợp:</strong> Đỏ, hồng, cam, tím (Hỏa) và vàng, nâu đất (Thổ).
-            </p>
+            <div class="bt-factors-grid">
+              <!-- 1. Đắc Lệnh -->
+              <div class="bt-factor-card" id="cardDacLenh">
+                <div>
+                  <div class="bt-factor-num">YẾU TỐ 1 (CỐT LÕI)</div>
+                  <div class="bt-factor-title">1. Đắc Lệnh (Tháng Sinh)</div>
+                  <div id="badgeDacLenh" class="bt-factor-status status-ok">✅ ĐẮC LỆNH</div>
+                  <div style="font-size: 0.8rem; color: #374151; line-height: 1.5;" id="descDacLenh">
+                    <!-- JS Fill -->
+                  </div>
+                </div>
+                <div style="font-size: 0.72rem; color: #6b7280; border-top: 1px dashed #e5e7eb; padding-top: 0.35rem; margin-top: 0.5rem;">
+                  Lệnh tháng nắm 40-50% quyền lệnh vượng suy của toàn cục.
+                </div>
+              </div>
+
+              <!-- 2. Đắc Địa -->
+              <div class="bt-factor-card" id="cardDacDia">
+                <div>
+                  <div class="bt-factor-num">YẾU TỐ 2</div>
+                  <div class="bt-factor-title">2. Đắc Địa (Thông Căn Chi)</div>
+                  <div id="badgeDacDia" class="bt-factor-status status-ok">✅ ĐẮC ĐỊA</div>
+                  <div style="font-size: 0.8rem; color: #374151; line-height: 1.5;" id="descDacDia">
+                    <!-- JS Fill -->
+                  </div>
+                </div>
+                <div style="font-size: 0.72rem; color: #6b7280; border-top: 1px dashed #e5e7eb; padding-top: 0.35rem; margin-top: 0.5rem;">
+                  Căn ở Chi Ngày (Tọa Chi) &amp; Chi Giờ là gốc rễ nâng đỡ sinh mạng.
+                </div>
+              </div>
+
+              <!-- 3. Được Sinh -->
+              <div class="bt-factor-card" id="cardDuocSinh">
+                <div>
+                  <div class="bt-factor-num">YẾU TỐ 3</div>
+                  <div class="bt-factor-title">3. Được Sinh (Ấn Tinh)</div>
+                  <div id="badgeDuocSinh" class="bt-factor-status status-ok">✅ ĐƯỢC SINH</div>
+                  <div style="font-size: 0.8rem; color: #374151; line-height: 1.5;" id="descDuocSinh">
+                    <!-- JS Fill -->
+                  </div>
+                </div>
+                <div style="font-size: 0.72rem; color: #6b7280; border-top: 1px dashed #e5e7eb; padding-top: 0.35rem; margin-top: 0.5rem;">
+                  Chính Ấn / Thiên Ấn che chở, quý nhân bồi bổ chân khí.
+                </div>
+              </div>
+
+              <!-- 4. Được Trợ Giúp -->
+              <div class="bt-factor-card" id="cardDuocTro">
+                <div>
+                  <div class="bt-factor-num">YẾU TỐ 4</div>
+                  <div class="bt-factor-title">4. Được Trợ Giúp (Tỷ Kiếp)</div>
+                  <div id="badgeDuocTro" class="bt-factor-status status-ok">✅ ĐƯỢC TRỢ GIÚP</div>
+                  <div style="font-size: 0.8rem; color: #374151; line-height: 1.5;" id="descDuocTro">
+                    <!-- JS Fill -->
+                  </div>
+                </div>
+                <div style="font-size: 0.72rem; color: #6b7280; border-top: 1px dashed #e5e7eb; padding-top: 0.35rem; margin-top: 0.5rem;">
+                  Tỷ Kiên / Kiếp Tài đồng hành gia tăng nghị lực, tương trợ bền bỉ.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- II. CÁC LỰC LƯỢNG LÀM THÂN NHƯỢC (KHẮC - HAO - TIẾT) -->
+          <div style="margin-bottom: 1rem;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #991b1b; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;">
+              <span>⚔️</span> II. CÁC LỰC LƯỢNG LÀM THÂN NHƯỢC (KHẮC - HAO - TIẾT)
+            </h4>
+            <div class="bt-weaken-grid">
+              <!-- Khắc -->
+              <div class="bt-weaken-card">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+                  <span style="font-weight: 700; color: #991b1b; font-size: 0.88rem;">⚡ KHẮC (Quan Sát)</span>
+                  <span class="badge" style="background: #fee2e2; color: #991b1b; font-size: 0.72rem; font-weight: 700;" id="scoreKhacVal">0.0 đ</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #374151; line-height: 1.5; margin-bottom: 0.35rem;" id="descKhac">
+                  <!-- JS Fill -->
+                </div>
+                <div style="font-size: 0.72rem; color: #6b7280;">Chính Quan &amp; Thất Sát áp chế, kỷ luật hoặc thử thách tôi luyện.</div>
+              </div>
+
+              <!-- Hao -->
+              <div class="bt-weaken-card">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+                  <span style="font-weight: 700; color: #b45309; font-size: 0.88rem;">💰 HAO (Tài Tinh)</span>
+                  <span class="badge" style="background: #fef3c7; color: #b45309; font-size: 0.72rem; font-weight: 700;" id="scoreHaoVal">0.0 đ</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #374151; line-height: 1.5; margin-bottom: 0.35rem;" id="descHao">
+                  <!-- JS Fill -->
+                </div>
+                <div style="font-size: 0.72rem; color: #6b7280;">Chính Tài &amp; Thiên Tài khiến Nhật Chủ tiêu hao chân khí để khắc chế, quản lý của cải.</div>
+              </div>
+
+              <!-- Tiết -->
+              <div class="bt-weaken-card">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+                  <span style="font-weight: 700; color: #6b21a8; font-size: 0.88rem;">💧 TIẾT (Thực Thương)</span>
+                  <span class="badge" style="background: #f3e8ff; color: #6b21a8; font-size: 0.72rem; font-weight: 700;" id="scoreTietVal">0.0 đ</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #374151; line-height: 1.5; margin-bottom: 0.35rem;" id="descTiet">
+                  <!-- JS Fill -->
+                </div>
+                <div style="font-size: 0.72rem; color: #6b7280;">Thực Thần &amp; Thương Quan bộc lộ tài hoa, sáng tạo nhưng làm hao hụt nguyên khí.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- III. TỔNG HÒA SO SÁNH TƯƠNG QUAN & BÌNH GIẢI KẾT LUẬN -->
+          <div style="background: #fdfbf7; border: 1.5px solid #e7ded0; border-radius: var(--radius-md); padding: 1.1rem; margin-bottom: 1rem;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #78350f; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;">
+              <span>📜</span> III. TỔNG HÒA SO SÁNH TƯƠNG QUAN &amp; ĐIỀU KIỆN PHÂN ĐOÁN BÁT TỰ
+            </h4>
+            <div style="font-size: 0.86rem; color: #374151; line-height: 1.65;" id="btDetailedConclusion">
+              <!-- JS Detailed explanation based on user rules -->
+            </div>
+            <!-- Backward compatibility hook -->
+            <div id="btThanStatus" style="display:none;"></div>
+          </div>
+
+          <!-- IV. DỤNG THẦN, HỶ THẦN & ĐỊNH HƯỚNG PHONG THỦY -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            <div style="background: #fff; border: 1.5px solid #fed7aa; border-radius: var(--radius-md); padding: 1rem; box-shadow: var(--shadow-sm);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: #c2410c; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.45rem;">
+                <span>🍀</span> Dụng Thần &amp; Hỷ Thần Cứu Giải
+              </h4>
+              <div style="font-size: 0.84rem; color: #374151; line-height: 1.6;" id="btDungThanDetail">
+                <!-- JS Fill -->
+              </div>
+              <!-- Backward compatibility hook -->
+              <div id="btDungThan" style="display:none;"></div>
+            </div>
+            <div style="background: #fff; border: 1.5px solid #bfdbfe; border-radius: var(--radius-md); padding: 1rem; box-shadow: var(--shadow-sm);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: #1e40af; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.45rem;">
+                <span>🧭</span> Phong Thủy Cải Mệnh "Thuận Theo Tự Nhiên"
+              </h4>
+              <div style="font-size: 0.84rem; color: #374151; line-height: 1.6;" id="btPhongThuyAdvice">
+                <!-- JS Fill -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -5117,24 +5492,133 @@
       document.getElementById('btResultInfo').textContent = 
         `Dương lịch: ${sDay}/${sMonth}/${sYear} • Âm lịch: Ngày ${lDay} tháng ${lMonth} năm ${yearPillar.text} • Giờ sinh: ${CHI[hourChiIdx]}`;
 
-      // Điền Trụ Năm
-      fillPillar('Year', yearPillar.can, yearPillar.chi, yearPillar.canIndex, yearPillar.chiIndex);
-      // Điền Trụ Tháng
-      fillPillar('Month', monthPillar.can, monthPillar.chi, monthPillar.canIndex, monthPillar.chiIndex);
-      // Điền Trụ Ngày (Nhật Chủ)
-      fillPillar('Day', dayPillar.can, dayPillar.chi, dayPillar.canIndex, dayPillar.chiIndex);
-      // Điền Trụ Giờ
-      fillPillar('Hour', hourPillar.can, hourPillar.chi, hourPillar.canIndex, hourPillar.chiIndex);
+      // Điền 4 Trụ với Thập Thần và Trường Sinh
+      fillPillar('Year', yearPillar.can, yearPillar.chi, yearPillar.canIndex, yearPillar.chiIndex, dayPillar.canIndex);
+      fillPillar('Month', monthPillar.can, monthPillar.chi, monthPillar.canIndex, monthPillar.chiIndex, dayPillar.canIndex);
+      fillPillar('Day', dayPillar.can, dayPillar.chi, dayPillar.canIndex, dayPillar.chiIndex, dayPillar.canIndex);
+      fillPillar('Hour', hourPillar.can, hourPillar.chi, hourPillar.canIndex, hourPillar.chiIndex, dayPillar.canIndex);
 
-      // Tính điểm ngũ hành
+      // Tính điểm ngũ hành & Thẩm định Thân Vượng / Thân Nhược chuyên sâu
       calculateNguHanhDistribution([
         yearPillar.canIndex, monthPillar.canIndex, dayPillar.canIndex, hourPillar.canIndex
       ], [
         yearPillar.chiIndex, monthPillar.chiIndex, dayPillar.chiIndex, hourPillar.chiIndex
-      ], dayPillar.canIndex);
+      ], dayPillar.canIndex, yearPillar, monthPillar, dayPillar, hourPillar);
     }
 
-    function fillPillar(prefix, can, chi, canIdx, chiIdx) {
+    /**
+     * BẢNG 12 CUNG TRƯỜNG SINH CỦA 10 THIÊN CAN
+     */
+    const TRUONG_SINH_NAMES = [
+      "Trường Sinh", "Mộc Dục", "Quan Đới", "Lâm Quan", "Đế Vượng",
+      "Suy", "Bệnh", "Tử", "Mộ", "Tuyệt", "Thai", "Dưỡng"
+    ];
+    // Khởi cung Trường Sinh cho 10 Can (0: Giáp -> 9: Quý)
+    const TRUONG_SINH_START_CHI = [11, 6, 2, 9, 2, 9, 5, 0, 8, 3];
+    const TRUONG_SINH_FORWARD = [true, false, true, false, true, false, true, false, true, false];
+
+    function getTruongSinhStage(canIdx, chiIdx) {
+      const startChi = TRUONG_SINH_START_CHI[canIdx];
+      const isForward = TRUONG_SINH_FORWARD[canIdx];
+      let diff = isForward 
+        ? (chiIdx - startChi + 12) % 12 
+        : (startChi - chiIdx + 12) % 12;
+      return {
+        stageIndex: diff,
+        stageName: TRUONG_SINH_NAMES[diff],
+        isVuong: diff <= 4,       // Trường Sinh, Mộc Dục, Quan Đới, Lâm Quan, Đế Vượng
+        isLoc: diff === 3,         // Lâm Quan = Lộc
+        isKinhDuong: diff === 4,   // Đế Vượng = Kình Dương
+        isMo: diff === 8           // Mộ khố
+      };
+    }
+
+    /**
+     * THẬP THẦN CỦA CAN SO VỚI NHẬT CAN
+     */
+    function getThapThan(targetCanIdx, nhatCanIdx) {
+      const CAN_ELEMENT = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4]; // 0:Mộc, 1:Hỏa, 2:Thổ, 3:Kim, 4:Thủy
+      const CAN_YIN_YANG = [1, -1, 1, -1, 1, -1, 1, -1, 1, -1]; // 1: Dương, -1: Âm
+
+      let targetElem = CAN_ELEMENT[targetCanIdx];
+      let nhatElem = CAN_ELEMENT[nhatCanIdx];
+      let samePolarity = (CAN_YIN_YANG[targetCanIdx] === CAN_YIN_YANG[nhatCanIdx]);
+
+      if (targetCanIdx === nhatCanIdx) {
+        return {
+          code: "self",
+          name: "Nhật Chủ",
+          shortName: "Chủ",
+          type: "self",
+          category: "Bản Thân",
+          desc: "Nguyên thần bản mệnh"
+        };
+      }
+
+      // Cùng ngũ hành -> Tỷ Kiên / Kiếp Tài (Trợ)
+      if (targetElem === nhatElem) {
+        return {
+          code: samePolarity ? "ty" : "kiep",
+          name: samePolarity ? "Tỷ Kiên" : "Kiếp Tài",
+          shortName: samePolarity ? "Tỷ" : "Kiếp",
+          type: "tro",
+          category: "Trợ Giúp (Tỷ Kiếp)",
+          desc: samePolarity ? "Đồng loại cùng cực, trợ thân kiên định" : "Đồng loại dị tính, trợ thân mạnh mẽ, xông xáo"
+        };
+      }
+
+      // Sinh Nhật Can -> Ấn Tinh (Sinh)
+      if ((targetElem + 1) % 5 === nhatElem) {
+        return {
+          code: samePolarity ? "thien_an" : "chinh_an",
+          name: samePolarity ? "Thiên Ấn (Kiêu)" : "Chính Ấn",
+          shortName: samePolarity ? "Kiêu" : "Ấn",
+          type: "sinh",
+          category: "Được Sinh (Ấn Tinh)",
+          desc: samePolarity ? "Thiên Ấn độc đáo, cơ trí học vấn" : "Chính Ấn từ ái, quý nhân che chở, bồi dưỡng bản mệnh"
+        };
+      }
+
+      // Nhật Can sinh Target -> Thực Thương (Tiết)
+      if ((nhatElem + 1) % 5 === targetElem) {
+        return {
+          code: samePolarity ? "thuc_than" : "thuong_quan",
+          name: samePolarity ? "Thực Thần" : "Thương Quan",
+          shortName: samePolarity ? "Thực" : "Thương",
+          type: "tiet",
+          category: "Tiết Khí (Thực Thương)",
+          desc: samePolarity ? "Thực Thần phúc lộc, nghệ thuật, hòa nhã" : "Thương Quan thông minh xuất chúng, đổi mới đột phá"
+        };
+      }
+
+      // Nhật Can khắc Target -> Tài Tinh (Hao)
+      if ((nhatElem + 2) % 5 === targetElem) {
+        return {
+          code: samePolarity ? "thien_tai" : "chinh_tai",
+          name: samePolarity ? "Thiên Tài" : "Chính Tài",
+          shortName: samePolarity ? "T.Tài" : "C.Tài",
+          type: "hao",
+          category: "Hao Tổn (Tài Tinh)",
+          desc: samePolarity ? "Thiên Tài kinh doanh, cơ hội nhạy bén" : "Chính Tài tích lũy vững chắc, chuyên tâm quản lý"
+        };
+      }
+
+      // Target khắc Nhật Can -> Quan Sát (Khắc)
+      if ((targetElem + 2) % 5 === nhatElem) {
+        return {
+          code: samePolarity ? "that_sat" : "chinh_quan",
+          name: samePolarity ? "Thất Sát" : "Chính Quan",
+          shortName: samePolarity ? "Sát" : "Quan",
+          type: "khac",
+          category: "Khắc Chế (Quan Sát)",
+          desc: samePolarity ? "Thất Sát uy quyền, tôi luyện ý chí, kỷ luật thép" : "Chính Quan danh giá, chính trực, chuẩn mực mực thước"
+        };
+      }
+
+      return { code: "other", name: "Thần", shortName: "Thần", type: "other", category: "Khác", desc: "" };
+    }
+
+    function fillPillar(prefix, can, chi, canIdx, chiIdx, nhatCanIdx) {
       document.getElementById(`bt${prefix}Can`).textContent = can;
       document.getElementById(`bt${prefix}Chi`).textContent = chi;
 
@@ -5150,13 +5634,44 @@
       canBox.className = 'pillar-can-box ' + getHanhClass(canHanh);
       chiBox.className = 'pillar-chi-box ' + getHanhClass(chiHanh);
 
+      // Thập Thần trên Thiên Can
+      const thapThanEl = document.getElementById(`bt${prefix}CanThapThan`);
+      if (thapThanEl) {
+        if (prefix === 'Day') {
+          thapThanEl.textContent = "🌟 NGUYÊN THẦN";
+          thapThanEl.className = "bt-thapthan-badge bt-thapthan-self";
+        } else {
+          let tt = getThapThan(canIdx, nhatCanIdx);
+          thapThanEl.textContent = tt.name;
+          thapThanEl.className = `bt-thapthan-badge bt-thapthan-${tt.type}`;
+        }
+      }
+
+      // Trường Sinh tại Địa Chi
+      const truongSinhEl = document.getElementById(`bt${prefix}ChiTruongSinh`);
+      if (truongSinhEl) {
+        let ts = getTruongSinhStage(nhatCanIdx, chiIdx);
+        let prefixText = (prefix === 'Day') ? "Tọa: " : "Cung: ";
+        let specialNote = ts.isLoc ? " (Lộc)" : (ts.isKinhDuong ? " (Kình Dương)" : (ts.isMo ? " (Mộ)" : ""));
+        truongSinhEl.textContent = `${prefixText}${ts.stageName}${specialNote}`;
+        truongSinhEl.className = `bt-truongsinh-badge ${ts.isVuong ? 'is-vuong' : ''}`;
+      }
+
       // Nạp Âm
       const napAm = NAP_AM[`${can} ${chi}`] || "Chưa xác định";
       document.getElementById(`bt${prefix}NapAm`).textContent = napAm;
 
-      // Tàng Can
+      // Tàng Can kèm Thập Thần
       const tangCan = TANG_CAN[chi] || [];
-      document.getElementById(`bt${prefix}TangCan`).textContent = `Tàng: ${tangCan.join(', ')}`;
+      let formattedTangCan = tangCan.map(tc => {
+        let tcIdx = CAN.indexOf(tc);
+        if (tcIdx !== -1) {
+          let tt = getThapThan(tcIdx, nhatCanIdx);
+          return `${tc} (${tt.shortName})`;
+        }
+        return tc;
+      });
+      document.getElementById(`bt${prefix}TangCan`).textContent = `Tàng: ${formattedTangCan.join(', ')}`;
     }
 
     function getHanhClass(hanhStr) {
@@ -5169,7 +5684,7 @@
     }
 
     // Tính phân bổ Ngũ Hành và Luận Đoán Thân Vượng/Nhược
-    function calculateNguHanhDistribution(canIndices, chiIndices, nhatCanIndex) {
+    function calculateNguHanhDistribution(canIndices, chiIndices, nhatCanIndex, yearPillar, monthPillar, dayPillar, hourPillar) {
       const scores = { Kim: 0, Mộc: 0, Thủy: 0, Hỏa: 0, Thổ: 0 };
 
       // Can cho 1.0 điểm
@@ -5178,10 +5693,10 @@
         scores[hanh] += 1.0;
       });
 
-      // Chi cho 1.5 điểm (đặc biệt Chi Tháng cho 2.0 vì đắc lệnh)
+      // Chi cho 1.5 điểm (đặc biệt Chi Tháng cho 2.0 vì nắm lệnh mùa)
       chiIndices.forEach((idx, i) => {
         let hanh = CHI_HANH[idx].replace(/Dương |Âm /, '');
-        let weight = (i === 1) ? 2.0 : 1.5; // Chi Tháng = i:1
+        let weight = (i === 1) ? 2.0 : 1.5;
         scores[hanh] += weight;
       });
 
@@ -5210,46 +5725,564 @@
       document.getElementById('lblScoreHoa').textContent = scores.Hỏa.toFixed(1);
       document.getElementById('lblScoreTho').textContent = scores.Thổ.toFixed(1);
 
-      // Đánh giá Thân Vượng / Nhược của Nhật Can
-      const nhatHanh = CAN_HANH[nhatCanIndex].replace(/Dương |Âm /, '');
-      let sinhNhatHanh = "";
-      if (nhatHanh === "Mộc") sinhNhatHanh = "Thủy";
-      if (nhatHanh === "Hỏa") sinhNhatHanh = "Mộc";
-      if (nhatHanh === "Thổ") sinhNhatHanh = "Hỏa";
-      if (nhatHanh === "Kim") sinhNhatHanh = "Thổ";
-      if (nhatHanh === "Thủy") sinhNhatHanh = "Kim";
+      // Thẩm định chuyên sâu Thân Vượng / Thân Nhược theo 4 Yếu Tố Sinh Trợ & 3 Lực Lượng Khắc-Hao-Tiết
+      evaluateBattuVuongNhuoc(yearPillar, monthPillar, dayPillar, hourPillar, scores);
+    }
 
-      let troLuc = scores[nhatHanh] + scores[sinhNhatHanh];
-      let khacLuc = total - troLuc;
+    /**
+     * HỆ THỐNG THẨM ĐỊNH THÂN VƯỢNG / THÂN NHƯỢC BÁT TỰ CHUYÊN SÂU
+     * Đánh giá tương quan thực tế giữa 4 Yếu Tố Sinh Trợ (Đắc Lệnh, Đắc Địa, Được Sinh, Được Trợ Giúp)
+     * và 3 Lực Lượng Làm Thân Nhược (Khắc, Hao, Tiết)
+     */
+    function evaluateBattuVuongNhuoc(yP, mP, dP, hP, rawScores) {
+      const nhatCanIdx = dP.canIndex;
+      const nhatCanName = CAN[nhatCanIdx];
+      const nhatHanh = CAN_HANH[nhatCanIdx].replace(/Dương |Âm /, '');
 
-      let thanStatus = "";
-      let dungThan = "";
-      let hyThan = "";
-      let colors = "";
+      // Quan hệ Ngũ Hành với Nhật Can
+      const ALL_HANH = ["Mộc", "Hỏa", "Thổ", "Kim", "Thủy"];
+      const nhatHanhIdx = ALL_HANH.indexOf(nhatHanh);
+      const sinhHanh = ALL_HANH[(nhatHanhIdx + 4) % 5];   // Mẹ sinh con (Ấn)
+      const tietHanh = ALL_HANH[(nhatHanhIdx + 1) % 5];   // Con tiết khí mẹ (Thực Thương)
+      const haoHanh  = ALL_HANH[(nhatHanhIdx + 2) % 5];   // Ta khắc (Tài Tinh)
+      const khacHanh = ALL_HANH[(nhatHanhIdx + 3) % 5];   // Khắc ta (Quan Sát)
 
-      if (troLuc > khacLuc * 1.15) {
-        thanStatus = `Nhật Chủ <strong>${CAN[nhatCanIndex]} (${nhatHanh})</strong> được nhiều sinh trợ (tổng điểm đồng hành & tương sinh ${troLuc.toFixed(1)} so với ${khacLuc.toFixed(1)} điểm khắc/tiết). Bản mệnh thuộc <strong>Thân Vượng</strong>. Cần năng lượng chế ngự và tiết bớt khí lực để phát triển hanh thông.`;
-        dungThan = `Khắc chế bớt hoặc Tiết khí (Tài Tinh hoặc Quan Sát)`;
-        hyThan = `Thực Thần / Thương Quan (phát huy tài năng sáng tạo)`;
-        colors = `Màu sắc mang lại cơ hội tài lộc: Các màu sắc hành khắc hoặc tiết bớt năng lượng vượng.`;
-      } else if (troLuc < khacLuc * 0.85) {
-        thanStatus = `Nhật Chủ <strong>${CAN[nhatCanIndex]} (${nhatHanh})</strong> bị khắc tiết nhiều (điểm sinh trợ ${troLuc.toFixed(1)} thấp hơn điểm khắc/tiết ${khacLuc.toFixed(1)}). Bản mệnh thuộc <strong>Thân Nhược</strong>. Cần sinh phù, tương trợ từ quý nhân và nội lực vững bền.`;
-        dungThan = `${sinhNhatHanh} (Chính Ấn / Thiên Ấn - học hành, quý nhân, chỗ dựa tinh thần)`;
-        hyThan = `${nhatHanh} (Tỷ Kiên / Kiếp Tài - bạn bè, đối tác, sự kiên định)`;
-        colors = `Ưu tiên các màu tương sinh (${sinhNhatHanh}) và màu bản mệnh (${nhatHanh}) để tăng cường năng lượng.`;
+      // 1. Cung Trường Sinh tại 4 Địa Chi
+      const tsMonth = getTruongSinhStage(nhatCanIdx, mP.chiIndex);
+      const tsDay   = getTruongSinhStage(nhatCanIdx, dP.chiIndex);
+      const tsHour  = getTruongSinhStage(nhatCanIdx, hP.chiIndex);
+      const tsYear  = getTruongSinhStage(nhatCanIdx, yP.chiIndex);
+
+      // -------------------------------------------------------------
+      // YẾU TỐ 1: ĐẮC LỆNH (Tháng Sinh)
+      // Lệnh tháng quản thời khí, chiếm 40-50% quyền vượng suy của toàn cục
+      // -------------------------------------------------------------
+      const monthChiHanh = CHI_HANH[mP.chiIndex].replace(/Dương |Âm /, '');
+      // Đắc lệnh khi sinh vào tháng cùng hành (Đương vượng), hoặc tháng tương sinh (Tướng - sinh cho Nhật Can), hoặc cung Trường Sinh vượng
+      let dacLenh = (monthChiHanh === nhatHanh || monthChiHanh === sinhHanh || tsMonth.isVuong);
+      let dacLenhLevel = "";
+      let dacLenhDesc = "";
+
+      if (dacLenh) {
+        if (monthChiHanh === nhatHanh) {
+          dacLenhLevel = "ĐẮC LỆNH (ĐƯƠNG VƯỢNG)";
+          dacLenhDesc = `Sinh tháng <strong>${mP.chi} (${monthChiHanh})</strong> cùng hành với Nhật Chủ, khí thế đồng khí lâm lệnh cực thịnh. Cung Trường Sinh: <strong>${tsMonth.stageName}</strong>.`;
+        } else if (monthChiHanh === sinhHanh) {
+          dacLenhLevel = "ĐẮC LỆNH (ĐƯỢC LỆNH SINH)";
+          dacLenhDesc = `Sinh tháng <strong>${mP.chi} (${monthChiHanh})</strong> tương sinh cho bản mệnh (mùa sinh khí dưỡng thân). Cung Trường Sinh: <strong>${tsMonth.stageName}</strong>.`;
+        } else {
+          dacLenhLevel = "ĐẮC LỆNH (KHÍ VƯỢNG)";
+          dacLenhDesc = `Sinh tháng <strong>${mP.chi}</strong>, Nhật Can ngụ tại cung <strong>${tsMonth.stageName}</strong>, hấp thu linh khí mùa sinh tốt.`;
+        }
       } else {
-        thanStatus = `Nhật Chủ <strong>${CAN[nhatCanIndex]} (${nhatHanh})</strong> có năng lượng hài hòa cân đối (sinh trợ ${troLuc.toFixed(1)} điểm cân bằng với khắc tiết ${khacLuc.toFixed(1)} điểm). Bản mệnh thuộc <strong>Thân Trung Hòa</strong> (cách cục rất quý, tính tình ôn hòa, dẻo dai).`;
-        dungThan = `${sinhNhatHanh} hoặc ${nhatHanh} tùy đại vận thời thế`;
-        hyThan = `Cân bằng ngũ hành hài hòa cả 5 yếu tố`;
-        colors = `Phù hợp sử dụng linh hoạt các gam màu tươi sáng, nhã nhặn.`;
+        dacLenhLevel = "THẤT LỆNH (HƯU TÙ)";
+        dacLenhDesc = `Sinh tháng <strong>${mP.chi} (${monthChiHanh})</strong>, tiết khí ${monthChiHanh === tietHanh ? "tiết thoát" : monthChiHanh === haoHanh ? "tiêu hao" : "khắc áp"} bản mệnh. Cung Trường Sinh: <strong>${tsMonth.stageName}</strong>.`;
       }
 
-      document.getElementById('btThanStatus').innerHTML = thanStatus;
-      document.getElementById('btDungThan').innerHTML = `
-        • <strong>Dụng Thần:</strong> ${dungThan}.<br>
-        • <strong>Hỷ Thần:</strong> ${hyThan}.<br>
-        • <strong>Gợi ý phong thủy:</strong> ${colors}
+      // -------------------------------------------------------------
+      // YẾU TỐ 2: ĐẮC ĐỊA (Thông Căn ở Địa Chi)
+      // Khảo sát gốc rễ ở Chi Ngày (Tọa Chi), Chi Giờ, Chi Năm & Chi Tháng
+      // -------------------------------------------------------------
+      let roots = [];
+      const pillarsCheck = [
+        { name: "Chi Ngày (Tọa Chi)", chi: dP.chi, chiIdx: dP.chiIndex, ts: tsDay, weight: "Rất trọng yếu (Chân trụ nâng đỡ)" },
+        { name: "Chi Giờ", chi: hP.chi, chiIdx: hP.chiIndex, ts: tsHour, weight: "Quy túc hậu vận" },
+        { name: "Chi Tháng", chi: mP.chi, chiIdx: mP.chiIndex, ts: tsMonth, weight: "Gốc rễ lệnh mùa" },
+        { name: "Chi Năm", chi: yP.chi, chiIdx: yP.chiIndex, ts: tsYear, weight: "Gốc rễ tổ tiên" }
+      ];
+
+      pillarsCheck.forEach(p => {
+        let tCan = TANG_CAN[p.chi] || [];
+        let matchingCan = tCan.filter(c => {
+          let cIdx = CAN.indexOf(c);
+          return cIdx !== -1 && CAN_HANH[cIdx].includes(nhatHanh);
+        });
+
+        if (matchingCan.length > 0 || p.ts.isLoc || p.ts.isKinhDuong || p.ts.stageName === "Trường Sinh" || p.ts.isMo) {
+          let rootType = [];
+          if (p.ts.isLoc) rootType.push("Lộc vị");
+          if (p.ts.isKinhDuong) rootType.push("Kình Dương");
+          if (p.ts.stageName === "Trường Sinh") rootType.push("Trường Sinh");
+          if (p.ts.isMo) rootType.push("Mộ Khố");
+          if (matchingCan.length > 0) rootType.push(`Tàng ${matchingCan.join('/')}`);
+
+          roots.push({
+            pos: p.name,
+            chi: p.chi,
+            info: rootType.join(" • "),
+            isDay: (p.name.includes("Tọa Chi"))
+          });
+        }
+      });
+
+      let dacDia = roots.length >= 1;
+      let dacDiaStatus = "";
+      let dacDiaDesc = "";
+
+      if (roots.length >= 2) {
+        dacDiaStatus = "ĐẮC ĐỊA VỮNG CHẮC";
+        dacDiaDesc = `Nhật Can thông căn sâu rộng tại ${roots.length} địa chi: ${roots.map(r => `<strong>${r.pos} (${r.chi}: ${r.info})</strong>`).join(", ")}. Gốc rễ thâm sâu, thân đứng vững vàng trước phong ba.`;
+      } else if (roots.length === 1) {
+        dacDiaStatus = "ĐẮC ĐỊA CÓ CĂN";
+        dacDiaDesc = `Có gốc nương tựa tại <strong>${roots[0].pos} (${roots[0].chi}: ${roots[0].info})</strong>. Đủ làm điểm tựa chống đỡ năng lượng.`;
+      } else {
+        dacDiaStatus = "VÔ ĐỊA (KHÔNG CĂN)";
+        dacDiaDesc = `Nhật Can không thông căn tại các địa chi, tựa như cây không rễ, thân mệnh thiếu điểm tựa vật chất bền vững.`;
+      }
+
+      // -------------------------------------------------------------
+      // YẾU TỐ 3: ĐƯỢC SINH (Ấn Tinh - Chính Ấn & Thiên Ấn)
+      // Nuôi dưỡng, che chở, quý nhân bồi bổ chân khí
+      // -------------------------------------------------------------
+      let anElements = [];
+      // Can lộ
+      [
+        { pos: "Can Tháng (Kề Cận)", canIdx: mP.canIndex },
+        { pos: "Can Giờ (Kề Cận)", canIdx: hP.canIndex },
+        { pos: "Can Năm", canIdx: yP.canIndex }
+      ].forEach(c => {
+        let tt = getThapThan(c.canIdx, nhatCanIdx);
+        if (tt.type === "sinh") {
+          anElements.push(`<strong>${c.pos} lộ ${tt.name} (${CAN[c.canIdx]})</strong>`);
+        }
+      });
+      // Chi tàng
+      [
+        { pos: "Chi Tháng", chi: mP.chi },
+        { pos: "Chi Ngày", chi: dP.chi },
+        { pos: "Chi Giờ", chi: hP.chi },
+        { pos: "Chi Năm", chi: yP.chi }
+      ].forEach(ch => {
+        let tCan = TANG_CAN[ch.chi] || [];
+        tCan.forEach(tc => {
+          let tcIdx = CAN.indexOf(tc);
+          if (tcIdx !== -1) {
+            let tt = getThapThan(tcIdx, nhatCanIdx);
+            if (tt.type === "sinh") {
+              anElements.push(`${ch.pos} tàng ${tt.shortName} (${tc})`);
+            }
+          }
+        });
+      });
+
+      let duocSinh = anElements.length > 0;
+      let duocSinhStatus = duocSinh ? (anElements.length >= 2 ? "ĐƯỢC SINH ĐẮC LỰC" : "ĐƯỢC SINH") : "KHÔNG ĐƯỢC SINH";
+      let duocSinhDesc = duocSinh 
+        ? `Được Ấn Tinh (${sinhHanh}) che chở: ${anElements.join(", ")}. Mệnh có phúc đức, dễ gặp quý nhân nâng đỡ, học vấn và dưỡng khí dồi dào.`
+        : `Thiếu vắng Ấn Tinh (${sinhHanh}) che chở trực tiếp. Phải tự lực cánh sinh, khó nhờ cậy phúc ấm che chở từ bên ngoài.`;
+
+      // -------------------------------------------------------------
+      // YẾU TỐ 4: ĐƯỢC TRỢ GIÚP (Tỷ Kiếp - Tỷ Kiên & Kiếp Tài)
+      // Đồng khí tương trợ, gia tăng nghị lực, anh em bạn bè hiệp lực
+      // -------------------------------------------------------------
+      let troElements = [];
+      [
+        { pos: "Can Tháng", canIdx: mP.canIndex },
+        { pos: "Can Giờ", canIdx: hP.canIndex },
+        { pos: "Can Năm", canIdx: yP.canIndex }
+      ].forEach(c => {
+        let tt = getThapThan(c.canIdx, nhatCanIdx);
+        if (tt.type === "tro") {
+          troElements.push(`<strong>${c.pos} lộ ${tt.name} (${CAN[c.canIdx]})</strong>`);
+        }
+      });
+      [
+        { pos: "Chi Tháng", chi: mP.chi },
+        { pos: "Chi Ngày", chi: dP.chi },
+        { pos: "Chi Giờ", chi: hP.chi },
+        { pos: "Chi Năm", chi: yP.chi }
+      ].forEach(ch => {
+        let tCan = TANG_CAN[ch.chi] || [];
+        tCan.forEach(tc => {
+          let tcIdx = CAN.indexOf(tc);
+          if (tcIdx !== -1) {
+            let tt = getThapThan(tcIdx, nhatCanIdx);
+            if (tt.type === "tro") {
+              troElements.push(`${ch.pos} tàng ${tt.shortName} (${tc})`);
+            }
+          }
+        });
+      });
+
+      let duocTro = troElements.length > 0;
+      let duocTroStatus = duocTro ? (troElements.length >= 2 ? "ĐƯỢC TRỢ ĐẮC LỰC" : "ĐƯỢC TRỢ GIÚP") : "KHÔNG ĐƯỢC TRỢ";
+      let duocTroDesc = duocTro
+        ? `Được Tỷ Kiếp (${nhatHanh}) tương trợ: ${troElements.join(", ")}. Tính cách kiên định, tự chủ, có bạn bè bằng hữu hoặc cộng sự chung lưng đấu cật.`
+        : `Tứ trụ không có Tỷ Kiếp (${nhatHanh}) phò tá. Đơn thương độc mã trong sự nghiệp, cần rèn luyện tính độc lập cao.`;
+
+      // -------------------------------------------------------------
+      // 3 LỰC LƯỢNG LÀM THÂN NHƯỢC (KHẮC - HAO - TIẾT)
+      // -------------------------------------------------------------
+      let khacList = [];
+      let haoList  = [];
+      let tietList = [];
+
+      // Kiểm tra can
+      [
+        { pos: "Can Năm", canIdx: yP.canIndex },
+        { pos: "Can Tháng", canIdx: mP.canIndex },
+        { pos: "Can Giờ", canIdx: hP.canIndex }
+      ].forEach(c => {
+        let tt = getThapThan(c.canIdx, nhatCanIdx);
+        if (tt.type === "khac") khacList.push(`${c.pos} (${tt.name} ${CAN[c.canIdx]})`);
+        if (tt.type === "hao")  haoList.push(`${c.pos} (${tt.name} ${CAN[c.canIdx]})`);
+        if (tt.type === "tiet") tietList.push(`${c.pos} (${tt.name} ${CAN[c.canIdx]})`);
+      });
+
+      // Kiểm tra chi tàng
+      [
+        { pos: "Chi Năm", chi: yP.chi },
+        { pos: "Chi Tháng", chi: mP.chi },
+        { pos: "Chi Ngày", chi: dP.chi },
+        { pos: "Chi Giờ", chi: hP.chi }
+      ].forEach(ch => {
+        let tCan = TANG_CAN[ch.chi] || [];
+        tCan.forEach(tc => {
+          let tcIdx = CAN.indexOf(tc);
+          if (tcIdx !== -1) {
+            let tt = getThapThan(tcIdx, nhatCanIdx);
+            if (tt.type === "khac") khacList.push(`${ch.pos} (${tt.shortName}: ${tc})`);
+            if (tt.type === "hao")  haoList.push(`${ch.pos} (${tt.shortName}: ${tc})`);
+            if (tt.type === "tiet") tietList.push(`${ch.pos} (${tt.shortName}: ${tc})`);
+          }
+        });
+      });
+
+      // -------------------------------------------------------------
+      // ĐO LƯỜNG TƯƠNG QUAN NĂNG LƯỢNG CHUẨN XÁC (Trọng số 100 điểm)
+      // Chi Tháng: 40đ | Chi Ngày: 20đ | Can Tháng: 12đ | Can Giờ: 12đ | Chi Giờ: 8đ | Can Năm: 5đ | Chi Năm: 3đ
+      // -------------------------------------------------------------
+      let sinhPhuScore = 0;
+      let khacHaoTietScore = 0;
+      let scoreKhacVal = 0;
+      let scoreHaoVal  = 0;
+      let scoreTietVal = 0;
+
+      function evaluatePosition(weight, canIdx, isChi, chiName) {
+        if (!isChi) {
+          let hanh = CAN_HANH[canIdx].replace(/Dương |Âm /, '');
+          if (hanh === nhatHanh || hanh === sinhHanh) {
+            sinhPhuScore += weight;
+          } else {
+            khacHaoTietScore += weight;
+            if (hanh === khacHanh) scoreKhacVal += weight;
+            else if (hanh === haoHanh) scoreHaoVal += weight;
+            else if (hanh === tietHanh) scoreTietVal += weight;
+          }
+        } else {
+          let tCan = TANG_CAN[chiName] || [];
+          let mainCanHanh = CHI_HANH[CHI.indexOf(chiName)].replace(/Dương |Âm /, '');
+          // Bản khí chiếm đa số, trung khí / dư khí chia phần
+          let splitWeights = tCan.length === 1 ? [1.0] : (tCan.length === 2 ? [0.7, 0.3] : [0.6, 0.25, 0.15]);
+          tCan.forEach((tc, idx) => {
+            let tcIdx = CAN.indexOf(tc);
+            let partWeight = weight * (splitWeights[idx] || 0.1);
+            let hanh = CAN_HANH[tcIdx].replace(/Dương |Âm /, '');
+            if (hanh === nhatHanh || hanh === sinhHanh) {
+              sinhPhuScore += partWeight;
+            } else {
+              khacHaoTietScore += partWeight;
+              if (hanh === khacHanh) scoreKhacVal += partWeight;
+              else if (hanh === haoHanh) scoreHaoVal += partWeight;
+              else if (hanh === tietHanh) scoreTietVal += partWeight;
+            }
+          });
+        }
+      }
+
+      evaluatePosition(40, null, true, mP.chi);      // Chi Tháng (40)
+      evaluatePosition(20, null, true, dP.chi);      // Chi Ngày (20)
+      evaluatePosition(12, mP.canIndex, false, null); // Can Tháng (12)
+      evaluatePosition(12, hP.canIndex, false, null); // Can Giờ (12)
+      evaluatePosition(8,  null, true, hP.chi);      // Chi Giờ (8)
+      evaluatePosition(5,  yP.canIndex, false, null); // Can Năm (5)
+      evaluatePosition(3,  null, true, yP.chi);      // Chi Năm (3)
+
+      let totalScore = sinhPhuScore + khacHaoTietScore;
+      let pctSinh = Math.round((sinhPhuScore / totalScore) * 100);
+      let pctKhac = 100 - pctSinh;
+
+      // Đếm số lượng yếu tố hỗ trợ (ngoài đắc lệnh)
+      let supportCount = (dacDia ? 1 : 0) + (duocSinh ? 1 : 0) + (duocTro ? 1 : 0);
+
+      // -------------------------------------------------------------
+      // PHÂN ĐOÁN BẬC VƯỢNG NHƯỢC CHUẨN XÁC THEO NGUYÊN LÝ BÁT TỰ
+      // -------------------------------------------------------------
+      let conclusionBadge = "";
+      let conclusionClass = "";
+      let conclusionDetail = "";
+      let dungThanText = "";
+      let phongThuyText = "";
+
+      if (dacLenh) {
+        // TRƯỜNG HỢP 1: ĐẮC LỆNH
+        if (supportCount === 3 && pctSinh >= 60) {
+          conclusionBadge = "QUÁ VƯỢNG (VƯỢNG TỚI CỰC)";
+          conclusionClass = "badge-cuc-vuong";
+          conclusionDetail = `
+            <strong>Nhật Can Đắc Lệnh</strong> (sinh vào tháng ${mP.chi} nắm khí lệnh ${tsMonth.stageName}), lại hội đủ cả <strong>3 yếu tố hỗ trợ</strong>: Đắc địa có gốc rễ vững vàng, được Ấn sinh dưỡng và được Tỷ Kiếp tương trợ.
+            <br>• Lực lượng Sinh Phù chiếm ưu thế áp đảo (<strong>${pctSinh}%</strong>). Mệnh cục thuộc cách <strong>Quá Vượng (Vượng tới cực / Tòng Cường)</strong>.
+            <br>• <em>Đặc tính:</em> Tính tình quyết đoán, khí phách kiên định, năng lượng dồi dào nhưng cần tránh cố chấp, độc đoán, quá cứng thì dễ gãy.
+          `;
+          dungThanText = `
+            • <strong>Dụng Thần:</strong> <strong>${tietHanh} (Thực Thần / Thương Quan)</strong> — Thân quá vượng phải tiết tú, phát huy tài năng, trí tuệ sáng tạo.<br>
+            • <strong>Hỷ Thần:</strong> <strong>${haoHanh} (Tài Tinh)</strong> để chuyển hóa tinh hoa thành của cải thực tế.<br>
+            • <strong>Đặc biệt kỵ:</strong> <strong>${khacHanh} (Quan Sát)</strong> vì khi thân vượng cực độ, dùng Quan Sát áp chế trực diện sẽ phạm "chọc giận khí vượng", gây bất trắc tổn hại.
+          `;
+          phongThuyText = `
+            • <strong>Tư duy:</strong> Học cách lắng nghe, nhường nhịn, san sẻ tài lộc và quyền lực.<br>
+            • <strong>Lĩnh vực:</strong> Nghiên cứu sáng tạo, nghệ thuật, kinh doanh tự do, tư vấn chiến lược.<br>
+            • <strong>Màu sắc cải mệnh:</strong> Tông màu hành <strong>${tietHanh}</strong> và <strong>${haoHanh}</strong> để tiết giảm vượng khí.
+          `;
+        } else if (supportCount >= 2 || (supportCount === 1 && pctSinh >= 55)) {
+          conclusionBadge = "THIÊN VƯỢNG (THIÊN CƯỜNG)";
+          conclusionClass = "badge-thien-vuong";
+          conclusionDetail = `
+            <strong>Nhật Can Đắc Lệnh</strong>, đồng thời có thêm <strong>${supportCount} yếu tố tương trợ đắc lực</strong> (${[dacDia ? "Đắc địa" : "", duocSinh ? "Được sinh" : "", duocTro ? "Được trợ giúp" : ""].filter(Boolean).join(", ")}).
+            <br>• Lực lượng Sinh Phù đạt <strong>${pctSinh}%</strong> (vượt trội hơn Khắc Hao Tiết ${pctKhac}%). Bản mệnh đạt cách <strong>Thiên Vượng (Thiên Cường)</strong>, nội lực thâm hậu, thân mệnh cực kỳ khỏe khoắn.
+            <br>• <em>Đặc tính:</em> Dám nghĩ dám làm, giàu nghị lực gánh vác việc lớn, sức khỏe tốt, tự tin vào năng lực bản thân.
+          `;
+          dungThanText = `
+            • <strong>Dụng Thần:</strong> <strong>${khacHanh} (Quan Sát)</strong> hoặc <strong>${haoHanh} (Tài Tinh)</strong> để chế ngự và tôi luyện thân vượng thành bậc tài năng xuất chúng.<br>
+            • <strong>Hỷ Thần:</strong> <strong>${tietHanh} (Thực Thương)</strong> thông quan tiết tú.<br>
+            • <strong>Kỵ Thần:</strong> <strong>${sinhHanh} (Ấn)</strong> và <strong>${nhatHanh} (Tỷ Kiếp)</strong> (tránh làm thân vượng quá hóa trệ khí).
+          `;
+          phongThuyText = `
+            • <strong>Hành động:</strong> Chủ động gánh vác trách nhiệm quản lý, điều hành, dấn thân vào các thử thách cam go.<br>
+            • <strong>Màu sắc bổ trợ:</strong> Ưu tiên gam màu hành <strong>${khacHanh}</strong> và <strong>${haoHanh}</strong> giúp tôi luyện khí chất.
+          `;
+        } else if (supportCount === 1 && pctSinh >= 46) {
+          conclusionBadge = "THÂN VƯỢNG";
+          conclusionClass = "badge-than-vuong";
+          conclusionDetail = `
+            <strong>Nhật Can Đắc Lệnh</strong> mùa sinh, kết hợp thêm <strong>1 yếu tố hỗ trợ</strong> (${dacDia ? "Đắc địa có gốc" : duocSinh ? "Được Ấn sinh" : "Được Tỷ Kiếp phò tá"}).
+            <br>• Lực lượng Sinh Phù (${pctSinh}%) nhỉnh hơn Khắc Hao Tiết (${pctKhac}%). Thuộc cách cục <strong>Thân Vượng</strong> tiêu chuẩn. Bản mệnh khỏe mạnh, đủ năng lực làm chủ Tài Quan.
+          `;
+          dungThanText = `
+            • <strong>Dụng Thần:</strong> <strong>${haoHanh} (Chính Tài / Thiên Tài)</strong> khai mở tài lộc và <strong>${khacHanh} (Quan Sát)</strong> thăng tiến công danh.<br>
+            • <strong>Hỷ Thần:</strong> <strong>${tietHanh} (Thực Thần / Thương Quan)</strong> sinh Tài.<br>
+            • <strong>Kỵ Thần:</strong> Hạn chế nạp thêm ${sinhHanh} (Ấn) và ${nhatHanh} (Tỷ Kiếp).
+          `;
+          phongThuyText = `
+            • <strong>Phương châm:</strong> Tích cực hành động, nắm bắt cơ hội thương trường, mở rộng quan hệ đối tác.<br>
+            • <strong>Màu sắc:</strong> Sử dụng các màu thuộc hành <strong>${haoHanh}</strong> và <strong>${khacHanh}</strong> để kích hoạt tài vận.
+          `;
+        } else {
+          // supportCount === 0 (hoặc pctKhac quá áp đảo >= 58%)
+          if (pctKhac >= 58) {
+            conclusionBadge = "GIẢ VƯỢNG BIẾN NHƯỢC (THÂN NHƯỢC)";
+            conclusionClass = "badge-than-nhuoc";
+            conclusionDetail = `
+              <strong>Trường hợp đặc biệt:</strong> Nhật Can tuy đắc lệnh nhưng hoàn toàn không đắc địa (vô căn), không có Ấn sinh và không có Tỷ Kiếp phò trợ, lại bị lực lượng Khắc - Hao - Tiết bao vây (${pctKhac}%).
+              <br>• Thuộc thế <strong>"Vượng mà không phải vượng" (Giả Vượng biến thành Thân Nhược)</strong>. Bề ngoài tưởng cứng cáp nhưng bên trong thiếu gốc rễ, dễ hao mòn khí lực khi gặp áp lực công việc.
+            `;
+            dungThanText = `
+              • <strong>Dụng Thần:</strong> <strong>${sinhHanh} (Chính Ấn / Thiên Ấn)</strong> để bồi dưỡng chân khí làm điểm tựa tinh thần vững chắc.<br>
+              • <strong>Hỷ Thần:</strong> <strong>${nhatHanh} (Tỷ Kiên / Kiếp Tài)</strong> bổ sung căn khí đồng loại.<br>
+              • <strong>Kỵ Thần:</strong> Tránh các vận hạn tăng thêm ${khacHanh} (Quan Sát) hay ${tietHanh} (Thực Thương).
+            `;
+            phongThuyText = `
+              • <strong>Lời khuyên:</strong> Không nên ôm đồm việc quá sức; chú trọng xây dựng nền tảng học vấn và các mối quan hệ đồng chí hướng.<br>
+              • <strong>Màu sắc:</strong> Dùng màu hành <strong>${sinhHanh}</strong> và <strong>${nhatHanh}</strong> để giữ năng lượng ổn định.
+            `;
+          } else {
+            conclusionBadge = "THÂN TRUNG HÒA (THIÊN VƯỢNG)";
+            conclusionClass = "badge-trung-hoa";
+            conclusionDetail = `
+              Nhật Can đắc lệnh tháng sinh nhưng lực lượng Khắc - Hao - Tiết xung quanh cân xứng hài hòa (${pctKhac}% so với ${pctSinh}% sinh trợ).
+              <br>• Cục diện đạt cách <strong>Thân Trung Hòa</strong> (thiên vượng nhẹ). Khí sắc quân bình, ít gặp biến động cực đoan, đời sống an hòa.
+            `;
+            dungThanText = `
+              • <strong>Dụng Thần:</strong> Điều hòa theo lưu niên đại vận (khi gặp vận suy thì dùng Ấn/Tỷ, gặp vận vượng thì dùng Tài/Quan).<br>
+              • <strong>Hỷ Thần:</strong> Cân bằng cả 5 dòng năng lượng ngũ hành.
+            `;
+            phongThuyText = `
+              • <strong>Phong thái:</strong> Thong dong, thuận ứng thời thế, "tùy cơ ứng biến".<br>
+              • <strong>Màu sắc:</strong> Có thể phối hợp đa dạng các màu sắc trang nhã, tương sinh hài hòa.
+            `;
+          }
+        }
+      } else {
+        // TRƯỜNG HỢP 2: THẤT LỆNH (SINH VÀO THÁNG SUY)
+        if (supportCount >= 2 && pctSinh >= 50) {
+          // Biến cục: Nhược mà không phải nhược
+          if (pctSinh >= 62 || supportCount === 3) {
+            conclusionBadge = "THIÊN VƯỢNG (NHƯỢC BIẾN VƯỢNG)";
+            conclusionClass = "badge-thien-vuong";
+            conclusionDetail = `
+              <strong>Nhật Can tuy Thất Lệnh</strong> (sinh vào tháng ${mP.chi} cung ${tsMonth.stageName}), nhưng lại hội đủ <strong>${supportCount} yếu tố trợ lực đắc địa</strong> (${[dacDia ? "Đắc địa thông căn" : "", duocSinh ? "Được Ấn sinh" : "", duocTro ? "Được Tỷ Kiếp trợ" : ""].filter(Boolean).join(", ")}).
+              <br>• Tỷ lệ Sinh Phù thực tế đạt <strong>${pctSinh}%</strong>. Mệnh cục thuộc dạng <strong>"Nhược mà không phải nhược"</strong>, chuyển hóa thành <strong>Thiên Vượng</strong> có gốc rễ vững chãi!
+            `;
+            dungThanText = `
+              • <strong>Dụng Thần:</strong> <strong>${khacHanh} (Quan Sát)</strong> hoặc <strong>${haoHanh} (Tài Tinh)</strong> phát huy tài năng quản lý và làm giàu.<br>
+              • <strong>Hỷ Thần:</strong> <strong>${tietHanh} (Thực Thương)</strong> tiết khí tinh anh.<br>
+              • <strong>Kỵ Thần:</strong> Quá nhiều Ấn và Tỷ Kiếp gây ngưng trệ.
+            `;
+            phongThuyText = `
+              • <strong>Tư duy:</strong> Tự tin khai mở cơ hội, không ngại dấn thân thử thách lớn.<br>
+              • <strong>Màu sắc:</strong> Dùng tông màu hành <strong>${haoHanh}</strong> và <strong>${khacHanh}</strong>.
+            `;
+          } else {
+            conclusionBadge = "THÂN VƯỢNG (CÓ GỐC TỰA)";
+            conclusionClass = "badge-than-vuong";
+            conclusionDetail = `
+              Nhật Can thất lệnh tại tháng sinh, nhưng nhờ <strong>đắc địa có căn rễ</strong> và được Ấn/Tỷ Kiếp tương trợ (${pctSinh}% lực lượng).
+              <br>• Cục diện chuyển hóa thành <strong>Thân Vượng có gốc</strong>, không lo gió bão lung lay, đủ sức gánh vác tài quan trọng trách.
+            `;
+            dungThanText = `
+              • <strong>Dụng Thần:</strong> <strong>${haoHanh} (Tài Tinh)</strong> khai mở đường tài lộc.<br>
+              • <strong>Hỷ Thần:</strong> <strong>${khacHanh} (Chính Quan)</strong> củng cố thanh danh, sự nghiệp.<br>
+              • <strong>Kỵ Thần:</strong> Ấn tinh quá nặng.
+            `;
+            phongThuyText = `
+              • <strong>Phương hướng:</strong> Đầu tư bài bản, phát huy năng lực nội tại.<br>
+              • <strong>Màu sắc:</strong> Gam màu hành <strong>${haoHanh}</strong> và <strong>${khacHanh}</strong>.
+            `;
+          }
+        } else if (pctSinh >= 42 && pctSinh <= 53) {
+          conclusionBadge = "THÂN TRUNG HÒA (CÂN BẰNG TỐT)";
+          conclusionClass = "badge-trung-hoa";
+          conclusionDetail = `
+            Nhật Can tuy thất lệnh nhưng có sự hỗ trợ bù đắp từ địa chi và thiên can, tạo nên thế giằng co cân bằng tuyệt vời giữa <strong>Sinh Phù (${pctSinh}%)</strong> và <strong>Khắc Hao Tiết (${pctKhac}%)</strong>.
+            <br>• Bản mệnh đạt cách <strong>Thân Trung Hòa</strong> (cách cục rất quý trọng trong Bát Tự Chính Tông). Tính tình bao dung, điềm tĩnh, gặp nguy hóa an, bền bỉ dẻo dai.
+          `;
+          dungThanText = `
+            • <strong>Dụng Thần:</strong> Dụng thần linh hoạt theo mùa và đại vận (thời thế thiếu gì thì bổ sung nấy).<br>
+            • <strong>Hỷ Thần:</strong> Ngũ hành tương sinh tuần hoàn.
+          `;
+          phongThuyText = `
+            • <strong>Lời khuyên:</strong> Giữ tâm thế quân bình, làm việc có kế hoạch, phát triển hài hòa cả gia đình và sự nghiệp.<br>
+            • <strong>Màu sắc:</strong> Tùy nghi sử dụng các màu sắc yêu thích mang năng lượng tự nhiên hài hòa.
+          `;
+        } else if (pctSinh < 22 && supportCount === 0) {
+          conclusionBadge = "CỰC NHƯỢC (TÒNG NHƯỢC CÁCH)";
+          conclusionClass = "badge-cuc-nhuoc";
+          conclusionDetail = `
+            Nhật Can hoàn toàn thất lệnh, vô căn, không được Ấn sinh, không có Tỷ Kiếp tương trợ. Lực lượng Khắc - Hao - Tiết ngập tràn toàn cục (<strong>${pctKhac}%</strong>).
+            <br>• Bản mệnh thuộc cách <strong>Thân Cực Nhược (Tòng Nhược / Tòng Khí Cách)</strong>. Trong Bát Tự, đây là kỳ cách: "Cực nhược thì thuận theo khí thế của kẻ mạnh mà thành đại nghiệp" (như thuyền thuận buồm xuôi gió).
+          `;
+          dungThanText = `
+            • <strong>Dụng Thần:</strong> <strong>Hành vượng nhất trong cục</strong> (${scoreKhacVal >= scoreHaoVal && scoreKhacVal >= scoreTietVal ? "Tòng Sát (" + khacHanh + ")" : (scoreHaoVal >= scoreTietVal ? "Tòng Tài (" + haoHanh + ")" : "Tòng Nhi (" + tietHanh + ")")}).<br>
+            • <strong>Tuyệt đối kỵ:</strong> <strong>${sinhHanh} (Ấn)</strong> và <strong>${nhatHanh} (Tỷ Kiếp)</strong> (gây "phá cách", biến thuận thành nghịch dẫn tới trắc trở).
+          `;
+          phongThuyText = `
+            • <strong>Chiến lược:</strong> "Mềm nắn rắn buông", hợp tác nương tựa vào các tổ chức lớn, tập đoàn hùng mạnh để phát triển vượt bậc.<br>
+            • <strong>Màu sắc:</strong> Dùng màu của hành nắm ưu thế tuyệt đối trong mệnh cục.
+          `;
+        } else {
+          conclusionBadge = "THÂN NHƯỢC";
+          conclusionClass = "badge-than-nhuoc";
+          conclusionDetail = `
+            Nhật Can sinh vào tháng Thất Lệnh, các lực lượng làm suy nhược bản thân (Khắc, Hao, Tiết) chiếm ưu thế áp đảo (<strong>${pctKhac}%</strong> so với <strong>${pctSinh}%</strong> sinh trợ).
+            <br>• Bản mệnh thuộc <strong>Thân Nhược</strong>. Thân nhược tựa như cành cây mềm mại trong gió, cần được tưới tắm vun xới (Ấn tinh) và nương tựa vào hàng rào bảo bọc (Tỷ Kiếp) để đơm hoa kết trái.
+            <br>• <em>Đặc tính:</em> Tính tình mềm mỏng, chu đáo, tinh tế, giàu cảm xúc và biết lắng nghe, nhưng đôi khi dễ chần chừ do dự hoặc căng thẳng trước áp lực quá tải.
+          `;
+          dungThanText = `
+            • <strong>Dụng Thần số 1:</strong> <strong>${sinhHanh} (Chính Ấn / Thiên Ấn)</strong> — Tương sinh nuôi dưỡng, đem lại sức khỏe, quý nhân chở che, trí tuệ học vấn sâu rộng.<br>
+            • <strong>Hỷ Thần số 2:</strong> <strong>${nhatHanh} (Tỷ Kiên / Kiếp Tài)</strong> — Bổ trợ nghị lực, kết nối bạn hữu, đối tác trung thành giúp gánh vác công việc.<br>
+            • <strong>Kỵ Thần:</strong> <strong>${khacHanh} (Quan Sát)</strong> gây thêm áp lực và <strong>${haoHanh} (Tài Tinh)</strong> làm tiêu hao kiệt quệ nguyên khí.
+          `;
+          phongThuyText = `
+            • <strong>Chăm sóc bản thân:</strong> Chú trọng giấc ngủ, dinh dưỡng bồi bổ sức khỏe; rèn luyện thói quen kiên trì từng bước vững chắc.<br>
+            • <strong>Đối tác:</strong> Luôn tìm kiếm đồng đội có thế mạnh bổ trợ cho mình, tránh làm việc đơn độc trong các dự án nặng nề.<br>
+            • <strong>Màu sắc phong thủy tương hợp:</strong> Ưu tiên sử dụng trang phục, phụ kiện mang sắc màu hành <strong>${sinhHanh}</strong> (tương sinh) và <strong>${nhatHanh}</strong> (bản mệnh) để gia tăng năng lượng hộ thân.
+          `;
+        }
+      }
+
+      // -------------------------------------------------------------
+      // CẬP NHẬT GIAO DIỆN HIỂN THỊ
+      // -------------------------------------------------------------
+      // Main Badge
+      const mainBadgeEl = document.getElementById('btMainBadge');
+      if (mainBadgeEl) {
+        mainBadgeEl.textContent = conclusionBadge;
+        mainBadgeEl.className = `bt-conclusion-badge ${conclusionClass}`;
+      }
+
+      // Balance Meter
+      document.getElementById('lblMeterSinhScore').textContent = `${sinhPhuScore.toFixed(1)} đ (${pctSinh}%)`;
+      document.getElementById('lblMeterKhacScore').textContent = `${khacHaoTietScore.toFixed(1)} đ (${pctKhac}%)`;
+      document.getElementById('barMeterSinh').style.width = pctSinh + '%';
+      document.getElementById('barMeterSinh').textContent = `Sinh Phù ${pctSinh}%`;
+      document.getElementById('barMeterKhac').style.width = pctKhac + '%';
+      document.getElementById('barMeterKhac').textContent = `Khắc Hao Tiết ${pctKhac}%`;
+
+      document.getElementById('lblMeterNote').innerHTML = `
+        Nhật Chủ <strong>${nhatCanName} (${nhatHanh})</strong> • Điểm lực lượng nội tại: 
+        <span style="color:#065f46; font-weight:700;">Sinh Phù ${sinhPhuScore.toFixed(1)} đ</span> so với 
+        <span style="color:#991b1b; font-weight:700;">Khắc Hao Tiết ${khacHaoTietScore.toFixed(1)} đ</span> 
+        (Tỷ lệ: ${pctSinh}% : ${pctKhac}%)
       `;
+
+      // 1. Đắc Lệnh Card
+      const cardDacLenh = document.getElementById('cardDacLenh');
+      if (cardDacLenh) cardDacLenh.className = `bt-factor-card ${dacLenh ? 'is-active' : ''}`;
+      const badgeDacLenh = document.getElementById('badgeDacLenh');
+      if (badgeDacLenh) {
+        badgeDacLenh.textContent = dacLenh ? `✅ ${dacLenhLevel}` : `❌ ${dacLenhLevel}`;
+        badgeDacLenh.className = `bt-factor-status ${dacLenh ? 'status-ok' : 'status-no'}`;
+      }
+      document.getElementById('descDacLenh').innerHTML = dacLenhDesc;
+
+      // 2. Đắc Địa Card
+      const cardDacDia = document.getElementById('cardDacDia');
+      if (cardDacDia) cardDacDia.className = `bt-factor-card ${dacDia ? 'is-active' : ''}`;
+      const badgeDacDia = document.getElementById('badgeDacDia');
+      if (badgeDacDia) {
+        badgeDacDia.textContent = dacDia ? `✅ ${dacDiaStatus}` : `❌ ${dacDiaStatus}`;
+        badgeDacDia.className = `bt-factor-status ${dacDia ? 'status-ok' : 'status-no'}`;
+      }
+      document.getElementById('descDacDia').innerHTML = dacDiaDesc;
+
+      // 3. Được Sinh Card
+      const cardDuocSinh = document.getElementById('cardDuocSinh');
+      if (cardDuocSinh) cardDuocSinh.className = `bt-factor-card ${duocSinh ? 'is-active' : ''}`;
+      const badgeDuocSinh = document.getElementById('badgeDuocSinh');
+      if (badgeDuocSinh) {
+        badgeDuocSinh.textContent = duocSinh ? `✅ ${duocSinhStatus}` : `⚠️ ${duocSinhStatus}`;
+        badgeDuocSinh.className = `bt-factor-status ${duocSinh ? 'status-ok' : 'status-warn'}`;
+      }
+      document.getElementById('descDuocSinh').innerHTML = duocSinhDesc;
+
+      // 4. Được Trợ Card
+      const cardDuocTro = document.getElementById('cardDuocTro');
+      if (cardDuocTro) cardDuocTro.className = `bt-factor-card ${duocTro ? 'is-active' : ''}`;
+      const badgeDuocTro = document.getElementById('badgeDuocTro');
+      if (badgeDuocTro) {
+        badgeDuocTro.textContent = duocTro ? `✅ ${duocTroStatus}` : `⚠️ ${duocTroStatus}`;
+        badgeDuocTro.className = `bt-factor-status ${duocTro ? 'status-ok' : 'status-warn'}`;
+      }
+      document.getElementById('descDuocTro').innerHTML = duocTroDesc;
+
+      // II. Khắc - Hao - Tiết Cards
+      document.getElementById('scoreKhacVal').textContent = `${scoreKhacVal.toFixed(1)} đ`;
+      document.getElementById('descKhac').innerHTML = khacList.length > 0
+        ? `Lộ diện tại: <strong>${khacList.join(", ")}</strong>. Đại diện cho ngũ hành <strong>${khacHanh}</strong> gây áp chế.`
+        : `Tứ trụ không có Quan Sát (${khacHanh}) khắc phá nặng nề. Bản mệnh ít bị ràng buộc bởi khuôn mẫu cứng nhắc.`;
+
+      document.getElementById('scoreHaoVal').textContent = `${scoreHaoVal.toFixed(1)} đ`;
+      document.getElementById('descHao').innerHTML = haoList.length > 0
+        ? `Lộ diện tại: <strong>${haoList.join(", ")}</strong>. Đại diện cho ngũ hành <strong>${haoHanh}</strong> làm tiêu hao khí lực để kiểm soát.`
+        : `Tứ trụ không chứa nhiều Tài Tinh (${haoHanh}). Bản mệnh ít chịu áp lực tiêu tốn tinh thần vào việc quản lý của cải.`;
+
+      document.getElementById('scoreTietVal').textContent = `${scoreTietVal.toFixed(1)} đ`;
+      document.getElementById('descTiet').innerHTML = tietList.length > 0
+        ? `Lộ diện tại: <strong>${tietList.join(", ")}</strong>. Đại diện cho ngũ hành <strong>${tietHanh}</strong> bộc lộ tài năng nhưng làm hao hụt nguyên khí.`
+        : `Tứ trụ ít Thực Thương (${tietHanh}). Bản mệnh thiên về tích tụ nội lực, ít bị tiết thoát khí sắc ra bên ngoài.`;
+
+      // III. Bình Giải Chi Tiết
+      document.getElementById('btDetailedConclusion').innerHTML = conclusionDetail;
+
+      // IV. Dụng Thần & Phong Thủy
+      document.getElementById('btDungThanDetail').innerHTML = dungThanText;
+      document.getElementById('btPhongThuyAdvice').innerHTML = phongThuyText;
+
+      // Backward compatibility hook for btThanStatus and btDungThan
+      const oldThanStatus = document.getElementById('btThanStatus');
+      if (oldThanStatus) oldThanStatus.innerHTML = conclusionDetail;
+      const oldDungThan = document.getElementById('btDungThan');
+      if (oldDungThan) oldDungThan.innerHTML = dungThanText;
     }
 
     /**
