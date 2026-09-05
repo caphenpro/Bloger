@@ -101,6 +101,25 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.6.1] - 2026-09-04
+- **Bổ Sung Dữ Liệu Ngày Lễ, Kỷ Niệm Lịch Sử Việt Nam & Sự Kiện Quốc Tế Tháng 9**:
+  - **Các Ngày Lễ & Kỷ Niệm Lịch Sử Việt Nam**:
+    - **02/09**: Ngày Quốc khánh nước CHXHCN Việt Nam (Kỷ niệm Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập tại Ba Đình năm 1945).
+    - **05/09**: Ngày hội toàn dân đưa trẻ đến trường, khai giảng năm học mới trên cả nước.
+    - **07/09**: Ngày thành lập Đài Tiếng nói Việt Nam (VOV - 07/09/1945).
+    - **10/09**: Ngày thành lập Mặt trận Tổ quốc Việt Nam (10/09/1955), tập hợp khối đại đoàn kết toàn dân tộc.
+    - **23/09**: Ngày Nam Bộ kháng chiến (23/09/1945), mở đầu cuộc trường kỳ kháng chiến anh dũng của nhân dân Nam Bộ.
+  - **Các Ngày Lễ & Sự Kiện Quốc Tế**:
+    - **05/09**: Ngày Quốc tế Từ thiện (International Day of Charity).
+    - **08/09**: Ngày Quốc tế xóa nạn mù chữ (International Literacy Day - UNESCO).
+    - **10/09**: Ngày Thế giới phòng chống tự sát (World Suicide Prevention Day - IASP & WHO).
+    - **15/09**: Ngày Quốc tế Dân chủ (International Day of Democracy - LHQ).
+    - **16/09**: Ngày Quốc tế bảo vệ tầng ozone (World Ozone Day - Nghị định thư Montreal).
+    - **21/09**: Ngày Quốc tế Hòa bình (International Day of Peace - LHQ).
+  - **Nâng Cấp Trải Nghiệm Lịch & Tra Cứu Sự Kiện**:
+    - Hỗ trợ hiển thị đa sự kiện trên cùng một ngày (như ngày 05/09 và 10/09): thanh thông báo sự kiện trên Bloc Lịch hiển thị đầy đủ các ngày lễ song hành, tooltip trên lưới lịch tháng thể hiện chi tiết từng ngày lễ.
+    - Đồng bộ tra cứu trên Tab *"🏮 Ngày Lễ / Tết"* theo từng năm với thẻ thông tin ngày Dương lịch & Âm lịch tương ứng.
+
 ### [v1.6.0] - 2026-09-04
 - **Nâng Cấp Toàn Diện Hệ Thống Thẩm Định Bát Tự Thân Vượng / Thân Nhược Chuyên Sâu**:
   - **Tích Hợp Thập Thần Bốn Trụ Trực Quan**:

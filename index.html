@@ -3792,7 +3792,20 @@
       { day: 1, month: 6, name: "Ngày Quốc Tế Thiếu Nhi", desc: "Ngày hội dành cho trẻ em trên toàn thế giới." },
       { day: 27, month: 7, name: "Ngày Thương Binh Liệt Sĩ", desc: "Uống nước nhớ nguồn, tri ân anh hùng liệt sĩ đã hy sinh vì Tổ quốc." },
       { day: 19, month: 8, name: "Ngày Cách Mạng Tháng Tám", desc: "Kỷ niệm thắng lợi của Cách mạng tháng Tám năm 1945." },
-      { day: 2, month: 9, name: "Ngày Quốc Khánh Nước CHXHCN Việt Nam", desc: "Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình lịch sử." },
+      
+      // Tháng 9 - Các ngày lễ truyền thống Việt Nam & Quốc tế
+      { day: 2, month: 9, name: "Ngày Quốc Khánh Nước CHXHCN Việt Nam (Kỷ niệm Tuyên ngôn Độc lập)", desc: "Kỷ niệm ngày Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập tại Quảng trường Ba Đình (02/09/1945), khai sinh nước Việt Nam Dân chủ Cộng hòa." },
+      { day: 5, month: 9, name: "Ngày Hội Toàn Dân Đưa Trẻ Đến Trường (Khai Giảng Năm Học Mới)", desc: "Ngày hội toàn dân đưa trẻ đến trường, khai giảng năm học mới tưng bừng trên khắp mọi miền đất nước." },
+      { day: 5, month: 9, name: "Ngày Quốc Tế Từ Thiện (International Day of Charity)", desc: "Ngày do Liên Hợp Quốc thông qua nhằm tôn vinh và nhân rộng các hoạt động thiện nguyện, nhân đạo trên toàn thế giới." },
+      { day: 7, month: 9, name: "Ngày Thành Lập Đài Tiếng Nói Việt Nam (VOV)", desc: "Kỷ niệm ngày phát sóng buổi đầu tiên và thành lập Đài Tiếng nói Việt Nam (07/09/1945) - cơ quan phát thanh quốc gia." },
+      { day: 8, month: 9, name: "Ngày Quốc Tế Xóa Nạn Mù Chữ (International Literacy Day)", desc: "Ngày do UNESCO khởi xướng nhằm nâng cao nhận thức cộng đồng về tầm quan trọng của việc biết chữ và giáo dục cho mọi người." },
+      { day: 10, month: 9, name: "Ngày Thành Lập Mặt Trận Tổ Quốc Việt Nam", desc: "Kỷ niệm ngày thành lập Mặt trận Tổ quốc Việt Nam (10/09/1955), tập hợp và phát huy sức mạnh khối đại đoàn kết toàn dân tộc." },
+      { day: 10, month: 9, name: "Ngày Thế Giới Phòng Chống Tự Sát (World Suicide Prevention Day)", desc: "Ngày nâng cao nhận thức của cộng đồng thế giới về việc chăm sóc sức khỏe tinh thần, bảo vệ sự sống và phòng ngừa tự sát." },
+      { day: 15, month: 9, name: "Ngày Quốc Tế Dân Chủ (International Day of Democracy)", desc: "Ngày do Liên Hợp Quốc thành lập nhằm thúc đẩy và tôn trọng các giá trị tự do, dân chủ và quyền con người trên toàn cầu." },
+      { day: 16, month: 9, name: "Ngày Quốc Tế Bảo Vệ Tầng Ozone (World Ozone Day)", desc: "Kỷ niệm ngày ký Nghị định thư Montreal về các chất làm suy giảm tầng ozone, bảo vệ bầu khí quyển và môi trường sống của Trái Đất." },
+      { day: 21, month: 9, name: "Ngày Quốc Tế Hòa Bình (International Day of Peace)", desc: "Ngày Liên Hợp Quốc kêu gọi đình chiến toàn cầu 24 giờ và tôn vinh lý tưởng hòa bình, không bạo lực giữa các quốc gia." },
+      { day: 23, month: 9, name: "Ngày Nam Bộ Kháng Chiến", desc: "Kỷ niệm ngày nhân dân Nam Bộ anh dũng đứng lên kháng chiến chống thực dân Pháp tái xâm lược (23/09/1945), thể hiện tinh thần 'Thành đồng Tổ quốc'." },
+
       { day: 10, month: 10, name: "Ngày Giải Phóng Thủ Đô", desc: "Kỷ niệm ngày tiếp quản Thủ đô Hà Nội năm 1954." },
       { day: 20, month: 10, name: "Ngày Phụ Nữ Việt Nam", desc: "Tôn vinh vẻ đẹp anh hùng, bất khuất, trung hậu, đảm đang của phụ nữ Việt Nam." },
       { day: 20, month: 11, name: "Ngày Nhà Giáo Việt Nam", desc: "Tri ân thầy cô giáo - những người lái đò thầm lặng." },
@@ -4213,11 +4226,15 @@
       const dayCanChi = getDayCanChi(d, m, y);
       const star = getDayHoangDao(lMonth, dayCanChi.chiIndex);
 
-      // Kiểm tra lễ tết
-      let hasFestival = false;
-      const festLunar = FESTIVALS_LUNAR.find(f => f.day === lDay && f.month === lMonth);
-      const festSolar = FESTIVALS_SOLAR.find(f => f.day === d && f.month === m);
-      if (festLunar || festSolar) hasFestival = true;
+      // Kiểm tra lễ tết (có thể trùng nhiều lễ trong cùng ngày)
+      const festsLunar = FESTIVALS_LUNAR.filter(f => f.day === lDay && f.month === lMonth);
+      const festsSolar = FESTIVALS_SOLAR.filter(f => f.day === d && f.month === m);
+      const allFestNames = [
+        ...festsLunar.map(f => `🏮 ${f.name}`),
+        ...festsSolar.map(f => `🚩 ${f.name}`)
+      ];
+      const hasFestival = allFestNames.length > 0;
+      const festTooltip = hasFestival ? allFestNames.join(' • ') : 'Ngày Lễ/Tết';
 
       let lunarDisplay = lDay === 1 ? `${lDay}/${lMonth}` : `${lDay}`;
       let lunarClass = lDay === 1 ? 'lunar-num lunar-first' : 'lunar-num';
@@ -4229,7 +4246,7 @@
         </div>
         <div class="day-indicators">
           ${star.isHoangDao ? '<span class="hd-dot" title="Ngày Hoàng Đạo"></span>' : '<span></span>'}
-          ${hasFestival ? '<span class="fest-dot" title="Ngày Lễ/Tết"></span>' : ''}
+          ${hasFestival ? `<span class="fest-dot" title="${festTooltip}"></span>` : ''}
         </div>
       `;
 
@@ -4362,16 +4379,16 @@
         cardSocNextMung1El.textContent = `00:00:00 ngày ${nextD}/${nextMo}/${nextY} (${socInfo.nextDayCanChi})`;
       }
 
-      // Lễ Tết
-      const festLunar = FESTIVALS_LUNAR.find(f => f.day === lDay && f.month === lMonth);
-      const festSolar = FESTIVALS_SOLAR.find(f => f.day === d && f.month === m);
+      // Lễ Tết (hỗ trợ hiển thị nhiều ngày lễ nếu trùng ngày)
+      const festsLunar = FESTIVALS_LUNAR.filter(f => f.day === lDay && f.month === lMonth);
+      const festsSolar = FESTIVALS_SOLAR.filter(f => f.day === d && f.month === m);
       const festRow = document.getElementById('blocFestRow');
-      if (festLunar || festSolar) {
+      if (festsLunar.length > 0 || festsSolar.length > 0) {
         festRow.style.display = 'flex';
         let names = [];
-        if (festLunar) names.push(`🏮 ${festLunar.name}`);
-        if (festSolar) names.push(`🚩 ${festSolar.name}`);
-        document.getElementById('blocFestText').textContent = names.join(' | ');
+        festsLunar.forEach(f => names.push(`🏮 ${f.name}`));
+        festsSolar.forEach(f => names.push(`🚩 ${f.name}`));
+        document.getElementById('blocFestText').textContent = names.join('  •  ');
       } else {
         festRow.style.display = 'none';
       }
