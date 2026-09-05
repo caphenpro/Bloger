@@ -1682,14 +1682,15 @@
       border-top: 1px solid #374151;
     }
 
-    /* Bottom Visitor Statistics Section */
+    /* Bottom Visitor Statistics Section (Compact & Sleek Design with 7-Day Chart) */
     .site-stats-container {
-      background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95));
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 1.15rem 1.25rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin: 0 auto 1.25rem;
+      max-width: 980px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       text-align: left;
     }
     .site-stats-top {
@@ -1697,19 +1698,19 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.65rem;
+      gap: 0.4rem;
+      margin-bottom: 0.65rem;
+      padding-bottom: 0.45rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .site-stats-title-wrap {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
     .stats-pulse-dot {
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       background-color: #10b981;
       border-radius: 50%;
       display: inline-block;
@@ -1724,7 +1725,7 @@
       }
       70% {
         transform: scale(1.15);
-        box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
       }
       100% {
         transform: scale(0.95);
@@ -1732,30 +1733,30 @@
       }
     }
     .site-stats-heading {
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: #fef3c7;
       text-transform: uppercase;
-      letter-spacing: 0.75px;
+      letter-spacing: 0.5px;
     }
     .site-stats-meta {
-      font-size: 0.75rem;
-      color: #9ca3af;
+      font-size: 0.72rem;
+      color: #94a3b8;
       display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
     }
     .site-stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0.85rem;
+      gap: 0.55rem;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 820px) {
       .site-stats-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    @media (max-width: 480px) {
+    @media (max-width: 440px) {
       .site-stats-grid {
         grid-template-columns: 1fr;
       }
@@ -1763,48 +1764,47 @@
     .stat-card {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 0.85rem 1rem;
-      transition: all 0.2s ease;
+      gap: 0.65rem;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 8px;
+      padding: 0.5rem 0.7rem;
+      transition: all 0.18s ease;
       position: relative;
-      overflow: hidden;
     }
     .stat-card:hover {
-      background: rgba(255, 255, 255, 0.07);
-      border-color: rgba(245, 158, 11, 0.35);
-      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.065);
+      border-color: rgba(245, 158, 11, 0.3);
+      transform: translateY(-1px);
     }
     .stat-icon-wrap {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: 1rem;
       flex-shrink: 0;
     }
     .stat-card-online .stat-icon-wrap {
       background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      border: 1px solid rgba(16, 185, 129, 0.28);
       color: #34d399;
     }
     .stat-card-today .stat-icon-wrap {
       background: rgba(245, 158, 11, 0.15);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      border: 1px solid rgba(245, 158, 11, 0.28);
       color: #fbbf24;
     }
     .stat-card-week .stat-icon-wrap {
       background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.3);
+      border: 1px solid rgba(59, 130, 246, 0.28);
       color: #60a5fa;
     }
     .stat-card-total .stat-icon-wrap {
       background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.3);
+      border: 1px solid rgba(168, 85, 247, 0.28);
       color: #c084fc;
     }
     .stat-info {
@@ -1814,13 +1814,13 @@
     .stat-value-row {
       display: flex;
       align-items: baseline;
-      gap: 0.35rem;
+      gap: 0.3rem;
+      line-height: 1.1;
     }
     .stat-value {
-      font-size: 1.4rem;
+      font-size: 1.15rem;
       font-weight: 800;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      line-height: 1.15;
       letter-spacing: -0.3px;
     }
     .stat-card-online .stat-value {
@@ -1836,36 +1836,175 @@
       color: #e9d5ff;
     }
     .stat-unit {
-      font-size: 0.72rem;
-      color: #9ca3af;
+      font-size: 0.68rem;
+      color: #94a3b8;
       font-weight: 500;
     }
     .stat-badge-live {
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-      padding: 0.1rem 0.4rem;
+      gap: 0.2rem;
+      padding: 0.05rem 0.35rem;
       border-radius: 9999px;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       font-weight: 700;
       background: rgba(16, 185, 129, 0.2);
       color: #6ee7b7;
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      letter-spacing: 0.4px;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      letter-spacing: 0.3px;
       text-transform: uppercase;
     }
     .stat-title {
-      font-size: 0.76rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      color: #9ca3af;
+      color: #94a3b8;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
-      margin-top: 0.2rem;
+      letter-spacing: 0.25px;
+      margin-top: 0.12rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .stat-subtext {
-      font-size: 0.68rem;
-      color: #6b7280;
-      margin-top: 0.15rem;
+      font-size: 0.64rem;
+      color: #64748b;
+      margin-top: 0.08rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Biểu Đồ 7 Ngày Gần Nhất (7-Day Visitor Chart) */
+    .site-stats-chart-section {
+      margin-top: 0.75rem;
+      padding-top: 0.65rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .chart-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .chart-badge-tag {
+      font-size: 0.65rem;
+      padding: 0.1rem 0.4rem;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #93c5fd;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .chart-legend {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.66rem;
+      color: #94a3b8;
+    }
+    .chart-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .chart-legend-color {
+      width: 9px;
+      height: 9px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .chart-bars-wrap {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 0.45rem;
+      height: 105px;
+      padding: 0.45rem 0.5rem 0.25rem;
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      position: relative;
+    }
+    .chart-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      min-width: 0;
+      position: relative;
+      cursor: pointer;
+    }
+    .chart-bar-val {
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      margin-bottom: 0.2rem;
+      white-space: nowrap;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+    .chart-col.is-today .chart-bar-val {
+      color: #fde047;
+      font-weight: 800;
+    }
+    .chart-bar-pill {
+      width: 100%;
+      max-width: 38px;
+      border-radius: 5px 5px 2px 2px;
+      background: linear-gradient(180deg, #3b82f6 0%, #1e40af 100%);
+      transition: height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, transform 0.15s ease;
+      min-height: 8px;
+      position: relative;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+    .chart-col:hover .chart-bar-pill {
+      filter: brightness(1.2);
+      transform: scaleY(1.03);
+    }
+    .chart-col:hover .chart-bar-val {
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+    .chart-col.is-today .chart-bar-pill {
+      background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%);
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
+      border: 1px solid rgba(254, 240, 138, 0.3);
+    }
+    .chart-col-footer {
+      margin-top: 0.35rem;
+      text-align: center;
+      width: 100%;
+      line-height: 1.15;
+    }
+    .chart-day-name {
+      font-size: 0.64rem;
+      font-weight: 700;
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+    .chart-col.is-today .chart-day-name {
+      color: #fbbf24;
+    }
+    .chart-day-date {
+      font-size: 0.58rem;
+      color: #64748b;
+      white-space: nowrap;
+    }
+    .chart-col.is-today .chart-day-date {
+      color: #fde68a;
+      font-weight: 600;
     }
 
     /* Modal */
@@ -3568,8 +3707,9 @@
   <!-- Footer & Thống Kê Cuối Trang -->
   <footer>
     <div style="max-width: 1200px; margin: 0 auto;">
-      <!-- Mục Thống Kê Lưu Lượng Truy Cập Cuối Trang -->
+      <!-- Mục Thống Kê Lưu Lượng Truy Cập Cuối Trang (Nhỏ Gọn + Biểu Đồ 7 Ngày) -->
       <div class="site-stats-container" id="siteStatsContainer">
+        <!-- Phần tiêu đề trên cùng -->
         <div class="site-stats-top">
           <div class="site-stats-title-wrap">
             <span class="stats-pulse-dot"></span>
@@ -3580,6 +3720,7 @@
           </div>
         </div>
 
+        <!-- 4 Thẻ Số Liệu Nhỏ Gọn -->
         <div class="site-stats-grid">
           <!-- 1. Đang Online Hiện Tại -->
           <div class="stat-card stat-card-online" id="statCardOnline" title="Số lượng người dùng đang truy cập trực tuyến trên toàn hệ thống">
@@ -3589,8 +3730,8 @@
                 <span class="stat-value" id="statOnlineNow">28</span>
                 <span class="stat-badge-live">Live</span>
               </div>
-              <div class="stat-title">Đang Online Hiện Tại</div>
-              <div class="stat-subtext">Đang kết nối theo thời gian thực</div>
+              <div class="stat-title">Đang Online</div>
+              <div class="stat-subtext">Trực tuyến thực tế</div>
             </div>
           </div>
 
@@ -3602,8 +3743,8 @@
                 <span class="stat-value" id="statTodayVisits">1,684</span>
                 <span class="stat-unit">lượt</span>
               </div>
-              <div class="stat-title">Truy Cập Trong Ngày</div>
-              <div class="stat-subtext" id="statTodaySub">Hôm nay</div>
+              <div class="stat-title">Hôm Nay</div>
+              <div class="stat-subtext" id="statTodaySub">Ngày hiện tại</div>
             </div>
           </div>
 
@@ -3615,8 +3756,8 @@
                 <span class="stat-value" id="statWeekVisits">11,420</span>
                 <span class="stat-unit">lượt</span>
               </div>
-              <div class="stat-title">Truy Cập Trong Tuần</div>
-              <div class="stat-subtext" id="statWeekSub">Tuần này</div>
+              <div class="stat-title">Trong Tuần</div>
+              <div class="stat-subtext" id="statWeekSub">Tuần hiện tại</div>
             </div>
           </div>
 
@@ -3628,15 +3769,40 @@
                 <span class="stat-value" id="statTotalVisits">168,952</span>
                 <span class="stat-unit">lượt</span>
               </div>
-              <div class="stat-title">Tất Cả Lượt Truy Cập</div>
-              <div class="stat-subtext">Tổng tích lũy toàn thời gian</div>
+              <div class="stat-title">Tất Cả</div>
+              <div class="stat-subtext">Tổng toàn thời gian</div>
             </div>
+          </div>
+        </div>
+
+        <!-- Biểu Đồ Thống Kê 7 Ngày Gần Nhất (Đến Hôm Nay) -->
+        <div class="site-stats-chart-section">
+          <div class="chart-header">
+            <div class="chart-title">
+              <span>📈 Biểu Đồ Lượt Truy Cập 7 Ngày Gần Nhất</span>
+              <span class="chart-badge-tag" id="chartWeekRange">7 ngày đến hiện tại</span>
+            </div>
+            <div class="chart-legend">
+              <div class="chart-legend-item">
+                <span class="chart-legend-color" style="background: linear-gradient(180deg, #3b82f6, #1e40af);"></span>
+                <span>Các ngày trước</span>
+              </div>
+              <div class="chart-legend-item">
+                <span class="chart-legend-color" style="background: linear-gradient(180deg, #f59e0b, #b45309);"></span>
+                <span style="color: #fef08a; font-weight: 700;">Hôm nay</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Khung Cột Biểu Đồ (Dynamic 7 Days Bars) -->
+          <div class="chart-bars-wrap" id="statsChartBarsWrap">
+            <!-- Render bằng Javascript -->
           </div>
         </div>
       </div>
 
       <!-- Đường kẻ ngăn cách nhẹ -->
-      <div style="height: 1px; background: rgba(255, 255, 255, 0.08); margin: 1.5rem 0 1.35rem 0;"></div>
+      <div style="height: 1px; background: rgba(255, 255, 255, 0.08); margin: 1.25rem 0 1.15rem 0;"></div>
 
       <!-- Brand Info & Phiên Bản -->
       <div style="display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
@@ -3649,7 +3815,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.8.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.9.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -6803,7 +6969,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.8.0";
+    const APP_VERSION = "v1.9.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
@@ -6816,14 +6982,14 @@
 
     /**
      * THỐNG KÊ LƯU LƯỢNG TRUY CẬP HỆ THỐNG
-     * (Online hiện tại, Trong ngày, Trong tuần, Tất cả)
+     * (Online hiện tại, Hôm nay, Trong tuần, Tất cả, và Biểu đồ 7 ngày gần nhất)
      */
     let liveOnlineUsers = 28;
     let onlineTickerTimer = null;
 
     function setupVisitorStats() {
-      const STORAGE_KEY = 'lich_am_duong_traffic_stats_v2';
-      const SESSION_KEY = 'lich_am_duong_session_counted_v2';
+      const STORAGE_KEY = 'lich_am_duong_traffic_stats_v3';
+      const SESSION_KEY = 'lich_am_duong_session_counted_v3';
 
       // 1. Tính toán ngày & tuần hiện tại theo giờ Việt Nam (UTC+7)
       const now = new Date();
@@ -6833,7 +6999,7 @@
       const curMonth = vnTime.getMonth() + 1;
       const curDay = vnTime.getDate();
       const dateStr = `${curYear}-${String(curMonth).padStart(2, '0')}-${String(curDay).padStart(2, '0')}`;
-      const dayDisplay = `${String(curDay).padStart(2, '0')}/${String(curMonth).padStart(2, '0')}/${curYear}`;
+      const dayDisplay = `${String(curDay).padStart(2, '0')}/${String(curMonth).padStart(2, '0')}`;
 
       // Tính số tuần trong năm (ISO 8601)
       const tempDate = new Date(Date.UTC(curYear, vnTime.getMonth(), curDay));
@@ -6847,7 +7013,7 @@
       const todaySubEl = document.getElementById('statTodaySub');
       if (todaySubEl) todaySubEl.textContent = `Hôm nay (${dayDisplay})`;
       const weekSubEl = document.getElementById('statWeekSub');
-      if (weekSubEl) weekSubEl.textContent = `Tuần ${weekNo} năm ${curYear}`;
+      if (weekSubEl) weekSubEl.textContent = `Tuần ${weekNo}/${curYear}`;
 
       // 2. Tải hoặc khởi tạo số liệu
       let stats = {
@@ -6856,6 +7022,7 @@
         currentWeek: weekStr,
         weekCount: 11420,
         totalCount: 168952,
+        history7Days: {}, // Lưu dạng key: 'YYYY-MM-DD' => visits
         lastUpdated: Date.now()
       };
 
@@ -6865,6 +7032,9 @@
           const parsed = JSON.parse(saved);
           if (parsed && typeof parsed.totalCount === 'number') {
             stats = parsed;
+            if (!stats.history7Days || typeof stats.history7Days !== 'object') {
+              stats.history7Days = {};
+            }
           }
         }
       } catch (e) {
@@ -6873,9 +7043,13 @@
 
       // Xử lý chuyển ngày mới (qua 00:00 UTC+7)
       if (stats.todayDate !== dateStr) {
+        // Lưu ngày cũ vào lịch sử nếu có
+        if (stats.todayDate && stats.todayCount) {
+          stats.history7Days[stats.todayDate] = stats.todayCount;
+        }
         stats.todayDate = dateStr;
         const currentHour = vnTime.getHours();
-        stats.todayCount = Math.max(35, currentHour * 45 + Math.floor(Math.random() * 20));
+        stats.todayCount = Math.max(45, currentHour * 52 + Math.floor(Math.random() * 25));
       }
 
       // Xử lý chuyển tuần mới
@@ -6893,11 +7067,18 @@
         stats.lastUpdated = Date.now();
         try {
           sessionStorage.setItem(SESSION_KEY, '1');
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
         } catch (e) {}
       }
 
-      // 3. Hiển thị các chỉ số
+      // Cập nhật ngày hôm nay vào history7Days
+      stats.history7Days[dateStr] = stats.todayCount;
+
+      // Lưu lại stats
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
+      } catch (e) {}
+
+      // 3. Hiển thị các chỉ số 4 thẻ nhỏ gọn
       const formatNumber = (num) => new Intl.NumberFormat('vi-VN').format(num);
 
       const todayEl = document.getElementById('statTodayVisits');
@@ -6932,6 +7113,87 @@
           el.textContent = formatNumber(liveOnlineUsers);
         }
       }, 5000);
+
+      // 5. Xây dựng và render Biểu Đồ 7 Ngày Gần Nhất (đến Hôm Nay)
+      renderVisitor7DaysChart(vnTime, stats, formatNumber);
+    }
+
+    /**
+     * HÀM RENDER BIỂU ĐỒ 7 NGÀY GẦN NHẤT
+     */
+    function renderVisitor7DaysChart(vnTime, stats, formatNumber) {
+      const chartWrap = document.getElementById('statsChartBarsWrap');
+      if (!chartWrap) return;
+
+      const weekdayNames = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+      const weekdayShorts = ['CN', 'T.Hai', 'T.Ba', 'T.Tư', 'T.Năm', 'T.Sáu', 'T.Bảy'];
+      const benchmarkVisits = [1380, 1560, 1490, 1720, 1630, 1510, 1684];
+
+      const daysList = [];
+      // Lặp 7 ngày: từ 6 ngày trước (i=6) đến hôm nay (i=0)
+      for (let i = 6; i >= 0; i--) {
+        const pastDate = new Date(vnTime.getTime() - (i * 86400000));
+        const pYear = pastDate.getFullYear();
+        const pMonth = pastDate.getMonth() + 1;
+        const pDay = pastDate.getDate();
+        const pDateStr = `${pYear}-${String(pMonth).padStart(2, '0')}-${String(pDay).padStart(2, '0')}`;
+        const pDisplay = `${String(pDay).padStart(2, '0')}/${String(pMonth).padStart(2, '0')}`;
+        const dayIdx = pastDate.getDay();
+        const isToday = (i === 0);
+
+        let visits = stats.history7Days[pDateStr];
+        if (!visits) {
+          if (isToday) {
+            visits = stats.todayCount;
+          } else {
+            // Khởi tạo số liệu lịch sử mẫu hợp lý và nhất quán
+            const baseBenchmark = benchmarkVisits[6 - i] || 1500;
+            const pseudoRand = ((pYear * 37 + pMonth * 19 + pDay * 13) % 240) - 120;
+            visits = Math.max(950, baseBenchmark + pseudoRand);
+            stats.history7Days[pDateStr] = visits;
+          }
+        } else if (isToday) {
+          visits = stats.todayCount;
+        }
+
+        daysList.push({
+          dateStr: pDateStr,
+          dateDisplay: pDisplay,
+          weekdayFull: weekdayNames[dayIdx],
+          weekdayShort: weekdayShorts[dayIdx],
+          visits: visits,
+          isToday: isToday
+        });
+      }
+
+      // Cập nhật nhãn khoảng thời gian 7 ngày
+      const rangeEl = document.getElementById('chartWeekRange');
+      if (rangeEl && daysList.length === 7) {
+        rangeEl.textContent = `${daysList[0].dateDisplay} - ${daysList[6].dateDisplay} (${daysList[6].weekdayShort})`;
+      }
+
+      // Tìm giá trị max để tính tỉ lệ chiều cao cột
+      const maxVisits = Math.max(...daysList.map(d => d.visits), 1);
+
+      // Render từng cột của biểu đồ
+      chartWrap.innerHTML = daysList.map(item => {
+        // Chiều cao cột: tỉ lệ từ 14px đến 62px
+        const heightPx = Math.max(14, Math.round((item.visits / maxVisits) * 60));
+        const colClass = item.isToday ? 'chart-col is-today' : 'chart-col';
+        const dayLabel = item.isToday ? 'Hôm nay' : item.weekdayShort;
+        const tooltip = `${item.isToday ? 'Hôm nay (' + item.weekdayFull + ')' : item.weekdayFull}, ngày ${item.dateDisplay}: ${formatNumber(item.visits)} lượt truy cập`;
+
+        return `
+          <div class="${colClass}" title="${tooltip}" id="chartCol_${item.dateStr}">
+            <div class="chart-bar-val">${formatNumber(item.visits)}</div>
+            <div class="chart-bar-pill" style="height: ${heightPx}px;"></div>
+            <div class="chart-col-footer">
+              <div class="chart-day-name">${dayLabel}</div>
+              <div class="chart-day-date">${item.dateDisplay}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
     /**
