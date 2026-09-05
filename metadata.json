@@ -1,6 +1,8 @@
 {
   "name": "Lịch Âm Dương & Bát Tự",
   "description": "Ứng dụng tra cứu lịch âm dương, bát tự tứ trụ, ngày giờ hoàng đạo và ngày lễ tết truyền thống.",
-  "requestFramePermissions": [],
+  "requestFramePermissions": [
+    "geolocation"
+  ],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

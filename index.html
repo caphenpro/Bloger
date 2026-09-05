@@ -2237,6 +2237,21 @@
       .solar-rt-countdown {
         font-size: 0.76rem;
       }
+      .solar-rt-sun-col {
+        min-width: 0;
+      }
+      .sun-time-item {
+        font-size: 0.72rem;
+      }
+      .sun-time-val {
+        font-size: 0.86rem;
+      }
+      .solar-sun-duration-row {
+        font-size: 0.66rem;
+      }
+      .solar-location-sub {
+        font-size: 0.62rem;
+      }
       .solar-rt-action-col {
         grid-column: span 2;
         margin-top: 0.2rem;
@@ -2432,6 +2447,156 @@
       justify-content: center;
     }
 
+    /* Mọc/Lặn Mặt Trời & Độ Dài Ngày Đêm (NASA JPL / NOAA) */
+    .solar-rt-sun-col {
+      min-width: 210px;
+    }
+    .solar-sun-times-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+    .sun-time-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      font-size: 0.82rem;
+    }
+    .sun-time-lbl {
+      color: #94a3b8;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .sun-time-val {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 800;
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
+    }
+    .sun-val-rise {
+      color: #f59e0b;
+    }
+    .sun-val-set {
+      color: #fb923c;
+    }
+    .solar-sun-duration-row {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.74rem;
+      color: #cbd5e1;
+      margin-top: 0.1rem;
+      white-space: nowrap;
+    }
+    .sun-dur-val {
+      color: #38bdf8;
+      font-family: monospace;
+      font-weight: 700;
+    }
+    .sun-dur-val-night {
+      color: #c084fc;
+      font-family: monospace;
+      font-weight: 700;
+    }
+    .sun-dur-sep {
+      color: #475569;
+    }
+    .solar-gps-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      background: rgba(34, 197, 94, 0.15);
+      color: #86efac;
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      border-radius: 9999px;
+      padding: 0.08rem 0.38rem;
+      margin-left: auto;
+      text-transform: none;
+      letter-spacing: normal;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .solar-gps-badge:hover {
+      background: rgba(34, 197, 94, 0.25);
+      border-color: #22c55e;
+    }
+    .gps-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: inline-block;
+      animation: pulse-green 1.8s infinite;
+    }
+    .solar-location-sub {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      font-size: 0.68rem;
+      color: #94a3b8;
+      margin-top: 0.12rem;
+    }
+    .loc-name-text {
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+    .btn-gps-locate {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fef08a;
+      border-radius: 4px;
+      padding: 0.06rem 0.35rem;
+      font-size: 0.62rem;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .btn-gps-locate:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: #f59e0b;
+      color: #fff;
+    }
+
+    /* Location Picker Modal Styling */
+    .loc-modal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.45rem;
+      margin: 0.75rem 0;
+    }
+    .loc-city-btn {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0.45rem 0.5rem;
+      font-size: 0.8rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .loc-city-btn:hover, .loc-city-btn.active {
+      background: #fef3c7;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+    .loc-city-btn strong {
+      font-size: 0.82rem;
+    }
+    .loc-city-btn span {
+      font-size: 0.68rem;
+      color: #64748b;
+    }
+
     /* 24 SOLAR TERMS TAB STYLES */
     .solar-table-container {
       overflow-x: auto;
@@ -2497,7 +2662,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.7.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.10.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -2580,7 +2745,43 @@
         </div>
       </div>
 
-      <!-- Cột 4: Nút xem chi tiết -->
+      <!-- Cột 4: Mọc / Lặn Mặt Trời & Độ Dài Ngày / Đêm (NASA / NOAA) -->
+      <div class="solar-rt-col solar-rt-sun-col" id="solarRtSunCol">
+        <div class="solar-rt-label">
+          <span>MẶT TRỜI MỌC &amp; LẶN (NASA)</span>
+          <span class="solar-gps-badge" id="solarGpsBadge" title="Tọa độ tự động GPS. Nhấn để định vị lại hoặc đổi vị trí.">
+            <span class="gps-dot"></span><span id="solarGpsStatus">GPS Tự Động</span>
+          </span>
+        </div>
+        <div class="solar-sun-times-row">
+          <div class="sun-time-item" title="Thời gian Mặt Trời mọc (Bình minh) theo thuật toán thiên văn NASA">
+            <span class="sun-time-lbl">🌅 Mọc:</span>
+            <span class="sun-time-val sun-val-rise" id="liveSunRise">05:41:13</span>
+          </div>
+          <div class="sun-time-item" title="Thời gian Mặt Trời lặn (Hoàng hôn) theo thuật toán thiên văn NASA">
+            <span class="sun-time-lbl">🌇 Lặn:</span>
+            <span class="sun-time-val sun-val-set" id="liveSunSet">18:09:17</span>
+          </div>
+        </div>
+        <div class="solar-sun-duration-row">
+          <span class="sun-dur-item" title="Tổng thời gian ban ngày (từ lúc mọc đến lúc lặn)">
+            ☀️ Ngày: <strong id="liveDayDuration" class="sun-dur-val">12h 28m 04s</strong>
+          </span>
+          <span class="sun-dur-sep">•</span>
+          <span class="sun-dur-item" title="Tổng thời gian ban đêm">
+            🌙 Đêm: <strong id="liveNightDuration" class="sun-dur-val-night">11h 31m 56s</strong>
+          </span>
+        </div>
+        <div class="solar-rt-sub solar-location-sub" id="liveLocationInfo">
+          <span id="liveLocationCoord">📍 21.03°B, 105.85°Đ</span>
+          <span id="liveLocationName" class="loc-name-text">Hà Nội</span>
+          <button type="button" class="btn-gps-locate" id="btnTriggerGeo" title="Bấm để lấy lại tọa độ GPS chính xác hoặc chọn thành phố khác">
+            🛰️ Định vị
+          </button>
+        </div>
+      </div>
+
+      <!-- Cột 5: Nút xem chi tiết -->
       <div class="solar-rt-col solar-rt-action-col">
         <button class="btn btn-gold btn-sm" id="btnGoToSolarTab" style="white-space: nowrap; box-shadow: 0 2px 6px rgba(180,83,9,0.25);">
           ☀️ Xem Chi Tiết 24 Tiết Khí
@@ -2857,6 +3058,10 @@
                 <div class="bloc-meta-row">
                   <span class="bloc-meta-lbl">Chuyển tiết kế tiếp:</span>
                   <span class="bloc-meta-val" id="blocNextTietKhi" style="font-size: 0.8rem; color: #b45309; font-weight: 600;">Đang tính...</span>
+                </div>
+                <div class="bloc-meta-row">
+                  <span class="bloc-meta-lbl">Mặt Trời mọc / lặn:</span>
+                  <span class="bloc-meta-val" id="blocSunTimes" style="font-size: 0.8rem; color: #b45309; font-weight: 600;">--</span>
                 </div>
                 <div class="bloc-meta-row">
                   <span class="bloc-meta-lbl">Trực / Sao ngày:</span>
@@ -3680,7 +3885,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.7.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.10.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -3699,6 +3904,61 @@
         </div>
         <div style="text-align: center; margin-top: 1.15rem;">
           <button class="btn btn-gold btn-sm" id="btnLogoModalOk" style="padding: 0.45rem 1.8rem; font-weight: 600;">Đã Hiểu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tùy Chọn Vị Trí & Tọa Độ Địa Lý (NASA Ephemeris) -->
+  <div class="modal-overlay" id="locationModal">
+    <div class="modal-box" style="max-width: 520px;">
+      <div class="modal-head">
+        <h3 style="font-size: 1.08rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;" id="locationModalTitle">
+          <span>🛰️</span> Vị Trí Địa Lý &amp; Giờ Mặt Trời (NASA)
+        </h3>
+        <button class="close-btn" id="locationModalCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body" id="locationModalContent">
+        <p style="font-size: 0.84rem; color: #4b5563; line-height: 1.5; margin-bottom: 0.85rem;">
+          Thời gian Mặt Trời mọc, lặn và tổng thời gian ngày / đêm được tính theo thuật toán thiên văn chuẩn <strong>NASA / JPL &amp; NOAA</strong> dựa trên tọa độ vị trí thực tế của bạn lúc xem trang.
+        </p>
+
+        <!-- Nút Tự Động Định Vị GPS -->
+        <button type="button" class="btn btn-gold" id="btnModalTriggerGps" style="width: 100%; justify-content: center; gap: 0.5rem; font-weight: 700; padding: 0.6rem 1rem;">
+          <span>🛰️</span> Tự Động Định Vị Bằng GPS Thiết Bị
+        </button>
+        <div id="modalGpsStatusText" style="font-size: 0.76rem; color: #16a34a; text-align: center; margin-top: 0.35rem; font-weight: 600; min-height: 1.1rem;"></div>
+
+        <!-- Chọn Thành Phố Tiêu Chuẩn -->
+        <div style="margin-top: 0.85rem;">
+          <label style="font-size: 0.78rem; font-weight: 700; color: #374151; display: block; margin-bottom: 0.35rem;">
+            Hoặc chọn nhanh tỉnh thành tại Việt Nam:
+          </label>
+          <div class="loc-modal-grid" id="presetCitiesGrid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Tùy chỉnh tọa độ thủ công -->
+        <div style="margin-top: 0.75rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.65rem 0.8rem;">
+          <label style="font-size: 0.76rem; font-weight: 700; color: #475569; display: block; margin-bottom: 0.35rem;">
+            Tùy chỉnh tọa độ thủ công:
+          </label>
+          <div style="display: flex; gap: 0.5rem; align-items: flex-end; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 110px;">
+              <span style="font-size: 0.7rem; color: #64748b; display: block; margin-bottom: 2px;">Vĩ độ (°B):</span>
+              <input type="number" id="inputCustomLat" step="0.0001" min="-90" max="90" class="input-text" style="width: 100%; padding: 0.3rem 0.5rem; font-size: 0.82rem; font-family: monospace;" value="21.0285" />
+            </div>
+            <div style="flex: 1; min-width: 110px;">
+              <span style="font-size: 0.7rem; color: #64748b; display: block; margin-bottom: 2px;">Kinh độ (°Đ):</span>
+              <input type="number" id="inputCustomLng" step="0.0001" min="-180" max="180" class="input-text" style="width: 100%; padding: 0.3rem 0.5rem; font-size: 0.82rem; font-family: monospace;" value="105.8542" />
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary btn-sm" id="btnApplyCustomCoords" style="padding: 0.38rem 0.8rem; font-size: 0.8rem;">
+                Áp Dụng
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -3815,7 +4075,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.9.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.10.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -4575,6 +4835,8 @@
       setupRealtimeClock();
       setupTabs();
       setupLogoModal();
+      setupLocationModal();
+      initUserLocation();
       setupQuickSelectors();
       setupCalendarControls();
       setupSocYearTable();
@@ -4881,6 +5143,13 @@
       const blocNextTietKhiEl = document.getElementById('blocNextTietKhi');
       if (blocNextTietKhiEl) {
         blocNextTietKhiEl.innerHTML = `${solarInfo.nextTerm.symbol} <strong>${solarInfo.nextTerm.name}</strong> [${solarInfo.nextTerm.type === 'Tiết' ? '12 Tiết' : '12 Khí'}] lúc <span style="color: #b45309; font-weight: 600;">${solarInfo.nextTransitionStr}</span>`;
+      }
+
+      // Mặt Trời mọc / lặn cho ngày được chọn (NASA JPL / NOAA)
+      const blocSunTimesEl = document.getElementById('blocSunTimes');
+      if (blocSunTimesEl) {
+        const selSun = calcSunTimesNASA(dateObj, userLocation.lat, userLocation.lng, 7);
+        blocSunTimesEl.innerHTML = `🌅 <strong>${selSun.riseStr}</strong> • 🌇 <strong>${selSun.setStr}</strong> <span style="font-size: 0.74rem; color: #64748b; font-weight: normal; margin-left: 2px;">(Ngày dài ${selSun.dayLenStr} • Đêm ${selSun.nightLenStr})</span>`;
       }
 
       // Hoàng Đạo / Hắc Đạo
@@ -6005,10 +6274,439 @@
           let moStr = String(nextDT.month).padStart(2, '0');
           liveNextDateEl.textContent = `Chính xác: ${hStr}:${mStr}:${sStr} ngày ${dStr}/${moStr}/${nextDT.year} (UTC+7)`;
         }
+
+        // Cập nhật thời gian thực Mặt Trời mọc/lặn & độ dài ngày/đêm
+        updateSunTimesLive();
       }
 
       updateSolarLive();
       setInterval(updateSolarLive, 1000);
+    }
+
+    /**
+     * THUẬT TOÁN THIÊN VĂN MỌC / LẶN MẶT TRỜI & TỔNG ĐỘ DÀI NGÀY ĐÊM (NASA JPL / NOAA)
+     * VÀ QUẢN LÝ ĐỊNH VỊ TỌA ĐỘ NGƯỜI DÙNG (GEOLOCATION)
+     */
+    const PRESET_CITIES = [
+      { name: "Hà Nội", lat: 21.0285, lng: 105.8542, region: "Miền Bắc" },
+      { name: "TP. Hồ Chí Minh", lat: 10.8231, lng: 106.6297, region: "Miền Nam" },
+      { name: "Đà Nẵng", lat: 16.0544, lng: 108.2022, region: "Miền Trung" },
+      { name: "Hải Phòng", lat: 20.8449, lng: 106.6881, region: "Miền Bắc" },
+      { name: "Cần Thơ", lat: 10.0452, lng: 105.7469, region: "Tây Nam Bộ" },
+      { name: "Huế", lat: 16.4637, lng: 107.5909, region: "Miền Trung" },
+      { name: "Nha Trang", lat: 12.2388, lng: 109.1967, region: "Nam Trung Bộ" },
+      { name: "Vũng Tàu", lat: 10.3460, lng: 107.0843, region: "Đông Nam Bộ" },
+      { name: "Đà Lạt", lat: 11.9404, lng: 108.4583, region: "Tây Nguyên" },
+      { name: "Quy Nhơn", lat: 13.7830, lng: 109.2197, region: "Nam Trung Bộ" },
+      { name: "Buôn Ma Thuột", lat: 12.6667, lng: 108.0500, region: "Tây Nguyên" },
+      { name: "Vinh (Nghệ An)", lat: 18.6734, lng: 105.6811, region: "Bắc Trung Bộ" }
+    ];
+
+    let userLocation = {
+      lat: 21.0285,
+      lng: 105.8542,
+      name: "Hà Nội (Mặc định)",
+      isGps: false
+    };
+
+    /**
+     * Tính toán thời gian Mặt Trời mọc, lặn, chính ngọ, độ dài ngày và đêm
+     * theo thuật toán thiên văn Jean Meeus / NASA Earth System Research Laboratory (NOAA)
+     * @param {Date} date - Đối tượng Date ngày cần tính
+     * @param {number} lat - Vĩ độ địa lý (độ thập phân, dương là Bắc, âm là Nam)
+     * @param {number} lng - Kinh độ địa lý (độ thập phân, dương là Đông, âm là Tây)
+     * @param {number} timeZone - Múi giờ địa phương (mặc định UTC+7 cho Việt Nam)
+     */
+    function calcSunTimesNASA(date, lat, lng, timeZone = 7) {
+      const dr = Math.PI / 180;
+      const Y = date.getFullYear();
+      const M = date.getMonth() + 1;
+      const D = date.getDate();
+
+      // 1. Julian Day tại 00:00 UT
+      let a = Math.floor((14 - M) / 12);
+      let y = Y + 4800 - a;
+      let m = M + 12 * a - 3;
+      let jd0 = D + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045 - 0.5;
+
+      // Hàm tính xích vĩ (Declination) và Phương trình thời gian (Equation of Time) tại thế kỷ Julian T
+      function getSolarEphemeris(t_cent) {
+        let L0 = (280.46646 + 36000.76983 * t_cent + 0.0003032 * t_cent * t_cent) % 360;
+        if (L0 < 0) L0 += 360;
+        let M_sun = 357.52911 + 35999.05029 * t_cent - 0.0001537 * t_cent * t_cent;
+        let e = 0.016708634 - 0.000042037 * t_cent - 0.0000001267 * t_cent * t_cent;
+        let C = (1.914602 - 0.004817 * t_cent - 0.000014 * t_cent * t_cent) * Math.sin(M_sun * dr)
+              + (0.019993 - 0.000101 * t_cent) * Math.sin(2 * M_sun * dr)
+              + 0.000289 * Math.sin(3 * M_sun * dr);
+        let sunTrueLong = L0 + C;
+        let omega = 125.04452 - 1934.136261 * t_cent + 0.0020708 * t_cent * t_cent;
+        let sunAppLong = sunTrueLong - 0.00569 - 0.00478 * Math.sin(omega * dr);
+        let meanObliq = 23 + (26 + (21.448 - 46.815 * t_cent - 0.00059 * t_cent * t_cent + 0.001813 * t_cent * t_cent * t_cent) / 60) / 60;
+        let obliqCorr = meanObliq + 0.00256 * Math.cos(omega * dr);
+        let sinDec = Math.sin(obliqCorr * dr) * Math.sin(sunAppLong * dr);
+        let declination = Math.asin(sinDec) / dr;
+        let y_tan = Math.tan(obliqCorr * dr / 2);
+        y_tan = y_tan * y_tan;
+        let eqTime = 4 * (180 / Math.PI) * (
+          y_tan * Math.sin(2 * L0 * dr)
+          - 2 * e * Math.sin(M_sun * dr)
+          + 4 * e * y_tan * Math.sin(M_sun * dr) * Math.cos(2 * L0 * dr)
+          - 0.5 * y_tan * y_tan * Math.sin(4 * L0 * dr)
+          - 1.25 * e * e * Math.sin(2 * M_sun * dr)
+        );
+        return { declination, eqTime };
+      }
+
+      // Ước lượng ban đầu tại thời điểm Mặt Trời qua thiên kinh (Solar Noon)
+      let t_noon = (jd0 + 0.5 - lng / 360 - 2451545.0) / 36525.0;
+      let { declination: dec_noon, eqTime: eq_noon } = getSolarEphemeris(t_noon);
+      let solarNoonUTC_min = 720 - 4 * lng - eq_noon;
+
+      // Góc thiên đỉnh chuẩn NASA/NOAA: 90°50' (90.8333°) bao gồm 34' khúc xạ khí quyển và 16' bán kính đĩa Mặt Trời
+      let zenith = 90.8333;
+      let cosH0 = (Math.cos(zenith * dr) - Math.sin(lat * dr) * Math.sin(dec_noon * dr)) /
+                  (Math.cos(lat * dr) * Math.cos(dec_noon * dr));
+
+      if (cosH0 > 1) {
+        return {
+          riseStr: '--:--:--', setStr: '--:--:--',
+          noonStr: '--:--:--',
+          dayLenStr: '0h 00m 00s', nightLenStr: '24h 00m 00s',
+          dayLenMinutes: 0, nightLenMinutes: 1440,
+          isPolarNight: true, isPolarDay: false
+        };
+      }
+      if (cosH0 < -1) {
+        return {
+          riseStr: '--:--:--', setStr: '--:--:--',
+          noonStr: '--:--:--',
+          dayLenStr: '24h 00m 00s', nightLenStr: '0h 00m 00s',
+          dayLenMinutes: 1440, nightLenMinutes: 0,
+          isPolarNight: false, isPolarDay: true
+        };
+      }
+
+      let H0 = Math.acos(cosH0) / dr;
+
+      // Vòng lặp thứ 2 tinh chỉnh chính xác cho Mặt Trời mọc (Sunrise)
+      let t_rise = (jd0 + (solarNoonUTC_min - 4 * H0) / 1440 - 2451545.0) / 36525.0;
+      let { declination: dec_rise, eqTime: eq_rise } = getSolarEphemeris(t_rise);
+      let cosH_rise = (Math.cos(zenith * dr) - Math.sin(lat * dr) * Math.sin(dec_rise * dr)) /
+                      (Math.cos(lat * dr) * Math.cos(dec_rise * dr));
+      let H_rise = Math.acos(Math.max(-1, Math.min(1, cosH_rise))) / dr;
+      let sunriseUTC_min = 720 - 4 * lng - eq_rise - 4 * H_rise;
+
+      // Vòng lặp thứ 2 tinh chỉnh chính xác cho Mặt Trời lặn (Sunset)
+      let t_set = (jd0 + (solarNoonUTC_min + 4 * H0) / 1440 - 2451545.0) / 36525.0;
+      let { declination: dec_set, eqTime: eq_set } = getSolarEphemeris(t_set);
+      let cosH_set = (Math.cos(zenith * dr) - Math.sin(lat * dr) * Math.sin(dec_set * dr)) /
+                     (Math.cos(lat * dr) * Math.cos(dec_set * dr));
+      let H_set = Math.acos(Math.max(-1, Math.min(1, cosH_set))) / dr;
+      let sunsetUTC_min = 720 - 4 * lng - eq_set + 4 * H_set;
+
+      // Quy đổi sang giờ địa phương
+      let riseLocal_min = sunriseUTC_min + timeZone * 60;
+      let setLocal_min = sunsetUTC_min + timeZone * 60;
+      let noonLocal_min = solarNoonUTC_min + timeZone * 60;
+
+      // Tính tổng thời lượng ngày và đêm
+      let dayLength_min = setLocal_min - riseLocal_min;
+      if (dayLength_min < 0) dayLength_min += 1440;
+      let nightLength_min = 1440 - dayLength_min;
+
+      function formatMinToTime(val) {
+        while (val < 0) val += 1440;
+        while (val >= 1440) val -= 1440;
+        let h = Math.floor(val / 60);
+        let m = Math.floor(val % 60);
+        let s = Math.round((val * 60) % 60);
+        if (s === 60) { s = 0; m++; }
+        if (m === 60) { m = 0; h = (h + 1) % 24; }
+        return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      }
+
+      function formatMinToDuration(val) {
+        let h = Math.floor(val / 60);
+        let m = Math.floor(val % 60);
+        let s = Math.round((val * 60) % 60);
+        if (s === 60) { s = 0; m++; }
+        return `${h}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
+      }
+
+      return {
+        riseStr: formatMinToTime(riseLocal_min),
+        setStr: formatMinToTime(setLocal_min),
+        noonStr: formatMinToTime(noonLocal_min),
+        dayLenStr: formatMinToDuration(dayLength_min),
+        nightLenStr: formatMinToDuration(nightLength_min),
+        dayLenMinutes: dayLength_min,
+        nightLenMinutes: nightLength_min,
+        riseMinutes: riseLocal_min,
+        setMinutes: setLocal_min,
+        isPolarNight: false,
+        isPolarDay: false
+      };
+    }
+
+    /**
+     * Cập nhật thời gian thực Mặt Trời mọc/lặn & thời lượng ngày/đêm trên giao diện
+     */
+    function updateSunTimesLive() {
+      const now = new Date();
+      const sun = calcSunTimesNASA(now, userLocation.lat, userLocation.lng, 7);
+
+      const riseEl = document.getElementById('liveSunRise');
+      if (riseEl) riseEl.textContent = sun.riseStr;
+
+      const setEl = document.getElementById('liveSunSet');
+      if (setEl) setEl.textContent = sun.setStr;
+
+      const dayDurEl = document.getElementById('liveDayDuration');
+      if (dayDurEl) dayDurEl.textContent = sun.dayLenStr;
+
+      const nightDurEl = document.getElementById('liveNightDuration');
+      if (nightDurEl) nightDurEl.textContent = sun.nightLenStr;
+
+      const coordEl = document.getElementById('liveLocationCoord');
+      if (coordEl) {
+        const latSign = userLocation.lat >= 0 ? "°B" : "°N";
+        const lngSign = userLocation.lng >= 0 ? "°Đ" : "°T";
+        coordEl.textContent = `📍 ${Math.abs(userLocation.lat).toFixed(2)}${latSign}, ${Math.abs(userLocation.lng).toFixed(2)}${lngSign}`;
+      }
+
+      const nameEl = document.getElementById('liveLocationName');
+      if (nameEl) nameEl.textContent = userLocation.name;
+
+      const statusBadge = document.getElementById('solarGpsStatus');
+      if (statusBadge) {
+        statusBadge.textContent = userLocation.isGps ? "GPS Tự Động" : "Tùy Chọn";
+      }
+
+      // Đồng bộ vào input nếu modal đang mở
+      const inputLat = document.getElementById('inputCustomLat');
+      const inputLng = document.getElementById('inputCustomLng');
+      if (inputLat && document.activeElement !== inputLat) inputLat.value = userLocation.lat;
+      if (inputLng && document.activeElement !== inputLng) inputLng.value = userLocation.lng;
+    }
+
+    /**
+     * Yêu cầu trình duyệt định vị tự động Geolocation
+     */
+    function requestGeolocation(userExplicit = false) {
+      if (!navigator.geolocation) {
+        if (userExplicit) {
+          alert("Trình duyệt hoặc thiết bị của bạn không hỗ trợ định vị địa lý (Geolocation).");
+        }
+        return;
+      }
+
+      const statusEl = document.getElementById('solarGpsStatus');
+      const modalStatusEl = document.getElementById('modalGpsStatusText');
+
+      if (statusEl) statusEl.textContent = "Đang dò GPS...";
+      if (modalStatusEl) {
+        modalStatusEl.textContent = "⏳ Đang kết nối vệ tinh GPS thiết bị...";
+        modalStatusEl.style.color = "#b45309";
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const lat = pos.coords.latitude;
+          const lng = pos.coords.longitude;
+
+          // Tìm thành phố gần nhất trong danh sách preset nếu cách <= 45km
+          let closestCity = null;
+          let minDistance = Infinity;
+          for (const city of PRESET_CITIES) {
+            const dLat = (city.lat - lat) * 111;
+            const dLng = (city.lng - lng) * 111 * Math.cos(lat * Math.PI / 180);
+            const dist = Math.sqrt(dLat * dLat + dLng * dLng);
+            if (dist < minDistance) {
+              minDistance = dist;
+              closestCity = city;
+            }
+          }
+
+          let locName = "Vị trí GPS của bạn";
+          if (closestCity && minDistance <= 45) {
+            locName = closestCity.name;
+          }
+
+          userLocation = {
+            lat: Number(lat.toFixed(4)),
+            lng: Number(lng.toFixed(4)),
+            name: locName,
+            isGps: true
+          };
+
+          try {
+            localStorage.setItem('lich_am_duong_user_location_v1', JSON.stringify(userLocation));
+          } catch (e) {}
+
+          updateSunTimesLive();
+          if (typeof selectedDate !== 'undefined' && selectedDate) {
+            updateBlocView(selectedDate);
+          }
+
+          if (modalStatusEl) {
+            modalStatusEl.textContent = `✓ Đã định vị thành công: ${locName} (${lat.toFixed(2)}°B, ${lng.toFixed(2)}°Đ)`;
+            modalStatusEl.style.color = "#16a34a";
+          }
+        },
+        (err) => {
+          console.warn("Geolocation warning/denied:", err);
+          const badgeEl = document.getElementById('solarGpsStatus');
+          if (badgeEl) {
+            badgeEl.textContent = userLocation.isGps ? "GPS Đã bật" : "Vị trí mặc định";
+          }
+          if (modalStatusEl) {
+            modalStatusEl.textContent = "⚠️ Không thể lấy GPS (chưa cấp quyền). Bạn có thể chọn danh sách bên dưới.";
+            modalStatusEl.style.color = "#dc2626";
+          }
+          if (userExplicit) {
+            openLocationModal();
+          }
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 180000 }
+      );
+    }
+
+    /**
+     * Khởi tạo vị trí người dùng ban đầu & Modal quản lý vị trí
+     */
+    function initUserLocation() {
+      try {
+        const saved = localStorage.getItem('lich_am_duong_user_location_v1');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed.lat === 'number' && typeof parsed.lng === 'number') {
+            userLocation = parsed;
+          }
+        }
+      } catch (e) {}
+
+      updateSunTimesLive();
+      // Tự động dò GPS ngay khi người dùng vào xem trang
+      requestGeolocation(false);
+    }
+
+    function openLocationModal() {
+      const modal = document.getElementById('locationModal');
+      if (modal) {
+        modal.classList.add('active');
+        const inputLat = document.getElementById('inputCustomLat');
+        const inputLng = document.getElementById('inputCustomLng');
+        if (inputLat) inputLat.value = userLocation.lat;
+        if (inputLng) inputLng.value = userLocation.lng;
+        renderPresetCitiesGrid();
+      }
+    }
+
+    function closeLocationModal() {
+      const modal = document.getElementById('locationModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function renderPresetCitiesGrid() {
+      const grid = document.getElementById('presetCitiesGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      PRESET_CITIES.forEach(city => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'loc-city-btn';
+        if (userLocation.name === city.name) {
+          btn.classList.add('active');
+        }
+        btn.innerHTML = `
+          <strong>${city.name}</strong>
+          <span>${city.lat.toFixed(2)}°B, ${city.lng.toFixed(2)}°Đ</span>
+        `;
+        btn.addEventListener('click', () => {
+          userLocation = {
+            lat: city.lat,
+            lng: city.lng,
+            name: city.name,
+            isGps: false
+          };
+          try {
+            localStorage.setItem('lich_am_duong_user_location_v1', JSON.stringify(userLocation));
+          } catch (e) {}
+          updateSunTimesLive();
+          if (typeof selectedDate !== 'undefined' && selectedDate) {
+            updateBlocView(selectedDate);
+          }
+          const modalStatusEl = document.getElementById('modalGpsStatusText');
+          if (modalStatusEl) {
+            modalStatusEl.textContent = `✓ Đã chọn vị trí: ${city.name}`;
+            modalStatusEl.style.color = "#16a34a";
+          }
+          renderPresetCitiesGrid();
+          setTimeout(closeLocationModal, 400);
+        });
+        grid.appendChild(btn);
+      });
+    }
+
+    function setupLocationModal() {
+      const btnGeo = document.getElementById('btnTriggerGeo');
+      if (btnGeo) {
+        btnGeo.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openLocationModal();
+        });
+      }
+
+      const badgeGeo = document.getElementById('solarGpsBadge');
+      if (badgeGeo) {
+        badgeGeo.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openLocationModal();
+        });
+      }
+
+      const closeBtn = document.getElementById('locationModalCloseBtn');
+      if (closeBtn) closeBtn.addEventListener('click', closeLocationModal);
+
+      const modal = document.getElementById('locationModal');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeLocationModal();
+        });
+      }
+
+      const btnGps = document.getElementById('btnModalTriggerGps');
+      if (btnGps) {
+        btnGps.addEventListener('click', () => {
+          requestGeolocation(true);
+        });
+      }
+
+      const btnApply = document.getElementById('btnApplyCustomCoords');
+      if (btnApply) {
+        btnApply.addEventListener('click', () => {
+          const latVal = parseFloat(document.getElementById('inputCustomLat').value);
+          const lngVal = parseFloat(document.getElementById('inputCustomLng').value);
+          if (isNaN(latVal) || isNaN(lngVal) || latVal < -90 || latVal > 90 || lngVal < -180 || lngVal > 180) {
+            alert("Tọa độ không hợp lệ! Vui lòng nhập vĩ độ trong khoảng [-90, 90] và kinh độ trong khoảng [-180, 180].");
+            return;
+          }
+          userLocation = {
+            lat: Number(latVal.toFixed(4)),
+            lng: Number(lngVal.toFixed(4)),
+            name: `Tọa độ (${latVal.toFixed(2)}°, ${lngVal.toFixed(2)}°)`,
+            isGps: false
+          };
+          try {
+            localStorage.setItem('lich_am_duong_user_location_v1', JSON.stringify(userLocation));
+          } catch (e) {}
+          updateSunTimesLive();
+          if (typeof selectedDate !== 'undefined' && selectedDate) {
+            updateBlocView(selectedDate);
+          }
+          closeLocationModal();
+        });
+      }
     }
 
     /**
@@ -6969,7 +7667,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.9.0";
+    const APP_VERSION = "v1.10.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

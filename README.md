@@ -93,6 +93,19 @@
   - Đầy đủ nhãn thứ trong tuần (CN, T.Hai, T.Ba,...), ngày tháng (dd/mm), số lượt truy cập trên đỉnh cột và tooltip chi tiết khi rê chuột / chạm cảm ứng.
   - Tự động co giãn linh hoạt và hiển thị sắc nét trên cả màn hình máy tính và thiết bị di động.
 
+### 10. Thời Gian Mặt Trời Mọc / Lặn, Độ Dài Ngày / Đêm & Định Vị Tự Động (NASA JPL / NOAA)
+- **Thuật Toán Thiên Văn Chuẩn Xác NASA / NOAA**:
+  - Áp dụng các thuật toán cơ học thiên thể Jean Meeus và mô hình bức xạ NASA Earth System Research Laboratory (NOAA).
+  - Tính toán chính xác kinh độ thực Mặt Trời, xích vĩ (Declination), phương trình thời gian (Equation of Time), góc thiên đỉnh chuẩn $90^\circ 50'$ ($90.8333^\circ$) có hiệu chỉnh khúc xạ khí quyển và bán kính góc đĩa Mặt Trời.
+  - Tinh chỉnh 2 vòng lặp (iteration) đạt độ chuẩn xác đến từng giây thời điểm Mặt Trời mọc (Sunrise), Mặt Trời lặn (Sunset), chính ngọ (Solar Noon), tổng thời gian ban ngày (Day Duration) và ban đêm (Night Duration).
+- **Định Vị Vị Trí Người Dùng Tự Động (Automatic Geolocation)**:
+  - Tự động lấy tọa độ địa lý GPS của thiết bị khi xem trang thông qua API `navigator.geolocation`.
+  - Tự động nhận diện và ghép nối với đô thị gần nhất (Hà Nội, TP.HCM, Đà Nẵng, Hải Phòng, Cần Thơ, Huế, Nha Trang, Vũng Tàu, Đà Lạt, Quy Nhơn, Buôn Ma Thuột, Vinh...).
+  - Tích hợp cửa sổ Modal chọn vị trí linh hoạt (`#locationModal`): cho phép kích hoạt GPS lại, chọn nhanh các thành phố lớn hoặc nhập tọa độ tùy ý. Lưu trữ cache vào `localStorage` cho trải nghiệm mượt mà.
+- **Tích Hợp Giao Diện Trực Quan**:
+  - Bổ sung cột thứ 4 (`.solar-rt-sun-col`) vào khoảng trống trên banner thiên văn thời gian thực (`.solar-realtime-container`), hiển thị đầy đủ thời gian mọc, lặn, độ dài ngày/đêm và huy hiệu tọa độ GPS.
+  - Đồng bộ dòng thông số *"Mặt Trời mọc / lặn"* (`#blocSunTimes`) trên Bloc Lịch Vạn Niên hàng ngày theo ngày được chọn.
+
 ---
 
 ## 📱 THIẾT KẾ ĐÁP ỨNG (RESPONSIVE DESIGN)
@@ -120,6 +133,27 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.10.0] - 2026-09-05
+- **Bổ Sung Thời Gian Mặt Trời Mọc / Lặn, Tổng Thời Gian Ngày / Đêm & Định Vị GPS Tự Động (NASA JPL / NOAA)**:
+  - **Thuật Toán Thiên Văn Chuẩn Xác NASA / NOAA**:
+    - Tích hợp công thức thiên văn học Jean Meeus & NASA Earth System Research Laboratory (NOAA Solar Calculations).
+    - Tính toán chính xác vị trí biểu kiến của Mặt Trời, xích vĩ (Solar Declination), Phương trình thời gian (Equation of Time), góc thiên đỉnh khúc xạ khí quyển (90.8333° bao gồm 34' khúc xạ và 16' bán kính đĩa Mặt Trời).
+    - Tinh chỉnh 2 vòng lặp (iteration) tính chính xác đến từng giây thời điểm Mặt Trời mọc (Sunrise), Mặt Trời lặn (Sunset), thời gian Mặt Trời qua thiên kinh (Solar Noon), tổng thời gian ban ngày (Day Duration) và tổng thời gian ban đêm (Night Duration).
+  - **Định Vị Tọa Độ Tự Động (Automatic Geolocation) & Chế Độ Tùy Biến Toàn Diện**:
+    - Tự động dò tọa độ GPS thời gian thực của người dùng thông qua API `navigator.geolocation` khi vừa mở ứng dụng.
+    - Nhận diện và khớp nối tự động với thành phố gần nhất trong danh sách các đô thị trọng điểm Việt Nam (Hà Nội, TP.HCM, Đà Nẵng, Hải Phòng, Cần Thơ, Huế, Nha Trang, Vũng Tàu, Đà Lạt, Quy Nhơn, Buôn Ma Thuột, Vinh...).
+    - Thiết kế cửa sổ Modal Tọa Độ (`#locationModal`) trực quan: cho phép bấm kích hoạt GPS lại bất kỳ lúc nào, chọn nhanh thành phố theo danh mục tỉnh thành hoặc tự nhập vĩ độ/kinh độ thủ công.
+    - Lưu vị trí lựa chọn vào bộ nhớ cục bộ `localStorage` (`lich_am_duong_user_location_v1`) để duy trì trạng thái cho các lần truy cập tiếp theo.
+  - **Bổ Sung Khối Hiển Thị Thời Gian Thực Vào Khoảng Trống Banner Tiết Khí**:
+    - Bố trí cột hiển thị thứ 4 (`.solar-rt-sun-col`) lấp đầy hoàn hảo khoảng trống trên banner thiên văn thời gian thực (`.solar-realtime-container`).
+    - Hiển thị song song: Thời gian Mặt Trời Mọc (🌅 hh:mm:ss), Mặt Trời Lặn (🌇 hh:mm:ss), Tổng thời gian ngày (☀️), Tổng thời gian đêm (🌙), Tên địa danh, Tọa độ địa lý vĩ độ/kinh độ và Huy hiệu trạng thái GPS.
+    - Nút bấm biểu tượng vị trí (`📍`) cho phép người dùng mở ngay bảng chọn địa điểm và cập nhật tức thì.
+  - **Đồng Bộ Dữ Liệu Lên Bloc Lịch Chi Tiết Hàng Ngày**:
+    - Bổ sung dòng thông tin *"Mặt Trời mọc / lặn"* vào danh sách thông số Bloc (`#blocSunTimes`), tự động tính toán thời gian mọc/lặn và độ dài ngày/đêm chính xác theo ngày được người dùng nhấp chọn trên Lịch Vạn Niên.
+  - **Cập Nhật Quyền Hạn Trình Duyệt & Số Hóa Phiên Bản v1.10.0**:
+    - Khai báo bổ sung quyền `geolocation` trong `metadata.json`.
+    - Đồng bộ phiên bản `v1.10.0` tại `package.json`, Header, Footer, Logo Modal và tài liệu `README.md`.
 
 ### [v1.9.0] - 2026-09-04
 - **Thu Nhỏ Bảng Thống Kê & Bổ Sung Biểu Đồ Lưu Lượng 7 Ngày Gần Nhất**:
