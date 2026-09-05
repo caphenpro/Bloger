@@ -73,6 +73,13 @@
   - Danh sách toàn bộ các tháng trong chu kỳ Đông Chí kèm trạng thái Trung khí cụ thể, khoảng thời gian Dương lịch và huy hiệu nhận diện tháng nhuận.
   - Hỗ trợ nhập năm tùy ý (1900 - 2100) và các nút bấm chọn nhanh các năm điển hình (2023, 2025, 2026, 2028, 2031).
 
+### 8. Tra Cứu Sự Kiện, Ngày Lễ & Chế Độ Xem Theo Tháng
+- **Chế Độ Xem Theo Tháng Linh Hoạt**: Cho phép lọc nhanh sự kiện của từng tháng riêng biệt (Tháng 1 đến Tháng 12) hoặc xem toàn bộ cả năm. Hỗ trợ nút điều hướng *◀ Tháng trước*, *Tháng sau ▶* và *Tháng Hiện Tại*.
+- **Phân Nhóm & Thống Kê**: Tự động nhóm các ngày lễ theo từng tháng, có tiêu đề và số lượng sự kiện rõ ràng.
+- **Bộ Lọc Đa Năng & Tìm Kiếm**: Lọc nhanh theo Lễ Tết Âm lịch cổ truyền, Ngày lễ Dương lịch & Quốc tế, hoặc gõ từ khóa tìm kiếm sự kiện bất kỳ (ví dụ: *Hà Nội, Phụ nữ, Doanh nhân, 10/10*).
+- **Hệ Thống Huy Hiệu Nhận Diện**: Phân biệt trực quan giữa Ngày lễ Việt Nam (🇻🇳), Sự kiện Quốc tế (🌐), và Lễ hội Âm lịch Cổ truyền (🏮).
+- **Đồng Bộ Phiên Bản Tự Động**: Hiển thị số phiên bản cập nhật thời gian thực trên thanh Header, Footer và cửa sổ Logo.
+
 ---
 
 ## 📱 THIẾT KẾ ĐÁP ỨNG (RESPONSIVE DESIGN)
@@ -100,6 +107,33 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.7.0] - 2026-09-04
+- **Cập Nhật Hiển Thị Phiên Bản Tự Động & Chế Độ Xem Sự Kiện Lễ Theo Tháng Toàn Diện**:
+  - **Cập Nhật Hiển Thị Số Phiên Bản Mỗi Lần Cập Nhật Trên Giao Diện**:
+    - Tích hợp huy hiệu số phiên bản đồng bộ tự động (`v1.7.0`) nổi bật trên thanh tiêu đề Header (`#appVersionHeader`), chân trang Footer (`#appVersionFooter`), và cửa sổ giới thiệu biểu trưng Logo (`#appVersionModal`).
+    - Thiết lập cơ chế định danh phiên bản tập trung (`APP_VERSION`), đảm bảo khi cập nhật chỉ cần khai báo một vị trí là toàn bộ giao diện tự động đồng bộ theo đúng quy tắc Semantic Versioning.
+  - **Mục Sự Kiện Lễ - Chế Độ Xem Theo Tháng Chuyên Biệt**:
+    - **Thanh Chọn Nhanh Tháng (Month View Bar)**: Cho phép chuyển đổi nhanh chóng giữa chế độ xem từng tháng riêng biệt (Tháng 1 đến Tháng 12) hoặc xem toàn bộ cả năm (🌟 Tất cả các tháng).
+    - **Điều Hướng Tháng & Năm Thông Minh**: Trang bị các nút bấm chuyển nhanh *◀ Tháng trước*, *Tháng sau ▶*, nút trở về *Tháng Hiện Tại*, và các nút điều chỉnh năm (*◀*, *▶*, *Năm Nay*, *Cập nhật*).
+    - **Phân Nhóm Theo Tháng Trực Quan**: Khi ở chế độ xem cả năm, các sự kiện được gom nhóm tự động theo từng tháng với tiêu đề và huy hiệu đếm số lượng sự kiện rõ ràng. Khi chọn xem riêng một tháng, hiển thị banner chủ đề nổi bật của tháng đó.
+    - **Tìm Kiếm Nhanh Sự Kiện Thời Gian Thực**: Tích hợp thanh tìm kiếm thông minh lọc sự kiện theo tên, nội dung giải thích, hoặc ngày tháng (ví dụ: *Hà Nội, Doanh nhân, Phụ nữ, 10/10*).
+    - **Hệ Thống Huy Hiệu Phân Loại & Thống Kê**: Tự động gắn nhãn Ngày lễ Việt Nam (🇻🇳), Sự kiện Quốc tế (🌐), và Lễ hội Âm lịch Cổ truyền (🏮); hiển thị banner thống kê tổng số sự kiện trong chế độ xem đang chọn.
+  - **Bổ Sung Đầy Đủ Dữ Liệu Ngày Lễ, Kỷ Niệm Lớn & Sự Kiện Quốc Tế Tháng 10**:
+    - **Ngày Lễ & Kỷ Niệm Lớn Tại Việt Nam**:
+      - **10/10**: Ngày Giải phóng Thủ đô (Kỷ niệm sự kiện quân ta tiến vào giải phóng Hà Nội khỏi ách thống trị của thực dân Pháp năm 1954).
+      - **13/10**: Ngày Doanh nhân Việt Nam (Tôn vinh những đóng góp của các doanh nhân, doanh nghiệp đối với nền kinh tế nước nhà).
+      - **14/10**: Ngày thành lập Hội Nông dân Việt Nam (Ghi nhận vai trò quan trọng của giai cấp nông dân trong sự nghiệp cách mạng và phát triển đất nước).
+      - **15/10**: Ngày truyền thống Hội Liên hiệp Thanh niên Việt Nam (Ngày hội lớn của thanh niên, cổ vũ tinh thần xung kích, tình nguyện).
+      - **20/10**: Ngày Phụ nữ Việt Nam (Ngày lễ tôn vinh và bày tỏ lòng biết ơn, yêu thương đến những người phụ nữ Việt Nam).
+    - **Các Ngày Lễ Quốc Tế Nổi Bật Trong Tháng 10**:
+      - **01/10**: Ngày Quốc tế Người cao tuổi (International Day of Older Persons - Nâng cao nhận thức về các vấn đề ảnh hưởng đến người cao tuổi).
+      - **05/10**: Ngày Nhà giáo Thế giới (World Teachers' Day - Tôn vinh và ủng hộ các nhà giáo trên toàn cầu).
+      - **09/10**: Ngày Bưu chính Thế giới (World Post Day - Kỷ niệm ngày thành lập Liên minh Bưu chính Thế giới UPU).
+      - **14/10**: Ngày Tiêu chuẩn Thế giới (World Standards Day - Tôn vinh tầm quan trọng của tiêu chuẩn hóa quốc tế).
+      - **16/10**: Ngày Lương thực Thế giới (World Food Day - Kỷ niệm thành lập FAO, thúc đẩy nhận thức về an ninh lương thực).
+      - **24/10**: Ngày Liên Hợp Quốc (United Nations Day - Kỷ niệm Hiến chương Liên Hợp Quốc chính thức có hiệu lực năm 1945).
+      - **31/10**: Lễ hội Halloween (Lễ hội hóa trang truyền thống có nguồn gốc phương Tây).
 
 ### [v1.6.1] - 2026-09-04
 - **Bổ Sung Dữ Liệu Ngày Lễ, Kỷ Niệm Lịch Sử Việt Nam & Sự Kiện Quốc Tế Tháng 9**:

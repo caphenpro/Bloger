@@ -1555,6 +1555,103 @@
       color: var(--text-muted);
     }
 
+    /* Version Badges */
+    .app-version-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.12rem 0.5rem;
+      border-radius: 9999px;
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid rgba(245, 158, 11, 0.55);
+      color: #fef3c7;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-mono, monospace);
+      letter-spacing: 0.5px;
+      vertical-align: middle;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    .app-version-badge:hover {
+      background: rgba(245, 158, 11, 0.3);
+      border-color: #f59e0b;
+    }
+
+    /* Month Selector & Controls for Tab Festivals */
+    .fest-month-bar {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .fest-month-btn {
+      padding: 0.28rem 0.65rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #374151;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .fest-month-btn:hover {
+      background: #fef3c7;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+    .fest-month-btn.active {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      color: #fff;
+      border-color: #b45309;
+      box-shadow: 0 2px 6px rgba(180, 83, 9, 0.3);
+    }
+    .fest-month-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0.85rem;
+      background: linear-gradient(90deg, #fffbeb, #fef3c7);
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #92400e;
+      margin: 1.15rem 0 0.65rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .fest-month-header:first-child {
+      margin-top: 0;
+    }
+    .fest-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.1rem 0.45rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      border-radius: 4px;
+      margin-right: 0.35rem;
+    }
+    .fest-tag-vn {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .fest-tag-intl {
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+    .fest-tag-lunar {
+      background: #fefce8;
+      color: #854d0e;
+      border: 1px solid #fef08a;
+    }
+
     /* Converter Tool */
     .conv-box {
       max-width: 650px;
@@ -2074,7 +2171,8 @@
         <img src="/logo.png" alt="Logo Lịch Âm Dương Bát Tự" class="brand-logo-img" width="58" height="58" />
         <div>
           <div class="brand-title">
-            Lịch Âm Dương &amp; Bát Tự Tứ Trụ
+            <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.7.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -3156,23 +3254,68 @@
       </div>
     </div>
 
-    <!-- TAB 4: LỄ TẾT TRUYỀN THỐNG -->
+    <!-- TAB 4: LỄ TẾT TRUYỀN THỐNG & SỰ KIỆN -->
     <div id="tab-festivals" class="tab-content">
       <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">🏮 Danh Sách Các Ngày Lễ Tết &amp; Phong Tục Truyền Thống</h2>
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <label style="font-size: 0.85rem; font-weight: 600;">Xem theo năm:</label>
-            <input type="number" id="festYearInput" class="form-control" style="width: 90px; padding: 0.3rem 0.5rem;" value="2026" min="1900" max="2100">
-            <button class="btn btn-outline btn-sm" id="btnUpdateFestYear">Cập nhật</button>
+        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <h2 class="card-title">🏮 Tra Cứu Ngày Lễ, Kỷ Niệm &amp; Sự Kiện</h2>
+          <div style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;">
+            <label style="font-size: 0.85rem; font-weight: 600; color: #4b5563;">Năm:</label>
+            <button class="btn btn-outline btn-sm" id="btnFestPrevYear" title="Năm trước" style="padding: 0.25rem 0.5rem;">◀</button>
+            <input type="number" id="festYearInput" class="form-control" style="width: 82px; padding: 0.28rem 0.4rem; text-align: center; font-weight: 700;" value="2026" min="1900" max="2100">
+            <button class="btn btn-outline btn-sm" id="btnFestNextYear" title="Năm sau" style="padding: 0.25rem 0.5rem;">▶</button>
+            <button class="btn btn-outline btn-sm" id="btnFestCurrentYear" title="Về năm nay" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">Năm Nay</button>
+            <button class="btn btn-gold btn-sm" id="btnUpdateFestYear" style="padding: 0.25rem 0.65rem; font-size: 0.8rem;">Cập nhật</button>
           </div>
         </div>
 
-        <!-- Filter Sub-tabs -->
-        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
-          <button class="btn btn-gold btn-sm fest-filter active" data-filter="all">Tất cả</button>
-          <button class="btn btn-outline btn-sm fest-filter" data-filter="lunar">Lễ Tết Âm Lịch (Cổ truyền)</button>
-          <button class="btn btn-outline btn-sm fest-filter" data-filter="solar">Lễ Dương Lịch &amp; Quốc tế</button>
+        <!-- Chế độ xem theo tháng (Month View Mode Controls) -->
+        <div style="background: #fafaf9; border: 1px solid #e7e5e4; border-radius: 8px; padding: 0.75rem 0.85rem; margin-bottom: 1.15rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.6rem;">
+            <div style="font-size: 0.86rem; font-weight: 700; color: #92400e; display: flex; align-items: center; gap: 0.4rem;">
+              <span>🗓️</span> Chế Độ Xem Theo Tháng:
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;">
+              <button class="btn btn-outline btn-sm" id="btnFestPrevMonth" title="Tháng trước" style="padding: 0.2rem 0.55rem; font-size: 0.78rem;">◀ Tháng trước</button>
+              <button class="btn btn-gold btn-sm" id="btnFestCurrentMonth" title="Về tháng hiện tại" style="padding: 0.2rem 0.65rem; font-size: 0.78rem;">Tháng Hiện Tại</button>
+              <button class="btn btn-outline btn-sm" id="btnFestNextMonth" title="Tháng sau" style="padding: 0.2rem 0.55rem; font-size: 0.78rem;">Tháng sau ▶</button>
+            </div>
+          </div>
+
+          <!-- Quick Month Buttons Bar -->
+          <div class="fest-month-bar" id="festMonthButtonsBar">
+            <button class="fest-month-btn active" data-month="0">🌟 Tất cả các tháng (Cả năm)</button>
+            <button class="fest-month-btn" data-month="1">Tháng 1</button>
+            <button class="fest-month-btn" data-month="2">Tháng 2</button>
+            <button class="fest-month-btn" data-month="3">Tháng 3</button>
+            <button class="fest-month-btn" data-month="4">Tháng 4</button>
+            <button class="fest-month-btn" data-month="5">Tháng 5</button>
+            <button class="fest-month-btn" data-month="6">Tháng 6</button>
+            <button class="fest-month-btn" data-month="7">Tháng 7</button>
+            <button class="fest-month-btn" data-month="8">Tháng 8</button>
+            <button class="fest-month-btn" data-month="9">Tháng 9</button>
+            <button class="fest-month-btn" data-month="10">Tháng 10</button>
+            <button class="fest-month-btn" data-month="11">Tháng 11</button>
+            <button class="fest-month-btn" data-month="12">Tháng 12</button>
+          </div>
+        </div>
+
+        <!-- Filter Sub-tabs & Quick Search -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 0.85rem;">
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <button class="btn btn-gold btn-sm fest-filter active" data-filter="all">Tất cả các loại</button>
+            <button class="btn btn-outline btn-sm fest-filter" data-filter="lunar">🏮 Lễ Tết Âm Lịch (Cổ truyền)</button>
+            <button class="btn btn-outline btn-sm fest-filter" data-filter="solar">🚩 Lễ Dương Lịch &amp; Quốc tế</button>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.35rem; width: 100%; max-width: 320px;">
+            <input type="text" id="festSearchInput" placeholder="🔍 Tìm sự kiện (VD: Hà Nội, Phụ nữ, Doanh nhân)..." class="form-control" style="padding: 0.3rem 0.65rem; font-size: 0.83rem; width: 100%;">
+          </div>
+        </div>
+
+        <!-- Summary & Stats Banner -->
+        <div id="festSummaryBanner" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.45rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.82rem; color: #92400e;">
+          <span id="festSummaryText">Đang tải danh sách sự kiện...</span>
+          <span id="festSummaryCount" style="font-weight: 700; background: #fef3c7; padding: 0.1rem 0.5rem; border-radius: 9999px; border: 1px solid #fcd34d;">0 sự kiện</span>
         </div>
 
         <div id="festivalsContainer">
@@ -3210,8 +3353,9 @@
           <h4 style="margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 1.25rem; color: #991b1b; font-weight: 700;">
             LỊCH ÂM DƯƠNG • BÁT TỰ TỨ TRỤ
           </h4>
-          <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px;">
-            "Thuận theo tự nhiên - Đoán biết mệnh số"
+          <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.7.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -3247,7 +3391,7 @@
           "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
         </p>
         <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-          <span style="display: inline-block; background: rgba(255,255,255,0.1); padding: 0.15rem 0.55rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15); font-family: var(--font-mono, monospace);">Phiên bản v1.5.1</span>
+          <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.7.0</span>
           • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
         </p>
       </div>
@@ -3782,35 +3926,47 @@
     ];
 
     const FESTIVALS_SOLAR = [
-      { day: 1, month: 1, name: "Tết Dương Lịch (Tết Tây)", desc: "Ngày đầu tiên của năm mới theo lịch dương quốc tế." },
-      { day: 14, month: 2, name: "Ngày Lễ Tình Nhân (Valentine)", desc: "Tôn vinh tình yêu lứa đôi." },
-      { day: 27, month: 2, name: "Ngày Thầy Thuốc Việt Nam", desc: "Tri ân đội ngũ y bác sĩ, thầy thuốc chăm sóc sức khỏe nhân dân." },
-      { day: 8, month: 3, name: "Ngày Quốc Tế Phụ Nữ", desc: "Tôn vinh và gửi lời chúc tốt đẹp tới những người phụ nữ." },
-      { day: 26, month: 3, name: "Ngày Thành Lập Đoàn TNCS Hồ Chí Minh", desc: "Kỷ niệm truyền thống thanh niên Việt Nam." },
-      { day: 30, month: 4, name: "Ngày Giải Phóng Miền Nam, Thống Nhất Đất Nước", desc: "Đại thắng mùa xuân 1975, ngày hội non sông toàn thắng." },
-      { day: 1, month: 5, name: "Ngày Quốc Tế Lao Động", desc: "Tôn vinh giá trị của giai cấp công nhân và người lao động toàn cầu." },
-      { day: 1, month: 6, name: "Ngày Quốc Tế Thiếu Nhi", desc: "Ngày hội dành cho trẻ em trên toàn thế giới." },
-      { day: 27, month: 7, name: "Ngày Thương Binh Liệt Sĩ", desc: "Uống nước nhớ nguồn, tri ân anh hùng liệt sĩ đã hy sinh vì Tổ quốc." },
-      { day: 19, month: 8, name: "Ngày Cách Mạng Tháng Tám", desc: "Kỷ niệm thắng lợi của Cách mạng tháng Tám năm 1945." },
+      { day: 1, month: 1, name: "Tết Dương Lịch (Tết Tây)", category: "international", desc: "Ngày đầu tiên của năm mới theo lịch dương quốc tế." },
+      { day: 14, month: 2, name: "Ngày Lễ Tình Nhân (Valentine)", category: "international", desc: "Tôn vinh tình yêu lứa đôi." },
+      { day: 27, month: 2, name: "Ngày Thầy Thuốc Việt Nam", category: "vietnam", desc: "Tri ân đội ngũ y bác sĩ, thầy thuốc chăm sóc sức khỏe nhân dân." },
+      { day: 8, month: 3, name: "Ngày Quốc Tế Phụ Nữ", category: "international", desc: "Tôn vinh và gửi lời chúc tốt đẹp tới những người phụ nữ." },
+      { day: 26, month: 3, name: "Ngày Thành Lập Đoàn TNCS Hồ Chí Minh", category: "vietnam", desc: "Kỷ niệm truyền thống thanh niên Việt Nam." },
+      { day: 30, month: 4, name: "Ngày Giải Phóng Miền Nam, Thống Nhất Đất Nước", category: "vietnam", desc: "Đại thắng mùa xuân 1975, ngày hội non sông toàn thắng." },
+      { day: 1, month: 5, name: "Ngày Quốc Tế Lao Động", category: "international", desc: "Tôn vinh giá trị của giai cấp công nhân và người lao động toàn cầu." },
+      { day: 1, month: 6, name: "Ngày Quốc Tế Thiếu Nhi", category: "international", desc: "Ngày hội dành cho trẻ em trên toàn thế giới." },
+      { day: 27, month: 7, name: "Ngày Thương Binh Liệt Sĩ", category: "vietnam", desc: "Uống nước nhớ nguồn, tri ân anh hùng liệt sĩ đã hy sinh vì Tổ quốc." },
+      { day: 19, month: 8, name: "Ngày Cách Mạng Tháng Tám", category: "vietnam", desc: "Kỷ niệm thắng lợi của Cách mạng tháng Tám năm 1945." },
       
       // Tháng 9 - Các ngày lễ truyền thống Việt Nam & Quốc tế
-      { day: 2, month: 9, name: "Ngày Quốc Khánh Nước CHXHCN Việt Nam (Kỷ niệm Tuyên ngôn Độc lập)", desc: "Kỷ niệm ngày Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập tại Quảng trường Ba Đình (02/09/1945), khai sinh nước Việt Nam Dân chủ Cộng hòa." },
-      { day: 5, month: 9, name: "Ngày Hội Toàn Dân Đưa Trẻ Đến Trường (Khai Giảng Năm Học Mới)", desc: "Ngày hội toàn dân đưa trẻ đến trường, khai giảng năm học mới tưng bừng trên khắp mọi miền đất nước." },
-      { day: 5, month: 9, name: "Ngày Quốc Tế Từ Thiện (International Day of Charity)", desc: "Ngày do Liên Hợp Quốc thông qua nhằm tôn vinh và nhân rộng các hoạt động thiện nguyện, nhân đạo trên toàn thế giới." },
-      { day: 7, month: 9, name: "Ngày Thành Lập Đài Tiếng Nói Việt Nam (VOV)", desc: "Kỷ niệm ngày phát sóng buổi đầu tiên và thành lập Đài Tiếng nói Việt Nam (07/09/1945) - cơ quan phát thanh quốc gia." },
-      { day: 8, month: 9, name: "Ngày Quốc Tế Xóa Nạn Mù Chữ (International Literacy Day)", desc: "Ngày do UNESCO khởi xướng nhằm nâng cao nhận thức cộng đồng về tầm quan trọng của việc biết chữ và giáo dục cho mọi người." },
-      { day: 10, month: 9, name: "Ngày Thành Lập Mặt Trận Tổ Quốc Việt Nam", desc: "Kỷ niệm ngày thành lập Mặt trận Tổ quốc Việt Nam (10/09/1955), tập hợp và phát huy sức mạnh khối đại đoàn kết toàn dân tộc." },
-      { day: 10, month: 9, name: "Ngày Thế Giới Phòng Chống Tự Sát (World Suicide Prevention Day)", desc: "Ngày nâng cao nhận thức của cộng đồng thế giới về việc chăm sóc sức khỏe tinh thần, bảo vệ sự sống và phòng ngừa tự sát." },
-      { day: 15, month: 9, name: "Ngày Quốc Tế Dân Chủ (International Day of Democracy)", desc: "Ngày do Liên Hợp Quốc thành lập nhằm thúc đẩy và tôn trọng các giá trị tự do, dân chủ và quyền con người trên toàn cầu." },
-      { day: 16, month: 9, name: "Ngày Quốc Tế Bảo Vệ Tầng Ozone (World Ozone Day)", desc: "Kỷ niệm ngày ký Nghị định thư Montreal về các chất làm suy giảm tầng ozone, bảo vệ bầu khí quyển và môi trường sống của Trái Đất." },
-      { day: 21, month: 9, name: "Ngày Quốc Tế Hòa Bình (International Day of Peace)", desc: "Ngày Liên Hợp Quốc kêu gọi đình chiến toàn cầu 24 giờ và tôn vinh lý tưởng hòa bình, không bạo lực giữa các quốc gia." },
-      { day: 23, month: 9, name: "Ngày Nam Bộ Kháng Chiến", desc: "Kỷ niệm ngày nhân dân Nam Bộ anh dũng đứng lên kháng chiến chống thực dân Pháp tái xâm lược (23/09/1945), thể hiện tinh thần 'Thành đồng Tổ quốc'." },
+      { day: 2, month: 9, name: "Ngày Quốc Khánh Nước CHXHCN Việt Nam (Kỷ niệm Tuyên ngôn Độc lập)", category: "vietnam", desc: "Kỷ niệm ngày Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập tại Quảng trường Ba Đình (02/09/1945), khai sinh nước Việt Nam Dân chủ Cộng hòa." },
+      { day: 5, month: 9, name: "Ngày Hội Toàn Dân Đưa Trẻ Đến Trường (Khai Giảng Năm Học Mới)", category: "vietnam", desc: "Ngày hội toàn dân đưa trẻ đến trường, khai giảng năm học mới tưng bừng trên khắp mọi miền đất nước." },
+      { day: 5, month: 9, name: "Ngày Quốc Tế Từ Thiện (International Day of Charity)", category: "international", desc: "Ngày do Liên Hợp Quốc thông qua nhằm tôn vinh và nhân rộng các hoạt động thiện nguyện, nhân đạo trên toàn thế giới." },
+      { day: 7, month: 9, name: "Ngày Thành Lập Đài Tiếng Nói Việt Nam (VOV)", category: "vietnam", desc: "Kỷ niệm ngày phát sóng buổi đầu tiên và thành lập Đài Tiếng nói Việt Nam (07/09/1945) - cơ quan phát thanh quốc gia." },
+      { day: 8, month: 9, name: "Ngày Quốc Tế Xóa Nạn Mù Chữ (International Literacy Day)", category: "international", desc: "Ngày do UNESCO khởi xướng nhằm nâng cao nhận thức cộng đồng về tầm quan trọng của việc biết chữ và giáo dục cho mọi người." },
+      { day: 10, month: 9, name: "Ngày Thành Lập Mặt Trận Tổ Quốc Việt Nam", category: "vietnam", desc: "Kỷ niệm ngày thành lập Mặt trận Tổ quốc Việt Nam (10/09/1955), tập hợp và phát huy sức mạnh khối đại đoàn kết toàn dân tộc." },
+      { day: 10, month: 9, name: "Ngày Thế Giới Phòng Chống Tự Sát (World Suicide Prevention Day)", category: "international", desc: "Ngày nâng cao nhận thức của cộng đồng thế giới về việc chăm sóc sức khỏe tinh thần, bảo vệ sự sống và phòng ngừa tự sát." },
+      { day: 15, month: 9, name: "Ngày Quốc Tế Dân Chủ (International Day of Democracy)", category: "international", desc: "Ngày do Liên Hợp Quốc thành lập nhằm thúc đẩy và tôn trọng các giá trị tự do, dân chủ và quyền con người trên toàn cầu." },
+      { day: 16, month: 9, name: "Ngày Quốc Tế Bảo Vệ Tầng Ozone (World Ozone Day)", category: "international", desc: "Kỷ niệm ngày ký Nghị định thư Montreal về các chất làm suy giảm tầng ozone, bảo vệ bầu khí quyển và môi trường sống của Trái Đất." },
+      { day: 21, month: 9, name: "Ngày Quốc Tế Hòa Bình (International Day of Peace)", category: "international", desc: "Ngày Liên Hợp Quốc kêu gọi đình chiến toàn cầu 24 giờ và tôn vinh lý tưởng hòa bình, không bạo lực giữa các quốc gia." },
+      { day: 23, month: 9, name: "Ngày Nam Bộ Kháng Chiến", category: "vietnam", desc: "Kỷ niệm ngày nhân dân Nam Bộ anh dũng đứng lên kháng chiến chống thực dân Pháp tái xâm lược (23/09/1945), thể hiện tinh thần 'Thành đồng Tổ quốc'." },
 
-      { day: 10, month: 10, name: "Ngày Giải Phóng Thủ Đô", desc: "Kỷ niệm ngày tiếp quản Thủ đô Hà Nội năm 1954." },
-      { day: 20, month: 10, name: "Ngày Phụ Nữ Việt Nam", desc: "Tôn vinh vẻ đẹp anh hùng, bất khuất, trung hậu, đảm đang của phụ nữ Việt Nam." },
-      { day: 20, month: 11, name: "Ngày Nhà Giáo Việt Nam", desc: "Tri ân thầy cô giáo - những người lái đò thầm lặng." },
-      { day: 22, month: 12, name: "Ngày Thành Lập Quân Đội Nhân Dân Việt Nam", desc: "Ngày hội Quốc phòng toàn dân, tôn vinh anh bộ đội Cụ Hồ." },
-      { day: 25, month: 12, name: "Lễ Giáng Sinh (Noel)", desc: "Ngày lễ mừng chúa Giáng sinh an lành." }
+      // Tháng 10 - Các ngày lễ, kỷ niệm lớn tại Việt Nam & Quốc tế nổi bật
+      { day: 1, month: 10, name: "Ngày Quốc Tế Người Cao Tuổi (International Day of Older Persons)", category: "international", desc: "Nhằm nâng cao nhận thức về việc chăm sóc và bảo vệ người cao tuổi." },
+      { day: 5, month: 10, name: "Ngày Nhà Giáo Thế Giới (World Teachers' Day)", category: "international", desc: "Tôn vinh cống hiến của các thầy cô giáo trên toàn cầu." },
+      { day: 9, month: 10, name: "Ngày Bưu Chính Thế Giới (World Post Day)", category: "international", desc: "Kỷ niệm sự thành lập của Liên minh Bưu chính Quốc tế (UPU)." },
+      { day: 10, month: 10, name: "Ngày Giải Phóng Thủ Đô", category: "vietnam", desc: "Kỷ niệm sự kiện quân ta tiến vào giải phóng Hà Nội khỏi ách thống trị của thực dân Pháp năm 1954." },
+      { day: 13, month: 10, name: "Ngày Doanh Nhân Việt Nam", category: "vietnam", desc: "Ngày tôn vinh những đóng góp của các doanh nhân, doanh nghiệp đối với nền kinh tế nước nhà." },
+      { day: 14, month: 10, name: "Ngày Thành Lập Hội Nông Dân Việt Nam", category: "vietnam", desc: "Ghi nhận vai trò quan trọng của giai cấp nông dân trong sự nghiệp cách mạng và phát triển đất nước." },
+      { day: 14, month: 10, name: "Ngày Tiêu Chuẩn Thế Giới (World Standards Day)", category: "international", desc: "Tôn vinh các nỗ lực chung của các chuyên gia trên thế giới trong việc phát triển các tiêu chuẩn tự nguyện." },
+      { day: 15, month: 10, name: "Ngày Truyền Thống Hội Liên Hiệp Thanh Niên Việt Nam", category: "vietnam", desc: "Ngày hội lớn của thanh niên, cổ vũ tinh thần xung kích, tình nguyện." },
+      { day: 16, month: 10, name: "Ngày Lương Thực Thế Giới (World Food Day)", category: "international", desc: "Do Tổ chức Lương thực và Nông nghiệp Liên Hợp Quốc (FAO) thành lập nhằm nâng cao nhận thức về vấn đề an ninh lương thực." },
+      { day: 20, month: 10, name: "Ngày Phụ Nữ Việt Nam", category: "vietnam", desc: "Ngày lễ tôn vinh và bày tỏ lòng biết ơn, yêu thương đến những người phụ nữ Việt Nam." },
+      { day: 24, month: 10, name: "Ngày Liên Hợp Quốc (United Nations Day)", category: "international", desc: "Kỷ niệm ngày Hiến chương Liên Hợp Quốc chính thức có hiệu lực vào năm 1945." },
+      { day: 31, month: 10, name: "Lễ Hội Halloween", category: "international", desc: "Lễ hội hóa trang vui nhộn, ma mị có nguồn gốc từ phương Tây và hiện nay rất phổ biến tại Việt Nam." },
+
+      { day: 20, month: 11, name: "Ngày Nhà Giáo Việt Nam", category: "vietnam", desc: "Tri ân thầy cô giáo - những người lái đò thầm lặng." },
+      { day: 22, month: 12, name: "Ngày Thành Lập Quân Đội Nhân Dân Việt Nam", category: "vietnam", desc: "Ngày hội Quốc phòng toàn dân, tôn vinh anh bộ đội Cụ Hồ." },
+      { day: 25, month: 12, name: "Lễ Giáng Sinh (Noel)", category: "international", desc: "Ngày lễ mừng chúa Giáng sinh an lành." }
     ];
 
     /**
@@ -3989,6 +4145,7 @@
 
     // Khởi tạo ứng dụng
     function initApp() {
+      initAppVersion();
       setupRealtimeClock();
       setupTabs();
       setupLogoModal();
@@ -4003,7 +4160,7 @@
       updateBlocView(selectedDate);
       setupBattuForm();
       setupConverterForm();
-      renderFestivals(selectedDate.getFullYear());
+      renderFestivals();
       setupFestivalsFilters();
     }
 
@@ -6384,19 +6541,36 @@
     }
 
     /**
-     * LỄ TẾT TRUYỀN THỐNG VIỆT NAM
+     * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    function renderFestivals(year) {
-      const container = document.getElementById('festivalsContainer');
-      container.innerHTML = '';
+    const APP_VERSION = "v1.7.0";
 
+    function initAppVersion() {
+      const hEl = document.getElementById('appVersionHeader');
+      if (hEl) hEl.textContent = APP_VERSION;
+      const fEl = document.getElementById('appVersionFooter');
+      if (fEl) fEl.textContent = `Phiên bản ${APP_VERSION}`;
+      const mEl = document.getElementById('appVersionModal');
+      if (mEl) mEl.textContent = APP_VERSION;
+    }
+
+    /**
+     * LỄ TẾT TRUYỀN THỐNG & SỰ KIỆN - CHẾ ĐỘ XEM THEO THÁNG & NĂM
+     */
+    let festCurrentYear = 2026;
+    let festCurrentMonth = 0; // 0 = Cả năm, 1..12 = Tháng 1..12
+    let festCurrentFilter = 'all'; // 'all', 'lunar', 'solar'
+    let festSearchQuery = '';
+
+    function getFestivalFullList(year) {
       let list = [];
 
-      // Âm lịch festivals convert sang Dương lịch của năm đó
+      // 1. Âm lịch festivals convert sang Dương lịch của năm đó
       FESTIVALS_LUNAR.forEach(fest => {
         let [sDay, sMonth, sYear] = convertLunar2Solar(fest.day, fest.month, year, 0);
         list.push({
           type: 'lunar',
+          category: 'lunar',
           lunarDay: fest.day,
           lunarMonth: fest.month,
           solarDay: sDay,
@@ -6407,11 +6581,12 @@
         });
       });
 
-      // Dương lịch festivals
+      // 2. Dương lịch festivals (Việt Nam & Quốc Tế)
       FESTIVALS_SOLAR.forEach(fest => {
         let [lDay, lMonth, lYear] = convertSolar2Lunar(fest.day, fest.month, year);
         list.push({
           type: 'solar',
+          category: fest.category || 'vietnam',
           solarDay: fest.day,
           solarMonth: fest.month,
           solarYear: year,
@@ -6428,64 +6603,321 @@
         return a.solarDay - b.solarDay;
       });
 
-      list.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'fest-card';
-        div.setAttribute('data-type', item.type);
-
-        const dateBadge = item.type === 'lunar'
-          ? `<div class="fest-date-badge" style="background: #991b1b;">
-               <div class="fest-date-day">${item.lunarDay}/${item.lunarMonth}</div>
-               <div class="fest-date-type">Âm Lịch</div>
-             </div>`
-          : `<div class="fest-date-badge" style="background: #1e40af;">
-               <div class="fest-date-day">${item.solarDay}/${item.solarMonth}</div>
-               <div class="fest-date-type">Dương Lịch</div>
-             </div>`;
-
-        const subDate = item.type === 'lunar'
-          ? `Dương lịch tương ứng: <strong>${item.solarDay}/${item.solarMonth}/${item.solarYear}</strong>`
-          : `Âm lịch tương ứng: <strong>${item.lunarDay}/${item.lunarMonth}</strong>`;
-
-        div.innerHTML = `
-          ${dateBadge}
-          <div class="fest-info">
-            <h4>${item.name}</h4>
-            <div style="font-size: 0.78rem; color: #4b5563; margin-bottom: 0.25rem;">${subDate}</div>
-            <p>${item.desc}</p>
-          </div>
-        `;
-        container.appendChild(div);
-      });
+      return list;
     }
 
-    function setupFestivalsFilters() {
-      document.getElementById('btnUpdateFestYear').addEventListener('click', () => {
-        const y = parseInt(document.getElementById('festYearInput').value);
-        if (!isNaN(y) && y >= 1900 && y <= 2100) {
-          renderFestivals(y);
+    function createFestivalCard(item) {
+      const div = document.createElement('div');
+      div.className = 'fest-card';
+      div.setAttribute('data-type', item.type);
+
+      const dateBadge = item.type === 'lunar'
+        ? `<div class="fest-date-badge" style="background: #991b1b;">
+             <div class="fest-date-day">${item.lunarDay}/${item.lunarMonth}</div>
+             <div class="fest-date-type">Âm Lịch</div>
+           </div>`
+        : `<div class="fest-date-badge" style="background: #1e40af;">
+             <div class="fest-date-day">${item.solarDay}/${item.solarMonth}</div>
+             <div class="fest-date-type">Dương Lịch</div>
+           </div>`;
+
+      const subDate = item.type === 'lunar'
+        ? `Dương lịch tương ứng: <strong>${item.solarDay}/${item.solarMonth}/${item.solarYear}</strong>`
+        : `Âm lịch tương ứng: <strong>${item.lunarDay}/${item.lunarMonth}</strong>`;
+
+      let tagHtml = '';
+      if (item.type === 'lunar') {
+        tagHtml = `<span class="fest-tag fest-tag-lunar">🏮 Lễ Hội Cổ Truyền</span>`;
+      } else if (item.category === 'international') {
+        tagHtml = `<span class="fest-tag fest-tag-intl">🌐 Quốc Tế</span>`;
+      } else {
+        tagHtml = `<span class="fest-tag fest-tag-vn">🇻🇳 Việt Nam</span>`;
+      }
+
+      div.innerHTML = `
+        ${dateBadge}
+        <div class="fest-info" style="flex: 1;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.25rem;">
+            <h4 style="margin-bottom: 0;">${item.name}</h4>
+            <div>${tagHtml}</div>
+          </div>
+          <div style="font-size: 0.78rem; color: #4b5563; margin: 0.25rem 0;">${subDate}</div>
+          <p style="margin-bottom: 0; line-height: 1.45;">${item.desc}</p>
+        </div>
+      `;
+      return div;
+    }
+
+    function renderFestivals(year) {
+      if (year && !isNaN(year)) {
+        festCurrentYear = parseInt(year);
+      }
+
+      const container = document.getElementById('festivalsContainer');
+      const bannerText = document.getElementById('festSummaryText');
+      const bannerCount = document.getElementById('festSummaryCount');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const allEvents = getFestivalFullList(festCurrentYear);
+
+      // Lọc theo loại (Type: lunar, solar, all)
+      let filtered = allEvents.filter(item => {
+        if (festCurrentFilter === 'all') return true;
+        return item.type === festCurrentFilter;
+      });
+
+      // Lọc theo Chế Độ Xem Tháng (Month View Mode: 0 = cả năm, 1..12 = tháng cụ thể)
+      if (festCurrentMonth > 0) {
+        filtered = filtered.filter(item => item.solarMonth === festCurrentMonth);
+      }
+
+      // Lọc theo Từ Khóa Tìm Kiếm (Search Query)
+      if (festSearchQuery.trim() !== '') {
+        const q = festSearchQuery.trim().toLowerCase();
+        filtered = filtered.filter(item => {
+          return item.name.toLowerCase().includes(q) || 
+                 item.desc.toLowerCase().includes(q) ||
+                 `${item.solarDay}/${item.solarMonth}`.includes(q) ||
+                 `${item.lunarDay}/${item.lunarMonth}`.includes(q);
+        });
+      }
+
+      // Cập nhật Banner tóm tắt thống kê
+      const monthLabel = festCurrentMonth === 0 
+        ? `Tất cả các tháng (Cả năm ${festCurrentYear})`
+        : `Tháng ${festCurrentMonth} / ${festCurrentYear}`;
+      const typeLabel = festCurrentFilter === 'all' 
+        ? 'Tất cả các loại lễ' 
+        : (festCurrentFilter === 'lunar' ? 'Lễ Âm Lịch (Cổ truyền)' : 'Lễ Dương Lịch & Quốc tế');
+      
+      if (bannerText) {
+        bannerText.innerHTML = `<strong>Chế độ xem:</strong> ${monthLabel} • <strong>Bộ lọc:</strong> ${typeLabel}${festSearchQuery ? ` • <em>Tìm kiếm: "${festSearchQuery}"</em>` : ''}`;
+      }
+      if (bannerCount) {
+        bannerCount.textContent = `${filtered.length} sự kiện`;
+      }
+
+      // Nếu không tìm thấy sự kiện nào
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 2.5rem 1rem; color: #6b7280; background: #fff; border: 1px dashed #d1d5db; border-radius: 8px;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+            <h4 style="font-size: 1rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem;">Không tìm thấy ngày lễ hoặc sự kiện nào</h4>
+            <p style="font-size: 0.84rem;">Không có sự kiện phù hợp trong <strong>${monthLabel}</strong> với tiêu chí đang chọn. Vui lòng chuyển sang tháng khác hoặc đặt lại bộ lọc.</p>
+            <button class="btn btn-gold btn-sm" id="btnResetFestFilters" style="margin-top: 0.75rem;">Xem Tất Cả Các Tháng</button>
+          </div>
+        `;
+        const resetBtn = document.getElementById('btnResetFestFilters');
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            festCurrentMonth = 0;
+            festCurrentFilter = 'all';
+            festSearchQuery = '';
+            const sInp = document.getElementById('festSearchInput');
+            if (sInp) sInp.value = '';
+            updateFestControlStates();
+            renderFestivals();
+          });
+        }
+        return;
+      }
+
+      // Hiển thị danh sách thẻ
+      if (festCurrentMonth === 0) {
+        // Gom nhóm theo từng tháng trong năm
+        for (let m = 1; m <= 12; m++) {
+          const monthItems = filtered.filter(item => item.solarMonth === m);
+          if (monthItems.length === 0) continue;
+
+          const monthHeader = document.createElement('div');
+          monthHeader.className = 'fest-month-header';
+          monthHeader.innerHTML = `
+            <span>📅 THÁNG ${m} / ${festCurrentYear}</span>
+            <span style="font-size: 0.76rem; font-weight: 600; background: #fef08a; color: #854d0e; padding: 0.15rem 0.55rem; border-radius: 9999px;">${monthItems.length} sự kiện</span>
+          `;
+          container.appendChild(monthHeader);
+
+          monthItems.forEach(item => {
+            container.appendChild(createFestivalCard(item));
+          });
+        }
+      } else {
+        // Xem riêng từng tháng
+        const monthBanner = document.createElement('div');
+        monthBanner.className = 'fest-month-header';
+        monthBanner.style.background = 'linear-gradient(90deg, #fef3c7, #fde68a)';
+        monthBanner.style.border = '1px solid #f59e0b';
+        monthBanner.innerHTML = `
+          <span>🗓️ CÁC NGÀY LỄ &amp; SỰ KIỆN TRONG THÁNG ${festCurrentMonth} / ${festCurrentYear}</span>
+          <span style="font-size: 0.78rem; font-weight: 700; background: #b45309; color: #fff; padding: 0.2rem 0.65rem; border-radius: 9999px;">${filtered.length} ngày lễ</span>
+        `;
+        container.appendChild(monthBanner);
+
+        filtered.forEach(item => {
+          container.appendChild(createFestivalCard(item));
+        });
+      }
+    }
+
+    function updateFestControlStates() {
+      // Cập nhật trạng thái các nút chọn tháng
+      const monthBtns = document.querySelectorAll('.fest-month-btn');
+      monthBtns.forEach(btn => {
+        const m = parseInt(btn.getAttribute('data-month'));
+        if (m === festCurrentMonth) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
         }
       });
 
+      // Cập nhật trạng thái các nút lọc loại
+      const filters = document.querySelectorAll('.fest-filter');
+      filters.forEach(b => {
+        const val = b.getAttribute('data-filter');
+        if (val === festCurrentFilter) {
+          b.classList.add('active', 'btn-gold');
+          b.classList.remove('btn-outline');
+        } else {
+          b.classList.remove('active', 'btn-gold');
+          b.classList.add('btn-outline');
+        }
+      });
+
+      // Cập nhật ô nhập năm
+      const yearInput = document.getElementById('festYearInput');
+      if (yearInput) yearInput.value = festCurrentYear;
+    }
+
+    function setupFestivalsFilters() {
+      const yearInput = document.getElementById('festYearInput');
+      if (yearInput) {
+        festCurrentYear = parseInt(yearInput.value) || 2026;
+      }
+
+      // 1. Nút chuyển năm (Previous / Next / Năm Nay)
+      const btnPrevYear = document.getElementById('btnFestPrevYear');
+      if (btnPrevYear) {
+        btnPrevYear.addEventListener('click', () => {
+          festCurrentYear = Math.max(1900, festCurrentYear - 1);
+          if (yearInput) yearInput.value = festCurrentYear;
+          renderFestivals();
+        });
+      }
+
+      const btnNextYear = document.getElementById('btnFestNextYear');
+      if (btnNextYear) {
+        btnNextYear.addEventListener('click', () => {
+          festCurrentYear = Math.min(2100, festCurrentYear + 1);
+          if (yearInput) yearInput.value = festCurrentYear;
+          renderFestivals();
+        });
+      }
+
+      const btnCurrentYear = document.getElementById('btnFestCurrentYear');
+      if (btnCurrentYear) {
+        btnCurrentYear.addEventListener('click', () => {
+          festCurrentYear = new Date().getFullYear();
+          if (yearInput) yearInput.value = festCurrentYear;
+          renderFestivals();
+        });
+      }
+
+      const btnUpdateYear = document.getElementById('btnUpdateFestYear');
+      if (btnUpdateYear) {
+        btnUpdateYear.addEventListener('click', () => {
+          const y = parseInt(document.getElementById('festYearInput').value);
+          if (!isNaN(y) && y >= 1900 && y <= 2100) {
+            festCurrentYear = y;
+            renderFestivals();
+          }
+        });
+      }
+
+      if (yearInput) {
+        yearInput.addEventListener('change', () => {
+          const y = parseInt(yearInput.value);
+          if (!isNaN(y) && y >= 1900 && y <= 2100) {
+            festCurrentYear = y;
+            renderFestivals();
+          }
+        });
+      }
+
+      // 2. Chế độ xem theo tháng (Nút Tháng 1 .. Tháng 12 và Cả năm)
+      const monthBtns = document.querySelectorAll('.fest-month-btn');
+      monthBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          festCurrentMonth = parseInt(btn.getAttribute('data-month')) || 0;
+          updateFestControlStates();
+          renderFestivals();
+        });
+      });
+
+      // 3. Nút chuyển tháng (Tháng trước / Tháng sau / Tháng hiện tại)
+      const btnPrevMonth = document.getElementById('btnFestPrevMonth');
+      if (btnPrevMonth) {
+        btnPrevMonth.addEventListener('click', () => {
+          if (festCurrentMonth <= 1) {
+            festCurrentMonth = 12;
+            festCurrentYear = Math.max(1900, festCurrentYear - 1);
+            if (yearInput) yearInput.value = festCurrentYear;
+          } else {
+            festCurrentMonth--;
+          }
+          updateFestControlStates();
+          renderFestivals();
+        });
+      }
+
+      const btnNextMonth = document.getElementById('btnFestNextMonth');
+      if (btnNextMonth) {
+        btnNextMonth.addEventListener('click', () => {
+          if (festCurrentMonth === 0) {
+            festCurrentMonth = 1;
+          } else if (festCurrentMonth >= 12) {
+            festCurrentMonth = 1;
+            festCurrentYear = Math.min(2100, festCurrentYear + 1);
+            if (yearInput) yearInput.value = festCurrentYear;
+          } else {
+            festCurrentMonth++;
+          }
+          updateFestControlStates();
+          renderFestivals();
+        });
+      }
+
+      const btnCurrentMonth = document.getElementById('btnFestCurrentMonth');
+      if (btnCurrentMonth) {
+        btnCurrentMonth.addEventListener('click', () => {
+          const now = new Date();
+          festCurrentYear = now.getFullYear();
+          festCurrentMonth = now.getMonth() + 1;
+          if (yearInput) yearInput.value = festCurrentYear;
+          updateFestControlStates();
+          renderFestivals();
+        });
+      }
+
+      // 4. Lọc Loại Sự Kiện (Tất cả / Âm lịch / Dương lịch)
       const filters = document.querySelectorAll('.fest-filter');
       filters.forEach(btn => {
         btn.addEventListener('click', () => {
-          filters.forEach(b => b.classList.remove('active', 'btn-gold'));
-          filters.forEach(b => b.classList.add('btn-outline'));
-          btn.classList.add('active', 'btn-gold');
-          btn.classList.remove('btn-outline');
-
-          const val = btn.getAttribute('data-filter');
-          const cards = document.querySelectorAll('.fest-card');
-          cards.forEach(card => {
-            if (val === 'all' || card.getAttribute('data-type') === val) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          });
+          festCurrentFilter = btn.getAttribute('data-filter') || 'all';
+          updateFestControlStates();
+          renderFestivals();
         });
       });
+
+      // 5. Ô Tìm Kiếm Nhanh Sự Kiện
+      const searchInput = document.getElementById('festSearchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          festSearchQuery = e.target.value;
+          renderFestivals();
+        });
+      }
     }
 
     // Khởi chạy khi load trang
