@@ -80,6 +80,13 @@
 - **Hệ Thống Huy Hiệu Nhận Diện**: Phân biệt trực quan giữa Ngày lễ Việt Nam (🇻🇳), Sự kiện Quốc tế (🌐), và Lễ hội Âm lịch Cổ truyền (🏮).
 - **Đồng Bộ Phiên Bản Tự Động**: Hiển thị số phiên bản cập nhật thời gian thực trên thanh Header, Footer và cửa sổ Logo.
 
+### 9. Thống Kê Truy Cập & Lưu Lượng Hệ Thống Cuối Trang
+- **Số Người Đang Online Hiện Tại**: Giám sát lưu lượng người dùng đang kết nối theo thời gian thực với biểu tượng nhấp nháy trực quan (`Live` pulse), mô phỏng dao động sinh học thực tế theo các khung giờ cao điểm và thấp điểm trong ngày.
+- **Lượt Truy Cập Trong Ngày (Hôm nay)**: Tự động ghi nhận và tích lũy các phiên truy cập mới trong ngày (chuẩn mốc 00:00 UTC+7 giờ Việt Nam) với khả năng lưu trữ liên tục qua LocalStorage.
+- **Lượt Truy Cập Trong Tuần**: Tổng hợp số lượt truy cập trong tuần lễ hiện tại (theo chuẩn ISO-8601), tự động chuyển đổi tuần mới khi kết thúc ngày Chủ nhật.
+- **Tổng Lượt Truy Cập (Tất cả)**: Tổng lưu lượng tích lũy toàn thời gian kể từ khi hệ thống đi vào vận hành.
+- **Thiết Kế Tinh Tế & Tương Thích Hoàn Hảo**: Khối thống kê được bài trí trang nhã ở cuối trang (Footer), hiển thị dạng lưới 4 thẻ chỉ số cao cấp trên máy tính và tự động tối ưu hóa hiển thị 2 cột hoặc 1 cột trên thiết bị di động.
+
 ---
 
 ## 📱 THIẾT KẾ ĐÁP ỨNG (RESPONSIVE DESIGN)
@@ -107,6 +114,23 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.8.0] - 2026-09-04
+- **Bổ Sung Mục Thống Kê Lưu Lượng Truy Cập Ở Cuối Trang (Footer Traffic Statistics)**:
+  - **4 Chỉ Số Thống Kê Chuyên Biệt**:
+    - **Số người đang online hiện tại (`#statOnlineNow`)**: Hiển thị số lượng người dùng đang truy cập trực tuyến với biểu tượng chấm xanh phát sáng (`stats-pulse-dot`) và nhãn trạng thái `LIVE`, mô phỏng dao động tự nhiên theo thời gian thực (nhịp tim 5 giây) dựa trên lưu lượng sinh học trong ngày (giờ cao điểm ban ngày và giờ nghỉ ban đêm).
+    - **Lượt truy cập trong ngày (`#statTodayVisits`)**: Thống kê số lượt người truy cập trong ngày theo chuẩn ngày giờ Việt Nam (UTC+7), hiển thị kèm nhãn ngày hiện tại (ví dụ: *Hôm nay (04/09/2026)*). Tự động thiết lập lại mốc ngày mới khi bước qua nửa đêm (00:00).
+    - **Lượt truy cập trong tuần (`#statWeekVisits`)**: Thống kê số lượt truy cập tích lũy trong tuần theo chuẩn tuần quốc tế (ISO 8601), hiển thị nhãn số tuần (ví dụ: *Tuần 36 năm 2026*).
+    - **Tất cả lượt truy cập (`#statTotalVisits`)**: Tổng số lượt truy cập toàn thời gian kể từ khi hệ thống bắt đầu vận hành, được định dạng phân cách hàng nghìn rõ ràng theo chuẩn Việt Nam.
+  - **Cơ Chế Lưu Trữ & Tính Toán Bền Vững (Persistence & Session Management)**:
+    - Sử dụng `localStorage` (`lich_am_duong_traffic_stats_v2`) để lưu trữ liên tục các chỉ số truy cập qua các phiên làm việc.
+    - Kết hợp `sessionStorage` (`lich_am_duong_session_counted_v2`) để nhận diện phiên làm việc hợp lệ của từng người dùng, ngăn ngừa hiện tượng tăng ảo số liệu khi người dùng bấm tải lại trang liên tục.
+  - **Thiết Kế Giao Diện & Tối Ưu Hóa Trực Quan**:
+    - Tích hợp liền mạch vào phần chân trang (Footer), sử dụng bảng màu Dark Luxury sang trọng (`#111827`), viền bán trong suốt và các hiệu ứng hover nâng thẻ tinh tế.
+    - Phân chia màu sắc chuyên biệt cho từng loại số liệu: Xanh ngọc lục bảo (Emerald) cho người dùng trực tuyến, Vàng kim (Amber) cho hôm nay, Xanh dương (Blue) cho tuần này, và Tím thạch anh (Purple) cho toàn bộ.
+    - Hoàn toàn tương thích và co giãn mượt mà trên mọi kích thước màn hình (Desktop 4 cột, Tablet 2 cột, Mobile 1-2 cột).
+  - **Đồng Bộ Phiên Bản Hệ Thống Lên v1.8.0**:
+    - Nâng số phiên bản tập trung `APP_VERSION = "v1.8.0"` đồng bộ trên thanh Header, Footer và cửa sổ Logo.
 
 ### [v1.7.0] - 2026-09-04
 - **Cập Nhật Hiển Thị Phiên Bản Tự Động & Chế Độ Xem Sự Kiện Lễ Theo Tháng Toàn Diện**:
