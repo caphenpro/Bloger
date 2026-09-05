@@ -610,17 +610,21 @@
     .bloc-meta-row {
       display: flex;
       justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
       border-bottom: 1px dashed #f3f4f6;
       padding-bottom: 0.35rem;
     }
     .bloc-meta-lbl {
       color: var(--text-muted);
       font-weight: 500;
+      flex-shrink: 0;
     }
     .bloc-meta-val {
       font-weight: 600;
       color: #111827;
       text-align: right;
+      word-break: break-word;
     }
 
     /* 12 Canh Giờ Hoàng Đạo Table */
@@ -2240,17 +2244,49 @@
       .solar-rt-sun-col {
         min-width: 0;
       }
+      .solar-sun-times-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+      }
       .sun-time-item {
-        font-size: 0.72rem;
+        font-size: 0.74rem;
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.25rem;
       }
       .sun-time-val {
-        font-size: 0.86rem;
+        font-size: 0.88rem;
       }
       .solar-sun-duration-row {
-        font-size: 0.66rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+        font-size: 0.72rem;
+        margin-top: 0.15rem;
+        white-space: normal;
+      }
+      .solar-sun-duration-row .sun-dur-sep {
+        display: none;
+      }
+      .sun-dur-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.2rem;
+        white-space: nowrap;
+      }
+      .sun-dur-val, .sun-dur-val-night {
+        font-size: 0.75rem;
       }
       .solar-location-sub {
-        font-size: 0.62rem;
+        font-size: 0.64rem;
+        margin-top: 0.15rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.25rem;
       }
       .solar-rt-action-col {
         grid-column: span 2;
@@ -2487,7 +2523,7 @@
       font-size: 0.74rem;
       color: #cbd5e1;
       margin-top: 0.1rem;
-      white-space: nowrap;
+      flex-wrap: wrap;
     }
     .sun-dur-val {
       color: #38bdf8;
@@ -2662,7 +2698,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.10.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.10.1</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -3885,7 +3921,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.10.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.10.1</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -4075,7 +4111,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.10.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.10.1</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -5148,7 +5184,7 @@
       // Mặt Trời mọc / lặn cho ngày được chọn (NASA JPL / NOAA)
       const blocSunTimesEl = document.getElementById('blocSunTimes');
       if (blocSunTimesEl) {
-        const selSun = calcSunTimesNASA(dateObj, userLocation.lat, userLocation.lng, 7);
+        const selSun = getCachedSunTimesNASA(dateObj, userLocation.lat, userLocation.lng, 7);
         blocSunTimesEl.innerHTML = `🌅 <strong>${selSun.riseStr}</strong> • 🌇 <strong>${selSun.setStr}</strong> <span style="font-size: 0.74rem; color: #64748b; font-weight: normal; margin-left: 2px;">(Ngày dài ${selSun.dayLenStr} • Đêm ${selSun.nightLenStr})</span>`;
       }
 
@@ -6449,11 +6485,27 @@
     }
 
     /**
+     * Cache kết quả tính toán Mặt Trời mọc/lặn theo ngày và vị trí để tối ưu hiệu năng
+     */
+    let _cachedSunTimesKey = "";
+    let _cachedSunTimesResult = null;
+
+    function getCachedSunTimesNASA(date, lat, lng, timeZone = 7) {
+      const key = `${date.getFullYear()}_${date.getMonth()}_${date.getDate()}_${lat}_${lng}_${timeZone}`;
+      if (key === _cachedSunTimesKey && _cachedSunTimesResult) {
+        return _cachedSunTimesResult;
+      }
+      _cachedSunTimesKey = key;
+      _cachedSunTimesResult = calcSunTimesNASA(date, lat, lng, timeZone);
+      return _cachedSunTimesResult;
+    }
+
+    /**
      * Cập nhật thời gian thực Mặt Trời mọc/lặn & thời lượng ngày/đêm trên giao diện
      */
     function updateSunTimesLive() {
       const now = new Date();
-      const sun = calcSunTimesNASA(now, userLocation.lat, userLocation.lng, 7);
+      const sun = getCachedSunTimesNASA(now, userLocation.lat, userLocation.lng, 7);
 
       const riseEl = document.getElementById('liveSunRise');
       if (riseEl) riseEl.textContent = sun.riseStr;
@@ -7667,7 +7719,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.10.0";
+    const APP_VERSION = "v1.10.1";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

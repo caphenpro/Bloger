@@ -134,6 +134,20 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.10.1] - 2026-09-05
+- **Tối Ưu Hiển Thị Thời Gian Đêm Trên Giao Diện Điện Thoại & Nâng Cấp Hiệu Năng**:
+  - **Khắc Phục Lỗi Bị Che Khuất Dòng Thời Gian Đêm (Mobile Viewport Fix)**:
+    - Sửa lỗi dòng thông tin `🌙 Đêm: ...` bị tràn mép và che mất trên màn hình di động do thuộc tính `white-space: nowrap`.
+    - Tách biệt hai dòng `☀️ Ngày: ...` và `🌙 Đêm: ...` theo dạng cột dọc linh hoạt (`flex-direction: column`) trên thiết bị di động (max-width: 768px), ẩn ký tự phân cách dấu chấm tròn (`.sun-dur-sep`), giúp toàn bộ chỉ số giờ, phút, giây hiển thị trọn vẹn 100%, sắc nét và không bị đè lấn.
+    - Cập nhật định dạng hàng giờ Mọc và Lặn (`🌅 Mọc: ...` và `🌇 Lặn: ...`) trên di động đồng bộ theo chiều dọc với khoảng cách (gap) tối ưu, dễ nhìn.
+    - Bổ sung `word-break: break-word` và `flex-shrink: 0` cho nhãn danh sách Bloc Lịch Vạn Niên hàng ngày (`.bloc-meta-row`, `.bloc-meta-lbl`, `.bloc-meta-val`) chống tràn chữ trên mọi kích thước màn hình.
+  - **Tối Ưu Hiệu Năng Tính Toán Thiên Văn & Khử Trùng Lặp**:
+    - Bổ sung cơ chế ghi nhớ đệm (Memoization Cache `getCachedSunTimesNASA`) cho thuật toán thiên văn Mặt Trời mọc/lặn theo ngày và tọa độ.
+    - Tránh việc tính toán lại hàng loạt công thức lượng giác phức tạp mỗi giây khi ngày và tọa độ không đổi, giúp tiết kiệm tài nguyên CPU và thời lượng pin trên thiết bị di động.
+    - Rà soát toàn bộ cấu trúc mã nguồn (HTML ID, CSS selector, hàm Javascript, biến toàn cục), đảm bảo tính duy nhất, không trùng lặp và giữ nguyên 100% các tính năng hiện có.
+  - **Số Hóa Phiên Bản v1.10.1**:
+    - Cập nhật số phiên bản `1.10.1` trong `package.json`, Header, Footer, Logo Modal và tài liệu `README.md`.
+
 ### [v1.10.0] - 2026-09-05
 - **Bổ Sung Thời Gian Mặt Trời Mọc / Lặn, Tổng Thời Gian Ngày / Đêm & Định Vị GPS Tự Động (NASA JPL / NOAA)**:
   - **Thuật Toán Thiên Văn Chuẩn Xác NASA / NOAA**:
