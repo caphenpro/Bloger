@@ -362,6 +362,150 @@
       border: 1px solid #fca5a5;
     }
 
+    /* Âm Dương Bất Tương Badges */
+    .badge-bat-tuong {
+      background-color: #c0dd97;
+      color: #173404;
+      border: 1px solid #84cc16;
+    }
+    .badge-duong-tuong {
+      background-color: #fac775;
+      color: #412402;
+      border: 1px solid #f59e0b;
+    }
+    .badge-am-tuong {
+      background-color: #f0997b;
+      color: #4a1b0c;
+      border: 1px solid #ea580c;
+    }
+    .badge-cau-tuong {
+      background-color: #f09595;
+      color: #501313;
+      border: 1px solid #dc2626;
+    }
+    .badge-na-tuong {
+      background-color: #e2e8f0;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-lookup-bt {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      background: none;
+      border: none;
+      color: #b45309;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0 0.15rem;
+    }
+    .btn-lookup-bt:hover {
+      color: #78350f;
+    }
+
+    /* 60 Hoa Giáp Bất Tương Table & Components */
+    .bt-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 0.65rem 0;
+      border-radius: 8px;
+      border: 1px solid #d3d1c7;
+      background: #fff;
+    }
+    .bt-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 620px;
+      font-size: 0.78rem;
+    }
+    .bt-table th, .bt-table td {
+      border: 1px solid #d3d1c7;
+      text-align: center;
+      padding: 6px 3px;
+      line-height: 1.25;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .bt-table td:hover {
+      filter: brightness(0.92);
+      transform: scale(1.02);
+    }
+    .bt-table th {
+      background: #2c2c2a;
+      color: #fff;
+      font-weight: 600;
+      padding: 7px 4px;
+      cursor: default;
+    }
+    .bt-table td.stt {
+      background: #eee;
+      font-weight: 700;
+      color: #5f5e5a;
+      font-size: 0.73rem;
+      white-space: nowrap;
+      cursor: default;
+    }
+    .bt-table td.bat-tuong   { background: #c0dd97; color: #173404; font-weight: 600; }
+    .bt-table td.duong-tuong { background: #fac775; color: #412402; font-weight: 600; }
+    .bt-table td.am-tuong    { background: #f0997b; color: #4a1b0c; font-weight: 600; }
+    .bt-table td.cau-tuong   { background: #f09595; color: #501313; font-weight: 600; }
+    .bt-table td.na          { background: #d3d1c7; color: #444441; }
+    .bt-table td.highlight-current {
+      outline: 3px solid #b91c1c;
+      box-shadow: 0 0 10px rgba(185, 28, 28, 0.7);
+      font-weight: 800;
+      position: relative;
+      z-index: 2;
+    }
+
+    .bt-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.85rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.78rem;
+      background: #faf8f5;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #e7e5e4;
+    }
+    .bt-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .bt-box {
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .bt-month-btn {
+      padding: 0.32rem 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #374151;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .bt-month-btn:hover {
+      background: #f3f4f6;
+      border-color: #9ca3af;
+    }
+    .bt-month-btn.active {
+      background: #15803d;
+      color: #fff;
+      border-color: #166534;
+      box-shadow: 0 2px 6px rgba(22, 101, 52, 0.3);
+    }
+
     /* Layout Grids */
     .grid-2col {
       display: grid;
@@ -524,6 +668,15 @@
       background-color: #ef4444;
       display: inline-block;
       flex-shrink: 0;
+    }
+    .bt-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #16a34a;
+      display: inline-block;
+      flex-shrink: 0;
+      box-shadow: 0 0 3px rgba(22, 163, 74, 0.4);
     }
     .cal-legend {
       display: flex;
@@ -2144,7 +2297,7 @@
         height: 5px;
         margin-top: 1px;
       }
-      .hd-dot, .fest-dot {
+      .hd-dot, .fest-dot, .bt-dot {
         width: 5px;
         height: 5px;
       }
@@ -2698,7 +2851,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.10.1</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.11.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -2843,6 +2996,9 @@
                 <button class="btn btn-outline btn-sm" id="btnCalLeapBadge" style="font-size: 0.72rem; padding: 0.15rem 0.55rem; border-color: #f59e0b; color: #b45309; background: #fffdf5; border-radius: 9999px;" title="Bấm để mở module Phân tích Quy tắc Tháng Nhuận">
                   ✨ Năm Thường (Chi tiết ➔)
                 </button>
+                <button class="btn btn-outline btn-sm" id="btnOpenBatTuongModal" style="font-size: 0.72rem; padding: 0.15rem 0.55rem; border-color: #84cc16; color: #166534; background: #f7fee7; border-radius: 9999px; font-weight: 600;" title="Bấm xem bảng 60 Hoa Giáp Âm Dương Bất Tương 12 Tháng">
+                  🌿 Bảng Bất Tương (Tra Cứu ➔)
+                </button>
               </div>
               <div class="cal-nav-actions">
                 <div class="cal-nav-btns">
@@ -2879,6 +3035,9 @@
             <div class="cal-legend">
               <div class="cal-legend-item">
                 <span class="hd-dot"></span> Ngày Hoàng Đạo
+              </div>
+              <div class="cal-legend-item">
+                <span class="bt-dot"></span> Ngày Bất Tương (Cưới hỏi)
               </div>
               <div class="cal-legend-item">
                 <span class="fest-dot"></span> Ngày Lễ / Tết
@@ -3073,6 +3232,12 @@
                   <span class="bloc-meta-lbl">Đánh giá ngày:</span>
                   <span class="bloc-meta-val" id="blocHoangDaoBadge">
                     <span class="badge badge-hoangdao">Ngày Hoàng Đạo (Kim Quỹ)</span>
+                  </span>
+                </div>
+                <div class="bloc-meta-row" id="blocBatTuongRow">
+                  <span class="bloc-meta-lbl">Âm Dương Bất Tương:</span>
+                  <span class="bloc-meta-val" id="blocBatTuongVal" style="display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0.35rem;">
+                    <span class="badge badge-bat-tuong">Đang tải...</span>
                   </span>
                 </div>
                 <div class="bloc-meta-row">
@@ -3921,7 +4086,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.10.1</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.11.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -3995,6 +4160,84 @@
               </button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Bảng Tra Cứu Âm Dương Bất Tương 60 Hoa Giáp 12 Tháng -->
+  <div class="modal-overlay" id="batTuongModal">
+    <div class="modal-box" style="max-width: 820px; width: 96%;">
+      <div class="modal-head" style="background: linear-gradient(135deg, #166534, #15803d); color: #fff;">
+        <h3 style="font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.45rem; margin: 0; color: #fff;" id="batTuongModalTitle">
+          <span>💍</span> Bảng Âm Dương Bất Tương – 60 Hoa Giáp (12 Tháng Âm Lịch)
+        </h3>
+        <button class="close-btn" id="batTuongModalCloseBtn" style="color: #fff; opacity: 0.9;">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 1rem 1.15rem; font-size: 0.85rem; color: #374151;">
+        <!-- Giới thiệu học thuật -->
+        <div style="background: #fafaf9; border: 1px solid #e7e5e4; border-radius: 8px; padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; font-size: 0.82rem; line-height: 1.6; color: #4b5563;">
+          Phép phân loại ngày theo <strong>Thiên Bảo Lịch</strong> dẫn trong <strong>Khâm Định Hiệp Kỷ Biện Phương Thư</strong> (Nghĩa Lệ – Âm Dương Bất Tương). Mỗi tháng có trục <em>Nguyệt Yếm – Yếm Đối</em> riêng, từ đó xác định rõ 4 trường hợp cát hung: <strong>Bất Tương</strong> (Đại cát giá thú), <strong>Dương Tương</strong> (Hại nam chủ), <strong>Âm Tương</strong> (Hại nữ chủ), <strong>Âm Dương câu Tương</strong> (Hại cả hai), và các ngày <strong>Không xét</strong>.
+        </div>
+
+        <!-- Chú thích 4 trường hợp + Không xét -->
+        <div class="bt-legend">
+          <div class="bt-legend-item">
+            <span class="bt-box" style="background: #c0dd97; border: 1px solid #84cc16;"></span>
+            <span><strong>Bất Tương:</strong> Đại cát giá thú (cưới hỏi trăm năm hòa thuận)</span>
+          </div>
+          <div class="bt-legend-item">
+            <span class="bt-box" style="background: #fac775; border: 1px solid #f59e0b;"></span>
+            <span><strong>Dương Tương:</strong> Hại chồng (kỵ nam chủ)</span>
+          </div>
+          <div class="bt-legend-item">
+            <span class="bt-box" style="background: #f0997b; border: 1px solid #ea580c;"></span>
+            <span><strong>Âm Tương:</strong> Hại vợ (kỵ nữ chủ)</span>
+          </div>
+          <div class="bt-legend-item">
+            <span class="bt-box" style="background: #f09595; border: 1px solid #dc2626;"></span>
+            <span><strong>Âm Dương câu Tương:</strong> Hại cả hai (đại kỵ)</span>
+          </div>
+          <div class="bt-legend-item">
+            <span class="bt-box" style="background: #d3d1c7; border: 1px solid #9ca3af;"></span>
+            <span><strong>Không xét:</strong> Bình thường trong tháng</span>
+          </div>
+        </div>
+
+        <!-- 12 Month Tabs Selector -->
+        <div style="display: flex; gap: 0.35rem; overflow-x: auto; padding-bottom: 0.45rem; margin-bottom: 0.75rem;" id="btMonthTabsBar">
+          <!-- Rendered 12 month buttons via JS -->
+        </div>
+
+        <!-- Month Header & Metadata -->
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.65rem;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
+            <h4 style="font-size: 0.96rem; font-weight: 700; color: #1e293b; margin: 0;" id="btActiveMonthTitle">Tháng Giêng</h4>
+            <span style="font-size: 0.78rem; color: #0369a1; font-weight: 600;" id="btActiveMonthRule">Nguyệt Kiến Dần, Nguyệt Yếm Tuất, Yếm Đối Thìn, dùng Kỷ</span>
+          </div>
+          <div style="margin-top: 0.4rem; font-size: 0.78rem; color: #64748b;" id="btActiveMonthStats">
+            Bất Tương: 13 · Dương Tương: 13 · Âm Tương: 10 · Âm Dương câu Tương: 10 · Không xét: 14
+          </div>
+          <div style="margin-top: 0.4rem; font-size: 0.78rem; color: #166534; background: #f0fdf4; padding: 0.35rem 0.55rem; border-radius: 6px; border: 1px dashed #86efac;" id="btActiveMonthBatTuongList">
+            <!-- Danh sách các ngày Bất Tương trong tháng -->
+          </div>
+        </div>
+
+        <!-- 60 Hoa Giáp Table -->
+        <div class="bt-table-wrap">
+          <table class="bt-table" id="bt60Table">
+            <!-- Rendered dynamically via JS -->
+          </table>
+        </div>
+
+        <!-- Selected Cell Inspector / Mini Info Box -->
+        <div id="btCellInspector" style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.6rem 0.75rem; margin-top: 0.75rem; font-size: 0.82rem; line-height: 1.5; color: #78350f;">
+          💡 <em>Mẹo:</em> Nhấp hoặc rê chuột vào bất kỳ ô Can Chi nào trên bảng để xem luận giải ý nghĩa chi tiết theo phép Âm Dương Bất Tương của tháng đó. Ô có viền đỏ đậm là ngày đang được chọn trên Lịch Vạn Niên.
+        </div>
+
+        <!-- Academic Note (Lưu ý khi dùng bảng) -->
+        <div style="margin-top: 0.85rem; font-size: 0.76rem; color: #6b7280; line-height: 1.6; border-top: 1px solid #e5e7eb; padding-top: 0.65rem;">
+          <strong>Lưu ý khi dùng bảng:</strong> Đây là kết quả áp riêng phép <em>Âm Dương Bất Tương</em> trong trạch nhật học (Hiệp Kỷ Biện Phương Thư), chưa đối chiếu Nguyệt Kiến / Nguyệt Phá, Tam Nương, Sát Chủ, Thọ Tử, Kiến Trừ thập nhị thần hay Bát Tự mệnh số của hai bên cô dâu - chú rể — nên kết hợp thêm các tiêu chí đó để chọn ngày cưới hỏi hoàn hảo nhất. Số ngày Bất Tương dao động 12–13 ngày/tháng; Âm Tương và Âm Dương câu Tương luôn cố định 10 ngày/tháng vì các nhóm Yếm hậu Can luôn có 4 can (không có can mùa chèn thêm).
         </div>
       </div>
     </div>
@@ -4111,7 +4354,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.10.1</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.11.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -4558,6 +4801,228 @@
       "Hợi": ["Nhâm", "Giáp"]
     };
 
+    /**
+     * HỆ THỐNG ÂM DƯƠNG BẤT TƯƠNG (60 HOA GIÁP & 12 THÁNG ÂM LỊCH)
+     * Trích dẫn Khâm Định Hiệp Kỷ Biện Phương Thư (Nghĩa Lệ - Âm Dương Bất Tương / Phép Thiên Bảo Lịch)
+     * Mã số: 1: Bất Tương, 2: Dương Tương, 3: Âm Tương, 4: Âm Dương câu Tương, 0: Không xét
+     */
+    const BAT_TUONG_TYPES = {
+      1: {
+        code: 1,
+        key: "bat-tuong",
+        name: "Bất Tương",
+        badgeClass: "badge-bat-tuong",
+        badgeLabel: "✨ Bất Tương (Cát Giá Thú)",
+        title: "Âm Dương Bất Tương – Đại cát cho giá thú, cưới hỏi",
+        meaning: "Đại cát giá thú",
+        desc: "Âm Dương hòa hợp, không tương hại, trăm năm hòa thuận hạnh phúc. Tốt nhất cho việc cưới hỏi, giá thú, dạm ngõ, rước dâu."
+      },
+      2: {
+        code: 2,
+        key: "duong-tuong",
+        name: "Dương Tương",
+        badgeClass: "badge-duong-tuong",
+        badgeLabel: "⚠️ Dương Tương (Kỵ Nam)",
+        title: "Dương Tương – Hại chồng, kỵ nam chủ",
+        meaning: "Hại chồng (Kỵ nam chủ)",
+        desc: "Dương thịnh tương thương, bất lợi cho nam giới (chú rể) trong hôn lễ cưới hỏi."
+      },
+      3: {
+        code: 3,
+        key: "am-tuong",
+        name: "Âm Tương",
+        badgeClass: "badge-am-tuong",
+        badgeLabel: "⚠️ Âm Tương (Kỵ Nữ)",
+        title: "Âm Tương – Hại vợ, kỵ nữ chủ",
+        meaning: "Hại vợ (Kỵ nữ chủ)",
+        desc: "Âm thịnh tương thương, bất lợi cho nữ giới (cô dâu) trong hôn lễ cưới hỏi."
+      },
+      4: {
+        code: 4,
+        key: "cau-tuong",
+        name: "Âm Dương câu Tương",
+        badgeClass: "badge-cau-tuong",
+        badgeLabel: "⛔ Âm Dương câu Tương",
+        title: "Âm Dương câu Tương – Hại cả hai, đại kỵ giá thú",
+        meaning: "Hại cả hai (Đại kỵ)",
+        desc: "Cả Âm và Dương đều tương sát lẫn nhau, bất lợi cho cả hai vợ chồng, kỵ việc cưới hỏi hôn nhân."
+      },
+      0: {
+        code: 0,
+        key: "na",
+        name: "Không xét",
+        badgeClass: "badge-na-tuong",
+        badgeLabel: "⚪ Không xét (Bình thường)",
+        title: "Không xét Bất Tương trong tháng này",
+        meaning: "Không phạm cũng không đắc",
+        desc: "Can Mậu/Kỷ không dùng trong tháng hoặc Chi trùng trục Nguyệt Yếm / Yếm Đối. Xem xét các yếu tố Cát Tinh, Trực và Sao khác."
+      }
+    };
+
+    const BAT_TUONG_MONTHS_CONFIG = {
+      1: {
+        name: "Tháng Giêng",
+        kien: "Dần",
+        yem: "Tuất",
+        doi: "Thìn",
+        dungCan: "Kỷ",
+        ruleDesc: "Nguyệt Kiến Dần, Nguyệt Yếm Tuất, Yếm Đối Thìn, dùng Kỷ",
+        counts: { batTuong: 13, duongTuong: 13, amTuong: 10, cauTuong: 10, na: 14 },
+        map: "331102224403110102444401011104442201113304220201333302022203"
+      },
+      2: {
+        name: "Tháng 2",
+        kien: "Mão",
+        yem: "Dậu",
+        doi: "Mão",
+        dungCan: "Kỷ",
+        ruleDesc: "Nguyệt Kiến Mão, Nguyệt Yếm Dậu, Yếm Đối Mão, dùng Kỷ",
+        counts: { batTuong: 12, duongTuong: 12, amTuong: 10, cauTuong: 10, na: 16 },
+        map: "311002244031110024444011011044422001133042220013333022022033"
+      },
+      3: {
+        name: "Tháng 3",
+        kien: "Thìn",
+        yem: "Thân",
+        doi: "Dần",
+        dungCan: "Kỷ",
+        ruleDesc: "Nguyệt Kiến Thìn, Nguyệt Yếm Thân, Yếm Đối Dần, dùng Kỷ",
+        counts: { batTuong: 13, duongTuong: 13, amTuong: 10, cauTuong: 10, na: 14 },
+        map: "110202440311110244440111010444220101330422220133330222020333"
+      },
+      4: {
+        name: "Tháng 4",
+        kien: "Tỵ",
+        yem: "Mùi",
+        doi: "Sửu",
+        dungCan: "Mậu",
+        ruleDesc: "Nguyệt Kiến Tỵ, Nguyệt Yếm Mùi, Yếm Đối Sửu, dùng Mậu",
+        counts: { batTuong: 13, duongTuong: 13, amTuong: 10, cauTuong: 10, na: 14 },
+        map: "102220403311102044401111104444201110304422201033302222203333"
+      },
+      5: {
+        name: "Tháng 5",
+        kien: "Ngọ",
+        yem: "Ngọ",
+        doi: "Tý",
+        dungCan: "Mậu",
+        ruleDesc: "Nguyệt Kiến Ngọ, Nguyệt Yếm Ngọ, Yếm Đối Tý, dùng Mậu",
+        counts: { batTuong: 12, duongTuong: 12, amTuong: 10, cauTuong: 10, na: 16 },
+        map: "022420033111042044011113004442011310044222031033022224003331"
+      },
+      6: {
+        name: "Tháng 6",
+        kien: "Mùi",
+        yem: "Tỵ",
+        doi: "Hợi",
+        dungCan: "Mậu",
+        ruleDesc: "Nguyệt Kiến Mùi, Nguyệt Yếm Tỵ, Yếm Đối Hợi, dùng Mậu",
+        counts: { batTuong: 13, duongTuong: 13, amTuong: 10, cauTuong: 10, na: 14 },
+        map: "224420331110442040111130204420113310442220331030222240103310"
+      },
+      7: {
+        name: "Tháng 7",
+        kien: "Thân",
+        yem: "Thìn",
+        doi: "Tuất",
+        dungCan: "Mậu",
+        ruleDesc: "Nguyệt Kiến Thân, Nguyệt Yếm Thìn, Yếm Đối Tuất, dùng Mậu",
+        counts: { batTuong: 12, duongTuong: 12, amTuong: 10, cauTuong: 10, na: 16 },
+        map: "224400331102442003111104204401113300442201331004222203103302"
+      },
+      8: {
+        name: "Tháng 8",
+        kien: "Dậu",
+        yem: "Mão",
+        doi: "Dậu",
+        dungCan: "Mậu",
+        ruleDesc: "Nguyệt Kiến Dậu, Nguyệt Yếm Mão, Yếm Đối Dậu, dùng Mậu",
+        counts: { batTuong: 13, duongTuong: 13, amTuong: 10, cauTuong: 10, na: 14 },
+        map: "244010311024442031111044204011133020422013331042222033103022"
+      },
+      9: {
+        name: "Tháng 9",
+        kien: "Tuất",
+        yem: "Dần",
+        doi: "Thân",
+        dungCan: "Mậu",
+        ruleDesc: "Nguyệt Kiến Tuất, Nguyệt Yếm Dần, Yếm Đối Thân, dùng Mậu",
+        counts: { batTuong: 12, duongTuong: 12, amTuong: 10, cauTuong: 10, na: 16 },
+        map: "440310110244440011110444200111330420220133330022220333100222"
+      },
+      10: {
+        name: "Tháng 10",
+        kien: "Hợi",
+        yem: "Sửu",
+        doi: "Mùi",
+        dungCan: "Kỷ",
+        ruleDesc: "Nguyệt Kiến Hợi, Nguyệt Yếm Sửu, Yếm Đối Mùi, dùng Kỷ",
+        counts: { batTuong: 12, duongTuong: 12, amTuong: 10, cauTuong: 10, na: 16 },
+        map: "403301102244400111104444001111304402201133300222203333002222"
+      },
+      11: {
+        name: "Tháng 11",
+        kien: "Tý",
+        yem: "Tý",
+        doi: "Ngọ",
+        dungCan: "Kỷ",
+        ruleDesc: "Nguyệt Kiến Tý, Nguyệt Yếm Tý, Yếm Đối Ngọ, dùng Kỷ",
+        counts: { batTuong: 13, duongTuong: 13, amTuong: 10, cauTuong: 10, na: 14 },
+        map: "033101022444010111044442011113044202011333020222033331022224"
+      },
+      12: {
+        name: "Tháng Chạp",
+        kien: "Sửu",
+        yem: "Hợi",
+        doi: "Tỵ",
+        dungCan: "Kỷ",
+        ruleDesc: "Nguyệt Kiến Sửu, Nguyệt Yếm Hợi, Yếm Đối Tỵ, dùng Kỷ",
+        counts: { batTuong: 12, duongTuong: 12, amTuong: 10, cauTuong: 10, na: 16 },
+        map: "331100224440110110444420011130442200113330220220333310022240"
+      }
+    };
+
+    function getCanChi60Index(canIdx, chiIdx) {
+      for (let i = canIdx; i < 60; i += 10) {
+        if (i % 12 === chiIdx) return i;
+      }
+      return 0;
+    }
+
+    function getBatTuongInfo(lunarMonth, canIdx, chiIdx) {
+      let m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      let cfg = BAT_TUONG_MONTHS_CONFIG[m];
+      let idx60 = getCanChi60Index(canIdx, chiIdx);
+      if (!cfg) {
+        return {
+          ...BAT_TUONG_TYPES[0],
+          canChiIndex: idx60,
+          canChiText: `${CAN[canIdx]} ${CHI[chiIdx]}`,
+          lunarMonth: m,
+          monthName: `Tháng ${m}`,
+          ruleDesc: '',
+          counts: { batTuong: 0, duongTuong: 0, amTuong: 0, cauTuong: 0, na: 0 }
+        };
+      }
+
+      let code = parseInt(cfg.map[idx60], 10);
+      if (isNaN(code) || !BAT_TUONG_TYPES[code]) code = 0;
+      let t = BAT_TUONG_TYPES[code];
+      return {
+        ...t,
+        canChiIndex: idx60,
+        canChiText: `${CAN[canIdx]} ${CHI[chiIdx]}`,
+        lunarMonth: m,
+        monthName: cfg.name,
+        ruleDesc: cfg.ruleDesc,
+        counts: cfg.counts,
+        dungCan: cfg.dungCan,
+        kien: cfg.kien,
+        yem: cfg.yem,
+        doi: cfg.doi
+      };
+    }
+
     // CƠ SỞ DỮ LIỆU THIÊN VĂN 24 TIẾT KHÍ (12 TIẾT & 12 KHÍ / TRUNG KHÍ)
     // Sắp xếp theo trình tự thời gian trong năm Dương lịch từ đầu tháng 1 đến cuối tháng 12
     const SOLAR_TERMS_MASTER = [
@@ -4872,6 +5337,7 @@
       setupTabs();
       setupLogoModal();
       setupLocationModal();
+      setupBatTuongModal();
       initUserLocation();
       setupQuickSelectors();
       setupCalendarControls();
@@ -5117,6 +5583,10 @@
       const hasFestival = allFestNames.length > 0;
       const festTooltip = hasFestival ? allFestNames.join(' • ') : 'Ngày Lễ/Tết';
 
+      // Âm Dương Bất Tương
+      const batTuong = getBatTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      const isBatTuongDay = batTuong.code === 1;
+
       let lunarDisplay = lDay === 1 ? `${lDay}/${lMonth}` : `${lDay}`;
       let lunarClass = lDay === 1 ? 'lunar-num lunar-first' : 'lunar-num';
 
@@ -5127,9 +5597,12 @@
         </div>
         <div class="day-indicators">
           ${star.isHoangDao ? '<span class="hd-dot" title="Ngày Hoàng Đạo"></span>' : '<span></span>'}
+          ${isBatTuongDay ? `<span class="bt-dot" title="${batTuong.title}"></span>` : ''}
           ${hasFestival ? `<span class="fest-dot" title="${festTooltip}"></span>` : ''}
         </div>
       `;
+
+      cell.title = `Dương lịch: ${d}/${m}/${y}\nÂm lịch: ${lDay}/${lMonth} (${dayCanChi.text})\n${star.isHoangDao ? '✨ ' + star.name + ' (Hoàng Đạo)' : 'Hắc Đạo'}\nÂm Dương: ${batTuong.name} (${batTuong.meaning})`;
 
       cell.addEventListener('click', () => {
         document.querySelectorAll('.cal-day-cell').forEach(c => c.classList.remove('selected'));
@@ -5195,6 +5668,27 @@
         badgeContainer.innerHTML = `<span class="badge badge-hoangdao">✨ Hoàng Đạo (${star.name})</span>`;
       } else {
         badgeContainer.innerHTML = `<span class="badge badge-hacdao">🌑 Hắc Đạo (${star.name})</span>`;
+      }
+
+      // Âm Dương Bất Tương (Khâm Định Hiệp Kỷ Biện Phương Thư)
+      const batTuong = getBatTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      const blocBatTuongValEl = document.getElementById('blocBatTuongVal');
+      if (blocBatTuongValEl) {
+        blocBatTuongValEl.innerHTML = `
+          <span class="badge ${batTuong.badgeClass}" title="${batTuong.title}">
+            ${batTuong.badgeLabel}
+          </span>
+          <button type="button" class="btn-lookup-bt" id="btnBlocLookupBT" title="Nhấn để mở bảng 60 Hoa Giáp 12 Tháng Âm Dương Bất Tương">
+            Tra bảng ➔
+          </button>
+        `;
+        const btnLook = document.getElementById('btnBlocLookupBT');
+        if (btnLook) {
+          btnLook.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openBatTuongModal(lMonth, batTuong.canChiIndex);
+          });
+        }
       }
 
       // Trực và Sao
@@ -6762,6 +7256,219 @@
     }
 
     /**
+     * BẢNG TRA CỨU ÂM DƯƠNG BẤT TƯƠNG 60 HOA GIÁP & 12 THÁNG ÂM LỊCH
+     */
+    let batTuongActiveMonth = 1;
+    let batTuongHighlightedIndex = -1;
+
+    function setupBatTuongModal() {
+      const btnOpen = document.getElementById('btnOpenBatTuongModal');
+      if (btnOpen) {
+        btnOpen.addEventListener('click', (e) => {
+          e.stopPropagation();
+          let m = 1;
+          let highlightIdx = -1;
+          if (typeof selectedDate !== 'undefined' && selectedDate) {
+            const [lDay, lMonth, lYear] = convertSolar2Lunar(
+              selectedDate.getDate(),
+              selectedDate.getMonth() + 1,
+              selectedDate.getFullYear()
+            );
+            m = lMonth;
+            const dayCanChi = getDayCanChi(
+              selectedDate.getDate(),
+              selectedDate.getMonth() + 1,
+              selectedDate.getFullYear()
+            );
+            highlightIdx = getCanChi60Index(dayCanChi.canIndex, dayCanChi.chiIndex);
+          }
+          openBatTuongModal(m, highlightIdx);
+        });
+      }
+
+      const closeBtn = document.getElementById('batTuongModalCloseBtn');
+      if (closeBtn) closeBtn.addEventListener('click', closeBatTuongModal);
+
+      const modal = document.getElementById('batTuongModal');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeBatTuongModal();
+        });
+      }
+    }
+
+    function openBatTuongModal(initialMonth = 1, highlightIndex = -1) {
+      const modal = document.getElementById('batTuongModal');
+      if (!modal) return;
+      batTuongActiveMonth = ((parseInt(initialMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      batTuongHighlightedIndex = (highlightIndex >= 0 && highlightIndex < 60) ? highlightIndex : -1;
+      
+      renderBatTuongMonthTabs();
+      renderBatTuongTable(batTuongActiveMonth, batTuongHighlightedIndex);
+      modal.classList.add('active');
+    }
+
+    function closeBatTuongModal() {
+      const modal = document.getElementById('batTuongModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function renderBatTuongMonthTabs() {
+      const bar = document.getElementById('btMonthTabsBar');
+      if (!bar) return;
+      bar.innerHTML = '';
+      for (let m = 1; m <= 12; m++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `bt-month-btn ${m === batTuongActiveMonth ? 'active' : ''}`;
+        btn.textContent = m === 1 ? 'Tháng Giêng' : (m === 12 ? 'Tháng Chạp' : `Tháng ${m}`);
+        btn.addEventListener('click', () => {
+          batTuongActiveMonth = m;
+          renderBatTuongMonthTabs();
+          renderBatTuongTable(batTuongActiveMonth, batTuongHighlightedIndex);
+        });
+        bar.appendChild(btn);
+      }
+    }
+
+    function renderBatTuongTable(month, highlightIndex = -1) {
+      const cfg = BAT_TUONG_MONTHS_CONFIG[month];
+      if (!cfg) return;
+
+      const titleEl = document.getElementById('btActiveMonthTitle');
+      if (titleEl) titleEl.textContent = cfg.name;
+
+      const ruleEl = document.getElementById('btActiveMonthRule');
+      if (ruleEl) ruleEl.textContent = cfg.ruleDesc;
+
+      const statsEl = document.getElementById('btActiveMonthStats');
+      if (statsEl) {
+        statsEl.innerHTML = `
+          <strong style="color: #15803d;">Bất Tương: ${cfg.counts.batTuong}</strong> · 
+          <strong style="color: #b45309;">Dương Tương: ${cfg.counts.duongTuong}</strong> · 
+          <strong style="color: #c2410c;">Âm Tương: ${cfg.counts.amTuong}</strong> · 
+          <strong style="color: #b91c1c;">Âm Dương câu Tương: ${cfg.counts.cauTuong}</strong> · 
+          <span style="color: #64748b;">Không xét: ${cfg.counts.na}</span>
+        `;
+      }
+
+      // Danh sách các ngày Bất Tương trong tháng
+      const btListEl = document.getElementById('btActiveMonthBatTuongList');
+      if (btListEl) {
+        const btDays = [];
+        for (let i = 0; i < 60; i++) {
+          if (cfg.map[i] === '1') {
+            const cIdx = i % 10;
+            const chIdx = i % 12;
+            btDays.push(`${CAN[cIdx]} ${CHI[chIdx]}`);
+          }
+        }
+        btListEl.innerHTML = `
+          <strong>✨ ${cfg.counts.batTuong} Ngày Bất Tương ${cfg.name}:</strong> 
+          <span>${btDays.join(', ')}</span>
+        `;
+      }
+
+      // Render 60 Hoa Giáp Table
+      const table = document.getElementById('bt60Table');
+      if (!table) return;
+
+      // Table Header: STT, Giáp, Ất, Bính, Đinh, Mậu, Kỷ, Canh, Tân, Nhâm, Quý
+      let theadHtml = `
+        <thead>
+          <tr>
+            <th style="width: 50px;">STT</th>
+            ${CAN.map(c => `<th>${c}</th>`).join('')}
+          </tr>
+        </thead>
+      `;
+
+      let tbodyHtml = '<tbody>';
+      for (let r = 0; r < 6; r++) {
+        const sttRange = `${r * 10 + 1}–${(r + 1) * 10}`;
+        tbodyHtml += `<tr><td class="stt">${sttRange}</td>`;
+        for (let c = 0; c < 10; c++) {
+          const idx60 = r * 10 + c;
+          const chiIdx = idx60 % 12;
+          const chiName = CHI[chiIdx];
+          const canChiText = `${CAN[c]} ${chiName}`;
+          const code = parseInt(cfg.map[idx60], 10);
+          const typeInfo = BAT_TUONG_TYPES[code] || BAT_TUONG_TYPES[0];
+          const isHighlight = idx60 === highlightIndex;
+          const cellClass = `${typeInfo.key} ${isHighlight ? 'highlight-current' : ''}`;
+          const cellTitle = `${idx60 + 1}. ${canChiText}: ${typeInfo.name} (${typeInfo.meaning}) — Nhấp xem luận giải`;
+
+          tbodyHtml += `
+            <td class="${cellClass}" 
+                title="${cellTitle}"
+                data-idx="${idx60}"
+                data-code="${code}"
+                data-canchi="${canChiText}">
+              ${chiName}
+            </td>
+          `;
+        }
+        tbodyHtml += `</tr>`;
+      }
+      tbodyHtml += '</tbody>';
+
+      table.innerHTML = theadHtml + tbodyHtml;
+
+      // Attach click and hover events to cells
+      const cells = table.querySelectorAll('tbody td:not(.stt)');
+      cells.forEach(td => {
+        const idx = parseInt(td.getAttribute('data-idx'), 10);
+        const code = parseInt(td.getAttribute('data-code'), 10);
+        const canChiText = td.getAttribute('data-canchi');
+        const typeInfo = BAT_TUONG_TYPES[code] || BAT_TUONG_TYPES[0];
+
+        const updateInspector = () => {
+          const inspector = document.getElementById('btCellInspector');
+          if (inspector) {
+            const isSel = idx === highlightIndex;
+            inspector.innerHTML = `
+              <strong>${idx + 1}. Ngày ${canChiText}</strong> (${cfg.name}): 
+              <span class="badge ${typeInfo.badgeClass}" style="margin: 0 4px; vertical-align: middle;">
+                ${typeInfo.badgeLabel}
+              </span>
+              — <strong>${typeInfo.meaning}</strong>: ${typeInfo.desc}
+              ${isSel ? '<span style="color: #b91c1c; font-weight: 700; margin-left: 6px;">[★ Ngày đang chọn trên Lịch]</span>' : ''}
+            `;
+          }
+        };
+
+        td.addEventListener('click', () => {
+          table.querySelectorAll('td.highlight-current').forEach(c => c.classList.remove('highlight-current'));
+          td.classList.add('highlight-current');
+          batTuongHighlightedIndex = idx;
+          updateInspector();
+        });
+
+        td.addEventListener('mouseenter', updateInspector);
+      });
+
+      // Default inspector text
+      if (highlightIndex >= 0 && highlightIndex < 60) {
+        const cIdx = highlightIndex % 10;
+        const chIdx = highlightIndex % 12;
+        const canChiText = `${CAN[cIdx]} ${CHI[chIdx]}`;
+        const code = parseInt(cfg.map[highlightIndex], 10);
+        const typeInfo = BAT_TUONG_TYPES[code] || BAT_TUONG_TYPES[0];
+        const inspector = document.getElementById('btCellInspector');
+        if (inspector) {
+          inspector.innerHTML = `
+            <strong>${highlightIndex + 1}. Ngày ${canChiText}</strong> (${cfg.name}): 
+            <span class="badge ${typeInfo.badgeClass}" style="margin: 0 4px; vertical-align: middle;">
+              ${typeInfo.badgeLabel}
+            </span>
+            — <strong>${typeInfo.meaning}</strong>: ${typeInfo.desc}
+            <span style="color: #b91c1c; font-weight: 700; margin-left: 6px;">[★ Ngày đang chọn trên Lịch]</span>
+          `;
+        }
+      }
+    }
+
+    /**
      * BÁT TỰ TỨ TRỤ ENGINE
      */
     function setupBattuForm() {
@@ -7685,6 +8392,7 @@
           const dayCanChi = getDayCanChi(d, m, y);
           const star = getDayHoangDao(lMonth, dayCanChi.chiIndex);
           const tietKhi = getDayTietKhi(d, m, y);
+          const batTuong = getBatTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
 
           document.getElementById('convResultHeader').textContent = 'KẾT QUẢ ÂM LỊCH TƯƠNG ỨNG';
           document.getElementById('convResultMain').textContent = 
@@ -7692,7 +8400,7 @@
           document.getElementById('convResultSub').textContent = 
             `Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name})`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Bất Tương: ${batTuong.name} (${batTuong.meaning})`;
         } else {
           const [sDay, sMonth, sYear] = convertLunar2Solar(d, m, y, isLeap);
           if (sDay === 0) {
@@ -7704,6 +8412,7 @@
           const dayCanChi = getDayCanChi(sDay, sMonth, sYear);
           const star = getDayHoangDao(m, dayCanChi.chiIndex);
           const tietKhi = getDayTietKhi(sDay, sMonth, sYear);
+          const batTuong = getBatTuongInfo(m, dayCanChi.canIndex, dayCanChi.chiIndex);
 
           document.getElementById('convResultHeader').textContent = 'KẾT QUẢ DƯƠNG LỊCH TƯƠNG ỨNG';
           document.getElementById('convResultMain').textContent = 
@@ -7711,7 +8420,7 @@
           document.getElementById('convResultSub').textContent = 
             `Can chi: Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name})`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Bất Tương: ${batTuong.name} (${batTuong.meaning})`;
         }
       }
     }
@@ -7719,7 +8428,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.10.1";
+    const APP_VERSION = "v1.11.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

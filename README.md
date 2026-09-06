@@ -106,6 +106,28 @@
   - Bổ sung cột thứ 4 (`.solar-rt-sun-col`) vào khoảng trống trên banner thiên văn thời gian thực (`.solar-realtime-container`), hiển thị đầy đủ thời gian mọc, lặn, độ dài ngày/đêm và huy hiệu tọa độ GPS.
   - Đồng bộ dòng thông số *"Mặt Trời mọc / lặn"* (`#blocSunTimes`) trên Bloc Lịch Vạn Niên hàng ngày theo ngày được chọn.
 
+### 11. Hệ Thống Ngày Âm Dương Bất Tương 60 Hoa Giáp 12 Tháng (Hiệp Kỷ Biện Phương Thư)
+- **Chuẩn Hóa Học Thuật Trạch Nhật Cát Hung**:
+  - Tích hợp toàn diện học thuyết trạch nhật giá thú theo **Thiên Bảo Lịch** được dẫn giải trong tác phẩm kinh điển **Khâm Định Hiệp Kỷ Biện Phương Thư** (quyển 10 - Nghĩa Lệ: Âm Dương Bất Tương).
+  - Phân loại rõ ràng 4 trường hợp cát hung của từng ngày trong 60 Hoa Giáp đối chiếu với từng tháng Âm lịch:
+    1. **Bất Tương**: Âm Dương hòa hợp, không tương xâm tương hại. Là ngày *Đại cát cho giá thú, cưới hỏi, nạp lễ, rước dâu*.
+    2. **Dương Tương**: Khí Dương thái quá tương thương, *hại nam chủ (kỵ chú rể)* trong hôn lễ.
+    3. **Âm Tương**: Khí Âm thái quá tương thương, *hại nữ chủ (kỵ cô dâu)* trong hôn lễ.
+    4. **Âm Dương câu Tương**: Cả Âm và Dương đều tương sát lẫn nhau, *hại cả hai (đại kỵ cưới hỏi)*.
+    5. **Không xét**: Các ngày có Thiên Can/Địa Chi không rơi vào quy tắc sinh khắc của Nguyệt Yếm trong tháng.
+- **Tích Hợp Toàn Diện Vào Lịch Vạn Niên & Bloc Hàng Ngày**:
+  - Tự động nhận diện và hiển thị phân loại Bất Tương của ngày được chọn ngay trên Bloc Lịch Vạn Niên (`#blocBatTuongRow`, `#blocBatTuongVal`) kèm huy hiệu màu sắc trực quan (Xanh lá Bất Tương, Vàng Cam Dương Tương, Cam Đỏ Âm Tương, Đỏ Hồng Âm Dương câu Tương, Xám Không xét).
+  - Điểm chấm xanh lá (`.bt-dot`) hiển thị trên từng ô ngày có tính chất *Bất Tương* trong lưới Lịch Tháng, giúp người dùng dễ dàng nhìn bao quát các ngày cưới hỏi đẹp nhất trong tháng.
+  - Chú thích rõ ràng trong bảng Chú giải Lịch Tháng (`.cal-legend`).
+  - Tích hợp thông tin Bất Tương vào kết quả công cụ Chuyển đổi Âm ⇄ Dương (`#convResultExtra`).
+- **Cửa Sổ Tra Cứu Toàn Diện 60 Hoa Giáp 12 Tháng (`#batTuongModal`)**:
+  - Bảng ma trận 60 Hoa Giáp (10 cột Thiên Can x 6 hàng Lục Giáp) hiển thị toàn bộ 60 ngày đối chiếu với từng tháng Âm lịch.
+  - Thanh chọn nhanh 12 tháng Âm lịch (từ Tháng Giêng đến Tháng Chạp) với thông tin Nguyệt Kiến, Nguyệt Yếm, Yếm Đối và Can lệnh của tháng.
+  - Tự động làm nổi bật (Highlight viền đỏ đậm) ngày đang được chọn trên Lịch Vạn Niên khi mở bảng tra cứu.
+  - Thống kê chi tiết số lượng ngày của từng loại trong tháng (ví dụ: Tháng Giêng có 13 Bất Tương, 13 Dương Tương, 10 Âm Tương, 10 câu Tương, 14 Không xét).
+  - Liệt kê sẵn danh sách tên Can Chi của tất cả các ngày Bất Tương trong tháng để tra cứu tức thì.
+  - Bảng phân tích chi tiết khi nhấp hoặc rê chuột vào từng ô Can Chi.
+
 ---
 
 ## 📱 THIẾT KẾ ĐÁP ỨNG (RESPONSIVE DESIGN)
@@ -133,6 +155,23 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.11.0] - 2026-09-05
+- **Tích Hợp Hệ Thống Ngày Âm Dương Bất Tương 60 Hoa Giáp 12 Tháng (Khâm Định Hiệp Kỷ Biện Phương Thư)**:
+  - **Số Hóa Đầy Đủ 4 Trường Hợp Trạch Nhật Cát Hung Hôn Nhân Giá Thú**:
+    - Bổ sung trọn vẹn cơ sở dữ liệu và thuật toán phân định 4 trường hợp: **Bất Tương** (Đại cát giá thú), **Dương Tương** (Hại nam chủ), **Âm Tương** (Hại nữ chủ), **Âm Dương câu Tương** (Hại cả hai bên), cùng trạng thái **Không xét** theo trục Nguyệt Yếm – Yếm Đối của 12 tháng Âm lịch chuẩn *Khâm Định Hiệp Kỷ Biện Phương Thư*.
+    - Số hóa chính xác toàn bộ ma trận 720 trạng thái (60 Hoa Giáp x 12 Tháng) bằng chuỗi mã hóa hiệu năng cao.
+  - **Tích Hợp Lịch Vạn Niên & Bloc Hàng Ngày**:
+    - Hiển thị dòng thông tin `Âm Dương Bất Tương` trên Bloc Lịch Vạn Niên với huy hiệu màu sắc ngữ nghĩa và nút `Tra bảng ➔` mở nhanh bảng 60 Hoa Giáp.
+    - Đánh dấu chấm xanh lá (`.bt-dot`) trên các ô ngày đạt tiêu chuẩn Bất Tương trong lưới Lịch Tháng và đồng bộ vào chú thích lịch (`.cal-legend`).
+    - Bổ sung nút bấm truy cập nhanh `🌿 Bảng Bất Tương (Tra Cứu ➔)` ngay trên thanh công cụ Lịch Vạn Niên.
+    - Tích hợp thông tin Bất Tương của ngày vào kết quả chuyển đổi Âm - Dương.
+  - **Module Bảng Tra Cứu 60 Hoa Giáp 12 Tháng Độc Quyền (`#batTuongModal`)**:
+    - Bảng ma trận 60 Hoa Giáp trực quan với 10 cột Can và 6 hàng Chi, phân biệt màu sắc rõ nét cho từng trường hợp.
+    - Thanh chuyển đổi 12 tháng mượt mà, hiển thị rõ cấu trúc Nguyệt Kiến, Nguyệt Yếm, Yếm Đối, Can mùa.
+    - Tự động làm nổi bật vị trí ngày đang chọn trên Lịch Vạn Niên và hỗ trợ rê chuột/chạm xem luận giải học thuật từng ngày.
+  - **Số Hóa Phiên Bản v1.11.0**:
+    - Nâng số phiên bản lên `v1.11.0` (Minor release - Bổ sung module tính năng trạch nhật chuyên sâu) trong `package.json`, Header, Footer, Logo Modal và tài liệu `README.md`.
 
 ### [v1.10.1] - 2026-09-05
 - **Tối Ưu Hiển Thị Thời Gian Đêm Trên Giao Diện Điện Thoại & Nâng Cấp Hiệu Năng**:
