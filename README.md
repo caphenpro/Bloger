@@ -7,16 +7,21 @@
 ## 🌟 TỔNG QUAN TÍNH NĂNG CHÍNH
 
 ### 1. Lịch Vạn Niên & Bloc Lịch Hàng Ngày
-- **Lưới Lịch Tháng Toàn Diện**: Hiển thị song song ngày Dương lịch và ngày Âm lịch trên cùng một ô lưới; đánh dấu ngày Sóc (Mùng 1), ngày Rằm (15), ngày Hoàng đạo, ngày chuyển Tiết khí, và các ngày lễ truyền thống Việt Nam / quốc tế.
+- **Lưới Lịch Tháng Toàn Diện**: Hiển thị song song ngày Dương lịch và ngày Âm lịch trên cùng một ô lưới; đánh dấu ngày Sóc (Mùng 1), ngày Rằm (15), ngày Hoàng đạo, ngày chuyển Tiết khí, ngày đắc Quý Nhân Nhị Đức, ngày Âm Dương Bất Tương, và các ngày lễ truyền thống Việt Nam / quốc tế.
 - **Bloc Lịch Chi Tiết**:
   - Thứ trong tuần, ngày Dương lịch, ngày/tháng/năm Âm lịch và năm Can Chi.
   - Can Chi ngày, Can Chi tháng, Can Chi năm, Giờ đầu ngày (Giáp Tý/Bính Tý...).
   - Giờ Hoàng Đạo và Giờ Hắc Đạo trong 12 canh giờ (kèm con giáp và khung giờ chuẩn).
-  - Ngũ hành Nạp Âm của ngày.
-  - Trực (Thập nhị Trực: Kiến, Trừ, Mãn, Bình, Định, Chấp, Phá, Nguy, Thành, Thâu, Khai, Bế).
-  - Sao Nhị Thập Bát Tú (28 vì tinh tú cai quản ngày kèm tính chất Kiết/Hung).
-  - Hướng xuất hành đón Hỷ Thần, Tài Thần, Hạc Thần (tránh đi ngược hướng hung).
-  - Việc nên làm và việc kiêng kỵ trong ngày.
+  - Ngũ hành Nạp Âm của ngày, Tiết khí thiên văn học và thời điểm chuyển tiết tiếp theo (chính xác đến giây).
+  - Thời gian Mặt Trời mọc/lặn, độ dài ngày/đêm theo chuẩn NASA JPL / NOAA.
+  - Hướng xuất hành đón Hỷ Thần, Tài Thần (theo thiên can ngày).
+  - Điểm Sóc tháng và cơ sở tính ngày Mùng 1 Âm lịch.
+  - **Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ theo Trạch Nhật)**: Gộp riêng ở cuối bảng Bloc với 5 phân mục chi tiết:
+    - *Đánh giá ngày*: Hoàng Đạo / Hắc Đạo với tên thần sát trực nhật, việc nên làm (Nghi) & kiêng làm (Kỵ).
+    - *Quý nhân*: Thiên Đức & Nguyệt Đức Quý Nhân với việc phù hợp & việc kiêng cữ (kèm nút tra sao 12 tháng).
+    - *Âm Dương Bất Tương*: Bất Tương, Dương Tương, Âm Tương, Câu Tương (kèm nút tra bảng 60 Hoa Giáp).
+    - *Trực ngày*: 12 Trực với việc nên làm & kiêng cữ tương ứng.
+    - *Sao ngày*: 28 Tú với bản chất Cát/Hung, việc nên làm & đại kỵ.
 - **Điều Hướng Linh Hoạt**: Chọn nhanh Hôm nay, nút Lùi/Tiến tháng, lướt chọn nhanh Năm (1900 - 2100) và Tháng trực quan.
 
 ### 2. Công Cụ Đổi Ngày Âm - Dương
@@ -178,6 +183,22 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.13.0] - 2026-09-06
+- **Tái Cấu Trúc Khối Thông Tin Bloc Lịch & Hợp Nhất Nhóm "Nghi Kỵ Dụng Sự" Chi Tiết**:
+  - **Hợp Nhất 4 Trường Dữ Liệu Quan Trọng Xuống Cuối Bảng Bloc Lịch**:
+    - Di chuyển và gom nhóm toàn diện: *Đánh giá ngày (Hoàng Đạo / Hắc Đạo)*, *Quý nhân (Thiên Đức & Nguyệt Đức)*, *Âm Dương Bất Tương ("Âm Dương Toại")*, cùng *Trực ngày & Sao ngày* xuống cuối bảng thông số Bloc Lịch Vạn Niên.
+    - Tạo lập phân vùng chuyên biệt mang tên **📜 Nghi Kỵ Dụng Sự** (`#blocNghiKySection`) với giao diện thẻ chỉn chu, sắc nét, bố cục khoa học, dễ tra cứu và thân thiện trên cả máy tính lẫn thiết bị di động.
+  - **Luận Giải Chi Tiết Cụ Thể "Nên Làm (Nghi) & Kiêng Làm (Kỵ)" Cho Từng Yếu Tố**:
+    - **1. Đánh giá ngày (Hoàng Đạo / Hắc Đạo)**: Hiển thị cụ thể tên thần sát quản ngày (Thanh Long, Minh Đường, Kim Quỹ, Thiên Hình, Chu Tước, Bạch Hổ...); nêu rõ ý nghĩa cát hung, việc nên làm (Nghi: cưới hỏi, khai trương, xuất hành, cầu tài...) và việc kiêng cữ (Kỵ: kiện tụng, tranh chấp, mạo hiểm...).
+    - **2. Quý nhân Nhị Đức (Thiên Đức & Nguyệt Đức)**: Nêu rõ ngày đắc Thiên Đức (tại Can/Chi nào), Nguyệt Đức (tại Can nào) hoặc Đồng Lâm; phân tích tường tận việc phù hợp nên làm (cầu phúc, hòa giải, đính hôn cưới hỏi, khai trương, động thổ...) và việc kiêng cữ (tranh chấp oán thù, kiện tụng...); tích hợp nút `Tra sao ➔` mở bảng tra cứu 12 tháng.
+    - **3. Âm Dương Bất Tương ("Âm Dương Toại")**: Phân định rõ ngày Bất Tương, Dương Tương, Âm Tương, Câu Tương; chỉ dẫn chi tiết việc nên làm và kiêng cữ trong hôn nhân giá thú; tích hợp nút `Tra bảng ➔` xem ma trận 60 Hoa Giáp 12 tháng.
+    - **4. Thập Nhị Trực (Trực Ngày)**: Phân tích cụ thể từng trực trong 12 Trực (Kiến, Trừ, Mãn, Bình, Định, Chấp, Phá, Nguy, Thành, Thâu, Khai, Bế); nêu rõ việc nên làm (Nghi) và việc kiêng cữ (Kỵ) tương ứng với bản chất Trực.
+    - **5. Nhị Thập Bát Tú (Sao Ngày)**: Tách bạch rõ ràng với Trực; hiển thị đầy đủ tên 28 sao (Giác, Cang, Đê, Phòng, Tâm, Vĩ, Cơ, Đẩu, Ngưu, Nữ...); định tính Cát tú / Hung tú; liệt kê chi tiết việc nên làm (Nghi) và việc đại kỵ (Kỵ).
+  - **Tối Ưu Giao Diện Danh Sách Thuộc Tính Bloc Lịch**:
+    - Danh sách thuộc tính phía trên được tinh gọn mạch lạc, giữ lại các thông số nền tảng (Can Chi ngày/tháng, Nạp Âm, Tiết khí thiên văn, Chuyển tiết kế tiếp, Mặt Trời mọc/lặn, Hướng xuất hành, Điểm Sóc, Cơ sở Mùng 1), giúp người dùng nắm bắt thông tin nhanh chóng mà không bị rối mắt.
+  - **Số Hóa Phiên Bản v1.13.0**:
+    - Nâng số phiên bản lên `v1.13.0` trong `package.json`, Header, Footer, Logo Modal và tài liệu `README.md` tuân thủ nghiêm ngặt quy tắc SemVer và chỉ dẫn dự án.
 
 ### [v1.12.0] - 2026-09-05
 - **Tích Hợp Hệ Thống Cát Tinh Quý Nhân: Thiên Đức & Nguyệt Đức (Trạch Nhật & Bát Tự Tứ Trụ)**:

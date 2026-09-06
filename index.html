@@ -855,6 +855,108 @@
       word-break: break-word;
     }
 
+    /* Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ) trên Bloc Lịch */
+    .bloc-nghi-ky-section {
+      margin-top: 1.15rem;
+      background: #fff;
+      border: 1.5px solid #fed7aa;
+      border-radius: var(--radius-md);
+      box-shadow: 0 2px 8px rgba(180, 83, 9, 0.08);
+      overflow: hidden;
+      text-align: left;
+    }
+    .bloc-nghi-ky-header {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border-bottom: 1.5px solid #fde68a;
+      padding: 0.65rem 0.85rem;
+    }
+    .bloc-nghi-ky-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #78350f;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .bloc-nghi-ky-hint {
+      font-size: 0.72rem;
+      color: #b45309;
+      font-weight: 500;
+    }
+    .bloc-nghi-ky-body {
+      padding: 0.75rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .nghi-ky-card {
+      background: #fffcf8;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: all 0.15s ease;
+    }
+    .nghi-ky-card:hover {
+      border-color: #f59e0b;
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.12);
+    }
+    .nghi-ky-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.15rem;
+      border-bottom: 1px dashed #fef08a;
+      padding-bottom: 0.3rem;
+    }
+    .nghi-ky-card-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .nghi-ky-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
+      font-size: 0.81rem;
+      line-height: 1.5;
+    }
+    .nghi-ky-tag {
+      font-weight: 700;
+      font-size: 0.73rem;
+      padding: 0.12rem 0.45rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nghi-tag {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .ky-tag {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .nghi-ky-text {
+      color: #374151;
+      font-size: 0.8rem;
+    }
+    .nghi-ky-meaning {
+      font-size: 0.74rem;
+      color: #6b7280;
+      font-style: italic;
+      line-height: 1.4;
+      margin-bottom: 0.1rem;
+    }
+
     /* 12 Canh Giờ Hoàng Đạo Table */
     .hours-table {
       width: 100%;
@@ -3310,24 +3412,6 @@
               <!-- Day Meta Details -->
               <div class="bloc-meta-list">
                 <div class="bloc-meta-row">
-                  <span class="bloc-meta-lbl">Đánh giá ngày:</span>
-                  <span class="bloc-meta-val" id="blocHoangDaoBadge">
-                    <span class="badge badge-hoangdao">Ngày Hoàng Đạo (Kim Quỹ)</span>
-                  </span>
-                </div>
-                <div class="bloc-meta-row" id="blocNhiDucRow">
-                  <span class="bloc-meta-lbl">Quý nhân Nhị Đức:</span>
-                  <span class="bloc-meta-val" id="blocNhiDucVal" style="display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0.35rem;">
-                    <span class="badge badge-nhi-duc">Đang tải...</span>
-                  </span>
-                </div>
-                <div class="bloc-meta-row" id="blocBatTuongRow">
-                  <span class="bloc-meta-lbl">Âm Dương Bất Tương:</span>
-                  <span class="bloc-meta-val" id="blocBatTuongVal" style="display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0.35rem;">
-                    <span class="badge badge-bat-tuong">Đang tải...</span>
-                  </span>
-                </div>
-                <div class="bloc-meta-row">
                   <span class="bloc-meta-lbl">Can Chi ngày:</span>
                   <span class="bloc-meta-val" id="blocDayCanChi">Kỷ Mão</span>
                 </div>
@@ -3352,10 +3436,6 @@
                   <span class="bloc-meta-val" id="blocSunTimes" style="font-size: 0.8rem; color: #b45309; font-weight: 600;">--</span>
                 </div>
                 <div class="bloc-meta-row">
-                  <span class="bloc-meta-lbl">Trực / Sao ngày:</span>
-                  <span class="bloc-meta-val" id="blocTrucSao">Trực Bình • Sao Vĩ</span>
-                </div>
-                <div class="bloc-meta-row">
                   <span class="bloc-meta-lbl">Hướng xuất hành:</span>
                   <span class="bloc-meta-val" id="blocHuongXuatHanh">Hỷ Thần: Đông Bắc • Tài Thần: Nam</span>
                 </div>
@@ -3370,6 +3450,21 @@
                 <div class="bloc-meta-row" id="blocFestRow" style="display:none;">
                   <span class="bloc-meta-lbl">Sự kiện / Lễ tết:</span>
                   <span class="bloc-meta-val" id="blocFestText" style="color: var(--primary); font-weight: 700;"></span>
+                </div>
+              </div>
+
+              <!-- Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ Trong Ngày) -->
+              <div class="bloc-nghi-ky-section" id="blocNghiKySection">
+                <div class="bloc-nghi-ky-header">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
+                    <div class="bloc-nghi-ky-title">
+                      <span>📜 Nghi Kỵ Dụng Sự</span>
+                    </div>
+                    <div class="bloc-nghi-ky-hint">Việc nên làm &amp; kiêng cữ theo Trạch Nhật</div>
+                  </div>
+                </div>
+                <div class="bloc-nghi-ky-body" id="blocNghiKyBody">
+                  <!-- Được cập nhật tự động bằng hàm renderNghiKyDungSu() -->
                 </div>
               </div>
             </div>
@@ -4186,7 +4281,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.11.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.13.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -5635,6 +5730,548 @@
     }
 
     /**
+     * DỮ LIỆU LUẬN GIẢI CHI TIẾT NGHI KỴ DỤNG SỰ (TRẠCH NHẬT DỊCH HỌC)
+     */
+    const HOANG_DAO_DETAILS = {
+      "Thanh Long": {
+        type: "Hoàng Đạo",
+        fullName: "Hoàng Đạo (Thanh Long)",
+        meaning: "Rồng xanh bay lượn, đại cát tinh chủ vạn sự hanh thông, công danh thăng tiến.",
+        nghi: "Cưới hỏi, xuất hành, khai trương, cầu tài, nhập trạch, nhậm chức, tế tự cầu phúc, an táng, mưu cầu đại sự.",
+        ky: "Kiện cáo tranh tụng, tranh chấp thị phi, làm việc mờ ám phi pháp."
+      },
+      "Minh Đường": {
+        type: "Hoàng Đạo",
+        fullName: "Hoàng Đạo (Minh Đường)",
+        meaning: "Cung điện sáng sủa, cát tinh chủ quý nhân phò trợ, trí tuệ quang minh minh mẫn.",
+        nghi: "Nhậm chức, thi cử, cầu danh, khai trương, hội họp, giao dịch, động thổ, cưới hỏi, nhập trạch.",
+        ky: "Thưa kiện, làm việc gian tà khuất tất, tranh chấp đất đai."
+      },
+      "Thiên Hình": {
+        type: "Hắc Đạo",
+        fullName: "Hắc Đạo (Thiên Hình)",
+        meaning: "Hình phạt của trời, hung tinh chủ về hình thương, quan tụng, tổn thương đổ máu.",
+        nghi: "Bắt kẻ gian, dẹp loạn, xuất quân phòng ngự, phẫu thuật chữa bệnh nan y, cúng tế giải hạn.",
+        ky: "Khởi công xây dựng, cưới hỏi giá thú, ký kết làm ăn, đi xa, tranh cãi (tránh lao lý, thương tật)."
+      },
+      "Chu Tước": {
+        type: "Hắc Đạo",
+        fullName: "Hắc Đạo (Chu Tước)",
+        meaning: "Chim lửa phương Nam, hung tinh chủ khẩu thiệt, thị phi, kiện tụng, tranh cãi hỏa hoạn.",
+        nghi: "Tế lễ giải oan, diệt trừ sâu bọ thú dữ, dọn dẹp quét tước.",
+        ky: "Khai trương, ký hợp đồng, tiệc tùng ăn mừng, nhập trạch, động thổ (dễ sinh cãi cọ, tai tiếng)."
+      },
+      "Kim Quỹ": {
+        type: "Hoàng Đạo",
+        fullName: "Hoàng Đạo (Kim Quỹ)",
+        meaning: "Rương vàng tủ ngọc, đại cát tinh chủ tài lộc hưng vượng, tích lũy của cải điền sản.",
+        nghi: "Khai trương, mở hàng, cầu tài, gửi tiết kiệm, mua vàng bạc tài sản, cưới hỏi, nhập trạch, ký kết.",
+        ky: "Cho vay mượn lớn, tiêu xài hoang phí, khởi công phá dỡ nhà cửa."
+      },
+      "Kim Đường": {
+        type: "Hoàng Đạo",
+        fullName: "Hoàng Đạo (Kim Đường)",
+        meaning: "Nhà vàng rạng rỡ (Bảo Quang), cát tinh chủ gia đạo an khang, phú quý thịnh vượng.",
+        nghi: "Xây dựng nhà cửa, cưới hỏi, tế tự, nhậm chức, nhập trạch, an cư lạc nghiệp, mở rộng sự nghiệp.",
+        ky: "Kiện tụng, gây thù chuốc oán, cãi cọ thị phi."
+      },
+      "Bạch Hổ": {
+        type: "Hắc Đạo",
+        fullName: "Hắc Đạo (Bạch Hổ)",
+        meaning: "Hổ trắng dữ tợn, đại hung tinh chủ tai nạn đổ máu, tang tóc, bất trắc hiểm nguy.",
+        nghi: "Săn bắt, diệt trừ dịch họa sâu bệnh, trừ tà trừ ác, cúng tế dẹp loạn.",
+        ky: "Khởi công động thổ, an táng, cưới hỏi, xuất hành xa, tham gia mạo hiểm (tránh họa huyết quang)."
+      },
+      "Ngọc Đường": {
+        type: "Hoàng Đạo",
+        fullName: "Hoàng Đạo (Ngọc Đường)",
+        meaning: "Cung ngọc thanh cao, cát tinh chủ văn chương đỗ đạt, thanh nhã quý hiển, quý nhân trợ mệnh.",
+        nghi: "Cầu học, thi cử, kết hôn cưới hỏi, khai trương, nhậm chức, xuất hành, nhập trạch, xây dựng.",
+        ky: "Đào hào đắp lũy, phá dỡ đất cát, các việc thô bạo sát phạt."
+      },
+      "Thiên Lao": {
+        type: "Hắc Đạo",
+        fullName: "Hắc Đạo (Thiên Lao)",
+        meaning: "Nhà giam của trời, hung tinh chủ giam hãm, đình trệ, bế tắc, bất lực khó tiến thoái.",
+        nghi: "Giam giữ phạm nhân, phá dỡ diệt trừ cái xấu, thanh lý đồ cũ tồn đọng.",
+        ky: "Khởi nghiệp, khai trương, cưới hỏi, ký hợp đồng làm ăn, xuất hành đi xa (dễ lâm bế tắc, đình trệ)."
+      },
+      "Huyền Vũ": {
+        type: "Hắc Đạo",
+        fullName: "Hắc Đạo (Huyền Vũ)",
+        meaning: "Rùa rắn phương Bắc, hung tinh chủ trộm cắp, mất mát, tiểu nhân ám hại, tai ương sông nước.",
+        nghi: "Bắt trộm cướp, chống ẩm mốc, gia cố đê điều hàng rào bờ đập.",
+        ky: "Xuất tiền của lớn, đi lại đường thủy, ký kết bí mật, chôn cất, cưới hỏi (đề phòng lừa đảo mất của)."
+      },
+      "Tư Mệnh": {
+        type: "Hoàng Đạo",
+        fullName: "Hoàng Đạo (Tư Mệnh)",
+        meaning: "Quan trông coi phúc thọ tính mệnh nhân gian, cát tinh chủ trường thọ, bình an hỷ lạc.",
+        nghi: "Tế tự, cầu an, trị bệnh, cưới hỏi, khai trương, xuất hành, nhậm chức, nhập trạch, làm việc thiện tích đức.",
+        ky: "Phá mồ mả, săn bắn sát sinh bừa bãi, hủy hoại sinh linh."
+      },
+      "Câu Trận": {
+        type: "Hắc Đạo",
+        fullName: "Hắc Đạo (Câu Trận)",
+        meaning: "Dây dưa trói buộc, hung tinh chủ chậm trễ, trắc trở, kiện tụng đất đai tranh chấp mồ mả.",
+        nghi: "Xây bờ tường rào chắn, đào giếng khơi rãnh, gia cố nền móng.",
+        ky: "Nhập trạch dời nhà, an táng mai táng, ký hợp đồng, cưới hỏi (dễ gặp dây dưa khó dứt, tranh chấp)."
+      }
+    };
+
+    const TRUC_DETAILS = {
+      "Kiến": {
+        fullName: "Trực Kiến (Vạn vật sơ khai)",
+        meaning: "Khởi đầu vạn vật, nguyên khí đâm chồi.",
+        nghi: "Xuất hành, đi xa, xuất quan, yết kiến quý nhân, nhập học thi cử, cầu tài, động thổ khởi công nhẹ.",
+        ky: "Đào mương rãnh, hạ thủy thuyền bè, khai trương phá thổ lớn (vì khí sơ khai còn non nớt)."
+      },
+      "Trừ": {
+        fullName: "Trực Trừ (Tẩy trừ cựu tật)",
+        meaning: "Quét sạch điều xấu cũ, giải trừ tai ương tật ách.",
+        nghi: "Tắm gội chữa bệnh, giải trừ hoạn nạn, trừ khử sâu bọ, dọn dẹp nhà cửa thanh lý đồ cũ, an táng.",
+        ky: "Cưới hỏi giá thú, ký kết giao dịch lớn, mở kho xuất tiền của."
+      },
+      "Mãn": {
+        fullName: "Trực Mãn (Viên mãn sung túc)",
+        meaning: "Đầy ắp sung túc, tài lộc trọn vẹn dồi dào.",
+        nghi: "Cầu tài, khai trương, mở cửa hàng, thu nợ, nạp lễ cưới hỏi, vào nhà mới, xây dựng kho tàng, gieo trồng mùa vụ.",
+        ky: "Xuất hành đi xa, nhậm chức, thưa kiện kiện tụng, chữa bệnh phẫu thuật."
+      },
+      "Bình": {
+        fullName: "Trực Bình (Bằng phẳng an hòa)",
+        meaning: "Bình ổn vững chãi, hóa giải sóng gió thăng trầm.",
+        nghi: "San sửa đường sá, đắp đê điều, xây tường rào, giao tế bang giao, hòa giải tranh chấp, cưới hỏi, tu tạo bình an.",
+        ky: "Đào giếng, khai kênh mương sông rạch, khởi kiện thưa gửi."
+      },
+      "Định": {
+        fullName: "Trực Định (Định vị yên ổn)",
+        meaning: "Yên định lâu bền, nền móng vững chắc không lay chuyển.",
+        nghi: "Đính hôn cưới hỏi, lập giao ước khế ước, làm chuồng trại gia súc, mua sắm điền sản nhà đất, nhậm chức, tế tự.",
+        ky: "Kiện tụng tranh chấp, đi lại đường thủy hiểm trở, chữa bệnh cấp cứu."
+      },
+      "Chấp": {
+        fullName: "Trực Chấp (Chấp pháp nắm giữ)",
+        meaning: "Nắm giữ quy củ, gìn giữ thành quả và kỷ cương tài sản.",
+        nghi: "Đắp đập, xây lũy, gieo hạt trồng trọt, bắt trộm cướp, tế lễ cầu phúc, gìn giữ tài sản gia bảo.",
+        ky: "Dời chỗ ở, chuyển nhà, mở kho xuất tiền bạc lớn, xuất hành đi xa, thưa kiện."
+      },
+      "Phá": {
+        fullName: "Trực Phá (Công phá đổ vỡ)",
+        meaning: "Phá tan chướng ngại cũ, đại kỵ khởi tạo việc mới.",
+        nghi: "Phá bỏ tường cũ, dỡ bỏ công trình hư hỏng, trị bệnh nan y, bắt kẻ ác, diệt trừ sâu mọt hại mùa.",
+        ky: "Cưới hỏi, khai trương, ký hợp đồng, động thổ, nhập trạch (chủ về chia rẽ, đổ vỡ tiêu hao)."
+      },
+      "Nguy": {
+        fullName: "Trực Nguy (Nguy nan bấp bênh)",
+        meaning: "Nguy hiểm cần thận trọng đề phòng giữ mình.",
+        nghi: "Cúng tế cầu an, leo đồi vãn cảnh thanh tao, đắp nền móng, an vị bát hương bàn thờ.",
+        ky: "Đi thuyền vượt sông biển, leo núi cao hiểm trở, cưới hỏi, khai trương, ký kết việc trọng đại."
+      },
+      "Thành": {
+        fullName: "Trực Thành (Đại thành viên mãn)",
+        meaning: "Thành công trọn vẹn, vạn sự hanh thông như ý.",
+        nghi: "Đại cát cho trăm sự: cưới hỏi, khai trương, nhập trạch, động thổ, xuất hành, thi cử, ký kết khế ước, cầu tài.",
+        ky: "Kiện cáo thưa gửi tranh chấp, làm việc tà ác phạm pháp."
+      },
+      "Thâu": {
+        fullName: "Trực Thâu (Thâu liễm thu hoạch)",
+        meaning: "Gặt hái thành quả, thu nạp tích trữ của cải.",
+        nghi: "Thu hoạch mùa màng, thu hồi công nợ, mua sắm tài sản, tích trữ lúa gạo của cải, cưới hỏi, nhập trạch.",
+        ky: "Tang ma mai táng, mở cửa cống thoát nước lớn, xuất tiền cho vay mượn."
+      },
+      "Khai": {
+        fullName: "Trực Khai (Khai thông sáng sủa)",
+        meaning: "Mở mang tươi mới, thông đạt muôn phương.",
+        nghi: "Khai trương, mở cửa hiệu, khởi công xây dựng, nhập học, cưới hỏi, xuất hành, nhập trạch, giao dịch làm ăn lớn.",
+        ky: "Đào mộ an táng, săn bắn sát sinh, làm việc ám muội khuất tất."
+      },
+      "Bế": {
+        fullName: "Trực Bế (Bế tàng tích lũy)",
+        meaning: "Đóng kín cất giữ, tích cốc phòng cơ.",
+        nghi: "Đắp đê đập, xây bờ kè, vá lỗ hổng tường bao, chôn cất an táng, tích trữ bảo quản tài sản lương thực.",
+        ky: "Khai trương, xuất hành đi xa, chữa bệnh mắt tai mũi, nhậm chức, cưới hỏi, mở cổng cửa mới."
+      }
+    };
+
+    const SAO_28_DETAILS = {
+      "Giác": {
+        fullName: "Sao Giác (Giác Mộc Giao)",
+        nature: "Cát tú",
+        nghi: "Thi cử đỗ đạt, hôn thú cưới hỏi, khởi tạo nhà cửa, gieo trồng, xuất hành.",
+        ky: "Tang ma mai táng, đào ao hồ khơi mương rãnh."
+      },
+      "Cang": {
+        fullName: "Sao Cang (Cang Kim Long)",
+        nature: "Hung tú",
+        nghi: "Cắt may y phục, tế thần giải oan, tập luyện võ nghệ rèn binh.",
+        ky: "Cưới hỏi giá thú, khai trương, động thổ xây nhà, an táng (dễ gặp tai bay vạ gió, bất hòa)."
+      },
+      "Đê": {
+        fullName: "Sao Đê (Đê Thổ Lạc)",
+        nature: "Hung tú",
+        nghi: "Xây chuồng trại gia súc, bắt trộm cướp, diệt trừ sâu bọ thú dữ hại mùa.",
+        ky: "Cưới hỏi giá thú, khởi công xây cất, xuất hành đường thủy, ký kết hợp đồng kinh tế lớn."
+      },
+      "Phòng": {
+        fullName: "Sao Phòng (Phòng Nhật Thố)",
+        nature: "Đại Cát tú",
+        nghi: "Khởi công, động thổ, cưới hỏi, khai trương, xuất hành, cầu tài, an táng, nhập trạch bách sự hanh thông.",
+        ky: "Kiện cáo tranh chấp, thưa gửi chốn quan trường."
+      },
+      "Tâm": {
+        fullName: "Sao Tâm (Tâm Nguyệt Hồ)",
+        nature: "Hung tú",
+        nghi: "Tế tự cầu an, đi chữa bệnh, làm việc thiện tích đức giải hạn.",
+        ky: "Cưới hỏi, xuất hành, xây nhà, khai trương, nhậm chức (dễ sinh trắc trở, thị phi, tai ương)."
+      },
+      "Vĩ": {
+        fullName: "Sao Vĩ (Vĩ Hỏa Hổ)",
+        nature: "Đại Cát tú",
+        nghi: "Khởi công xây cất, cưới hỏi giá thú, khai trương, nhập trạch, an táng, cầu tài danh, thăng quan tiến chức.",
+        ky: "Đóng thuyền, đi sông biển mạo hiểm, hạ thủy."
+      },
+      "Cơ": {
+        fullName: "Sao Cơ (Cơ Thủy Báo)",
+        nature: "Cát tú",
+        nghi: "Khởi tạo công trình, cưới hỏi, khai trương, nhập trạch, an táng, cầu tài, tu tạo nhà cửa.",
+        ky: "Kiện tụng tranh chấp, đôi co cãi cọ khẩu thiệt."
+      },
+      "Đẩu": {
+        fullName: "Sao Đẩu (Đẩu Mộc Giải)",
+        nature: "Cát tú",
+        nghi: "Khởi công xây dựng, làm chuồng trại, gieo cấy mùa vụ lúa giống, cắt cỏ, nhập trạch, an táng.",
+        ky: "Xuất hành đường thủy hiểm trở, đóng bè thuyền."
+      },
+      "Ngưu": {
+        fullName: "Sao Ngưu (Ngưu Kim Ngưu)",
+        nature: "Hung tú",
+        nghi: "Cày cấy đồng ruộng, chăn thả gia súc, gieo hạt vụ mùa, an táng cẩn thận.",
+        ky: "Đại kỵ cưới hỏi kết hôn (chủ về trắc trở phân ly), kỵ khai trương, xuất hành đường xa, xây cất nhà cửa."
+      },
+      "Nữ": {
+        fullName: "Sao Nữ (Nữ Thổ Bức)",
+        nature: "Hung tú",
+        nghi: "Cúng lễ trừ tà giải hạn, may vá may mặc, dọn dẹp vệ sinh nhà cửa.",
+        ky: "Cưới hỏi giá thú, khởi công xây dựng, kiện tụng, tranh chấp (dễ gặp khẩu thiệt, hao tài tốn của)."
+      },
+      "Hư": {
+        fullName: "Sao Hư (Hư Nhật Thử)",
+        nature: "Hung tú",
+        nghi: "Tế lễ cầu phúc, đi tu, xuất gia, làm việc từ thiện, an táng người già thọ trường.",
+        ky: "Cưới hỏi, khai trương, động thổ, xuất hành đi xa, dựng cửa mới (chủ về hư hao thất thoát)."
+      },
+      "Nguy": {
+        fullName: "Sao Nguy (Nguy Nguyệt Yến)",
+        nature: "Hung tú",
+        nghi: "Đắp đê đập, xây bờ thành, lợp mái che mưa gió, an vị bàn thờ gia tiên.",
+        ky: "Đi thuyền bè trên sông biển, cưới hỏi, khai trương, leo trèo nơi cao hiểm trở."
+      },
+      "Thất": {
+        fullName: "Sao Thất (Thất Hỏa Trư)",
+        nature: "Cát tú",
+        nghi: "Khởi công xây dựng, cưới hỏi, khai trương, nhập trạch, xuất hành, an táng, mưu cầu danh lợi.",
+        ky: "Kiện tụng, gây gổ tranh cãi chốn đông người."
+      },
+      "Bích": {
+        fullName: "Sao Bích (Bích Thủy Du)",
+        nature: "Cát tú",
+        nghi: "Khởi công, xây cất, cưới hỏi, khai trương, an táng, nhậm chức, xuất hành, cầu tài lộc đại cát.",
+        ky: "Tranh tụng, thưa gửi quan trường."
+      },
+      "Khuê": {
+        fullName: "Sao Khuê (Khuê Mộc Lang)",
+        nature: "Hung tú",
+        nghi: "Đào ao hồ, khơi thông cống rãnh, tế tự giải oan.",
+        ky: "Khai trương, cưới hỏi, động thổ xây nhà cửa lớn, an táng (dễ sinh hao tổn thất tán)."
+      },
+      "Lâu": {
+        fullName: "Sao Lâu (Lâu Kim Cẩu)",
+        nature: "Cát tú",
+        nghi: "Khởi công dựng nhà, cưới hỏi, khai trương, nhập trạch, an táng, xuất hành, gieo cấy mùa vụ.",
+        ky: "Tranh chấp kiện tụng đất đai tài sản."
+      },
+      "Vị": {
+        fullName: "Sao Vị (Vị Thổ Dĩ)",
+        nature: "Cát tú",
+        nghi: "Khởi công xây dựng, làm kho chứa lương thực của cải, cưới hỏi, khai trương, xuất hành, cầu tài, an táng.",
+        ky: "Kiện tụng thưa gửi, gây hấn tranh chấp."
+      },
+      "Mão": {
+        fullName: "Sao Mão (Mão Nhật Kê)",
+        nature: "Hung tú",
+        nghi: "Tế tự trừ tà, săn bắt, bắt trộm cướp, diệt sâu bọ hại mùa.",
+        ky: "Cưới hỏi, khai trương, động thổ, xuất hành đi xa, an táng (dễ gặp điều tai bay vạ gió)."
+      },
+      "Tất": {
+        fullName: "Sao Tất (Tất Nguyệt Ô)",
+        nature: "Cát tú",
+        nghi: "Khởi công làm nhà, cưới hỏi, khai trương, xuất hành, an táng, xây cất, cầu công danh sự nghiệp.",
+        ky: "Kiện tụng thưa gửi."
+      },
+      "Chủy": {
+        fullName: "Sao Chủy (Chủy Hỏa Hầu)",
+        nature: "Hung tú",
+        nghi: "Cúng bái trừ tà, săn bắt sâu bọ thú hại hoa màu.",
+        ky: "Cưới hỏi, khai trương, động thổ, nhậm chức, an táng, nhập trạch (dễ gặp tranh chấp kiện thưa bất hòa)."
+      },
+      "Sâm": {
+        fullName: "Sao Sâm (Sâm Thủy Viên)",
+        nature: "Cát tú",
+        nghi: "Khởi công xây dựng, cưới hỏi, khai trương, xuất hành, an táng, lập giao ước mua bán, cầu tài lộc.",
+        ky: "Đi thuyền vượt sông biển nguy hiểm."
+      },
+      "Tỉnh": {
+        fullName: "Sao Tỉnh (Tỉnh Mộc Hãn)",
+        nature: "Cát tú",
+        nghi: "Đào giếng, khơi mương rãnh, tế tự cầu an, an táng, xây đắp tu tạo nhà cửa.",
+        ky: "Cưới hỏi rình rang, xuất tiền bạc lớn không rõ mục đích."
+      },
+      "Quỷ": {
+        fullName: "Sao Quỷ (Quỷ Kim Dương)",
+        nature: "Hung tú",
+        nghi: "Tế tự, cầu phúc giải hạn, chữa bệnh, an táng chôn cất.",
+        ky: "Cưới hỏi giá thú, khai trương, động thổ, làm nhà, xuất hành đi xa (đại hung cho hỷ sự và khởi nghiệp)."
+      },
+      "Liễu": {
+        fullName: "Sao Liễu (Liễu Thổ Chương)",
+        nature: "Hung tú",
+        nghi: "Tế thần cầu an, trừ tai dịch sâu bệnh, an táng.",
+        ky: "Cưới hỏi giá thú, khai trương, khởi công làm nhà, xuất hành xa (chủ về trắc trở phân tán)."
+      },
+      "Tinh": {
+        fullName: "Sao Tinh (Tinh Nhật Mã)",
+        nature: "Hung tú",
+        nghi: "Xây chuồng trại, gieo trồng, chăn nuôi gia súc gia cầm.",
+        ky: "Cưới hỏi, an táng, nhập trạch, làm nhà lớn (dễ gặp tai ương bất ngờ trắc trở)."
+      },
+      "Trương": {
+        fullName: "Sao Trương (Trương Nguyệt Lộc)",
+        nature: "Cát tú",
+        nghi: "Khởi công, cưới hỏi, khai trương, xuất hành, nhập trạch, nhậm chức, cầu tài danh, an táng.",
+        ky: "Kiện tụng, tranh chấp thị phi."
+      },
+      "Dực": {
+        fullName: "Sao Dực (Dực Hỏa Xà)",
+        nature: "Cát tú",
+        nghi: "Đi thi, xuất hành, dời chỗ ở, nhập trạch, cưới hỏi, kinh doanh buôn bán, an táng trăm sự hanh thông.",
+        ky: "Kiện tụng, tranh đoạt quyền lực."
+      },
+      "Chẩn": {
+        fullName: "Sao Chẩn (Chẩn Thủy Dẫn)",
+        nature: "Đại Cát tú",
+        nghi: "Khởi công xây dựng, cưới hỏi, khai trương, nhập trạch, xuất hành, nhậm chức, an táng bách sự hanh thông.",
+        ky: "Khởi kiện tranh chấp thị phi."
+      }
+    };
+
+    /**
+     * RENDER NHÓM NGHI KỴ DỤNG SỰ (VIỆC NÊN LÀM & KIÊNG CỮ TRONG NGÀY)
+     * Gộp: Đánh giá ngày (Hoàng Đạo/Hắc Đạo), Quý nhân (Nhị Đức), Âm Dương Bất Tương, Trực ngày & Sao ngày
+     */
+    function renderNghiKyDungSu(lunarMonth, dayCanChi, jd) {
+      const bodyEl = document.getElementById('blocNghiKyBody');
+      if (!bodyEl) return;
+
+      // 1. Đánh giá ngày: Hoàng Đạo / Hắc Đạo
+      const star = getDayHoangDao(lunarMonth, dayCanChi.chiIndex);
+      const hdDetail = HOANG_DAO_DETAILS[star.name] || {
+        type: star.isHoangDao ? "Hoàng Đạo" : "Hắc Đạo",
+        fullName: `${star.isHoangDao ? "Hoàng Đạo" : "Hắc Đạo"} (${star.name})`,
+        meaning: star.isHoangDao ? "Cát tinh chiếu mệnh, vạn sự thuận lợi." : "Hung tinh chiếu mệnh, cần cẩn trọng phòng ngừa.",
+        nghi: "Tiến hành công việc theo lịch biểu.",
+        ky: "Tránh các hành vi tranh cãi, mạo hiểm."
+      };
+      const hdBadgeClass = star.isHoangDao ? "badge-hoangdao" : "badge-hacdao";
+      const hdIcon = star.isHoangDao ? "✨" : "🌑";
+
+      // 2. Quý nhân Nhị Đức (Thiên Đức & Nguyệt Đức)
+      const nhiDuc = getNhiDucInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      let ndTitle = "";
+      let ndNghi = "";
+      let ndKy = "";
+      if (nhiDuc.status === "dong_lam") {
+        ndTitle = "✨ Thiên Nguyệt Nhị Đức Đồng Lâm (Đại Phúc Quý)";
+        ndNghi = "Đại cát vô thượng cho trăm sự: cưới hỏi giá thú, khai trương, động thổ, xuất hành, nhậm chức, tế tự cầu an, an cư. Năng lực cát tinh tối thượng hóa giải bách sát hung thần.";
+        ndKy = "Khởi tâm bất chính, lừa gạt dối trá, tranh đoạt tư lợi, làm việc phi pháp.";
+      } else if (nhiDuc.status === "thien_duc") {
+        ndTitle = `⭐ Thiên Đức Quý Nhân (${nhiDuc.targetType === 'can' ? 'Can ' : 'Chi '}${nhiDuc.targetName})`;
+        ndNghi = "Cầu phúc, tế tự, giải trừ tai ách, hòa giải hiềm khích, đính hôn cưới hỏi, xuất hành, khai trương, động thổ, nhậm chức, kết giao bằng hữu quý nhân.";
+        ndKy = "Thưa kiện kiện tụng, tranh chấp thị phi, tạo oán kết thù.";
+      } else if (nhiDuc.status === "nguyet_duc") {
+        ndTitle = `🌙 Nguyệt Đức Quý Nhân (Can ${nhiDuc.targetName})`;
+        ndNghi = "Khai trương buôn bán, ký kết giao dịch, cầu tài lộc, đính hôn cưới hỏi, xuất hành, hóa giải khẩu thiệt điều tiếng, an gia định cư.";
+        ndKy = "Tranh cãi hiềm khích, mưu hại người khác, làm việc trái luân thường đạo lý.";
+      } else {
+        ndTitle = "⚪ Chưa đắc Nhị Đức Quý Nhân";
+        ndNghi = "Tiến hành các công việc theo lịch biểu thường nhật, kết hợp xem Hoàng Đạo, Trực và Sao để chọn việc.";
+        ndKy = "Tránh chủ quan mạo hiểm khi ngày có hung tinh khác xuất hiện.";
+      }
+
+      // 3. Âm Dương Bất Tương
+      const batTuong = getBatTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      let btTitle = "";
+      let btNghi = "";
+      let btKy = "";
+      if (batTuong.type === "bat_tuong") {
+        btTitle = "✨ Ngày Âm Dương Bất Tương (Đại Cát Hôn Nhân)";
+        btNghi = "Đại cát cho hôn nhân giá thú: dạm ngõ, ăn hỏi, lễ cưới, đón dâu, nạp tài, hợp cẩn, xuất hành, cầu tài, trăm năm hòa hợp hạnh phúc.";
+        btKy = "Các việc tang ma bại hoại cấm kỵ.";
+      } else if (batTuong.type === "duong_tuong") {
+        btTitle = "⚠️ Ngày Dương Tương (Kỵ Nam Giới / Chú Rể)";
+        btNghi = "Công việc nội trợ gia đạo của nữ giới, học tập, giao dịch kinh tế thường nhật, tu phúc bồi đức.";
+        btKy = "Kiêng cưới hỏi hôn lễ (đặc biệt kỵ nạp rể, bất lợi cho chú rể / nam nhân).";
+      } else if (batTuong.type === "am_tuong") {
+        btTitle = "⚠️ Ngày Âm Tương (Kỵ Nữ Giới / Cô Dâu)";
+        btNghi = "Công việc bên ngoài xã hội, kinh doanh xuất hành thông thường của nam giới, tu dưỡng tâm tính.";
+        btKy = "Kiêng cưới hỏi hôn lễ (đặc biệt kỵ rước dâu, nạp dâu, bất lợi cho cô dâu / nữ nhân).";
+      } else if (batTuong.type === "cau_tuong") {
+        btTitle = "🚫 Ngày Âm Dương Câu Tương (Đại Kỵ Giá Thú)";
+        btNghi = "Chỉ nên làm các công việc thường nhật bình dị, tu sửa nhỏ, dọn dẹp nhà cửa vệ sinh.";
+        btKy = "Tuyệt đối tránh cưới hỏi hôn thú, nạp thái, kết hôn; tránh xuất hành mưu sự lớn liên quan hai phái.";
+      } else {
+        btTitle = "⚪ Ngày Bình Hòa (Không xét Bất Tương)";
+        btNghi = "Làm các công việc thường nhật, kết hợp xem Trực và Sao để chọn giờ tốt xuất hành.";
+        btKy = "Không có điều đại kỵ riêng về Bất Tương.";
+      }
+
+      // 4. Thập Nhị Trực
+      const { truc, sao } = getDayTrucVaSao(lunarMonth, dayCanChi.chiIndex, jd);
+      const trucDetail = TRUC_DETAILS[truc] || {
+        fullName: `Trực ${truc}`,
+        meaning: "",
+        nghi: "Làm các việc theo lịch biểu.",
+        ky: "Tránh việc mạo hiểm bất cẩn."
+      };
+
+      // 5. Nhị Thập Bát Tú
+      const saoDetail = SAO_28_DETAILS[sao] || {
+        fullName: `Sao ${sao}`,
+        nature: "Bình tú",
+        nghi: "Làm việc theo kế hoạch.",
+        ky: "Tránh việc phiêu lưu rủi ro."
+      };
+
+      bodyEl.innerHTML = `
+        <!-- 1. Đánh giá ngày: Hoàng Đạo / Hắc Đạo -->
+        <div class="nghi-ky-card">
+          <div class="nghi-ky-card-head">
+            <span class="nghi-ky-card-title">
+              <span class="badge ${hdBadgeClass}">${hdIcon} ${hdDetail.fullName}</span>
+            </span>
+            <span class="badge" style="font-size: 0.72rem; background: ${star.isHoangDao ? '#ecfdf5' : '#fef2f2'}; color: ${star.isHoangDao ? '#065f46' : '#991b1b'}; font-weight: 600;">
+              ${star.isHoangDao ? 'Ngày Cát Lợi' : 'Ngày Cần Thận Trọng'}
+            </span>
+          </div>
+          <div class="nghi-ky-meaning">${hdDetail.meaning}</div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag nghi-tag">🟢 Nên làm (Nghi):</span>
+            <span class="nghi-ky-text">${hdDetail.nghi}</span>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag ky-tag">🔴 Kiêng cữ (Kỵ):</span>
+            <span class="nghi-ky-text">${hdDetail.ky}</span>
+          </div>
+        </div>
+
+        <!-- 2. Quý Nhân Nhị Đức -->
+        <div class="nghi-ky-card">
+          <div class="nghi-ky-card-head">
+            <span class="nghi-ky-card-title">
+              <span class="badge ${nhiDuc.badgeClass}">${ndTitle}</span>
+            </span>
+            <button type="button" class="btn-lookup-nd" id="btnBlocLookupND" title="Nhấn để mở bảng tra cứu sao Thiên Đức & Nguyệt Đức 12 tháng">
+              Tra sao ➔
+            </button>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag nghi-tag">🟢 Phù hợp làm gì:</span>
+            <span class="nghi-ky-text">${ndNghi}</span>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag ky-tag">🔴 Việc kiêng cữ:</span>
+            <span class="nghi-ky-text">${ndKy}</span>
+          </div>
+        </div>
+
+        <!-- 3. Âm Dương Bất Tương -->
+        <div class="nghi-ky-card">
+          <div class="nghi-ky-card-head">
+            <span class="nghi-ky-card-title">
+              <span class="badge ${batTuong.badgeClass}">${btTitle}</span>
+            </span>
+            <button type="button" class="btn-lookup-bt" id="btnBlocLookupBT" title="Nhấn để mở bảng 60 Hoa Giáp 12 Tháng Âm Dương Bất Tương">
+              Tra bảng ➔
+            </button>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag nghi-tag">🟢 Nên làm (Nghi):</span>
+            <span class="nghi-ky-text">${btNghi}</span>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag ky-tag">🔴 Kiêng cữ (Kỵ):</span>
+            <span class="nghi-ky-text">${btKy}</span>
+          </div>
+        </div>
+
+        <!-- 4. Thập Nhị Trực -->
+        <div class="nghi-ky-card">
+          <div class="nghi-ky-card-head">
+            <span class="nghi-ky-card-title">
+              <span class="badge" style="background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe;">📌 ${trucDetail.fullName}</span>
+            </span>
+            <span style="font-size: 0.72rem; color: #64748b; font-style: italic;">${trucDetail.meaning}</span>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag nghi-tag">🟢 Nên làm (Nghi):</span>
+            <span class="nghi-ky-text">${trucDetail.nghi}</span>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag ky-tag">🔴 Kiêng cữ (Kỵ):</span>
+            <span class="nghi-ky-text">${trucDetail.ky}</span>
+          </div>
+        </div>
+
+        <!-- 5. Nhị Thập Bát Tú -->
+        <div class="nghi-ky-card">
+          <div class="nghi-ky-card-head">
+            <span class="nghi-ky-card-title">
+              <span class="badge" style="background: #faf5ff; color: #6b21a8; border: 1px solid #e9d5ff;">⭐ ${saoDetail.fullName}</span>
+            </span>
+            <span class="badge" style="font-size: 0.72rem; background: ${saoDetail.nature.includes('Cát') ? '#ecfdf5' : '#fef2f2'}; color: ${saoDetail.nature.includes('Cát') ? '#065f46' : '#991b1b'}; font-weight: 600;">
+              ${saoDetail.nature}
+            </span>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag nghi-tag">🟢 Nên làm (Nghi):</span>
+            <span class="nghi-ky-text">${saoDetail.nghi}</span>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag ky-tag">🔴 Kiêng cữ (Kỵ):</span>
+            <span class="nghi-ky-text">${saoDetail.ky}</span>
+          </div>
+        </div>
+      `;
+
+      // Gán sự kiện mở modal cho các nút bấm tra cứu
+      const btnLookND = document.getElementById('btnBlocLookupND');
+      if (btnLookND) {
+        btnLookND.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openNhiDucModal(lunarMonth);
+        });
+      }
+
+      const btnLookBT = document.getElementById('btnBlocLookupBT');
+      if (btnLookBT) {
+        btnLookBT.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openBatTuongModal(lunarMonth, batTuong.canChiIndex);
+        });
+      }
+    }
+
+    /**
      * QUẢN LÝ GIAO DIỆN & TRẠNG THÁI ỨNG DỤNG
      */
     let currentDate = new Date();
@@ -5983,63 +6620,14 @@
         blocSunTimesEl.innerHTML = `🌅 <strong>${selSun.riseStr}</strong> • 🌇 <strong>${selSun.setStr}</strong> <span style="font-size: 0.74rem; color: #64748b; font-weight: normal; margin-left: 2px;">(Ngày dài ${selSun.dayLenStr} • Đêm ${selSun.nightLenStr})</span>`;
       }
 
-      // Hoàng Đạo / Hắc Đạo
-      const star = getDayHoangDao(lMonth, dayCanChi.chiIndex);
-      const badgeContainer = document.getElementById('blocHoangDaoBadge');
-      if (star.isHoangDao) {
-        badgeContainer.innerHTML = `<span class="badge badge-hoangdao">✨ Hoàng Đạo (${star.name})</span>`;
-      } else {
-        badgeContainer.innerHTML = `<span class="badge badge-hacdao">🌑 Hắc Đạo (${star.name})</span>`;
-      }
-
-      // Quý Nhân Nhị Đức (Thiên Đức & Nguyệt Đức)
-      const nhiDuc = getNhiDucInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
-      const blocNhiDucValEl = document.getElementById('blocNhiDucVal');
-      if (blocNhiDucValEl) {
-        blocNhiDucValEl.innerHTML = `
-          <span class="badge ${nhiDuc.badgeClass}" title="${nhiDuc.summaryTitle}">
-            ${nhiDuc.badgeLabel}
-          </span>
-          <button type="button" class="btn-lookup-nd" id="btnBlocLookupND" title="Nhấn để mở bảng tra cứu sao Thiên Đức & Nguyệt Đức 12 tháng">
-            Tra sao ➔
-          </button>
-        `;
-        const btnLookND = document.getElementById('btnBlocLookupND');
-        if (btnLookND) {
-          btnLookND.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openNhiDucModal(lMonth);
-          });
-        }
-      }
-
-      // Âm Dương Bất Tương (Khâm Định Hiệp Kỷ Biện Phương Thư)
-      const batTuong = getBatTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
-      const blocBatTuongValEl = document.getElementById('blocBatTuongVal');
-      if (blocBatTuongValEl) {
-        blocBatTuongValEl.innerHTML = `
-          <span class="badge ${batTuong.badgeClass}" title="${batTuong.title}">
-            ${batTuong.badgeLabel}
-          </span>
-          <button type="button" class="btn-lookup-bt" id="btnBlocLookupBT" title="Nhấn để mở bảng 60 Hoa Giáp 12 Tháng Âm Dương Bất Tương">
-            Tra bảng ➔
-          </button>
-        `;
-        const btnLook = document.getElementById('btnBlocLookupBT');
-        if (btnLook) {
-          btnLook.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openBatTuongModal(lMonth, batTuong.canChiIndex);
-          });
-        }
-      }
-
-      // Trực và Sao
-      const { truc, sao } = getDayTrucVaSao(lMonth, dayCanChi.chiIndex, dayCanChi.jd);
-      document.getElementById('blocTrucSao').textContent = `Trực ${truc} • Sao ${sao}`;
-
       // Hướng xuất hành
-      document.getElementById('blocHuongXuatHanh').textContent = getHuongXuatHanh(dayCanChi.canIndex);
+      const blocHuongXuatHanhEl = document.getElementById('blocHuongXuatHanh');
+      if (blocHuongXuatHanhEl) {
+        blocHuongXuatHanhEl.textContent = getHuongXuatHanh(dayCanChi.canIndex);
+      }
+
+      // Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ theo Trạch Nhật)
+      renderNghiKyDungSu(lMonth, dayCanChi, dayCanChi.jd);
 
       // Điểm Sóc và Cơ sở tính Mùng 1 Âm lịch
       const socInfo = getNewMoonDetailsForDate(d, m, y, 7);
@@ -9100,7 +9688,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.12.0";
+    const APP_VERSION = "v1.13.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
