@@ -128,6 +128,29 @@
   - Liệt kê sẵn danh sách tên Can Chi của tất cả các ngày Bất Tương trong tháng để tra cứu tức thì.
   - Bảng phân tích chi tiết khi nhấp hoặc rê chuột vào từng ô Can Chi.
 
+### 12. Hệ Thống Sao Cát Tinh Quý Nhân: Thiên Đức & Nguyệt Đức (Trạch Nhật & Bát Tự Tứ Trụ)
+- **Cơ Sở Dịch Học & Trạch Nhật Cổ Truyền (Hiệp Kỷ Biện Phương Thư & Tam Mệnh Thông Hội)**:
+  - **Thiên Đức Quý Nhân**: Đức của Trời cao, lấy ngũ hành tứ sinh và quái khí Dịch học của 12 tháng làm gốc. Tháng 1 Đinh, 2 Thân, 3 Nhâm, 4 Tân, 5 Hợi, 6 Giáp, 7 Quý, 8 Dần, 9 Bính, 10 Ất, 11 Tỵ, 12 Canh. Chủ về phúc đức che chở, chuyển nguy thành an, giải hung sát bách sự thuận hòa.
+  - **Nguyệt Đức Quý Nhân**: Phúc trạch của Trăng, khởi từ Dương can của Tam hợp cục ngũ hành 12 tháng: Dần Ngọ Tuất nguyệt kiến Bính, Hợi Mão Mùi nguyệt kiến Giáp, Thân Tý Thìn nguyệt kiến Nhâm, Tỵ Dậu Sửu nguyệt kiến Canh. Chủ về phúc ấm âm đức, hòa nhã, hóa giải quan phi khẩu thiệt kiện tụng.
+  - **Thiên Nguyệt Nhị Đức Đồng Lâm**: Những ngày/mệnh cục đắc cả Thiên Đức và Nguyệt Đức hội tụ (đặc biệt các ngày đắc cả hai hoặc trụ ngày tọa Nhị Đức) là ngày đại cát vô thượng trong Trạch Nhật, bách sát quy phục, cưới hỏi, khai trương, động thổ, xuất hành đại cát.
+- **Tích Hợp Toàn Diện Vào Lịch Vạn Niên & Bloc Hàng Ngày**:
+  - Tự động tra cứu và hiển thị trạng thái Quý Nhân của ngày trên Bloc Lịch Vạn Niên (`#blocNhiDucRow`, `#blocNhiDucVal`) với huy hiệu màu sắc trực quan (Vàng kim đậm cho Nhị Đức, Hổ phách cho Thiên Đức, Xanh ngọc cho Nguyệt Đức) và nút `Tra sao ➔`.
+  - Đánh dấu chấm màu hổ phách vàng cam (`.nd-dot`) trên từng ô ngày có sao Thiên Đức hoặc Nguyệt Đức trong lưới Lịch Tháng.
+  - Chú thích rõ ràng trong bảng Chú giải Lịch Tháng (`.cal-legend`).
+  - Bổ sung nút bấm truy cập nhanh `✨ Tra Cứu Thiên Đức & Nguyệt Đức (Tra Cứu ➔)` trên thanh công cụ Lịch Vạn Niên.
+  - Tích hợp thông tin Quý Nhân vào công cụ Chuyển đổi Âm ⇄ Dương (`#convResultExtra`).
+- **Module Bảng Tra Cứu & Luận Giải 12 Tháng Âm Lịch (`#nhiDucModal`)**:
+  - Bảng tổng hợp đối chiếu vị trí sao Thiên Đức và Nguyệt Đức theo từng tháng Âm lịch (Tháng Giêng đến Tháng Chạp).
+  - Thống kê chi tiết các ngày cụ thể trong 60 Hoa Giáp đắc Thiên Đức, Nguyệt Đức hoặc hội tụ cả hai sao.
+  - Hộp thông tin luận giải theo tháng với khẩu quyết cổ truyền Dịch học, giải nghĩa Tam hợp cục và phân tích ngày được chọn trên Lịch Vạn Niên theo thời gian thực.
+- **Tích Hợp Sâu Vào Bát Tự Tứ Trụ**:
+  - Thẩm định sự hiện diện của Thiên Đức và Nguyệt Đức trên cả 4 Trụ (Năm, Tháng, Ngày, Giờ) đối chiếu với Trụ Tháng (Tiết Lệnh thiên văn).
+  - Thẻ nhận diện Thần Sát Cát Tinh (`#btThanSatNhiDucCard`, `#btNhiDucBadge`, `#btNhiDucDesc`) luận đoán tác động của Nhị Đức đối với bản mệnh:
+    - *Thiên Nguyệt Nhị Đức Tọa Thân* (Nhật Chủ tọa Quý Nhân).
+    - *Đắc Cả Thiên Đức & Nguyệt Đức* trong tứ trụ.
+    - *Đắc Thiên Đức Quý Nhân* / *Đắc Nguyệt Đức Quý Nhân*.
+    - Hướng dẫn kích hoạt Quý Nhân qua Đại Vận, Lưu Niên khi nguyên cục chưa đắc.
+
 ---
 
 ## 📱 THIẾT KẾ ĐÁP ỨNG (RESPONSIVE DESIGN)
@@ -155,6 +178,26 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.12.0] - 2026-09-05
+- **Tích Hợp Hệ Thống Cát Tinh Quý Nhân: Thiên Đức & Nguyệt Đức (Trạch Nhật & Bát Tự Tứ Trụ)**:
+  - **Thuật Toán & Cơ Sở Dịch Học Quý Nhân Chuẩn Xác 12 Tháng**:
+    - Số hóa trọn vẹn quy tắc xác định Thiên Đức Quý Nhân (ngũ hành tứ sinh & quái khí 12 tháng) và Nguyệt Đức Quý Nhân (Dương can Tam hợp cục ngũ hành 12 tháng) theo kinh điển *Khâm Định Hiệp Kỷ Biện Phương Thư* và *Tam Mệnh Thông Hội*.
+    - Thuật toán `getNhiDucInfo(lunarMonth, canIdx, chiIdx)` tính toán và phân loại chính xác: *Thiên Nguyệt Nhị Đức Đồng Lâm* (đại cát vô thượng), *Thiên Đức Quý Nhân*, *Nguyệt Đức Quý Nhân*, và trạng thái bình thường.
+  - **Tích Hợp Trực Quan Vào Lịch Vạn Niên & Bloc Hàng Ngày**:
+    - Hiển thị dòng thông tin Quý Nhân trên Bloc Lịch Vạn Niên (`#blocNhiDucRow`) với huy hiệu màu sắc sang trọng và nút `Tra sao ➔` tương tác mở bảng 12 tháng.
+    - Đánh dấu chấm màu hổ phách vàng cam (`.nd-dot`) trên các ô ngày có Thiên Đức hoặc Nguyệt Đức trong lưới Lịch Tháng, đồng bộ trực tiếp vào tooltip và bảng Chú giải Lịch (`.cal-legend`).
+    - Nút truy cập nhanh `✨ Tra Cứu Thiên Đức & Nguyệt Đức (Tra Cứu ➔)` ngay trên thanh công cụ Lịch Tháng.
+    - Đồng bộ hiển thị Quý Nhân trong công cụ chuyển đổi Âm - Dương.
+  - **Module Bảng Tra Cứu & Luận Giải Sao 12 Tháng Âm Lịch (`#nhiDucModal`)**:
+    - Cửa sổ Modal tương tác với thanh chọn 12 tháng mượt mà (kèm Nguyệt kiến tương ứng: Tháng Giêng Kiến Dần đến Tháng Chạp Kiến Sửu).
+    - Hộp chi tiết tháng thống kê danh sách cụ thể toàn bộ ngày đắc Nhị Đức, Thiên Đức, Nguyệt Đức trong 60 Hoa Giáp, kèm giải nghĩa Tam hợp cục và khẩu quyết Dịch học.
+    - Bảng tổng hợp 12 tháng toàn diện và thanh tra cứu trực tiếp ngày đang chọn trên Lịch Vạn Niên (`#ndInspectorText`).
+  - **Tích Hợp Sâu Vào Bát Tự Tứ Trụ**:
+    - Đối chiếu Trụ Tháng Tiết Lệnh với cả 4 Trụ (Năm, Tháng, Ngày, Giờ) để phát hiện sự hiện diện của Thiên Đức và Nguyệt Đức.
+    - Bổ sung thẻ Thần Sát Cát Tinh (`#btThanSatNhiDucCard`) trong lá số Bát Tự, phân định các trường hợp: *Thiên Nguyệt Nhị Đức Tọa Thân* (Nhật Chủ tọa Quý Nhân), *Đắc cả Nhị Đức trong tứ trụ*, *Đắc Thiên Đức / Nguyệt Đức*, cùng định hướng kích hoạt Quý Nhân khi nguyên cục chưa đắc.
+  - **Số Hóa Phiên Bản v1.12.0**:
+    - Nâng số phiên bản lên `v1.12.0` (Minor release) trong `package.json`, Header, Footer, Logo Modal và `README.md` tuân thủ nghiêm ngặt quy định SemVer.
 
 ### [v1.11.0] - 2026-09-05
 - **Tích Hợp Hệ Thống Ngày Âm Dương Bất Tương 60 Hoa Giáp 12 Tháng (Khâm Định Hiệp Kỷ Biện Phương Thư)**:

@@ -388,6 +388,49 @@
       color: #475569;
       border: 1px solid #cbd5e1;
     }
+
+    /* Thiên Đức & Nguyệt Đức Badges */
+    .badge-nhi-duc {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: #92400e;
+      border: 1px solid #f59e0b;
+      font-weight: 700;
+      box-shadow: 0 1px 4px rgba(245, 158, 11, 0.25);
+    }
+    .badge-thien-duc {
+      background-color: #fef9c3;
+      color: #854d0e;
+      border: 1px solid #eab308;
+      font-weight: 600;
+    }
+    .badge-nguyet-duc {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #38bdf8;
+      font-weight: 600;
+    }
+    .badge-no-duc {
+      background-color: #f1f5f9;
+      color: #64748b;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-lookup-nd {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      background: none;
+      border: none;
+      color: #b45309;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0 0.15rem;
+    }
+    .btn-lookup-nd:hover {
+      color: #78350f;
+    }
+
     .btn-lookup-bt {
       display: inline-flex;
       align-items: center;
@@ -504,6 +547,29 @@
       color: #fff;
       border-color: #166534;
       box-shadow: 0 2px 6px rgba(22, 101, 52, 0.3);
+    }
+    .nd-month-btn {
+      padding: 0.35rem 0.65rem;
+      font-size: 0.76rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: #fff;
+      color: #374151;
+      cursor: pointer;
+      white-space: nowrap;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .nd-month-btn:hover {
+      background: #fef3c7;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+    .nd-month-btn.active {
+      background: #b45309;
+      color: #fff;
+      border-color: #92400e;
+      box-shadow: 0 2px 6px rgba(180, 83, 9, 0.3);
     }
 
     /* Layout Grids */
@@ -677,6 +743,15 @@
       display: inline-block;
       flex-shrink: 0;
       box-shadow: 0 0 3px rgba(22, 163, 74, 0.4);
+    }
+    .nd-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #8b5cf6;
+      display: inline-block;
+      flex-shrink: 0;
+      box-shadow: 0 0 3px rgba(139, 92, 246, 0.4);
     }
     .cal-legend {
       display: flex;
@@ -2297,7 +2372,7 @@
         height: 5px;
         margin-top: 1px;
       }
-      .hd-dot, .fest-dot, .bt-dot {
+      .hd-dot, .fest-dot, .bt-dot, .nd-dot {
         width: 5px;
         height: 5px;
       }
@@ -2999,6 +3074,9 @@
                 <button class="btn btn-outline btn-sm" id="btnOpenBatTuongModal" style="font-size: 0.72rem; padding: 0.15rem 0.55rem; border-color: #84cc16; color: #166534; background: #f7fee7; border-radius: 9999px; font-weight: 600;" title="Bấm xem bảng 60 Hoa Giáp Âm Dương Bất Tương 12 Tháng">
                   🌿 Bảng Bất Tương (Tra Cứu ➔)
                 </button>
+                <button class="btn btn-outline btn-sm" id="btnOpenNhiDucModal" style="font-size: 0.72rem; padding: 0.15rem 0.55rem; border-color: #f59e0b; color: #92400e; background: #fffbeb; border-radius: 9999px; font-weight: 600;" title="Bấm xem bảng tra và khẩu quyết sao Thiên Đức & Nguyệt Đức 12 Tháng">
+                  ⭐ Thiên Đức • Nguyệt Đức ➔
+                </button>
               </div>
               <div class="cal-nav-actions">
                 <div class="cal-nav-btns">
@@ -3035,6 +3113,9 @@
             <div class="cal-legend">
               <div class="cal-legend-item">
                 <span class="hd-dot"></span> Ngày Hoàng Đạo
+              </div>
+              <div class="cal-legend-item">
+                <span class="nd-dot"></span> Quý Nhân (Thiên Đức • Nguyệt Đức)
               </div>
               <div class="cal-legend-item">
                 <span class="bt-dot"></span> Ngày Bất Tương (Cưới hỏi)
@@ -3232,6 +3313,12 @@
                   <span class="bloc-meta-lbl">Đánh giá ngày:</span>
                   <span class="bloc-meta-val" id="blocHoangDaoBadge">
                     <span class="badge badge-hoangdao">Ngày Hoàng Đạo (Kim Quỹ)</span>
+                  </span>
+                </div>
+                <div class="bloc-meta-row" id="blocNhiDucRow">
+                  <span class="bloc-meta-lbl">Quý nhân Nhị Đức:</span>
+                  <span class="bloc-meta-val" id="blocNhiDucVal" style="display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0.35rem;">
+                    <span class="badge badge-nhi-duc">Đang tải...</span>
                   </span>
                 </div>
                 <div class="bloc-meta-row" id="blocBatTuongRow">
@@ -3496,6 +3583,19 @@
             <div class="napam-box" id="btHourNapAm">Sa Trung Thổ</div>
             <div class="bt-truongsinh-badge is-vuong" id="btHourChiTruongSinh">Cung: Lâm Quan (Lộc)</div>
             <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.35rem;" id="btHourTangCan">Tàng: Bính, Mậu, Canh</div>
+          </div>
+        </div>
+
+        <!-- Thần Sát Quý Nhân: Thiên Đức & Nguyệt Đức trong Bát Tự -->
+        <div class="card" id="btThanSatNhiDucCard" style="background: linear-gradient(135deg, #fffdf5, #fefce8); border: 1px solid #fde68a; margin-top: 1rem; padding: 0.85rem 1rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.45rem;">
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: #854d0e; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+              <span>⭐</span> Thần Sát Cát Tinh: Thiên Đức &amp; Nguyệt Đức Quý Nhân
+            </h4>
+            <span id="btNhiDucBadge" class="badge badge-nhi-duc" style="font-size: 0.75rem;">Đang tra cứu...</span>
+          </div>
+          <div style="font-size: 0.82rem; line-height: 1.6; color: #4b5563;" id="btNhiDucDesc">
+            <!-- JS dynamic content -->
           </div>
         </div>
 
@@ -4238,6 +4338,88 @@
         <!-- Academic Note (Lưu ý khi dùng bảng) -->
         <div style="margin-top: 0.85rem; font-size: 0.76rem; color: #6b7280; line-height: 1.6; border-top: 1px solid #e5e7eb; padding-top: 0.65rem;">
           <strong>Lưu ý khi dùng bảng:</strong> Đây là kết quả áp riêng phép <em>Âm Dương Bất Tương</em> trong trạch nhật học (Hiệp Kỷ Biện Phương Thư), chưa đối chiếu Nguyệt Kiến / Nguyệt Phá, Tam Nương, Sát Chủ, Thọ Tử, Kiến Trừ thập nhị thần hay Bát Tự mệnh số của hai bên cô dâu - chú rể — nên kết hợp thêm các tiêu chí đó để chọn ngày cưới hỏi hoàn hảo nhất. Số ngày Bất Tương dao động 12–13 ngày/tháng; Âm Tương và Âm Dương câu Tương luôn cố định 10 ngày/tháng vì các nhóm Yếm hậu Can luôn có 4 can (không có can mùa chèn thêm).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Bảng Tra Cứu Sao Thiên Đức & Nguyệt Đức 12 Tháng Âm Lịch -->
+  <div class="modal-overlay" id="nhiDucModal">
+    <div class="modal-box" style="max-width: 860px; width: 96%;">
+      <div class="modal-head" style="background: linear-gradient(135deg, #78350f, #b45309, #d97706); color: #fff;">
+        <h3 style="font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.45rem; margin: 0; color: #fff;" id="nhiDucModalTitle">
+          <span>⭐</span> Bảng Tra Cứu Sao Thiên Đức &amp; Nguyệt Đức (Quý Nhân Nhị Đức) – 12 Tháng Âm Lịch
+        </h3>
+        <button class="close-btn" id="nhiDucModalCloseBtn" style="color: #fff; opacity: 0.9;">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 1rem 1.15rem; font-size: 0.85rem; color: #374151;">
+        <!-- Khẩu Quyết & Căn Bản Học Thuật -->
+        <div style="background: #fefce8; border: 1px solid #fef08a; border-radius: 8px; padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; font-size: 0.82rem; line-height: 1.6; color: #713f12;">
+          <div style="font-weight: 700; color: #854d0e; margin-bottom: 0.25rem;">
+            📜 Khẩu Quyết Trạch Nhật &amp; Cát Tinh Cổ Truyền:
+          </div>
+          <em>"Thiên Đức xuất hành bách sự hưng, gia đường an lạc phước lộc sinh. Nguyệt Đức phước tinh tương trợ lực, hung thần thoái tẩu vạn sự thành."</em>
+          <br>Trong thuật Trạch Nhật Cát Hung và Bát Tự Hoàng Đạo, <strong>Thiên Đức</strong> và <strong>Nguyệt Đức</strong> (gọi chung là <strong>Nhị Đức Quý Nhân</strong>) là hai đại cát tinh tối tôn tối quý, chủ về giải trừ mọi tai ách hung sát, chuyển nguy thành an, hóa giải bách sát, hộ thân trợ mệnh, đại cát cho cưới hỏi giá thú, khai trương, động thổ, nhậm chức và tế tự cầu an.
+        </div>
+
+        <!-- Chú giải nguyên lý an sao 2 cột -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.65rem; margin-bottom: 0.85rem;">
+          <div style="background: #fffdf5; border: 1px solid #fde68a; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; line-height: 1.55;">
+            <strong style="color: #92400e;">⭐ Cách xác định sao Thiên Đức (Thiên Đức Quý Nhân):</strong>
+            <br>Thiên Đức là đức của Trời ban. Khí Dương chu lưu khắp 12 tháng:
+            <br>• Vào 8 tháng tứ sinh/tứ mộ an tại <strong>Thiên Can</strong>:
+            <br>&nbsp;&nbsp;Tháng 1 (Dần): <strong>Đinh</strong> · Tháng 3 (Thìn): <strong>Nhâm</strong> · Tháng 4 (Tỵ): <strong>Tân</strong> · Tháng 6 (Mùi): <strong>Giáp</strong> · Tháng 7 (Thân): <strong>Quý</strong> · Tháng 9 (Tuất): <strong>Bính</strong> · Tháng 10 (Hợi): <strong>Ất</strong> · Tháng 12 (Sửu): <strong>Canh</strong>.
+            <br>• Vào 4 tháng tứ trọng (Tý, Ngọ, Mão, Dậu) an tại <strong>Địa Chi tứ sinh</strong>:
+            <br>&nbsp;&nbsp;Tháng 2 (Mão): <strong>Thân</strong> · Tháng 5 (Ngọ): <strong>Hợi</strong> · Tháng 8 (Dậu): <strong>Dần</strong> · Tháng 11 (Tý): <strong>Tỵ</strong>.
+          </div>
+          <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; line-height: 1.55;">
+            <strong style="color: #0369a1;">🌙 Cách xác định sao Nguyệt Đức (Nguyệt Đức Quý Nhân):</strong>
+            <br>Nguyệt Đức là đức của Trăng (Âm). Lấy Dương Can đầu đàn của <strong>Tam Hợp Cục Ngũ Hành</strong> trong tháng:
+            <br>• <strong>Tam hợp Thủy cục</strong> (Thân, Tý, Thìn): Dương can là <strong>Nhâm</strong> (Tháng 7, 11, 3 gặp ngày <strong>Nhâm</strong>).
+            <br>• <strong>Tam hợp Hỏa cục</strong> (Dần, Ngọ, Tuất): Dương can là <strong>Bính</strong> (Tháng 1, 5, 9 gặp ngày <strong>Bính</strong>).
+            <br>• <strong>Tam hợp Kim cục</strong> (Tỵ, Dậu, Sửu): Dương can là <strong>Canh</strong> (Tháng 4, 8, 12 gặp ngày <strong>Canh</strong>).
+            <br>• <strong>Tam hợp Mộc cục</strong> (Hợi, Mão, Mùi): Dương can là <strong>Giáp</strong> (Tháng 10, 2, 6 gặp ngày <strong>Giáp</strong>).
+          </div>
+        </div>
+
+        <!-- Hiện tượng Thiên Nguyệt Nhị Đức Đồng Lâm -->
+        <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid #f59e0b; border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.8rem; line-height: 1.55; color: #78350f;">
+          <strong>✨ Hiện Tượng Thiên Nguyệt Nhị Đức Đồng Lâm (Đại Phúc Quý):</strong>
+          <br>• Ở 4 tháng tứ mộ (Tháng 3, 6, 9, 12), Thiên Đức và Nguyệt Đức cùng an tại một Thiên Can duy nhất (Tháng 3: <strong>Can Nhâm</strong>; Tháng 6: <strong>Can Giáp</strong>; Tháng 9: <strong>Can Bính</strong>; Tháng 12: <strong>Can Canh</strong>). Ngày có Can này sẽ đắc cả Thiên Đức lẫn Nguyệt Đức, uy lực tăng gấp bội!
+          <br>• Ở 4 tháng tứ trọng (Tháng 2, 5, 8, 11), khi Can ngày đắc Nguyệt Đức và Chi ngày đắc Thiên Đức (Tháng 2: <strong>Giáp Thân</strong>; Tháng 5: <strong>Bính Hợi</strong>; Tháng 8: <strong>Canh Dần</strong>; Tháng 11: <strong>Nhâm Tỵ</strong>), ngày đó cũng hội tụ trọn vẹn cả <strong>Thiên Nguyệt Nhị Đức</strong>.
+        </div>
+
+        <!-- 12 Month Selector Bar -->
+        <div style="display: flex; gap: 0.35rem; overflow-x: auto; padding-bottom: 0.45rem; margin-bottom: 0.75rem;" id="ndMonthTabsBar">
+          <!-- Rendered 12 month buttons via JS -->
+        </div>
+
+        <!-- Month Detail Card -->
+        <div id="ndMonthDetailBox" style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.75rem 0.95rem; margin-bottom: 0.85rem;">
+          <!-- Rendered dynamically via JS -->
+        </div>
+
+        <!-- Full 12 Month Reference Table -->
+        <div class="bt-table-wrap">
+          <table class="bt-table" id="nd12MonthsTable">
+            <thead>
+              <tr>
+                <th style="width: 125px;">Tháng Âm Lịch</th>
+                <th style="width: 140px;">Tam Hợp Cục</th>
+                <th style="width: 125px;">⭐ Sao Thiên Đức</th>
+                <th style="width: 125px;">🌙 Sao Nguyệt Đức</th>
+                <th>✨ Ngày Đắc Quý Nhân Trong 60 Hoa Giáp</th>
+              </tr>
+            </thead>
+            <tbody id="nd12MonthsTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Footer / Inspector Box -->
+        <div id="ndCellInspector" style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.6rem 0.75rem; margin-top: 0.75rem; font-size: 0.82rem; line-height: 1.5; color: #166534;">
+          💡 <em>Thông tin ngày đang chọn trên Lịch:</em> <span id="ndInspectorText">Đang tải...</span>
         </div>
       </div>
     </div>
@@ -5023,6 +5205,135 @@
       };
     }
 
+    // =========================================================================
+    // HỆ THỐNG QUÝ NHÂN NHỊ ĐỨC (THIÊN ĐỨC & NGUYỆT ĐỨC) – 12 THÁNG ÂM LỊCH
+    // Khâm Định Hiệp Kỷ Biện Phương Thư & Tam Mệnh Thông Hội
+    // =========================================================================
+    // 1. Sao Thiên Đức:
+    // - 8 tháng Tứ Sinh & Tứ Mộ an tại Thiên Can:
+    //   T1 (Dần) -> Đinh (can: 3)
+    //   T3 (Thìn) -> Nhâm (can: 8)
+    //   T4 (Tỵ)   -> Tân (can: 7)
+    //   T6 (Mùi)  -> Giáp (can: 0)
+    //   T7 (Thân) -> Quý (can: 9)
+    //   T9 (Tuất) -> Bính (can: 2)
+    //   T10 (Hợi) -> Ất (can: 1)
+    //   T12 (Sửu) -> Canh (can: 6)
+    // - 4 tháng Tứ Trọng an tại Địa Chi Tứ Sinh:
+    //   T2 (Mão)  -> Thân (chi: 8)
+    //   T5 (Ngọ)  -> Hợi (chi: 11)
+    //   T8 (Dậu)  -> Dần (chi: 2)
+    //   T11 (Tý)  -> Tỵ (chi: 5)
+    const THIEN_DUC_RULES = {
+      1:  { type: 'can', target: 3,  targetName: 'Can Đinh', chiThang: 'Dần', typeThang: 'Tứ Sinh' },
+      2:  { type: 'chi', target: 8,  targetName: 'Chi Thân', chiThang: 'Mão', typeThang: 'Tứ Trọng' },
+      3:  { type: 'can', target: 8,  targetName: 'Can Nhâm', chiThang: 'Thìn', typeThang: 'Tứ Mộ' },
+      4:  { type: 'can', target: 7,  targetName: 'Can Tân',  chiThang: 'Tỵ',   typeThang: 'Tứ Sinh' },
+      5:  { type: 'chi', target: 11, targetName: 'Chi Hợi', chiThang: 'Ngọ', typeThang: 'Tứ Trọng' },
+      6:  { type: 'can', target: 0,  targetName: 'Can Giáp', chiThang: 'Mùi', typeThang: 'Tứ Mộ' },
+      7:  { type: 'can', target: 9,  targetName: 'Can Quý',  chiThang: 'Thân', typeThang: 'Tứ Sinh' },
+      8:  { type: 'chi', target: 2,  targetName: 'Chi Dần',  chiThang: 'Dậu', typeThang: 'Tứ Trọng' },
+      9:  { type: 'can', target: 2,  targetName: 'Can Bính', chiThang: 'Tuất', typeThang: 'Tứ Mộ' },
+      10: { type: 'can', target: 1,  targetName: 'Can Ất',   chiThang: 'Hợi', typeThang: 'Tứ Sinh' },
+      11: { type: 'chi', target: 5,  targetName: 'Chi Tỵ',   chiThang: 'Tý',   typeThang: 'Tứ Trọng' },
+      12: { type: 'can', target: 6,  targetName: 'Can Canh', chiThang: 'Sửu', typeThang: 'Tứ Mộ' }
+    };
+
+    // 2. Sao Nguyệt Đức:
+    // Tam Hợp Cục trong 12 tháng:
+    // - Thủy cục (Thân - Tý - Thìn): Tháng 7, 11, 3 gặp ngày Can Nhâm (can: 8)
+    // - Hỏa cục (Dần - Ngọ - Tuất): Tháng 1, 5, 9 gặp ngày Can Bính (can: 2)
+    // - Kim cục (Tỵ - Dậu - Sửu): Tháng 4, 8, 12 gặp ngày Can Canh (can: 6)
+    // - Mộc cục (Hợi - Mão - Mùi): Tháng 10, 2, 6 gặp ngày Can Giáp (can: 0)
+    const NGUYET_DUC_RULES = {
+      1:  { can: 2, name: 'Bính', cuc: 'Hỏa Cục', tamHop: 'Dần - Ngọ - Tuất' },
+      2:  { can: 0, name: 'Giáp', cuc: 'Mộc Cục', tamHop: 'Hợi - Mão - Mùi' },
+      3:  { can: 8, name: 'Nhâm', cuc: 'Thủy Cục', tamHop: 'Thân - Tý - Thìn' },
+      4:  { can: 6, name: 'Canh', cuc: 'Kim Cục', tamHop: 'Tỵ - Dậu - Sửu' },
+      5:  { can: 2, name: 'Bính', cuc: 'Hỏa Cục', tamHop: 'Dần - Ngọ - Tuất' },
+      6:  { can: 0, name: 'Giáp', cuc: 'Mộc Cục', tamHop: 'Hợi - Mão - Mùi' },
+      7:  { can: 8, name: 'Nhâm', cuc: 'Thủy Cục', tamHop: 'Thân - Tý - Thìn' },
+      8:  { can: 6, name: 'Canh', cuc: 'Kim Cục', tamHop: 'Tỵ - Dậu - Sửu' },
+      9:  { can: 2, name: 'Bính', cuc: 'Hỏa Cục', tamHop: 'Dần - Ngọ - Tuất' },
+      10: { can: 0, name: 'Giáp', cuc: 'Mộc Cục', tamHop: 'Hợi - Mão - Mùi' },
+      11: { can: 8, name: 'Nhâm', cuc: 'Thủy Cục', tamHop: 'Thân - Tý - Thìn' },
+      12: { can: 6, name: 'Canh', cuc: 'Kim Cục', tamHop: 'Tỵ - Dậu - Sửu' }
+    };
+
+    function getNhiDucInfo(lunarMonth, canIdx, chiIdx) {
+      let m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      const tdRule = THIEN_DUC_RULES[m];
+      const ndRule = NGUYET_DUC_RULES[m];
+
+      let hasThienDuc = false;
+      if (tdRule) {
+        if (tdRule.type === 'can') {
+          hasThienDuc = (canIdx === tdRule.target);
+        } else {
+          hasThienDuc = (chiIdx === tdRule.target);
+        }
+      }
+
+      let hasNguyetDuc = false;
+      if (ndRule) {
+        hasNguyetDuc = (canIdx === ndRule.can);
+      }
+
+      const hasBoth = hasThienDuc && hasNguyetDuc;
+      const hasAny = hasThienDuc || hasNguyetDuc;
+
+      let code = 0; // 0: không có, 1: Thiên Đức, 2: Nguyệt Đức, 3: Cả hai
+      let name = "Không có";
+      let badgeClass = "badge-no-duc";
+      let badgeLabel = "Không có";
+      let summaryTitle = "";
+      let description = "Ngày này không đắc sao Thiên Đức hay Nguyệt Đức Quý Nhân.";
+
+      if (hasBoth) {
+        code = 3;
+        name = "Thiên Nguyệt Nhị Đức";
+        badgeClass = "badge-nhi-duc";
+        badgeLabel = "✨ Thiên Nguyệt Nhị Đức (Đại Phúc Quý)";
+        summaryTitle = `✨ Thiên Nguyệt Nhị Đức: Đồng lâm ngày ${CAN[canIdx]} ${CHI[chiIdx]} (Đại Cát Vạn Sự)`;
+        description = `Hội tụ cả sao Thiên Đức (${tdRule.targetName}) và Nguyệt Đức (Can ${ndRule.name}) đồng lâm! Là ngày đại cát tinh túy, quý nhân phò trợ, hóa giải bách tai hung sát, vạn sự cát khánh hanh thông.`;
+      } else if (hasThienDuc) {
+        code = 1;
+        name = "Thiên Đức Quý Nhân";
+        badgeClass = "badge-thien-duc";
+        badgeLabel = `⭐ Thiên Đức (${tdRule.targetName})`;
+        summaryTitle = `⭐ Thiên Đức Quý Nhân: Đắc tại ${tdRule.targetName} (Hóa Hung Thành Cát)`;
+        description = `Đắc sao Thiên Đức tại ${tdRule.targetName}. Cát tinh mang đức của Trời ban, chủ về nhân từ đức độ, bách sự giai hưng, giải trừ tai ương hoạn nạn.`;
+      } else if (hasNguyetDuc) {
+        code = 2;
+        name = "Nguyệt Đức Quý Nhân";
+        badgeClass = "badge-nguyet-duc";
+        badgeLabel = `🌙 Nguyệt Đức (Can ${ndRule.name})`;
+        summaryTitle = `🌙 Nguyệt Đức Quý Nhân: Đắc tại Can ${ndRule.name} (Âm Đức Phò Trì)`;
+        description = `Đắc sao Nguyệt Đức tại Can ${ndRule.name} (${ndRule.cuc} - ${ndRule.tamHop}). Cát tinh mang phúc của Trăng, chủ về an lành, phúc thọ tăng vinh, hóa giải kiện tụng trắc trở.`;
+      }
+
+      return {
+        lunarMonth: m,
+        canIdx,
+        chiIdx,
+        canChiText: `${CAN[canIdx]} ${CHI[chiIdx]}`,
+        hasThienDuc,
+        hasNguyetDuc,
+        hasBoth,
+        hasAny,
+        code,
+        name,
+        badgeClass,
+        badgeLabel,
+        summaryTitle,
+        description,
+        tdTargetName: tdRule ? tdRule.targetName : '',
+        ndTargetName: ndRule ? `Can ${ndRule.name}` : '',
+        ndCuc: ndRule ? ndRule.cuc : '',
+        ndTamHop: ndRule ? ndRule.tamHop : ''
+      };
+    }
+
     // CƠ SỞ DỮ LIỆU THIÊN VĂN 24 TIẾT KHÍ (12 TIẾT & 12 KHÍ / TRUNG KHÍ)
     // Sắp xếp theo trình tự thời gian trong năm Dương lịch từ đầu tháng 1 đến cuối tháng 12
     const SOLAR_TERMS_MASTER = [
@@ -5338,6 +5649,7 @@
       setupLogoModal();
       setupLocationModal();
       setupBatTuongModal();
+      setupNhiDucModal();
       initUserLocation();
       setupQuickSelectors();
       setupCalendarControls();
@@ -5587,6 +5899,10 @@
       const batTuong = getBatTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
       const isBatTuongDay = batTuong.code === 1;
 
+      // Quý Nhân Nhị Đức (Thiên Đức & Nguyệt Đức)
+      const nhiDuc = getNhiDucInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      const isNhiDucDay = nhiDuc.hasAny;
+
       let lunarDisplay = lDay === 1 ? `${lDay}/${lMonth}` : `${lDay}`;
       let lunarClass = lDay === 1 ? 'lunar-num lunar-first' : 'lunar-num';
 
@@ -5598,11 +5914,17 @@
         <div class="day-indicators">
           ${star.isHoangDao ? '<span class="hd-dot" title="Ngày Hoàng Đạo"></span>' : '<span></span>'}
           ${isBatTuongDay ? `<span class="bt-dot" title="${batTuong.title}"></span>` : ''}
+          ${isNhiDucDay ? `<span class="nd-dot" title="${nhiDuc.summaryTitle}"></span>` : ''}
           ${hasFestival ? `<span class="fest-dot" title="${festTooltip}"></span>` : ''}
         </div>
       `;
 
-      cell.title = `Dương lịch: ${d}/${m}/${y}\nÂm lịch: ${lDay}/${lMonth} (${dayCanChi.text})\n${star.isHoangDao ? '✨ ' + star.name + ' (Hoàng Đạo)' : 'Hắc Đạo'}\nÂm Dương: ${batTuong.name} (${batTuong.meaning})`;
+      let cellTitle = `Dương lịch: ${d}/${m}/${y}\nÂm lịch: ${lDay}/${lMonth} (${dayCanChi.text})\n${star.isHoangDao ? '✨ ' + star.name + ' (Hoàng Đạo)' : 'Hắc Đạo'}`;
+      if (nhiDuc.hasAny) {
+        cellTitle += `\nQuý nhân: ${nhiDuc.badgeLabel}`;
+      }
+      cellTitle += `\nÂm Dương: ${batTuong.name} (${batTuong.meaning})`;
+      cell.title = cellTitle;
 
       cell.addEventListener('click', () => {
         document.querySelectorAll('.cal-day-cell').forEach(c => c.classList.remove('selected'));
@@ -5668,6 +5990,27 @@
         badgeContainer.innerHTML = `<span class="badge badge-hoangdao">✨ Hoàng Đạo (${star.name})</span>`;
       } else {
         badgeContainer.innerHTML = `<span class="badge badge-hacdao">🌑 Hắc Đạo (${star.name})</span>`;
+      }
+
+      // Quý Nhân Nhị Đức (Thiên Đức & Nguyệt Đức)
+      const nhiDuc = getNhiDucInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      const blocNhiDucValEl = document.getElementById('blocNhiDucVal');
+      if (blocNhiDucValEl) {
+        blocNhiDucValEl.innerHTML = `
+          <span class="badge ${nhiDuc.badgeClass}" title="${nhiDuc.summaryTitle}">
+            ${nhiDuc.badgeLabel}
+          </span>
+          <button type="button" class="btn-lookup-nd" id="btnBlocLookupND" title="Nhấn để mở bảng tra cứu sao Thiên Đức & Nguyệt Đức 12 tháng">
+            Tra sao ➔
+          </button>
+        `;
+        const btnLookND = document.getElementById('btnBlocLookupND');
+        if (btnLookND) {
+          btnLookND.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openNhiDucModal(lMonth);
+          });
+        }
       }
 
       // Âm Dương Bất Tương (Khâm Định Hiệp Kỷ Biện Phương Thư)
@@ -7469,6 +7812,330 @@
     }
 
     /**
+     * BẢNG TRA CỨU & LUẬN GIẢI SAO THIÊN ĐỨC & NGUYỆT ĐỨC 12 THÁNG ÂM LỊCH
+     */
+    let nhiDucActiveMonth = 1;
+
+    function setupNhiDucModal() {
+      const btnOpen = document.getElementById('btnOpenNhiDucModal');
+      if (btnOpen) {
+        btnOpen.addEventListener('click', (e) => {
+          e.stopPropagation();
+          let m = 1;
+          if (typeof selectedDate !== 'undefined' && selectedDate) {
+            const [lDay, lMonth] = convertSolar2Lunar(
+              selectedDate.getDate(),
+              selectedDate.getMonth() + 1,
+              selectedDate.getFullYear()
+            );
+            m = lMonth;
+          }
+          openNhiDucModal(m);
+        });
+      }
+
+      const closeBtn = document.getElementById('nhiDucModalCloseBtn');
+      if (closeBtn) closeBtn.addEventListener('click', closeNhiDucModal);
+
+      const modal = document.getElementById('nhiDucModal');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeNhiDucModal();
+        });
+      }
+    }
+
+    function openNhiDucModal(initialMonth = 1) {
+      const modal = document.getElementById('nhiDucModal');
+      if (!modal) return;
+      nhiDucActiveMonth = ((parseInt(initialMonth, 10) - 1) % 12 + 12) % 12 + 1;
+
+      renderNhiDucMonthTabs();
+      renderNhiDucTable(nhiDucActiveMonth);
+      updateNhiDucInspectorForSelectedDate();
+      modal.classList.add('active');
+    }
+
+    function closeNhiDucModal() {
+      const modal = document.getElementById('nhiDucModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function renderNhiDucMonthTabs() {
+      const bar = document.getElementById('ndMonthTabsBar');
+      if (!bar) return;
+      bar.innerHTML = '';
+      for (let m = 1; m <= 12; m++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `nd-month-btn ${m === nhiDucActiveMonth ? 'active' : ''}`;
+        const chiThang = CHI[(m + 1) % 12];
+        btn.textContent = m === 1 ? 'Tháng Giêng (Dần)' : (m === 12 ? 'Tháng Chạp (Sửu)' : `Tháng ${m} (${chiThang})`);
+        btn.addEventListener('click', () => {
+          nhiDucActiveMonth = m;
+          renderNhiDucMonthTabs();
+          renderNhiDucTable(nhiDucActiveMonth);
+        });
+        bar.appendChild(btn);
+      }
+    }
+
+    function renderNhiDucTable(activeMonth = 1) {
+      const tdRule = THIEN_DUC_RULES[activeMonth];
+      const ndRule = NGUYET_DUC_RULES[activeMonth];
+      const monthChi = CHI[(activeMonth + 1) % 12];
+      const monthName = activeMonth === 1 ? 'Tháng Giêng' : (activeMonth === 12 ? 'Tháng Chạp' : `Tháng ${activeMonth}`);
+
+      // Month detail box
+      const detailBox = document.getElementById('ndMonthDetailBox');
+      if (detailBox) {
+        let bothDays = [];
+        let tdOnlyDays = [];
+        let ndOnlyDays = [];
+
+        for (let i = 0; i < 60; i++) {
+          const cIdx = i % 10;
+          const chIdx = i % 12;
+          const info = getNhiDucInfo(activeMonth, cIdx, chIdx);
+          const name = `${CAN[cIdx]} ${CHI[chIdx]}`;
+          if (info.hasBoth) {
+            bothDays.push(name);
+          } else if (info.hasThienDuc) {
+            tdOnlyDays.push(name);
+          } else if (info.hasNguyetDuc) {
+            ndOnlyDays.push(name);
+          }
+        }
+
+        detailBox.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.45rem;">
+            <h4 style="font-size: 1rem; font-weight: 700; color: #78350f; margin: 0;">
+              ${monthName} (Nguyệt Kiến ${monthChi})
+            </h4>
+            <span style="font-size: 0.78rem; color: #b45309; font-weight: 600; background: #fef3c7; padding: 0.2rem 0.55rem; border-radius: 9999px; border: 1px solid #fde68a;">
+              ${ndRule.cuc} (${ndRule.tamHop}) · ${tdRule.typeThang}
+            </span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.5rem; margin-bottom: 0.55rem; font-size: 0.8rem;">
+            <div style="background: #fff; padding: 0.45rem 0.65rem; border-radius: 6px; border: 1px solid #e2e8f0;">
+              <strong style="color: #92400e;">⭐ Thiên Đức Quý Nhân:</strong> An tại <strong>${tdRule.targetName}</strong> (${tdRule.type === 'can' ? 'Thiên Can' : 'Địa Chi tứ sinh'})
+            </div>
+            <div style="background: #fff; padding: 0.45rem 0.65rem; border-radius: 6px; border: 1px solid #e2e8f0;">
+              <strong style="color: #0369a1;">🌙 Nguyệt Đức Quý Nhân:</strong> An tại <strong>Can ${ndRule.name}</strong> (Dương can của ${ndRule.cuc})
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.79rem; line-height: 1.5;">
+            ${bothDays.length > 0 ? `
+              <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 0.4rem 0.6rem; border-radius: 6px; color: #92400e;">
+                <strong>✨ Thiên Nguyệt Nhị Đức Đồng Lâm (${bothDays.length} ngày - Đại Phúc Quý):</strong> ${bothDays.join(', ')}
+              </div>
+            ` : ''}
+            ${tdOnlyDays.length > 0 ? `
+              <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 0.35rem 0.6rem; border-radius: 6px; color: #854d0e;">
+                <strong>⭐ Ngày đắc Thiên Đức (${tdOnlyDays.length} ngày):</strong> ${tdOnlyDays.join(', ')}
+              </div>
+            ` : ''}
+            ${ndOnlyDays.length > 0 ? `
+              <div style="background: #f0f9ff; border: 1px solid #bae6fd; padding: 0.35rem 0.6rem; border-radius: 6px; color: #0369a1;">
+                <strong>🌙 Ngày đắc Nguyệt Đức (${ndOnlyDays.length} ngày):</strong> ${ndOnlyDays.join(', ')}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }
+
+      // Render 12 months full reference table
+      const tbody = document.getElementById('nd12MonthsTableBody');
+      if (tbody) {
+        tbody.innerHTML = '';
+        for (let m = 1; m <= 12; m++) {
+          const tdr = THIEN_DUC_RULES[m];
+          const ndr = NGUYET_DUC_RULES[m];
+          const mChi = CHI[(m + 1) % 12];
+          const mLabel = m === 1 ? 'Tháng Giêng' : (m === 12 ? 'Tháng Chạp' : `Tháng ${m}`);
+
+          let bDays = [];
+          let tdDays = [];
+          let ndDays = [];
+          for (let i = 0; i < 60; i++) {
+            const cIdx = i % 10;
+            const chIdx = i % 12;
+            const inf = getNhiDucInfo(m, cIdx, chIdx);
+            const dName = `${CAN[cIdx]} ${CHI[chIdx]}`;
+            if (inf.hasBoth) bDays.push(dName);
+            else if (inf.hasThienDuc) tdDays.push(dName);
+            else if (inf.hasNguyetDuc) ndDays.push(dName);
+          }
+
+          const tr = document.createElement('tr');
+          if (m === activeMonth) {
+            tr.style.background = '#fef3c7';
+            tr.style.fontWeight = '600';
+          }
+
+          let summaryBadges = [];
+          if (bDays.length > 0) {
+            summaryBadges.push(`<span class="badge badge-nhi-duc" style="font-size:0.72rem; margin:1px;" title="Thiên Nguyệt Nhị Đức Đồng Lâm">${bDays.join(', ')}</span>`);
+          }
+          if (tdDays.length > 0) {
+            summaryBadges.push(`<span class="badge badge-thien-duc" style="font-size:0.72rem; margin:1px;" title="Thiên Đức">${tdDays.join(', ')}</span>`);
+          }
+          if (ndDays.length > 0) {
+            summaryBadges.push(`<span class="badge badge-nguyet-duc" style="font-size:0.72rem; margin:1px;" title="Nguyệt Đức">${ndDays.join(', ')}</span>`);
+          }
+
+          tr.innerHTML = `
+            <td style="font-weight: 700; color: #1e293b; text-align: left; padding: 6px 8px;">
+              ${mLabel} <span style="font-size: 0.72rem; color: #64748b; font-weight: normal;">(Kiến ${mChi})</span>
+            </td>
+            <td style="font-size: 0.75rem; color: #475569; padding: 6px 8px;">
+              ${ndr.cuc} <br><span style="font-size: 0.7rem; color: #94a3b8;">${ndr.tamHop}</span>
+            </td>
+            <td style="padding: 6px 8px;">
+              <span class="badge badge-thien-duc" style="font-size: 0.74rem;">${tdr.targetName}</span>
+            </td>
+            <td style="padding: 6px 8px;">
+              <span class="badge badge-nguyet-duc" style="font-size: 0.74rem;">Can ${ndr.name}</span>
+            </td>
+            <td style="text-align: left; padding: 6px 8px; font-size: 0.75rem; line-height: 1.45;">
+              ${summaryBadges.join(' ')}
+            </td>
+          `;
+
+          tr.addEventListener('click', () => {
+            nhiDucActiveMonth = m;
+            renderNhiDucMonthTabs();
+            renderNhiDucTable(nhiDucActiveMonth);
+          });
+
+          tbody.appendChild(tr);
+        }
+      }
+    }
+
+    function updateNhiDucInspectorForSelectedDate() {
+      const inspectorText = document.getElementById('ndInspectorText');
+      if (!inspectorText || typeof selectedDate === 'undefined' || !selectedDate) return;
+
+      const [lDay, lMonth, lYear] = convertSolar2Lunar(
+        selectedDate.getDate(),
+        selectedDate.getMonth() + 1,
+        selectedDate.getFullYear()
+      );
+      const dayCanChi = getDayCanChi(
+        selectedDate.getDate(),
+        selectedDate.getMonth() + 1,
+        selectedDate.getFullYear()
+      );
+      const info = getNhiDucInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+
+      let dStr = `${String(selectedDate.getDate()).padStart(2, '0')}/${String(selectedDate.getMonth() + 1).padStart(2, '0')}/${selectedDate.getFullYear()}`;
+      let lStr = `${lDay}/${lMonth} Âm lịch (${dayCanChi.text})`;
+
+      if (info.hasBoth) {
+        inspectorText.innerHTML = `
+          <strong>${dStr} (${lStr})</strong>: <span class="badge badge-nhi-duc" style="font-size: 0.75rem;">✨ Thiên Nguyệt Nhị Đức</span> — ${info.description}
+        `;
+      } else if (info.hasThienDuc) {
+        inspectorText.innerHTML = `
+          <strong>${dStr} (${lStr})</strong>: <span class="badge badge-thien-duc" style="font-size: 0.75rem;">⭐ Thiên Đức Quý Nhân</span> — ${info.description}
+        `;
+      } else if (info.hasNguyetDuc) {
+        inspectorText.innerHTML = `
+          <strong>${dStr} (${lStr})</strong>: <span class="badge badge-nguyet-duc" style="font-size: 0.75rem;">🌙 Nguyệt Đức Quý Nhân</span> — ${info.description}
+        `;
+      } else {
+        inspectorText.innerHTML = `
+          <strong>${dStr} (${lStr})</strong>: Ngày này không đắc Thiên Đức hay Nguyệt Đức Quý Nhân trong tháng ${lMonth}.
+        `;
+      }
+    }
+
+    // Đánh giá Thần Sát Thiên Đức & Nguyệt Đức trong Bát Tự Tứ Trụ
+    function evaluateBattuNhiDuc(tietMonthNum, yearPillar, monthPillar, dayPillar, hourPillar) {
+      const m = ((parseInt(tietMonthNum, 10) - 1) % 12 + 12) % 12 + 1;
+      const tdRule = THIEN_DUC_RULES[m];
+      const ndRule = NGUYET_DUC_RULES[m];
+      if (!tdRule || !ndRule) return;
+
+      const pillars = [
+        { name: 'Trụ Năm', canIdx: yearPillar.canIndex, chiIdx: yearPillar.chiIndex, text: yearPillar.text },
+        { name: 'Trụ Tháng', canIdx: monthPillar.canIndex, chiIdx: monthPillar.chiIndex, text: monthPillar.text },
+        { name: 'Trụ Ngày (Nhật Chủ)', canIdx: dayPillar.canIndex, chiIdx: dayPillar.chiIndex, text: dayPillar.text, isDay: true },
+        { name: 'Trụ Giờ', canIdx: hourPillar.canIndex, chiIdx: hourPillar.chiIndex, text: hourPillar.text }
+      ];
+
+      let thienDucLocations = [];
+      let nguyetDucLocations = [];
+      let dayHasThienDuc = false;
+      let dayHasNguyetDuc = false;
+
+      pillars.forEach(p => {
+        let hasTD = false;
+        if (tdRule.type === 'can') {
+          hasTD = (p.canIdx === tdRule.target);
+        } else {
+          hasTD = (p.chiIdx === tdRule.target);
+        }
+        if (hasTD) {
+          thienDucLocations.push(p.name);
+          if (p.isDay) dayHasThienDuc = true;
+        }
+
+        let hasND = (p.canIdx === ndRule.can);
+        if (hasND) {
+          nguyetDucLocations.push(p.name);
+          if (p.isDay) dayHasNguyetDuc = true;
+        }
+      });
+
+      const badgeEl = document.getElementById('btNhiDucBadge');
+      const descEl = document.getElementById('btNhiDucDesc');
+      if (!badgeEl || !descEl) return;
+
+      const hasBothInDay = dayHasThienDuc && dayHasNguyetDuc;
+      const hasBothInChart = thienDucLocations.length > 0 && nguyetDucLocations.length > 0;
+
+      if (hasBothInDay) {
+        badgeEl.className = 'badge badge-nhi-duc';
+        badgeEl.textContent = '✨ Thiên Nguyệt Nhị Đức Tọa Thân (Đại Phúc Quý)';
+        descEl.innerHTML = `
+          Mệnh tạo đắc <strong>Thiên Nguyệt Nhị Đức đồng lâm tại Trụ Ngày</strong> (Nhật Chủ tọa Quý Nhân tối tôn)!
+          Cổ thư <em>Tam Mệnh Thông Hội</em> xưng tụng: <em>"Nhị Đức lâm thân, bất ngộ hung họa; bách sát quy phục, phú quý trường hưng"</em>.
+          Chủ về tâm địa từ ái, tính cách đôn hậu, gặp nạn hóa lành, được quý nhân quyền quý nâng đỡ, sự nghiệp vững vàng và hưởng phúc thọ dài lâu.
+        `;
+      } else if (hasBothInChart) {
+        badgeEl.className = 'badge badge-nhi-duc';
+        badgeEl.textContent = '✨ Đắc Cả Thiên Đức & Nguyệt Đức';
+        descEl.innerHTML = `
+          Tứ trụ hội tụ trọn vẹn cả <strong>Thiên Đức</strong> (tại ${thienDucLocations.join(', ')}) và <strong>Nguyệt Đức</strong> (tại ${nguyetDucLocations.join(', ')}).
+          Đây là cách cục đại cát thần sát trong Bát Tự. Dù gặp hung thần ác sát (Kình Dương, Thất Sát, Đao Thương sát) cũng được Nhị Đức hóa giải uy lực, biến nguy thành an, mưu sự đại thành.
+        `;
+      } else if (thienDucLocations.length > 0) {
+        badgeEl.className = 'badge badge-thien-duc';
+        badgeEl.textContent = `⭐ Đắc Thiên Đức Quý Nhân (${thienDucLocations.join(', ')})`;
+        descEl.innerHTML = `
+          Lá số đắc <strong>Thiên Đức Quý Nhân</strong> an tại <strong>${tdRule.targetName}</strong> (${thienDucLocations.join(', ')}).
+          Thiên Đức là đức của Trời cao, chủ về nhân hậu, công minh chính trực, phúc đức dày dặn, có năng lực chuyển họa thành phúc, giảm nhẹ tai ương trắc trở trong đường đời.
+        `;
+      } else if (nguyetDucLocations.length > 0) {
+        badgeEl.className = 'badge badge-nguyet-duc';
+        badgeEl.textContent = `🌙 Đắc Nguyệt Đức Quý Nhân (${nguyetDucLocations.join(', ')})`;
+        descEl.innerHTML = `
+          Lá số đắc <strong>Nguyệt Đức Quý Nhân</strong> an tại <strong>Can ${ndRule.name}</strong> (${nguyetDucLocations.join(', ')}).
+          Nguyệt Đức là phúc ấm của Trăng (Âm đức), chủ về hóa giải quan phi kiện tụng, tâm tính hòa nhã, đời sống gia đạo an hòa và nhận được nhiều sự trợ duyên từ bạn bè, đồng nghiệp.
+        `;
+      } else {
+        badgeEl.className = 'badge badge-no-duc';
+        badgeEl.textContent = 'Tứ Trụ Nguyên Bát Tự Chưa Đắc Nhị Đức';
+        descEl.innerHTML = `
+          Bốn trụ nguyên mệnh chưa xuất hiện Thiên Đức (${tdRule.targetName}) hoặc Nguyệt Đức (Can ${ndRule.name}).
+          Tuy nhiên, khi bước vào <strong>Đại Vận</strong> hoặc gặp <strong>Lưu Niên / Lưu Nguyệt</strong> có thiên can địa chi của Nhị Đức (${tdRule.targetName} hoặc Can ${ndRule.name}), thân chủ sẽ lập tức được năng lượng Quý Nhân kích hoạt, phò trợ vượt qua khó khăn và thăng hoa rực rỡ.
+        `;
+      }
+    }
+
+    /**
      * BÁT TỰ TỨ TRỤ ENGINE
      */
     function setupBattuForm() {
@@ -7561,6 +8228,9 @@
       ], [
         yearPillar.chiIndex, monthPillar.chiIndex, dayPillar.chiIndex, hourPillar.chiIndex
       ], dayPillar.canIndex, yearPillar, monthPillar, dayPillar, hourPillar);
+
+      // Đánh giá Thần Sát Cát Tinh: Thiên Đức & Nguyệt Đức Quý Nhân
+      evaluateBattuNhiDuc(tietLenhIndex + 1, yearPillar, monthPillar, dayPillar, hourPillar);
     }
 
     /**
@@ -8393,6 +9063,7 @@
           const star = getDayHoangDao(lMonth, dayCanChi.chiIndex);
           const tietKhi = getDayTietKhi(d, m, y);
           const batTuong = getBatTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+          const nhiDuc = getNhiDucInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
 
           document.getElementById('convResultHeader').textContent = 'KẾT QUẢ ÂM LỊCH TƯƠNG ỨNG';
           document.getElementById('convResultMain').textContent = 
@@ -8400,7 +9071,7 @@
           document.getElementById('convResultSub').textContent = 
             `Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Bất Tương: ${batTuong.name} (${batTuong.meaning})`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Bất Tương: ${batTuong.name} (${batTuong.meaning})`;
         } else {
           const [sDay, sMonth, sYear] = convertLunar2Solar(d, m, y, isLeap);
           if (sDay === 0) {
@@ -8413,6 +9084,7 @@
           const star = getDayHoangDao(m, dayCanChi.chiIndex);
           const tietKhi = getDayTietKhi(sDay, sMonth, sYear);
           const batTuong = getBatTuongInfo(m, dayCanChi.canIndex, dayCanChi.chiIndex);
+          const nhiDuc = getNhiDucInfo(m, dayCanChi.canIndex, dayCanChi.chiIndex);
 
           document.getElementById('convResultHeader').textContent = 'KẾT QUẢ DƯƠNG LỊCH TƯƠNG ỨNG';
           document.getElementById('convResultMain').textContent = 
@@ -8420,7 +9092,7 @@
           document.getElementById('convResultSub').textContent = 
             `Can chi: Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Bất Tương: ${batTuong.name} (${batTuong.meaning})`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Bất Tương: ${batTuong.name} (${batTuong.meaning})`;
         }
       }
     }
@@ -8428,7 +9100,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.11.0";
+    const APP_VERSION = "v1.12.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
