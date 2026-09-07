@@ -32,7 +32,22 @@
 - **Hệ Thống Sao Ngọc Hạp Thông Thư**: Liệt kê chi tiết các Cát Tinh (Sao tốt: Thiên Đức, Nguyệt Đức, Thiên Hỷ, Sinh Khí...) và Hung Tinh (Sao xấu: Sát Chủ, Thọ Tử, Tam Nương, Nguyệt Kỵ...).
 - Bộ lọc ngày theo mục đích công việc: Cưới hỏi, Động thổ, Khai trương, Xuất hành, Nhập trạch.
 
-### 4. Bát Tự Tứ Trụ Chuẩn Thiên Văn (Bốn Trụ Năm - Tháng - Ngày - Giờ)
+### 4. Chọn Xem Thời Gian Cưới & Trạch Cát Hôn Nhân
+- **Bát Trạch Lạc Thư & Phối Cung Hôn Nhân**:
+  - Tự động tính chính xác Cung Phi Bát Trạch của Chú Rể và Cô Dâu (Khảm, Khôn, Chấn, Tốn, Càn, Đoài, Cấn, Ly) dựa trên năm sinh âm lịch chuẩn.
+  - Phân định Đông Tứ Mệnh / Tây Tứ Mệnh và 8 du niên hôn nhân: Sinh Khí, Thiên Y, Diên Niên (Phúc Đức), Phục Vị (cát) và Họa Hại, Lục Sát, Ngũ Quỷ, Tuyệt Mệnh (hung).
+  - Cung cấp phương pháp hóa giải phong thủy thực tiễn (hướng bếp tọa hung hướng cát, chọn năm sinh con hợp cung) khi gặp cung biến xấu.
+- **Khảo Sát 6 Năm (Năm Hiện Tại & 5 Năm Tiếp Theo)**:
+  - Tự động đối chiếu Can Chi tuổi cô dâu và chú rể với từng năm trong chu kỳ 6 năm.
+  - Kiểm tra hạn **Kim Lâu** (Kim Lâu Thân, Kim Lâu Thê, Kim Lâu Tử, Kim Lâu Lục Súc) theo tuổi mụ cô dâu.
+  - Đánh giá tương tác Địa Chi: Tam Hợp, Lục Hợp, Lục Xung, Thái Tuế, Tam Tai giữa năm khảo sát và tuổi hai vợ chồng.
+  - Chấm điểm và đưa ra lời khuyên chọn **Năm Tốt Nhất (kèm Can Chi năm)** và năm dự phòng phù hợp nhất.
+- **Phương Pháp Loại Trừ Chọn Tháng Kết Hôn (Khâm Định Hiệp Kỷ Biện Phương Thư)**:
+  - Áp dụng nghiêm ngặt các bước loại trừ cổ truyền: Loại trừ tháng Lục Xung với tuổi cô dâu, Lục Xung với tuổi chú rể, Nguyệt Phá (xung năm cưới), tháng kỵ Phòng Phu / Phòng Thê / Phòng Phu Mẫu.
+  - Đưa ra gợi ý trực tiếp các **Tháng có Can Chi gì** phù hợp kết hôn nhất trong năm (Tháng Đại Lợi, Tháng Tiểu Lợi, Tháng Tam Hợp / Lục Hợp).
+  - Bảng tiến trình loại trừ 12 tháng minh bạch từng lý do loại trừ hoặc cát lợi.
+
+### 5. Bát Tự Tứ Trụ Chuẩn Thiên Văn (Bốn Trụ Năm - Tháng - Ngày - Giờ)
 - **Chuẩn Hóa Tiết Khí**:
   - **Trụ Năm**: Được tính chuyển năm mới chính xác tại thời khắc **Lập Xuân** ($315^\circ$ kinh độ hoàng đạo Mặt Trời), không phụ thuộc vào mùng 1 Tết Âm lịch.
   - **Trụ Tháng**: Được phân định nghiêm ngặt theo **12 Tiết (Tiết Lệnh)** của thiên văn học (Dần từ Lập Xuân, Mão từ Kinh Trập, Thìn từ Thanh Minh...), kết hợp quy luật khởi Can tháng theo khẩu quyết **Ngũ Hổ Độn**.
@@ -179,6 +194,32 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.18.0] - 2026-09-07
+- **Bổ Sung Tab "💒 Chọn Xem Thời Gian Cưới" & Thuật Toán Trạch Cát Hôn Nhân Cổ Truyền**:
+  - **Nhập Tuổi Chính Xác Theo Lịch Dương Hoặc Lịch Âm**:
+    - Hỗ trợ nhập liệu linh hoạt cho cả Chú Rể và Cô Dâu: Chuyển đổi qua lại mượt mà giữa Lịch Dương (`<input type="date">`) và Lịch Âm (Ngày 1-30, Tháng 1-12, Năm 1930-2040, có tùy chọn Tháng Nhuận).
+    - Tự động đồng bộ ngày Dương ⇄ Âm khi người dùng chuyển đổi radio button.
+    - Cung cấp sẵn các nút chọn nhanh cặp đôi mẫu (Bính Tý 1996 & Mậu Dần 1998, Ất Hợi 1995 & Đinh Sửu 1997, Canh Thìn 2000 & Nhâm Ngọ 2002...).
+  - **Tự Động Đối Chiếu Can Chi Năm Sinh Với Năm Hiện Tại & 5 Năm Tiếp Theo (Chu Kỳ 6 Năm)**:
+    - Tính toán chính xác Can Chi và Nạp Âm của Chú Rể & Cô Dâu.
+    - Tính Cung Phi Bát Trạch (Khảm, Khôn, Chấn, Tốn, Càn, Đoài, Cấn, Ly), phân nhóm Đông Tứ Mệnh / Tây Tứ Mệnh và ma trận phối hợp 8 cung hôn nhân (Sinh Khí, Thiên Y, Diên Niên, Phục Vị, Họa Hại, Lục Sát, Ngũ Quỷ, Tuyệt Mệnh) kèm phương pháp hóa giải phong thủy thực tế.
+    - Khảo sát liên tục 6 năm (năm hiện tại và 5 năm tới):
+      - Tính tuổi mụ Cô Dâu và kiểm tra hạn **Kim Lâu** (Kim Lâu Thân, Kim Lâu Thê, Kim Lâu Tử, Kim Lâu Lục Súc).
+      - Đánh giá tương tác Địa Chi giữa Chi năm cưới và Chi tuổi của hai vợ chồng: Tam Hợp, Lục Hợp, Lục Xung, Thái Tuế, Tam Tai.
+      - Chấm điểm tổng hợp khách quan, xếp hạng và đưa ra lời khuyên nổi bật: **Năm tốt nhất nên chọn là năm nào, Can Chi gì** và lựa chọn dự phòng.
+  - **Áp Dụng Phương Pháp Loại Trừ Chọn Tháng Phù Hợp (Hiệp Kỷ Biện Phương Thư)**:
+    - Đối với năm được chọn, phân tích cặn kẽ 12 tháng Âm lịch qua các bước loại trừ:
+      1. *Loại trừ tháng có Địa Chi Lục Xung với tuổi Cô Dâu*.
+      2. *Loại trừ tháng có Địa Chi Lục Xung với tuổi Chú Rể*.
+      3. *Loại trừ tháng Nguyệt Phá (Địa Chi tháng Lục Xung với Địa Chi năm cưới)*.
+      4. *Kiểm tra tháng kỵ Nghênh Hôn (Phòng Phu, Phòng Thê Chủ, Phòng Phu Mẫu)*.
+      5. *Nhận diện Tháng Đại Lợi & Tháng Tiểu Lợi theo tuổi Cô Dâu*.
+      6. *Nhận diện tháng đắc Tam Hợp, Lục Hợp với vợ chồng*.
+    - **Hộp Gợi Ý Can Chi Tháng**: Theo đúng yêu cầu người dùng, đưa ra gợi ý rõ ràng và trực quan về **tháng có Can Chi gì** phù hợp nhất để kết hôn (in đậm Can Chi tháng, giải thích lý do cát lợi).
+    - **Bảng Tiến Trình Loại Trừ 12 Tháng**: Liệt kê trực quan 12 tháng với cột Tháng, Can Chi Tháng, Nghênh Hôn, Chi tiết tiến trình loại trừ / không phạm xung sát, và Huy hiệu kết luận (Đại Lợi, Tiểu Lợi, Tam Hợp, Bình Hòa, Bị Loại Trừ).
+  - **Số Hóa Phiên Bản v1.18.0**:
+    - Nâng số phiên bản lên `v1.18.0` trong `package.json`, Header badge, Footer, Logo modal, biến hệ thống `APP_VERSION` và `README.md`.
 
 ### [v1.17.0] - 2026-09-07
 - **Tích Hợp Toàn Diện Hệ Thống Quý Nhân Tứ Đức (Khâm Định Hiệp Kỷ Biện Phương Thư)**:

@@ -2792,6 +2792,166 @@
       color: #991b1b;
       font-size: 0.85rem;
     }
+
+    /* WEDDING TAB CUSTOM STYLES */
+    .wedding-inputs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .wedding-person-input-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      border: 1.5px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    .wedding-person-input-card.groom-card {
+      border-color: #bfdbfe;
+      background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+    }
+    .wedding-person-input-card.bride-card {
+      border-color: #fecdd3;
+      background: linear-gradient(180deg, #fff1f2 0%, #ffffff 100%);
+    }
+    .wedding-person-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    }
+    .wedding-person-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .wedding-person-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #1e3a8a;
+    }
+    .wedding-person-subtitle {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      display: block;
+    }
+    .wedding-survey-control-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      background: #fffbeb;
+      border: 1.5px solid #fde68a;
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+    }
+    .wedding-profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 768px) {
+      .wedding-profile-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .wedding-profile-card {
+      background: #fff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .wedding-battrach-banner {
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid;
+    }
+    .wedding-battrach-banner.good-state {
+      background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+      border-color: #86efac;
+    }
+    .wedding-battrach-banner.bad-state {
+      background: linear-gradient(135deg, #fff1f2 0%, #fff7ed 100%);
+      border-color: #fca5a5;
+    }
+    .wedding-year-card {
+      border: 1.5px solid #e5e7eb;
+      border-radius: var(--radius-md);
+      background: #fff;
+      padding: 1rem;
+      margin-bottom: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .wedding-year-card:hover {
+      border-color: #b45309;
+      box-shadow: 0 4px 12px rgba(180, 83, 9, 0.1);
+    }
+    .wedding-year-card.selected-year {
+      border: 2px solid #b45309;
+      background: #fffdfa;
+      box-shadow: 0 4px 14px rgba(180, 83, 9, 0.14);
+    }
+    .wedding-year-card.recommend-top {
+      border: 2px solid #16a34a;
+      background: #f0fdf4;
+    }
+    .wedding-month-row {
+      display: grid;
+      grid-template-columns: 90px 120px 140px 1fr 140px;
+      gap: 0.5rem;
+      align-items: center;
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 0.84rem;
+    }
+    @media (max-width: 820px) {
+      .wedding-month-row {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0.75rem 0.5rem;
+      }
+    }
+    .wedding-month-row:nth-child(even) {
+      background-color: #fafaf9;
+    }
+    .wedding-month-row.month-dalloi {
+      background-color: #ecfdf5 !important;
+      border-left: 4px solid #16a34a;
+    }
+    .wedding-month-row.month-tieuloi {
+      background-color: #eff6ff !important;
+      border-left: 4px solid #2563eb;
+    }
+    .wedding-month-row.month-eliminated {
+      background-color: #fef2f2 !important;
+      opacity: 0.85;
+      border-left: 4px solid #ef4444;
+    }
+    .wedding-suggestion-callout {
+      background: linear-gradient(135deg, #fefce8 0%, #fffbeb 100%);
+      border: 2px solid #facc15;
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 14px rgba(202, 138, 4, 0.12);
+    }
+    .wedding-can-chi-highlight {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #991b1b;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
@@ -2804,7 +2964,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.17.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.18.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -2823,6 +2983,9 @@
       </div>
       <button class="nav-tab active" data-tab="tab-calendar">
         📅 Lịch Vạn Niên &amp; Ngày Đẹp
+      </button>
+      <button class="nav-tab" data-tab="tab-wedding" id="navTabWedding">
+        💒 Chọn Xem Thời Gian Cưới
       </button>
       <button class="nav-tab" data-tab="tab-leapyear" id="navTabLeapYear">
         ✨ Xác Định Tháng Nhuận (Quy Tắc Trung Khí)
@@ -3313,6 +3476,308 @@
                   <!-- Rendered via JS -->
                 </tbody>
               </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: CHỌN XEM THỜI GIAN CƯỚI -->
+    <div id="tab-wedding" class="tab-content">
+      <div class="card" style="border: 2px solid #fed7aa; box-shadow: 0 4px 20px rgba(180, 83, 9, 0.08);">
+        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 class="card-title" style="display: flex; align-items: center; gap: 0.5rem; color: #991b1b; font-size: 1.25rem;">
+              <span>💒</span> Chọn Xem Thời Gian Cưới • Trạch Cát Hôn Nhân Cổ Truyền
+            </h2>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Đối chiếu Bát Trạch (Đông/Tây Tứ Mệnh 8 Cung), Can Chi bản mệnh, khảo sát Hạn Kim Lâu &amp; Thái Tuế 6 năm (năm hiện tại và 5 năm tới). Áp dụng phương pháp loại trừ để gợi ý các tháng có Can Chi phù hợp nhất để kết hôn.
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+            <span style="font-size: 0.78rem; font-weight: 600; color: #78350f;">Chọn nhanh cặp đôi mẫu:</span>
+            <button type="button" class="btn btn-outline btn-sm btn-wedding-preset" data-groom-s="1996-10-15" data-bride-s="1998-08-20" style="padding: 0.2rem 0.5rem; font-size: 0.74rem;">Bính Tý 1996 &amp; Mậu Dần 1998</button>
+            <button type="button" class="btn btn-outline btn-sm btn-wedding-preset" data-groom-s="1995-05-12" data-bride-s="1997-03-18" style="padding: 0.2rem 0.5rem; font-size: 0.74rem;">Ất Hợi 1995 &amp; Đinh Sửu 1997</button>
+            <button type="button" class="btn btn-outline btn-sm btn-wedding-preset" data-groom-s="1992-04-08" data-bride-s="1994-11-22" style="padding: 0.2rem 0.5rem; font-size: 0.74rem;">Nhâm Thân 1992 &amp; Giáp Tuất 1994</button>
+            <button type="button" class="btn btn-outline btn-sm btn-wedding-preset" data-groom-s="2000-07-10" data-bride-s="2002-09-14" style="padding: 0.2rem 0.5rem; font-size: 0.74rem;">Canh Thìn 2000 &amp; Nhâm Ngọ 2002</button>
+          </div>
+        </div>
+
+        <!-- FORM INPUT 2 BÊN: CHÚ RỂ & CÔ DÂU -->
+        <div class="wedding-inputs-container">
+          <!-- Cột Chú Rể -->
+          <div class="wedding-person-input-card groom-card">
+            <div class="wedding-person-header">
+              <span class="wedding-person-icon">🤵</span>
+              <div>
+                <h3 class="wedding-person-title">Thông Tin Chú Rể (Nam)</h3>
+                <span class="wedding-person-subtitle">Trụ cột gia đạo • Xét Mệnh Quái Bát Trạch &amp; Tam Hợp</span>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.75rem;">
+              <label class="form-label" for="weddingGroomName">Họ tên chú rể:</label>
+              <input type="text" id="weddingGroomName" class="form-control" placeholder="Ví dụ: Nguyễn Văn Hoàng" value="Chú Rể">
+            </div>
+            <div class="form-group" style="margin-bottom: 0.75rem;">
+              <label class="form-label">Loại lịch nhập:</label>
+              <div style="display: flex; gap: 1rem; padding-top: 0.2rem;">
+                <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; cursor: pointer;">
+                  <input type="radio" name="weddingGroomCalType" value="solar" checked id="weddingGroomTypeSolar"> Dương Lịch
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; cursor: pointer;">
+                  <input type="radio" name="weddingGroomCalType" value="lunar" id="weddingGroomTypeLunar"> Âm Lịch
+                </label>
+              </div>
+            </div>
+            <!-- Chú rể: Dương Lịch Input -->
+            <div id="weddingGroomSolarWrap" class="form-group" style="margin-bottom: 0.75rem;">
+              <label class="form-label" for="weddingGroomSolarDate">Ngày sinh (Dương lịch):</label>
+              <input type="date" id="weddingGroomSolarDate" class="form-control" value="1996-10-15">
+            </div>
+            <!-- Chú rể: Âm Lịch Input (ẩn mặc định) -->
+            <div id="weddingGroomLunarWrap" style="display: none; margin-bottom: 0.75rem;">
+              <label class="form-label">Ngày sinh (Âm lịch):</label>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 0.4rem;">
+                <select id="weddingGroomLunarDay" class="form-select"></select>
+                <select id="weddingGroomLunarMonth" class="form-select"></select>
+                <select id="weddingGroomLunarYear" class="form-select"></select>
+              </div>
+              <div style="margin-top: 0.35rem;">
+                <label style="font-size: 0.78rem; color: #4b5563; display: flex; align-items: center; gap: 0.3rem;">
+                  <input type="checkbox" id="weddingGroomLunarLeap"> Tháng nhuận
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột Cô Dâu -->
+          <div class="wedding-person-input-card bride-card">
+            <div class="wedding-person-header">
+              <span class="wedding-person-icon">👰</span>
+              <div>
+                <h3 class="wedding-person-title" style="color: #be123c;">Thông Tin Cô Dâu (Nữ)</h3>
+                <span class="wedding-person-subtitle">Trọng tâm trạch cát • "Lấy vợ xem tuổi đàn bà" &amp; Kim Lâu</span>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.75rem;">
+              <label class="form-label" for="weddingBrideName">Họ tên cô dâu:</label>
+              <input type="text" id="weddingBrideName" class="form-control" placeholder="Ví dụ: Trần Thị Mai" value="Cô Dâu">
+            </div>
+            <div class="form-group" style="margin-bottom: 0.75rem;">
+              <label class="form-label">Loại lịch nhập:</label>
+              <div style="display: flex; gap: 1rem; padding-top: 0.2rem;">
+                <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; cursor: pointer;">
+                  <input type="radio" name="weddingBrideCalType" value="solar" checked id="weddingBrideTypeSolar"> Dương Lịch
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; cursor: pointer;">
+                  <input type="radio" name="weddingBrideCalType" value="lunar" id="weddingBrideTypeLunar"> Âm Lịch
+                </label>
+              </div>
+            </div>
+            <!-- Cô dâu: Dương Lịch Input -->
+            <div id="weddingBrideSolarWrap" class="form-group" style="margin-bottom: 0.75rem;">
+              <label class="form-label" for="weddingBrideSolarDate">Ngày sinh (Dương lịch):</label>
+              <input type="date" id="weddingBrideSolarDate" class="form-control" value="1998-08-20">
+            </div>
+            <!-- Cô dâu: Âm Lịch Input (ẩn mặc định) -->
+            <div id="weddingBrideLunarWrap" style="display: none; margin-bottom: 0.75rem;">
+              <label class="form-label">Ngày sinh (Âm lịch):</label>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 0.4rem;">
+                <select id="weddingBrideLunarDay" class="form-select"></select>
+                <select id="weddingBrideLunarMonth" class="form-select"></select>
+                <select id="weddingBrideLunarYear" class="form-select"></select>
+              </div>
+              <div style="margin-top: 0.35rem;">
+                <label style="font-size: 0.78rem; color: #4b5563; display: flex; align-items: center; gap: 0.3rem;">
+                  <input type="checkbox" id="weddingBrideLunarLeap"> Tháng nhuận
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- THANH ĐIỀU KHIỂN KHẢO SÁT NĂM -->
+        <div class="wedding-survey-control-bar">
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <label style="font-size: 0.88rem; font-weight: 700; color: #92400e;">Năm bắt đầu khảo sát:</label>
+            <input type="number" id="weddingSurveyYear" class="form-control" style="width: 95px; text-align: center; font-weight: 700;" value="2026" min="1950" max="2100">
+            <span style="font-size: 0.8rem; color: #78350f;">(Đối chiếu liên tục 6 năm: Năm hiện tại + 5 năm tới)</span>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnCalculateWedding" style="padding: 0.5rem 1.35rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+            <span>💍</span> Xem Thời Gian Cưới Phù Hợp
+          </button>
+        </div>
+      </div>
+
+      <!-- VÙNG HIỂN THỊ KẾT QUẢ PHÂN TÍCH -->
+      <div id="weddingResultContainer" style="margin-top: 1.25rem;">
+        <!-- KẾT QUẢ 1: THÔNG TIN BẢN MỆNH & PHỐI CUNG BÁT TRẠCH HÔN NHÂN -->
+        <div class="card" style="margin-bottom: 1.25rem;">
+          <div class="card-header">
+            <h3 class="card-title" style="font-size: 1.15rem; color: #1e3a8a; display: flex; align-items: center; gap: 0.4rem;">
+              <span>🧭</span> 1. Bản Mệnh Can Chi &amp; Phối Cung Hôn Nhân Bát Trạch
+            </h3>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Theo tài liệu Bát Trạch Lạc Thư: 8 Cung Mệnh, Đông/Tây Tứ Mệnh &amp; 8 Trạng Thái Biến Hóa</span>
+          </div>
+
+          <!-- Grid 2 người -->
+          <div class="wedding-profile-grid">
+            <!-- Hồ sơ Chú Rể -->
+            <div class="wedding-profile-card" id="weddingGroomProfileCard" style="border-left: 4px solid #2563eb;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem;">
+                <h4 style="font-size: 1rem; font-weight: 800; color: #1e40af;" id="wProfGroomName">Chú Rể</h4>
+                <span class="badge" style="background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe;" id="wProfGroomGroup">Đông Tứ Mệnh</span>
+              </div>
+              <div style="font-size: 0.85rem; color: #374151; display: grid; gap: 0.35rem;">
+                <div><strong>Ngày sinh:</strong> <span id="wProfGroomSolarText">15/10/1996</span> (DL) • <span id="wProfGroomLunarText">04/09/1996</span> (AL)</div>
+                <div><strong>Năm Can Chi:</strong> <span id="wProfGroomCanChi" class="wedding-can-chi-highlight">Bính Tý</span></div>
+                <div><strong>Nạp Âm Ngũ Hành:</strong> <span id="wProfGroomNapAm" style="font-weight: 600; color: #0369a1;">Giản Hạ Thủy</span></div>
+                <div><strong>Mệnh Quái (Cung Phi):</strong> <span id="wProfGroomCung" style="font-weight: 700; color: #1e40af;">Cung Tốn (Mộc)</span> — Hướng <span id="wProfGroomDir">Đông Nam</span></div>
+              </div>
+            </div>
+
+            <!-- Hồ sơ Cô Dâu -->
+            <div class="wedding-profile-card" id="weddingBrideProfileCard" style="border-left: 4px solid #e11d48;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem;">
+                <h4 style="font-size: 1rem; font-weight: 800; color: #9f1239;" id="wProfBrideName">Cô Dâu</h4>
+                <span class="badge" style="background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3;" id="wProfBrideGroup">Đông Tứ Mệnh</span>
+              </div>
+              <div style="font-size: 0.85rem; color: #374151; display: grid; gap: 0.35rem;">
+                <div><strong>Ngày sinh:</strong> <span id="wProfBrideSolarText">20/08/1998</span> (DL) • <span id="wProfBrideLunarText">29/06/1998</span> (AL)</div>
+                <div><strong>Năm Can Chi:</strong> <span id="wProfBrideCanChi" class="wedding-can-chi-highlight" style="color: #9f1239; background: #fff1f2; border-color: #fecdd3;">Mậu Dần</span></div>
+                <div><strong>Nạp Âm Ngũ Hành:</strong> <span id="wProfBrideNapAm" style="font-weight: 600; color: #b45309;">Thành Đầu Thổ</span></div>
+                <div><strong>Mệnh Quái (Cung Phi):</strong> <span id="wProfBrideCung" style="font-weight: 700; color: #9f1239;">Cung Tốn (Mộc)</span> — Hướng <span id="wProfBrideDir">Đông Nam</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Banner Phối Hợp Bát Trạch Hôn Nhân -->
+          <div class="wedding-battrach-banner good-state" id="weddingBatTrachBanner">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.6rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <span style="font-size: 1.6rem;" id="wBatTrachIcon">✨</span>
+                <div>
+                  <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #4b5563;">Kết Quả Phối Quẻ Bát Trạch (Chồng + Vợ)</div>
+                  <h4 style="font-size: 1.25rem; font-weight: 800;" id="wBatTrachStateTitle">Phục Vị (Tốt tư)</h4>
+                </div>
+              </div>
+              <div id="wBatTrachGroupBadge">
+                <span class="badge" style="background: #dcfce7; color: #15803d; border: 1px solid #86efac; font-size: 0.82rem; padding: 0.3rem 0.65rem;">
+                  Đồng Trạch (Đông Tứ + Đông Tứ) ➔ Cát
+                </span>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: #374151; line-height: 1.6; margin-bottom: 0.5rem;" id="wBatTrachStateDesc">
+              Vững vàng, may mắn trong thi cử, tinh thần yên ổn, bản mệnh củng cố bền vững.
+            </p>
+            <div style="background: rgba(255, 255, 255, 0.7); border-radius: 6px; padding: 0.6rem 0.85rem; font-size: 0.84rem; color: #1f2937;" id="wBatTrachAdviceBox">
+              <strong>💡 Lời khuyên hôn nhân:</strong> Vợ chồng tâm đầu ý hợp, gia đạo thuận hòa, cùng chí hướng xây dựng tổ ấm vững chắc.
+            </div>
+          </div>
+        </div>
+
+        <!-- KẾT QUẢ 2: ĐỐI CHIẾU 6 NĂM & LỜI KHUYÊN CHỌN NĂM CƯỚI -->
+        <div class="card" style="margin-bottom: 1.25rem;">
+          <div class="card-header" style="flex-wrap: wrap; gap: 0.6rem;">
+            <div>
+              <h3 class="card-title" style="font-size: 1.15rem; color: #92400e; display: flex; align-items: center; gap: 0.4rem;">
+                <span>📅</span> 2. Đối Chiếu Can Chi 6 Năm (Năm Hiện Tại &amp; 5 Năm Tới)
+              </h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Khảo sát hạn Kim Lâu (tuổi cô dâu), tương tác Địa Chi xung hợp và xếp hạng năm kết hôn</span>
+            </div>
+          </div>
+
+          <!-- Lời khuyên chọn năm nổi bật -->
+          <div class="wedding-suggestion-callout" id="weddingYearAdviceCallout">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
+              <span style="font-size: 1.4rem;">💍</span>
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #92400e;">LỜI KHUYÊN CHỌN NĂM KẾT HÔN TỐT NHẤT:</h4>
+            </div>
+            <div style="font-size: 0.92rem; color: #78350f; line-height: 1.6;" id="weddingYearAdviceText">
+              Đang phân tích lời khuyên chọn năm...
+            </div>
+          </div>
+
+          <!-- Danh sách 6 năm đối chiếu -->
+          <div id="weddingYearsList">
+            <!-- Render via JS -->
+          </div>
+        </div>
+
+        <!-- KẾT QUẢ 3: GỢI Ý THÁNG CÓ CAN CHI NÀO PHÙ HỢP KẾT HÔN (DÙNG PHƯƠNG PHÁP LOẠI TRỪ) -->
+        <div class="card" id="weddingMonthsSection">
+          <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+            <div>
+              <h3 class="card-title" style="font-size: 1.15rem; color: #15803d; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🌸</span> 3. Gợi Ý Tháng Có Can Chi Phù Hợp Kết Hôn (Phương Pháp Loại Trừ)
+              </h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">
+                Đang xét trong: <strong id="weddingSelectedYearTitle" style="color: #92400e;">Năm 2026 (Bính Ngọ)</strong> • Dùng phương pháp loại trừ tháng xung tuổi, xung năm và kỵ nghênh hôn
+              </span>
+            </div>
+            <!-- Bộ chọn nhanh năm đang khảo sát tháng -->
+            <div style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;" id="weddingYearSelectorBtns">
+              <!-- Render via JS -->
+            </div>
+          </div>
+
+          <!-- HỘP TỔNG KẾT GỢI Ý THÁNG CÓ CAN CHI NÀO PHÙ HỢP (TRỌNG TÂM THEO YÊU CẦU CỦA USER) -->
+          <div class="wedding-suggestion-callout" style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border-color: #86efac;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.35rem;">✨</span>
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #166534;">
+                GỢI Ý CÁC THÁNG CÓ CAN CHI PHÙ HỢP NHẤT ĐỂ KẾT HÔN:
+              </h4>
+            </div>
+            <div style="font-size: 0.88rem; color: #14532d; line-height: 1.6;" id="weddingRecommendedMonthsSummary">
+              <!-- Render via JS -->
+            </div>
+          </div>
+
+          <!-- BẢNG CHI TIẾT 12 THÁNG & TIẾN TRÌNH LOẠI TRỪ -->
+          <div style="border: 1px solid #e5e7eb; border-radius: var(--radius-md); overflow: hidden; background: #fff;">
+            <div style="background: #fafaf9; border-bottom: 2px solid #e5e7eb; padding: 0.65rem 0.85rem; font-size: 0.78rem; font-weight: 700; color: #6b7280; text-transform: uppercase;" class="wedding-month-row">
+              <div>Tháng ÂL</div>
+              <div>Can Chi Tháng</div>
+              <div>Trạch Nhật Nghênh Hôn</div>
+              <div>Tiến Trình Loại Trừ (Phương Pháp Loại Trừ)</div>
+              <div>Kết Luận</div>
+            </div>
+            <div id="weddingMonthsTableBody">
+              <!-- Render 12 months via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- KHỐI 4: NGUYÊN LÝ BÁT TRẠCH & CẨM NANG TRẠCH CÁT HÔN NHÂN -->
+        <div class="card" style="margin-top: 1.25rem;">
+          <div class="card-header">
+            <h4 class="card-title" style="font-size: 1rem; color: #374151; display: flex; align-items: center; gap: 0.4rem;">
+              <span>📖</span> Nguyên Lý Bát Trạch &amp; Quy Tắc Trạch Cát Hôn Nhân Cổ Truyền
+            </h4>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; font-size: 0.83rem; color: #4b5563; line-height: 1.6;">
+            <div style="background: #fafaf9; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem;">
+              <h5 style="font-weight: 700; color: #1e3a8a; margin-bottom: 0.35rem;">1. Bát Trạch Đông/Tây Tứ Mệnh</h5>
+              <p>• <strong>Đông Tứ Mệnh:</strong> Khảm (Bắc), Chấn (Đông), Tốn (Đông Nam), Ly (Nam).</p>
+              <p>• <strong>Tây Tứ Mệnh:</strong> Càn (Tây Bắc), Đoài (Tây), Khôn (Tây Nam), Cấn (Đông Bắc).</p>
+              <p>• <strong>Quy tắc:</strong> Cùng nhóm (Đồng Trạch) tạo ra 4 du niên Cát (Sinh Khí, Thiên Y, Diên Niên, Phục Vị). Khác nhóm tạo 4 du niên Hung (Họa Hại, Lục Sát, Ngũ Quỷ, Tuyệt Mệnh).</p>
+            </div>
+            <div style="background: #fafaf9; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem;">
+              <h5 style="font-weight: 700; color: #991b1b; margin-bottom: 0.35rem;">2. Cổ Quyết "Lấy Vợ Xem Tuổi Đàn Bà" &amp; Kim Lâu</h5>
+              <p>• Lấy tuổi mụ của cô dâu chia cho 9:</p>
+              <p>• Dư 1: <em>Kim Lâu Thân</em> (kỵ bản thân cô dâu).</p>
+              <p>• Dư 3: <em>Kim Lâu Thê (Phu)</em> (trong hôn nhân kỵ người phối ngẫu).</p>
+              <p>• Dư 6: <em>Kim Lâu Tử</em> (kỵ đường con cái).</p>
+              <p>• Dư 8: <em>Kim Lâu Lục Súc</em> (kỵ tài sản gia đình).</p>
+              <p>• Dư 0, 2, 4, 5, 7: <strong>Không phạm Kim Lâu</strong> ➔ Đại cát cưới hỏi.</p>
+            </div>
+            <div style="background: #fafaf9; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem;">
+              <h5 style="font-weight: 700; color: #15803d; margin-bottom: 0.35rem;">3. Phương Pháp Loại Trừ Chọn Tháng</h5>
+              <p>• <strong>Bước 1:</strong> Định vị tháng Đại Lợi &amp; Tiểu Lợi theo Địa Chi tuổi cô dâu.</p>
+              <p>• <strong>Bước 2:</strong> Loại trừ tháng có Chi Lục Xung với tuổi Cô dâu và tuổi Chú rể.</p>
+              <p>• <strong>Bước 3:</strong> Loại trừ tháng Nguyệt Phá (xung Chi năm cưới).</p>
+              <p>• <strong>Bước 4:</strong> Xác định Can Chi chính xác của các tháng còn lại để chọn tháng cưới tốt nhất.</p>
             </div>
           </div>
         </div>
@@ -6208,6 +6673,7 @@
       renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
       renderDedicatedLeapTab(selectedDate.getFullYear());
       updateBlocView(selectedDate);
+      setupWeddingTab();
       setupBattuForm();
       setupConverterForm();
       renderFestivals();
@@ -8916,6 +9382,854 @@
     }
 
     /**
+     * =========================================================================
+     * CHỌN XEM THỜI GIAN CƯỚI • TRẠCH CÁT HÔN NHÂN ENGINE
+     * Bát Trạch Lạc Thư • Kim Lâu • Lục Xung/Tam Hợp • Phương Pháp Loại Trừ Tháng
+     * =========================================================================
+     */
+
+    // Tính Cung Phi Bát Trạch (1: Khảm, 2: Khôn, 3: Chấn, 4: Tốn, 6: Càn, 7: Đoài, 8: Cấn, 9: Ly)
+    function getDigitSumSingle(n) {
+      let s = String(n).split('').reduce((acc, c) => acc + (parseInt(c, 10) || 0), 0);
+      while (s > 9) {
+        s = String(s).split('').reduce((acc, c) => acc + (parseInt(c, 10) || 0), 0);
+      }
+      return s;
+    }
+
+    function computeBatTrachCung(lunarYear, gender) {
+      const last2Digits = Math.abs(lunarYear) % 100;
+      const s = getDigitSumSingle(last2Digits);
+      let num = 0;
+      if (lunarYear < 2000) {
+        if (gender === 'male') {
+          num = 10 - s;
+          if (num === 5) num = 2; // Nam quy Khôn (Tây Tứ Mệnh)
+        } else {
+          num = 5 + s;
+          num = getDigitSumSingle(num);
+          if (num === 5) num = 8; // Nữ quy Cấn (Tây Tứ Mệnh)
+        }
+      } else {
+        if (gender === 'male') {
+          num = 9 - s;
+          if (num <= 0) num = 9;
+          if (num === 5) num = 2; // Nam quy Khôn
+        } else {
+          num = 6 + s;
+          num = getDigitSumSingle(num);
+          if (num === 5) num = 8; // Nữ quy Cấn
+        }
+      }
+      const CUNG_MAP = {
+        1: { code: 1, name: 'Khảm', element: 'Thủy', direction: 'Bắc', group: 'Đông Tứ Mệnh', symbol: '☵' },
+        2: { code: 2, name: 'Khôn', element: 'Thổ', direction: 'Tây Nam', group: 'Tây Tứ Mệnh', symbol: '☷' },
+        3: { code: 3, name: 'Chấn', element: 'Mộc', direction: 'Đông', group: 'Đông Tứ Mệnh', symbol: '☳' },
+        4: { code: 4, name: 'Tốn', element: 'Mộc', direction: 'Đông Nam', group: 'Đông Tứ Mệnh', symbol: '☴' },
+        6: { code: 6, name: 'Càn', element: 'Kim', direction: 'Tây Bắc', group: 'Tây Tứ Mệnh', symbol: '☰' },
+        7: { code: 7, name: 'Đoài', element: 'Kim', direction: 'Tây', group: 'Tây Tứ Mệnh', symbol: '☱' },
+        8: { code: 8, name: 'Cấn', element: 'Thổ', direction: 'Đông Bắc', group: 'Tây Tứ Mệnh', symbol: '☶' },
+        9: { code: 9, name: 'Ly', element: 'Hỏa', direction: 'Nam', group: 'Đông Tứ Mệnh', symbol: '☲' }
+      };
+      return CUNG_MAP[num] || CUNG_MAP[1];
+    }
+
+    // Ma trận phối cung Bát Trạch (Chuẩn Bát Trạch Minh Cảnh & Lạc Thư)
+    const BAT_TRACH_MARRIAGE_MAP = {
+      'Càn': { 'Càn': 'Phục Vị', 'Khảm': 'Lục Sát', 'Cấn': 'Thiên Y', 'Chấn': 'Ngũ Quỷ', 'Tốn': 'Họa Hại', 'Ly': 'Tuyệt Mệnh', 'Khôn': 'Diên Niên', 'Đoài': 'Sinh Khí' },
+      'Khảm': { 'Càn': 'Lục Sát', 'Khảm': 'Phục Vị', 'Cấn': 'Ngũ Quỷ', 'Chấn': 'Thiên Y', 'Tốn': 'Sinh Khí', 'Ly': 'Diên Niên', 'Khôn': 'Tuyệt Mệnh', 'Đoài': 'Họa Hại' },
+      'Cấn': { 'Càn': 'Thiên Y', 'Khảm': 'Ngũ Quỷ', 'Cấn': 'Phục Vị', 'Chấn': 'Lục Sát', 'Tốn': 'Tuyệt Mệnh', 'Ly': 'Họa Hại', 'Khôn': 'Sinh Khí', 'Đoài': 'Diên Niên' },
+      'Chấn': { 'Càn': 'Ngũ Quỷ', 'Khảm': 'Thiên Y', 'Cấn': 'Lục Sát', 'Chấn': 'Phục Vị', 'Tốn': 'Diên Niên', 'Ly': 'Sinh Khí', 'Khôn': 'Họa Hại', 'Đoài': 'Tuyệt Mệnh' },
+      'Tốn': { 'Càn': 'Họa Hại', 'Khảm': 'Sinh Khí', 'Cấn': 'Tuyệt Mệnh', 'Chấn': 'Diên Niên', 'Tốn': 'Phục Vị', 'Ly': 'Thiên Y', 'Khôn': 'Ngũ Quỷ', 'Đoài': 'Lục Sát' },
+      'Ly': { 'Càn': 'Tuyệt Mệnh', 'Khảm': 'Diên Niên', 'Cấn': 'Họa Hại', 'Chấn': 'Sinh Khí', 'Tốn': 'Thiên Y', 'Ly': 'Phục Vị', 'Khôn': 'Lục Sát', 'Đoài': 'Ngũ Quỷ' },
+      'Khôn': { 'Càn': 'Diên Niên', 'Khảm': 'Tuyệt Mệnh', 'Cấn': 'Sinh Khí', 'Chấn': 'Họa Hại', 'Tốn': 'Ngũ Quỷ', 'Ly': 'Lục Sát', 'Khôn': 'Phục Vị', 'Đoài': 'Thiên Y' },
+      'Đoài': { 'Càn': 'Sinh Khí', 'Khảm': 'Họa Hại', 'Cấn': 'Diên Niên', 'Chấn': 'Tuyệt Mệnh', 'Tốn': 'Lục Sát', 'Ly': 'Ngũ Quỷ', 'Khôn': 'Thiên Y', 'Đoài': 'Phục Vị' }
+    };
+
+    // 8 Trạng thái biến hóa Bát Trạch & Lời khuyên
+    const BAT_TRACH_STATE_DETAILS = {
+      'Sinh Khí': {
+        level: 'good', icon: '🌟', rank: 1, title: 'Sinh Khí (Cát Bậc Nhất)',
+        desc: 'Thuộc sao Tham Lang (Dương Mộc), mang năng lượng dồi dào, sinh sôi nảy nở. Chủ về vượng tài lộc, công danh hiển đạt, con cái thông minh hiếu thảo, gia đạo thịnh vượng.',
+        advice: 'Vợ chồng kết hợp đắc Sinh Khí là phước lành trời ban, trăm năm hòa thuận, sự nghiệp thăng tiến không ngừng.'
+      },
+      'Thiên Y': {
+        level: 'good', icon: '💖', rank: 2, title: 'Thiên Y (Cát Bậc Nhì)',
+        desc: 'Thuộc sao Cự Môn (Dương Thổ). Chủ về trường thọ, sức khỏe dẻo dai, tiêu trừ tật bệnh, luôn có quý nhân phò trợ trong lúc gian khó.',
+        advice: 'Gia đình yên vui, con cháu khỏe mạnh ngoan ngoãn, tâm tính an nhiên, kinh tế vững vàng.'
+      },
+      'Diên Niên': {
+        level: 'good', icon: '💍', rank: 3, title: 'Diên Niên / Phúc Đức (Đại Cát Hôn Nhân)',
+        desc: 'Thuộc sao Vũ Khúc (Dương Kim). Chủ về tình cảm đôi lứa son sắt, hòa khí sinh tài, các mối quan hệ nội ngoại ấm êm, bách niên giai lão.',
+        advice: 'Đây là cung tối hảo cho hôn nhân bền chặt, vợ chồng đồng lòng "tát biển Đông cũng cạn", tuổi thọ và phúc đức viên mãn.'
+      },
+      'Phục Vị': {
+        level: 'good', icon: '✨', rank: 4, title: 'Phục Vị (Cát Lợi Bình Ổn)',
+        desc: 'Thuộc sao Tả Phù (Âm Thủy). Chủ về sự ổn định, bình yên, giữ vững bản mệnh, củng cố tinh thần và vận may tài chính gia đình.',
+        advice: 'Cuộc sống vợ chồng êm đềm, gắn bó, tránh được sóng gió tranh đoạt, tài chính tích lũy an toàn.'
+      },
+      'Họa Hại': {
+        level: 'bad', icon: '⚠️', rank: 5, title: 'Họa Hại (Tiểu Hung)',
+        desc: 'Thuộc sao Lộc Tồn (Âm Thổ). Dễ vướng chuyện thị phi khẩu thiệt, hao tài việc nhỏ, bất đồng quan điểm lặt vặt.',
+        advice: 'Hóa giải phong thủy: Thiết kế hướng bếp quay về hướng Phục Vị hoặc Diên Niên, vợ chồng cần bao dung, chọn năm sinh con cung Phục Vị/Diên Niên.'
+      },
+      'Lục Sát': {
+        level: 'bad', icon: '⚡', rank: 6, title: 'Lục Sát (Trung Hung)',
+        desc: 'Thuộc sao Văn Khúc (Dương Thủy). Trường khí nhiễu loạn, dễ sinh nghi kỵ, tranh cãi nội bộ hoặc quan hệ tình cảm bị xáo trộn.',
+        advice: 'Hóa giải phong thủy: Áp dụng nguyên lý "Diên Niên giáng Lục Sát" bằng cách đặt bếp tọa hung hướng Diên Niên, chọn năm sinh con cung Diên Niên.'
+      },
+      'Ngũ Quỷ': {
+        level: 'bad', icon: '🔥', rank: 7, title: 'Ngũ Quỷ (Đại Hung)',
+        desc: 'Thuộc sao Liêm Trinh (Âm Hỏa). Tính khí dễ nóng nảy, dễ xảy ra bất hòa to tiếng, hao hụt kinh tế hoặc thị phi bên ngoài.',
+        advice: 'Hóa giải phong thủy: Áp dụng quy tắc "Sinh Khí giáng Ngũ Quỷ" (bếp quay hướng Sinh Khí), sinh con cung Sinh Khí để xoay chuyển cát khí gia đình.'
+      },
+      'Tuyệt Mệnh': {
+        level: 'bad', icon: '⛔', rank: 8, title: 'Tuyệt Mệnh (Cực Hung)',
+        desc: 'Thuộc sao Phá Quân (Âm Kim). Trường khí ngũ hành tương khắc gay gắt, sức khỏe suy giảm, nhiều lo toan trắc trở.',
+        advice: 'Hóa giải phong thủy: Áp dụng bí quyết "Thiên Y chế Tuyệt Mệnh" (đặt bếp hướng Thiên Y), chọn năm sinh con mang cung Thiên Y, tu tâm dưỡng tính, yêu thương sẻ chia.'
+      }
+    };
+
+    // Bảng quy tắc Trạch Nhật Nghênh Hôn (Tháng Đại Lợi & Tiểu Lợi theo Địa Chi tuổi Cô Dâu)
+    const WEDDING_NGHENH_HON = {
+      0: { chi: 'Tý', daiLoi: [6, 12], tieuLoi: [1, 7], kyPhu: [2, 8], kyThe: [3, 9], kyPhuMau: [4, 10] },
+      6: { chi: 'Ngọ', daiLoi: [6, 12], tieuLoi: [1, 7], kyPhu: [2, 8], kyThe: [3, 9], kyPhuMau: [4, 10] },
+      1: { chi: 'Sửu', daiLoi: [5, 11], tieuLoi: [4, 10], kyPhu: [3, 9], kyThe: [2, 8], kyPhuMau: [1, 7] },
+      7: { chi: 'Mùi', daiLoi: [5, 11], tieuLoi: [4, 10], kyPhu: [3, 9], kyThe: [2, 8], kyPhuMau: [1, 7] },
+      2: { chi: 'Dần', daiLoi: [2, 8], tieuLoi: [3, 9], kyPhu: [4, 10], kyThe: [1, 7], kyPhuMau: [6, 12] },
+      8: { chi: 'Thân', daiLoi: [2, 8], tieuLoi: [3, 9], kyPhu: [4, 10], kyThe: [1, 7], kyPhuMau: [6, 12] },
+      3: { chi: 'Mão', daiLoi: [1, 7], tieuLoi: [2, 8], kyPhu: [5, 11], kyThe: [6, 12], kyPhuMau: [3, 9] },
+      9: { chi: 'Dậu', daiLoi: [1, 7], tieuLoi: [2, 8], kyPhu: [5, 11], kyThe: [6, 12], kyPhuMau: [3, 9] },
+      4: { chi: 'Thìn', daiLoi: [4, 10], tieuLoi: [5, 11], kyPhu: [6, 12], kyThe: [1, 7], kyPhuMau: [2, 8] },
+      10: { chi: 'Tuất', daiLoi: [4, 10], tieuLoi: [5, 11], kyPhu: [6, 12], kyThe: [1, 7], kyPhuMau: [2, 8] },
+      5: { chi: 'Tỵ', daiLoi: [3, 9], tieuLoi: [6, 12], kyPhu: [1, 7], kyThe: [4, 10], kyPhuMau: [5, 11] },
+      11: { chi: 'Hợi', daiLoi: [3, 9], tieuLoi: [6, 12], kyPhu: [1, 7], kyThe: [4, 10], kyPhuMau: [5, 11] }
+    };
+
+    // Kiểm tra Hạn Kim Lâu (tuổi mụ cô dâu)
+    function checkKimLau(ageMu) {
+      const remainder = ageMu % 9;
+      if (remainder === 1) {
+        return { isKimLau: true, type: 'Kim Lâu Thân', code: 1, desc: 'Kỵ hại chính bản thân người vợ', badge: '❌ Phạm Kim Lâu Thân', severity: 'high' };
+      } else if (remainder === 3) {
+        return { isKimLau: true, type: 'Kim Lâu Thê (Phu)', code: 3, desc: 'Kỵ hại người phối ngẫu (trong hôn nhân kỵ hại chồng)', badge: '❌ Phạm Kim Lâu Thê', severity: 'high' };
+      } else if (remainder === 6) {
+        return { isKimLau: true, type: 'Kim Lâu Tử', code: 6, desc: 'Kỵ đường con cái (hiếm muộn, khó nuôi)', badge: '❌ Phạm Kim Lâu Tử', severity: 'high' };
+      } else if (remainder === 8) {
+        return { isKimLau: true, type: 'Kim Lâu Lục Súc', code: 8, desc: 'Kỵ tài sản kinh tế gia đình (có thể cưới vào cuối năm hoặc sau Đông Chí)', badge: '⚠️ Phạm Kim Lâu Lục Súc', severity: 'medium' };
+      }
+      return { isKimLau: false, type: 'Không phạm Kim Lâu', code: 0, desc: 'Tuổi mụ cát lợi, cưới hỏi đại cát', badge: '✨ Không phạm Kim Lâu', severity: 'none' };
+    }
+
+    // Quan hệ Địa Chi
+    const WEDDING_LUC_XUNG = { 0: 6, 6: 0, 1: 7, 7: 1, 2: 8, 8: 2, 3: 9, 9: 3, 4: 10, 10: 4, 5: 11, 11: 5 };
+    const WEDDING_TAM_HOP_GROUPS = [ [8, 0, 4], [2, 6, 10], [5, 9, 1], [11, 3, 7] ];
+    const WEDDING_LUC_HOP = { 0: 1, 1: 0, 2: 11, 11: 2, 3: 10, 10: 3, 4: 9, 9: 4, 5: 8, 8: 5, 6: 7, 7: 6 };
+
+    function isLucXung(c1, c2) {
+      return WEDDING_LUC_XUNG[c1] === c2;
+    }
+    function isTamHop(c1, c2) {
+      return WEDDING_TAM_HOP_GROUPS.some(g => g.includes(c1) && g.includes(c2) && c1 !== c2);
+    }
+    function isLucHop(c1, c2) {
+      return WEDDING_LUC_HOP[c1] === c2;
+    }
+    function checkTamTai(personChiIndex, yearChiIndex) {
+      if ([8, 0, 4].includes(personChiIndex) && [2, 3, 4].includes(yearChiIndex)) return true; // Thân Tý Thìn: Dần Mão Thìn
+      if ([2, 6, 10].includes(personChiIndex) && [8, 9, 10].includes(yearChiIndex)) return true; // Dần Ngọ Tuất: Thân Dậu Tuất
+      if ([5, 9, 1].includes(personChiIndex) && [11, 0, 1].includes(yearChiIndex)) return true; // Tỵ Dậu Sửu: Hợi Tý Sửu
+      if ([11, 3, 7].includes(personChiIndex) && [5, 6, 7].includes(yearChiIndex)) return true; // Hợi Mão Mùi: Tỵ Ngọ Mùi
+      return false;
+    }
+
+    // Biến trạng thái toàn cục cho tab Cưới hỏi
+    let weddingCurrentAnalysis = null;
+    let weddingActiveYear = null;
+
+    // Khởi tạo tab Wedding
+    function setupWeddingTab() {
+      // Đổ options cho các dropdown ngày/tháng/năm âm lịch
+      populateWeddingLunarSelects('weddingGroomLunarDay', 'weddingGroomLunarMonth', 'weddingGroomLunarYear', 1996, 9, 4);
+      populateWeddingLunarSelects('weddingBrideLunarDay', 'weddingBrideLunarMonth', 'weddingBrideLunarYear', 1998, 6, 29);
+
+      // Chuyển đổi loại lịch Chú rể
+      const rGroomSolar = document.getElementById('weddingGroomTypeSolar');
+      const rGroomLunar = document.getElementById('weddingGroomTypeLunar');
+      const wrapGroomSolar = document.getElementById('weddingGroomSolarWrap');
+      const wrapGroomLunar = document.getElementById('weddingGroomLunarWrap');
+
+      function toggleGroomCalType() {
+        if (rGroomSolar.checked) {
+          wrapGroomSolar.style.display = 'block';
+          wrapGroomLunar.style.display = 'none';
+        } else {
+          wrapGroomSolar.style.display = 'none';
+          wrapGroomLunar.style.display = 'block';
+          syncGroomSolarToLunar();
+        }
+      }
+      if (rGroomSolar) rGroomSolar.addEventListener('change', toggleGroomCalType);
+      if (rGroomLunar) rGroomLunar.addEventListener('change', toggleGroomCalType);
+
+      // Chuyển đổi loại lịch Cô dâu
+      const rBrideSolar = document.getElementById('weddingBrideTypeSolar');
+      const rBrideLunar = document.getElementById('weddingBrideTypeLunar');
+      const wrapBrideSolar = document.getElementById('weddingBrideSolarWrap');
+      const wrapBrideLunar = document.getElementById('weddingBrideLunarWrap');
+
+      function toggleBrideCalType() {
+        if (rBrideSolar.checked) {
+          wrapBrideSolar.style.display = 'block';
+          wrapBrideLunar.style.display = 'none';
+        } else {
+          wrapBrideSolar.style.display = 'none';
+          wrapBrideLunar.style.display = 'block';
+          syncBrideSolarToLunar();
+        }
+      }
+      if (rBrideSolar) rBrideSolar.addEventListener('change', toggleBrideCalType);
+      if (rBrideLunar) rBrideLunar.addEventListener('change', toggleBrideCalType);
+
+      // Nút tính toán
+      const btnCalc = document.getElementById('btnCalculateWedding');
+      if (btnCalc) btnCalc.addEventListener('click', calculateWeddingTime);
+
+      // Các nút cặp đôi mẫu
+      document.querySelectorAll('.btn-wedding-preset').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const gDate = btn.getAttribute('data-groom-s');
+          const bDate = btn.getAttribute('data-bride-s');
+          if (gDate) {
+            rGroomSolar.checked = true;
+            toggleGroomCalType();
+            document.getElementById('weddingGroomSolarDate').value = gDate;
+          }
+          if (bDate) {
+            rBrideSolar.checked = true;
+            toggleBrideCalType();
+            document.getElementById('weddingBrideSolarDate').value = bDate;
+          }
+          calculateWeddingTime();
+        });
+      });
+
+      // Gắn năm khảo sát mặc định là năm hiện tại
+      const surveyInput = document.getElementById('weddingSurveyYear');
+      if (surveyInput) {
+        surveyInput.value = (new Date()).getFullYear();
+      }
+
+      // Khởi chạy phân tích mặc định
+      calculateWeddingTime();
+    }
+
+    function populateWeddingLunarSelects(dayId, monthId, yearId, defaultYear, defaultMonth, defaultDay) {
+      const selDay = document.getElementById(dayId);
+      const selMonth = document.getElementById(monthId);
+      const selYear = document.getElementById(yearId);
+      if (!selDay || !selMonth || !selYear) return;
+
+      selDay.innerHTML = '';
+      for (let d = 1; d <= 30; d++) {
+        selDay.innerHTML += `<option value="${d}" ${d === defaultDay ? 'selected' : ''}>Ngày ${d}</option>`;
+      }
+      selMonth.innerHTML = '';
+      for (let m = 1; m <= 12; m++) {
+        selMonth.innerHTML += `<option value="${m}" ${m === defaultMonth ? 'selected' : ''}>Tháng ${m}</option>`;
+      }
+      selYear.innerHTML = '';
+      for (let y = 2040; y >= 1930; y--) {
+        const canChi = getYearCanChi(y);
+        selYear.innerHTML += `<option value="${y}" ${y === defaultYear ? 'selected' : ''}>${y} (${canChi.text})</option>`;
+      }
+    }
+
+    function syncGroomSolarToLunar() {
+      const sVal = document.getElementById('weddingGroomSolarDate').value;
+      if (!sVal) return;
+      const [y, m, d] = sVal.split('-').map(Number);
+      const [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(d, m, y);
+      document.getElementById('weddingGroomLunarDay').value = lDay;
+      document.getElementById('weddingGroomLunarMonth').value = lMonth;
+      document.getElementById('weddingGroomLunarYear').value = lYear;
+      document.getElementById('weddingGroomLunarLeap').checked = (isLeap === 1);
+    }
+
+    function syncBrideSolarToLunar() {
+      const sVal = document.getElementById('weddingBrideSolarDate').value;
+      if (!sVal) return;
+      const [y, m, d] = sVal.split('-').map(Number);
+      const [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(d, m, y);
+      document.getElementById('weddingBrideLunarDay').value = lDay;
+      document.getElementById('weddingBrideLunarMonth').value = lMonth;
+      document.getElementById('weddingBrideLunarYear').value = lYear;
+      document.getElementById('weddingBrideLunarLeap').checked = (isLeap === 1);
+    }
+
+    // Thuật toán chính: Tính toán thời gian cưới và đối chiếu Bát Trạch & Can Chi
+    function calculateWeddingTime() {
+      const groomName = document.getElementById('weddingGroomName').value.trim() || 'Chú Rể';
+      const brideName = document.getElementById('weddingBrideName').value.trim() || 'Cô Dâu';
+
+      // 1. Xác định ngày tháng năm sinh Chú Rể
+      const isGroomSolar = document.getElementById('weddingGroomTypeSolar').checked;
+      let gSDay, gSMonth, gSYear, gLDay, gLMonth, gLYear, gIsLeap;
+
+      if (isGroomSolar) {
+        const dateVal = document.getElementById('weddingGroomSolarDate').value;
+        if (!dateVal) { alert('Vui lòng chọn ngày sinh Chú Rể!'); return; }
+        const [y, m, d] = dateVal.split('-').map(Number);
+        gSDay = d; gSMonth = m; gSYear = y;
+        [gLDay, gLMonth, gLYear, gIsLeap] = convertSolar2Lunar(gSDay, gSMonth, gSYear);
+      } else {
+        gLDay = parseInt(document.getElementById('weddingGroomLunarDay').value, 10);
+        gLMonth = parseInt(document.getElementById('weddingGroomLunarMonth').value, 10);
+        gLYear = parseInt(document.getElementById('weddingGroomLunarYear').value, 10);
+        gIsLeap = document.getElementById('weddingGroomLunarLeap').checked ? 1 : 0;
+        const [sD, sM, sY] = convertLunar2Solar(gLDay, gLMonth, gLYear, gIsLeap);
+        gSDay = sD; gSMonth = sM; gSYear = sY;
+      }
+
+      // 2. Xác định ngày tháng năm sinh Cô Dâu
+      const isBrideSolar = document.getElementById('weddingBrideTypeSolar').checked;
+      let bSDay, bSMonth, bSYear, bLDay, bLMonth, bLYear, bIsLeap;
+
+      if (isBrideSolar) {
+        const dateVal = document.getElementById('weddingBrideSolarDate').value;
+        if (!dateVal) { alert('Vui lòng chọn ngày sinh Cô Dâu!'); return; }
+        const [y, m, d] = dateVal.split('-').map(Number);
+        bSDay = d; bSMonth = m; bSYear = y;
+        [bLDay, bLMonth, bLYear, bIsLeap] = convertSolar2Lunar(bSDay, bSMonth, bSYear);
+      } else {
+        bLDay = parseInt(document.getElementById('weddingBrideLunarDay').value, 10);
+        bLMonth = parseInt(document.getElementById('weddingBrideLunarMonth').value, 10);
+        bLYear = parseInt(document.getElementById('weddingBrideLunarYear').value, 10);
+        bIsLeap = document.getElementById('weddingBrideLunarLeap').checked ? 1 : 0;
+        const [sD, sM, sY] = convertLunar2Solar(bLDay, bLMonth, bLYear, bIsLeap);
+        bSDay = sD; bSMonth = sM; bSYear = sY;
+      }
+
+      // Can Chi & Nạp Âm & Bát Trạch của 2 người
+      const gCanChi = getYearCanChi(gLYear);
+      const bCanChi = getYearCanChi(bLYear);
+      const gNapAm = (typeof NAP_AM !== 'undefined' && NAP_AM[`${gCanChi.can} ${gCanChi.chi}`]) ? NAP_AM[`${gCanChi.can} ${gCanChi.chi}`] : '—';
+      const bNapAm = (typeof NAP_AM !== 'undefined' && NAP_AM[`${bCanChi.can} ${bCanChi.chi}`]) ? NAP_AM[`${bCanChi.can} ${bCanChi.chi}`] : '—';
+
+      const gCung = computeBatTrachCung(gLYear, 'male');
+      const bCung = computeBatTrachCung(bLYear, 'female');
+
+      // 3. Hiển thị thông tin hồ sơ Chú Rể & Cô Dâu
+      document.getElementById('wProfGroomName').textContent = groomName;
+      document.getElementById('wProfGroomGroup').textContent = gCung.group;
+      document.getElementById('wProfGroomSolarText').textContent = `${String(gSDay).padStart(2, '0')}/${String(gSMonth).padStart(2, '0')}/${gSYear}`;
+      document.getElementById('wProfGroomLunarText').textContent = `${String(gLDay).padStart(2, '0')}/${String(gLMonth).padStart(2, '0')}/${gLYear}${gIsLeap ? ' (Nhuận)' : ''}`;
+      document.getElementById('wProfGroomCanChi').textContent = gCanChi.text;
+      document.getElementById('wProfGroomNapAm').textContent = gNapAm;
+      document.getElementById('wProfGroomCung').textContent = `${gCung.symbol} Cung ${gCung.name} (${gCung.element})`;
+      document.getElementById('wProfGroomDir').textContent = gCung.direction;
+
+      document.getElementById('wProfBrideName').textContent = brideName;
+      document.getElementById('wProfBrideGroup').textContent = bCung.group;
+      document.getElementById('wProfBrideSolarText').textContent = `${String(bSDay).padStart(2, '0')}/${String(bSMonth).padStart(2, '0')}/${bSYear}`;
+      document.getElementById('wProfBrideLunarText').textContent = `${String(bLDay).padStart(2, '0')}/${String(bLMonth).padStart(2, '0')}/${bLYear}${bIsLeap ? ' (Nhuận)' : ''}`;
+      document.getElementById('wProfBrideCanChi').textContent = bCanChi.text;
+      document.getElementById('wProfBrideNapAm').textContent = bNapAm;
+      document.getElementById('wProfBrideCung').textContent = `${bCung.symbol} Cung ${bCung.name} (${bCung.element})`;
+      document.getElementById('wProfBrideDir').textContent = bCung.direction;
+
+      // 4. Đánh giá Phối Cung Hôn Nhân Bát Trạch
+      const marriageState = (BAT_TRACH_MARRIAGE_MAP[gCung.name] && BAT_TRACH_MARRIAGE_MAP[gCung.name][bCung.name]) 
+        ? BAT_TRACH_MARRIAGE_MAP[gCung.name][bCung.name] 
+        : 'Phục Vị';
+      const stateInfo = BAT_TRACH_STATE_DETAILS[marriageState] || BAT_TRACH_STATE_DETAILS['Phục Vị'];
+      const isDongTrach = (gCung.group === bCung.group);
+
+      const bannerEl = document.getElementById('weddingBatTrachBanner');
+      bannerEl.className = `wedding-battrach-banner ${stateInfo.level === 'good' ? 'good-state' : 'bad-state'}`;
+      document.getElementById('wBatTrachIcon').textContent = stateInfo.icon;
+      document.getElementById('wBatTrachStateTitle').textContent = `${marriageState} • ${stateInfo.title}`;
+      document.getElementById('wBatTrachStateTitle').style.color = stateInfo.level === 'good' ? '#15803d' : '#be123c';
+
+      const groupBadgeEl = document.getElementById('wBatTrachGroupBadge');
+      if (isDongTrach) {
+        groupBadgeEl.innerHTML = `
+          <span class="badge" style="background: #dcfce7; color: #15803d; border: 1px solid #86efac; font-size: 0.82rem; padding: 0.3rem 0.65rem;">
+            Đồng Trạch (${gCung.group} + ${bCung.group}) ➔ Cát Lợi
+          </span>
+        `;
+      } else {
+        groupBadgeEl.innerHTML = `
+          <span class="badge" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; font-size: 0.82rem; padding: 0.3rem 0.65rem;">
+            Khác Trạch (${gCung.group} + ${bCung.group}) ➔ Cần Hóa Giải
+          </span>
+        `;
+      }
+
+      document.getElementById('wBatTrachStateDesc').textContent = stateInfo.desc;
+      document.getElementById('wBatTrachAdviceBox').innerHTML = `
+        <strong>💡 Lời khuyên hôn nhân &amp; phong thủy:</strong> ${stateInfo.advice}
+      `;
+
+      // 5. Khảo sát 6 năm (Năm hiện tại & 5 năm tới)
+      const surveyStartYear = parseInt(document.getElementById('weddingSurveyYear').value, 10) || (new Date()).getFullYear();
+      const yearsData = [];
+
+      for (let i = 0; i < 6; i++) {
+        const yr = surveyStartYear + i;
+        const yCanChi = getYearCanChi(yr);
+        const bAgeMu = yr - bLYear + 1;
+        const gAgeMu = yr - gLYear + 1;
+
+        // Kim Lâu cô dâu
+        const kimLau = checkKimLau(bAgeMu);
+
+        // Tương tác Chi năm với Cô dâu & Chú rể
+        const yChiIdx = yCanChi.chiIndex;
+        const bChiIdx = bCanChi.chiIndex;
+        const gChiIdx = gCanChi.chiIndex;
+
+        const xungB = isLucXung(yChiIdx, bChiIdx);
+        const xungG = isLucXung(yChiIdx, gChiIdx);
+        const tamHopB = isTamHop(yChiIdx, bChiIdx);
+        const tamHopG = isTamHop(yChiIdx, gChiIdx);
+        const lucHopB = isLucHop(yChiIdx, bChiIdx);
+        const lucHopG = isLucHop(yChiIdx, gChiIdx);
+        const thaiTueB = (yChiIdx === bChiIdx);
+        const thaiTueG = (yChiIdx === gChiIdx);
+        const tamTaiB = checkTamTai(bChiIdx, yChiIdx);
+        const tamTaiG = checkTamTai(gChiIdx, yChiIdx);
+
+        // Tính điểm tổng hợp (Score)
+        let score = 50;
+        let reasonsGood = [];
+        let reasonsBad = [];
+
+        if (!kimLau.isKimLau) {
+          score += 40;
+          reasonsGood.push(`Cô dâu ${bAgeMu} tuổi mụ không phạm Kim Lâu (Cát)`);
+        } else {
+          if (kimLau.code === 8) {
+            score -= 15;
+            reasonsBad.push(`Cô dâu phạm ${kimLau.type} (Kỵ kinh tế lộc, có thể cưới sau Đông Chí)`);
+          } else {
+            score -= 40;
+            reasonsBad.push(`Cô dâu phạm ${kimLau.type} (${kimLau.desc})`);
+          }
+        }
+
+        if (xungB) {
+          score -= 35;
+          reasonsBad.push(`Chi năm ${CHI[yChiIdx]} Lục Xung với tuổi Cô dâu (${CHI[bChiIdx]})`);
+        }
+        if (xungG) {
+          score -= 25;
+          reasonsBad.push(`Chi năm ${CHI[yChiIdx]} Lục Xung với tuổi Chú rể (${CHI[gChiIdx]})`);
+        }
+
+        if (tamHopB) {
+          score += 18;
+          reasonsGood.push(`Chi năm Tam Hợp với tuổi Cô dâu (${CHI[bChiIdx]})`);
+        }
+        if (tamHopG) {
+          score += 15;
+          reasonsGood.push(`Chi năm Tam Hợp với tuổi Chú rể (${CHI[gChiIdx]})`);
+        }
+
+        if (lucHopB) {
+          score += 15;
+          reasonsGood.push(`Chi năm Lục Hợp với tuổi Cô dâu (${CHI[bChiIdx]})`);
+        }
+        if (lucHopG) {
+          score += 12;
+          reasonsGood.push(`Chi năm Lục Hợp với tuổi Chú rể (${CHI[gChiIdx]})`);
+        }
+
+        if (thaiTueB) {
+          score -= 10;
+          reasonsBad.push(`Năm tuổi Cô dâu (Thái Tuế)`);
+        }
+        if (tamTaiB) {
+          score -= 8;
+          reasonsBad.push(`Cô dâu gặp hạn Tam Tai`);
+        }
+        if (tamTaiG) {
+          score -= 6;
+          reasonsBad.push(`Chú rể gặp hạn Tam Tai`);
+        }
+
+        let rating = 'medium';
+        let ratingText = '🟢 Khá Tốt';
+        let ratingBadgeClass = 'bg-blue-100 text-blue-800 border-blue-200';
+
+        if (score >= 80) {
+          rating = 'top';
+          ratingText = '🌟 Đại Cát (Nên Chọn)';
+          ratingBadgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-300';
+        } else if (score < 45 || (kimLau.isKimLau && kimLau.code !== 8) || xungB) {
+          rating = 'avoid';
+          ratingText = '⚠️ Cân Nhắc / Kiêng Kỵ';
+          ratingBadgeClass = 'bg-rose-100 text-rose-800 border-rose-300';
+        }
+
+        yearsData.push({
+          year: yr,
+          canChi: yCanChi,
+          bAgeMu,
+          gAgeMu,
+          kimLau,
+          xungB, xungG, tamHopB, tamHopG, lucHopB, lucHopG, thaiTueB, thaiTueG, tamTaiB, tamTaiG,
+          score,
+          reasonsGood,
+          reasonsBad,
+          rating,
+          ratingText,
+          ratingBadgeClass
+        });
+      }
+
+      // Xếp hạng năm tốt nhất
+      const sortedYears = [...yearsData].sort((a, b) => b.score - a.score);
+      const bestYearObj = sortedYears[0];
+      const secondBestYearObj = sortedYears[1];
+
+      // Đưa ra lời khuyên chọn năm nổi bật
+      let adviceHtml = `
+        • <strong>Năm tốt nhất được khuyên chọn:</strong> <span class="wedding-can-chi-highlight" style="font-size: 1.05rem;">Năm ${bestYearObj.year} (${bestYearObj.canChi.text})</span> — 
+        ${bestYearObj.reasonsGood.join('; ')}. Năm này mang cát khí viên mãn nhất trong 6 năm khảo sát cho cặp đôi.
+      `;
+      if (secondBestYearObj && secondBestYearObj.score >= 50 && secondBestYearObj.year !== bestYearObj.year) {
+        adviceHtml += `<br>• <strong>Lựa chọn dự phòng tốt thứ hai:</strong> <strong>Năm ${secondBestYearObj.year} (${secondBestYearObj.canChi.text})</strong> — ${secondBestYearObj.reasonsGood.join('; ') || 'Cát khí bình ổn, hợp lễ nghi'}.`;
+      }
+      document.getElementById('weddingYearAdviceText').innerHTML = adviceHtml;
+
+      // Lưu phân tích toàn cục
+      weddingCurrentAnalysis = {
+        groom: { name: groomName, sYear: gSYear, sMonth: gSMonth, sDay: gSDay, lYear: gLYear, lMonth: gLMonth, lDay: gLDay, canChi: gCanChi, cung: gCung, napAm: gNapAm },
+        bride: { name: brideName, sYear: bSYear, sMonth: bSMonth, sDay: bSDay, lYear: bLYear, lMonth: bLMonth, lDay: bLDay, canChi: bCanChi, cung: bCung, napAm: bNapAm },
+        marriageState,
+        stateInfo,
+        yearsData,
+        bestYear: bestYearObj.year
+      };
+
+      // Nếu chưa chọn năm khảo sát tháng hoặc năm cũ nằm ngoài dải 6 năm thì gán năm tốt nhất
+      if (!weddingActiveYear || !yearsData.some(y => y.year === weddingActiveYear)) {
+        weddingActiveYear = bestYearObj.year;
+      }
+
+      // Render danh sách 6 năm
+      renderWeddingYearsList(yearsData, weddingActiveYear);
+
+      // Render các tháng trong năm được chọn
+      renderWeddingMonthsAnalysis(weddingActiveYear);
+    }
+
+    // Render danh sách 6 năm đối chiếu
+    function renderWeddingYearsList(yearsData, selectedYear) {
+      const container = document.getElementById('weddingYearsList');
+      if (!container) return;
+
+      container.innerHTML = '';
+
+      yearsData.forEach(item => {
+        const isSelected = (item.year === selectedYear);
+        const card = document.createElement('div');
+        card.className = `wedding-year-card ${isSelected ? 'selected-year' : ''} ${item.rating === 'top' ? 'recommend-top' : ''}`;
+        
+        let tagsHtml = [];
+        if (!item.kimLau.isKimLau) {
+          tagsHtml.push(`<span class="badge" style="background:#ecfdf5; color:#15803d; border:1px solid #86efac;">Không Kim Lâu</span>`);
+        } else {
+          tagsHtml.push(`<span class="badge" style="background:#fef2f2; color:#b91c1c; border:1px solid #fca5a5;">${item.kimLau.type}</span>`);
+        }
+
+        if (item.tamHopB || item.tamHopG) {
+          tagsHtml.push(`<span class="badge" style="background:#fefce8; color:#854d0e; border:1px solid #fde047;">Tam Hợp</span>`);
+        }
+        if (item.lucHopB || item.lucHopG) {
+          tagsHtml.push(`<span class="badge" style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0;">Lục Hợp</span>`);
+        }
+        if (item.xungB || item.xungG) {
+          tagsHtml.push(`<span class="badge" style="background:#fff1f2; color:#be123c; border:1px solid #fecdd3;">Lục Xung</span>`);
+        }
+
+        card.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.65rem;">
+              <span style="font-size: 1.25rem; font-weight: 800; color: #92400e;">Năm ${item.year}</span>
+              <span class="wedding-can-chi-highlight">${item.canChi.text}</span>
+              <div style="display: flex; gap: 0.25rem; flex-wrap: wrap;">
+                ${tagsHtml.join(' ')}
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="badge ${item.ratingBadgeClass}" style="font-weight: 700; padding: 0.25rem 0.6rem; font-size: 0.8rem;">
+                ${item.ratingText}
+              </span>
+              <button type="button" class="btn btn-outline btn-sm btn-select-wedding-year" data-year="${item.year}" style="padding: 0.25rem 0.65rem; font-size: 0.78rem; font-weight: 700;">
+                ${isSelected ? '✓ Đang xem tháng' : 'Xem tháng năm này ➔'}
+              </button>
+            </div>
+          </div>
+          <div style="font-size: 0.83rem; color: #4b5563; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem; border-top: 1px dashed #e5e7eb; padding-top: 0.5rem;">
+            <div>• <strong>Tuổi mụ Cô dâu:</strong> ${item.bAgeMu} tuổi — ${item.kimLau.desc}</div>
+            <div>• <strong>Tuổi mụ Chú rể:</strong> ${item.gAgeMu} tuổi</div>
+            <div>• <strong>Cát khí:</strong> ${item.reasonsGood.length > 0 ? item.reasonsGood.join(', ') : 'Bình hòa'}</div>
+            <div>• <strong>Lưu ý:</strong> ${item.reasonsBad.length > 0 ? item.reasonsBad.join(', ') : 'Không phạm xung sát lớn'}</div>
+          </div>
+        `;
+
+        card.querySelector('.btn-select-wedding-year').addEventListener('click', (e) => {
+          e.stopPropagation();
+          selectWeddingYear(item.year);
+        });
+
+        container.appendChild(card);
+      });
+    }
+
+    // Chuyển năm khảo sát tháng
+    function selectWeddingYear(year) {
+      weddingActiveYear = year;
+      if (weddingCurrentAnalysis && weddingCurrentAnalysis.yearsData) {
+        renderWeddingYearsList(weddingCurrentAnalysis.yearsData, weddingActiveYear);
+        renderWeddingMonthsAnalysis(weddingActiveYear);
+      }
+    }
+
+    // Render phân tích 12 tháng & Áp dụng phương pháp loại trừ
+    function renderWeddingMonthsAnalysis(year) {
+      if (!weddingCurrentAnalysis) return;
+
+      const yCanChi = getYearCanChi(year);
+      const bCanChi = weddingCurrentAnalysis.bride.canChi;
+      const gCanChi = weddingCurrentAnalysis.groom.canChi;
+
+      const yChiIdx = yCanChi.chiIndex;
+      const bChiIdx = bCanChi.chiIndex;
+      const gChiIdx = gCanChi.chiIndex;
+
+      // Tiêu đề năm đang xét
+      const titleEl = document.getElementById('weddingSelectedYearTitle');
+      if (titleEl) {
+        titleEl.textContent = `Năm ${year} (${yCanChi.text})`;
+      }
+
+      // Render các nút chọn nhanh năm
+      const selectorContainer = document.getElementById('weddingYearSelectorBtns');
+      if (selectorContainer && weddingCurrentAnalysis.yearsData) {
+        selectorContainer.innerHTML = '';
+        weddingCurrentAnalysis.yearsData.forEach(item => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = `btn btn-sm ${item.year === year ? 'btn-primary' : 'btn-outline'}`;
+          btn.style.padding = '0.2rem 0.55rem';
+          btn.style.fontSize = '0.75rem';
+          btn.textContent = `${item.year} (${item.canChi.text})`;
+          btn.addEventListener('click', () => selectWeddingYear(item.year));
+          selectorContainer.appendChild(btn);
+        });
+      }
+
+      // Quy tắc Nghênh Hôn theo Chi Cô Dâu
+      const rules = WEDDING_NGHENH_HON[bChiIdx] || WEDDING_NGHENH_HON[0];
+
+      // Đánh giá 12 tháng âm lịch
+      const monthsData = [];
+      const recommendedMonths = [];
+
+      for (let m = 1; m <= 12; m++) {
+        const mCanChi = getMonthCanChi(year, m);
+        const mChiIdx = mCanChi.chiIndex;
+
+        // TIẾN TRÌNH LOẠI TRỪ (THEO TÀI LIỆU CỔ TRUYỀN):
+        let isEliminated = false;
+        let eliminationReasons = [];
+        let goodReasons = [];
+
+        // 1. Loại trừ Chi tháng Lục Xung với tuổi Cô Dâu
+        if (isLucXung(mChiIdx, bChiIdx)) {
+          isEliminated = true;
+          eliminationReasons.push(`Chi tháng ${CHI[mChiIdx]} Lục Xung với tuổi Cô Dâu (${CHI[bChiIdx]})`);
+        }
+
+        // 2. Loại trừ Chi tháng Lục Xung với tuổi Chú Rể
+        if (isLucXung(mChiIdx, gChiIdx)) {
+          isEliminated = true;
+          eliminationReasons.push(`Chi tháng ${CHI[mChiIdx]} Lục Xung với tuổi Chú Rể (${CHI[gChiIdx]})`);
+        }
+
+        // 3. Loại trừ Chi tháng Lục Xung với Chi Năm Cưới (Nguyệt Phá)
+        if (isLucXung(mChiIdx, yChiIdx)) {
+          isEliminated = true;
+          eliminationReasons.push(`Tháng Nguyệt Phá — Xung Chi năm cưới (${CHI[yChiIdx]} xung ${CHI[mChiIdx]})`);
+        }
+
+        // 4. Kiểm tra Tháng Kỵ Nghênh Hôn (Phòng Phu / Phòng Thê)
+        if (rules.kyPhu && rules.kyPhu.includes(m)) {
+          eliminationReasons.push(`Tháng phạm Phòng Phu (kỵ tổn hại trượng phu)`);
+        }
+        if (rules.kyThe && rules.kyThe.includes(m)) {
+          eliminationReasons.push(`Tháng phạm Phòng Thê Chủ (kỵ tổn hại bản thân cô dâu)`);
+        }
+        if (rules.kyPhuMau && rules.kyPhuMau.includes(m)) {
+          eliminationReasons.push(`Tháng phạm Phòng Phu Mẫu (lưu ý kiêng kỵ nếu cha mẹ chồng còn sống)`);
+        }
+
+        // 5. Kiểm tra Tháng Đại Lợi & Tiểu Lợi
+        const isDaiLoi = rules.daiLoi.includes(m);
+        const isTieuLoi = rules.tieuLoi.includes(m);
+        let nghenhHonText = 'Bình thường';
+        let nghenhHonBadge = '<span class="badge" style="background:#f3f4f6; color:#4b5563;">Bình thường</span>';
+
+        if (isDaiLoi) {
+          nghenhHonText = '⭐ Tháng Đại Lợi (Tốt nhất)';
+          nghenhHonBadge = '<span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">⭐ Tháng Đại Lợi</span>';
+          goodReasons.push('Đắc tháng Đại Lợi nghênh hôn theo tuổi cô dâu');
+        } else if (isTieuLoi) {
+          nghenhHonText = '✨ Tháng Tiểu Lợi (Tốt nhì)';
+          nghenhHonBadge = '<span class="badge" style="background:#dbeafe; color:#1e40af; border:1px solid #bfdbfe; font-weight:700;">✨ Tháng Tiểu Lợi</span>';
+          goodReasons.push('Đắc tháng Tiểu Lợi nghênh hôn theo tuổi cô dâu');
+        }
+
+        // 6. Kiểm tra Tam Hợp / Lục Hợp
+        const isTamHopBride = isTamHop(mChiIdx, bChiIdx);
+        const isTamHopGroom = isTamHop(mChiIdx, gChiIdx);
+        const isLucHopBride = isLucHop(mChiIdx, bChiIdx);
+        const isLucHopGroom = isLucHop(mChiIdx, gChiIdx);
+
+        if (isTamHopBride) goodReasons.push(`Chi tháng Tam Hợp với Cô dâu (${CHI[bChiIdx]})`);
+        if (isTamHopGroom) goodReasons.push(`Chi tháng Tam Hợp với Chú rể (${CHI[gChiIdx]})`);
+        if (isLucHopBride) goodReasons.push(`Chi tháng Lục Hợp với Cô dâu (${CHI[bChiIdx]})`);
+        if (isLucHopGroom) goodReasons.push(`Chi tháng Lục Hợp với Chú rể (${CHI[gChiIdx]})`);
+
+        // Đánh giá kết luận
+        let finalStatus = 'normal';
+        let finalBadge = '<span class="badge" style="background:#f3f4f6; color:#4b5563;">Bình Hòa</span>';
+        let rank = 4;
+
+        if (isEliminated) {
+          finalStatus = 'eliminated';
+          finalBadge = '<span class="badge" style="background:#fee2e2; color:#b91c1c; border:1px solid #fca5a5; font-weight:700;">🔴 Bị Loại Trừ</span>';
+          rank = 99;
+        } else if (isDaiLoi) {
+          finalStatus = 'dalloi';
+          finalBadge = '<span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">🟢 ĐẠI LỢI (RẤT HỢP)</span>';
+          rank = 1;
+          recommendedMonths.push({ month: m, canChi: mCanChi, isDaiLoi: true, isTieuLoi: false, reasons: goodReasons });
+        } else if (isTieuLoi) {
+          finalStatus = 'tieuloi';
+          finalBadge = '<span class="badge" style="background:#eff6ff; color:#2563eb; border:1px solid #bfdbfe; font-weight:700;">🟡 TIỂU LỢI (HỢP)</span>';
+          rank = 2;
+          recommendedMonths.push({ month: m, canChi: mCanChi, isDaiLoi: false, isTieuLoi: true, reasons: goodReasons });
+        } else if (isTamHopBride || isTamHopGroom || isLucHopBride || isLucHopGroom) {
+          finalStatus = 'tamhop';
+          finalBadge = '<span class="badge" style="background:#fefce8; color:#854d0e; border:1px solid #fde047; font-weight:700;">🌟 TAM HỢP / HỢP</span>';
+          rank = 3;
+          recommendedMonths.push({ month: m, canChi: mCanChi, isDaiLoi: false, isTieuLoi: false, reasons: goodReasons });
+        } else {
+          finalStatus = 'normal';
+          finalBadge = '<span class="badge" style="background:#f8fafc; color:#334155; border:1px solid #cbd5e1;">⚪ Bình Hòa</span>';
+          rank = 4;
+          recommendedMonths.push({ month: m, canChi: mCanChi, isDaiLoi: false, isTieuLoi: false, reasons: ['Không phạm xung sát, chọn ngày lành tháng tốt là cưới được'] });
+        }
+
+        monthsData.push({
+          month: m,
+          canChi: mCanChi,
+          isDaiLoi,
+          isTieuLoi,
+          nghenhHonBadge,
+          isEliminated,
+          eliminationReasons,
+          goodReasons,
+          finalStatus,
+          finalBadge,
+          rank
+        });
+      }
+
+      // Render HỘP GỢI Ý ĐẶC BIỆT THEO YÊU CẦU CỦA NGƯỜI DÙNG
+      // "riêng tháng thì chỉ cần đưa ra gợi ý là tháng có can chi gì ( dùng phương pháp loại trừ như trong tài liệu đính kèm)"
+      const summaryEl = document.getElementById('weddingRecommendedMonthsSummary');
+      if (summaryEl) {
+        if (recommendedMonths.length === 0) {
+          summaryEl.innerHTML = `
+            Trong năm ${year} (${yCanChi.text}), các tháng đều bị ảnh hưởng bởi tiêu chí loại trừ. Bạn nên xem xét cưới vào năm khác hoặc cưới vào các tháng cuối năm, chọn ngày cát thần hòa giải.
+          `;
+        } else {
+          // Lọc ra các tháng ưu tiên cao nhất (Đại Lợi, Tiểu Lợi)
+          const topPriorityMonths = recommendedMonths.filter(rm => rm.isDaiLoi || rm.isTieuLoi);
+          const displayMonths = topPriorityMonths.length > 0 ? topPriorityMonths : recommendedMonths.slice(0, 3);
+
+          let summaryItems = displayMonths.map(rm => {
+            const labelTag = rm.isDaiLoi 
+              ? '<span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">Đại Lợi (Tốt nhất)</span>'
+              : (rm.isTieuLoi ? '<span class="badge" style="background:#eff6ff; color:#2563eb; border:1px solid #bfdbfe; font-weight:700;">Tiểu Lợi (Tốt nhì)</span>' : '<span class="badge" style="background:#fefce8; color:#854d0e; border:1px solid #fde047;">Hòa Hợp</span>');
+            return `
+              <div style="background: #ffffff; border: 1.5px solid #86efac; border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.45rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.35rem;">
+                  <div>
+                    <span style="font-weight: 700; color: #166534; font-size: 0.95rem;">• Tháng ${rm.month} Âm Lịch</span> ➔ 
+                    <strong>Can Chi Tháng:</strong> <span class="wedding-can-chi-highlight" style="font-size: 1rem; color: #991b1b;">${rm.canChi.text}</span>
+                  </div>
+                  <div>${labelTag}</div>
+                </div>
+                <div style="font-size: 0.8rem; color: #4b5563; margin-top: 0.2rem;">
+                  <em>Lý do lựa chọn:</em> ${rm.reasons.join(', ')}. Đã vượt qua các bước loại trừ (không xung tuổi cô dâu/chú rể, không phạm Nguyệt Phá).
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          summaryEl.innerHTML = `
+            <div style="margin-bottom: 0.4rem;">
+              Dựa trên phương pháp loại trừ cổ truyền, trong năm <strong>${year} (${yCanChi.text})</strong>, dưới đây là danh sách các tháng có <strong>Can Chi phù hợp nhất</strong> để tổ chức kết hôn:
+            </div>
+            ${summaryItems}
+          `;
+        }
+      }
+
+      // Render BẢNG TIẾN TRÌNH LOẠI TRỪ 12 THÁNG
+      const tableBody = document.getElementById('weddingMonthsTableBody');
+      if (tableBody) {
+        tableBody.innerHTML = '';
+        monthsData.forEach(item => {
+          const row = document.createElement('div');
+          row.className = `wedding-month-row ${item.finalStatus === 'dalloi' ? 'month-dalloi' : ''} ${item.finalStatus === 'tieuloi' ? 'month-tieuloi' : ''} ${item.finalStatus === 'eliminated' ? 'month-eliminated' : ''}`;
+
+          let reasonsHtml = '';
+          if (item.isEliminated) {
+            reasonsHtml = `
+              <span style="color: #b91c1c; font-weight: 600;">❌ Bị loại trừ:</span>
+              <span style="color: #991b1b;">${item.eliminationReasons.join('; ')}</span>
+            `;
+          } else {
+            reasonsHtml = `
+              <span style="color: #15803d; font-weight: 600;">✓ Không phạm xung sát:</span>
+              <span style="color: #374151;">${item.goodReasons.join('; ')}</span>
+            `;
+          }
+
+          row.innerHTML = `
+            <div style="font-weight: 800; color: #1e293b; font-size: 0.95rem;">Tháng ${item.month}</div>
+            <div>
+              <span class="wedding-can-chi-highlight">${item.canChi.text}</span>
+            </div>
+            <div>${item.nghenhHonBadge}</div>
+            <div style="font-size: 0.82rem; line-height: 1.45;">${reasonsHtml}</div>
+            <div>${item.finalBadge}</div>
+          `;
+
+          tableBody.appendChild(row);
+        });
+      }
+    }
+
+    /**
      * BÁT TỰ TỨ TRỤ ENGINE
      */
     function setupBattuForm() {
@@ -9882,7 +11196,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.17.0";
+    const APP_VERSION = "v1.18.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
