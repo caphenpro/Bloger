@@ -16,13 +16,10 @@
   - Thời gian Mặt Trời mọc/lặn, độ dài ngày/đêm theo chuẩn NASA JPL / NOAA.
   - Hướng xuất hành đón Hỷ Thần, Tài Thần (theo thiên can ngày).
   - Điểm Sóc tháng và cơ sở tính ngày Mùng 1 Âm lịch.
-  - **Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ theo Trạch Nhật)**: Gộp riêng ở cuối bảng Bloc với 6 phân mục chi tiết, khoa học:
-    - *Đánh giá ngày*: Hoàng Đạo / Hắc Đạo với tên thần sát trực nhật, việc nên làm (Nghi) & kiêng làm (Kỵ).
-    - *Quý nhân*: Thiên Đức & Nguyệt Đức Quý Nhân với việc phù hợp & việc kiêng cữ (kèm nút tra sao 12 tháng).
-    - *Âm Dương Bất Tương*: Tinh giản ngắn gọn tên phân loại (Bất Tương, Dương Tương, Âm Tương, Âm Dương câu Tương, hoặc Không), kèm nút tra bảng ma trận 60 Hoa Giáp 12 tháng.
-    - *Ngày Vượng Tướng (Mới)*: Tích hợp ngay kế tiếp sau Âm Dương Bất Tương; xác định chính xác ngày Vượng (chính khí mùa) và ngày Tướng (sinh khí mùa) theo 12 tháng Âm lịch; hiển thị "Đại cát" hoặc "Không", kèm nút tra cứu quy luật 12 tháng.
-    - *Trực ngày*: 12 Trực với việc nên làm & kiêng cữ tương ứng.
-    - *Sao ngày*: 28 Tú với bản chất Cát/Hung, việc nên làm & đại kỵ.
+  - **Nhóm Phân Định Ngày Cát Hung (Sao Cát & Sao Hung Trong Ngày)**: Tổ chức lại toàn diện phần dụng sự nghi kỵ thành 2 nhóm chuyên biệt, khoa học và trực quan:
+    - *Nhóm Ngày Cát (Sao Cát & Vượng Khí)*: Tập hợp toàn bộ yếu tố cát tinh, quý nhân và vượng khí (Hoàng Đạo, Thiên Nguyệt Nhị Đức Đồng Lâm, Âm Dương Bất Tương, Ngày Vượng - Tướng, Thập Nhị Trực cát lợi, Nhị Thập Bát Tú cát tú) kèm diễn giải ngắn gọn "Hợp làm gì".
+    - *Nhóm Ngày Hung (Sao Hung & Kỵ Khí)*: Tập hợp toàn bộ yếu tố hắc đạo, tương xung và hung sát (Hắc Đạo, Dương Tương / Âm Tương / Âm Dương câu Tương, Trực hung như Phá/Nguy/Bế, Nhị Thập Bát Tú hung tú) kèm diễn giải ngắn gọn "Hung gì" và "Kiêng cữ".
+    - *Thanh Tra Cứu Nguyên Lý Trạch Nhật*: Tích hợp các nút tra cứu nhanh Nhị Đức Quý Nhân 12 tháng, Bảng ma trận Bất Tương 60 Hoa Giáp, và Bảng quy luật Ngày Vượng Tướng 12 tháng.
 - **Điều Hướng Linh Hoạt**: Chọn nhanh Hôm nay, nút Lùi/Tiến tháng, lướt chọn nhanh Năm (1900 - 2100) và Tháng trực quan.
 
 ### 2. Công Cụ Đổi Ngày Âm - Dương
@@ -182,6 +179,29 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.16.0] - 2026-09-07
+- **Tổ Chức Lại Toàn Bộ "Nghi Kỵ Dụng Sự" Thành "Ngày Cát Hung" Theo 2 Nhóm Cát & Hung**:
+  - **Tái Cấu Trúc Toàn Bộ Khối Trạch Nhật Thành "Ngày Cát Hung"**:
+    - Đổi tên tiêu đề khu vực thành **"⚖️ Ngày Cát Hung"** kèm chú giải *"Phân định Sao Cát (Hợp Làm Gì) & Sao Hung (Hung Gì, Kiêng Cữ)"*.
+    - Phân tách rành mạch thành 2 nhóm chuyên biệt có nền màu nhận diện ngữ nghĩa trực quan:
+      - **🟢 Nhóm Ngày Cát (Sao Cát & Cát Khí)**: Tập hợp toàn bộ các sao và vượng khí cát lợi có mặt trong ngày, mỗi thẻ đều có tóm tắt diễn giải ngắn gọn ý nghĩa và nhãn xanh **🟢 Hợp làm gì:** chỉ dẫn cụ thể công việc hanh thông thuận lợi.
+      - **🔴 Nhóm Ngày Hung (Sao Hung & Kỵ Khí)**: Tập hợp toàn bộ các sao hung và kỵ khí cần phòng tránh, mỗi thẻ đều chỉ rõ nhãn đỏ cảnh báo **⚠️ Hung gì:** (giải thích ngắn gọn bản chất tai hại/nguy cơ) cùng nhãn **🔴 Kiêng cữ:** chỉ dẫn cụ thể các việc đại kỵ.
+  - **Phân Loại Chi Tiết Toàn Bộ Các Yếu Tố Hiện Có**:
+    - *Hoàng Đạo / Hắc Đạo*: Hoàng Đạo thuộc Nhóm Cát (kèm diễn nghĩa & việc nên làm); Hắc Đạo thuộc Nhóm Hung (kèm cảnh báo hung gì & việc cần kiêng cữ phòng ngừa).
+    - *Quý Nhân Nhị Đức*: Đắc Thiên Đức / Nguyệt Đức / Thiên Nguyệt Nhị Đức Đồng Lâm thuộc Nhóm Cát, làm nổi bật đại phúc quý nhân tiêu tai giải ách, cưới hỏi, khai trương, xuất hành.
+    - *Âm Dương Bất Tương*:
+      - Ngày Bất Tương thuộc Nhóm Cát: Âm Dương điều hòa, đại cát cho giá thú hôn nhân trăm năm hạnh phúc.
+      - Ngày Dương Tương / Âm Tương / Âm Dương câu Tương thuộc Nhóm Hung: Cảnh báo cụ thể hung hại nam chủ (chú rể), hại nữ chủ (cô dâu) hoặc sát phạt cả hai, kiêng cữ kết hôn giá thú.
+    - *Ngày Vượng Tướng (Hiệp Kỷ Biện Phương Thư)*: Đắc ngày Vượng hoặc ngày Tướng thuộc Nhóm Cát, biểu thị chính khí / sinh khí bốn mùa cực thịnh, đại cát cho trăm sự khởi tạo, động thổ, khai trương.
+    - *Thập Nhị Trực*:
+      - Các Trực cát (Kiến, Trừ, Mãn, Bình, Định, Chấp, Thành, Thâu, Khai) thuộc Nhóm Cát (kèm diễn nghĩa & việc hợp làm).
+      - Các Trực hung (Phá, Nguy, Bế) phân vào Nhóm Hung: Nêu rõ Trực Phá chủ công phá đổ vỡ, Trực Nguy chủ nguy nan bấp bênh rủi ro, Trực Bế chủ bế tắc ngưng trệ và các việc kiêng cữ tương ứng.
+    - *Nhị Thập Bát Tú*: Cát tú thuộc Nhóm Cát (kèm diễn nghĩa & việc cát lợi); Hung tú thuộc Nhóm Hung (nêu rõ điềm hung trắc trở, hao tài và việc cần kiêng kỵ).
+  - **Tích Hợp Thanh Tra Cứu Trạch Nhật Nhanh**:
+    - Giữ trọn vẹn khả năng tra cứu chuyên sâu với thanh công cụ chân khối: Nút `Tra Nhị Đức ➔`, `Tra Bất Tương ➔`, và `Tra Vượng Tướng ➔`.
+  - **Số Hóa Phiên Bản v1.16.0**:
+    - Nâng phiên bản `v1.16.0` trong `package.json`, Header, Footer, Logo Modal, biến hệ thống `APP_VERSION` và tài liệu `README.md`.
 
 ### [v1.15.0] - 2026-09-07
 - **Bổ Sung Tính Năng "Ngày Vượng Tướng", Tinh Giản Bất Tương & Bỏ Thống Kê Truy Cập**:

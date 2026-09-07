@@ -888,74 +888,155 @@
       padding: 0.75rem 0.85rem;
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 0.75rem;
     }
-    .nghi-ky-card {
-      background: #fffcf8;
-      border: 1px solid #fde68a;
+
+    /* Nhóm Ngày Cát Hung: Nhóm Cát & Nhóm Hung */
+    .cat-hung-group {
       border-radius: 8px;
-      padding: 0.6rem 0.75rem;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.45rem;
+      padding: 0.65rem 0.75rem;
       transition: all 0.15s ease;
     }
-    .nghi-ky-card:hover {
-      border-color: #f59e0b;
-      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.12);
+    .cat-group {
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
     }
-    .nghi-ky-card-head {
+    .hung-group {
+      background: #fff1f2;
+      border: 1.5px solid #fecdd3;
+    }
+    .cat-hung-group-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.15rem;
-      border-bottom: 1px dashed #fef08a;
-      padding-bottom: 0.3rem;
+      gap: 0.35rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px dashed;
     }
-    .nghi-ky-card-title {
-      font-size: 0.84rem;
+    .cat-group .cat-hung-group-header {
+      border-bottom-color: #86efac;
+    }
+    .hung-group .cat-hung-group-header {
+      border-bottom-color: #fca5a5;
+    }
+    .cat-hung-group-title {
+      font-size: 0.88rem;
       font-weight: 700;
       display: flex;
       align-items: center;
       gap: 0.35rem;
     }
-    .nghi-ky-row {
+    .cat-group .cat-hung-group-title {
+      color: #166534;
+    }
+    .hung-group .cat-hung-group-title {
+      color: #9f1239;
+    }
+    .cat-hung-group-sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .cat-group .cat-hung-group-sub {
+      color: #15803d;
+    }
+    .hung-group .cat-hung-group-sub {
+      color: #be123c;
+    }
+    .cat-hung-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .cat-item-card {
+      background: #ffffff;
+      border: 1px solid #dcfce7;
+      border-radius: 6px;
+      padding: 0.5rem 0.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      transition: all 0.15s ease;
+    }
+    .cat-item-card:hover {
+      border-color: #86efac;
+      box-shadow: 0 2px 5px rgba(22, 101, 52, 0.08);
+    }
+    .hung-item-card {
+      background: #ffffff;
+      border: 1px solid #fee2e2;
+      border-radius: 6px;
+      padding: 0.5rem 0.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      transition: all 0.15s ease;
+    }
+    .hung-item-card:hover {
+      border-color: #fca5a5;
+      box-shadow: 0 2px 5px rgba(159, 18, 57, 0.08);
+    }
+    .cat-item-head, .hung-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.1rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px dashed #f1f5f9;
+    }
+    .item-badge-title {
+      font-size: 0.83rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .item-desc-row {
       display: flex;
       align-items: baseline;
-      gap: 0.45rem;
-      font-size: 0.81rem;
+      gap: 0.4rem;
+      font-size: 0.8rem;
       line-height: 1.5;
     }
-    .nghi-ky-tag {
+    .item-tag {
       font-weight: 700;
-      font-size: 0.73rem;
-      padding: 0.12rem 0.45rem;
+      font-size: 0.72rem;
+      padding: 0.1rem 0.4rem;
       border-radius: 4px;
       white-space: nowrap;
       flex-shrink: 0;
     }
-    .nghi-tag {
+    .item-tag-cat {
       background: #ecfdf5;
       color: #065f46;
       border: 1px solid #a7f3d0;
     }
-    .ky-tag {
+    .item-tag-hung {
       background: #fef2f2;
       color: #991b1b;
       border: 1px solid #fecaca;
     }
-    .nghi-ky-text {
-      color: #374151;
-      font-size: 0.8rem;
+    .item-tag-info {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
     }
-    .nghi-ky-meaning {
-      font-size: 0.74rem;
+    .item-desc-text {
+      color: #374151;
+      font-size: 0.79rem;
+    }
+    .item-meaning-sub {
+      font-size: 0.73rem;
       color: #6b7280;
       font-style: italic;
       line-height: 1.4;
-      margin-bottom: 0.1rem;
     }
 
     /* 12 Canh Giờ Hoàng Đạo Table */
@@ -3134,14 +3215,14 @@
                 </div>
               </div>
 
-              <!-- Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ Trong Ngày) -->
+              <!-- Nhóm Phân Định Ngày Cát Hung (Sao Cát & Sao Hung Trong Ngày) -->
               <div class="bloc-nghi-ky-section" id="blocNghiKySection">
                 <div class="bloc-nghi-ky-header">
                   <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
                     <div class="bloc-nghi-ky-title">
-                      <span>📜 Nghi Kỵ Dụng Sự</span>
+                      <span>⚖️ Ngày Cát Hung</span>
                     </div>
-                    <div class="bloc-nghi-ky-hint">Việc nên làm &amp; kiêng cữ theo Trạch Nhật</div>
+                    <div class="bloc-nghi-ky-hint">Phân định Sao Cát (Hợp Làm Gì) &amp; Sao Hung (Hung Gì, Kiêng Cữ)</div>
                   </div>
                 </div>
                 <div class="bloc-nghi-ky-body" id="blocNghiKyBody">
@@ -5762,14 +5843,19 @@
     };
 
     /**
-     * RENDER NHÓM NGHI KỴ DỤNG SỰ (VIỆC NÊN LÀM & KIÊNG CỮ TRONG NGÀY)
-     * Gộp: Đánh giá ngày (Hoàng Đạo/Hắc Đạo), Quý nhân (Nhị Đức), Âm Dương Bất Tương, Trực ngày & Sao ngày
+     * RENDER PHÂN ĐỊNH NGÀY CÁT HUNG (SAO CÁT & SAO HUNG TRONG NGÀY)
+     * Phân loại toàn diện yếu tố trạch nhật thành 2 nhóm:
+     * - Nhóm Ngày Cát: Các sao/khí Cát (Hoàng Đạo, Nhị Đức Quý Nhân, Âm Dương Bất Tương, Ngày Vượng/Tướng, Trực Cát, Sao Cát) -> Diễn giải ngắn gọn Cát hợp làm gì.
+     * - Nhóm Ngày Hung: Các sao/khí Hung (Hắc Đạo, Dương/Âm Tương, Trực Hung, Sao Hung) -> Diễn giải ngắn gọn Hung gì & kiêng cữ.
      */
     function renderNghiKyDungSu(lunarMonth, dayCanChi, jd) {
       const bodyEl = document.getElementById('blocNghiKyBody');
       if (!bodyEl) return;
 
-      // 1. Đánh giá ngày: Hoàng Đạo / Hắc Đạo
+      const catItems = [];
+      const hungItems = [];
+
+      // 1. Hoàng Đạo / Hắc Đạo
       const star = getDayHoangDao(lunarMonth, dayCanChi.chiIndex);
       const hdDetail = HOANG_DAO_DETAILS[star.name] || {
         type: star.isHoangDao ? "Hoàng Đạo" : "Hắc Đạo",
@@ -5778,51 +5864,130 @@
         nghi: "Tiến hành công việc theo lịch biểu.",
         ky: "Tránh các hành vi tranh cãi, mạo hiểm."
       };
-      const hdBadgeClass = star.isHoangDao ? "badge-hoangdao" : "badge-hacdao";
-      const hdIcon = star.isHoangDao ? "✨" : "🌑";
 
-      // 2. Quý nhân Nhị Đức (Thiên Đức & Nguyệt Đức)
-      const nhiDuc = getNhiDucInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
-      let ndTitle = "";
-      let ndNghi = "";
-      let ndKy = "";
-      if (nhiDuc.status === "dong_lam") {
-        ndTitle = "✨ Thiên Nguyệt Nhị Đức Đồng Lâm (Đại Phúc Quý)";
-        ndNghi = "Đại cát vô thượng cho trăm sự: cưới hỏi giá thú, khai trương, động thổ, xuất hành, nhậm chức, tế tự cầu an, an cư. Năng lực cát tinh tối thượng hóa giải bách sát hung thần.";
-        ndKy = "Khởi tâm bất chính, lừa gạt dối trá, tranh đoạt tư lợi, làm việc phi pháp.";
-      } else if (nhiDuc.status === "thien_duc") {
-        ndTitle = `⭐ Thiên Đức Quý Nhân (${nhiDuc.targetType === 'can' ? 'Can ' : 'Chi '}${nhiDuc.targetName})`;
-        ndNghi = "Cầu phúc, tế tự, giải trừ tai ách, hòa giải hiềm khích, đính hôn cưới hỏi, xuất hành, khai trương, động thổ, nhậm chức, kết giao bằng hữu quý nhân.";
-        ndKy = "Thưa kiện kiện tụng, tranh chấp thị phi, tạo oán kết thù.";
-      } else if (nhiDuc.status === "nguyet_duc") {
-        ndTitle = `🌙 Nguyệt Đức Quý Nhân (Can ${nhiDuc.targetName})`;
-        ndNghi = "Khai trương buôn bán, ký kết giao dịch, cầu tài lộc, đính hôn cưới hỏi, xuất hành, hóa giải khẩu thiệt điều tiếng, an gia định cư.";
-        ndKy = "Tranh cãi hiềm khích, mưu hại người khác, làm việc trái luân thường đạo lý.";
+      if (star.isHoangDao) {
+        catItems.push({
+          badgeClass: "badge-hoangdao",
+          badgeTitle: `✨ Hoàng Đạo (${star.name})`,
+          meaning: hdDetail.meaning,
+          actionTag: "Hợp làm gì:",
+          actionText: hdDetail.nghi,
+          avoidTag: hdDetail.ky ? "Lưu ý kiêng:" : null,
+          avoidText: hdDetail.ky || null,
+          lookupType: null
+        });
       } else {
-        ndTitle = "⚪ Chưa đắc Nhị Đức Quý Nhân";
-        ndNghi = "Tiến hành các công việc theo lịch biểu thường nhật, kết hợp xem Hoàng Đạo, Trực và Sao để chọn việc.";
-        ndKy = "Tránh chủ quan mạo hiểm khi ngày có hung tinh khác xuất hiện.";
+        hungItems.push({
+          badgeClass: "badge-hacdao",
+          badgeTitle: `🌑 Hắc Đạo (${star.name})`,
+          hungWhat: hdDetail.meaning,
+          avoidTag: "Kiêng cữ:",
+          avoidText: hdDetail.ky,
+          actionTag: hdDetail.nghi ? "Có thể làm:" : null,
+          actionText: hdDetail.nghi || null,
+          lookupType: null
+        });
+      }
+
+      // 2. Quý Nhân Nhị Đức
+      const nhiDuc = getNhiDucInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (nhiDuc.hasAny) {
+        let ndMeaning = "";
+        let ndNghi = "";
+        let ndKy = "";
+        let ndTitle = "";
+        if (nhiDuc.status === "dong_lam") {
+          ndTitle = "✨ Thiên Nguyệt Nhị Đức Đồng Lâm";
+          ndMeaning = "Thiên Nguyệt Nhị Đức Đồng Lâm – Đại phúc quý nhân tối thượng, hóa giải bách sát hung thần.";
+          ndNghi = "Đại cát vô thượng cho trăm sự: Cưới hỏi giá thú, khai trương, động thổ, xuất hành, nhậm chức, tế tự cầu an.";
+          ndKy = "Khởi tâm bất chính, lừa gạt dối trá, tranh đoạt tư lợi.";
+        } else if (nhiDuc.status === "thien_duc") {
+          ndTitle = `⭐ Thiên Đức Quý Nhân (${nhiDuc.targetType === 'can' ? 'Can ' : 'Chi '}${nhiDuc.targetName})`;
+          ndMeaning = "Thiên Đức Quý Nhân – Cát thần giáng lâm tiêu tai giải ách, tăng trưởng phúc đức.";
+          ndNghi = "Cầu phúc, tế tự, hòa giải, đính hôn cưới hỏi, xuất hành, khai trương, động thổ, nhậm chức.";
+          ndKy = "Thưa kiện kiện tụng, tranh chấp thị phi.";
+        } else if (nhiDuc.status === "nguyet_duc") {
+          ndTitle = `🌙 Nguyệt Đức Quý Nhân (Can ${nhiDuc.targetName})`;
+          ndMeaning = "Nguyệt Đức Quý Nhân – Cát thần tương trợ, vạn sự hanh thông, hóa giải khẩu thiệt thị phi.";
+          ndNghi = "Khai trương buôn bán, ký kết giao dịch, cầu tài lộc, đính hôn cưới hỏi, xuất hành, an gia định cư.";
+          ndKy = "Tranh cãi hiềm khích, làm việc trái đạo lý.";
+        }
+
+        catItems.push({
+          badgeClass: nhiDuc.badgeClass,
+          badgeTitle: ndTitle,
+          meaning: ndMeaning,
+          actionTag: "Hợp làm gì:",
+          actionText: ndNghi,
+          avoidTag: ndKy ? "Lưu ý kiêng:" : null,
+          avoidText: ndKy,
+          lookupType: "nhiDuc"
+        });
       }
 
       // 3. Âm Dương Bất Tương
       const batTuong = getBatTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
-      let btBadgeClass = batTuong.badgeClass;
-      let btBadgeTitle = "";
-
       if (batTuong.code === 1) {
-        btBadgeTitle = "Bất Tương";
+        catItems.push({
+          badgeClass: batTuong.badgeClass,
+          badgeTitle: "💍 Âm Dương Bất Tương",
+          meaning: "Âm Dương cân bằng điều hòa, không tương xung tương khắc.",
+          actionTag: "Hợp làm gì:",
+          actionText: "Đại cát cho giá thú, cưới hỏi, đính hôn, rước dâu trăm năm hòa thuận hạnh phúc.",
+          avoidTag: null,
+          avoidText: null,
+          lookupType: "batTuong"
+        });
       } else if (batTuong.code === 2) {
-        btBadgeTitle = "Dương Tương";
+        hungItems.push({
+          badgeClass: batTuong.badgeClass,
+          badgeTitle: "⚠️ Dương Tương",
+          hungWhat: "Dương khí quá vượng sát hại nam chủ trong hôn nhân giá thú.",
+          avoidTag: "Kiêng cữ:",
+          avoidText: "Kỵ cưới hỏi, đính hôn, dạm ngõ (bất lợi cho chú rể / nam chủ).",
+          actionTag: null,
+          actionText: null,
+          lookupType: "batTuong"
+        });
       } else if (batTuong.code === 3) {
-        btBadgeTitle = "Âm Tương";
+        hungItems.push({
+          badgeClass: batTuong.badgeClass,
+          badgeTitle: "⚠️ Âm Tương",
+          hungWhat: "Âm khí quá vượng sát hại nữ chủ trong hôn nhân giá thú.",
+          avoidTag: "Kiêng cữ:",
+          avoidText: "Kỵ cưới hỏi, rước dâu, nhập phòng (bất lợi cho cô dâu / nữ chủ).",
+          actionTag: null,
+          actionText: null,
+          lookupType: "batTuong"
+        });
       } else if (batTuong.code === 4) {
-        btBadgeTitle = "Âm Dương câu Tương";
-      } else {
-        btBadgeTitle = "Không";
+        hungItems.push({
+          badgeClass: batTuong.badgeClass,
+          badgeTitle: "⛔ Âm Dương câu Tương",
+          hungWhat: "Cả Âm và Dương đều xung sát lẫn nhau, đại hung cho hôn phối.",
+          avoidTag: "Kiêng cữ:",
+          avoidText: "Đại kỵ cưới hỏi, kết hôn (chủ về hình khắc phân ly).",
+          actionTag: null,
+          actionText: null,
+          lookupType: "batTuong"
+        });
       }
 
       // 4. Ngày Vượng Tướng (Hiệp Kỷ Biện Phương Thư)
       const vuongTuong = getVuongTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (vuongTuong.isDaiCat) {
+        const isV = (vuongTuong.type === 'vuong');
+        catItems.push({
+          badgeClass: vuongTuong.badgeClass,
+          badgeTitle: isV ? "🌿 Ngày Vượng (Đại cát)" : "🌿 Ngày Tướng (Đại cát)",
+          meaning: isV ? "Đắc chính khí bốn mùa cực thịnh, vượng khí hanh thông." : "Đắc sinh khí mùa tương trợ, sinh sôi phát triển.",
+          actionTag: "Hợp làm gì:",
+          actionText: "Đại cát cho trăm sự khởi tạo, động thổ, khai trương, xuất hành, mưu cầu việc lớn.",
+          avoidTag: null,
+          avoidText: null,
+          lookupType: "vuongTuong"
+        });
+      }
 
       // 5. Thập Nhị Trực
       const { truc, sao } = getDayTrucVaSao(lunarMonth, dayCanChi.chiIndex, jd);
@@ -5833,6 +5998,36 @@
         ky: "Tránh việc mạo hiểm bất cẩn."
       };
 
+      const HUNG_TRUCS = ['Phá', 'Nguy', 'Bế'];
+      if (HUNG_TRUCS.includes(truc)) {
+        let hungReason = "";
+        if (truc === 'Phá') hungReason = "Trực Phá chủ công phá đổ vỡ, tiêu hao tài sản, thất bại khi khởi việc mới.";
+        else if (truc === 'Nguy') hungReason = "Trực Nguy chủ nguy nan bấp bênh, nhiều hiểm trở rủi ro bất trắc.";
+        else if (truc === 'Bế') hungReason = "Trực Bế chủ bế tắc ngưng trệ, khí vận đóng kín không thông suốt.";
+
+        hungItems.push({
+          badgeClass: "badge-hacdao",
+          badgeTitle: `⚠️ ${trucDetail.fullName}`,
+          hungWhat: hungReason,
+          avoidTag: "Kiêng cữ:",
+          avoidText: trucDetail.ky,
+          actionTag: trucDetail.nghi ? "Chỉ hợp làm:" : null,
+          actionText: trucDetail.nghi || null,
+          lookupType: null
+        });
+      } else {
+        catItems.push({
+          badgeClass: "badge-hoangdao",
+          badgeTitle: `📌 ${trucDetail.fullName}`,
+          meaning: trucDetail.meaning,
+          actionTag: "Hợp làm gì:",
+          actionText: trucDetail.nghi,
+          avoidTag: trucDetail.ky ? "Lưu ý kiêng:" : null,
+          avoidText: trucDetail.ky || null,
+          lookupType: null
+        });
+      }
+
       // 6. Nhị Thập Bát Tú
       const saoDetail = SAO_28_DETAILS[sao] || {
         fullName: `Sao ${sao}`,
@@ -5841,141 +6036,142 @@
         ky: "Tránh việc phiêu lưu rủi ro."
       };
 
+      if (saoDetail.nature.includes('Hung')) {
+        hungItems.push({
+          badgeClass: "badge-hacdao",
+          badgeTitle: `⚠️ ${saoDetail.fullName} (${saoDetail.nature})`,
+          hungWhat: "Hung tú chiếu hạ, chủ về trắc trở, phân tán hoặc hao tổn, tai bay vạ gió.",
+          avoidTag: "Kiêng cữ:",
+          avoidText: saoDetail.ky,
+          actionTag: saoDetail.nghi ? "Có thể làm việc nhỏ:" : null,
+          actionText: saoDetail.nghi || null,
+          lookupType: null
+        });
+      } else {
+        catItems.push({
+          badgeClass: "badge-hoangdao",
+          badgeTitle: `⭐ ${saoDetail.fullName} (${saoDetail.nature})`,
+          meaning: "Cát tinh soi chiếu, tăng trưởng cát khí thuận lợi cho các công việc lớn.",
+          actionTag: "Hợp làm gì:",
+          actionText: saoDetail.nghi,
+          avoidTag: saoDetail.ky ? "Lưu ý kiêng:" : null,
+          avoidText: saoDetail.ky || null,
+          lookupType: null
+        });
+      }
+
       bodyEl.innerHTML = `
-        <!-- 1. Đánh giá ngày: Hoàng Đạo / Hắc Đạo -->
-        <div class="nghi-ky-card">
-          <div class="nghi-ky-card-head">
-            <span class="nghi-ky-card-title">
-              <span class="badge ${hdBadgeClass}">${hdIcon} ${hdDetail.fullName}</span>
-            </span>
-            <span class="badge" style="font-size: 0.72rem; background: ${star.isHoangDao ? '#ecfdf5' : '#fef2f2'}; color: ${star.isHoangDao ? '#065f46' : '#991b1b'}; font-weight: 600;">
-              ${star.isHoangDao ? 'Ngày Cát Lợi' : 'Ngày Cần Thận Trọng'}
-            </span>
+        <!-- NHÓM NGÀY CÁT (SAO CÁT & VƯỢNG KHÍ) -->
+        <div class="cat-hung-group cat-group">
+          <div class="cat-hung-group-header">
+            <div class="cat-hung-group-title">
+              <span>🟢 CÁC YẾU TỐ CÁT (SAO CÁT &amp; CÁT KHÍ)</span>
+            </div>
+            <div class="cat-hung-group-sub">${catItems.length} yếu tố cát lợi</div>
           </div>
-          <div class="nghi-ky-meaning">${hdDetail.meaning}</div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag nghi-tag">🟢 Nên làm (Nghi):</span>
-            <span class="nghi-ky-text">${hdDetail.nghi}</span>
-          </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag ky-tag">🔴 Kiêng cữ (Kỵ):</span>
-            <span class="nghi-ky-text">${hdDetail.ky}</span>
-          </div>
-        </div>
-
-        <!-- 2. Quý Nhân Nhị Đức -->
-        <div class="nghi-ky-card">
-          <div class="nghi-ky-card-head">
-            <span class="nghi-ky-card-title">
-              <span class="badge ${nhiDuc.badgeClass}">${ndTitle}</span>
-            </span>
-            <button type="button" class="btn-lookup-nd" id="btnBlocLookupND" title="Nhấn để mở bảng tra cứu sao Thiên Đức & Nguyệt Đức 12 tháng">
-              Tra sao ➔
-            </button>
-          </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag nghi-tag">🟢 Phù hợp làm gì:</span>
-            <span class="nghi-ky-text">${ndNghi}</span>
-          </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag ky-tag">🔴 Việc kiêng cữ:</span>
-            <span class="nghi-ky-text">${ndKy}</span>
+          <div class="cat-hung-items">
+            ${catItems.length > 0 ? catItems.map(item => `
+              <div class="cat-item-card">
+                <div class="cat-item-head">
+                  <span class="item-badge-title">
+                    <span class="badge ${item.badgeClass}">${item.badgeTitle}</span>
+                  </span>
+                  ${item.lookupType ? `
+                    <button type="button" class="btn-lookup-${item.lookupType === 'nhiDuc' ? 'nd' : (item.lookupType === 'batTuong' ? 'bt' : 'vt')}" title="Xem bảng tra cứu">
+                      Tra bảng ➔
+                    </button>
+                  ` : ''}
+                </div>
+                ${item.meaning ? `<div class="item-meaning-sub">${item.meaning}</div>` : ''}
+                <div class="item-desc-row">
+                  <span class="item-tag item-tag-cat">🟢 ${item.actionTag}</span>
+                  <span class="item-desc-text">${item.actionText}</span>
+                </div>
+                ${item.avoidText ? `
+                  <div class="item-desc-row">
+                    <span class="item-tag" style="background:#fef3c7; color:#92400e; border:1px solid #fde68a;">⚠️ ${item.avoidTag}</span>
+                    <span class="item-desc-text" style="color:#6b7280;">${item.avoidText}</span>
+                  </div>
+                ` : ''}
+              </div>
+            `).join('') : '<div style="font-size: 0.8rem; color: #15803d; font-style: italic; padding: 0.25rem 0;">Hôm nay không có cát tinh chiếu rọi đặc biệt.</div>'}
           </div>
         </div>
 
-        <!-- 3. Âm Dương Bất Tương -->
-        <div class="nghi-ky-card">
-          <div class="nghi-ky-card-head">
-            <span class="nghi-ky-card-title">
-              <span class="badge ${btBadgeClass}">${btBadgeTitle}</span>
-            </span>
-            <button type="button" class="btn-lookup-bt" id="btnBlocLookupBT" title="Nhấn để mở bảng 60 Hoa Giáp 12 Tháng Âm Dương Bất Tương">
-              Tra bảng ➔
-            </button>
+        <!-- NHÓM NGÀY HUNG (SAO HUNG & HUNG SÁT) -->
+        <div class="cat-hung-group hung-group">
+          <div class="cat-hung-group-header">
+            <div class="cat-hung-group-title">
+              <span>🔴 CÁC YẾU TỐ HUNG (SAO HUNG &amp; HUNG TINH)</span>
+            </div>
+            <div class="cat-hung-group-sub">${hungItems.length} yếu tố cần phòng ngừa</div>
           </div>
-          <div style="font-size: 0.84rem; color: #374151; font-weight: 600; padding: 0.15rem 0;">
-            ${btBadgeTitle}
-          </div>
-        </div>
-
-        <!-- 4. Ngày Vượng Tướng -->
-        <div class="nghi-ky-card">
-          <div class="nghi-ky-card-head">
-            <span class="nghi-ky-card-title">
-              <span class="badge ${vuongTuong.badgeClass}">${vuongTuong.badgeTitle}</span>
-            </span>
-            <button type="button" class="btn-lookup-vt" id="btnBlocLookupVT" title="Nhấn để mở bảng tra cứu quy luật Ngày Vượng Tướng 12 tháng">
-              Tra bảng ➔
-            </button>
-          </div>
-          <div style="font-size: 0.84rem; padding: 0.15rem 0;">
-            ${vuongTuong.isDaiCat ? '<span style="font-weight: 700; color: ' + (vuongTuong.type === 'vuong' ? '#15803d' : '#1d4ed8') + ';">Đại cát</span>' : '<span style="font-weight: 600; color: #4b5563;">Không</span>'}
-          </div>
-        </div>
-
-        <!-- 5. Thập Nhị Trực -->
-        <div class="nghi-ky-card">
-          <div class="nghi-ky-card-head">
-            <span class="nghi-ky-card-title">
-              <span class="badge" style="background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe;">📌 ${trucDetail.fullName}</span>
-            </span>
-            <span style="font-size: 0.72rem; color: #64748b; font-style: italic;">${trucDetail.meaning}</span>
-          </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag nghi-tag">🟢 Nên làm (Nghi):</span>
-            <span class="nghi-ky-text">${trucDetail.nghi}</span>
-          </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag ky-tag">🔴 Kiêng cữ (Kỵ):</span>
-            <span class="nghi-ky-text">${trucDetail.ky}</span>
+          <div class="cat-hung-items">
+            ${hungItems.length > 0 ? hungItems.map(item => `
+              <div class="hung-item-card">
+                <div class="hung-item-head">
+                  <span class="item-badge-title">
+                    <span class="badge ${item.badgeClass}">${item.badgeTitle}</span>
+                  </span>
+                  ${item.lookupType ? `
+                    <button type="button" class="btn-lookup-${item.lookupType === 'nhiDuc' ? 'nd' : (item.lookupType === 'batTuong' ? 'bt' : 'vt')}" title="Xem bảng tra cứu">
+                      Tra bảng ➔
+                    </button>
+                  ` : ''}
+                </div>
+                ${item.hungWhat ? `
+                  <div class="item-desc-row">
+                    <span class="item-tag item-tag-hung">⚠️ Hung gì:</span>
+                    <span class="item-desc-text" style="color: #991b1b; font-weight: 500;">${item.hungWhat}</span>
+                  </div>
+                ` : ''}
+                <div class="item-desc-row">
+                  <span class="item-tag item-tag-hung">🔴 ${item.avoidTag}</span>
+                  <span class="item-desc-text">${item.avoidText}</span>
+                </div>
+                ${item.actionText ? `
+                  <div class="item-desc-row">
+                    <span class="item-tag item-tag-info">ℹ️ ${item.actionTag}</span>
+                    <span class="item-desc-text" style="color:#4b5563;">${item.actionText}</span>
+                  </div>
+                ` : ''}
+              </div>
+            `).join('') : '<div style="font-size: 0.8rem; color: #059669; font-weight: 600; padding: 0.25rem 0;">✨ Ngày vắng bóng hung tinh – Mọi sự bình an cát lợi.</div>'}
           </div>
         </div>
 
-        <!-- 6. Nhị Thập Bát Tú -->
-        <div class="nghi-ky-card">
-          <div class="nghi-ky-card-head">
-            <span class="nghi-ky-card-title">
-              <span class="badge" style="background: #faf5ff; color: #6b21a8; border: 1px solid #e9d5ff;">⭐ ${saoDetail.fullName}</span>
-            </span>
-            <span class="badge" style="font-size: 0.72rem; background: ${saoDetail.nature.includes('Cát') ? '#ecfdf5' : '#fef2f2'}; color: ${saoDetail.nature.includes('Cát') ? '#065f46' : '#991b1b'}; font-weight: 600;">
-              ${saoDetail.nature}
-            </span>
-          </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag nghi-tag">🟢 Nên làm (Nghi):</span>
-            <span class="nghi-ky-text">${saoDetail.nghi}</span>
-          </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag ky-tag">🔴 Kiêng cữ (Kỵ):</span>
-            <span class="nghi-ky-text">${saoDetail.ky}</span>
+        <!-- THANH TRA CỨU NHANH TRẠCH NHẬT -->
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding-top: 0.35rem; border-top: 1px dashed #fed7aa; font-size: 0.74rem;">
+          <span style="color: #92400e; font-weight: 600;">Tra cứu nguyên lý Trạch Nhật:</span>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <button type="button" class="btn-lookup-nd" title="Bảng tra Sao Thiên Đức &amp; Nguyệt Đức 12 tháng">Tra Nhị Đức ➔</button>
+            <button type="button" class="btn-lookup-bt" title="Bảng tra Âm Dương Bất Tương 60 Hoa Giáp">Tra Bất Tương ➔</button>
+            <button type="button" class="btn-lookup-vt" title="Bảng tra Ngày Vượng Tướng 12 tháng">Tra Vượng Tướng ➔</button>
           </div>
         </div>
       `;
 
-      // Gán sự kiện mở modal cho các nút bấm tra cứu
-      const btnLookND = document.getElementById('btnBlocLookupND');
-      if (btnLookND) {
-        btnLookND.addEventListener('click', (e) => {
+      // Gán sự kiện mở modal cho tất cả các nút bấm tra cứu
+      bodyEl.querySelectorAll('.btn-lookup-nd').forEach(btn => {
+        btn.addEventListener('click', (e) => {
           e.stopPropagation();
           openNhiDucModal(lunarMonth);
         });
-      }
+      });
 
-      const btnLookBT = document.getElementById('btnBlocLookupBT');
-      if (btnLookBT) {
-        btnLookBT.addEventListener('click', (e) => {
+      bodyEl.querySelectorAll('.btn-lookup-bt').forEach(btn => {
+        btn.addEventListener('click', (e) => {
           e.stopPropagation();
           openBatTuongModal(lunarMonth, batTuong.canChiIndex);
         });
-      }
+      });
 
-      const btnLookVT = document.getElementById('btnBlocLookupVT');
-      if (btnLookVT) {
-        btnLookVT.addEventListener('click', (e) => {
+      bodyEl.querySelectorAll('.btn-lookup-vt').forEach(btn => {
+        btn.addEventListener('click', (e) => {
           e.stopPropagation();
           openVuongTuongModal(lunarMonth);
         });
-      }
+      });
     }
 
     /**
@@ -9623,7 +9819,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.15.0";
+    const APP_VERSION = "v1.16.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
