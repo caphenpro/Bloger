@@ -5300,6 +5300,87 @@
       };
     }
 
+    /**
+     * XÁC ĐỊNH NGÀY VƯỢNG / NGÀY TƯỚNG THEO THÁNG ÂM LỊCH VÀ CAN CHI NGÀY
+     */
+    function getVuongTuongInfo(lunarMonth, canIdx, chiIdx) {
+      let m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      let isVuong = false;
+      let isTuong = false;
+      let note = "";
+
+      if (m === 1 || m === 2) {
+        // Tháng 1, 2 (Dần, Mão):
+        // Vượng: Can Giáp, Ất hoặc Chi Dần, Mão
+        // Tướng: Can Bính, Đinh hoặc Chi Tị, Ngọ
+        if (canIdx === 0 || canIdx === 1 || chiIdx === 2 || chiIdx === 3) {
+          isVuong = true;
+        } else if (canIdx === 2 || canIdx === 3 || chiIdx === 5 || chiIdx === 6) {
+          isTuong = true;
+        }
+      } else if (m === 4 || m === 5) {
+        // Tháng 4, 5 (Tị, Ngọ):
+        // Vượng: Can Bính, Đinh hoặc Chi Tị, Ngọ
+        // Tướng: Can Mậu, Kỷ hoặc Chi Thìn, Tuất, Sửu, Mùi
+        if (canIdx === 2 || canIdx === 3 || chiIdx === 5 || chiIdx === 6) {
+          isVuong = true;
+        } else if (canIdx === 4 || canIdx === 5 || chiIdx === 4 || chiIdx === 10 || chiIdx === 1 || chiIdx === 7) {
+          isTuong = true;
+        }
+      } else if (m === 7 || m === 8) {
+        // Tháng 7, 8 (Thân, Dậu):
+        // Vượng: Can Canh, Tân hoặc Chi Thân, Dậu
+        // Tướng: Can Nhâm, Quý hoặc Chi Hợi, Tý
+        if (canIdx === 6 || canIdx === 7 || chiIdx === 8 || chiIdx === 9) {
+          isVuong = true;
+        } else if (canIdx === 8 || canIdx === 9 || chiIdx === 11 || chiIdx === 0) {
+          isTuong = true;
+        }
+      } else if (m === 10 || m === 11) {
+        // Tháng 10, 11 (Hợi, Tý):
+        // Vượng: Can Nhâm, Quý hoặc Chi Hợi, Tý
+        // Tướng: Can Giáp, Ất hoặc Chi Dần, Mão
+        if (canIdx === 8 || canIdx === 9 || chiIdx === 11 || chiIdx === 0) {
+          isVuong = true;
+        } else if (canIdx === 0 || canIdx === 1 || chiIdx === 2 || chiIdx === 3) {
+          isTuong = true;
+        }
+      } else if (m === 3 || m === 6 || m === 9 || m === 12) {
+        // Tháng 3, 6, 9, 12 (Thìn, Tuất, Sửu, Mùi):
+        // Vượng: Can Mậu, Kỷ (Lưu ý: ngày Mậu Kỷ tuy vượng nhưng kỵ động thổ và kỵ tu sửa trung cung)
+        // Tướng: Can Canh, Tân hoặc Chi Thân, Dậu
+        if (canIdx === 4 || canIdx === 5) {
+          isVuong = true;
+          note = " (Lưu ý: ngày Mậu Kỷ tuy vượng nhưng kỵ động thổ và kỵ tu sửa trung cung)";
+        } else if (canIdx === 6 || canIdx === 7 || chiIdx === 8 || chiIdx === 9) {
+          isTuong = true;
+        }
+      }
+
+      if (isVuong) {
+        return {
+          type: "vuong",
+          title: "Ngày Vượng",
+          badgeClass: "badge-bat-tuong",
+          meaning: `Đại cát (được thời khí sinh vượng, bách sự hanh thông, công danh tài lộc hưng vượng)${note}`
+        };
+      } else if (isTuong) {
+        return {
+          type: "tuong",
+          title: "Ngày Tướng",
+          badgeClass: "badge-hoangdao",
+          meaning: "Cát lành (được tướng khí trợ giúp, vạn sự thuận lợi, mưu sự dễ thành)"
+        };
+      } else {
+        return {
+          type: "binh_hoa",
+          title: "Ngày Bình Hòa (Không xét Vượng Tướng)",
+          badgeClass: "badge-na",
+          meaning: "Bình thường trong tháng"
+        };
+      }
+    }
+
     // =========================================================================
     // HỆ THỐNG QUÝ NHÂN NHỊ ĐỨC (THIÊN ĐỨC & NGUYỆT ĐỨC) – 12 THÁNG ÂM LỊCH
     // Khâm Định Hiệp Kỷ Biện Phương Thư & Tam Mệnh Thông Hội
@@ -6110,30 +6191,29 @@
 
       // 3. Âm Dương Bất Tương
       const batTuong = getBatTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
-      let btTitle = "";
-      let btNghi = "";
-      let btKy = "";
-      if (batTuong.type === "bat_tuong") {
-        btTitle = "✨ Ngày Âm Dương Bất Tương (Đại Cát Hôn Nhân)";
-        btNghi = "Đại cát cho hôn nhân giá thú: dạm ngõ, ăn hỏi, lễ cưới, đón dâu, nạp tài, hợp cẩn, xuất hành, cầu tài, trăm năm hòa hợp hạnh phúc.";
-        btKy = "Các việc tang ma bại hoại cấm kỵ.";
-      } else if (batTuong.type === "duong_tuong") {
-        btTitle = "⚠️ Ngày Dương Tương (Kỵ Nam Giới / Chú Rể)";
-        btNghi = "Công việc nội trợ gia đạo của nữ giới, học tập, giao dịch kinh tế thường nhật, tu phúc bồi đức.";
-        btKy = "Kiêng cưới hỏi hôn lễ (đặc biệt kỵ nạp rể, bất lợi cho chú rể / nam nhân).";
-      } else if (batTuong.type === "am_tuong") {
-        btTitle = "⚠️ Ngày Âm Tương (Kỵ Nữ Giới / Cô Dâu)";
-        btNghi = "Công việc bên ngoài xã hội, kinh doanh xuất hành thông thường của nam giới, tu dưỡng tâm tính.";
-        btKy = "Kiêng cưới hỏi hôn lễ (đặc biệt kỵ rước dâu, nạp dâu, bất lợi cho cô dâu / nữ nhân).";
-      } else if (batTuong.type === "cau_tuong") {
-        btTitle = "🚫 Ngày Âm Dương Câu Tương (Đại Kỵ Giá Thú)";
-        btNghi = "Chỉ nên làm các công việc thường nhật bình dị, tu sửa nhỏ, dọn dẹp nhà cửa vệ sinh.";
-        btKy = "Tuyệt đối tránh cưới hỏi hôn thú, nạp thái, kết hôn; tránh xuất hành mưu sự lớn liên quan hai phái.";
+      let btBadgeClass = batTuong.badgeClass;
+      let btBadgeTitle = "";
+      let btMeaningText = "";
+
+      if (batTuong.code === 1) {
+        btBadgeTitle = "Bất Tương";
+        btMeaningText = "Đại cát giá thú (cưới hỏi trăm năm hòa thuận)";
+      } else if (batTuong.code === 2) {
+        btBadgeTitle = "Dương Tương";
+        btMeaningText = "Hại chồng (kỵ nam chủ)";
+      } else if (batTuong.code === 3) {
+        btBadgeTitle = "Âm Tương";
+        btMeaningText = "Hại vợ (kỵ nữ chủ)";
+      } else if (batTuong.code === 4) {
+        btBadgeTitle = "Âm Dương câu Tương";
+        btMeaningText = "Hại cả hai (đại kỵ giá thú)";
       } else {
-        btTitle = "⚪ Ngày Bình Hòa (Không xét Bất Tương)";
-        btNghi = "Làm các công việc thường nhật, kết hợp xem Trực và Sao để chọn giờ tốt xuất hành.";
-        btKy = "Không có điều đại kỵ riêng về Bất Tương.";
+        btBadgeTitle = "Ngày Bình Hòa (Không xét Bất Tương)";
+        btMeaningText = "Bình thường trong tháng";
       }
+
+      // 3.1. Ngày Vượng / Ngày Tướng (Thời Khí Sinh Vượng)
+      const vuongTuong = getVuongTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
 
       // 4. Thập Nhị Trực
       const { truc, sao } = getDayTrucVaSao(lunarMonth, dayCanChi.chiIndex, jd);
@@ -6198,19 +6278,27 @@
         <div class="nghi-ky-card">
           <div class="nghi-ky-card-head">
             <span class="nghi-ky-card-title">
-              <span class="badge ${batTuong.badgeClass}">${btTitle}</span>
+              <span class="badge ${btBadgeClass}">${btBadgeTitle}</span>
             </span>
             <button type="button" class="btn-lookup-bt" id="btnBlocLookupBT" title="Nhấn để mở bảng 60 Hoa Giáp 12 Tháng Âm Dương Bất Tương">
               Tra bảng ➔
             </button>
           </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag nghi-tag">🟢 Nên làm (Nghi):</span>
-            <span class="nghi-ky-text">${btNghi}</span>
+          <div style="font-size: 0.82rem; color: #374151; font-weight: 600; line-height: 1.5; padding: 0.15rem 0;">
+            ${btBadgeTitle}: <span style="font-weight: 500; color: #4b5563;">${btMeaningText}</span>
           </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag ky-tag">🔴 Kiêng cữ (Kỵ):</span>
-            <span class="nghi-ky-text">${btKy}</span>
+        </div>
+
+        <!-- 3.1. Ngày Vượng / Ngày Tướng -->
+        <div class="nghi-ky-card">
+          <div class="nghi-ky-card-head">
+            <span class="nghi-ky-card-title">
+              <span class="badge ${vuongTuong.badgeClass}">${vuongTuong.title}</span>
+            </span>
+            <span style="font-size: 0.72rem; color: #64748b; font-weight: 600;">Thời khí mùa</span>
+          </div>
+          <div style="font-size: 0.82rem; color: #374151; font-weight: 600; line-height: 1.5; padding: 0.15rem 0;">
+            ${vuongTuong.title}: <span style="font-weight: 500; color: #4b5563;">${vuongTuong.meaning}</span>
           </div>
         </div>
 
@@ -9688,7 +9776,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.13.0";
+    const APP_VERSION = "v1.13.2";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

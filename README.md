@@ -184,6 +184,23 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.13.2] - 2026-09-07
+- **Bổ Sung Hiển Thị "Ngày Vượng / Ngày Tướng" Kế Vị Trí Âm Dương Bất Tương Trong Bloc Lịch**:
+  - Tích hợp hàm `getVuongTuongInfo` tính toán chính xác Ngày Vượng, Ngày Tướng và Ngày Bình Hòa dựa theo tháng Âm lịch và Can Chi của ngày:
+    + Tháng 1, 2 (Dần, Mão): Vượng = Can Giáp, Ất hoặc Chi Dần, Mão; Tướng = Can Bính, Đinh hoặc Chi Tị, Ngọ.
+    + Tháng 4, 5 (Tị, Ngọ): Vượng = Can Bính, Đinh hoặc Chi Tị, Ngọ; Tướng = Can Mậu, Kỷ hoặc Chi Thìn, Tuất, Sửu, Mùi.
+    + Tháng 7, 8 (Thân, Dậu): Vượng = Can Canh, Tân hoặc Chi Thân, Dậu; Tướng = Can Nhâm, Quý hoặc Chi Hợi, Tý.
+    + Tháng 10, 11 (Hợi, Tý): Vượng = Can Nhâm, Quý hoặc Chi Hợi, Tý; Tướng = Can Giáp, Ất hoặc Chi Dần, Mão.
+    + Tháng 3, 6, 9, 12 (Thìn, Tuất, Sửu, Mùi): Vượng = Can Mậu, Kỷ (kèm lưu ý kỵ động thổ & kỵ tu sửa trung cung); Tướng = Can Canh, Tân hoặc Chi Thân, Dậu.
+  - Cập nhật `renderNghiKyDungSu` trong `index.html` hiển thị thẻ Ngày Vượng / Ngày Tướng nằm ngay kế tiếp thẻ Âm Dương Bất Tương với huy hiệu và câu diễn giải ý nghĩa cát lành / đại cát đồng bộ.
+  - Nâng phiên bản PATCH lên `v1.13.2` trong `package.json`, `index.html` (`APP_VERSION`) và `README.md`.
+
+### [v1.13.1] - 2026-09-07
+- **Tối Ưu Hiển Thị Khối "Âm Dương Bất Tương" Trên Bloc Lịch Hàng Ngày**:
+  - Đơn giản hóa phần hiển thị Âm Dương Bất Tương: Loại bỏ 2 dòng "Nên làm (Nghi)" & "Kiêng cữ (Kỵ)" dư thừa trên thẻ Bloc Lịch.
+  - Thay thế bằng dòng thông tin ngắn gọn, trực quan thể hiện chính xác loại 'Tương' của ngày (Bất Tương, Dương Tương, Âm Tương, Âm Dương câu Tương, hoặc Không xét) kèm badge màu sắc ngữ nghĩa và câu diễn giải ý nghĩa rõ ràng (ví dụ: *Bất Tương: Đại cát giá thú (cưới hỏi trăm năm hòa thuận)*, *Dương Tương: Hại chồng (kỵ nam chủ)*, *Âm Tương: Hại vợ (kỵ nữ chủ)*, *Âm Dương câu Tương: Hại cả hai (đại kỵ)*).
+  - Nâng phiên bản PATCH lên `v1.13.1` trong `package.json`, Header, Footer, Logo Modal, `APP_VERSION` và `README.md`.
+
 ### [v1.13.0] - 2026-09-06
 - **Tái Cấu Trúc Khối Thông Tin Bloc Lịch & Hợp Nhất Nhóm "Nghi Kỵ Dụng Sự" Chi Tiết**:
   - **Hợp Nhất 4 Trường Dữ Liệu Quan Trọng Xuống Cuối Bảng Bloc Lịch**:
