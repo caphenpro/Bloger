@@ -2964,7 +2964,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.18.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.19.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -4991,27 +4991,18 @@
       return list;
     }
 
-    // Solar Longitude (Trung khí / Tiết khí)
-    function getSunLongitude(dayNumber, timeZone) {
-      let T = (dayNumber - 0.5 - timeZone / 24 - 2451545.0) / 36525;
-      let T2 = T * T;
-      let dr = PI / 180;
-      let L0 = 280.46645 + 36000.76983 * T + 0.0003032 * T2;
-      let L = 357.52910 + 35999.05028 * T - 0.0001559 * T2 - 0.00000048 * T * T2;
-      let C = (1.914600 - 0.004817 * T - 0.000014 * T2) * Math.sin(L * dr)
-            + (0.019993 - 0.000101 * T) * Math.sin(2 * L * dr)
-            + 0.000290 * Math.sin(3 * L * dr);
-      let theta = L0 + C;
-      theta = theta * dr;
-      theta = theta - PI * 2 * Math.floor(theta / (PI * 2));
-      return Math.floor(theta / (PI / 6));
-    }
-
     /**
      * THUẬT TOÁN THIÊN VĂN KINH ĐỘ MẶT TRỜI & 24 TIẾT KHÍ (NASA JPL / VSOP87 / JEAN MEEUS)
      * Độ chính xác cao từng giây, tính toán đầy đủ Phương trình tâm, Chương động và Quang sai.
      */
     const dr = PI / 180;
+
+    // Solar Longitude (Trung khí / Tiết khí) - Chuẩn thiên văn NASA JPL / VSOP87 / Jean Meeus
+    function getSunLongitude(dayNumber, timeZone = 7) {
+      let localMidnightJD = dayNumber - 0.5 - timeZone / 24.0;
+      let deg = getSunApparentLongitude(localMidnightJD);
+      return Math.floor(deg / 30);
+    }
 
     // Chuyển đối tượng Date (JavaScript) sang Julian Day (JD) thực (chính xác đến mili giây)
     function dateToRealJD(date) {
@@ -5187,8 +5178,20 @@
       return [lunarDay, lunarMonth, lunarYear, lunarLeap];
     }
 
+    // Chống injection / XSS và vỡ HTML khi hiển thị tên người dùng nhập
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
     // Convert Lunar date to Solar date [dd, mm, yy]
     function convertLunar2Solar(lunarDay, lunarMonth, lunarYear, lunarLeap = 0, timeZone = 7) {
+      if (isNaN(lunarDay) || isNaN(lunarMonth) || isNaN(lunarYear)) return [0, 0, 0];
       let a11, b11;
       if (lunarMonth < 11) {
         a11 = getLunarMonth11(lunarYear - 1, timeZone);
@@ -5211,6 +5214,11 @@
         }
       }
       let monthStart = getNewMoonDay(k + off, timeZone);
+      let nextMonthStart = getNewMoonDay(k + off + 1, timeZone);
+      let totalDays = nextMonthStart - monthStart;
+      if (lunarDay < 1 || lunarDay > totalDays) {
+        return [0, 0, 0];
+      }
       return jdToDate(monthStart + lunarDay - 1);
     }
 
@@ -6713,8 +6721,10 @@
     }
 
     // Đồng hồ thời gian thực
+    let clockIntervalId = null;
     let updateRealtimeClockRef = null;
     function setupRealtimeClock() {
+      if (clockIntervalId) clearInterval(clockIntervalId);
       function update() {
         if (document.hidden) return;
         const now = new Date();
@@ -6737,7 +6747,7 @@
       }
       updateRealtimeClockRef = update;
       update();
-      setInterval(update, 1000);
+      clockIntervalId = setInterval(update, 1000);
     }
 
     // Điều hướng Tab
@@ -6915,6 +6925,8 @@
       document.body.removeChild(ta);
     }
 
+    let lastRenderedCalendarYear = null;
+
     // Vẽ lưới lịch tháng (Calendar Grid)
     function renderCalendar(year, month) {
       document.getElementById('calTitleDisplay').textContent = `Tháng ${month + 1} năm ${year}`;
@@ -6923,27 +6935,24 @@
 
       const grid = document.getElementById('calDaysGrid');
       grid.innerHTML = '';
+      const fragment = document.createDocumentFragment();
 
       const firstDay = new Date(year, month, 1);
       const startingDay = firstDay.getDay(); // 0 = CN, 1 = T2...
       const daysInMonth = new Date(year, month + 1, 0).getDate();
       const prevMonthDays = new Date(year, month, 0).getDate();
 
-      const today = new Date();
-
       // Render ngày tháng trước
       for (let i = startingDay - 1; i >= 0; i--) {
         const d = prevMonthDays - i;
         const prevDate = new Date(year, month - 1, d);
-        const cell = createDayCell(prevDate, true);
-        grid.appendChild(cell);
+        fragment.appendChild(createDayCell(prevDate, true));
       }
 
       // Render ngày trong tháng hiện tại
       for (let d = 1; d <= daysInMonth; d++) {
         const cellDate = new Date(year, month, d);
-        const cell = createDayCell(cellDate, false);
-        grid.appendChild(cell);
+        fragment.appendChild(createDayCell(cellDate, false));
       }
 
       // Render ngày tháng sau cho đủ 35 hoặc 42 ô
@@ -6951,14 +6960,18 @@
       const remaining = (totalRendered % 7 === 0) ? 0 : 7 - (totalRendered % 7);
       for (let d = 1; d <= remaining; d++) {
         const nextDate = new Date(year, month + 1, d);
-        const cell = createDayCell(nextDate, true);
-        grid.appendChild(cell);
+        fragment.appendChild(createDayCell(nextDate, true));
       }
 
-      // Cập nhật bảng tra cứu điểm Sóc cả năm & phân tích tháng nhuận
-      renderSocYearTable(year);
-      renderLeapAnalysis(year);
-      renderDedicatedLeapTab(year);
+      grid.appendChild(fragment);
+
+      // Cập nhật bảng tra cứu điểm Sóc cả năm & phân tích tháng nhuận (chỉ khi year thay đổi)
+      if (lastRenderedCalendarYear !== year) {
+        lastRenderedCalendarYear = year;
+        renderSocYearTable(year);
+        renderLeapAnalysis(year);
+        renderDedicatedLeapTab(year);
+      }
 
       // Cập nhật trạng thái nhãn Tháng Nhuận trên thanh điều khiển Lịch
       const leapBadge = document.getElementById('btnCalLeapBadge');
@@ -7059,7 +7072,12 @@
         cell.classList.add('selected');
         selectedDate = new Date(dateObj);
         updateBlocView(selectedDate);
-        renderSocYearTable(selectedDate.getFullYear());
+        if (lastRenderedCalendarYear !== selectedDate.getFullYear()) {
+          lastRenderedCalendarYear = selectedDate.getFullYear();
+          renderSocYearTable(selectedDate.getFullYear());
+          renderLeapAnalysis(selectedDate.getFullYear());
+          renderDedicatedLeapTab(selectedDate.getFullYear());
+        }
       });
 
       return cell;
@@ -8112,8 +8130,10 @@
     }
 
     // Ticker thời gian thực đo kinh độ Mặt Trời & đếm ngược chuyển tiết
+    let solarTickerIntervalId = null;
     let updateSolarLiveRef = null;
     function startSolarTicker() {
+      if (solarTickerIntervalId) clearInterval(solarTickerIntervalId);
       function updateSolarLive() {
         if (document.hidden) return;
         let now = new Date();
@@ -8235,7 +8255,7 @@
 
       updateSolarLiveRef = updateSolarLive;
       updateSolarLive();
-      setInterval(updateSolarLive, 1000);
+      solarTickerIntervalId = setInterval(updateSolarLive, 1000);
     }
 
     /**
@@ -8273,6 +8293,10 @@
      * @param {number} timeZone - Múi giờ địa phương (mặc định UTC+7 cho Việt Nam)
      */
     function calcSunTimesNASA(date, lat, lng, timeZone = 7) {
+      if (typeof lat !== 'number' || isNaN(lat) || typeof lng !== 'number' || isNaN(lng)) {
+        lat = 21.0285;
+        lng = 105.8542;
+      }
       const dr = Math.PI / 180;
       const Y = date.getFullYear();
       const M = date.getMonth() + 1;
@@ -9670,8 +9694,8 @@
 
     // Thuật toán chính: Tính toán thời gian cưới và đối chiếu Bát Trạch & Can Chi
     function calculateWeddingTime() {
-      const groomName = document.getElementById('weddingGroomName').value.trim() || 'Chú Rể';
-      const brideName = document.getElementById('weddingBrideName').value.trim() || 'Cô Dâu';
+      const groomName = escapeHtml(document.getElementById('weddingGroomName').value.trim()) || 'Chú Rể';
+      const brideName = escapeHtml(document.getElementById('weddingBrideName').value.trim()) || 'Cô Dâu';
 
       // 1. Xác định ngày tháng năm sinh Chú Rể
       const isGroomSolar = document.getElementById('weddingGroomTypeSolar').checked;
@@ -10241,7 +10265,7 @@
     }
 
     function calculateBattu() {
-      const name = document.getElementById('btName').value.trim() || "Thân Chủ";
+      const name = escapeHtml(document.getElementById('btName').value.trim()) || "Thân Chủ";
       const gender = document.getElementById('btGender').value;
       const isLunar = document.getElementById('btTypeLunar').checked;
       const dateVal = document.getElementById('btDate').value;
@@ -10819,7 +10843,7 @@
       evaluatePosition(5,  yP.canIndex, false, null); // Can Năm (5)
       evaluatePosition(3,  null, true, yP.chi);      // Chi Năm (3)
 
-      let totalScore = sinhPhuScore + khacHaoTietScore;
+      let totalScore = (sinhPhuScore + khacHaoTietScore) || 1;
       let pctSinh = Math.round((sinhPhuScore / totalScore) * 100);
       let pctKhac = 100 - pctSinh;
 
@@ -11196,7 +11220,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.18.0";
+    const APP_VERSION = "v1.19.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
