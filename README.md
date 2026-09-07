@@ -184,6 +184,15 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.14.0] - 2026-09-07
+- **Tối Ưu Hiệu Năng Vận Hành & Bổ Sung Tính Năng Tương Tác Di Động**:
+  - **Tích Hợp Page Visibility API Quản Lý Ticker**: Tự động nhận diện khi người dùng chuyển tab hoặc ẩn ứng dụng (`document.hidden`) để tạm dừng các vòng lặp tính toán `setInterval` (Đồng hồ, Live Ticker Mặt Trời, Thống kê truy cập), giúp giảm thiểu tải CPU và tiết kiệm năng lượng pin tối đa trên thiết bị di động.
+  - **Lưu Đệm (Memoization Caching) Thuật Toán Thiên Văn**: Thêm cơ chế đệm dữ liệu cho danh sách Điểm Sóc (`_yearNewMoonsCache`) và Chuyển Tiết khí (`_solarTermTransitionCache`), giúp việc chuyển đổi các tháng và năm trên Lịch Vạn Niên phản hồi tức thì.
+  - **Bổ Sung Tính Năng "Sao Chép / Chia Sẻ Lịch Ngày"**: Tích hợp nút `📋 Sao chép` ngay trên Bloc Lịch Vạn Niên hàng ngày, tự động định dạng và định bản sao chép thông tin chi tiết (Dương lịch, Âm lịch, Can chi ngày/tháng/năm, Nạp âm, Tiết khí, Sao Hoàng đạo) vào clipboard để chia sẻ nhanh qua Zalo, Facebook, Messenger.
+  - **Thao Tác Cử Chỉ Vuốt Di Động (Touch Swipe Navigation)**: Lắng nghe cử chỉ `touchstart` và `touchend` trên lưới Lịch Tháng, hỗ trợ người dùng vuốt trái / vuốt phải trên màn hình di động để lật chuyển sang Tháng Sau / Tháng Trước mượt mà.
+  - **Số Hóa Phiên Bản v1.14.0**:
+    - Cập nhật số phiên bản tập trung `v1.14.0` trong `package.json`, Header, Footer, Logo Modal, `APP_VERSION` và tài liệu `README.md`.
+
 ### [v1.13.1] - 2026-09-07
 - **Tối Ưu Hiển Thị Khối "Âm Dương Bất Tương" Trên Bloc Lịch Hàng Ngày**:
   - Đơn giản hóa phần hiển thị Âm Dương Bất Tương: Loại bỏ 2 dòng "Nên làm (Nghi)" & "Kiêng cữ (Kỵ)" dư thừa trên thẻ Bloc Lịch.
