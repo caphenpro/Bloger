@@ -414,24 +414,23 @@
       color: #64748b;
       border: 1px solid #cbd5e1;
     }
-    .btn-lookup-nd {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.2rem;
-      background: none;
-      border: none;
-      color: #b45309;
-      font-size: 0.74rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: underline;
-      padding: 0 0.15rem;
+    /* Ngày Vượng & Ngày Tướng Badges */
+    .badge-vuong {
+      background-color: #c0dd97;
+      color: #173404;
+      border: 1px solid #84cc16;
+      font-weight: 700;
     }
-    .btn-lookup-nd:hover {
-      color: #78350f;
+    .badge-tuong {
+      background-color: #bfdbfe;
+      color: #1e3a8a;
+      border: 1px solid #60a5fa;
+      font-weight: 700;
     }
 
-    .btn-lookup-bt {
+    .btn-lookup-nd,
+    .btn-lookup-bt,
+    .btn-lookup-vt {
       display: inline-flex;
       align-items: center;
       gap: 0.2rem;
@@ -444,7 +443,9 @@
       text-decoration: underline;
       padding: 0 0.15rem;
     }
-    .btn-lookup-bt:hover {
+    .btn-lookup-nd:hover,
+    .btn-lookup-bt:hover,
+    .btn-lookup-vt:hover {
       color: #78350f;
     }
 
@@ -2014,331 +2015,6 @@
       text-align: center;
       margin-top: auto;
       border-top: 1px solid #374151;
-    }
-
-    /* Bottom Visitor Statistics Section (Compact & Sleek Design with 7-Day Chart) */
-    .site-stats-container {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.96));
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 0.85rem 1rem;
-      margin: 0 auto 1.25rem;
-      max-width: 980px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      text-align: left;
-    }
-    .site-stats-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.65rem;
-      padding-bottom: 0.45rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .site-stats-title-wrap {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-    .stats-pulse-dot {
-      width: 8px;
-      height: 8px;
-      background-color: #10b981;
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      animation: statsPulse 2s infinite cubic-bezier(0.45, 0, 0.55, 1);
-      flex-shrink: 0;
-    }
-    @keyframes statsPulse {
-      0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      }
-      70% {
-        transform: scale(1.15);
-        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-      }
-      100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-      }
-    }
-    .site-stats-heading {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #fef3c7;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .site-stats-meta {
-      font-size: 0.72rem;
-      color: #94a3b8;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .site-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.55rem;
-    }
-    @media (max-width: 820px) {
-      .site-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 440px) {
-      .site-stats-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .stat-card {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 8px;
-      padding: 0.5rem 0.7rem;
-      transition: all 0.18s ease;
-      position: relative;
-    }
-    .stat-card:hover {
-      background: rgba(255, 255, 255, 0.065);
-      border-color: rgba(245, 158, 11, 0.3);
-      transform: translateY(-1px);
-    }
-    .stat-icon-wrap {
-      width: 32px;
-      height: 32px;
-      border-radius: 7px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .stat-card-online .stat-icon-wrap {
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.28);
-      color: #34d399;
-    }
-    .stat-card-today .stat-icon-wrap {
-      background: rgba(245, 158, 11, 0.15);
-      border: 1px solid rgba(245, 158, 11, 0.28);
-      color: #fbbf24;
-    }
-    .stat-card-week .stat-icon-wrap {
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.28);
-      color: #60a5fa;
-    }
-    .stat-card-total .stat-icon-wrap {
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.28);
-      color: #c084fc;
-    }
-    .stat-info {
-      flex: 1;
-      min-width: 0;
-    }
-    .stat-value-row {
-      display: flex;
-      align-items: baseline;
-      gap: 0.3rem;
-      line-height: 1.1;
-    }
-    .stat-value {
-      font-size: 1.15rem;
-      font-weight: 800;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      letter-spacing: -0.3px;
-    }
-    .stat-card-online .stat-value {
-      color: #34d399;
-    }
-    .stat-card-today .stat-value {
-      color: #fde047;
-    }
-    .stat-card-week .stat-value {
-      color: #93c5fd;
-    }
-    .stat-card-total .stat-value {
-      color: #e9d5ff;
-    }
-    .stat-unit {
-      font-size: 0.68rem;
-      color: #94a3b8;
-      font-weight: 500;
-    }
-    .stat-badge-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.2rem;
-      padding: 0.05rem 0.35rem;
-      border-radius: 9999px;
-      font-size: 0.6rem;
-      font-weight: 700;
-      background: rgba(16, 185, 129, 0.2);
-      color: #6ee7b7;
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-    }
-    .stat-title {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #94a3b8;
-      text-transform: uppercase;
-      letter-spacing: 0.25px;
-      margin-top: 0.12rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .stat-subtext {
-      font-size: 0.64rem;
-      color: #64748b;
-      margin-top: 0.08rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Biểu Đồ 7 Ngày Gần Nhất (7-Day Visitor Chart) */
-    .site-stats-chart-section {
-      margin-top: 0.75rem;
-      padding-top: 0.65rem;
-      border-top: 1px dashed rgba(255, 255, 255, 0.08);
-    }
-    .chart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-    .chart-title {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #e2e8f0;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .chart-badge-tag {
-      font-size: 0.65rem;
-      padding: 0.1rem 0.4rem;
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      color: #93c5fd;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-    .chart-legend {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-size: 0.66rem;
-      color: #94a3b8;
-    }
-    .chart-legend-item {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    .chart-legend-color {
-      width: 9px;
-      height: 9px;
-      border-radius: 2px;
-      display: inline-block;
-    }
-    .chart-bars-wrap {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 0.45rem;
-      height: 105px;
-      padding: 0.45rem 0.5rem 0.25rem;
-      background: rgba(0, 0, 0, 0.22);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      position: relative;
-    }
-    .chart-col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      height: 100%;
-      min-width: 0;
-      position: relative;
-      cursor: pointer;
-    }
-    .chart-bar-val {
-      font-size: 0.66rem;
-      font-weight: 700;
-      color: #cbd5e1;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      margin-bottom: 0.2rem;
-      white-space: nowrap;
-      transition: transform 0.15s ease, color 0.15s ease;
-    }
-    .chart-col.is-today .chart-bar-val {
-      color: #fde047;
-      font-weight: 800;
-    }
-    .chart-bar-pill {
-      width: 100%;
-      max-width: 38px;
-      border-radius: 5px 5px 2px 2px;
-      background: linear-gradient(180deg, #3b82f6 0%, #1e40af 100%);
-      transition: height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, transform 0.15s ease;
-      min-height: 8px;
-      position: relative;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    }
-    .chart-col:hover .chart-bar-pill {
-      filter: brightness(1.2);
-      transform: scaleY(1.03);
-    }
-    .chart-col:hover .chart-bar-val {
-      transform: translateY(-2px);
-      color: #ffffff;
-    }
-    .chart-col.is-today .chart-bar-pill {
-      background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%);
-      box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
-      border: 1px solid rgba(254, 240, 138, 0.3);
-    }
-    .chart-col-footer {
-      margin-top: 0.35rem;
-      text-align: center;
-      width: 100%;
-      line-height: 1.15;
-    }
-    .chart-day-name {
-      font-size: 0.64rem;
-      font-weight: 700;
-      color: #94a3b8;
-      white-space: nowrap;
-    }
-    .chart-col.is-today .chart-day-name {
-      color: #fbbf24;
-    }
-    .chart-day-date {
-      font-size: 0.58rem;
-      color: #64748b;
-      white-space: nowrap;
-    }
-    .chart-col.is-today .chart-day-date {
-      color: #fde68a;
-      font-weight: 600;
     }
 
     /* Modal */
@@ -4443,6 +4119,34 @@
     </div>
   </div>
 
+  <!-- Modal Bảng Tra Cứu Ngày Vượng Tướng 12 Tháng Âm Lịch -->
+  <div class="modal-overlay" id="vuongTuongModal">
+    <div class="modal-box" style="max-width: 720px; width: 96%;">
+      <div class="modal-head" style="background: linear-gradient(135deg, #1e3a8a, #0284c7); color: #fff;">
+        <h3 style="font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.45rem; margin: 0; color: #fff;" id="vuongTuongModalTitle">
+          <span>🌿</span> Bảng Tra Cứu Quy Luật Ngày Vượng – Tướng (12 Tháng Âm Lịch)
+        </h3>
+        <button class="close-btn" id="vuongTuongModalCloseBtn" style="color: #fff; opacity: 0.9;">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 1rem 1.15rem; font-size: 0.85rem; color: #374151;">
+        <!-- Giới thiệu học thuật -->
+        <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; font-size: 0.82rem; line-height: 1.6; color: #0369a1;">
+          Theo học thuyết <strong>Âm Dương Ngũ Hành &amp; Khâm Định Hiệp Kỷ Biện Phương Thư</strong>, bốn mùa và 12 tháng tuần hoàn theo chu kỳ Vượng – Tướng – Hưu – Tù – Tử. Trong đó, <strong>Ngày Vượng</strong> (chính khí của mùa) và <strong>Ngày Tướng</strong> (sinh khí trợ vượng) đều là những ngày <strong>Đại Cát</strong> cho trăm sự khởi tạo, mưu cầu việc lớn hanh thông.
+        </div>
+
+        <!-- 5 nhóm tháng theo mùa -->
+        <div id="vuongTuongCardsContainer" style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <!-- Rendered via JS to highlight current month -->
+        </div>
+
+        <!-- Lưu ý học thuật -->
+        <div style="margin-top: 0.85rem; font-size: 0.76rem; color: #6b7280; line-height: 1.6; border-top: 1px solid #e5e7eb; padding-top: 0.65rem;">
+          💡 <strong>Quy tắc xem ngày:</strong> Nếu ngày trùng vào can/chi quy định của Ngày Vượng hoặc Ngày Tướng trong tháng đó thì đắc khí <strong>Đại Cát</strong>. Các ngày còn lại trong tháng không thuộc Vượng hay Tướng được xem là ngày bình thường (Không xét).
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal Bảng Tra Cứu Sao Thiên Đức & Nguyệt Đức 12 Tháng Âm Lịch -->
   <div class="modal-overlay" id="nhiDucModal">
     <div class="modal-box" style="max-width: 860px; width: 96%;">
@@ -4525,106 +4229,9 @@
     </div>
   </div>
 
-  <!-- Footer & Thống Kê Cuối Trang -->
+  <!-- Footer Cuối Trang -->
   <footer>
     <div style="max-width: 1200px; margin: 0 auto;">
-      <!-- Mục Thống Kê Lưu Lượng Truy Cập Cuối Trang (Nhỏ Gọn + Biểu Đồ 7 Ngày) -->
-      <div class="site-stats-container" id="siteStatsContainer">
-        <!-- Phần tiêu đề trên cùng -->
-        <div class="site-stats-top">
-          <div class="site-stats-title-wrap">
-            <span class="stats-pulse-dot"></span>
-            <span class="site-stats-heading">Thống Kê Truy Cập &amp; Lưu Lượng Trực Tuyến</span>
-          </div>
-          <div class="site-stats-meta">
-            <span>🕒 Cập nhật thời gian thực • Múi giờ Việt Nam (UTC+7)</span>
-          </div>
-        </div>
-
-        <!-- 4 Thẻ Số Liệu Nhỏ Gọn -->
-        <div class="site-stats-grid">
-          <!-- 1. Đang Online Hiện Tại -->
-          <div class="stat-card stat-card-online" id="statCardOnline" title="Số lượng người dùng đang truy cập trực tuyến trên toàn hệ thống">
-            <div class="stat-icon-wrap">🟢</div>
-            <div class="stat-info">
-              <div class="stat-value-row">
-                <span class="stat-value" id="statOnlineNow">28</span>
-                <span class="stat-badge-live">Live</span>
-              </div>
-              <div class="stat-title">Đang Online</div>
-              <div class="stat-subtext">Trực tuyến thực tế</div>
-            </div>
-          </div>
-
-          <!-- 2. Trong Ngày -->
-          <div class="stat-card stat-card-today" id="statCardToday" title="Tổng số lượt truy cập ghi nhận trong ngày hôm nay">
-            <div class="stat-icon-wrap">📅</div>
-            <div class="stat-info">
-              <div class="stat-value-row">
-                <span class="stat-value" id="statTodayVisits">1,684</span>
-                <span class="stat-unit">lượt</span>
-              </div>
-              <div class="stat-title">Hôm Nay</div>
-              <div class="stat-subtext" id="statTodaySub">Ngày hiện tại</div>
-            </div>
-          </div>
-
-          <!-- 3. Trong Tuần -->
-          <div class="stat-card stat-card-week" id="statCardWeek" title="Tổng số lượt truy cập tích lũy trong tuần này">
-            <div class="stat-icon-wrap">📊</div>
-            <div class="stat-info">
-              <div class="stat-value-row">
-                <span class="stat-value" id="statWeekVisits">11,420</span>
-                <span class="stat-unit">lượt</span>
-              </div>
-              <div class="stat-title">Trong Tuần</div>
-              <div class="stat-subtext" id="statWeekSub">Tuần hiện tại</div>
-            </div>
-          </div>
-
-          <!-- 4. Tất Cả (Toàn Bộ) -->
-          <div class="stat-card stat-card-total" id="statCardTotal" title="Tổng số lượt truy cập tích lũy kể từ khi hệ thống hoạt động">
-            <div class="stat-icon-wrap">🌐</div>
-            <div class="stat-info">
-              <div class="stat-value-row">
-                <span class="stat-value" id="statTotalVisits">168,952</span>
-                <span class="stat-unit">lượt</span>
-              </div>
-              <div class="stat-title">Tất Cả</div>
-              <div class="stat-subtext">Tổng toàn thời gian</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Biểu Đồ Thống Kê 7 Ngày Gần Nhất (Đến Hôm Nay) -->
-        <div class="site-stats-chart-section">
-          <div class="chart-header">
-            <div class="chart-title">
-              <span>📈 Biểu Đồ Lượt Truy Cập 7 Ngày Gần Nhất</span>
-              <span class="chart-badge-tag" id="chartWeekRange">7 ngày đến hiện tại</span>
-            </div>
-            <div class="chart-legend">
-              <div class="chart-legend-item">
-                <span class="chart-legend-color" style="background: linear-gradient(180deg, #3b82f6, #1e40af);"></span>
-                <span>Các ngày trước</span>
-              </div>
-              <div class="chart-legend-item">
-                <span class="chart-legend-color" style="background: linear-gradient(180deg, #f59e0b, #b45309);"></span>
-                <span style="color: #fef08a; font-weight: 700;">Hôm nay</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Khung Cột Biểu Đồ (Dynamic 7 Days Bars) -->
-          <div class="chart-bars-wrap" id="statsChartBarsWrap">
-            <!-- Render bằng Javascript -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Đường kẻ ngăn cách nhẹ -->
-      <div style="height: 1px; background: rgba(255, 255, 255, 0.08); margin: 1.25rem 0 1.15rem 0;"></div>
-
       <!-- Brand Info & Phiên Bản -->
       <div style="display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
         <img src="/logo.png" alt="Logo Lịch Âm Dương Bát Tự" style="width: 58px; height: 58px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 2px solid #f59e0b; cursor: pointer; background: #fbf8f1; flex-shrink: 0; transition: transform 0.2s ease;" id="footerLogoImg" title="Bấm để xem ý nghĩa biểu trưng Logo" />
@@ -5319,6 +4926,74 @@
         yem: cfg.yem,
         doi: cfg.doi
       };
+    }
+
+    // =========================================================================
+    // HỆ THỐNG NGÀY VƯỢNG – TƯỚNG (12 THÁNG ÂM LỊCH)
+    // Khâm Định Hiệp Kỷ Biện Phương Thư & Âm Dương Ngũ Hành Bốn Mùa
+    // =========================================================================
+    function getVuongTuongInfo(lunarMonth, canIdx, chiIdx) {
+      const m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      let isVuong = false;
+      let isTuong = false;
+
+      if (m === 1 || m === 2) {
+        // Tháng Dần và tháng Mão (Tháng Giêng, tháng Hai):
+        // Ngày Vượng: can Giáp, Ất (0, 1) hoặc chi Dần, Mão (2, 3)
+        // Ngày Tướng: can Bính, Đinh (2, 3) hoặc chi Tỵ, Ngọ (5, 6)
+        isVuong = (canIdx === 0 || canIdx === 1 || chiIdx === 2 || chiIdx === 3);
+        isTuong = (canIdx === 2 || canIdx === 3 || chiIdx === 5 || chiIdx === 6);
+      } else if (m === 4 || m === 5) {
+        // Tháng Tỵ và tháng Ngọ (Tháng Tư, tháng Năm):
+        // Ngày Vượng: can Bính, Đinh (2, 3) hoặc chi Tỵ, Ngọ (5, 6)
+        // Ngày Tướng: can Mậu, Kỷ (4, 5) hoặc chi Thìn, Tuất, Sửu, Mùi (4, 10, 1, 7)
+        isVuong = (canIdx === 2 || canIdx === 3 || chiIdx === 5 || chiIdx === 6);
+        isTuong = (canIdx === 4 || canIdx === 5 || chiIdx === 4 || chiIdx === 10 || chiIdx === 1 || chiIdx === 7);
+      } else if (m === 7 || m === 8) {
+        // Tháng Thân và tháng Dậu (Tháng Bảy, tháng Tám):
+        // Ngày Vượng: can Canh, Tân (6, 7) hoặc chi Thân, Dậu (8, 9)
+        // Ngày Tướng: can Nhâm, Quý (8, 9) hoặc chi Hợi, Tý (11, 0)
+        isVuong = (canIdx === 6 || canIdx === 7 || chiIdx === 8 || chiIdx === 9);
+        isTuong = (canIdx === 8 || canIdx === 9 || chiIdx === 11 || chiIdx === 0);
+      } else if (m === 10 || m === 11) {
+        // Tháng Hợi và tháng Tý (Tháng Mười, tháng Mười Một):
+        // Ngày Vượng: can Nhâm, Quý (8, 9) hoặc chi Hợi, Tý (11, 0)
+        // Ngày Tướng: can Giáp, Ất (0, 1) hoặc chi Dần, Mão (2, 3)
+        isVuong = (canIdx === 8 || canIdx === 9 || chiIdx === 11 || chiIdx === 0);
+        isTuong = (canIdx === 0 || canIdx === 1 || chiIdx === 2 || chiIdx === 3);
+      } else if (m === 3 || m === 6 || m === 9 || m === 12) {
+        // Tháng Thìn, Tuất, Sửu, Mùi (Tháng Ba, Sáu, Chín, Chạp):
+        // Ngày Vượng: can Mậu, Kỷ (4, 5)
+        // Ngày Tướng: can Canh, Tân (6, 7) hoặc chi Thân, Dậu (8, 9)
+        isVuong = (canIdx === 4 || canIdx === 5);
+        isTuong = (canIdx === 6 || canIdx === 7 || chiIdx === 8 || chiIdx === 9);
+      }
+
+      if (isVuong) {
+        return {
+          type: "vuong",
+          badgeTitle: "Ngày Vượng",
+          badgeClass: "badge-vuong",
+          displayLine: 'Ngày Vượng: <span style="font-weight: 600; color: #15803d;">Đại cát</span>',
+          isDaiCat: true
+        };
+      } else if (isTuong) {
+        return {
+          type: "tuong",
+          badgeTitle: "Ngày Tướng",
+          badgeClass: "badge-tuong",
+          displayLine: 'Ngày Tướng: <span style="font-weight: 600; color: #1d4ed8;">Đại cát</span>',
+          isDaiCat: true
+        };
+      } else {
+        return {
+          type: "none",
+          badgeTitle: "Không",
+          badgeClass: "badge-na-tuong",
+          displayLine: '<span style="font-weight: 500; color: #4b5563;">Không</span>',
+          isDaiCat: false
+        };
+      }
     }
 
     // =========================================================================
@@ -6133,26 +5808,23 @@
       const batTuong = getBatTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
       let btBadgeClass = batTuong.badgeClass;
       let btBadgeTitle = "";
-      let btMeaningText = "";
 
       if (batTuong.code === 1) {
         btBadgeTitle = "Bất Tương";
-        btMeaningText = "Đại cát giá thú (cưới hỏi trăm năm hòa thuận)";
       } else if (batTuong.code === 2) {
         btBadgeTitle = "Dương Tương";
-        btMeaningText = "Hại chồng (kỵ nam chủ)";
       } else if (batTuong.code === 3) {
         btBadgeTitle = "Âm Tương";
-        btMeaningText = "Hại vợ (kỵ nữ chủ)";
       } else if (batTuong.code === 4) {
         btBadgeTitle = "Âm Dương câu Tương";
-        btMeaningText = "Hại cả hai (đại kỵ giá thú)";
       } else {
-        btBadgeTitle = "Ngày Bình Hòa (Không xét Bất Tương)";
-        btMeaningText = "Bình thường trong tháng";
+        btBadgeTitle = "Không";
       }
 
-      // 4. Thập Nhị Trực
+      // 4. Ngày Vượng Tướng (Hiệp Kỷ Biện Phương Thư)
+      const vuongTuong = getVuongTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+
+      // 5. Thập Nhị Trực
       const { truc, sao } = getDayTrucVaSao(lunarMonth, dayCanChi.chiIndex, jd);
       const trucDetail = TRUC_DETAILS[truc] || {
         fullName: `Trực ${truc}`,
@@ -6161,7 +5833,7 @@
         ky: "Tránh việc mạo hiểm bất cẩn."
       };
 
-      // 5. Nhị Thập Bát Tú
+      // 6. Nhị Thập Bát Tú
       const saoDetail = SAO_28_DETAILS[sao] || {
         fullName: `Sao ${sao}`,
         nature: "Bình tú",
@@ -6221,12 +5893,27 @@
               Tra bảng ➔
             </button>
           </div>
-          <div style="font-size: 0.82rem; color: #374151; font-weight: 600; line-height: 1.5; padding: 0.15rem 0;">
-            ${btBadgeTitle}: <span style="font-weight: 500; color: #4b5563;">${btMeaningText}</span>
+          <div style="font-size: 0.84rem; color: #374151; font-weight: 600; padding: 0.15rem 0;">
+            ${btBadgeTitle}
           </div>
         </div>
 
-        <!-- 4. Thập Nhị Trực -->
+        <!-- 4. Ngày Vượng Tướng -->
+        <div class="nghi-ky-card">
+          <div class="nghi-ky-card-head">
+            <span class="nghi-ky-card-title">
+              <span class="badge ${vuongTuong.badgeClass}">${vuongTuong.badgeTitle}</span>
+            </span>
+            <button type="button" class="btn-lookup-vt" id="btnBlocLookupVT" title="Nhấn để mở bảng tra cứu quy luật Ngày Vượng Tướng 12 tháng">
+              Tra bảng ➔
+            </button>
+          </div>
+          <div style="font-size: 0.84rem; padding: 0.15rem 0;">
+            ${vuongTuong.isDaiCat ? '<span style="font-weight: 700; color: ' + (vuongTuong.type === 'vuong' ? '#15803d' : '#1d4ed8') + ';">Đại cát</span>' : '<span style="font-weight: 600; color: #4b5563;">Không</span>'}
+          </div>
+        </div>
+
+        <!-- 5. Thập Nhị Trực -->
         <div class="nghi-ky-card">
           <div class="nghi-ky-card-head">
             <span class="nghi-ky-card-title">
@@ -6244,7 +5931,7 @@
           </div>
         </div>
 
-        <!-- 5. Nhị Thập Bát Tú -->
+        <!-- 6. Nhị Thập Bát Tú -->
         <div class="nghi-ky-card">
           <div class="nghi-ky-card-head">
             <span class="nghi-ky-card-title">
@@ -6281,6 +5968,14 @@
           openBatTuongModal(lunarMonth, batTuong.canChiIndex);
         });
       }
+
+      const btnLookVT = document.getElementById('btnBlocLookupVT');
+      if (btnLookVT) {
+        btnLookVT.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openVuongTuongModal(lunarMonth);
+        });
+      }
     }
 
     /**
@@ -6292,12 +5987,12 @@
     // Khởi tạo ứng dụng
     function initApp() {
       initAppVersion();
-      setupVisitorStats();
       setupRealtimeClock();
       setupTabs();
       setupLogoModal();
       setupLocationModal();
       setupBatTuongModal();
+      setupVuongTuongModal();
       setupNhiDucModal();
       initUserLocation();
       setupQuickSelectors();
@@ -6680,7 +6375,13 @@
       if (nhiDuc.hasAny) {
         cellTitle += `\nQuý nhân: ${nhiDuc.badgeLabel}`;
       }
-      cellTitle += `\nÂm Dương: ${batTuong.name} (${batTuong.meaning})`;
+      if (batTuong.code > 0) {
+        cellTitle += `\nÂm Dương: ${batTuong.name}`;
+      }
+      const vuongTuong = getVuongTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (vuongTuong.isDaiCat) {
+        cellTitle += `\nVượng Tướng: ${vuongTuong.badgeTitle} (Đại cát)`;
+      }
       cell.title = cellTitle;
 
       cell.addEventListener('click', () => {
@@ -8523,6 +8224,115 @@
     }
 
     /**
+     * BẢNG TRA CỨU QUY LUẬT NGÀY VƯỢNG – TƯỚNG (12 THÁNG ÂM LỊCH)
+     */
+    let vuongTuongActiveMonth = 1;
+
+    function setupVuongTuongModal() {
+      const closeBtn = document.getElementById('vuongTuongModalCloseBtn');
+      if (closeBtn) closeBtn.addEventListener('click', closeVuongTuongModal);
+
+      const modal = document.getElementById('vuongTuongModal');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeVuongTuongModal();
+        });
+      }
+    }
+
+    function openVuongTuongModal(initialMonth = 1) {
+      const modal = document.getElementById('vuongTuongModal');
+      if (!modal) return;
+      vuongTuongActiveMonth = ((parseInt(initialMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      renderVuongTuongCards(vuongTuongActiveMonth);
+      modal.classList.add('active');
+    }
+
+    function closeVuongTuongModal() {
+      const modal = document.getElementById('vuongTuongModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function renderVuongTuongCards(activeMonth = 1) {
+      const container = document.getElementById('vuongTuongCardsContainer');
+      if (!container) return;
+
+      const groups = [
+        {
+          id: 1,
+          months: [1, 2],
+          title: 'Tháng Dần và tháng Mão (Tháng Giêng, tháng Hai):',
+          season: 'Mùa Xuân (Mộc Vượng, Hỏa Tướng)',
+          vuongText: 'Ngày có thiên can <strong>Giáp, Ất</strong> hoặc địa chi <strong>Dần, Mão</strong>.',
+          tuongText: 'Ngày có thiên can <strong>Bính, Đinh</strong> hoặc địa chi <strong>Tỵ, Ngọ</strong>.'
+        },
+        {
+          id: 2,
+          months: [4, 5],
+          title: 'Tháng Tỵ và tháng Ngọ (Tháng Tư, tháng Năm):',
+          season: 'Mùa Hạ (Hỏa Vượng, Thổ Tướng)',
+          vuongText: 'Ngày có thiên can <strong>Bính, Đinh</strong> hoặc địa chi <strong>Tỵ, Ngọ</strong>.',
+          tuongText: 'Ngày có thiên can <strong>Mậu, Kỷ</strong> hoặc địa chi <strong>Thìn, Tuất, Sửu, Mùi</strong>.'
+        },
+        {
+          id: 3,
+          months: [7, 8],
+          title: 'Tháng Thân và tháng Dậu (Tháng Bảy, tháng Tám):',
+          season: 'Mùa Thu (Kim Vượng, Thủy Tướng)',
+          vuongText: 'Ngày có thiên can <strong>Canh, Tân</strong> hoặc địa chi <strong>Thân, Dậu</strong>.',
+          tuongText: 'Ngày có thiên can <strong>Nhâm, Quý</strong> hoặc địa chi <strong>Hợi, Tý</strong>.'
+        },
+        {
+          id: 4,
+          months: [10, 11],
+          title: 'Tháng Hợi và tháng Tý (Tháng Mười, tháng Mười Một):',
+          season: 'Mùa Đông (Thủy Vượng, Mộc Tướng)',
+          vuongText: 'Ngày có thiên can <strong>Nhâm, Quý</strong> hoặc địa chi <strong>Hợi, Tý</strong>.',
+          tuongText: 'Ngày có thiên can <strong>Giáp, Ất</strong> hoặc địa chi <strong>Dần, Mão</strong>.'
+        },
+        {
+          id: 5,
+          months: [3, 6, 9, 12],
+          title: 'Tháng Thìn, Tuất, Sửu, Mùi (Tháng Ba, Sáu, Chín, Chạp):',
+          season: 'Tứ Quý (Thổ Vượng, Kim Tướng)',
+          vuongText: 'Ngày có thiên can <strong>Mậu, Kỷ</strong> <em>(Lưu ý: ngày Mậu Kỷ tuy vượng nhưng kị động thổ và kị tu sửa trung cung)</em>.',
+          tuongText: 'Ngày có thiên can <strong>Canh, Tân</strong> hoặc địa chi <strong>Thân, Dậu</strong>.'
+        }
+      ];
+
+      container.innerHTML = groups.map(g => {
+        const isCurrent = g.months.includes(activeMonth);
+        const cardBorder = isCurrent ? '2px solid #0284c7' : '1px solid #e2e8f0';
+        const cardBg = isCurrent ? 'linear-gradient(135deg, #f0f9ff, #e0f2fe)' : '#ffffff';
+        const cardShadow = isCurrent ? '0 4px 12px rgba(2, 132, 199, 0.15)' : '0 1px 3px rgba(0,0,0,0.05)';
+
+        return `
+          <div style="border: ${cardBorder}; background: ${cardBg}; border-radius: 8px; padding: 0.75rem 0.95rem; box-shadow: ${cardShadow}; transition: all 0.2s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.45rem; padding-bottom: 0.35rem; border-bottom: 1px dashed ${isCurrent ? '#bae6fd' : '#f1f5f9'};">
+              <div style="font-weight: 700; color: ${isCurrent ? '#0369a1' : '#1e293b'}; font-size: 0.88rem;">
+                ${g.title}
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.35rem;">
+                <span style="font-size: 0.72rem; color: #64748b; font-style: italic;">${g.season}</span>
+                ${isCurrent ? `<span style="font-size: 0.68rem; font-weight: 700; padding: 0.1rem 0.45rem; background: #0284c7; color: #ffffff; border-radius: 9999px;">● Tháng ${activeMonth} đang chọn</span>` : ''}
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.83rem; line-height: 1.55;">
+              <div style="display: flex; align-items: baseline; gap: 0.4rem;">
+                <span class="badge badge-vuong" style="font-size: 0.7rem; flex-shrink: 0;">Ngày Vượng</span>
+                <span style="color: #374151;">• ${g.vuongText}</span>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 0.4rem;">
+                <span class="badge badge-tuong" style="font-size: 0.7rem; flex-shrink: 0;">Ngày Tướng</span>
+                <span style="color: #374151;">• ${g.tuongText}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /**
      * BẢNG TRA CỨU & LUẬN GIẢI SAO THIÊN ĐỨC & NGUYỆT ĐỨC 12 THÁNG ÂM LỊCH
      */
     let nhiDucActiveMonth = 1;
@@ -9775,6 +9585,7 @@
           const tietKhi = getDayTietKhi(d, m, y);
           const batTuong = getBatTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
           const nhiDuc = getNhiDucInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+          const vuongTuong = getVuongTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
 
           document.getElementById('convResultHeader').textContent = 'KẾT QUẢ ÂM LỊCH TƯƠNG ỨNG';
           document.getElementById('convResultMain').textContent = 
@@ -9782,7 +9593,7 @@
           document.getElementById('convResultSub').textContent = 
             `Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Bất Tương: ${batTuong.name} (${batTuong.meaning})`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Tướng: ${vuongTuong.isDaiCat ? vuongTuong.badgeTitle + ' (Đại cát)' : 'Không'}`;
         } else {
           const [sDay, sMonth, sYear] = convertLunar2Solar(d, m, y, isLeap);
           if (sDay === 0) {
@@ -9796,6 +9607,7 @@
           const tietKhi = getDayTietKhi(sDay, sMonth, sYear);
           const batTuong = getBatTuongInfo(m, dayCanChi.canIndex, dayCanChi.chiIndex);
           const nhiDuc = getNhiDucInfo(m, dayCanChi.canIndex, dayCanChi.chiIndex);
+          const vuongTuong = getVuongTuongInfo(m, dayCanChi.canIndex, dayCanChi.chiIndex);
 
           document.getElementById('convResultHeader').textContent = 'KẾT QUẢ DƯƠNG LỊCH TƯƠNG ỨNG';
           document.getElementById('convResultMain').textContent = 
@@ -9803,7 +9615,7 @@
           document.getElementById('convResultSub').textContent = 
             `Can chi: Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Bất Tương: ${batTuong.name} (${batTuong.meaning})`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Tướng: ${vuongTuong.isDaiCat ? vuongTuong.badgeTitle + ' (Đại cát)' : 'Không'}`;
         }
       }
     }
@@ -9811,7 +9623,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.14.0";
+    const APP_VERSION = "v1.15.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
@@ -9820,223 +9632,6 @@
       if (fEl) fEl.textContent = `Phiên bản ${APP_VERSION}`;
       const mEl = document.getElementById('appVersionModal');
       if (mEl) mEl.textContent = APP_VERSION;
-    }
-
-    /**
-     * THỐNG KÊ LƯU LƯỢNG TRUY CẬP HỆ THỐNG
-     * (Online hiện tại, Hôm nay, Trong tuần, Tất cả, và Biểu đồ 7 ngày gần nhất)
-     */
-    let liveOnlineUsers = 28;
-    let onlineTickerTimer = null;
-
-    function setupVisitorStats() {
-      const STORAGE_KEY = 'lich_am_duong_traffic_stats_v3';
-      const SESSION_KEY = 'lich_am_duong_session_counted_v3';
-
-      // 1. Tính toán ngày & tuần hiện tại theo giờ Việt Nam (UTC+7)
-      const now = new Date();
-      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-      const vnTime = new Date(utc + (3600000 * 7));
-      const curYear = vnTime.getFullYear();
-      const curMonth = vnTime.getMonth() + 1;
-      const curDay = vnTime.getDate();
-      const dateStr = `${curYear}-${String(curMonth).padStart(2, '0')}-${String(curDay).padStart(2, '0')}`;
-      const dayDisplay = `${String(curDay).padStart(2, '0')}/${String(curMonth).padStart(2, '0')}`;
-
-      // Tính số tuần trong năm (ISO 8601)
-      const tempDate = new Date(Date.UTC(curYear, vnTime.getMonth(), curDay));
-      const dayOfWeek = tempDate.getUTCDay() || 7;
-      tempDate.setUTCDate(tempDate.getUTCDate() + 4 - dayOfWeek);
-      const yearStart = new Date(Date.UTC(tempDate.getUTCFullYear(), 0, 1));
-      const weekNo = Math.ceil((((tempDate - yearStart) / 86400000) + 1) / 7);
-      const weekStr = `${curYear}-W${weekNo}`;
-
-      // Cập nhật nhãn phụ dưới số liệu
-      const todaySubEl = document.getElementById('statTodaySub');
-      if (todaySubEl) todaySubEl.textContent = `Hôm nay (${dayDisplay})`;
-      const weekSubEl = document.getElementById('statWeekSub');
-      if (weekSubEl) weekSubEl.textContent = `Tuần ${weekNo}/${curYear}`;
-
-      // 2. Tải hoặc khởi tạo số liệu
-      let stats = {
-        todayDate: dateStr,
-        todayCount: 1684,
-        currentWeek: weekStr,
-        weekCount: 11420,
-        totalCount: 168952,
-        history7Days: {}, // Lưu dạng key: 'YYYY-MM-DD' => visits
-        lastUpdated: Date.now()
-      };
-
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          if (parsed && typeof parsed.totalCount === 'number') {
-            stats = parsed;
-            if (!stats.history7Days || typeof stats.history7Days !== 'object') {
-              stats.history7Days = {};
-            }
-          }
-        }
-      } catch (e) {
-        console.warn('Cannot read localStorage traffic stats:', e);
-      }
-
-      // Xử lý chuyển ngày mới (qua 00:00 UTC+7)
-      if (stats.todayDate !== dateStr) {
-        // Lưu ngày cũ vào lịch sử nếu có
-        if (stats.todayDate && stats.todayCount) {
-          stats.history7Days[stats.todayDate] = stats.todayCount;
-        }
-        stats.todayDate = dateStr;
-        const currentHour = vnTime.getHours();
-        stats.todayCount = Math.max(45, currentHour * 52 + Math.floor(Math.random() * 25));
-      }
-
-      // Xử lý chuyển tuần mới
-      if (stats.currentWeek !== weekStr) {
-        stats.currentWeek = weekStr;
-        stats.weekCount = stats.todayCount;
-      }
-
-      // Tăng lượt truy cập cho phiên mới
-      const isSessionCounted = sessionStorage.getItem(SESSION_KEY);
-      if (!isSessionCounted) {
-        stats.todayCount += 1;
-        stats.weekCount += 1;
-        stats.totalCount += 1;
-        stats.lastUpdated = Date.now();
-        try {
-          sessionStorage.setItem(SESSION_KEY, '1');
-        } catch (e) {}
-      }
-
-      // Cập nhật ngày hôm nay vào history7Days
-      stats.history7Days[dateStr] = stats.todayCount;
-
-      // Lưu lại stats
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
-      } catch (e) {}
-
-      // 3. Hiển thị các chỉ số 4 thẻ nhỏ gọn
-      const formatNumber = (num) => new Intl.NumberFormat('vi-VN').format(num);
-
-      const todayEl = document.getElementById('statTodayVisits');
-      if (todayEl) todayEl.textContent = formatNumber(stats.todayCount);
-
-      const weekEl = document.getElementById('statWeekVisits');
-      if (weekEl) weekEl.textContent = formatNumber(stats.weekCount);
-
-      const totalEl = document.getElementById('statTotalVisits');
-      if (totalEl) totalEl.textContent = formatNumber(stats.totalCount);
-
-      // 4. Số người online hiện tại (Mô phỏng chân thực theo múi giờ sinh học)
-      const hour = vnTime.getHours();
-      let baseOnline = 26;
-      if (hour >= 8 && hour <= 11) baseOnline = 34;
-      else if (hour >= 12 && hour <= 14) baseOnline = 42;
-      else if (hour >= 15 && hour <= 18) baseOnline = 38;
-      else if (hour >= 19 && hour <= 22) baseOnline = 45;
-      else if (hour >= 23 || hour <= 5) baseOnline = 15;
-
-      liveOnlineUsers = baseOnline + Math.floor(Math.random() * 7) - 3;
-      const onlineEl = document.getElementById('statOnlineNow');
-      if (onlineEl) onlineEl.textContent = formatNumber(liveOnlineUsers);
-
-      // Nhịp tim nhấp nháy cập nhật online tự nhiên mỗi 5 giây
-      if (onlineTickerTimer) clearInterval(onlineTickerTimer);
-      onlineTickerTimer = setInterval(() => {
-        if (document.hidden) return;
-        const delta = Math.floor(Math.random() * 5) - 2; // -2, -1, 0, 1, 2
-        liveOnlineUsers = Math.max(12, Math.min(68, liveOnlineUsers + delta));
-        const el = document.getElementById('statOnlineNow');
-        if (el) {
-          el.textContent = formatNumber(liveOnlineUsers);
-        }
-      }, 5000);
-
-      // 5. Xây dựng và render Biểu Đồ 7 Ngày Gần Nhất (đến Hôm Nay)
-      renderVisitor7DaysChart(vnTime, stats, formatNumber);
-    }
-
-    /**
-     * HÀM RENDER BIỂU ĐỒ 7 NGÀY GẦN NHẤT
-     */
-    function renderVisitor7DaysChart(vnTime, stats, formatNumber) {
-      const chartWrap = document.getElementById('statsChartBarsWrap');
-      if (!chartWrap) return;
-
-      const weekdayNames = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
-      const weekdayShorts = ['CN', 'T.Hai', 'T.Ba', 'T.Tư', 'T.Năm', 'T.Sáu', 'T.Bảy'];
-      const benchmarkVisits = [1380, 1560, 1490, 1720, 1630, 1510, 1684];
-
-      const daysList = [];
-      // Lặp 7 ngày: từ 6 ngày trước (i=6) đến hôm nay (i=0)
-      for (let i = 6; i >= 0; i--) {
-        const pastDate = new Date(vnTime.getTime() - (i * 86400000));
-        const pYear = pastDate.getFullYear();
-        const pMonth = pastDate.getMonth() + 1;
-        const pDay = pastDate.getDate();
-        const pDateStr = `${pYear}-${String(pMonth).padStart(2, '0')}-${String(pDay).padStart(2, '0')}`;
-        const pDisplay = `${String(pDay).padStart(2, '0')}/${String(pMonth).padStart(2, '0')}`;
-        const dayIdx = pastDate.getDay();
-        const isToday = (i === 0);
-
-        let visits = stats.history7Days[pDateStr];
-        if (!visits) {
-          if (isToday) {
-            visits = stats.todayCount;
-          } else {
-            // Khởi tạo số liệu lịch sử mẫu hợp lý và nhất quán
-            const baseBenchmark = benchmarkVisits[6 - i] || 1500;
-            const pseudoRand = ((pYear * 37 + pMonth * 19 + pDay * 13) % 240) - 120;
-            visits = Math.max(950, baseBenchmark + pseudoRand);
-            stats.history7Days[pDateStr] = visits;
-          }
-        } else if (isToday) {
-          visits = stats.todayCount;
-        }
-
-        daysList.push({
-          dateStr: pDateStr,
-          dateDisplay: pDisplay,
-          weekdayFull: weekdayNames[dayIdx],
-          weekdayShort: weekdayShorts[dayIdx],
-          visits: visits,
-          isToday: isToday
-        });
-      }
-
-      // Cập nhật nhãn khoảng thời gian 7 ngày
-      const rangeEl = document.getElementById('chartWeekRange');
-      if (rangeEl && daysList.length === 7) {
-        rangeEl.textContent = `${daysList[0].dateDisplay} - ${daysList[6].dateDisplay} (${daysList[6].weekdayShort})`;
-      }
-
-      // Tìm giá trị max để tính tỉ lệ chiều cao cột
-      const maxVisits = Math.max(...daysList.map(d => d.visits), 1);
-
-      // Render từng cột của biểu đồ
-      chartWrap.innerHTML = daysList.map(item => {
-        // Chiều cao cột: tỉ lệ từ 14px đến 62px
-        const heightPx = Math.max(14, Math.round((item.visits / maxVisits) * 60));
-        const colClass = item.isToday ? 'chart-col is-today' : 'chart-col';
-        const dayLabel = item.isToday ? 'Hôm nay' : item.weekdayShort;
-        const tooltip = `${item.isToday ? 'Hôm nay (' + item.weekdayFull + ')' : item.weekdayFull}, ngày ${item.dateDisplay}: ${formatNumber(item.visits)} lượt truy cập`;
-
-        return `
-          <div class="${colClass}" title="${tooltip}" id="chartCol_${item.dateStr}">
-            <div class="chart-bar-val">${formatNumber(item.visits)}</div>
-            <div class="chart-bar-pill" style="height: ${heightPx}px;"></div>
-            <div class="chart-col-footer">
-              <div class="chart-day-name">${dayLabel}</div>
-              <div class="chart-day-date">${item.dateDisplay}</div>
-            </div>
-          </div>
-        `;
-      }).join('');
     }
 
     /**

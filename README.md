@@ -16,10 +16,11 @@
   - Thời gian Mặt Trời mọc/lặn, độ dài ngày/đêm theo chuẩn NASA JPL / NOAA.
   - Hướng xuất hành đón Hỷ Thần, Tài Thần (theo thiên can ngày).
   - Điểm Sóc tháng và cơ sở tính ngày Mùng 1 Âm lịch.
-  - **Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ theo Trạch Nhật)**: Gộp riêng ở cuối bảng Bloc với 5 phân mục chi tiết:
+  - **Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ theo Trạch Nhật)**: Gộp riêng ở cuối bảng Bloc với 6 phân mục chi tiết, khoa học:
     - *Đánh giá ngày*: Hoàng Đạo / Hắc Đạo với tên thần sát trực nhật, việc nên làm (Nghi) & kiêng làm (Kỵ).
     - *Quý nhân*: Thiên Đức & Nguyệt Đức Quý Nhân với việc phù hợp & việc kiêng cữ (kèm nút tra sao 12 tháng).
-    - *Âm Dương Bất Tương*: Bất Tương, Dương Tương, Âm Tương, Câu Tương (kèm nút tra bảng 60 Hoa Giáp).
+    - *Âm Dương Bất Tương*: Tinh giản ngắn gọn tên phân loại (Bất Tương, Dương Tương, Âm Tương, Âm Dương câu Tương, hoặc Không), kèm nút tra bảng ma trận 60 Hoa Giáp 12 tháng.
+    - *Ngày Vượng Tướng (Mới)*: Tích hợp ngay kế tiếp sau Âm Dương Bất Tương; xác định chính xác ngày Vượng (chính khí mùa) và ngày Tướng (sinh khí mùa) theo 12 tháng Âm lịch; hiển thị "Đại cát" hoặc "Không", kèm nút tra cứu quy luật 12 tháng.
     - *Trực ngày*: 12 Trực với việc nên làm & kiêng cữ tương ứng.
     - *Sao ngày*: 28 Tú với bản chất Cát/Hung, việc nên làm & đại kỵ.
 - **Điều Hướng Linh Hoạt**: Chọn nhanh Hôm nay, nút Lùi/Tiến tháng, lướt chọn nhanh Năm (1900 - 2100) và Tháng trực quan.
@@ -85,18 +86,16 @@
 - **Hệ Thống Huy Hiệu Nhận Diện**: Phân biệt trực quan giữa Ngày lễ Việt Nam (🇻🇳), Sự kiện Quốc tế (🌐), và Lễ hội Âm lịch Cổ truyền (🏮).
 - **Đồng Bộ Phiên Bản Tự Động**: Hiển thị số phiên bản cập nhật thời gian thực trên thanh Header, Footer và cửa sổ Logo.
 
-### 9. Thống Kê Truy Cập & Biểu Đồ Lưu Lượng 7 Ngày Gần Nhất
-- **Bảng Thống Kê Nhỏ Gọn & Tinh Tế (Compact & Sleek Design)**: Tối ưu hóa kích thước bảng điều khiển nhỏ gọn (giảm chiều cao và padding thẻ chỉ số, hạn chế bề rộng tối đa ~980px), giúp tổng thể chân trang hài hòa, sang trọng và không chiếm dụng diện tích hiển thị.
-- **4 Thẻ Chỉ Số Trực Quan Nhanh**:
-  - *Đang Online*: Giám sát lưu lượng người dùng đang kết nối theo thời gian thực kèm hiệu ứng nhịp tim (pulse) xanh ngọc, mô phỏng dao động theo múi giờ sinh học trong ngày.
-  - *Hôm Nay*: Tổng lượt truy cập tích lũy trong ngày tính từ 00:00 (UTC+7 giờ Việt Nam).
-  - *Trong Tuần*: Lượt truy cập tích lũy trong tuần hiện tại (chuẩn ISO-8601).
-  - *Tất Cả*: Tổng lượt truy cập toàn thời gian kể từ khi hệ thống bắt đầu vận hành.
-- **Biểu Đồ Cột 7 Ngày Gần Nhất (Interactive 7-Day Visitor Chart)**:
-  - Hiển thị trực quan lưu lượng truy cập của 7 ngày liên tiếp tính đến thời điểm hiện tại (ví dụ: từ 6 ngày trước đến Hôm Nay).
-  - Phân biệt rõ nét: Cột ngày hôm nay được làm nổi bật với dải màu Vàng Kim Hoàng Gia (`linear-gradient(180deg, #f59e0b, #b45309)`) và huy hiệu *Hôm nay*; các ngày trước sử dụng gam màu Xanh Lam Hiện Đại (`linear-gradient(180deg, #3b82f6, #1e40af)`).
-  - Đầy đủ nhãn thứ trong tuần (CN, T.Hai, T.Ba,...), ngày tháng (dd/mm), số lượt truy cập trên đỉnh cột và tooltip chi tiết khi rê chuột / chạm cảm ứng.
-  - Tự động co giãn linh hoạt và hiển thị sắc nét trên cả màn hình máy tính và thiết bị di động.
+### 9. Hệ Thống Ngày Vượng – Tướng Bốn Mùa (Khâm Định Hiệp Kỷ Biện Phương Thư)
+- **Cơ Sở Học Thuật Bốn Mùa & Ngũ Hành Trạch Nhật**:
+  - Tuân thủ nguyên lý chu kỳ Vượng – Tướng – Hưu – Tù – Tử trong 12 tháng Âm lịch:
+    - *Mùa Xuân (Tháng 1, 2)*: Mộc Vượng (can Giáp, Ất; chi Dần, Mão); Hỏa Tướng (can Bính, Đinh; chi Tỵ, Ngọ).
+    - *Mùa Hạ (Tháng 4, 5)*: Hỏa Vượng (can Bính, Đinh; chi Tỵ, Ngọ); Thổ Tướng (can Mậu, Kỷ; chi Thìn, Tuất, Sửu, Mùi).
+    - *Mùa Thu (Tháng 7, 8)*: Kim Vượng (can Canh, Tân; chi Thân, Dậu); Thủy Tướng (can Nhâm, Quý; chi Hợi, Tý).
+    - *Mùa Đông (Tháng 10, 11)*: Thủy Vượng (can Nhâm, Quý; chi Hợi, Tý); Mộc Tướng (can Giáp, Ất; chi Dần, Mão).
+    - *Tứ Quý (Tháng 3, 6, 9, 12)*: Thổ Vượng (can Mậu, Kỷ); Kim Tướng (can Canh, Tân; chi Thân, Dậu).
+  - Đánh giá ngày đắc khí Vượng hoặc Tướng là ngày **Đại Cát** cho bách sự khởi tạo.
+  - Tích hợp cửa sổ Modal tra cứu 12 tháng (`#vuongTuongModal`) có tự động làm nổi bật mùa và tháng đang xem.
 
 ### 10. Thời Gian Mặt Trời Mọc / Lặn, Độ Dài Ngày / Đêm & Định Vị Tự Động (NASA JPL / NOAA)
 - **Thuật Toán Thiên Văn Chuẩn Xác NASA / NOAA**:
@@ -183,6 +182,25 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.15.0] - 2026-09-07
+- **Bổ Sung Tính Năng "Ngày Vượng Tướng", Tinh Giản Bất Tương & Bỏ Thống Kê Truy Cập**:
+  - **Tích Hợp Thuật Toán & Thẻ "Ngày Vượng Tướng" (Hiệp Kỷ Biện Phương Thư)**:
+    - Số hóa chuẩn xác quy luật Ngày Vượng - Ngày Tướng theo 12 tháng Âm lịch và bốn mùa:
+      - *Tháng 1 & 2 (Mùa Xuân: Mộc Vượng, Hỏa Tướng)*: Ngày Vượng tại can Giáp/Ất hoặc chi Dần/Mão; Ngày Tướng tại can Bính/Đinh hoặc chi Tỵ/Ngọ.
+      - *Tháng 4 & 5 (Mùa Hạ: Hỏa Vượng, Thổ Tướng)*: Ngày Vượng tại can Bính/Đinh hoặc chi Tỵ/Ngọ; Ngày Tướng tại can Mậu/Kỷ hoặc chi Thìn/Tuất/Sửu/Mùi.
+      - *Tháng 7 & 8 (Mùa Thu: Kim Vượng, Thủy Tướng)*: Ngày Vượng tại can Canh/Tân hoặc chi Thân/Dậu; Ngày Tướng tại can Nhâm/Quý hoặc chi Hợi/Tý.
+      - *Tháng 10 & 11 (Mùa Đông: Thủy Vượng, Mộc Tướng)*: Ngày Vượng tại can Nhâm/Quý hoặc chi Hợi/Tý; Ngày Tướng tại can Giáp/Ất hoặc chi Dần/Mão.
+      - *Tháng 3, 6, 9, 12 (Tứ Quý: Thổ Vượng, Kim Tướng)*: Ngày Vượng tại can Mậu/Kỷ; Ngày Tướng tại can Canh/Tân hoặc chi Thân/Dậu.
+    - Bố trí thẻ hiển thị nằm ngay kế tiếp sau mục *Âm Dương Bất Tương* trong nhóm Nghi Kỵ Dụng Sự của Bloc Lịch.
+    - Tuân thủ tuyệt đối yêu cầu: Nếu là ngày Vượng hoặc Tướng thì hiển thị kết luận **Đại cát** (không để thêm phần Nghi/Kỵ riêng), nếu không thì hiển thị **Không**.
+    - Bổ sung nút bấm `Tra bảng ➔` mở cửa sổ Modal tra cứu quy luật Vượng - Tướng 12 tháng (`#vuongTuongModal`) có tự động làm nổi bật nhóm tháng người dùng đang xem.
+  - **Tinh Giản Thẻ "Âm Dương Bất Tương"**:
+    - Chỉ để ngắn gọn tên phân loại phía trước (Bất Tương, Dương Tương, Âm Tương, Âm Dương câu Tương, hoặc Không), loại bỏ các câu diễn giải phụ dài dòng vì khối Nghi/Kỵ của ngày đã có.
+  - **Loại Bỏ Thống Kê Truy Cập Lượt Xem**:
+    - Gỡ bỏ hoàn toàn khối HTML, CSS và các hàm JavaScript liên quan đến thống kê lưu lượng truy cập (online hiện tại, hôm nay, trong tuần, tất cả và biểu đồ 7 ngày), trả lại giao diện chân trang tinh khôi, trang nhã và tải trang cực nhanh.
+  - **Số Hóa Phiên Bản v1.15.0**:
+    - Nâng phiên bản `v1.15.0` trong `package.json`, Header, Footer, Logo Modal, biến hệ thống `APP_VERSION` và tài liệu `README.md`.
 
 ### [v1.14.0] - 2026-09-07
 - **Tối Ưu Hiệu Năng Vận Hành & Bổ Sung Tính Năng Tương Tác Di Động**:
