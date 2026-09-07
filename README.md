@@ -7,7 +7,7 @@
 ## 🌟 TỔNG QUAN TÍNH NĂNG CHÍNH
 
 ### 1. Lịch Vạn Niên & Bloc Lịch Hàng Ngày
-- **Lưới Lịch Tháng Toàn Diện**: Hiển thị song song ngày Dương lịch và ngày Âm lịch trên cùng một ô lưới; đánh dấu ngày Sóc (Mùng 1), ngày Rằm (15), ngày Hoàng đạo, ngày chuyển Tiết khí, ngày đắc Quý Nhân Nhị Đức, ngày Âm Dương Bất Tương, và các ngày lễ truyền thống Việt Nam / quốc tế.
+- **Lưới Lịch Tháng Toàn Diện**: Hiển thị song song ngày Dương lịch và ngày Âm lịch trên cùng một ô lưới; đánh dấu ngày Sóc (Mùng 1), ngày Rằm (15), ngày Hoàng đạo, ngày chuyển Tiết khí, ngày đắc Quý Nhân Tứ Đức, ngày Âm Dương Bất Tương, và các ngày lễ truyền thống Việt Nam / quốc tế.
 - **Bloc Lịch Chi Tiết**:
   - Thứ trong tuần, ngày Dương lịch, ngày/tháng/năm Âm lịch và năm Can Chi.
   - Can Chi ngày, Can Chi tháng, Can Chi năm, Giờ đầu ngày (Giáp Tý/Bính Tý...).
@@ -17,9 +17,9 @@
   - Hướng xuất hành đón Hỷ Thần, Tài Thần (theo thiên can ngày).
   - Điểm Sóc tháng và cơ sở tính ngày Mùng 1 Âm lịch.
   - **Nhóm Phân Định Ngày Cát Hung (Sao Cát & Sao Hung Trong Ngày)**: Tổ chức lại toàn diện phần dụng sự nghi kỵ thành 2 nhóm chuyên biệt, khoa học và trực quan:
-    - *Nhóm Ngày Cát (Sao Cát & Vượng Khí)*: Tập hợp toàn bộ yếu tố cát tinh, quý nhân và vượng khí (Hoàng Đạo, Thiên Nguyệt Nhị Đức Đồng Lâm, Âm Dương Bất Tương, Ngày Vượng - Tướng, Thập Nhị Trực cát lợi, Nhị Thập Bát Tú cát tú) kèm diễn giải ngắn gọn "Hợp làm gì".
+    - *Nhóm Ngày Cát (Sao Cát & Vượng Khí)*: Tập hợp toàn bộ yếu tố cát tinh, quý nhân và vượng khí (Hoàng Đạo, Quý Nhân Tứ Đức gồm Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp, Âm Dương Bất Tương, Ngày Vượng - Tướng, Thập Nhị Trực cát lợi, Nhị Thập Bát Tú cát tú) kèm diễn giải ngắn gọn "Hợp làm gì".
     - *Nhóm Ngày Hung (Sao Hung & Kỵ Khí)*: Tập hợp toàn bộ yếu tố hắc đạo, tương xung và hung sát (Hắc Đạo, Dương Tương / Âm Tương / Âm Dương câu Tương, Trực hung như Phá/Nguy/Bế, Nhị Thập Bát Tú hung tú) kèm diễn giải ngắn gọn "Hung gì" và "Kiêng cữ".
-    - *Thanh Tra Cứu Nguyên Lý Trạch Nhật*: Tích hợp các nút tra cứu nhanh Nhị Đức Quý Nhân 12 tháng, Bảng ma trận Bất Tương 60 Hoa Giáp, và Bảng quy luật Ngày Vượng Tướng 12 tháng.
+    - *Thanh Tra Cứu Nguyên Lý Trạch Nhật*: Tích hợp các nút tra cứu nhanh Quý Nhân Tứ Đức 12 tháng, Bảng ma trận Bất Tương 60 Hoa Giáp, và Bảng quy luật Ngày Vượng Tướng 12 tháng.
 - **Điều Hướng Linh Hoạt**: Chọn nhanh Hôm nay, nút Lùi/Tiến tháng, lướt chọn nhanh Năm (1900 - 2100) và Tháng trực quan.
 
 ### 2. Công Cụ Đổi Ngày Âm - Dương
@@ -179,6 +179,28 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.17.0] - 2026-09-07
+- **Tích Hợp Toàn Diện Hệ Thống Quý Nhân Tứ Đức (Khâm Định Hiệp Kỷ Biện Phương Thư)**:
+  - **Nâng Cấp Từ Nhị Đức Lên Tứ Đức Toàn Diện**:
+    - Gộp 2 loại đức đã có (Thiên Đức, Nguyệt Đức) cùng các can hợp tương ứng (Thiên Đức Hợp, Nguyệt Đức Hợp) thành hệ thống **Quý Nhân Tứ Đức** hoàn chỉnh theo nguyên lý cổ truyền trong Khảo Nguyên và Lịch Lệ.
+    - Xây dựng bảng quy luật 12 tháng âm lịch (`TU_DUC_RULES`) định vị chính xác:
+      - *Thiên Đức*: Can Bính (T1), Giáp (T6), Nhâm (T7), Canh (T12); và bốn phương vị quái Cấn (Dần - T4), Tốn (Tỵ - T7), Khôn (Thân - T10), Càn (Hợi - T1).
+      - *Thiên Đức Hợp*: Can Tân (T1), Kỷ (T6), Đinh (T7), Ất (T12), Bính (T4), Nhâm (T7), Giáp (T10), Canh (T1).
+      - *Nguyệt Đức*: Can Bính (Dần Ngọ Tuất), Giáp (Hợi Mão Mùi), Nhâm (Thân Tý Thìn), Canh (Tỵ Dậu Sửu).
+      - *Nguyệt Đức Hợp*: Can Tân (hợp Bính), Kỷ (hợp Giáp), Đinh (hợp Nhâm), Ất (hợp Canh).
+  - **Hiển Thị Rõ Ràng Ngày Thuộc Đức Nào & Diễn Giải Chi Tiết**:
+    - Trong *Khối Ngày Cát Hung* của Bloc Lịch hàng ngày: Nhận diện chính xác ngày thuộc đức nào (Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp, hoặc hội tụ Nhị Đức Đồng Lâm, Nhị Đức Hợp Đồng Lâm).
+    - Cung cấp đầy đủ diễn giải: Ý nghĩa cát tinh, chỉ dẫn cụ thể **🟢 Hợp làm gì** (cưới hỏi, khai trương, xuất hành, giải oan tiêu tai...) và **⚠️ Lưu ý kiêng** (nếu có).
+    - Trên *Ô Lịch Tháng (Calendar Cell)*: Thêm chấm chỉ thị `nd-dot` và tooltip hiển thị đầy đủ danh xưng Quý nhân Tứ Đức khi rê chuột vào ngày.
+  - **Cửa Sổ Modal Tra Cứu Tứ Đức 12 Tháng Chuyên Sâu (`#nhiDucModal`)**:
+    - Đổi tên nút tra cứu thành **"Quý Nhân Tứ Đức"** và **"Tra Tứ Đức ➔"**.
+    - Hiển thị bảng tra cứu 12 tháng với 6 cột chi tiết: Tháng Âm & Nguyệt Kiến, Cục Tam Hợp, Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp và danh sách các ngày đắc Tứ Đức trong 60 Hoa Giáp.
+    - Thanh soi ngày được chọn (`ndInspectorText`) giải thích tường minh ngày dương/âm đang chọn đắc đức nào và diễn giải đầy đủ.
+  - **Thần Sát Tứ Đức Trong Lá Số Bát Tự Tứ Trụ**:
+    - Thẻ Thần Sát `btThanSatNhiDucCard` tự động dò quét cả 4 trụ (Năm, Tháng, Ngày, Giờ) để phát hiện sự xuất hiện của Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp, mang lại cát tường, hóa giải tai ách cho bản mệnh.
+  - **Số Hóa Phiên Bản v1.17.0**:
+    - Nâng phiên bản `v1.17.0` trong `package.json`, Header, Footer, Logo Modal, biến hệ thống `APP_VERSION` và tài liệu `README.md`.
 
 ### [v1.16.0] - 2026-09-07
 - **Tổ Chức Lại Toàn Bộ "Nghi Kỵ Dụng Sự" Thành "Ngày Cát Hung" Theo 2 Nhóm Cát & Hung**:
