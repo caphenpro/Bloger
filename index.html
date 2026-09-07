@@ -5376,6 +5376,69 @@
       12: { can: 6, name: 'Canh', cuc: 'Kim Cục', tamHop: 'Tỵ - Dậu - Sửu' }
     };
 
+    function getVuongTuongInfo(lunarMonth, canIdx, chiIdx) {
+      let m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      let isVuong = false;
+      let isTuong = false;
+      let mauKyNote = false;
+
+      if (m === 1 || m === 2) {
+        isVuong = (canIdx === 0 || canIdx === 1 || chiIdx === 2 || chiIdx === 3);
+        isTuong = (canIdx === 2 || canIdx === 3 || chiIdx === 5 || chiIdx === 6);
+      } else if (m === 4 || m === 5) {
+        isVuong = (canIdx === 2 || canIdx === 3 || chiIdx === 5 || chiIdx === 6);
+        isTuong = (canIdx === 4 || canIdx === 5 || chiIdx === 4 || chiIdx === 10 || chiIdx === 1 || chiIdx === 7);
+      } else if (m === 7 || m === 8) {
+        isVuong = (canIdx === 6 || canIdx === 7 || chiIdx === 8 || chiIdx === 9);
+        isTuong = (canIdx === 8 || canIdx === 9 || chiIdx === 11 || chiIdx === 0);
+      } else if (m === 10 || m === 11) {
+        isVuong = (canIdx === 8 || canIdx === 9 || chiIdx === 11 || chiIdx === 0);
+        isTuong = (canIdx === 0 || canIdx === 1 || chiIdx === 2 || chiIdx === 3);
+      } else { // 3, 6, 9, 12
+        isVuong = (canIdx === 4 || canIdx === 5);
+        if (isVuong) mauKyNote = true;
+        isTuong = (canIdx === 6 || canIdx === 7 || chiIdx === 8 || chiIdx === 9);
+      }
+
+      if (isVuong && isTuong) {
+        return {
+          status: "both",
+          title: "🔥⭐ Vượng Tướng Đồng Lâm (Đại Cát Cát Khí)",
+          badgeClass: "badge-hoangdao",
+          isDaiCat: true,
+          nghi: "Đại cát đại lợi cho khởi công, khai trương, cầu tài, xuất hành, đính hôn cưới hỏi, ký kết, kinh doanh.",
+          ky: mauKyNote ? "Lưu ý: Ngày Mậu / Kỷ vượng khí nhưng kỵ động thổ và tu sửa trung cung." : "Chỉ kỵ khởi tâm bất chính hoặc làm việc vi phạm đạo lý."
+        };
+      } else if (isVuong) {
+        return {
+          status: "vuong",
+          title: "🔥 Ngày Vượng Khí (Đại Cát)",
+          badgeClass: "badge-hoangdao",
+          isDaiCat: true,
+          nghi: "Tốt cho khởi sự, khai trương, cầu tài lộc, giao dịch, mưu đại sự, bồi đắp vượng khí.",
+          ky: mauKyNote ? "Lưu ý: Ngày Mậu / Kỷ tuy vượng nhưng kỵ động thổ và tu sửa trung cung." : "Tránh các hành vi nông nổi, chủ quan."
+        };
+      } else if (isTuong) {
+        return {
+          status: "tuong",
+          title: "⭐ Ngày Tướng Khí (Hanh Thông)",
+          badgeClass: "badge-hoangdao",
+          isDaiCat: true,
+          nghi: "Hanh thông cho ngoại giao, kết giao quý nhân, thăng tiến, xuất hành, đính hôn, học hành.",
+          ky: "Tránh xích mích, tranh chấp với người xung quanh."
+        };
+      } else {
+        return {
+          status: "none",
+          title: "⚪ Ngày Bình Hòa (Không Đắc Vượng Tướng)",
+          badgeClass: "badge-no-duc",
+          isDaiCat: false,
+          nghi: "Tiến hành các công việc thường nhật theo kế hoạch, kết hợp xem Hoàng Đạo & Trực.",
+          ky: "Thận trọng khi thực hiện các công việc trọng đại."
+        };
+      }
+    }
+
     function getNhiDucInfo(lunarMonth, canIdx, chiIdx) {
       let m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
       const tdRule = THIEN_DUC_RULES[m];
@@ -6094,7 +6157,10 @@
       const bodyEl = document.getElementById('blocNghiKyBody');
       if (!bodyEl) return;
 
-      // 1. Đánh giá ngày: Hoàng Đạo / Hắc Đạo
+      // 1. Ngày Vượng Tướng (Vượng Khí & Tướng Khí theo Tháng)
+      const vuongTuong = getVuongTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+
+      // 2. Đánh giá ngày: Hoàng Đạo / Hắc Đạo
       const star = getDayHoangDao(lunarMonth, dayCanChi.chiIndex);
       const hdDetail = HOANG_DAO_DETAILS[star.name] || {
         type: star.isHoangDao ? "Hoàng Đạo" : "Hắc Đạo",
@@ -6170,7 +6236,27 @@
       };
 
       bodyEl.innerHTML = `
-        <!-- 1. Đánh giá ngày: Hoàng Đạo / Hắc Đạo -->
+        <!-- 1. Ngày Vượng Tướng (Đại Cát) -->
+        <div class="nghi-ky-card">
+          <div class="nghi-ky-card-head">
+            <span class="nghi-ky-card-title">
+              <span class="badge ${vuongTuong.badgeClass}">${vuongTuong.title}</span>
+            </span>
+            <span class="badge" style="font-size: 0.72rem; background: ${vuongTuong.isDaiCat ? '#ecfdf5' : '#f3f4f6'}; color: ${vuongTuong.isDaiCat ? '#065f46' : '#4b5563'}; font-weight: 600;">
+              ${vuongTuong.isDaiCat ? 'Đại Cát Cát Khí' : 'Ngày Thường'}
+            </span>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag nghi-tag">🟢 Phù hợp làm gì:</span>
+            <span class="nghi-ky-text">${vuongTuong.nghi}</span>
+          </div>
+          <div class="nghi-ky-row">
+            <span class="nghi-ky-tag ky-tag">🔴 Việc kiêng cữ:</span>
+            <span class="nghi-ky-text">${vuongTuong.ky}</span>
+          </div>
+        </div>
+
+        <!-- 2. Đánh giá ngày: Hoàng Đạo / Hắc Đạo -->
         <div class="nghi-ky-card">
           <div class="nghi-ky-card-head">
             <span class="nghi-ky-card-title">
@@ -6191,7 +6277,7 @@
           </div>
         </div>
 
-        <!-- 2. Quý Nhân Nhị Đức -->
+        <!-- 3. Quý Nhân Nhị Đức -->
         <div class="nghi-ky-card">
           <div class="nghi-ky-card-head">
             <span class="nghi-ky-card-title">
