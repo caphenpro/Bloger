@@ -6110,29 +6110,25 @@
 
       // 3. Âm Dương Bất Tương
       const batTuong = getBatTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
-      let btTitle = "";
-      let btNghi = "";
-      let btKy = "";
-      if (batTuong.type === "bat_tuong") {
-        btTitle = "✨ Ngày Âm Dương Bất Tương (Đại Cát Hôn Nhân)";
-        btNghi = "Đại cát cho hôn nhân giá thú: dạm ngõ, ăn hỏi, lễ cưới, đón dâu, nạp tài, hợp cẩn, xuất hành, cầu tài, trăm năm hòa hợp hạnh phúc.";
-        btKy = "Các việc tang ma bại hoại cấm kỵ.";
-      } else if (batTuong.type === "duong_tuong") {
-        btTitle = "⚠️ Ngày Dương Tương (Kỵ Nam Giới / Chú Rể)";
-        btNghi = "Công việc nội trợ gia đạo của nữ giới, học tập, giao dịch kinh tế thường nhật, tu phúc bồi đức.";
-        btKy = "Kiêng cưới hỏi hôn lễ (đặc biệt kỵ nạp rể, bất lợi cho chú rể / nam nhân).";
-      } else if (batTuong.type === "am_tuong") {
-        btTitle = "⚠️ Ngày Âm Tương (Kỵ Nữ Giới / Cô Dâu)";
-        btNghi = "Công việc bên ngoài xã hội, kinh doanh xuất hành thông thường của nam giới, tu dưỡng tâm tính.";
-        btKy = "Kiêng cưới hỏi hôn lễ (đặc biệt kỵ rước dâu, nạp dâu, bất lợi cho cô dâu / nữ nhân).";
-      } else if (batTuong.type === "cau_tuong") {
-        btTitle = "🚫 Ngày Âm Dương Câu Tương (Đại Kỵ Giá Thú)";
-        btNghi = "Chỉ nên làm các công việc thường nhật bình dị, tu sửa nhỏ, dọn dẹp nhà cửa vệ sinh.";
-        btKy = "Tuyệt đối tránh cưới hỏi hôn thú, nạp thái, kết hôn; tránh xuất hành mưu sự lớn liên quan hai phái.";
+      let btBadgeClass = batTuong.badgeClass;
+      let btBadgeTitle = "";
+      let btMeaningText = "";
+
+      if (batTuong.code === 1) {
+        btBadgeTitle = "Bất Tương";
+        btMeaningText = "Đại cát giá thú (cưới hỏi trăm năm hòa thuận)";
+      } else if (batTuong.code === 2) {
+        btBadgeTitle = "Dương Tương";
+        btMeaningText = "Hại chồng (kỵ nam chủ)";
+      } else if (batTuong.code === 3) {
+        btBadgeTitle = "Âm Tương";
+        btMeaningText = "Hại vợ (kỵ nữ chủ)";
+      } else if (batTuong.code === 4) {
+        btBadgeTitle = "Âm Dương câu Tương";
+        btMeaningText = "Hại cả hai (đại kỵ giá thú)";
       } else {
-        btTitle = "⚪ Ngày Bình Hòa (Không xét Bất Tương)";
-        btNghi = "Làm các công việc thường nhật, kết hợp xem Trực và Sao để chọn giờ tốt xuất hành.";
-        btKy = "Không có điều đại kỵ riêng về Bất Tương.";
+        btBadgeTitle = "Ngày Bình Hòa (Không xét Bất Tương)";
+        btMeaningText = "Bình thường trong tháng";
       }
 
       // 4. Thập Nhị Trực
@@ -6198,19 +6194,14 @@
         <div class="nghi-ky-card">
           <div class="nghi-ky-card-head">
             <span class="nghi-ky-card-title">
-              <span class="badge ${batTuong.badgeClass}">${btTitle}</span>
+              <span class="badge ${btBadgeClass}">${btBadgeTitle}</span>
             </span>
             <button type="button" class="btn-lookup-bt" id="btnBlocLookupBT" title="Nhấn để mở bảng 60 Hoa Giáp 12 Tháng Âm Dương Bất Tương">
               Tra bảng ➔
             </button>
           </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag nghi-tag">🟢 Nên làm (Nghi):</span>
-            <span class="nghi-ky-text">${btNghi}</span>
-          </div>
-          <div class="nghi-ky-row">
-            <span class="nghi-ky-tag ky-tag">🔴 Kiêng cữ (Kỵ):</span>
-            <span class="nghi-ky-text">${btKy}</span>
+          <div style="font-size: 0.82rem; color: #374151; font-weight: 600; line-height: 1.5; padding: 0.15rem 0;">
+            ${btBadgeTitle}: <span style="font-weight: 500; color: #4b5563;">${btMeaningText}</span>
           </div>
         </div>
 
@@ -9688,7 +9679,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.13.0";
+    const APP_VERSION = "v1.13.1";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

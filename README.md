@@ -184,6 +184,12 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.13.1] - 2026-09-07
+- **Tối Ưu Hiển Thị Khối "Âm Dương Bất Tương" Trên Bloc Lịch Hàng Ngày**:
+  - Đơn giản hóa phần hiển thị Âm Dương Bất Tương: Loại bỏ 2 dòng "Nên làm (Nghi)" & "Kiêng cữ (Kỵ)" dư thừa trên thẻ Bloc Lịch.
+  - Thay thế bằng dòng thông tin ngắn gọn, trực quan thể hiện chính xác loại 'Tương' của ngày (Bất Tương, Dương Tương, Âm Tương, Âm Dương câu Tương, hoặc Không xét) kèm badge màu sắc ngữ nghĩa và câu diễn giải ý nghĩa rõ ràng (ví dụ: *Bất Tương: Đại cát giá thú (cưới hỏi trăm năm hòa thuận)*, *Dương Tương: Hại chồng (kỵ nam chủ)*, *Âm Tương: Hại vợ (kỵ nữ chủ)*, *Âm Dương câu Tương: Hại cả hai (đại kỵ)*).
+  - Nâng phiên bản PATCH lên `v1.13.1` trong `package.json`, Header, Footer, Logo Modal, `APP_VERSION` và `README.md`.
+
 ### [v1.13.0] - 2026-09-06
 - **Tái Cấu Trúc Khối Thông Tin Bloc Lịch & Hợp Nhất Nhóm "Nghi Kỵ Dụng Sự" Chi Tiết**:
   - **Hợp Nhất 4 Trường Dữ Liệu Quan Trọng Xuống Cuối Bảng Bloc Lịch**:
