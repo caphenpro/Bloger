@@ -3385,7 +3385,12 @@
                   <img src="/logo.png" alt="Logo Lịch Âm Dương" class="bloc-logo-img" id="btnBlocLogo" style="width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.75); box-shadow: 0 2px 6px rgba(0,0,0,0.25); cursor: pointer; background: #fbf8f1;" title="Xem ý nghĩa biểu trưng Logo" />
                   <span class="bloc-weekday" id="blocWeekday">THỨ TƯ</span>
                 </div>
-                <div class="bloc-solar-month" id="blocSolarMonth">Tháng 9 năm 2026 (Dương Lịch)</div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <div class="bloc-solar-month" id="blocSolarMonth">Tháng 9 năm 2026 (Dương Lịch)</div>
+                  <button type="button" class="btn btn-gold btn-sm" id="btnCopyDailyBloc" style="font-size: 0.72rem; padding: 0.15rem 0.5rem; background: rgba(254,243,199,0.9); border-color: #f59e0b; color: #78350f;" title="Sao chép toàn bộ thông tin lịch ngày này để chia sẻ">
+                    📋 Sao chép
+                  </button>
+                </div>
               </div>
             </div>
             <div class="bloc-body">
@@ -4767,8 +4772,15 @@
       };
     }
 
+    // Cache danh sách điểm Sóc theo năm
+    const _yearNewMoonsCache = new Map();
+
     // Lấy danh sách điểm Sóc các tháng Âm lịch trong năm Dương lịch targetYear
     function getYearNewMoons(targetYear, timeZone = 7) {
+      const cacheKey = `${targetYear}_${timeZone}`;
+      if (_yearNewMoonsCache.has(cacheKey)) {
+        return _yearNewMoonsCache.get(cacheKey);
+      }
       let jdStart = jdFromDate(1, 1, targetYear);
       let jdEnd = jdFromDate(31, 12, targetYear);
       let kStart = Math.floor((jdStart - 2451545.0) / 29.530588853) - 1;
@@ -4801,6 +4813,7 @@
           });
         }
       }
+      _yearNewMoonsCache.set(cacheKey, list);
       return list;
     }
 
@@ -4869,8 +4882,15 @@
       return apparent;
     }
 
+    // Cache kết quả chuyển tiết khí
+    const _solarTermTransitionCache = new Map();
+
     // Tính thời điểm chính xác (Julian Day) Mặt Trời đạt kinh độ targetDeg trong năm year
     function getSolarTermTransitionJD(year, targetDeg, estDayOfYear) {
+      const cacheKey = `${year}_${targetDeg}_${estDayOfYear}`;
+      if (_solarTermTransitionCache.has(cacheKey)) {
+        return _solarTermTransitionCache.get(cacheKey);
+      }
       let a = Math.floor((14 - 1) / 12);
       let y = year + 4800 - a;
       let m = 1 + 12 * a - 3;
@@ -4887,6 +4907,7 @@
         let speed = 0.9856473; // ~0.9856 độ/ngày
         jd += diff / speed;
       }
+      _solarTermTransitionCache.set(cacheKey, jd);
       return jd;
     }
 
@@ -6327,8 +6348,10 @@
     }
 
     // Đồng hồ thời gian thực
+    let updateRealtimeClockRef = null;
     function setupRealtimeClock() {
       function update() {
+        if (document.hidden) return;
         const now = new Date();
         const days = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
         const dayName = days[now.getDay()];
@@ -6347,6 +6370,7 @@
         document.getElementById('clockText').textContent = 
           `${dayName}, ${d}/${mo}/${y} • ${h}:${m}:${s} (Giờ ${canChiGio.text})`;
       }
+      updateRealtimeClockRef = update;
       update();
       setInterval(update, 1000);
     }
@@ -6419,6 +6443,111 @@
         renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
         updateBlocView(selectedDate);
       });
+
+      const btnCopy = document.getElementById('btnCopyDailyBloc');
+      if (btnCopy) {
+        btnCopy.addEventListener('click', () => {
+          copyDailyBlocInfo();
+        });
+      }
+
+      setupCalendarTouchSwipe();
+    }
+
+    function setupCalendarTouchSwipe() {
+      const calGrid = document.getElementById('calDaysGrid');
+      if (!calGrid) return;
+
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      let touchEndY = 0;
+
+      calGrid.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      calGrid.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches.length === 1) {
+          touchEndX = e.changedTouches[0].clientX;
+          touchEndY = e.changedTouches[0].clientY;
+          handleSwipeGesture();
+        }
+      }, { passive: true });
+
+      function handleSwipeGesture() {
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        // Chỉ xử lý vuốt ngang nếu khoảng cách vuốt ngang > 50px và lớn hơn vuốt dọc
+        if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+          if (diffX < 0) {
+            // Vuốt sang trái -> Tháng sau
+            selectedDate.setMonth(selectedDate.getMonth() + 1);
+            renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+          } else {
+            // Vuốt sang phải -> Tháng trước
+            selectedDate.setMonth(selectedDate.getMonth() - 1);
+            renderCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+          }
+        }
+      }
+    }
+
+    function copyDailyBlocInfo() {
+      if (!selectedDate) return;
+      const d = selectedDate.getDate();
+      const m = selectedDate.getMonth() + 1;
+      const y = selectedDate.getFullYear();
+      const weekdays = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+      const dayOfWeekStr = weekdays[selectedDate.getDay()];
+
+      const [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(d, m, y);
+      const yearCanChi = getYearCanChi(lYear);
+      const monthCanChi = getMonthCanChi(lYear, lMonth);
+      const dayCanChi = getDayCanChi(d, m, y);
+      const napAm = NAP_AM[dayCanChi.text] || "";
+      const solarInfo = getDaySolarInfo(d, m, y, 12);
+      const star = getDayHoangDao(lMonth, dayCanChi.chiIndex);
+
+      const shareText = `📅 LỊCH VẠN NIÊN - ${dayOfWeekStr.toUpperCase()}\n` +
+        `• Dương lịch: ${String(d).padStart(2, '0')}/${String(m).padStart(2, '0')}/${y}\n` +
+        `• Âm lịch: ${lDay}/${lMonth}${isLeap ? ' (Nhuận)' : ''} năm ${yearCanChi.text}\n` +
+        `• Bát tự ngày: ${dayCanChi.text} (${CHI_ANIMAL[dayCanChi.chiIndex]}) • Tháng ${monthCanChi.text}\n` +
+        `• Nạp âm: ${napAm}\n` +
+        `• Tiết khí: ${solarInfo.curTerm.name} (${solarInfo.curTerm.type})\n` +
+        `• Ngày: ${star.isHoangDao ? 'Hoàng Đạo' : 'Hắc Đạo'} (${star.name})\n` +
+        `---\n` +
+        `Lịch Âm Dương & Bát Tự Tứ Trụ chuẩn Thiên Văn`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareText).then(() => {
+          alert("✓ Đã sao chép thông tin lịch ngày vào bộ nhớ tạm!");
+        }).catch(() => {
+          fallbackCopyText(shareText);
+        });
+      } else {
+        fallbackCopyText(shareText);
+      }
+    }
+
+    function fallbackCopyText(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        alert("✓ Đã sao chép thông tin lịch ngày vào bộ nhớ tạm!");
+      } catch (err) {
+        alert("Không thể tự động sao chép. Bạn có thể chọn và sao chép thủ công.");
+      }
+      document.body.removeChild(ta);
     }
 
     // Vẽ lưới lịch tháng (Calendar Grid)
@@ -7612,8 +7741,10 @@
     }
 
     // Ticker thời gian thực đo kinh độ Mặt Trời & đếm ngược chuyển tiết
+    let updateSolarLiveRef = null;
     function startSolarTicker() {
       function updateSolarLive() {
+        if (document.hidden) return;
         let now = new Date();
         let jd = dateToRealJD(now);
         let deg = getSunApparentLongitude(jd);
@@ -7731,6 +7862,7 @@
         updateSunTimesLive();
       }
 
+      updateSolarLiveRef = updateSolarLive;
       updateSolarLive();
       setInterval(updateSolarLive, 1000);
     }
@@ -9679,7 +9811,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.13.1";
+    const APP_VERSION = "v1.14.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
@@ -9816,6 +9948,7 @@
       // Nhịp tim nhấp nháy cập nhật online tự nhiên mỗi 5 giây
       if (onlineTickerTimer) clearInterval(onlineTickerTimer);
       onlineTickerTimer = setInterval(() => {
+        if (document.hidden) return;
         const delta = Math.floor(Math.random() * 5) - 2; // -2, -1, 0, 1, 2
         liveOnlineUsers = Math.max(12, Math.min(68, liveOnlineUsers + delta));
         const el = document.getElementById('statOnlineNow');
