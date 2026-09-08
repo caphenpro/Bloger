@@ -179,21 +179,60 @@
       top: 0;
       z-index: 40;
     }
-    .nav-container {
-      max-width: 1200px;
+    .nav-bar-wrapper {
+      max-width: 1440px;
       margin: 0 auto;
       display: flex;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      align-items: center;
+      position: relative;
       padding: 0 0.5rem;
+      width: 100%;
+    }
+    .nav-scroll-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 32px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #64748b;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.25rem;
+      line-height: 1;
+      z-index: 2;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+      user-select: none;
+      padding: 0;
+    }
+    .nav-scroll-btn:hover {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: #f59e0b;
+    }
+    .nav-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(180, 83, 9, 0.2) transparent;
+      padding: 0 0.25rem;
+      scroll-behavior: smooth;
     }
     .nav-container::-webkit-scrollbar {
-      display: none;
+      height: 3px;
+    }
+    .nav-container::-webkit-scrollbar-thumb {
+      background: rgba(180, 83, 9, 0.2);
+      border-radius: 3px;
     }
     .nav-tab {
-      padding: 0.9rem 1.1rem;
-      font-size: 0.92rem;
+      padding: 0.85rem 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: var(--text-muted);
       border: none;
@@ -203,8 +242,9 @@
       border-bottom: 3px solid transparent;
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.35rem;
       transition: all 0.2s ease;
+      flex-shrink: 0;
     }
     .nav-tab:hover {
       color: var(--primary);
@@ -213,6 +253,15 @@
     .nav-tab.active {
       color: var(--primary);
       border-bottom-color: var(--primary);
+      font-weight: 700;
+    }
+
+    @media (min-width: 1024px) and (max-width: 1320px) {
+      .nav-tab {
+        padding: 0.82rem 0.65rem;
+        font-size: 0.85rem;
+        gap: 0.25rem;
+      }
     }
 
     /* Main Container */
@@ -2964,7 +3013,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.20.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.20.1</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -2977,31 +3026,35 @@
 
   <!-- Navigation Tabs / Thanh Công Cụ -->
   <div class="nav-bar">
-    <div class="nav-container">
-      <div class="nav-brand-mini" id="btnNavLogoMini" title="Biểu trưng Lịch Âm Dương & Bát Tự (Bấm xem ý nghĩa)">
-        <img src="/logo.png" alt="Logo Lịch Âm Dương" class="nav-brand-mini-img" width="32" height="32" />
+    <div class="nav-bar-wrapper">
+      <button type="button" class="nav-scroll-btn left" id="btnNavScrollLeft" title="Cuộn menu sang trái" aria-label="Cuộn sang trái">‹</button>
+      <div class="nav-container" id="mainNavContainer">
+        <div class="nav-brand-mini" id="btnNavLogoMini" title="Biểu trưng Lịch Âm Dương &amp; Bát Tự (Bấm xem ý nghĩa)">
+          <img src="/logo.png" alt="Logo Lịch Âm Dương" class="nav-brand-mini-img" width="32" height="32" />
+        </div>
+        <button type="button" class="nav-tab active" data-tab="tab-calendar" title="Lịch Vạn Niên &amp; Tra Cứu Ngày Hoàng Đạo, Quý Nhân, Bất Tương">
+          📅 Lịch Vạn Niên
+        </button>
+        <button type="button" class="nav-tab" data-tab="tab-wedding" id="navTabWedding" title="Chọn Xem Thời Gian Cưới (Khảo sát 6 năm &amp; 12 tháng)">
+          💒 Xem Thời Gian Cưới
+        </button>
+        <button type="button" class="nav-tab" data-tab="tab-leapyear" id="navTabLeapYear" title="Xác Định Tháng Nhuận Theo Quy Tắc Trung Khí (NASA JPL / VSOP87)">
+          ✨ Xác Định Tháng Nhuận
+        </button>
+        <button type="button" class="nav-tab" data-tab="tab-battu" title="Lập Lá Số Bát Tự (Tứ Trụ) &amp; Phân Tích Ngũ Hành">
+          🔮 Lập Lá Số Bát Tự
+        </button>
+        <button type="button" class="nav-tab" data-tab="tab-solarterms" title="Tra Cứu 24 Tiết Khí (12 Tiết &amp; 12 Khí / Trung Khí)">
+          ☀️ 24 Tiết Khí
+        </button>
+        <button type="button" class="nav-tab" data-tab="tab-converter" title="Chuyển Đổi Nhanh Lịch Âm ⇄ Dương Lịch">
+          🔄 Đổi Lịch Âm ⇄ Dương
+        </button>
+        <button type="button" class="nav-tab" data-tab="tab-festivals" title="Tra Cứu Ngày Lễ Tết &amp; Lễ Hội Truyền Thống Việt Nam">
+          🏮 Lễ Tết Truyền Thống
+        </button>
       </div>
-      <button class="nav-tab active" data-tab="tab-calendar">
-        📅 Lịch Vạn Niên &amp; Ngày Đẹp
-      </button>
-      <button class="nav-tab" data-tab="tab-wedding" id="navTabWedding">
-        💒 Chọn Xem Thời Gian Cưới
-      </button>
-      <button class="nav-tab" data-tab="tab-leapyear" id="navTabLeapYear">
-        ✨ Xác Định Tháng Nhuận (Quy Tắc Trung Khí)
-      </button>
-      <button class="nav-tab" data-tab="tab-battu">
-        🔮 Lập Lá Số Bát Tự (Tứ Trụ)
-      </button>
-      <button class="nav-tab" data-tab="tab-solarterms">
-        ☀️ 24 Tiết Khí (12 Tiết &amp; 12 Khí)
-      </button>
-      <button class="nav-tab" data-tab="tab-converter">
-        🔄 Đổi Lịch Âm ⇄ Dương
-      </button>
-      <button class="nav-tab" data-tab="tab-festivals">
-        🏮 Ngày Lễ Tết Truyền Thống
-      </button>
+      <button type="button" class="nav-scroll-btn right" id="btnNavScrollRight" title="Cuộn menu sang phải" aria-label="Cuộn sang phải">›</button>
     </div>
   </div>
 
@@ -6746,7 +6799,7 @@
       clockIntervalId = setInterval(update, 1000);
     }
 
-    // Điều hướng Tab
+    // Điều hướng Tab & Thanh Menu Cuộn
     function setupTabs() {
       const tabs = document.querySelectorAll('.nav-tab');
       tabs.forEach(tab => {
@@ -6761,8 +6814,57 @@
             const curY = selectedDate ? selectedDate.getFullYear() : (new Date()).getFullYear();
             renderDedicatedLeapTab(curY);
           }
+          try {
+            tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+          } catch (e) {}
         });
       });
+      setupNavScrollControls();
+    }
+
+    function setupNavScrollControls() {
+      const navContainer = document.getElementById('mainNavContainer');
+      const btnLeft = document.getElementById('btnNavScrollLeft');
+      const btnRight = document.getElementById('btnNavScrollRight');
+      if (!navContainer) return;
+
+      function updateNavScrollButtons() {
+        if (!btnLeft || !btnRight) return;
+        const maxScroll = navContainer.scrollWidth - navContainer.clientWidth;
+        if (maxScroll > 15) {
+          btnLeft.style.display = navContainer.scrollLeft > 15 ? 'inline-flex' : 'none';
+          btnRight.style.display = navContainer.scrollLeft < maxScroll - 15 ? 'inline-flex' : 'none';
+        } else {
+          btnLeft.style.display = 'none';
+          btnRight.style.display = 'none';
+        }
+      }
+
+      if (btnLeft) {
+        btnLeft.addEventListener('click', () => {
+          navContainer.scrollBy({ left: -240, behavior: 'smooth' });
+        });
+      }
+      if (btnRight) {
+        btnRight.addEventListener('click', () => {
+          navContainer.scrollBy({ left: 240, behavior: 'smooth' });
+        });
+      }
+
+      navContainer.addEventListener('scroll', updateNavScrollButtons, { passive: true });
+      window.addEventListener('resize', updateNavScrollButtons, { passive: true });
+
+      // Hỗ trợ cuộn chuột bánh lăn ngang trên máy tính khi rê chuột trên thanh menu
+      navContainer.addEventListener('wheel', (e) => {
+        if (e.deltaY !== 0 && navContainer.scrollWidth > navContainer.clientWidth) {
+          e.preventDefault();
+          navContainer.scrollLeft += e.deltaY;
+          updateNavScrollButtons();
+        }
+      }, { passive: false });
+
+      setTimeout(updateNavScrollButtons, 200);
+      setTimeout(updateNavScrollButtons, 800);
     }
 
     // Cài đặt bộ chọn nhanh Tháng / Năm
@@ -11153,7 +11255,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.20.0";
+    const APP_VERSION = "v1.20.1";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

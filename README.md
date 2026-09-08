@@ -195,6 +195,19 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.20.1] - 2026-09-08
+- **Khắc Phục & Tối Ưu Toàn Diện Thanh Menu Điều Hướng Trên Giao Diện Máy Tính (Desktop Layout Fix)**:
+  - **Khắc Phục Lỗi Thiếu / Tràn Tab Menu Trên Màn Hình Máy Tính**:
+    - Mở rộng độ rộng tối đa (`max-width: 1440px`) và tối ưu vùng đệm (`padding`) của thanh điều hướng, giúp toàn bộ 7 Tab chức năng hiển thị đầy đủ, không bị khuất hay cắt ngang ở tab Tiết Khí.
+    - Tinh chỉnh tên các Tab chức năng súc tích, thanh lịch và chuẩn phong thủy: `📅 Lịch Vạn Niên`, `💒 Xem Thời Gian Cưới`, `✨ Xác Định Tháng Nhuận`, `🔮 Lập Lá Số Bát Tự`, `☀️ 24 Tiết Khí`, `🔄 Đổi Lịch Âm ⇄ Dương`, `🏮 Lễ Tết Truyền Thống`.
+    - Bổ sung thuộc tính `title` chú giải chi tiết khi rê chuột (hover) vào từng tab.
+  - **Bổ Sung Bộ Điều Hướng Cuộn Thông Minh & Bánh Lăn Chuột**:
+    - Bổ sung nút cuộn trái/phải (`‹` và `›`) tự động kích hoạt khi màn hình thu nhỏ hoặc phóng to (zoom).
+    - Hỗ trợ cuộn chuột ngang (`wheel event`) mượt mà khi rê chuột trên thanh menu trên máy tính.
+    - Tự động cuộn tab vào trung tâm tầm nhìn (`scrollIntoView`) khi được kích hoạt hoặc chuyển đổi.
+  - **Số Hóa Phiên Bản v1.20.1**:
+    - Nâng số phiên bản lên `v1.20.1` trong `package.json`, `index.html` (`APP_VERSION`), Header badge, Footer và `README.md`.
+
 ### [v1.20.0] - 2026-09-08
 - **Cập Nhật Thay Thế Nguyên Lý Chọn Xem Năm & Tháng Kết Hôn (Theo Hình Ảnh & Tài Liệu Phong Thủy)**:
   - **Nguyên Lý Chọn Năm**:
