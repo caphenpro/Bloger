@@ -5465,6 +5465,67 @@
       return 0;
     }
 
+    /**
+     * KIỂM TRA NGÀY CHÍNH TỨ PHẾ (MÀU/MÙA TƯƠNG ỨNG)
+     * - Mùa Xuân (315° Lập Xuân -> 45° Lập Hạ): Nhâm Thân, Quý Dậu (Mộc vương Kim phế)
+     * - Mùa Hạ (45° Lập Hạ -> 135° Lập Thu): Bính Tý, Đinh Hợi (Hỏa vương Thủy phế)
+     * - Mùa Thu (135° Lập Thu -> 225° Lập Đông): Giáp Dần, Ất Mão (Kim vương Mộc phế)
+     * - Mùa Đông (225° Lập Đông -> 315° Lập Xuân): Bính Ngọ, Đinh Tỵ (Thủy vương Hỏa phế)
+     */
+    function isChinhTuPhe(jd, canIdx, chiIdx) {
+      if (!jd) return null;
+      let deg = getSunApparentLongitude(jd);
+      let season = '';
+      if (deg >= 315 || deg < 45) {
+        season = 'Xuân';
+      } else if (deg >= 45 && deg < 135) {
+        season = 'Hạ';
+      } else if (deg >= 135 && deg < 225) {
+        season = 'Thu';
+      } else {
+        season = 'Đông';
+      }
+
+      let isMatch = false;
+      let reason = '';
+
+      if (season === 'Xuân') {
+        // Nhâm Thân (Can 8, Chi 8) & Quý Dậu (Can 9, Chi 9)
+        if ((canIdx === 8 && chiIdx === 8) || (canIdx === 9 && chiIdx === 9)) {
+          isMatch = true;
+          reason = 'Mùa Xuân Mộc vương Kim phế (ngày Nhâm Thân / Quý Dậu thuộc Kim bị phế khí).';
+        }
+      } else if (season === 'Hạ') {
+        // Bính Tý (Can 2, Chi 0) & Đinh Hợi (Can 3, Chi 11)
+        if ((canIdx === 2 && chiIdx === 0) || (canIdx === 3 && chiIdx === 11)) {
+          isMatch = true;
+          reason = 'Mùa Hạ Hỏa vương Thủy phế (ngày Bính Tý / Đinh Hợi thuộc Thủy bị phế khí).';
+        }
+      } else if (season === 'Thu') {
+        // Giáp Dần (Can 0, Chi 2) & Ất Mão (Can 1, Chi 3)
+        if ((canIdx === 0 && chiIdx === 2) || (canIdx === 1 && chiIdx === 3)) {
+          isMatch = true;
+          reason = 'Mùa Thu Kim vương Mộc phế (ngày Giáp Dần / Ất Mão thuộc Mộc bị phế khí).';
+        }
+      } else if (season === 'Đông') {
+        // Bính Ngọ (Can 2, Chi 6) & Đinh Tỵ (Can 3, Chi 5)
+        if ((canIdx === 2 && chiIdx === 6) || (canIdx === 3 && chiIdx === 5)) {
+          isMatch = true;
+          reason = 'Mùa Đông Thủy vương Hỏa phế (ngày Bính Ngọ / Đinh Tỵ thuộc Hỏa bị phế khí).';
+        }
+      }
+
+      if (isMatch) {
+        return {
+          isTuPhe: true,
+          season,
+          dayCanChi: `${CAN[canIdx]} ${CHI[chiIdx]}`,
+          reason
+        };
+      }
+      return null;
+    }
+
     function getBatTuongInfo(lunarMonth, canIdx, chiIdx) {
       let m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
       let cfg = BAT_TUONG_MONTHS_CONFIG[m];
@@ -6383,6 +6444,21 @@
           avoidText: hdDetail.ky,
           actionTag: hdDetail.nghi ? "Có thể làm:" : null,
           actionText: hdDetail.nghi || null,
+          lookupType: null
+        });
+      }
+
+      // 7. Ngày Chính Tứ Phế (Thần sát hung theo 4 Mùa)
+      const tuPhe = isChinhTuPhe(jd, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (tuPhe && tuPhe.isTuPhe) {
+        hungItems.push({
+          badgeClass: "badge-hacdao",
+          badgeTitle: `🔴 Ngày Chính Tứ Phế (Mùa ${tuPhe.season})`,
+          hungWhat: tuPhe.reason,
+          avoidTag: "Kiêng cữ:",
+          avoidText: "Đại kỵ khởi công, động thổ, cưới hỏi, nhập trạch, xuất hành, mưu sự đại sự.",
+          actionTag: null,
+          actionText: null,
           lookupType: null
         });
       }
