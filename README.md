@@ -195,6 +195,21 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.20.0] - 2026-09-08
+- **Cập Nhật Thay Thế Nguyên Lý Chọn Xem Năm & Tháng Kết Hôn (Theo Hình Ảnh & Tài Liệu Phong Thủy)**:
+  - **Nguyên Lý Chọn Năm**:
+    - *Tránh Tuyệt Mệnh & Ngũ Quỷ (Mệnh Quái)*: Khảo sát phối Mệnh quái hai vợ chồng và Mệnh quái (Cung Phi) năm cưới với Mệnh quái từng người, tuyệt đối tránh Tuyệt Mệnh và Ngũ Quỷ.
+    - *Tránh Thái Tuế Xung Mệnh (Tối Hung)*: Loại trừ năm có Địa chi xung trực tiếp với Địa chi tuổi Cô dâu hoặc Chú rể.
+    - *Tránh Thiên Khắc Địa Xung*: Loại trừ năm có Can Chi xung khắc toàn diện trực tiếp với Can Chi tuổi Cô dâu hoặc Chú rể.
+  - **Nguyên Lý Chọn Tháng (Phương Pháp Loại Trừ)**:
+    - *Tránh tháng hình xung khắc hại trực tiếp*: Loại trừ tháng có Địa chi xung trực tiếp với Địa chi tuổi Cô dâu hoặc Chú rể.
+    - *Tránh tháng Thiên khắc địa xung*: Loại trừ tháng có Can Chi Thiên khắc địa xung với Can Chi hai vợ chồng.
+    - *Gợi Ý Can Chi Tháng*: Xuất kết quả gợi ý các tháng phù hợp kèm Can Chi tháng trực quan.
+  - **Cập Nhật Giao Diện & Bảng Tra Cứu**:
+    - Cập nhật thông điệp hướng dẫn, các thẻ giải thích và danh sách khảo sát 6 năm & 12 tháng đồng bộ theo nguyên lý mới.
+  - **Số Hóa Phiên Bản v1.20.0**:
+    - Nâng số phiên bản lên `v1.20.0` trong `package.json`, `index.html` (`APP_VERSION`), Header badge, Footer, Logo modal và `README.md`.
+
 ### [v1.19.0] - 2026-09-08
 - **Tối Ưu Toàn Diện Chương Trình: Tăng Tốc Độ, Kiểm Soát Lỗi & Nâng Cao Độ Chính Xác Thiên Văn**:
   - **Chuẩn Hóa Độ Chính Xác Thiên Văn (NASA JPL / VSOP87 / Jean Meeus)**:
