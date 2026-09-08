@@ -195,6 +195,22 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.19.0] - 2026-09-08
+- **Tối Ưu Toàn Diện Chương Trình: Tăng Tốc Độ, Kiểm Soát Lỗi & Nâng Cao Độ Chính Xác Thiên Văn**:
+  - **Chuẩn Hóa Độ Chính Xác Thiên Văn (NASA JPL / VSOP87 / Jean Meeus)**:
+    - Đồng bộ thuật toán `getSunLongitude` với `getSunApparentLongitude` có hiệu chỉnh chương động (nutation) và quang sai (aberration), đảm bảo độ chính xác đồng nhất 100% giữa Điểm Sóc, 24 Tiết Khí, Tiết Lệnh Tháng 11 và Tháng Nhuận.
+    - Bổ sung kiểm tra miền dữ liệu `cosH` và tự động khôi phục tọa độ mặc định Hà Nội khi gặp tọa độ không hợp lệ trong `calcSunTimesNASA` (tránh lỗi `NaN`).
+  - **Kiểm Soát Lỗi & Phòng Ngừa Ngoại Lệ (Robust Error Control)**:
+    - Bổ sung rào chắn kiểm tra số ngày thực tế trong `convertLunar2Solar` (chống lỗi chuyển đổi ngày 30 trong tháng thiếu 29 ngày).
+    - Khử lỗi chia cho 0 (`NaN`) trong phân bổ điểm năng lượng Bát Tự `evaluateBattuVuongNhuoc`.
+    - Tích hợp hàm `escapeHtml` mã hóa ký tự đặc biệt cho tên người dùng nhập (Bát Tự & Trạch Cát Hôn Nhân) chống vỡ giao diện và injection.
+  - **Tối Ưu Hiệu Năng & Tăng Tốc Độ Phản Hồi (Performance Overhaul)**:
+    - Ứng dụng `DocumentFragment` gom nhóm thao tác chèn DOM trong `renderCalendar`, giúp giảm reflow/repaint trình duyệt từ 42 lượt xuống 1 lượt duy nhất.
+    - Khử trùng lặp re-render bảng Sóc và phân tích năm nhuận khi người dùng nhấp chọn ngày trong cùng một năm trên Lịch Vạn Niên.
+    - Quản lý định danh `setInterval` chặt chẽ trong `setupRealtimeClock` và `startSolarTicker`, triệt tiêu các vòng lặp timer chạy ngầm trùng lặp.
+  - **Số Hóa Phiên Bản v1.19.0**:
+    - Nâng số phiên bản lên `v1.19.0` trong `package.json`, `index.html` (`APP_VERSION`), Header badge, Footer, Logo modal và tài liệu `README.md`.
+
 ### [v1.18.0] - 2026-09-07
 - **Bổ Sung Tab "💒 Chọn Xem Thời Gian Cưới" & Thuật Toán Trạch Cát Hôn Nhân Cổ Truyền**:
   - **Nhập Tuổi Chính Xác Theo Lịch Dương Hoặc Lịch Âm**:
