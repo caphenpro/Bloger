@@ -9550,14 +9550,26 @@
     const WEDDING_TAM_HOP_GROUPS = [ [8, 0, 4], [2, 6, 10], [5, 9, 1], [11, 3, 7] ];
     const WEDDING_LUC_HOP = { 0: 1, 1: 0, 2: 11, 11: 2, 3: 10, 10: 3, 4: 9, 9: 4, 5: 8, 8: 5, 6: 7, 7: 6 };
 
+    const WEDDING_LUC_HAI = { 0: 7, 7: 0, 1: 6, 6: 1, 2: 5, 5: 2, 3: 4, 4: 3, 8: 11, 11: 8, 9: 10, 10: 9 };
+
     function isLucXung(c1, c2) {
       return WEDDING_LUC_XUNG[c1] === c2;
+    }
+    function isLucHai(c1, c2) {
+      return WEDDING_LUC_HAI[c1] === c2;
     }
     function isTamHop(c1, c2) {
       return WEDDING_TAM_HOP_GROUPS.some(g => g.includes(c1) && g.includes(c2) && c1 !== c2);
     }
     function isLucHop(c1, c2) {
       return WEDDING_LUC_HOP[c1] === c2;
+    }
+    function isThienKhac(can1, can2) {
+      const diff = Math.abs(can1 - can2);
+      return diff === 4 || diff === 6;
+    }
+    function isThienKhacDiaXung(can1, chi1, can2, chi2) {
+      return isThienKhac(can1, can2) && isLucXung(chi1, chi2);
     }
     function checkTamTai(personChiIndex, yearChiIndex) {
       if ([8, 0, 4].includes(personChiIndex) && [2, 3, 4].includes(yearChiIndex)) return true; // Thân Tý Thìn: Dần Mão Thìn
@@ -9825,10 +9837,20 @@
         const tamTaiB = checkTamTai(bChiIdx, yChiIdx);
         const tamTaiG = checkTamTai(gChiIdx, yChiIdx);
 
+        // Thiên Khắc Địa Xung
+        const tkdxB = isThienKhacDiaXung(yCanChi.canIndex, yChiIdx, bCanChi.canIndex, bChiIdx);
+        const tkdxG = isThienKhacDiaXung(yCanChi.canIndex, yChiIdx, gCanChi.canIndex, gChiIdx);
+
         // Tính điểm tổng hợp (Score)
         let score = 50;
         let reasonsGood = [];
         let reasonsBad = [];
+
+        // Đánh giá Cung Mệnh Bát Trạch
+        if (marriageState === 'Tuyệt Mệnh' || marriageState === 'Ngũ Quỷ') {
+          score -= 50;
+          reasonsBad.push(`Cung Mệnh đôi lứa phạm ${marriageState} (Tuyệt Kỵ Hôn Nhân)`);
+        }
 
         if (!kimLau.isKimLau) {
           score += 40;
@@ -9843,13 +9865,22 @@
           }
         }
 
+        if (tkdxB) {
+          score -= 45;
+          reasonsBad.push(`Năm ${yCanChi.text} Thiên Khắc Địa Xung với Niên Mệnh Cô Dâu (${bCanChi.text})`);
+        }
+        if (tkdxG) {
+          score -= 35;
+          reasonsBad.push(`Năm ${yCanChi.text} Thiên Khắc Địa Xung với Niên Mệnh Chú Rể (${gCanChi.text})`);
+        }
+
         if (xungB) {
           score -= 35;
-          reasonsBad.push(`Chi năm ${CHI[yChiIdx]} Lục Xung với tuổi Cô dâu (${CHI[bChiIdx]})`);
+          reasonsBad.push(`Chi năm ${CHI[yChiIdx]} Lục Xung với tuổi Cô dâu (${CHI[bChiIdx]}) — Hạn Thái Tuế`);
         }
         if (xungG) {
           score -= 25;
-          reasonsBad.push(`Chi năm ${CHI[yChiIdx]} Lục Xung với tuổi Chú rể (${CHI[gChiIdx]})`);
+          reasonsBad.push(`Chi năm ${CHI[yChiIdx]} Lục Xung với tuổi Chú rể (${CHI[gChiIdx]}) — Hạn Thái Tuế`);
         }
 
         if (tamHopB) {
@@ -9871,8 +9902,12 @@
         }
 
         if (thaiTueB) {
+          score -= 15;
+          reasonsBad.push(`Năm tuổi Cô dâu — Trực Thái Tuế (${CHI[bChiIdx]})`);
+        }
+        if (thaiTueG) {
           score -= 10;
-          reasonsBad.push(`Năm tuổi Cô dâu (Thái Tuế)`);
+          reasonsBad.push(`Năm tuổi Chú rể — Trực Thái Tuế (${CHI[gChiIdx]})`);
         }
         if (tamTaiB) {
           score -= 8;
@@ -9887,11 +9922,11 @@
         let ratingText = '🟢 Khá Tốt';
         let ratingBadgeClass = 'bg-blue-100 text-blue-800 border-blue-200';
 
-        if (score >= 80) {
+        if (score >= 80 && marriageState !== 'Tuyệt Mệnh' && marriageState !== 'Ngũ Quỷ' && !tkdxB) {
           rating = 'top';
           ratingText = '🌟 Đại Cát (Nên Chọn)';
           ratingBadgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-300';
-        } else if (score < 45 || (kimLau.isKimLau && kimLau.code !== 8) || xungB) {
+        } else if (score < 45 || marriageState === 'Tuyệt Mệnh' || marriageState === 'Ngũ Quỷ' || tkdxB || tkdxG || (kimLau.isKimLau && kimLau.code !== 8) || xungB) {
           rating = 'avoid';
           ratingText = '⚠️ Cân Nhắc / Kiêng Kỵ';
           ratingBadgeClass = 'bg-rose-100 text-rose-800 border-rose-300';
@@ -9903,7 +9938,7 @@
           bAgeMu,
           gAgeMu,
           kimLau,
-          xungB, xungG, tamHopB, tamHopG, lucHopB, lucHopG, thaiTueB, thaiTueG, tamTaiB, tamTaiG,
+          xungB, xungG, tamHopB, tamHopG, lucHopB, lucHopG, thaiTueB, thaiTueG, tamTaiB, tamTaiG, tkdxB, tkdxG,
           score,
           reasonsGood,
           reasonsBad,
@@ -9976,7 +10011,10 @@
           tagsHtml.push(`<span class="badge" style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0;">Lục Hợp</span>`);
         }
         if (item.xungB || item.xungG) {
-          tagsHtml.push(`<span class="badge" style="background:#fff1f2; color:#be123c; border:1px solid #fecdd3;">Lục Xung</span>`);
+          tagsHtml.push(`<span class="badge" style="background:#fff1f2; color:#be123c; border:1px solid #fecdd3;">Lục Xung (Thái Tuế)</span>`);
+        }
+        if (item.tkdxB || item.tkdxG) {
+          tagsHtml.push(`<span class="badge" style="background:#fef2f2; color:#991b1b; border:1px solid #f87171; font-weight:700;">Thiên Khắc Địa Xung</span>`);
         }
 
         card.innerHTML = `
@@ -10073,19 +10111,35 @@
         let eliminationReasons = [];
         let goodReasons = [];
 
-        // 1. Loại trừ Chi tháng Lục Xung với tuổi Cô Dâu
+        // 1. Loại trừ Chi tháng Lục Xung / Lục Hại với tuổi Cô Dâu
         if (isLucXung(mChiIdx, bChiIdx)) {
           isEliminated = true;
-          eliminationReasons.push(`Chi tháng ${CHI[mChiIdx]} Lục Xung với tuổi Cô Dâu (${CHI[bChiIdx]})`);
+          eliminationReasons.push(`Tháng ${CHI[mChiIdx]} Lục Xung với Chi Cô Dâu (${CHI[bChiIdx]})`);
+        } else if (isLucHai(mChiIdx, bChiIdx)) {
+          isEliminated = true;
+          eliminationReasons.push(`Tháng ${CHI[mChiIdx]} Lục Hại với Chi Cô Dâu (${CHI[bChiIdx]})`);
         }
 
-        // 2. Loại trừ Chi tháng Lục Xung với tuổi Chú Rể
+        // 2. Loại trừ Chi tháng Lục Xung / Lục Hại với tuổi Chú Rể
         if (isLucXung(mChiIdx, gChiIdx)) {
           isEliminated = true;
-          eliminationReasons.push(`Chi tháng ${CHI[mChiIdx]} Lục Xung với tuổi Chú Rể (${CHI[gChiIdx]})`);
+          eliminationReasons.push(`Tháng ${CHI[mChiIdx]} Lục Xung với Chi Chú Rể (${CHI[gChiIdx]})`);
+        } else if (isLucHai(mChiIdx, gChiIdx)) {
+          isEliminated = true;
+          eliminationReasons.push(`Tháng ${CHI[mChiIdx]} Lục Hại với Chi Chú Rể (${CHI[gChiIdx]})`);
         }
 
-        // 3. Loại trừ Chi tháng Lục Xung với Chi Năm Cưới (Nguyệt Phá)
+        // 3. Loại trừ Thiên Khắc Địa Xung giữa Can Chi Tháng với Can Chi Cô Dâu / Chú Rể
+        if (isThienKhacDiaXung(mCanChi.canIndex, mChiIdx, bCanChi.canIndex, bChiIdx)) {
+          isEliminated = true;
+          eliminationReasons.push(`Tháng ${mCanChi.text} Thiên Khắc Địa Xung với Cô Dâu (${bCanChi.text})`);
+        }
+        if (isThienKhacDiaXung(mCanChi.canIndex, mChiIdx, gCanChi.canIndex, gChiIdx)) {
+          isEliminated = true;
+          eliminationReasons.push(`Tháng ${mCanChi.text} Thiên Khắc Địa Xung với Chú Rể (${gCanChi.text})`);
+        }
+
+        // 4. Loại trừ Chi tháng Lục Xung với Chi Năm Cưới (Nguyệt Phá)
         if (isLucXung(mChiIdx, yChiIdx)) {
           isEliminated = true;
           eliminationReasons.push(`Tháng Nguyệt Phá — Xung Chi năm cưới (${CHI[yChiIdx]} xung ${CHI[mChiIdx]})`);
