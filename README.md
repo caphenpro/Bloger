@@ -15,11 +15,10 @@
   - Ngũ hành Nạp Âm của ngày, Tiết khí thiên văn học và thời điểm chuyển tiết tiếp theo (chính xác đến giây).
   - Thời gian Mặt Trời mọc/lặn, độ dài ngày/đêm theo chuẩn NASA JPL / NOAA.
   - Hướng xuất hành đón Hỷ Thần, Tài Thần (theo thiên can ngày).
-  - Điểm Sóc tháng và cơ sở tính ngày Mùng 1 Âm lịch.
   - **Nhóm Phân Định Ngày Cát Hung (Sao Cát & Sao Hung Trong Ngày)**: Tổ chức lại toàn diện phần dụng sự nghi kỵ thành 2 nhóm chuyên biệt, khoa học và trực quan:
-    - *Nhóm Ngày Cát (Sao Cát & Vượng Khí)*: Tập hợp toàn bộ yếu tố cát tinh, quý nhân và vượng khí (Hoàng Đạo, Quý Nhân Tứ Đức gồm Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp, Âm Dương Bất Tương, Ngày Vượng - Tướng, Thập Nhị Trực cát lợi, Nhị Thập Bát Tú cát tú) kèm diễn giải ngắn gọn "Hợp làm gì".
-    - *Nhóm Ngày Hung (Sao Hung & Kỵ Khí)*: Tập hợp toàn bộ yếu tố hắc đạo, tương xung và hung sát (Hắc Đạo, Dương Tương / Âm Tương / Âm Dương câu Tương, Trực hung như Phá/Nguy/Bế, Nhị Thập Bát Tú hung tú) kèm diễn giải ngắn gọn "Hung gì" và "Kiêng cữ".
-    - *Thanh Tra Cứu Nguyên Lý Trạch Nhật*: Tích hợp các nút tra cứu nhanh Quý Nhân Tứ Đức 12 tháng, Bảng ma trận Bất Tương 60 Hoa Giáp, và Bảng quy luật Ngày Vượng Tướng 12 tháng.
+    - *Nhóm Ngày Cát (Sao Cát & Vượng Khí)*: Tập hợp toàn bộ yếu tố cát tinh, quý nhân và vượng khí (Hoàng Đạo, Quý Nhân Tứ Đức gồm Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp, Âm Dương Bất Tương, Ngày Vượng - Tướng, Ngày Mẫu Thương, Thập Nhị Trực cát lợi, Nhị Thập Bát Tú cát tú) kèm diễn giải ngắn gọn "Hợp làm gì".
+    - *Nhóm Ngày Hung (Sao Hung & Kỵ Khí)*: Tập hợp toàn bộ yếu tố hắc đạo, tương xung và hung sát (Hắc Đạo, Ngày Hưu - Tù - Tử, Ngày Chính Tứ Phế, Ngày Nguyệt Phá, Ngày Tứ Tuyệt - Tứ Ly, Ngày Xung Niên Tuế, Dương Tương / Âm Tương / Âm Dương câu Tương, Trực hung như Phá/Nguy/Bế, Nhị Thập Bát Tú hung tú) kèm diễn giải ngắn gọn "Hung gì" và "Kiêng cữ".
+    - *Thanh Tra Cứu Nguyên Lý Trạch Nhật*: Tích hợp các nút tra cứu nhanh Quý Nhân Tứ Đức 12 tháng, Bảng ma trận Bất Tương 60 Hoa Giáp, và Bảng quy luật Ngày Vượng Tướng - Vượng Suy 12 tháng.
 - **Điều Hướng Linh Hoạt**: Chọn nhanh Hôm nay, nút Lùi/Tiến tháng, lướt chọn nhanh Năm (1900 - 2100) và Tháng trực quan.
 
 ### 2. Công Cụ Đổi Ngày Âm - Dương
@@ -212,6 +211,23 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.24.0] - 2026-09-09
+- **Mở Rộng Hệ Thống Ngày Hung Trạch Nhật & Tinh Gọn Hiển Thị Lịch Ngày**:
+  - **Bổ Sung Trạng Thái Can Ngày Vào Hệ Thống Vượng Suy**:
+    - Nâng cấp thuật toán `getVuongSuyInfo(lunarMonth, canIdx, chiIdx)` đồng thời thẩm định trạng thái ngũ hành của Can ngày và Chi ngày đối chiếu với Nguyệt lệnh mùa khí.
+  - **Tích Hợp Toàn Diện Các Ngày Hung Trạch Nhật Cổ Truyền (Hiệp Kỷ Biện Phương Thư)**:
+    - **Ngày Chính Tứ Phế (Đại hung)**: Tự động phát hiện khi cả Can ngày và Chi ngày đều đồng thời rơi vào nhóm Hưu, Tù hoặc Tử trước Nguyệt lệnh (khí lực can chi suy kiệt hoàn toàn, đại kỵ khởi tạo trăm sự).
+    - **Ngày Nguyệt Phá (Phá Nhật - Đại hung)**: Tự động nhận diện khi Chi ngày Lục Xung trực tiếp với Chi tháng (`(chiIdx + 6) % 12 === monthChiIdx`). Khí trường chấn động tan vỡ, đại kỵ khởi công, động thổ, cưới hỏi, xuất hành.
+    - **Ngày Tứ Tuyệt & Ngày Tứ Ly (Hung)**: Tự động tính toán chính xác 1 ngày trước thời khắc chuyển giao các tiết Lập Xuân, Lập Hạ, Lập Thu, Lập Đông (Tứ Tuyệt) và Xuân Phân, Hạ Chí, Thu Phân, Đông Chí (Tứ Ly) theo thuật toán kinh độ Mặt Trời NASA JPL.
+    - **Ngày Xung Niên Tuế (Tuế Phá / Thiên Khắc Địa Xung / Thiên Tựa Địa Xung)**: Tự động đối chiếu Can Chi ngày với Can Chi của Năm (Thái Tuế), cảnh báo các ngày Địa xung (Tuế Phá), Thiên khắc Địa xung, hoặc Thiên tựa Địa xung.
+  - **Tích Hợp Vào Bảng Nghị Kỵ Dụng Sự & Lưới Lịch**:
+    - Đưa trực tiếp các ngày hung mới vào nhóm *"CÁC YẾU TỐ HUNG (SAO HUNG & KỴ KHÍ)"* trên Bloc Lịch hàng ngày với các huy hiệu phân loại chuyên biệt (`.badge-chinh-tuphe`, `.badge-nguyetpha`, `.badge-tutuyet`, `.badge-tuly`, `.badge-xungtue`).
+    - Đồng bộ cảnh báo hung sát vào tooltip chi tiết của từng ô ngày trên lưới Lịch Tháng.
+    - Mở rộng kiến thức tra cứu ngày hung trong modal tra cứu trạch nhật (`#vuongTuongModal`).
+  - **Tinh Gọn Giao Diện Lịch Ngày (Bloc Lịch)**:
+    - Bỏ hiển thị dòng *"Điểm Sóc tháng này"* và *"Cơ sở Mùng 1 & Quy mô"* trên Bloc Lịch ngày để giao diện gọn gàng, tập trung chuyên sâu vào thông số ngày, tiết khí, giờ hoàng đạo và trạch cát bách sự dụng sự.
+    - Toàn bộ cơ sở thiên văn về Điểm Sóc và Tháng Nhuận tiếp tục được duy trì đầy đủ, chuyên sâu và trực quan tại tab chuyên trách **✨ Xác Định Tháng Nhuận & Điểm Sóc**.
 
 ### [v1.23.0] - 2026-09-09
 - **Hoàn Thiện Hệ Thống Nhóm Ngày Vượng Suy (Vượng – Tướng – Hưu – Tù – Tử)**:

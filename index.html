@@ -520,6 +520,38 @@
       border: 1px solid #f59e0b;
       font-weight: 700;
     }
+    /* Các Ngày Hung Trạch Nhật Đặc Biệt */
+    .badge-chinh-tuphe {
+      background: linear-gradient(135deg, #450a0a, #881337);
+      color: #fecdd3;
+      border: 1px solid #e11d48;
+      font-weight: 700;
+      box-shadow: 0 1px 3px rgba(136, 19, 55, 0.25);
+    }
+    .badge-nguyetpha {
+      background-color: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #f87171;
+      font-weight: 700;
+    }
+    .badge-tutuyet {
+      background-color: #f5f3ff;
+      color: #6b21a8;
+      border: 1px solid #c084fc;
+      font-weight: 700;
+    }
+    .badge-tuly {
+      background-color: #fff1f2;
+      color: #be123c;
+      border: 1px solid #fb7185;
+      font-weight: 700;
+    }
+    .badge-xungtue {
+      background-color: #ffedd5;
+      color: #c2410c;
+      border: 1px solid #fb923c;
+      font-weight: 700;
+    }
 
     .btn-lookup-nd,
     .btn-lookup-bt,
@@ -3687,14 +3719,6 @@
                   <span class="bloc-meta-lbl">Hướng xuất hành:</span>
                   <span class="bloc-meta-val" id="blocHuongXuatHanh">Hỷ Thần: Đông Bắc • Tài Thần: Nam</span>
                 </div>
-                <div class="bloc-meta-row">
-                  <span class="bloc-meta-lbl">Điểm Sóc tháng này:</span>
-                  <span class="bloc-meta-val" id="blocSocTime" style="color: #991b1b; font-family: monospace; font-size: 0.88rem;">--:--:--</span>
-                </div>
-                <div class="bloc-meta-row">
-                  <span class="bloc-meta-lbl">Cơ sở Mùng 1 &amp; Quy mô:</span>
-                  <span class="bloc-meta-val" id="blocSocRule" style="color: #15803d; font-weight: 600;">--</span>
-                </div>
                 <div class="bloc-meta-row" id="blocFestRow" style="display:none;">
                   <span class="bloc-meta-lbl">Sự kiện / Lễ tết:</span>
                   <span class="bloc-meta-val" id="blocFestText" style="color: var(--primary); font-weight: 700;"></span>
@@ -5089,13 +5113,16 @@
       <div class="modal-body" style="padding: 1rem 1.15rem; font-size: 0.85rem; color: #374151;">
         <!-- Giới thiệu học thuật -->
         <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; font-size: 0.82rem; line-height: 1.6; color: #0369a1;">
-          Theo học thuyết <strong>Âm Dương Ngũ Hành &amp; Khâm Định Hiệp Kỷ Biện Phương Thư</strong>, bốn mùa và 12 tháng luân chuyển theo chu kỳ 5 trạng thái khí vận: <strong>Vượng – Tướng – Hưu – Tù – Tử</strong>, xác định dựa trên mối quan hệ giữa <strong>ngũ hành Địa Chi Ngày (Nhật Chi)</strong> và <strong>ngũ hành lệnh Chi Tháng (Nguyệt Lệnh)</strong>:
+          Theo học thuyết <strong>Âm Dương Ngũ Hành &amp; Khâm Định Hiệp Kỷ Biện Phương Thư</strong>, bốn mùa và 12 tháng luân chuyển theo chu kỳ 5 trạng thái khí vận: <strong>Vượng – Tướng – Hưu – Tù – Tử</strong>, xác định dựa trên mối quan hệ giữa <strong>ngũ hành Địa Chi Ngày (Nhật Chi)</strong> &amp; <strong>ngũ hành Thiên Can Ngày (Nhật Can)</strong> đối chiếu với <strong>ngũ hành lệnh Chi Tháng (Nguyệt Lệnh)</strong>:
           <div style="margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px dashed #bae6fd; font-size: 0.8rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.35rem;">
-            <div>🟢 <strong>Vượng (Cát):</strong> Ngũ hành trùng lệnh tháng (Đương lệnh cực thịnh).</div>
-            <div>🔵 <strong>Tướng (Cát):</strong> Ngũ hành do lệnh tháng sinh ra (Đắc sinh khí trợ lực).</div>
-            <div>🟡 <strong>Hưu (Hung):</strong> Ngũ hành sinh ra lệnh tháng (Đã cạn lực sinh mùa, thoái khí).</div>
-            <div>🟠 <strong>Tù (Hung):</strong> Ngũ hành bị lệnh tháng khắc (Khí lực bị giam hãm suy yếu).</div>
-            <div style="grid-column: 1 / -1;">🔴 <strong>Tử (Đại Hung):</strong> Ngũ hành khắc lệnh tháng (Khắc nghịch lệnh vượng, bị triệt hạ toàn bộ).</div>
+            <div>🟢 <strong>Vượng (Cát):</strong> Ngũ hành trùng lệnh tháng (Đang đương lệnh, khí thế cực thịnh).</div>
+            <div>🔵 <strong>Tướng (Cát):</strong> Ngũ hành do lệnh tháng sinh ra (Được nuôi dưỡng, lực lượng phát triển).</div>
+            <div>🟡 <strong>Hưu (Hung):</strong> Ngũ hành sinh ra lệnh tháng (Đã dốc sức sinh mùa nên thoái khí nghỉ ngơi).</div>
+            <div>🟠 <strong>Tù (Hung):</strong> Ngũ hành khắc lệnh tháng (Bị khí thế lệnh tháng giam hãm suy yếu).</div>
+            <div style="grid-column: 1 / -1;">🔴 <strong>Tử (Đại Hung):</strong> Ngũ hành bị lệnh tháng khắc chế (Thế yếu chống lệnh vượng bị triệt hạ toàn bộ).</div>
+          </div>
+          <div style="margin-top: 0.45rem; padding-top: 0.45rem; border-top: 1px dashed #bae6fd; font-size: 0.78rem; color: #075985;">
+            ⚠️ <strong>Ngày Chính Tứ Phế (Đại hung):</strong> Khi cả <em>Thiên Can ngày</em> và <em>Địa Chi ngày</em> cùng rơi vào nhóm <strong>Hưu, Tù, Tử</strong> trước lệnh tháng — khí lực can chi suy kiệt toàn diện, âm dương cùng thoái bại.
           </div>
         </div>
 
@@ -5105,8 +5132,16 @@
         </div>
 
         <!-- Lưu ý học thuật -->
-        <div style="margin-top: 0.85rem; font-size: 0.76rem; color: #6b7280; line-height: 1.6; border-top: 1px solid #e5e7eb; padding-top: 0.65rem;">
-          💡 <strong>Quy tắc Trạch Cát Vượng Suy:</strong> Trong trạch nhật, <strong>Ngày Vượng</strong> và <strong>Ngày Tướng</strong> là <em>Ngày Tốt (Cát lợi)</em> thích hợp cho trăm sự khởi tạo, động thổ, khai trương, xuất hành, nạp tài. Ngược lại, <strong>Ngày Hưu, Ngày Tù</strong> và đặc biệt là <strong>Ngày Tử</strong> thuộc <em>Ngày Hung (Kiêng kỵ)</em>, nên tạm gác việc đại sự, chỉ nên an dưỡng, thu xếp việc thường nhật hoặc củng cố nội lực.
+        <div style="margin-top: 0.85rem; font-size: 0.76rem; color: #4b5563; line-height: 1.6; border-top: 1px solid #e5e7eb; padding-top: 0.65rem;">
+          💡 <strong>Quy tắc Trạch Cát Vượng Suy &amp; Các Ngày Hung Trạch Nhật:</strong>
+          <ul style="margin: 0.3rem 0 0 1.1rem; padding: 0;">
+            <li><strong>Ngày Vượng &amp; Ngày Tướng:</strong> Ngày Cát lợi, hợp khởi tạo, động thổ, khai trương, xuất hành, nạp tài (đặc biệt cát khi cả Can và Chi đồng vượng/tướng).</li>
+            <li><strong>Ngày Hưu, Ngày Tù, Ngày Tử:</strong> Ngày Hung, thoái khí giam hãm triệt hạ; nên thủ thường, an dưỡng, kiểm kê nội bộ.</li>
+            <li><strong>Ngày Chính Tứ Phế:</strong> Cả Can và Chi cùng suy (Hưu, Tù, Tử) — đại kỵ cưới hỏi, động thổ, xuất hành, nhậm chức.</li>
+            <li><strong>Ngày Nguyệt Phá (Phá Nhật):</strong> Chi ngày lục xung trực tiếp Chi tháng — bách sự giai kỵ, chủ chia lìa đổ vỡ.</li>
+            <li><strong>Ngày Tứ Tuyệt &amp; Tứ Ly:</strong> 1 ngày trước 4 tiết lập mùa (Lập Xuân, Lập Hạ, Lập Thu, Lập Đông) và 4 điểm phân chí (Xuân Phân, Hạ Chí, Thu Phân, Đông Chí) — âm dương biến loạn, khí cũ cùng tận.</li>
+            <li><strong>Ngày Xung Niên Tuế:</strong> Ngày xung Thái Tuế của năm (Thiên Khắc Địa Xung, Thiên Tựa Địa Xung, Tuế Phá) — đại kỵ sự nghiệp lớn.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -5240,7 +5275,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.11.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.24.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -5935,11 +5970,26 @@
 
     // =========================================================================
     // HỆ THỐNG NHÓM NGÀY VƯỢNG SUY: VƯỢNG – TƯỚNG – HƯU – TÙ – TỬ (12 THÁNG ÂM LỊCH)
-    // Khâm Định Hiệp Kỷ Biện Phương Thư & Bốn Mùa Ngũ Hành Luân Chuyển
-    // Nguyên tắc: Đối chiếu Ngũ Hành của Chi Ngày (Nhật Chi) với Ngũ Hành của Chi Tháng (Nguyệt Lệnh):
-    // - Nhóm Ngày Tốt: Ngày Vượng (Đương lệnh cực vượng), Ngày Tướng (Được sinh trợ) -> Ngày Cát
-    // - Nhóm Ngày Hung: Ngày Hưu (Thoái khí), Ngày Tù (Giam hãm), Ngày Tử (Tuyệt diệt) -> Ngày Hung
+    // Căn cứ: Âm Dương Ngũ Hành & Khâm Định Hiệp Kỷ Biện Phương Thư
+    // Mở rộng toàn diện:
+    // 1. Ngũ Hành Địa Chi Ngày (Nhật Chi) so với Ngũ Hành Lệnh Chi Tháng (Nguyệt Lệnh)
+    // 2. Ngũ Hành Thiên Can Ngày (Nhật Can) so với Ngũ Hành Lệnh Chi Tháng (Nguyệt Lệnh)
+    // 3. Ngày Chính Tứ Phế: Khi cả Can ngày và Chi ngày cùng rơi vào nhóm {Hưu, Tù, Tử}
+    // 4. Các Ngày Hung Đặc Biệt: Nguyệt Phá, Tứ Tuyệt, Tứ Ly, Xung Niên Tuế
     // =========================================================================
+    const CAN_NGU_HANH = {
+      0: 'Mộc',  // Giáp
+      1: 'Mộc',  // Ất
+      2: 'Hỏa',  // Bính
+      3: 'Hỏa',  // Đinh
+      4: 'Thổ',  // Mậu
+      5: 'Thổ',  // Kỷ
+      6: 'Kim',  // Canh
+      7: 'Kim',  // Tân
+      8: 'Thủy', // Nhâm
+      9: 'Thủy'  // Quý
+    };
+
     const CHI_NGU_HANH = {
       0: 'Thủy', // Tý
       1: 'Thổ',  // Sửu
@@ -5955,9 +6005,81 @@
       11: 'Thủy' // Hợi
     };
 
+    // Đánh giá trạng thái Vượng - Tướng - Hưu - Tù - Tử của một ngũ hành đối với ngũ hành lệnh tháng
+    function evalSingleVuongSuy(hanh, monthHanh, label = 'Chi') {
+      const NGU_HANH_SINH = { 'Mộc': 'Hỏa', 'Hỏa': 'Thổ', 'Thổ': 'Kim', 'Kim': 'Thủy', 'Thủy': 'Mộc' };
+      const NGU_HANH_KHAC = { 'Mộc': 'Thổ', 'Thổ': 'Thủy', 'Thủy': 'Hỏa', 'Hỏa': 'Kim', 'Kim': 'Mộc' };
+
+      if (hanh === monthHanh) {
+        return {
+          type: 'vuong',
+          typeName: 'Vượng',
+          isCat: true,
+          isHung: false,
+          isDaiCat: true,
+          badgeClass: 'badge-vuong',
+          relationText: `Đồng ngũ hành với lệnh tháng (${monthHanh})`,
+          role: `Đang đương lệnh cực thịnh`,
+          desc: `${label} hành ${hanh} đồng khí lệnh tháng (${monthHanh}) — Đương lệnh, khí thế cực thịnh.`
+        };
+      } else if (NGU_HANH_SINH[monthHanh] === hanh) {
+        return {
+          type: 'tuong',
+          typeName: 'Tướng',
+          isCat: true,
+          isHung: false,
+          isDaiCat: true,
+          badgeClass: 'badge-tuong',
+          relationText: `Được lệnh tháng ${monthHanh} sinh dưỡng`,
+          role: `Đắc sinh khí phát triển`,
+          desc: `${label} hành ${hanh} do lệnh tháng (${monthHanh}) sinh ra — Đắc sinh khí nuôi dưỡng, lực lượng phát triển.`
+        };
+      } else if (NGU_HANH_SINH[hanh] === monthHanh) {
+        return {
+          type: 'huu',
+          typeName: 'Hưu',
+          isCat: false,
+          isHung: true,
+          isDaiCat: false,
+          badgeClass: 'badge-huu',
+          relationText: `Sinh ra lệnh tháng ${monthHanh} (Thoái khí)`,
+          role: `Thoái khí nghỉ ngơi`,
+          desc: `${label} hành ${hanh} sinh cho lệnh tháng (${monthHanh}) — Đã dốc sức sinh mùa nên thoái khí nghỉ ngơi.`
+        };
+      } else if (NGU_HANH_KHAC[hanh] === monthHanh) {
+        return {
+          type: 'tu',
+          typeName: 'Tù',
+          isCat: false,
+          isHung: true,
+          isDaiCat: false,
+          badgeClass: 'badge-tu',
+          relationText: `Khắc lệnh tháng ${monthHanh} (Bị giam hãm)`,
+          role: `Bị giam hãm suy yếu`,
+          desc: `${label} hành ${hanh} khắc lệnh tháng (${monthHanh}) — Bị khí thế lệnh tháng giam hãm, phong tỏa suy yếu.`
+        };
+      } else {
+        return {
+          type: 'tu_dead',
+          typeName: 'Tử',
+          isCat: false,
+          isHung: true,
+          isDaiCat: false,
+          badgeClass: 'badge-tudead',
+          relationText: `Bị lệnh tháng ${monthHanh} khắc phạt (Triệt hạ)`,
+          role: `Bị triệt hạ toàn bộ`,
+          desc: `${label} hành ${hanh} bị lệnh tháng (${monthHanh}) khắc chế — Thế yếu chống lệnh vượng bị triệt hạ toàn bộ.`
+        };
+      }
+    }
+
     function getVuongSuyInfo(lunarMonth, canIdx, chiIdx) {
       const m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
-      const dayChiHanh = CHI_NGU_HANH[chiIdx] || 'Mộc';
+      const cIdx = ((parseInt(canIdx, 10) % 10) + 10) % 10;
+      const chIdx = ((parseInt(chiIdx, 10) % 12) + 12) % 12;
+
+      const dayChiHanh = CHI_NGU_HANH[chIdx] || 'Mộc';
+      const dayCanHanh = CAN_NGU_HANH[cIdx] || 'Mộc';
 
       let monthHanh = 'Mộc';
       let seasonName = 'Mùa Xuân';
@@ -5978,93 +6100,83 @@
         seasonName = 'Tứ Quý (Thìn, Mùi, Tuất, Sửu)';
       }
 
-      // Ngũ hành tương sinh chuẩn: Mộc -> Hỏa -> Thổ -> Kim -> Thủy -> Mộc
-      const NGU_HANH_SINH = { 'Mộc': 'Hỏa', 'Hỏa': 'Thổ', 'Thổ': 'Kim', 'Kim': 'Thủy', 'Thủy': 'Mộc' };
-      // Ngũ hành tương khắc chuẩn: Mộc -> Thổ -> Thủy -> Hỏa -> Kim -> Mộc
-      const NGU_HANH_KHAC = { 'Mộc': 'Thổ', 'Thổ': 'Thủy', 'Thủy': 'Hỏa', 'Hỏa': 'Kim', 'Kim': 'Mộc' };
+      // Đánh giá ngũ hành Địa Chi ngày so với Chi tháng (Nguyệt lệnh)
+      const chiState = evalSingleVuongSuy(dayChiHanh, monthHanh, `Chi ngày (${CHI[chIdx]})`);
+      // Đánh giá ngũ hành Thiên Can ngày so với Chi tháng (Nguyệt lệnh)
+      const canState = evalSingleVuongSuy(dayCanHanh, monthHanh, `Can ngày (${CAN[cIdx]})`);
 
-      let type = 'vuong';
-      let typeName = 'Vượng';
-      let relationText = '';
+      // Quy tắc Chính Tứ Phế: Cả Thiên can và Địa chi ngày cùng thuộc nhóm Hưu, Tù, Tử trước lệnh tháng
+      const isChinhTuPhe = canState.isHung && chiState.isHung;
+
+      // Đánh giá tổng hợp ngày Vượng Suy (Lấy Nhật Chi làm thể, Nhật Can làm dụng)
+      const isCat = chiState.isCat;
+      const isHung = chiState.isHung;
+      const isDaiCat = chiState.isCat && canState.isCat;
+
       let badgeTitle = '';
-      let badgeClass = '';
+      if (isChinhTuPhe) {
+        badgeTitle = `Ngày ${chiState.typeName} (Chính Tứ Phế - Can ${canState.typeName} Chi ${chiState.typeName})`;
+      } else if (isDaiCat) {
+        badgeTitle = `Ngày ${chiState.typeName} (Can Chi Đồng Vượng)`;
+      } else {
+        badgeTitle = `Ngày ${chiState.typeName} (Can ${canState.typeName} - Chi ${chiState.typeName})`;
+      }
+
+      const badgeClass = chiState.badgeClass;
+      const type = chiState.type;
+      const typeName = chiState.typeName;
+
       let displayLine = '';
-      let isCat = true;
-      let isHung = false;
-      let isDaiCat = false;
-      let meaning = '';
+      if (isChinhTuPhe) {
+        displayLine = `Ngày ${chiState.typeName}: <span style="font-weight: 700; color: #b91c1c;">Chính Tứ Phế (Đại hung)</span>`;
+      } else if (isDaiCat) {
+        displayLine = `Ngày ${chiState.typeName}: <span style="font-weight: 700; color: #15803d;">Can Chi Đồng Vượng (Cực cát)</span>`;
+      } else if (isCat) {
+        displayLine = `Ngày ${chiState.typeName}: <span style="font-weight: 600; color: ${type === 'vuong' ? '#15803d' : '#1d4ed8'};">${type === 'vuong' ? 'Đại cát' : 'Cát lợi'}</span>`;
+      } else {
+        displayLine = `Ngày ${chiState.typeName}: <span style="font-weight: 600; color: ${type === 'tu_dead' ? '#b91c1c' : '#c2410c'};">${type === 'tu_dead' ? 'Tuyệt khí (Đại hung)' : 'Thoái khí/Giam hãm (Hung)'}</span>`;
+      }
+
+      let meaning = `Chi ngày ${CHI[chIdx]} (${dayChiHanh}): <strong>${chiState.typeName}</strong> [${chiState.role}]; Can ngày ${CAN[cIdx]} (${dayCanHanh}): <strong>${canState.typeName}</strong> [${canState.role}] trước lệnh tháng ${monthHanh}.`;
+      if (isChinhTuPhe) {
+        meaning += ` <em>(Cả Can và Chi đều suy kiệt, phạm <strong>Chính Tứ Phế</strong>)</em>.`;
+      }
+
       let actionTag = null;
       let actionText = null;
       let avoidTag = null;
       let avoidText = null;
 
-      if (dayChiHanh === monthHanh) {
-        // Vượng: Ngũ hành trùng khớp với ngũ hành lệnh tháng (Đang đương lệnh, khí thế mạnh nhất)
-        type = 'vuong';
-        typeName = 'Vượng';
-        isCat = true;
-        isDaiCat = true;
-        badgeTitle = 'Ngày Vượng';
-        badgeClass = 'badge-vuong';
-        relationText = `Trùng ngũ hành lệnh tháng (${monthHanh})`;
-        displayLine = 'Ngày Vượng: <span style="font-weight: 600; color: #15803d;">Đại cát</span>';
-        meaning = `Chi ngày hành ${dayChiHanh} trùng khớp ngũ hành lệnh tháng (${monthHanh}) — Đang đương lệnh, khí thế cực thịnh.`;
+      if (isCat) {
         actionTag = 'Hợp làm gì:';
-        actionText = 'Đại cát cho trăm sự khởi tạo, động thổ, khai trương, xuất hành, mưu cầu việc lớn hanh thông.';
-      } else if (NGU_HANH_SINH[monthHanh] === dayChiHanh) {
-        // Tướng: Ngũ hành do ngũ hành lệnh tháng sinh ra (Được vượng khí nuôi dưỡng, lực lượng phát triển)
-        type = 'tuong';
-        typeName = 'Tướng';
-        isCat = true;
-        isDaiCat = true;
-        badgeTitle = 'Ngày Tướng';
-        badgeClass = 'badge-tuong';
-        relationText = `Được lệnh tháng ${monthHanh} sinh dưỡng (${dayChiHanh})`;
-        displayLine = 'Ngày Tướng: <span style="font-weight: 600; color: #1d4ed8;">Cát lợi</span>';
-        meaning = `Chi ngày hành ${dayChiHanh} do ngũ hành lệnh tháng (${monthHanh}) sinh ra — Được vượng khí nuôi dưỡng, lực lượng phát triển.`;
-        actionTag = 'Hợp làm gì:';
-        actionText = 'Cát lợi cho gieo trồng, nạp tài, giá thú cưới hỏi, mở mang kinh doanh, củng cố sinh khí phát triển.';
-      } else if (NGU_HANH_SINH[dayChiHanh] === monthHanh) {
-        // Hưu: Ngũ hành sinh ra ngũ hành lệnh tháng (Đã dốc hết sức để sinh mùa nên nghỉ ngơi, thoái khí)
-        type = 'huu';
-        typeName = 'Hưu';
-        isHung = true;
-        isCat = false;
-        badgeTitle = 'Ngày Hưu';
-        badgeClass = 'badge-huu';
-        relationText = `Sinh ra lệnh tháng ${monthHanh} (Thoái khí)`;
-        displayLine = 'Ngày Hưu: <span style="font-weight: 600; color: #854d0e;">Thoái khí (Hung)</span>';
-        meaning = `Chi ngày hành ${dayChiHanh} sinh cho ngũ hành lệnh tháng (${monthHanh}) — Đã dốc hết sức để sinh mùa nên nghỉ ngơi, thoái khí suy giảm.`;
-        actionTag = 'Nên làm:';
-        actionText = 'Hợp an dưỡng, nghỉ ngơi, củng cố nội lực, bảo toàn vốn liếng, giải quyết việc nội bộ thường nhật.';
-        avoidTag = 'Kiêng cữ:';
-        avoidText = 'Kỵ khởi sự việc mới cần khí thế bứt phá, kỵ khai trương, động thổ mưu việc lớn.';
-      } else if (NGU_HANH_KHAC[dayChiHanh] === monthHanh) {
-        // Tù: Ngũ hành khắc mùa (Khí lực bị giam hãm, suy yếu do thế yếu chống lệnh vượng)
-        type = 'tu';
-        typeName = 'Tù';
-        isHung = true;
-        isCat = false;
-        badgeTitle = 'Ngày Tù';
-        badgeClass = 'badge-tu';
-        relationText = `Khắc mùa ${monthHanh} (Bị giam hãm)`;
-        displayLine = 'Ngày Tù: <span style="font-weight: 600; color: #c2410c;">Giam hãm (Hung)</span>';
-        meaning = `Chi ngày hành ${dayChiHanh} khắc ngũ hành lệnh tháng (${monthHanh}) — Khí lực bị lệnh tháng giam hãm, phong tỏa suy yếu.`;
-        avoidTag = 'Kiêng cữ:';
-        avoidText = 'Kỵ tranh chấp tố tụng, kỵ xuất hành xa, tránh đầu tư mạo hiểm hay ký kết hợp đồng quan trọng.';
+        if (type === 'vuong') {
+          actionText = `Đại cát cho trăm sự khởi tạo, động thổ, khai trương, xuất hành, mưu cầu việc lớn hanh thông${isDaiCat ? ' (Can Chi cùng đắc sinh vượng)' : ''}.`;
+        } else {
+          actionText = `Cát lợi cho gieo trồng, nạp tài, giá thú cưới hỏi, mở mang kinh doanh, củng cố sinh khí phát triển${isDaiCat ? ' (Can Chi cùng cát)' : ''}.`;
+        }
+        if (canState.isHung) {
+          avoidTag = 'Lưu ý:';
+          avoidText = `Chi ngày đắc ${chiState.typeName} trợ mệnh nhưng Can ngày rơi vào ${canState.typeName} (${canState.relationText}), nên tiến hành cẩn trọng, chu đáo.`;
+        }
       } else {
-        // Tử: Ngũ hành bị mùa khắc (Bị mùa khắc phạt: Thế yếu chống lệnh vượng bị triệt hạ toàn bộ)
-        type = 'tu_dead';
-        typeName = 'Tử';
-        isHung = true;
-        isCat = false;
-        badgeTitle = 'Ngày Tử';
-        badgeClass = 'badge-tudead';
-        relationText = `Bị lệnh tháng ${monthHanh} khắc phạt (Triệt hạ)`;
-        displayLine = 'Ngày Tử: <span style="font-weight: 600; color: #b91c1c;">Tuyệt khí (Đại hung)</span>';
-        meaning = `Chi ngày hành ${dayChiHanh} bị ngũ hành lệnh tháng (${monthHanh}) khắc chế — Thế yếu chống lại lệnh vượng nên bị triệt hạ toàn bộ.`;
         avoidTag = 'Kiêng cữ:';
-        avoidText = 'Đại kỵ khởi công, động thổ, giá thú cưới hỏi, khai trương, xuất hành, nhậm chức; đề phòng tổn hại tai ương bất trắc.';
+        if (isChinhTuPhe) {
+          avoidText = 'Đại kỵ khởi công, động thổ, cưới hỏi giá thú, khai trương, xuất hành, nhậm chức; âm dương cùng kiệt, trăm sự bất thành.';
+          actionTag = 'Chỉ nên:';
+          actionText = 'Chỉ nên an dưỡng, nghỉ ngơi, củng cố nội lực, làm việc thường nhật, dưỡng đức an tâm.';
+        } else if (type === 'tu_dead') {
+          avoidText = 'Đại kỵ khởi công, động thổ, giá thú cưới hỏi, khai trương, xuất hành, nhậm chức; đề phòng tổn hại tai ương bất trắc.';
+          actionTag = 'Nên làm:';
+          actionText = 'Nên tĩnh tại giữ mình, tránh xung động, tu dưỡng tích phúc, hoàn thiện các việc cũ.';
+        } else if (type === 'tu') {
+          avoidText = 'Kỵ tranh chấp tố tụng, kỵ xuất hành xa, tránh đầu tư mạo hiểm hay ký kết hợp đồng quan trọng.';
+          actionTag = 'Nên làm:';
+          actionText = 'Hợp giải quyết tồn đọng nội bộ, kiểm kê sổ sách, củng cố phòng thủ.';
+        } else { // huu
+          avoidText = 'Kỵ khởi sự việc mới cần khí thế bứt phá, kỵ khai trương, động thổ mưu việc lớn.';
+          actionTag = 'Nên làm:';
+          actionText = 'Hợp an dưỡng, nghỉ ngơi, củng cố nội lực, bảo toàn vốn liếng, giải quyết việc thường nhật.';
+        }
       }
 
       return {
@@ -6074,9 +6186,13 @@
         seasonName,
         monthHanh,
         dayHanh: dayChiHanh,
-        dayChiIndex: chiIdx,
-        canIndex: canIdx,
-        relationText,
+        dayCanHanh,
+        dayChiIndex: chIdx,
+        canIndex: cIdx,
+        chiState,
+        canState,
+        isChinhTuPhe,
+        relationText: chiState.relationText,
         badgeTitle,
         badgeClass,
         displayLine,
@@ -6094,6 +6210,176 @@
     // Giữ bí danh getVuongTuongInfo để tương thích toàn bộ hệ thống
     function getVuongTuongInfo(lunarMonth, canIdx, chiIdx) {
       return getVuongSuyInfo(lunarMonth, canIdx, chiIdx);
+    }
+
+    // Xác định Ngày Chính Tứ Phế (Can ngày & Chi ngày cùng thuộc Hưu, Tù, Tử)
+    function getChinhTuPheInfo(lunarMonth, canIdx, chiIdx) {
+      const vs = getVuongSuyInfo(lunarMonth, canIdx, chiIdx);
+      if (!vs.isChinhTuPhe) return { isChinhTuPhe: false };
+
+      return {
+        isChinhTuPhe: true,
+        canName: CAN[vs.canIndex],
+        chiName: CHI[vs.dayChiIndex],
+        canHanh: vs.dayCanHanh,
+        chiHanh: vs.dayHanh,
+        canTypeName: vs.canState.typeName,
+        chiTypeName: vs.chiState.typeName,
+        monthHanh: vs.monthHanh,
+        badgeClass: 'badge-chinh-tuphe',
+        badgeTitle: '⚠️ Ngày Chính Tứ Phế (Đại hung)',
+        meaning: `Cả Can ngày ${CAN[vs.canIndex]} (${vs.canState.typeName}) và Chi ngày ${CHI[vs.dayChiIndex]} (${vs.chiState.typeName}) đều rơi vào nhóm Hưu, Tù, Tử trước lệnh tháng ${vs.monthHanh}.`,
+        hungWhat: `Chính Tứ Phế là ngày khí lực can chi suy kiệt hoàn toàn, âm dương cùng thoái bại, bị khí thế lệnh tháng giam hãm triệt hạ.`,
+        avoidTag: 'Đại kỵ:',
+        avoidText: 'Đại kỵ trăm sự khởi đầu: Động thổ, khởi công, cưới hỏi giá thú, khai trương, xuất hành, nhậm chức, xây sửa; sự việc dễ gặp trắc trở, dở dang, hao tổn.'
+      };
+    }
+
+    // Xác định Ngày Nguyệt Phá (Phá Nhật - Chi ngày lục xung Chi tháng)
+    function getNguyetPhaInfo(lunarMonth, dayChiIndex) {
+      const m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      const monthChiIdx = (m + 1) % 12; // Th.1 = Dần (2), Th.2 = Mão (3), ..., Th.11 = Tý (0), Th.12 = Sửu (1)
+      const chIdx = ((parseInt(dayChiIndex, 10) % 12) + 12) % 12;
+      const isNguyetPha = (chIdx + 6) % 12 === monthChiIdx;
+      if (!isNguyetPha) return { isNguyetPha: false };
+
+      return {
+        isNguyetPha: true,
+        monthChi: CHI[monthChiIdx],
+        dayChi: CHI[chIdx],
+        badgeClass: 'badge-nguyetpha',
+        badgeTitle: '⚠️ Ngày Nguyệt Phá (Phá Nhật - Đại hung)',
+        meaning: `Địa chi ngày (${CHI[chIdx]}) lục xung trực tiếp với Địa chi của tháng (${CHI[monthChiIdx]}).`,
+        hungWhat: `Nguyệt Phá (Phá Nhật) là ngày khí của ngày xung trực diện với Nguyệt lệnh, khí trường chấn động tan vỡ, biến cát thành hung.`,
+        avoidTag: 'Đại kỵ:',
+        avoidText: 'Đại kỵ khởi công, động thổ, cưới hỏi giá thú, khai trương, xuất hành, ký kết làm ăn, nhậm chức, xây sửa; trăm sự gặp Nguyệt Phá chủ về đổ vỡ, chia lìa, tổn tài hao của.'
+      };
+    }
+
+    // Xác định Ngày Tứ Tuyệt & Ngày Tứ Ly (1 ngày trước các tiết lập mùa & phân chí)
+    function getTuTuyetTuLyInfo(dd, mm, yy) {
+      const curJD = jdFromDate(dd, mm, yy);
+      const nextJD = curJD + 1; // 1 ngày trước tiết khí = ngày mai chính là ngày tiết khí diễn ra
+
+      // 4 tiết Tứ Tuyệt: 1 ngày trước Lập Xuân, Lập Hạ, Lập Thu, Lập Đông
+      const TUYET_TERMS = [
+        { name: 'Lập Xuân', deg: 315, estDay: 35, note: 'Khí Thủy mùa Đông cùng tận tuyệt diệt nhường chỗ cho Mộc mùa Xuân' },
+        { name: 'Lập Hạ', deg: 45, estDay: 125, note: 'Khí Mộc mùa Xuân cùng tận tuyệt diệt nhường chỗ cho Hỏa mùa Hạ' },
+        { name: 'Lập Thu', deg: 135, estDay: 219, note: 'Khí Hỏa mùa Hạ cùng tận tuyệt diệt nhường chỗ cho Kim mùa Thu' },
+        { name: 'Lập Đông', deg: 225, estDay: 311, note: 'Khí Kim mùa Thu cùng tận tuyệt diệt nhường chỗ cho Thủy mùa Đông' }
+      ];
+
+      // 4 tiết Tứ Ly: 1 ngày trước Xuân Phân, Hạ Chí, Thu Phân, Đông Chí
+      const LY_TERMS = [
+        { name: 'Xuân Phân', deg: 0, estDay: 80, note: 'Điểm phân mùa Xuân, âm dương phân chia cực độ' },
+        { name: 'Hạ Chí', deg: 90, estDay: 172, note: 'Điểm chí mùa Hạ, dương cực sinh âm, khí trời biến chuyển' },
+        { name: 'Thu Phân', deg: 180, estDay: 266, note: 'Điểm phân mùa Thu, ngày đêm phân ly quân bình chuyển dịch' },
+        { name: 'Đông Chí', deg: 270, estDay: 355, note: 'Điểm chí mùa Đông, âm cực sinh dương, nhất dương sơ sinh' }
+      ];
+
+      for (const t of TUYET_TERMS) {
+        for (const yr of [yy - 1, yy, yy + 1]) {
+          const termRealJD = getSolarTermTransitionJD(yr, t.deg, t.estDay);
+          const dt = realJDToDateTime(termRealJD, 7);
+          const termDayJD = jdFromDate(dt.day, dt.month, dt.year);
+          if (termDayJD === nextJD) {
+            return {
+              isTuTuyet: true,
+              isTuLy: false,
+              termName: t.name,
+              note: t.note,
+              termDateStr: `${String(dt.day).padStart(2, '0')}/${String(dt.month).padStart(2, '0')}/${dt.year}`,
+              badgeClass: 'badge-tutuyet',
+              badgeTitle: `⚠️ Ngày Tứ Tuyệt (Trước tiết ${t.name})`,
+              meaning: `Hôm nay là 1 ngày trước tiết ${t.name} (tiết khí ngày mai ${String(dt.day).padStart(2, '0')}/${String(dt.month).padStart(2, '0')}). ${t.note}.`,
+              hungWhat: `Ngày Tứ Tuyệt là thời điểm khí cũ của mùa trước đã hoàn toàn cùng tận tuyệt diệt, khí mới chưa định hình, trời đất thiếu hụt sinh khí.`,
+              avoidTag: 'Kiêng cữ:',
+              avoidText: 'Đại kỵ xuất hành xa, giá thú cưới hỏi, khởi công động thổ, nhậm chức, tế tự cầu phúc, khởi sự làm ăn lớn.'
+            };
+          }
+        }
+      }
+
+      for (const t of LY_TERMS) {
+        for (const yr of [yy - 1, yy, yy + 1]) {
+          const termRealJD = getSolarTermTransitionJD(yr, t.deg, t.estDay);
+          const dt = realJDToDateTime(termRealJD, 7);
+          const termDayJD = jdFromDate(dt.day, dt.month, dt.year);
+          if (termDayJD === nextJD) {
+            return {
+              isTuTuyet: false,
+              isTuLy: true,
+              termName: t.name,
+              note: t.note,
+              termDateStr: `${String(dt.day).padStart(2, '0')}/${String(dt.month).padStart(2, '0')}/${dt.year}`,
+              badgeClass: 'badge-tuly',
+              badgeTitle: `⚠️ Ngày Tứ Ly (Trước tiết ${t.name})`,
+              meaning: `Hôm nay là 1 ngày trước điểm phân chí ${t.name} (ngày mai ${String(dt.day).padStart(2, '0')}/${String(dt.month).padStart(2, '0')}). ${t.note}.`,
+              hungWhat: `Ngày Tứ Ly là thời điểm âm dương phân ly cực độ, khí trường chuyển dịch hỗn loạn.`,
+              avoidTag: 'Kiêng cữ:',
+              avoidText: 'Đại kỵ giá thú hôn nhân, ký kết liên minh làm ăn, xuất hành xa, tiến hành các việc lớn đòi hỏi sự hòa thuận bền vững.'
+            };
+          }
+        }
+      }
+
+      return { isTuTuyet: false, isTuLy: false };
+    }
+
+    // Xác định Ngày Xung Niên Tuế: Thiên Khắc Địa Xung, Thiên Tựa Địa Xung, Tuế Phá
+    function getXungNienTueInfo(lunarYear, dayCanIndex, dayChiIndex) {
+      const yCanIdx = (lunarYear + 6) % 10;
+      const yChiIdx = (lunarYear + 8) % 12;
+      const chIdx = ((parseInt(dayChiIndex, 10) % 12) + 12) % 12;
+      const cIdx = ((parseInt(dayCanIndex, 10) % 10) + 10) % 10;
+
+      // Địa chi xung với năm: Lục xung
+      const isDiaXung = (chIdx + 6) % 12 === yChiIdx;
+      if (!isDiaXung) return { isXung: false };
+
+      const CAN_NGU_HANH_MAP = { 0: 'Mộc', 1: 'Mộc', 2: 'Hỏa', 3: 'Hỏa', 4: 'Thổ', 5: 'Thổ', 6: 'Kim', 7: 'Kim', 8: 'Thủy', 9: 'Thủy' };
+      const NGU_HANH_KHAC_MAP = { 'Mộc': 'Thổ', 'Thổ': 'Thủy', 'Thủy': 'Hỏa', 'Hỏa': 'Kim', 'Kim': 'Mộc' };
+
+      const dCanHanh = CAN_NGU_HANH_MAP[cIdx];
+      const yCanHanh = CAN_NGU_HANH_MAP[yCanIdx];
+
+      const isCanKhac = NGU_HANH_KHAC_MAP[dCanHanh] === yCanHanh || NGU_HANH_KHAC_MAP[yCanHanh] === dCanHanh;
+      const isCanTua = dCanHanh === yCanHanh;
+
+      if (isCanKhac) {
+        return {
+          isXung: true,
+          subType: 'thien_khac_dia_xung',
+          badgeClass: 'badge-xungtue',
+          badgeTitle: '⚠️ Thiên Khắc Địa Xung Với Năm (Cực hung)',
+          meaning: `Can ngày ${CAN[cIdx]} (${dCanHanh}) tương khắc Can năm ${CAN[yCanIdx]} (${yCanHanh}) VÀ Chi ngày ${CHI[chIdx]} lục xung Chi năm ${CHI[yChiIdx]}.`,
+          hungWhat: `Thiên Khắc Địa Xung với năm là thế xung phá toàn diện cả Trời lẫn Đất đối với Thái Tuế của năm, khí trường bị nghịch đảo cực độ.`,
+          avoidTag: 'Đại kỵ:',
+          avoidText: 'Đại kỵ động thổ, khai trương, xuất hành, cưới hỏi, nhậm chức, xây sửa; phòng ngừa tai bay vạ gió, khẩu thiệt thị phi, hao tài tốn của.'
+        };
+      } else if (isCanTua) {
+        return {
+          isXung: true,
+          subType: 'thien_tua_dia_xung',
+          badgeClass: 'badge-xungtue',
+          badgeTitle: '⚠️ Thiên Tựa Địa Xung Với Năm (Đại hung)',
+          meaning: `Can ngày ${CAN[cIdx]} đồng khí (${dCanHanh}) với Can năm ${CAN[yCanIdx]} nhưng Chi ngày ${CHI[chIdx]} lại lục xung Chi năm ${CHI[yChiIdx]}.`,
+          hungWhat: `Thiên Tựa Địa Xung (Thiên Đồng Địa Xung) vừa tỷ hòa tương tranh vừa xung kích Thái Tuế, gây bất hòa chia rẽ nội bộ và biến động trắc trở.`,
+          avoidTag: 'Kiêng cữ:',
+          avoidText: 'Kỵ mở rộng làm ăn, kỵ khởi công, tránh tranh chấp kiện tụng, thận trọng trong việc kết giao và đầu tư.'
+        };
+      } else {
+        return {
+          isXung: true,
+          subType: 'dia_xung',
+          badgeClass: 'badge-xungtue',
+          badgeTitle: '⚠️ Ngày Tuế Phá (Địa Xung Với Năm)',
+          meaning: `Chi ngày ${CHI[chIdx]} lục xung trực diện với Chi năm Thái Tuế (${CHI[yChiIdx]}).`,
+          hungWhat: `Tuế Phá Nhật là ngày địa chi xung phá trực tiếp với Thái Tuế của năm, khí vận bất ổn định.`,
+          avoidTag: 'Kiêng cữ:',
+          avoidText: 'Kiêng cữ việc lớn hệ trọng như khởi công xây dựng, xuất hành xa, cưới hỏi, nhậm chức.'
+        };
+      }
     }
 
     // =========================================================================
@@ -7052,8 +7338,8 @@
           meaning: vuongSuy.meaning,
           actionTag: vuongSuy.actionTag || "Hợp làm gì:",
           actionText: vuongSuy.actionText,
-          avoidTag: null,
-          avoidText: null,
+          avoidTag: vuongSuy.avoidTag,
+          avoidText: vuongSuy.avoidText,
           lookupType: "vuongTuong"
         });
       } else if (vuongSuy.isHung) {
@@ -7069,7 +7355,69 @@
         });
       }
 
-      // 4b. Ngày Mẫu Thương (Hiệp Kỷ Biện Phương Thư - Ngũ Hành Tương Sinh Mẫu - Tử)
+      // 4a. Ngày Chính Tứ Phế (Cả Can ngày và Chi ngày cùng rơi vào nhóm Hưu, Tù, Tử)
+      const chinhTuPhe = getChinhTuPheInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (chinhTuPhe && chinhTuPhe.isChinhTuPhe) {
+        hungItems.push({
+          badgeClass: chinhTuPhe.badgeClass,
+          badgeTitle: chinhTuPhe.badgeTitle,
+          hungWhat: `${chinhTuPhe.meaning} ${chinhTuPhe.hungWhat}`,
+          avoidTag: chinhTuPhe.avoidTag,
+          avoidText: chinhTuPhe.avoidText,
+          actionTag: "Chỉ nên:",
+          actionText: "An dưỡng tĩnh tại, dưỡng tâm tích đức, bảo toàn nguyên khí, làm việc thường nhật.",
+          lookupType: "vuongTuong"
+        });
+      }
+
+      // 4b. Ngày Nguyệt Phá (Phá Nhật - Chi ngày lục xung Chi tháng)
+      const nguyetPha = getNguyetPhaInfo(lunarMonth, dayCanChi.chiIndex);
+      if (nguyetPha && nguyetPha.isNguyetPha) {
+        hungItems.push({
+          badgeClass: nguyetPha.badgeClass,
+          badgeTitle: nguyetPha.badgeTitle,
+          hungWhat: `${nguyetPha.meaning} ${nguyetPha.hungWhat}`,
+          avoidTag: nguyetPha.avoidTag,
+          avoidText: nguyetPha.avoidText,
+          actionTag: null,
+          actionText: null,
+          lookupType: null
+        });
+      }
+
+      // 4c. Ngày Tứ Tuyệt & Ngày Tứ Ly (1 ngày trước các tiết Lập mùa & Phân/Chí)
+      const [curD, curM, curY] = jdToDate(jd);
+      const tuTuyetTuLy = getTuTuyetTuLyInfo(curD, curM, curY);
+      if (tuTuyetTuLy && (tuTuyetTuLy.isTuTuyet || tuTuyetTuLy.isTuLy)) {
+        hungItems.push({
+          badgeClass: tuTuyetTuLy.badgeClass,
+          badgeTitle: tuTuyetTuLy.badgeTitle,
+          hungWhat: `${tuTuyetTuLy.meaning} ${tuTuyetTuLy.hungWhat}`,
+          avoidTag: tuTuyetTuLy.avoidTag,
+          avoidText: tuTuyetTuLy.avoidText,
+          actionTag: null,
+          actionText: null,
+          lookupType: null
+        });
+      }
+
+      // 4d. Ngày Xung Niên Tuế (Thiên Khắc Địa Xung, Thiên Tựa Địa Xung, Tuế Phá)
+      const [, , curLunarYear] = convertSolar2Lunar(curD, curM, curY, 7);
+      const xungNienTue = getXungNienTueInfo(curLunarYear, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (xungNienTue && xungNienTue.isXung) {
+        hungItems.push({
+          badgeClass: xungNienTue.badgeClass,
+          badgeTitle: xungNienTue.badgeTitle,
+          hungWhat: `${xungNienTue.meaning} ${xungNienTue.hungWhat}`,
+          avoidTag: xungNienTue.avoidTag,
+          avoidText: xungNienTue.avoidText,
+          actionTag: null,
+          actionText: null,
+          lookupType: null
+        });
+      }
+
+      // 4e. Ngày Mẫu Thương (Hiệp Kỷ Biện Phương Thư - Ngũ Hành Tương Sinh Mẫu - Tử)
       const mauThuong = getMauThuongInfo(lunarMonth, dayCanChi.chiIndex);
       if (mauThuong.isMauThuong) {
         catItems.push({
@@ -7744,6 +8092,22 @@
       if (mauThuong.isMauThuong) {
         cellTitle += `\nMẫu Thương: ${mauThuong.badgeTitle} (Sinh sôi, nuôi dưỡng vạn vật)`;
       }
+      const chinhTuPhe = getChinhTuPheInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (chinhTuPhe && chinhTuPhe.isChinhTuPhe) {
+        cellTitle += `\n⚠️ Chính Tứ Phế (Đại hung)`;
+      }
+      const nguyetPha = getNguyetPhaInfo(lMonth, dayCanChi.chiIndex);
+      if (nguyetPha && nguyetPha.isNguyetPha) {
+        cellTitle += `\n⚠️ Nguyệt Phá (Phá Nhật - Đại hung)`;
+      }
+      const tuTuyetTuLy = getTuTuyetTuLyInfo(d, m, y);
+      if (tuTuyetTuLy && (tuTuyetTuLy.isTuTuyet || tuTuyetTuLy.isTuLy)) {
+        cellTitle += `\n⚠️ ${tuTuyetTuLy.badgeTitle}`;
+      }
+      const xungNienTue = getXungNienTueInfo(lYear, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (xungNienTue && xungNienTue.isXung) {
+        cellTitle += `\n⚠️ ${xungNienTue.badgeTitle}`;
+      }
       cell.title = cellTitle;
 
       cell.addEventListener('click', () => {
@@ -7817,23 +8181,19 @@
       // Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ theo Trạch Nhật)
       renderNghiKyDungSu(lMonth, dayCanChi, dayCanChi.jd);
 
-      // Điểm Sóc và Cơ sở tính Mùng 1 Âm lịch (hiển thị tóm tắt trên Lịch Ngày)
-      const socInfo = getNewMoonDetailsForDate(d, m, y, 7);
-      const curH = String(socInfo.currentInstant.hours).padStart(2, '0');
-      const curM = String(socInfo.currentInstant.minutes).padStart(2, '0');
-      const curS = String(socInfo.currentInstant.seconds).padStart(2, '0');
-      const curD = String(socInfo.currentDate[0]).padStart(2, '0');
-      const curMo = String(socInfo.currentDate[1]).padStart(2, '0');
-      const monthTypeName = socInfo.totalDays === 30 ? "Tháng Đủ (30 ngày)" : "Tháng Thiếu (29 ngày)";
-
-      // Cập nhật tóm tắt trên Bloc
+      // Điểm Sóc và Cơ sở tính Mùng 1 Âm lịch (đã chuyển sang tab Tháng Nhuận & Điểm Sóc)
       const blocSocTimeEl = document.getElementById('blocSocTime');
-      if (blocSocTimeEl) {
-        blocSocTimeEl.textContent = `${curH}:${curM}:${curS} (ngày ${curD}/${curMo})`;
-      }
       const blocSocRuleEl = document.getElementById('blocSocRule');
-      if (blocSocRuleEl) {
-        blocSocRuleEl.textContent = `Khởi 00:00 ngày ${curD}/${curMo} • ${monthTypeName}`;
+      if (blocSocTimeEl || blocSocRuleEl) {
+        const socInfo = getNewMoonDetailsForDate(d, m, y, 7);
+        const curH = String(socInfo.currentInstant.hours).padStart(2, '0');
+        const curM = String(socInfo.currentInstant.minutes).padStart(2, '0');
+        const curS = String(socInfo.currentInstant.seconds).padStart(2, '0');
+        const curD = String(socInfo.currentDate[0]).padStart(2, '0');
+        const curMo = String(socInfo.currentDate[1]).padStart(2, '0');
+        const monthTypeName = socInfo.totalDays === 30 ? "Tháng Đủ (30 ngày)" : "Tháng Thiếu (29 ngày)";
+        if (blocSocTimeEl) blocSocTimeEl.textContent = `${curH}:${curM}:${curS} (ngày ${curD}/${curMo})`;
+        if (blocSocRuleEl) blocSocRuleEl.textContent = `Khởi 00:00 ngày ${curD}/${curMo} • ${monthTypeName}`;
       }
 
       // Lễ Tết (hỗ trợ hiển thị nhiều ngày lễ nếu trùng ngày)
