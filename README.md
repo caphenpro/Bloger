@@ -167,6 +167,22 @@
     - *Đắc Thiên Đức Quý Nhân* / *Đắc Nguyệt Đức Quý Nhân*.
     - Hướng dẫn kích hoạt Quý Nhân qua Đại Vận, Lưu Niên khi nguyên cục chưa đắc.
 
+### 13. Hệ Thống Sao / Ngày Mẫu Thương (Khâm Định Hiệp Kỷ Biện Phương Thư)
+- **Cơ Sở Dịch Học & Quy Luật Ngũ Hành Tương Sinh**:
+  - Tích hợp nguyên lý xác định Sao Mẫu Thương (Nguyệt Thương) dựa trên quy luật **Ngũ Hành Tương Sinh giữa Nguyệt lệnh (Tháng - đại diện cho Mẹ/Mẫu) và Nhật chi (Ngày - đại diện cho Con/Tử)**:
+    - *Tháng Dần (1) & Mão (2) (Mộc)*: Ngày Hợi, Tý (Thủy sinh Mộc).
+    - *Tháng Tỵ (4) & Ngọ (5) (Hỏa)*: Ngày Dần, Mão (Mộc sinh Hỏa).
+    - *Tháng Thân (7) & Dậu (8) (Kim)*: Ngày Thìn, Tuất, Sửu, Mùi (Thổ sinh Kim).
+    - *Tháng Hợi (10) & Tý (11) (Thủy)*: Ngày Thân, Dậu (Kim sinh Thủy).
+    - *Tháng Thìn (3), Tuất (9), Sửu (12), Mùi (6) (Thổ)*: Ngày Tỵ, Ngọ (Hỏa sinh Thổ).
+  - Đại diện cho sự nuôi dưỡng, sinh sôi, tích lũy và che chở của khí âm dương mùa màng đối với vạn vật.
+- **Tích Hợp Trực Quan Vào Lịch Vạn Niên & Trạch Nhật**:
+  - Tự động hiển thị trong nhóm Cát Tinh Trạch Nhật (`catItems`) trên khối Nghị Kỵ Dụng Sự của Bloc Lịch hàng ngày với huy hiệu `🌾 Ngày Mẫu Thương (Cát tinh)`.
+  - Hướng dẫn dụng sự: Đại cát cho trăm sự sinh sôi, nuôi dưỡng vạn vật, khai kho nạp tài, gieo trồng thu hoạch, giá thú cưới hỏi, nhập trạch cầu an, dưỡng bệnh và tích lũy tài sản phát triển lâu bền.
+  - Tích hợp nút tra cứu nhanh `Tra Mẫu Thương ➔` trên thanh công cụ Trạch Nhật và trên từng thẻ ngày Mẫu Thương.
+  - Tích hợp cửa sổ Modal tra cứu chuyên sâu (`#mauThuongModal`) trình bày trực quan 5 nhóm tháng theo mùa, tự động nhận diện và làm nổi bật tháng đang chọn.
+  - Đồng bộ thông tin Mẫu Thương vào tooltip của từng ô ngày trong lưới Lịch Tháng và công cụ Chuyển đổi Âm - Dương.
+
 ---
 
 ## 📱 THIẾT KẾ ĐÁP ỨNG (RESPONSIVE DESIGN)
@@ -195,7 +211,23 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
-### [v1.21.2] - 2026-09-08
+### [v1.22.0] - 2026-09-09
+- **Bổ Sung Sao / Ngày Mẫu Thương (Nguyệt Thương) Vào Nhóm Cát Tinh Trạch Nhật**:
+  - **Thuật Toán Xác Định Ngày Mẫu Thương Chuẩn Khâm Định Hiệp Kỷ Biện Phương Thư**:
+    - Thiết lập hàm `getMauThuongInfo(lunarMonth, chiIdx)` dựa trên quy luật Ngũ Hành Tương Sinh giữa Nguyệt lệnh (Tháng - đại diện cho Mẫu/Mẹ) và Địa Chi ngày (Nhật chi - đại diện cho Tử/Con):
+      - Tháng Dần (1) & Mão (2) (hành Mộc): gặp ngày Hợi, Tý (Thủy sinh Mộc).
+      - Tháng Tỵ (4) & Ngọ (5) (hành Hỏa): gặp ngày Dần, Mão (Mộc sinh Hỏa).
+      - Tháng Thân (7) & Dậu (8) (hành Kim): gặp ngày Thìn, Tuất, Sửu, Mùi (Thổ sinh Kim).
+      - Tháng Hợi (10) & Tý (11) (hành Thủy): gặp ngày Thân, Dậu (Kim sinh Thủy).
+      - Tháng Thìn (3), Mùi (6), Tuất (9), Sửu (12) (hành Thổ): gặp ngày Tỵ, Ngọ (Hỏa sinh Thổ).
+  - **Tích Hợp Trực Quan & Toàn Diện Vào Giao Diện Ứng Dụng**:
+    - Hiển thị thẻ cát lợi chuyên biệt trong nhóm *"CÁC YẾU TỐ CÁT (SAO CÁT & CÁT TINH)"* tại phần Nghị Kỵ Dụng Sự của Bloc Lịch ngày với huy hiệu `🌾 Ngày Mẫu Thương (Cát tinh)`.
+    - Thuyết minh ý nghĩa: Đại diện cho sự nuôi dưỡng, sinh sôi, tích lũy và che chở của khí âm dương mùa màng đối với vạn vật.
+    - Định hướng bách sự nghi kỵ: Đại cát cho việc gieo trồng thu hoạch, nạp tài nhập kho, mở mang buôn bán, hôn nhân giá thú, nhập trạch cầu an, dưỡng bệnh và mưu cầu sự phát triển sinh sôi bền vững.
+    - Bổ sung nút bấm tra cứu nhanh `Tra Mẫu Thương ➔` cả trên thẻ ngày và thanh công cụ Trạch Nhật.
+    - Xây dựng cửa sổ Modal tra cứu chuyên sâu (`#mauThuongModal`) phân nhóm 5 mùa/tháng và tự động làm nổi bật tháng đang xem trên lịch.
+    - Đồng bộ hiển thị Ngày Mẫu Thương trong ghi chú tooltip ô ngày trên Lịch Tháng và công cụ Chuyển đổi Âm - Dương.
+  - **Số Hóa Phiên Bản v1.22.0**: Cập nhật số phiên bản lên `v1.22.0` trong `package.json`, `index.html` (`APP_VERSION`, Header badge) và `README.md`.
 - **Tối Giản Giao Diện Lịch Ngày & Tối Ưu Hóa Hiệu Năng Tính Toán (Streamline Daily View & Code Optimization)**:
   - **Loại Bỏ Thẻ Hiển Thị Điểm Sóc & Khởi Ngày Mùng 1 Trùng Lặp**:
     - Lược bỏ hoàn toàn khối thẻ riêng *"🌑 Điểm Sóc & Khởi Ngày Mùng 1 Âm Lịch"* nằm trước bảng 12 Canh Giờ để tránh trùng lặp thông tin không cần thiết.

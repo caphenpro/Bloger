@@ -495,10 +495,18 @@
       border: 1px solid #60a5fa;
       font-weight: 700;
     }
+    /* Ngày Mẫu Thương Badge */
+    .badge-mauthuong {
+      background-color: #fef3c7;
+      color: #78350f;
+      border: 1px solid #f59e0b;
+      font-weight: 700;
+    }
 
     .btn-lookup-nd,
     .btn-lookup-bt,
-    .btn-lookup-vt {
+    .btn-lookup-vt,
+    .btn-lookup-mt {
       display: inline-flex;
       align-items: center;
       gap: 0.2rem;
@@ -513,7 +521,8 @@
     }
     .btn-lookup-nd:hover,
     .btn-lookup-bt:hover,
-    .btn-lookup-vt:hover {
+    .btn-lookup-vt:hover,
+    .btn-lookup-mt:hover {
       color: #78350f;
     }
 
@@ -3237,7 +3246,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.21.2</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.22.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -5078,6 +5087,36 @@
     </div>
   </div>
 
+  <!-- Modal Bảng Tra Cứu Ngày Mẫu Thương (12 Tháng Âm Lịch) -->
+  <div class="modal-overlay" id="mauThuongModal">
+    <div class="modal-box" style="max-width: 720px; width: 96%;">
+      <div class="modal-head" style="background: linear-gradient(135deg, #78350f, #b45309); color: #fff;">
+        <h3 style="font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.45rem; margin: 0; color: #fff;" id="mauThuongModalTitle">
+          <span>🌾</span> Bảng Tra Cứu Quy Luật Ngày Mẫu Thương (12 Tháng Âm Lịch)
+        </h3>
+        <button class="close-btn" id="mauThuongModalCloseBtn" style="color: #fff; opacity: 0.9;">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 1rem 1.15rem; font-size: 0.85rem; color: #374151;">
+        <!-- Giới thiệu học thuật -->
+        <div style="background: #fffbeb; border: 1px solid #fed7aa; border-radius: 8px; padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; font-size: 0.82rem; line-height: 1.6; color: #78350f;">
+          <strong>🌾 Ý nghĩa Sao / Ngày Mẫu Thương (Nguyệt Thương - Khâm Định Hiệp Kỷ Biện Phương Thư):</strong>
+          <br>Ngày Mẫu Thương đại diện cho <strong>sự nuôi dưỡng, sinh sôi, tích lũy và che chở của khí âm dương mùa màng đối với vạn vật</strong>. 
+          <br><strong>Quy luật xác định:</strong> Dựa trên nguyên lý <em>Ngũ Hành Tương Sinh giữa Nguyệt lệnh (Tháng - đại diện cho Mẹ/Mẫu) và Nhật chi (Ngày - đại diện cho Con/Tử)</em>: Ngày sinh dưỡng cho Tháng (hoặc Mẫu Tử tương sinh), đắc sinh khí dồi dào, vạn vật hanh thông.
+        </div>
+
+        <!-- 5 nhóm tháng theo mùa -->
+        <div id="mauThuongCardsContainer" style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <!-- Rendered via JS to highlight current month -->
+        </div>
+
+        <!-- Lưu ý học thuật -->
+        <div style="margin-top: 0.85rem; font-size: 0.76rem; color: #6b7280; line-height: 1.6; border-top: 1px solid #e5e7eb; padding-top: 0.65rem;">
+          💡 <strong>Ứng dụng Trạch Cát:</strong> Ngày Mẫu Thương là cát tinh thượng đẳng cho việc gieo trồng chăn nuôi thu hoạch, nạp tài nhập kho, mở mang buôn bán, hôn nhân giá thú, nhập trạch cầu an, dưỡng bệnh và mưu cầu sự phát triển sinh sôi bền vững.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal Bảng Tra Cứu Quý Nhân Tứ Đức (Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp) 12 Tháng Âm Lịch -->
   <div class="modal-overlay" id="nhiDucModal">
     <div class="modal-box" style="max-width: 900px; width: 96%;">
@@ -5935,6 +5974,70 @@
           isDaiCat: false
         };
       }
+    }
+
+    // =========================================================================
+    // HỆ THỐNG SAO MẪU THƯƠNG (NGÀY MẪU THƯƠNG / NGUYỆT THƯƠNG) – CÁT TINH TRẠCH NHẬT
+    // Khâm Định Hiệp Kỷ Biện Phương Thư & Quy luật Ngũ Hành Tương Sinh (Nguyệt Lệnh Mẫu -> Nhật Chi Tử)
+    // =========================================================================
+    function getMauThuongInfo(lunarMonth, chiIdx) {
+      const m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      let isMauThuong = false;
+      let reason = "";
+      let detail = "";
+
+      if (m === 1 || m === 2) {
+        // Tháng Dần (1) & Mão (2) - Mùa Xuân (Nguyệt lệnh Mộc):
+        // Ngày Hợi (11) & Tý (0) - Thủy sinh Mộc
+        if (chiIdx === 11 || chiIdx === 0) {
+          isMauThuong = true;
+          reason = "Thủy sinh Mộc (Nguyệt lệnh Mộc đắc Thủy chi ngày sinh dưỡng)";
+          detail = "Tháng Dần, Mão gặp ngày Hợi, Tý (Thủy sinh Mộc)";
+        }
+      } else if (m === 4 || m === 5) {
+        // Tháng Tỵ (4) & Ngọ (5) - Mùa Hạ (Nguyệt lệnh Hỏa):
+        // Ngày Dần (2) & Mão (3) - Mộc sinh Hỏa
+        if (chiIdx === 2 || chiIdx === 3) {
+          isMauThuong = true;
+          reason = "Mộc sinh Hỏa (Nguyệt lệnh Hỏa đắc Mộc chi ngày sinh dưỡng)";
+          detail = "Tháng Tỵ, Ngọ gặp ngày Dần, Mão (Mộc sinh Hỏa)";
+        }
+      } else if (m === 7 || m === 8) {
+        // Tháng Thân (7) & Dậu (8) - Mùa Thu (Nguyệt lệnh Kim):
+        // Ngày Thìn (4), Tuất (10), Sửu (1), Mùi (7) - Thổ sinh Kim
+        if (chiIdx === 4 || chiIdx === 10 || chiIdx === 1 || chiIdx === 7) {
+          isMauThuong = true;
+          reason = "Thổ sinh Kim (Nguyệt lệnh Kim đắc Thổ chi ngày sinh dưỡng)";
+          detail = "Tháng Thân, Dậu gặp ngày Thìn, Tuất, Sửu, Mùi (Thổ sinh Kim)";
+        }
+      } else if (m === 10 || m === 11) {
+        // Tháng Hợi (10) & Tý (11) - Mùa Đông (Nguyệt lệnh Thủy):
+        // Ngày Thân (8) & Dậu (9) - Kim sinh Thủy
+        if (chiIdx === 8 || chiIdx === 9) {
+          isMauThuong = true;
+          reason = "Kim sinh Thủy (Nguyệt lệnh Thủy đắc Kim chi ngày sinh dưỡng)";
+          detail = "Tháng Hợi, Tý gặp ngày Thân, Dậu (Kim sinh Thủy)";
+        }
+      } else if (m === 3 || m === 6 || m === 9 || m === 12) {
+        // Tháng Thìn (3), Mùi (6), Tuất (9), Sửu (12) - Tứ Quý (Nguyệt lệnh Thổ):
+        // Ngày Tỵ (5) & Ngọ (6) - Hỏa sinh Thổ
+        if (chiIdx === 5 || chiIdx === 6) {
+          isMauThuong = true;
+          reason = "Hỏa sinh Thổ (Nguyệt lệnh Thổ đắc Hỏa chi ngày sinh dưỡng)";
+          detail = "Tháng Thìn, Tuất, Sửu, Mùi gặp ngày Tỵ, Ngọ (Hỏa sinh Thổ)";
+        }
+      }
+
+      return {
+        isMauThuong,
+        reason,
+        detail,
+        name: "Mẫu Thương",
+        badgeTitle: "🌾 Ngày Mẫu Thương (Cát tinh)",
+        badgeClass: "badge-mauthuong",
+        meaning: "Đại diện cho sự nuôi dưỡng, sinh sôi, tích lũy và che chở của khí âm dương mùa màng đối với vạn vật.",
+        nghi: "Đại cát cho trăm sự sinh sôi, nuôi dưỡng vạn vật, khai kho nạp tài, gieo trồng thu hoạch, giá thú cưới hỏi, nhập trạch cầu an, dưỡng bệnh và tích lũy tài sản phát triển lâu bền."
+      };
     }
 
     // =========================================================================
@@ -6836,6 +6939,21 @@
         });
       }
 
+      // 4b. Ngày Mẫu Thương (Hiệp Kỷ Biện Phương Thư - Ngũ Hành Tương Sinh Mẫu - Tử)
+      const mauThuong = getMauThuongInfo(lunarMonth, dayCanChi.chiIndex);
+      if (mauThuong.isMauThuong) {
+        catItems.push({
+          badgeClass: mauThuong.badgeClass,
+          badgeTitle: mauThuong.badgeTitle,
+          meaning: `${mauThuong.meaning} (${mauThuong.detail})`,
+          actionTag: "Hợp làm gì:",
+          actionText: mauThuong.nghi,
+          avoidTag: null,
+          avoidText: null,
+          lookupType: "mauThuong"
+        });
+      }
+
       // 5. Thập Nhị Trực
       const { truc, sao } = getDayTrucVaSao(lunarMonth, dayCanChi.chiIndex, jd);
       const trucDetail = TRUC_DETAILS[truc] || {
@@ -6924,7 +7042,7 @@
                     <span class="badge ${item.badgeClass}">${item.badgeTitle}</span>
                   </span>
                   ${item.lookupType ? `
-                    <button type="button" class="btn-lookup-${item.lookupType === 'nhiDuc' ? 'nd' : (item.lookupType === 'batTuong' ? 'bt' : 'vt')}" title="Xem bảng tra cứu">
+                    <button type="button" class="btn-lookup-${item.lookupType === 'nhiDuc' ? 'nd' : (item.lookupType === 'batTuong' ? 'bt' : (item.lookupType === 'vuongTuong' ? 'vt' : 'mt'))}" title="Xem bảng tra cứu">
                       Tra bảng ➔
                     </button>
                   ` : ''}
@@ -6961,7 +7079,7 @@
                     <span class="badge ${item.badgeClass}">${item.badgeTitle}</span>
                   </span>
                   ${item.lookupType ? `
-                    <button type="button" class="btn-lookup-${item.lookupType === 'nhiDuc' ? 'nd' : (item.lookupType === 'batTuong' ? 'bt' : 'vt')}" title="Xem bảng tra cứu">
+                    <button type="button" class="btn-lookup-${item.lookupType === 'nhiDuc' ? 'nd' : (item.lookupType === 'batTuong' ? 'bt' : (item.lookupType === 'vuongTuong' ? 'vt' : 'mt'))}" title="Xem bảng tra cứu">
                       Tra bảng ➔
                     </button>
                   ` : ''}
@@ -6994,6 +7112,7 @@
             <button type="button" class="btn-lookup-nd" title="Bảng tra Quý Nhân Tứ Đức (Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp) 12 tháng">Tra Tứ Đức ➔</button>
             <button type="button" class="btn-lookup-bt" title="Bảng tra Âm Dương Bất Tương 60 Hoa Giáp">Tra Bất Tương ➔</button>
             <button type="button" class="btn-lookup-vt" title="Bảng tra Ngày Vượng Tướng 12 tháng">Tra Vượng Tướng ➔</button>
+            <button type="button" class="btn-lookup-mt" title="Bảng tra Ngày Mẫu Thương 12 tháng theo Ngũ Hành Tương Sinh">Tra Mẫu Thương ➔</button>
           </div>
         </div>
       `;
@@ -7019,6 +7138,13 @@
           openVuongTuongModal(lunarMonth);
         });
       });
+
+      bodyEl.querySelectorAll('.btn-lookup-mt').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openMauThuongModal(lunarMonth);
+        });
+      });
     }
 
     /**
@@ -7036,6 +7162,7 @@
       setupLocationModal();
       setupBatTuongModal();
       setupVuongTuongModal();
+      setupMauThuongModal();
       setupNhiDucModal();
       initUserLocation();
       setupQuickSelectors();
@@ -7482,6 +7609,10 @@
       const vuongTuong = getVuongTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
       if (vuongTuong.isDaiCat) {
         cellTitle += `\nVượng Tướng: ${vuongTuong.badgeTitle} (Đại cát)`;
+      }
+      const mauThuong = getMauThuongInfo(lMonth, dayCanChi.chiIndex);
+      if (mauThuong.isMauThuong) {
+        cellTitle += `\nMẫu Thương: ${mauThuong.badgeTitle} (Sinh sôi, nuôi dưỡng vạn vật)`;
       }
       cell.title = cellTitle;
 
@@ -9393,6 +9524,114 @@
               <div style="display: flex; align-items: baseline; gap: 0.4rem;">
                 <span class="badge badge-tuong" style="font-size: 0.7rem; flex-shrink: 0;">Ngày Tướng</span>
                 <span style="color: #374151;">• ${g.tuongText}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /**
+     * BẢNG TRA CỨU QUY LUẬT NGÀY MẪU THƯƠNG (12 THÁNG ÂM LỊCH)
+     */
+    let mauThuongActiveMonth = 1;
+
+    function setupMauThuongModal() {
+      const closeBtn = document.getElementById('mauThuongModalCloseBtn');
+      if (closeBtn) closeBtn.addEventListener('click', closeMauThuongModal);
+
+      const modal = document.getElementById('mauThuongModal');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeMauThuongModal();
+        });
+      }
+    }
+
+    function openMauThuongModal(initialMonth = 1) {
+      const modal = document.getElementById('mauThuongModal');
+      if (!modal) return;
+      mauThuongActiveMonth = ((parseInt(initialMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      renderMauThuongCards(mauThuongActiveMonth);
+      modal.classList.add('active');
+    }
+
+    function closeMauThuongModal() {
+      const modal = document.getElementById('mauThuongModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function renderMauThuongCards(activeMonth = 1) {
+      const container = document.getElementById('mauThuongCardsContainer');
+      if (!container) return;
+
+      const groups = [
+        {
+          id: 1,
+          months: [1, 2],
+          title: 'Tháng Dần (1) và Tháng Mão (2):',
+          season: 'Mùa Xuân (Mộc) — Thủy sinh Mộc',
+          daysText: 'Ngày có địa chi <strong>Hợi, Tý</strong> (Hành Thủy sinh Mộc).',
+          principle: 'Quy luật: Tháng Dần, Mão mang hành Mộc, lấy ngày Hợi, Tý (Thủy) làm Mẫu sinh Tử, dưỡng mộc xanh tươi, sinh khí tràn đầy.'
+        },
+        {
+          id: 2,
+          months: [4, 5],
+          title: 'Tháng Tỵ (4) và Tháng Ngọ (5):',
+          season: 'Mùa Hạ (Hỏa) — Mộc sinh Hỏa',
+          daysText: 'Ngày có địa chi <strong>Dần, Mão</strong> (Hành Mộc sinh Hỏa).',
+          principle: 'Quy luật: Tháng Tỵ, Ngọ mang hành Hỏa, lấy ngày Dần, Mão (Mộc) làm Mẫu sinh Tử, tiếp lửa quang minh, vạn vật phát triển cực thịnh.'
+        },
+        {
+          id: 3,
+          months: [7, 8],
+          title: 'Tháng Thân (7) và Tháng Dậu (8):',
+          season: 'Mùa Thu (Kim) — Thổ sinh Kim',
+          daysText: 'Ngày có địa chi <strong>Thìn, Tuất, Sửu, Mùi</strong> (Hành Thổ sinh Kim).',
+          principle: 'Quy luật: Tháng Thân, Dậu mang hành Kim, lấy 4 ngày Thổ (Thìn, Tuất, Sửu, Mùi) làm Mẫu sinh Tử, bồi đắp kết tinh, thu hoạch hoa lợi tích lũy phong túc.'
+        },
+        {
+          id: 4,
+          months: [10, 11],
+          title: 'Tháng Hợi (10) và Tháng Tý (11):',
+          season: 'Mùa Đông (Thủy) — Kim sinh Thủy',
+          daysText: 'Ngày có địa chi <strong>Thân, Dậu</strong> (Hành Kim sinh Thủy).',
+          principle: 'Quy luật: Tháng Hợi, Tý mang hành Thủy, lấy ngày Thân, Dậu (Kim) làm Mẫu sinh Tử, nguồn nước trong lành dưỡng sinh, tiềm tàng phúc lộc dài lâu.'
+        },
+        {
+          id: 5,
+          months: [3, 6, 9, 12],
+          title: 'Tháng Thìn (3), Mùi (6), Tuất (9), Sửu (12):',
+          season: 'Tứ Quý 4 tháng Thổ — Hỏa sinh Thổ',
+          daysText: 'Ngày có địa chi <strong>Tỵ, Ngọ</strong> (Hành Hỏa sinh Thổ).',
+          principle: 'Quy luật: Bốn tháng Thổ cuối mùa, lấy ngày Tỵ, Ngọ (Hỏa) làm Mẫu sinh Tử, ấm áp dưỡng đất đai màu mỡ, vạn vật vững chãi căn cơ.'
+        }
+      ];
+
+      container.innerHTML = groups.map(g => {
+        const isCurrent = g.months.includes(activeMonth);
+        const cardBorder = isCurrent ? '2px solid #f59e0b' : '1px solid #fed7aa';
+        const cardBg = isCurrent ? 'linear-gradient(135deg, #fffbeb, #fef3c7)' : '#ffffff';
+        const cardShadow = isCurrent ? '0 4px 12px rgba(245, 158, 11, 0.2)' : '0 1px 3px rgba(0,0,0,0.05)';
+
+        return `
+          <div style="border: ${cardBorder}; background: ${cardBg}; border-radius: 8px; padding: 0.75rem 0.95rem; box-shadow: ${cardShadow}; transition: all 0.2s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.45rem; padding-bottom: 0.35rem; border-bottom: 1px dashed ${isCurrent ? '#fde68a' : '#fef3c7'};">
+              <div style="font-weight: 700; color: ${isCurrent ? '#92400e' : '#78350f'}; font-size: 0.88rem;">
+                ${g.title}
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.35rem;">
+                <span style="font-size: 0.72rem; color: #b45309; font-weight: 600;">${g.season}</span>
+                ${isCurrent ? `<span style="font-size: 0.68rem; font-weight: 700; padding: 0.1rem 0.45rem; background: #b45309; color: #ffffff; border-radius: 9999px;">● Tháng ${activeMonth} đang chọn</span>` : ''}
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.83rem; line-height: 1.55;">
+              <div style="display: flex; align-items: baseline; gap: 0.4rem;">
+                <span class="badge badge-mauthuong" style="font-size: 0.7rem; flex-shrink: 0;">Ngày Mẫu Thương</span>
+                <span style="color: #374151;">• ${g.daysText}</span>
+              </div>
+              <div style="font-size: 0.78rem; color: #6b7280; font-style: italic; padding-left: 0.2rem;">
+                ℹ️ ${g.principle}
               </div>
             </div>
           </div>
@@ -11672,6 +11911,7 @@
           const batTuong = getBatTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
           const nhiDuc = getNhiDucInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
           const vuongTuong = getVuongTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+          const mauThuong = getMauThuongInfo(lMonth, dayCanChi.chiIndex);
 
           document.getElementById('convResultHeader').textContent = 'KẾT QUẢ ÂM LỊCH TƯƠNG ỨNG';
           document.getElementById('convResultMain').textContent = 
@@ -11679,7 +11919,7 @@
           document.getElementById('convResultSub').textContent = 
             `Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Tướng: ${vuongTuong.isDaiCat ? vuongTuong.badgeTitle + ' (Đại cát)' : 'Không'}`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Tướng: ${vuongTuong.isDaiCat ? vuongTuong.badgeTitle + ' (Đại cát)' : 'Không'} • Mẫu Thương: ${mauThuong.isMauThuong ? 'Ngày Mẫu Thương (Cát)' : 'Không'}`;
         } else {
           const [sDay, sMonth, sYear] = convertLunar2Solar(d, m, y, isLeap);
           if (sDay === 0) {
@@ -11694,6 +11934,7 @@
           const batTuong = getBatTuongInfo(m, dayCanChi.canIndex, dayCanChi.chiIndex);
           const nhiDuc = getNhiDucInfo(m, dayCanChi.canIndex, dayCanChi.chiIndex);
           const vuongTuong = getVuongTuongInfo(m, dayCanChi.canIndex, dayCanChi.chiIndex);
+          const mauThuong = getMauThuongInfo(m, dayCanChi.chiIndex);
 
           document.getElementById('convResultHeader').textContent = 'KẾT QUẢ DƯƠNG LỊCH TƯƠNG ỨNG';
           document.getElementById('convResultMain').textContent = 
@@ -11701,7 +11942,7 @@
           document.getElementById('convResultSub').textContent = 
             `Can chi: Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Tướng: ${vuongTuong.isDaiCat ? vuongTuong.badgeTitle + ' (Đại cát)' : 'Không'}`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Tướng: ${vuongTuong.isDaiCat ? vuongTuong.badgeTitle + ' (Đại cát)' : 'Không'} • Mẫu Thương: ${mauThuong.isMauThuong ? 'Ngày Mẫu Thương (Cát)' : 'Không'}`;
         }
       }
     }
@@ -11709,7 +11950,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.21.2";
+    const APP_VERSION = "v1.22.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
