@@ -98,16 +98,18 @@
 - **Hệ Thống Huy Hiệu Nhận Diện**: Phân biệt trực quan giữa Ngày lễ Việt Nam (🇻🇳), Sự kiện Quốc tế (🌐), và Lễ hội Âm lịch Cổ truyền (🏮).
 - **Đồng Bộ Phiên Bản Tự Động**: Hiển thị số phiên bản cập nhật thời gian thực trên thanh Header, Footer và cửa sổ Logo.
 
-### 9. Hệ Thống Ngày Vượng – Tướng Bốn Mùa (Khâm Định Hiệp Kỷ Biện Phương Thư)
+### 9. Hệ Thống Nhóm Ngày Vượng Suy Bốn Mùa: Vượng – Tướng – Hưu – Tù – Tử (Khâm Định Hiệp Kỷ Biện Phương Thư)
 - **Cơ Sở Học Thuật Bốn Mùa & Ngũ Hành Trạch Nhật**:
-  - Tuân thủ nguyên lý chu kỳ Vượng – Tướng – Hưu – Tù – Tử trong 12 tháng Âm lịch:
-    - *Mùa Xuân (Tháng 1, 2)*: Mộc Vượng (can Giáp, Ất; chi Dần, Mão); Hỏa Tướng (can Bính, Đinh; chi Tỵ, Ngọ).
-    - *Mùa Hạ (Tháng 4, 5)*: Hỏa Vượng (can Bính, Đinh; chi Tỵ, Ngọ); Thổ Tướng (can Mậu, Kỷ; chi Thìn, Tuất, Sửu, Mùi).
-    - *Mùa Thu (Tháng 7, 8)*: Kim Vượng (can Canh, Tân; chi Thân, Dậu); Thủy Tướng (can Nhâm, Quý; chi Hợi, Tý).
-    - *Mùa Đông (Tháng 10, 11)*: Thủy Vượng (can Nhâm, Quý; chi Hợi, Tý); Mộc Tướng (can Giáp, Ất; chi Dần, Mão).
-    - *Tứ Quý (Tháng 3, 6, 9, 12)*: Thổ Vượng (can Mậu, Kỷ); Kim Tướng (can Canh, Tân; chi Thân, Dậu).
-  - Đánh giá ngày đắc khí Vượng hoặc Tướng là ngày **Đại Cát** cho bách sự khởi tạo.
-  - Tích hợp cửa sổ Modal tra cứu 12 tháng (`#vuongTuongModal`) có tự động làm nổi bật mùa và tháng đang xem.
+  - Mở rộng toàn diện hệ thống Vượng Tướng thành **Hệ thống Nhóm Ngày Vượng Suy (Vượng – Tướng – Hưu – Tù – Tử)** đối chiếu Ngũ Hành của Chi Ngày (Nhật Chi) với Ngũ Hành của Chi Tháng (Nguyệt Lệnh) trong 12 tháng Âm lịch:
+    - **Nhóm Ngày Tốt (Cát Lợi)**:
+      - **Ngày Vượng**: Chi ngày cùng hành với tháng — Đắc chính khí đương lệnh, khí thế cực thịnh (**Đại cát** cho trăm sự khởi tạo, động thổ, khai trương, xuất hành).
+      - **Ngày Tướng**: Chi ngày được lệnh tháng sinh ra — Đắc sinh khí nuôi dưỡng, lực lượng phát triển (**Cát lợi** cho gieo trồng, nạp tài, giá thú, mở mang kinh doanh).
+    - **Nhóm Ngày Hung (Kiêng Kỵ)**:
+      - **Ngày Hưu**: Chi ngày sinh cho lệnh tháng — Đã dốc hết sức sinh cho mùa nên nghỉ ngơi, thoái khí suy giảm (**Hung**, kỵ khởi sự việc mới cần khí thế bứt phá).
+      - **Ngày Tù**: Chi ngày khắc lệnh tháng — Khí lực bị lệnh tháng giam hãm phong tỏa suy yếu (**Hung**, kỵ tranh chấp tố tụng, xuất hành xa, tránh đầu tư mạo hiểm).
+      - **Ngày Tử**: Chi ngày bị lệnh tháng khắc phạt — Thế yếu chống lại lệnh vượng nên bị triệt hạ toàn bộ (**Đại hung**, đại kỵ khởi công, động thổ, giá thú, khai trương, xuất hành).
+  - Tích hợp cửa sổ Modal tra cứu chuyên sâu (`#vuongTuongModal`) phân nhóm 5 mùa/tháng, trình bày song song hai cột Nhóm Ngày Tốt và Nhóm Ngày Hung, tự động làm nổi bật mùa và tháng đang xem.
+  - Đồng bộ hiển thị vào Nghị Kỵ Dụng Sự của Bloc Lịch hàng ngày (xếp Ngày Vượng/Tướng vào Nhóm Sao Cát, xếp Ngày Hưu/Tù/Tử vào Nhóm Sao Hung), tooltip Lịch Tháng và công cụ Đổi Ngày Âm - Dương.
 
 ### 10. Thời Gian Mặt Trời Mọc / Lặn, Độ Dài Ngày / Đêm & Định Vị Tự Động (NASA JPL / NOAA)
 - **Thuật Toán Thiên Văn Chuẩn Xác NASA / NOAA**:
@@ -210,6 +212,27 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.23.0] - 2026-09-09
+- **Hoàn Thiện Hệ Thống Nhóm Ngày Vượng Suy (Vượng – Tướng – Hưu – Tù – Tử)**:
+  - **Mở Rộng Toàn Diện Thuật Toán Ngũ Hành Bốn Mùa (Khâm Định Hiệp Kỷ Biện Phương Thư)**:
+    - Nâng cấp hàm `getVuongSuyInfo(lunarMonth, canIdx, chiIdx)` (và giữ bí danh tương thích `getVuongTuongInfo`) đối chiếu Ngũ Hành của Chi Ngày (Nhật Chi) với Ngũ Hành của Chi Tháng (Nguyệt Lệnh) cho cả 12 tháng Âm lịch:
+      - **Vượng**: Chi ngày cùng ngũ hành với tháng (Mộc tháng 1,2; Hỏa tháng 4,5; Kim tháng 7,8; Thủy tháng 10,11; Thổ tháng 3,6,9,12) -> **Ngày Cát (Đại cát)**.
+      - **Tướng**: Chi ngày do ngũ hành tháng sinh ra (Hỏa tháng 1,2; Thổ tháng 4,5; Thủy tháng 7,8; Mộc tháng 10,11; Kim tháng 3,6,9,12) -> **Ngày Cát (Cát lợi)**.
+      - **Hưu**: Chi ngày sinh cho ngũ hành tháng -> Thoái khí suy giảm -> **Ngày Hung**.
+      - **Tù**: Chi ngày khắc ngũ hành tháng -> Khí lực bị giam hãm phong tỏa -> **Ngày Hung**.
+      - **Tử**: Chi ngày bị ngũ hành tháng khắc chế -> Thế yếu chống lại lệnh vượng nên tuyệt khí -> **Ngày Hung (Đại hung)**.
+  - **Phân Định Trực Quan & Tích Hợp Đầy Đủ Vào Trạch Nhật**:
+    - Tự động đưa Ngày Vượng và Ngày Tướng vào nhóm *"CÁC YẾU TỐ CÁT (SAO CÁT & VƯỢNG KHÍ)"* với huy hiệu `.badge-vuong` (xanh lá) và `.badge-tuong` (xanh dương).
+    - Tự động đưa Ngày Hưu, Ngày Tù và Ngày Tử vào nhóm *"CÁC YẾU TỐ HUNG (SAO HUNG & KỴ KHÍ)"* với huy hiệu chuyên biệt `.badge-huu` (vàng nâu), `.badge-tu` (cam đậm), và `.badge-tudead` (đỏ sẫm).
+    - Cung cấp đầy đủ hướng dẫn dụng sự "Hợp làm gì" cho ngày cát và "Kiêng cữ" cho ngày hung.
+  - **Nâng Cấp Modal Tra Cứu Quy Luật Vượng Suy 12 Tháng (`#vuongTuongModal`)**:
+    - Phân chia song song 2 khối rõ rệt: *Nhóm Ngày Tốt (Cát lợi)* và *Nhóm Ngày Hung (Kiêng kỵ)* trên từng nhóm mùa/tháng.
+    - Làm nổi bật tháng đang xem trên lịch với huy hiệu và màu sắc viền/nền chuyên biệt.
+    - Cập nhật nút tra cứu nhanh trên thanh công cụ: `Tra Vượng Suy ➔`.
+  - **Đồng Bộ Hệ Thống & Số Hóa Phiên Bản**:
+    - Đồng bộ hiển thị trạng thái Vượng Suy vào Tooltip từng ngày trên lưới Lịch Tháng và kết quả Chuyển đổi Âm ⇄ Dương.
+    - Cập nhật số hiệu phiên bản lên `v1.23.0` đồng nhất trong `package.json`, `index.html` (`APP_VERSION`, Header badge) và `README.md`.
 
 ### [v1.22.0] - 2026-09-09
 - **Bổ Sung Sao / Ngày Mẫu Thương (Nguyệt Thương) Vào Nhóm Cát Tinh Trạch Nhật**:

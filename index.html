@@ -482,7 +482,7 @@
       color: #64748b;
       border: 1px solid #cbd5e1;
     }
-    /* Ngày Vượng & Ngày Tướng Badges */
+    /* Nhóm Ngày Vượng Suy Badges (Vượng - Tướng - Hưu - Tù - Tử) */
     .badge-vuong {
       background-color: #c0dd97;
       color: #173404;
@@ -493,6 +493,24 @@
       background-color: #bfdbfe;
       color: #1e3a8a;
       border: 1px solid #60a5fa;
+      font-weight: 700;
+    }
+    .badge-huu {
+      background-color: #fef9c3;
+      color: #854d0e;
+      border: 1px solid #fde047;
+      font-weight: 700;
+    }
+    .badge-tu {
+      background-color: #ffedd5;
+      color: #9a3412;
+      border: 1px solid #fdba74;
+      font-weight: 700;
+    }
+    .badge-tudead {
+      background-color: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
       font-weight: 700;
     }
     /* Ngày Mẫu Thương Badge */
@@ -3246,7 +3264,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.22.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.23.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -5059,19 +5077,26 @@
     </div>
   </div>
 
-  <!-- Modal Bảng Tra Cứu Ngày Vượng Tướng 12 Tháng Âm Lịch -->
+  <!-- Modal Bảng Tra Cứu Quy Luật Ngày Vượng Suy (Vượng – Tướng – Hưu – Tù – Tử) 12 Tháng Âm Lịch -->
   <div class="modal-overlay" id="vuongTuongModal">
-    <div class="modal-box" style="max-width: 720px; width: 96%;">
+    <div class="modal-box" style="max-width: 780px; width: 96%;">
       <div class="modal-head" style="background: linear-gradient(135deg, #1e3a8a, #0284c7); color: #fff;">
         <h3 style="font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.45rem; margin: 0; color: #fff;" id="vuongTuongModalTitle">
-          <span>🌿</span> Bảng Tra Cứu Quy Luật Ngày Vượng – Tướng (12 Tháng Âm Lịch)
+          <span>🌿</span> Bảng Tra Cứu Quy Luật Ngày Vượng Suy (Vượng – Tướng – Hưu – Tù – Tử)
         </h3>
         <button class="close-btn" id="vuongTuongModalCloseBtn" style="color: #fff; opacity: 0.9;">&times;</button>
       </div>
       <div class="modal-body" style="padding: 1rem 1.15rem; font-size: 0.85rem; color: #374151;">
         <!-- Giới thiệu học thuật -->
         <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; font-size: 0.82rem; line-height: 1.6; color: #0369a1;">
-          Theo học thuyết <strong>Âm Dương Ngũ Hành &amp; Khâm Định Hiệp Kỷ Biện Phương Thư</strong>, bốn mùa và 12 tháng tuần hoàn theo chu kỳ Vượng – Tướng – Hưu – Tù – Tử. Trong đó, <strong>Ngày Vượng</strong> (chính khí của mùa) và <strong>Ngày Tướng</strong> (sinh khí trợ vượng) đều là những ngày <strong>Đại Cát</strong> cho trăm sự khởi tạo, mưu cầu việc lớn hanh thông.
+          Theo học thuyết <strong>Âm Dương Ngũ Hành &amp; Khâm Định Hiệp Kỷ Biện Phương Thư</strong>, bốn mùa và 12 tháng luân chuyển theo chu kỳ 5 trạng thái khí vận: <strong>Vượng – Tướng – Hưu – Tù – Tử</strong>, xác định dựa trên mối quan hệ giữa <strong>ngũ hành Địa Chi Ngày (Nhật Chi)</strong> và <strong>ngũ hành lệnh Chi Tháng (Nguyệt Lệnh)</strong>:
+          <div style="margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px dashed #bae6fd; font-size: 0.8rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.35rem;">
+            <div>🟢 <strong>Vượng (Cát):</strong> Ngũ hành trùng lệnh tháng (Đương lệnh cực thịnh).</div>
+            <div>🔵 <strong>Tướng (Cát):</strong> Ngũ hành do lệnh tháng sinh ra (Đắc sinh khí trợ lực).</div>
+            <div>🟡 <strong>Hưu (Hung):</strong> Ngũ hành sinh ra lệnh tháng (Đã cạn lực sinh mùa, thoái khí).</div>
+            <div>🟠 <strong>Tù (Hung):</strong> Ngũ hành bị lệnh tháng khắc (Khí lực bị giam hãm suy yếu).</div>
+            <div style="grid-column: 1 / -1;">🔴 <strong>Tử (Đại Hung):</strong> Ngũ hành khắc lệnh tháng (Khắc nghịch lệnh vượng, bị triệt hạ toàn bộ).</div>
+          </div>
         </div>
 
         <!-- 5 nhóm tháng theo mùa -->
@@ -5081,7 +5106,7 @@
 
         <!-- Lưu ý học thuật -->
         <div style="margin-top: 0.85rem; font-size: 0.76rem; color: #6b7280; line-height: 1.6; border-top: 1px solid #e5e7eb; padding-top: 0.65rem;">
-          💡 <strong>Quy tắc xem ngày:</strong> Nếu ngày trùng vào can/chi quy định của Ngày Vượng hoặc Ngày Tướng trong tháng đó thì đắc khí <strong>Đại Cát</strong>. Các ngày còn lại trong tháng không thuộc Vượng hay Tướng được xem là ngày bình thường (Không xét).
+          💡 <strong>Quy tắc Trạch Cát Vượng Suy:</strong> Trong trạch nhật, <strong>Ngày Vượng</strong> và <strong>Ngày Tướng</strong> là <em>Ngày Tốt (Cát lợi)</em> thích hợp cho trăm sự khởi tạo, động thổ, khai trương, xuất hành, nạp tài. Ngược lại, <strong>Ngày Hưu, Ngày Tù</strong> và đặc biệt là <strong>Ngày Tử</strong> thuộc <em>Ngày Hung (Kiêng kỵ)</em>, nên tạm gác việc đại sự, chỉ nên an dưỡng, thu xếp việc thường nhật hoặc củng cố nội lực.
         </div>
       </div>
     </div>
@@ -5909,71 +5934,166 @@
     }
 
     // =========================================================================
-    // HỆ THỐNG NGÀY VƯỢNG – TƯỚNG (12 THÁNG ÂM LỊCH)
-    // Khâm Định Hiệp Kỷ Biện Phương Thư & Âm Dương Ngũ Hành Bốn Mùa
+    // HỆ THỐNG NHÓM NGÀY VƯỢNG SUY: VƯỢNG – TƯỚNG – HƯU – TÙ – TỬ (12 THÁNG ÂM LỊCH)
+    // Khâm Định Hiệp Kỷ Biện Phương Thư & Bốn Mùa Ngũ Hành Luân Chuyển
+    // Nguyên tắc: Đối chiếu Ngũ Hành của Chi Ngày (Nhật Chi) với Ngũ Hành của Chi Tháng (Nguyệt Lệnh):
+    // - Nhóm Ngày Tốt: Ngày Vượng (Đương lệnh cực vượng), Ngày Tướng (Được sinh trợ) -> Ngày Cát
+    // - Nhóm Ngày Hung: Ngày Hưu (Thoái khí), Ngày Tù (Giam hãm), Ngày Tử (Tuyệt diệt) -> Ngày Hung
     // =========================================================================
-    function getVuongTuongInfo(lunarMonth, canIdx, chiIdx) {
+    const CHI_NGU_HANH = {
+      0: 'Thủy', // Tý
+      1: 'Thổ',  // Sửu
+      2: 'Mộc',  // Dần
+      3: 'Mộc',  // Mão
+      4: 'Thổ',  // Thìn
+      5: 'Hỏa',  // Tỵ
+      6: 'Hỏa',  // Ngọ
+      7: 'Thổ',  // Mùi
+      8: 'Kim',  // Thân
+      9: 'Kim',  // Dậu
+      10: 'Thổ', // Tuất
+      11: 'Thủy' // Hợi
+    };
+
+    function getVuongSuyInfo(lunarMonth, canIdx, chiIdx) {
       const m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
-      let isVuong = false;
-      let isTuong = false;
+      const dayChiHanh = CHI_NGU_HANH[chiIdx] || 'Mộc';
 
+      let monthHanh = 'Mộc';
+      let seasonName = 'Mùa Xuân';
       if (m === 1 || m === 2) {
-        // Tháng Dần và tháng Mão (Tháng Giêng, tháng Hai):
-        // Ngày Vượng: can Giáp, Ất (0, 1) hoặc chi Dần, Mão (2, 3)
-        // Ngày Tướng: can Bính, Đinh (2, 3) hoặc chi Tỵ, Ngọ (5, 6)
-        isVuong = (canIdx === 0 || canIdx === 1 || chiIdx === 2 || chiIdx === 3);
-        isTuong = (canIdx === 2 || canIdx === 3 || chiIdx === 5 || chiIdx === 6);
+        monthHanh = 'Mộc';
+        seasonName = 'Mùa Xuân (Dần, Mão)';
       } else if (m === 4 || m === 5) {
-        // Tháng Tỵ và tháng Ngọ (Tháng Tư, tháng Năm):
-        // Ngày Vượng: can Bính, Đinh (2, 3) hoặc chi Tỵ, Ngọ (5, 6)
-        // Ngày Tướng: can Mậu, Kỷ (4, 5) hoặc chi Thìn, Tuất, Sửu, Mùi (4, 10, 1, 7)
-        isVuong = (canIdx === 2 || canIdx === 3 || chiIdx === 5 || chiIdx === 6);
-        isTuong = (canIdx === 4 || canIdx === 5 || chiIdx === 4 || chiIdx === 10 || chiIdx === 1 || chiIdx === 7);
+        monthHanh = 'Hỏa';
+        seasonName = 'Mùa Hạ (Tỵ, Ngọ)';
       } else if (m === 7 || m === 8) {
-        // Tháng Thân và tháng Dậu (Tháng Bảy, tháng Tám):
-        // Ngày Vượng: can Canh, Tân (6, 7) hoặc chi Thân, Dậu (8, 9)
-        // Ngày Tướng: can Nhâm, Quý (8, 9) hoặc chi Hợi, Tý (11, 0)
-        isVuong = (canIdx === 6 || canIdx === 7 || chiIdx === 8 || chiIdx === 9);
-        isTuong = (canIdx === 8 || canIdx === 9 || chiIdx === 11 || chiIdx === 0);
+        monthHanh = 'Kim';
+        seasonName = 'Mùa Thu (Thân, Dậu)';
       } else if (m === 10 || m === 11) {
-        // Tháng Hợi và tháng Tý (Tháng Mười, tháng Mười Một):
-        // Ngày Vượng: can Nhâm, Quý (8, 9) hoặc chi Hợi, Tý (11, 0)
-        // Ngày Tướng: can Giáp, Ất (0, 1) hoặc chi Dần, Mão (2, 3)
-        isVuong = (canIdx === 8 || canIdx === 9 || chiIdx === 11 || chiIdx === 0);
-        isTuong = (canIdx === 0 || canIdx === 1 || chiIdx === 2 || chiIdx === 3);
-      } else if (m === 3 || m === 6 || m === 9 || m === 12) {
-        // Tháng Thìn, Tuất, Sửu, Mùi (Tháng Ba, Sáu, Chín, Chạp):
-        // Ngày Vượng: can Mậu, Kỷ (4, 5)
-        // Ngày Tướng: can Canh, Tân (6, 7) hoặc chi Thân, Dậu (8, 9)
-        isVuong = (canIdx === 4 || canIdx === 5);
-        isTuong = (canIdx === 6 || canIdx === 7 || chiIdx === 8 || chiIdx === 9);
+        monthHanh = 'Thủy';
+        seasonName = 'Mùa Đông (Hợi, Tý)';
+      } else { // 3, 6, 9, 12
+        monthHanh = 'Thổ';
+        seasonName = 'Tứ Quý (Thìn, Mùi, Tuất, Sửu)';
       }
 
-      if (isVuong) {
-        return {
-          type: "vuong",
-          badgeTitle: "Ngày Vượng",
-          badgeClass: "badge-vuong",
-          displayLine: 'Ngày Vượng: <span style="font-weight: 600; color: #15803d;">Đại cát</span>',
-          isDaiCat: true
-        };
-      } else if (isTuong) {
-        return {
-          type: "tuong",
-          badgeTitle: "Ngày Tướng",
-          badgeClass: "badge-tuong",
-          displayLine: 'Ngày Tướng: <span style="font-weight: 600; color: #1d4ed8;">Đại cát</span>',
-          isDaiCat: true
-        };
+      // Ngũ hành tương sinh chuẩn: Mộc -> Hỏa -> Thổ -> Kim -> Thủy -> Mộc
+      const NGU_HANH_SINH = { 'Mộc': 'Hỏa', 'Hỏa': 'Thổ', 'Thổ': 'Kim', 'Kim': 'Thủy', 'Thủy': 'Mộc' };
+      // Ngũ hành tương khắc chuẩn: Mộc -> Thổ -> Thủy -> Hỏa -> Kim -> Mộc
+      const NGU_HANH_KHAC = { 'Mộc': 'Thổ', 'Thổ': 'Thủy', 'Thủy': 'Hỏa', 'Hỏa': 'Kim', 'Kim': 'Mộc' };
+
+      let type = 'vuong';
+      let typeName = 'Vượng';
+      let relationText = '';
+      let badgeTitle = '';
+      let badgeClass = '';
+      let displayLine = '';
+      let isCat = true;
+      let isHung = false;
+      let isDaiCat = false;
+      let meaning = '';
+      let actionTag = null;
+      let actionText = null;
+      let avoidTag = null;
+      let avoidText = null;
+
+      if (dayChiHanh === monthHanh) {
+        // Vượng: Ngũ hành trùng khớp với ngũ hành lệnh tháng (Đang đương lệnh, khí thế mạnh nhất)
+        type = 'vuong';
+        typeName = 'Vượng';
+        isCat = true;
+        isDaiCat = true;
+        badgeTitle = 'Ngày Vượng';
+        badgeClass = 'badge-vuong';
+        relationText = `Trùng ngũ hành lệnh tháng (${monthHanh})`;
+        displayLine = 'Ngày Vượng: <span style="font-weight: 600; color: #15803d;">Đại cát</span>';
+        meaning = `Chi ngày hành ${dayChiHanh} trùng khớp ngũ hành lệnh tháng (${monthHanh}) — Đang đương lệnh, khí thế cực thịnh.`;
+        actionTag = 'Hợp làm gì:';
+        actionText = 'Đại cát cho trăm sự khởi tạo, động thổ, khai trương, xuất hành, mưu cầu việc lớn hanh thông.';
+      } else if (NGU_HANH_SINH[monthHanh] === dayChiHanh) {
+        // Tướng: Ngũ hành do ngũ hành lệnh tháng sinh ra (Được vượng khí nuôi dưỡng, lực lượng phát triển)
+        type = 'tuong';
+        typeName = 'Tướng';
+        isCat = true;
+        isDaiCat = true;
+        badgeTitle = 'Ngày Tướng';
+        badgeClass = 'badge-tuong';
+        relationText = `Được lệnh tháng ${monthHanh} sinh dưỡng (${dayChiHanh})`;
+        displayLine = 'Ngày Tướng: <span style="font-weight: 600; color: #1d4ed8;">Cát lợi</span>';
+        meaning = `Chi ngày hành ${dayChiHanh} do ngũ hành lệnh tháng (${monthHanh}) sinh ra — Được vượng khí nuôi dưỡng, lực lượng phát triển.`;
+        actionTag = 'Hợp làm gì:';
+        actionText = 'Cát lợi cho gieo trồng, nạp tài, giá thú cưới hỏi, mở mang kinh doanh, củng cố sinh khí phát triển.';
+      } else if (NGU_HANH_SINH[dayChiHanh] === monthHanh) {
+        // Hưu: Ngũ hành sinh ra ngũ hành lệnh tháng (Đã dốc hết sức để sinh mùa nên nghỉ ngơi, thoái khí)
+        type = 'huu';
+        typeName = 'Hưu';
+        isHung = true;
+        isCat = false;
+        badgeTitle = 'Ngày Hưu';
+        badgeClass = 'badge-huu';
+        relationText = `Sinh ra lệnh tháng ${monthHanh} (Thoái khí)`;
+        displayLine = 'Ngày Hưu: <span style="font-weight: 600; color: #854d0e;">Thoái khí (Hung)</span>';
+        meaning = `Chi ngày hành ${dayChiHanh} sinh cho ngũ hành lệnh tháng (${monthHanh}) — Đã dốc hết sức để sinh mùa nên nghỉ ngơi, thoái khí suy giảm.`;
+        actionTag = 'Nên làm:';
+        actionText = 'Hợp an dưỡng, nghỉ ngơi, củng cố nội lực, bảo toàn vốn liếng, giải quyết việc nội bộ thường nhật.';
+        avoidTag = 'Kiêng cữ:';
+        avoidText = 'Kỵ khởi sự việc mới cần khí thế bứt phá, kỵ khai trương, động thổ mưu việc lớn.';
+      } else if (NGU_HANH_KHAC[dayChiHanh] === monthHanh) {
+        // Tù: Ngũ hành khắc mùa (Khí lực bị giam hãm, suy yếu do thế yếu chống lệnh vượng)
+        type = 'tu';
+        typeName = 'Tù';
+        isHung = true;
+        isCat = false;
+        badgeTitle = 'Ngày Tù';
+        badgeClass = 'badge-tu';
+        relationText = `Khắc mùa ${monthHanh} (Bị giam hãm)`;
+        displayLine = 'Ngày Tù: <span style="font-weight: 600; color: #c2410c;">Giam hãm (Hung)</span>';
+        meaning = `Chi ngày hành ${dayChiHanh} khắc ngũ hành lệnh tháng (${monthHanh}) — Khí lực bị lệnh tháng giam hãm, phong tỏa suy yếu.`;
+        avoidTag = 'Kiêng cữ:';
+        avoidText = 'Kỵ tranh chấp tố tụng, kỵ xuất hành xa, tránh đầu tư mạo hiểm hay ký kết hợp đồng quan trọng.';
       } else {
-        return {
-          type: "none",
-          badgeTitle: "Không",
-          badgeClass: "badge-na-tuong",
-          displayLine: '<span style="font-weight: 500; color: #4b5563;">Không</span>',
-          isDaiCat: false
-        };
+        // Tử: Ngũ hành bị mùa khắc (Bị mùa khắc phạt: Thế yếu chống lệnh vượng bị triệt hạ toàn bộ)
+        type = 'tu_dead';
+        typeName = 'Tử';
+        isHung = true;
+        isCat = false;
+        badgeTitle = 'Ngày Tử';
+        badgeClass = 'badge-tudead';
+        relationText = `Bị lệnh tháng ${monthHanh} khắc phạt (Triệt hạ)`;
+        displayLine = 'Ngày Tử: <span style="font-weight: 600; color: #b91c1c;">Tuyệt khí (Đại hung)</span>';
+        meaning = `Chi ngày hành ${dayChiHanh} bị ngũ hành lệnh tháng (${monthHanh}) khắc chế — Thế yếu chống lại lệnh vượng nên bị triệt hạ toàn bộ.`;
+        avoidTag = 'Kiêng cữ:';
+        avoidText = 'Đại kỵ khởi công, động thổ, giá thú cưới hỏi, khai trương, xuất hành, nhậm chức; đề phòng tổn hại tai ương bất trắc.';
       }
+
+      return {
+        type,
+        status: type,
+        typeName,
+        seasonName,
+        monthHanh,
+        dayHanh: dayChiHanh,
+        dayChiIndex: chiIdx,
+        canIndex: canIdx,
+        relationText,
+        badgeTitle,
+        badgeClass,
+        displayLine,
+        isCat,
+        isHung,
+        isDaiCat,
+        meaning,
+        actionTag,
+        actionText,
+        avoidTag,
+        avoidText
+      };
+    }
+
+    // Giữ bí danh getVuongTuongInfo để tương thích toàn bộ hệ thống
+    function getVuongTuongInfo(lunarMonth, canIdx, chiIdx) {
+      return getVuongSuyInfo(lunarMonth, canIdx, chiIdx);
     }
 
     // =========================================================================
@@ -6923,18 +7043,28 @@
         });
       }
 
-      // 4. Ngày Vượng Tướng (Hiệp Kỷ Biện Phương Thư)
-      const vuongTuong = getVuongTuongInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
-      if (vuongTuong.isDaiCat) {
-        const isV = (vuongTuong.type === 'vuong');
+      // 4. Nhóm Ngày Vượng Suy (Hiệp Kỷ Biện Phương Thư: Vượng – Tướng – Hưu – Tù – Tử)
+      const vuongSuy = getVuongSuyInfo(lunarMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (vuongSuy.isCat) {
         catItems.push({
-          badgeClass: vuongTuong.badgeClass,
-          badgeTitle: isV ? "🌿 Ngày Vượng (Đại cát)" : "🌿 Ngày Tướng (Đại cát)",
-          meaning: isV ? "Đắc chính khí bốn mùa cực thịnh, vượng khí hanh thông." : "Đắc sinh khí mùa tương trợ, sinh sôi phát triển.",
-          actionTag: "Hợp làm gì:",
-          actionText: "Đại cát cho trăm sự khởi tạo, động thổ, khai trương, xuất hành, mưu cầu việc lớn.",
+          badgeClass: vuongSuy.badgeClass,
+          badgeTitle: `${vuongSuy.badgeTitle} (${vuongSuy.type === 'vuong' ? 'Đại cát' : 'Cát'})`,
+          meaning: vuongSuy.meaning,
+          actionTag: vuongSuy.actionTag || "Hợp làm gì:",
+          actionText: vuongSuy.actionText,
           avoidTag: null,
           avoidText: null,
+          lookupType: "vuongTuong"
+        });
+      } else if (vuongSuy.isHung) {
+        hungItems.push({
+          badgeClass: vuongSuy.badgeClass,
+          badgeTitle: `${vuongSuy.badgeTitle} (${vuongSuy.type === 'tu_dead' ? 'Đại hung' : 'Hung'})`,
+          hungWhat: vuongSuy.meaning,
+          avoidTag: vuongSuy.avoidTag || "Kiêng cữ:",
+          avoidText: vuongSuy.avoidText,
+          actionTag: vuongSuy.actionTag,
+          actionText: vuongSuy.actionText,
           lookupType: "vuongTuong"
         });
       }
@@ -7111,7 +7241,7 @@
           <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
             <button type="button" class="btn-lookup-nd" title="Bảng tra Quý Nhân Tứ Đức (Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp) 12 tháng">Tra Tứ Đức ➔</button>
             <button type="button" class="btn-lookup-bt" title="Bảng tra Âm Dương Bất Tương 60 Hoa Giáp">Tra Bất Tương ➔</button>
-            <button type="button" class="btn-lookup-vt" title="Bảng tra Ngày Vượng Tướng 12 tháng">Tra Vượng Tướng ➔</button>
+            <button type="button" class="btn-lookup-vt" title="Bảng tra Quy luật Ngày Vượng Suy (Vượng – Tướng – Hưu – Tù – Tử) 12 tháng">Tra Vượng Suy ➔</button>
             <button type="button" class="btn-lookup-mt" title="Bảng tra Ngày Mẫu Thương 12 tháng theo Ngũ Hành Tương Sinh">Tra Mẫu Thương ➔</button>
           </div>
         </div>
@@ -7606,9 +7736,9 @@
       if (batTuong.code > 0) {
         cellTitle += `\nÂm Dương: ${batTuong.name}`;
       }
-      const vuongTuong = getVuongTuongInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
-      if (vuongTuong.isDaiCat) {
-        cellTitle += `\nVượng Tướng: ${vuongTuong.badgeTitle} (Đại cát)`;
+      const vuongSuy = getVuongSuyInfo(lMonth, dayCanChi.canIndex, dayCanChi.chiIndex);
+      if (vuongSuy) {
+        cellTitle += `\nVượng Suy: ${vuongSuy.badgeTitle} (${vuongSuy.isCat ? 'Tốt/Cát' : (vuongSuy.type === 'tu_dead' ? 'Đại hung' : 'Hung')})`;
       }
       const mauThuong = getMauThuongInfo(lMonth, dayCanChi.chiIndex);
       if (mauThuong.isMauThuong) {
@@ -9460,42 +9590,57 @@
         {
           id: 1,
           months: [1, 2],
-          title: 'Tháng Dần và tháng Mão (Tháng Giêng, tháng Hai):',
-          season: 'Mùa Xuân (Mộc Vượng, Hỏa Tướng)',
-          vuongText: 'Ngày có thiên can <strong>Giáp, Ất</strong> hoặc địa chi <strong>Dần, Mão</strong>.',
-          tuongText: 'Ngày có thiên can <strong>Bính, Đinh</strong> hoặc địa chi <strong>Tỵ, Ngọ</strong>.'
+          title: 'Tháng Dần (1) và tháng Mão (2):',
+          season: 'Mùa Xuân (Khí Mộc lệnh)',
+          vuongText: '<strong>Hành Mộc:</strong> Chi <strong>Dần, Mão</strong> (Can Giáp, Ất) — Đang đương lệnh, khí thế mạnh nhất.',
+          tuongText: '<strong>Hành Hỏa:</strong> Chi <strong>Tỵ, Ngọ</strong> (Can Bính, Đinh) — Được vượng khí Mộc sinh dưỡng, lực lượng phát triển.',
+          huuText: '<strong>Hành Thủy:</strong> Chi <strong>Hợi, Tý</strong> (Can Nhâm, Quý) — Thủy sinh Mộc: Đã cạn sức sinh cho mùa nên nghỉ ngơi, thoái khí.',
+          tuText: '<strong>Hành Kim:</strong> Chi <strong>Thân, Dậu</strong> (Can Canh, Tân) — Kim khắc Mộc: Bị khí thế lệnh tháng giam hãm phong tỏa, suy yếu.',
+          tuDeadText: '<strong>Hành Thổ:</strong> Chi <strong>Thìn, Tuất, Sửu, Mùi</strong> (Can Mậu, Kỷ) — Mộc khắc Thổ: Bị lệnh tháng triệt hạ toàn bộ.'
         },
         {
           id: 2,
           months: [4, 5],
-          title: 'Tháng Tỵ và tháng Ngọ (Tháng Tư, tháng Năm):',
-          season: 'Mùa Hạ (Hỏa Vượng, Thổ Tướng)',
-          vuongText: 'Ngày có thiên can <strong>Bính, Đinh</strong> hoặc địa chi <strong>Tỵ, Ngọ</strong>.',
-          tuongText: 'Ngày có thiên can <strong>Mậu, Kỷ</strong> hoặc địa chi <strong>Thìn, Tuất, Sửu, Mùi</strong>.'
+          title: 'Tháng Tỵ (4) và tháng Ngọ (5):',
+          season: 'Mùa Hạ (Khí Hỏa lệnh)',
+          vuongText: '<strong>Hành Hỏa:</strong> Chi <strong>Tỵ, Ngọ</strong> (Can Bính, Đinh) — Đang đương lệnh, hỏa khí cực thịnh.',
+          tuongText: '<strong>Hành Thổ:</strong> Chi <strong>Thìn, Tuất, Sửu, Mùi</strong> (Can Mậu, Kỷ) — Được Hỏa sinh Thổ bồi bổ, dày dặn phát triển.',
+          huuText: '<strong>Hành Mộc:</strong> Chi <strong>Dần, Mão</strong> (Can Giáp, Ất) — Mộc sinh Hỏa: Đã dốc hết sức sinh cho mùa nên thoái khí nghỉ ngơi.',
+          tuText: '<strong>Hành Thủy:</strong> Chi <strong>Hợi, Tý</strong> (Can Nhâm, Quý) — Thủy khắc Hỏa: Thế yếu chống lệnh vượng, bị phong tỏa giam hãm.',
+          tuDeadText: '<strong>Hành Kim:</strong> Chi <strong>Thân, Dậu</strong> (Can Canh, Tân) — Hỏa khắc Kim: Bị hỏa mùa thiêu đốt triệt hạ toàn bộ.'
         },
         {
           id: 3,
           months: [7, 8],
-          title: 'Tháng Thân và tháng Dậu (Tháng Bảy, tháng Tám):',
-          season: 'Mùa Thu (Kim Vượng, Thủy Tướng)',
-          vuongText: 'Ngày có thiên can <strong>Canh, Tân</strong> hoặc địa chi <strong>Thân, Dậu</strong>.',
-          tuongText: 'Ngày có thiên can <strong>Nhâm, Quý</strong> hoặc địa chi <strong>Hợi, Tý</strong>.'
+          title: 'Tháng Thân (7) và tháng Dậu (8):',
+          season: 'Mùa Thu (Khí Kim lệnh)',
+          vuongText: '<strong>Hành Kim:</strong> Chi <strong>Thân, Dậu</strong> (Can Canh, Tân) — Đang đương lệnh, kim khí túc sát cực thịnh.',
+          tuongText: '<strong>Hành Thủy:</strong> Chi <strong>Hợi, Tý</strong> (Can Nhâm, Quý) — Được Kim sinh Thủy nuôi dưỡng, lưu thông phát triển.',
+          huuText: '<strong>Hành Thổ:</strong> Chi <strong>Thìn, Tuất, Sửu, Mùi</strong> (Can Mậu, Kỷ) — Thổ sinh Kim: Đã cạn nguyên khí sinh mùa nên thoái khí.',
+          tuText: '<strong>Hành Hỏa:</strong> Chi <strong>Tỵ, Ngọ</strong> (Can Bính, Đinh) — Hỏa khắc Kim: Khí lực bị lệnh tháng vây hãm suy thoái.',
+          tuDeadText: '<strong>Hành Mộc:</strong> Chi <strong>Dần, Mão</strong> (Can Giáp, Ất) — Kim khắc Mộc: Bị kim khí mùa Thu đốn phạt triệt hạ toàn bộ.'
         },
         {
           id: 4,
           months: [10, 11],
-          title: 'Tháng Hợi và tháng Tý (Tháng Mười, tháng Mười Một):',
-          season: 'Mùa Đông (Thủy Vượng, Mộc Tướng)',
-          vuongText: 'Ngày có thiên can <strong>Nhâm, Quý</strong> hoặc địa chi <strong>Hợi, Tý</strong>.',
-          tuongText: 'Ngày có thiên can <strong>Giáp, Ất</strong> hoặc địa chi <strong>Dần, Mão</strong>.'
+          title: 'Tháng Hợi (10) và tháng Tý (11):',
+          season: 'Mùa Đông (Khí Thủy lệnh)',
+          vuongText: '<strong>Hành Thủy:</strong> Chi <strong>Hợi, Tý</strong> (Can Nhâm, Quý) — Đang đương lệnh, thủy khí dồi dào cực thịnh.',
+          tuongText: '<strong>Hành Mộc:</strong> Chi <strong>Dần, Mão</strong> (Can Giáp, Ất) — Được Thủy sinh Mộc tưới mát, sinh trưởng phát triển.',
+          huuText: '<strong>Hành Kim:</strong> Chi <strong>Thân, Dậu</strong> (Can Canh, Tân) — Kim sinh Thủy: Đã trút cạn sức sinh mùa nên nghỉ ngơi, thoái khí.',
+          tuText: '<strong>Hành Thổ:</strong> Chi <strong>Thìn, Tuất, Sửu, Mùi</strong> (Can Mậu, Kỷ) — Thổ khắc Thủy: Bị đại thủy mùa Đông giam cầm phong tỏa.',
+          tuDeadText: '<strong>Hành Hỏa:</strong> Chi <strong>Tỵ, Ngọ</strong> (Can Bính, Đinh) — Thủy khắc Hỏa: Bị hàn thủy mùa Đông dập tắt triệt hạ toàn bộ.'
         },
         {
           id: 5,
           months: [3, 6, 9, 12],
-          title: 'Tháng Thìn, Tuất, Sửu, Mùi (Tháng Ba, Sáu, Chín, Chạp):',
-          season: 'Tứ Quý (Thổ Vượng, Kim Tướng)',
-          vuongText: 'Ngày có thiên can <strong>Mậu, Kỷ</strong> <em>(Lưu ý: ngày Mậu Kỷ tuy vượng nhưng kị động thổ và kị tu sửa trung cung)</em>.',
-          tuongText: 'Ngày có thiên can <strong>Canh, Tân</strong> hoặc địa chi <strong>Thân, Dậu</strong>.'
+          title: 'Tháng Thìn (3), Mùi (6), Tuất (9), Sửu (12):',
+          season: 'Tứ Quý (Khí Thổ lệnh)',
+          vuongText: '<strong>Hành Thổ:</strong> Chi <strong>Thìn, Tuất, Sửu, Mùi</strong> (Can Mậu, Kỷ) — Đang đương lệnh, hậu thổ dày dặn <em>(Lưu ý: ngày Mậu Kỷ kỵ động thổ trung cung)</em>.',
+          tuongText: '<strong>Hành Kim:</strong> Chi <strong>Thân, Dậu</strong> (Can Canh, Tân) — Được Thổ sinh Kim bồi bổ, kết tinh sáng rõ.',
+          huuText: '<strong>Hành Hỏa:</strong> Chi <strong>Tỵ, Ngọ</strong> (Can Bính, Đinh) — Hỏa sinh Thổ: Đã dốc hết sức sinh cho Thổ nên thoái khí nghỉ ngơi.',
+          tuText: '<strong>Hành Mộc:</strong> Chi <strong>Dần, Mão</strong> (Can Giáp, Ất) — Mộc khắc Thổ: Bị thổ khí dày đặc giam hãm khốn đốn.',
+          tuDeadText: '<strong>Hành Thủy:</strong> Chi <strong>Hợi, Tý</strong> (Can Nhâm, Quý) — Thổ khắc Thủy: Bị đất dày vùi lấp ngăn dòng triệt hạ toàn bộ.'
         }
       ];
 
@@ -9507,7 +9652,7 @@
 
         return `
           <div style="border: ${cardBorder}; background: ${cardBg}; border-radius: 8px; padding: 0.75rem 0.95rem; box-shadow: ${cardShadow}; transition: all 0.2s ease;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.45rem; padding-bottom: 0.35rem; border-bottom: 1px dashed ${isCurrent ? '#bae6fd' : '#f1f5f9'};">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; padding-bottom: 0.35rem; border-bottom: 1px dashed ${isCurrent ? '#bae6fd' : '#f1f5f9'};">
               <div style="font-weight: 700; color: ${isCurrent ? '#0369a1' : '#1e293b'}; font-size: 0.88rem;">
                 ${g.title}
               </div>
@@ -9516,14 +9661,41 @@
                 ${isCurrent ? `<span style="font-size: 0.68rem; font-weight: 700; padding: 0.1rem 0.45rem; background: #0284c7; color: #ffffff; border-radius: 9999px;">● Tháng ${activeMonth} đang chọn</span>` : ''}
               </div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.83rem; line-height: 1.55;">
-              <div style="display: flex; align-items: baseline; gap: 0.4rem;">
-                <span class="badge badge-vuong" style="font-size: 0.7rem; flex-shrink: 0;">Ngày Vượng</span>
-                <span style="color: #374151;">• ${g.vuongText}</span>
+
+            <!-- Bố cục 2 cột phân biệt: Nhóm Ngày Cát (Vượng - Tướng) & Nhóm Ngày Hung (Hưu - Tù - Tử) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 0.55rem; font-size: 0.82rem; line-height: 1.55;">
+              <!-- Nhóm Cát (Tốt) -->
+              <div style="background: rgba(240, 253, 244, 0.75); border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.5rem 0.65rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <div style="font-size: 0.74rem; font-weight: 700; color: #166534; display: flex; align-items: center; gap: 0.25rem; margin-bottom: 0.15rem;">
+                  <span>🟢</span> NHÓM NGÀY TỐT (CÁT LỢI)
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.35rem;">
+                  <span class="badge badge-vuong" style="font-size: 0.68rem; flex-shrink: 0;">Ngày Vượng</span>
+                  <span style="color: #374151;">• ${g.vuongText}</span>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.35rem;">
+                  <span class="badge badge-tuong" style="font-size: 0.68rem; flex-shrink: 0;">Ngày Tướng</span>
+                  <span style="color: #374151;">• ${g.tuongText}</span>
+                </div>
               </div>
-              <div style="display: flex; align-items: baseline; gap: 0.4rem;">
-                <span class="badge badge-tuong" style="font-size: 0.7rem; flex-shrink: 0;">Ngày Tướng</span>
-                <span style="color: #374151;">• ${g.tuongText}</span>
+
+              <!-- Nhóm Hung (Kiêng kỵ) -->
+              <div style="background: rgba(254, 242, 242, 0.75); border: 1px solid #fecaca; border-radius: 6px; padding: 0.5rem 0.65rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <div style="font-size: 0.74rem; font-weight: 700; color: #991b1b; display: flex; align-items: center; gap: 0.25rem; margin-bottom: 0.15rem;">
+                  <span>🔴</span> NHÓM NGÀY HUNG (KIÊNG KỴ)
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.35rem;">
+                  <span class="badge badge-huu" style="font-size: 0.68rem; flex-shrink: 0;">Ngày Hưu</span>
+                  <span style="color: #374151;">• ${g.huuText}</span>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.35rem;">
+                  <span class="badge badge-tu" style="font-size: 0.68rem; flex-shrink: 0;">Ngày Tù</span>
+                  <span style="color: #374151;">• ${g.tuText}</span>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.35rem;">
+                  <span class="badge badge-tudead" style="font-size: 0.68rem; flex-shrink: 0;">Ngày Tử</span>
+                  <span style="color: #374151;">• ${g.tuDeadText}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -11919,7 +12091,7 @@
           document.getElementById('convResultSub').textContent = 
             `Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Tướng: ${vuongTuong.isDaiCat ? vuongTuong.badgeTitle + ' (Đại cát)' : 'Không'} • Mẫu Thương: ${mauThuong.isMauThuong ? 'Ngày Mẫu Thương (Cát)' : 'Không'}`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Suy: ${vuongTuong.badgeTitle} (${vuongTuong.isCat ? 'Cát' : 'Hung'}) • Mẫu Thương: ${mauThuong.isMauThuong ? 'Ngày Mẫu Thương (Cát)' : 'Không'}`;
         } else {
           const [sDay, sMonth, sYear] = convertLunar2Solar(d, m, y, isLeap);
           if (sDay === 0) {
@@ -11942,7 +12114,7 @@
           document.getElementById('convResultSub').textContent = 
             `Can chi: Năm ${yearCanChi.text} • Tháng ${monthCanChi.text} • Ngày ${dayCanChi.text}`;
           document.getElementById('convResultExtra').textContent = 
-            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Tướng: ${vuongTuong.isDaiCat ? vuongTuong.badgeTitle + ' (Đại cát)' : 'Không'} • Mẫu Thương: ${mauThuong.isMauThuong ? 'Ngày Mẫu Thương (Cát)' : 'Không'}`;
+            `Tiết khí: ${tietKhi} • ${star.isHoangDao ? 'Ngày Hoàng Đạo' : 'Ngày Hắc Đạo'} (${star.name}) • Quý nhân: ${nhiDuc.name} • Âm Dương: ${batTuong.name} • Vượng Suy: ${vuongTuong.badgeTitle} (${vuongTuong.isCat ? 'Cát' : 'Hung'}) • Mẫu Thương: ${mauThuong.isMauThuong ? 'Ngày Mẫu Thương (Cát)' : 'Không'}`;
         }
       }
     }
@@ -11950,7 +12122,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.22.0";
+    const APP_VERSION = "v1.23.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
