@@ -3001,6 +3001,230 @@
       border-radius: 4px;
       display: inline-block;
     }
+
+    /* ============================================================
+       STYLING BẢN IN / LƯU LÁ SỐ BÁT TỰ TỨ TRỤ CHUYÊN BIỆT (A4/PDF)
+       ============================================================ */
+    .battu-print-sheet {
+      display: none;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff !important;
+        color: #111827 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      body * {
+        visibility: hidden !important;
+      }
+
+      /* Chỉ hiển thị duy nhất vùng in Bát Tự */
+      #battuPrintSheet, #battuPrintSheet * {
+        visibility: visible !important;
+      }
+
+      #battuPrintSheet {
+        display: block !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0.5cm 0.75cm !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
+        color: #111827 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        font-size: 9pt !important;
+        line-height: 1.35 !important;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0.6cm 0.7cm;
+      }
+
+      .print-header {
+        border-bottom: 2px solid #b45309;
+        padding-bottom: 0.35rem;
+        margin-bottom: 0.5rem;
+      }
+      .print-main-title {
+        font-size: 15pt !important;
+        font-weight: 800 !important;
+        color: #78350f !important;
+        text-align: center;
+        margin: 0 0 2px 0;
+        letter-spacing: 0.5px;
+      }
+      .print-subtitle {
+        font-size: 7.5pt !important;
+        text-align: center;
+        color: #78716c;
+        margin-bottom: 0.35rem;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+      }
+      .print-meta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.25rem 0.5rem;
+        background: #fffbeb !important;
+        border: 1px solid #fde68a !important;
+        border-radius: 4px;
+        padding: 0.35rem 0.5rem;
+        font-size: 8.5pt;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-meta-item strong {
+        color: #92400e !important;
+      }
+
+      .print-section {
+        margin-top: 0.45rem;
+      }
+      .print-section-title {
+        font-size: 9pt !important;
+        font-weight: 800 !important;
+        color: #92400e !important;
+        border-bottom: 1.5px solid #d97706;
+        padding-bottom: 2px;
+        margin-bottom: 0.3rem;
+        text-transform: uppercase;
+      }
+
+      /* Bảng 4 Trụ Bát Tự */
+      .print-battu-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8pt;
+        text-align: center;
+      }
+      .print-battu-table th, .print-battu-table td {
+        border: 1px solid #cbd5e1 !important;
+        padding: 0.25rem 0.2rem;
+      }
+      .print-battu-table th {
+        background: #f8fafc !important;
+        font-weight: 700;
+        color: #334155 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-battu-table th small {
+        font-size: 7pt;
+        color: #64748b;
+        font-weight: normal;
+      }
+      .print-battu-table .tb-label {
+        background: #f1f5f9 !important;
+        font-weight: 700;
+        color: #475569 !important;
+        text-align: left;
+        padding-left: 0.35rem;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .can-cell, .chi-cell {
+        font-weight: 700;
+        font-size: 9.5pt;
+      }
+      .highlight-day {
+        background: #fefce8 !important;
+        color: #854d0e !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* Đánh giá sơ bộ thân vượng nhược */
+      .print-eval-box {
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        padding: 0.35rem 0.5rem;
+        background: #fafafa !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-eval-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px dashed #cbd5e1;
+        padding-bottom: 0.25rem;
+        margin-bottom: 0.3rem;
+      }
+      .print-badge-than {
+        font-size: 9pt;
+        font-weight: 800;
+        padding: 0.15rem 0.45rem;
+        border-radius: 3px;
+        background: #fef3c7 !important;
+        color: #92400e !important;
+        border: 1px solid #f59e0b;
+        display: inline-block;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-factors-summary {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.2rem 0.5rem;
+        font-size: 8pt;
+        margin-bottom: 0.3rem;
+      }
+      .print-summary-text {
+        font-size: 8pt;
+        line-height: 1.4;
+        color: #334155;
+      }
+
+      /* Dụng Thần & Hỷ Thần */
+      .print-dungthan-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.45rem;
+      }
+      .print-dungthan-card {
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        padding: 0.35rem 0.45rem;
+        font-size: 8pt;
+        line-height: 1.4;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .card-dung {
+        background: #fffdfa !important;
+        border-color: #fcd34d !important;
+      }
+      .card-ky {
+        background: #f8fafc !important;
+        border-color: #cbd5e1 !important;
+      }
+      .card-title-sub {
+        font-weight: 800;
+        font-size: 8pt;
+        color: #92400e;
+        margin-bottom: 0.2rem;
+        border-bottom: 1px solid #fde68a;
+        padding-bottom: 2px;
+      }
+
+      .print-footer {
+        margin-top: 0.4rem;
+        border-top: 1px solid #cbd5e1;
+        padding-top: 0.2rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 7pt;
+        color: #64748b;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3013,7 +3237,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.20.1</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.21.1</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -3845,7 +4069,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
           <div class="form-group">
             <label class="form-label" for="btName">Họ và tên:</label>
-            <input type="text" id="btName" class="form-control" placeholder="Ví dụ: Nguyễn Hoàng Đăng" value="Nguyễn Hoàng Đăng">
+            <input type="text" id="btName" class="form-control" placeholder="Ví dụ: Thân Chủ" value="Thân Chủ">
           </div>
           <div class="form-group">
             <label class="form-label" for="btGender">Giới tính:</label>
@@ -3867,7 +4091,7 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="btDate">Ngày tháng năm sinh:</label>
-            <input type="date" id="btDate" class="form-control" value="2000-08-18">
+            <input type="date" id="btDate" class="form-control" value="">
           </div>
           <div class="form-group">
             <label class="form-label" for="btHour">Giờ sinh:</label>
@@ -3877,7 +4101,7 @@
               <option value="4">Giờ Dần (03:00 - 04:59)</option>
               <option value="6">Giờ Mão (05:00 - 06:59)</option>
               <option value="8">Giờ Thìn (07:00 - 08:59)</option>
-              <option value="10" selected>Giờ Tỵ (09:00 - 10:59)</option>
+              <option value="10">Giờ Tỵ (09:00 - 10:59)</option>
               <option value="12">Giờ Ngọ (11:00 - 12:59)</option>
               <option value="14">Giờ Mùi (13:00 - 14:59)</option>
               <option value="16">Giờ Thân (15:00 - 16:59)</option>
@@ -3892,7 +4116,10 @@
           <button class="btn btn-primary" id="btnCalculateBattu">
             ✨ Lập Lá Số &amp; Bình Giải
           </button>
-          <button class="btn btn-outline" id="btnPrintBattu">
+          <button type="button" class="btn btn-outline" id="btnBattuNow" title="Lấy ngày và giờ hiện tại của hệ thống để lập lá số">
+            ⏱️ Lấy Giờ Hiện Tại
+          </button>
+          <button class="btn btn-outline" id="btnPrintBattu" title="In hoặc lưu file PDF lá số Bát Tự">
             🖨️ In / Lưu Lá Số
           </button>
         </div>
@@ -4192,6 +4419,138 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- ======================================================= -->
+      <!-- BẢN IN / LƯU LÁ SỐ BÁT TỰ TỨ TRỤ CHUYÊN BIỆT (A4 / PDF)   -->
+      <!-- Chỉ in nội dung Bát Tự, đánh giá sơ bộ vượng nhược,     -->
+      <!-- và Dụng thần, Hỷ thần, Kỵ thần cứu giải                 -->
+      <!-- ======================================================= -->
+      <div id="battuPrintSheet" class="battu-print-sheet">
+        <div class="print-header">
+          <div class="print-main-title">LÁ SỐ BÁT TỰ TỨ TRỤ</div>
+          <div class="print-subtitle">TỨ TRỤ CHÍNH TÔNG • THUẬN THEO TỰ NHIÊN - ĐOÁN BIẾT MỆNH SỐ</div>
+          <div class="print-meta-grid">
+            <div class="print-meta-item"><strong>Họ và tên:</strong> <span id="prName">Thân Chủ</span></div>
+            <div class="print-meta-item"><strong>Giới tính:</strong> <span id="prGender">Nam Mệnh</span></div>
+            <div class="print-meta-item"><strong>Dương lịch:</strong> <span id="prSolarDate">--/--/----</span></div>
+            <div class="print-meta-item"><strong>Âm lịch:</strong> <span id="prLunarDate">Ngày -- tháng -- năm ----</span></div>
+            <div class="print-meta-item"><strong>Giờ sinh:</strong> <span id="prBirthHour">Giờ -- (--:00)</span></div>
+            <div class="print-meta-item"><strong>Tiết khí:</strong> <span id="prSolarTerm">--</span></div>
+          </div>
+        </div>
+
+        <!-- I. NỘI DUNG BÁT TỰ: BẢNG 4 TRỤ -->
+        <div class="print-section">
+          <div class="print-section-title">I. NỘI DUNG BÁT TỰ TỨ TRỤ (NĂM • THÁNG • NGÀY • GIỜ)</div>
+          <table class="print-battu-table">
+            <thead>
+              <tr>
+                <th style="width: 16%;">NỘI DUNG</th>
+                <th style="width: 21%;">TRỤ NĂM<br><small>(Tổ Tiên / Gốc Rễ)</small></th>
+                <th style="width: 21%;">TRỤ THÁNG<br><small>(Lệnh Mùa / Phụ Mẫu)</small></th>
+                <th style="width: 21%;">TRỤ NGÀY<br><small>(NHẬT CHỦ / Bản Mệnh)</small></th>
+                <th style="width: 21%;">TRỤ GIỜ<br><small>(Quy Túc / Con Cái)</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tb-label">Thập Thần Can</td>
+                <td id="prYearThapThan">-</td>
+                <td id="prMonthThapThan">-</td>
+                <td id="prDayThapThan" style="font-weight: 700; color: #b45309;">🌟 NGUYÊN THẦN</td>
+                <td id="prHourThapThan">-</td>
+              </tr>
+              <tr>
+                <td class="tb-label">Thiên Can</td>
+                <td id="prYearCan" class="can-cell">-</td>
+                <td id="prMonthCan" class="can-cell">-</td>
+                <td id="prDayCan" class="can-cell highlight-day">-</td>
+                <td id="prHourCan" class="can-cell">-</td>
+              </tr>
+              <tr>
+                <td class="tb-label">Địa Chi</td>
+                <td id="prYearChi" class="chi-cell">-</td>
+                <td id="prMonthChi" class="chi-cell">-</td>
+                <td id="prDayChi" class="chi-cell highlight-day">-</td>
+                <td id="prHourChi" class="chi-cell">-</td>
+              </tr>
+              <tr>
+                <td class="tb-label">Nạp Âm</td>
+                <td id="prYearNapAm">-</td>
+                <td id="prMonthNapAm">-</td>
+                <td id="prDayNapAm">-</td>
+                <td id="prHourNapAm">-</td>
+              </tr>
+              <tr>
+                <td class="tb-label">Trường Sinh</td>
+                <td id="prYearTruongSinh">-</td>
+                <td id="prMonthTruongSinh">-</td>
+                <td id="prDayTruongSinh">-</td>
+                <td id="prHourTruongSinh">-</td>
+              </tr>
+              <tr>
+                <td class="tb-label">Tàng Can</td>
+                <td id="prYearTangCan">-</td>
+                <td id="prMonthTangCan">-</td>
+                <td id="prDayTangCan">-</td>
+                <td id="prHourTangCan">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- II. ĐÁNH GIÁ SƠ BỘ VỀ THÂN VƯỢNG / THÂN NHƯỢC -->
+        <div class="print-section">
+          <div class="print-section-title">II. ĐÁNH GIÁ SƠ BỘ VỀ THÂN VƯỢNG / THÂN NHƯỢC</div>
+          <div class="print-eval-box">
+            <div class="print-eval-top">
+              <div>
+                <span style="font-weight: 700; color: #475569; margin-right: 0.35rem;">Kết Luận Bản Mệnh:</span>
+                <span class="print-badge-than" id="prMainBadge">THÂN VƯỢNG</span>
+              </div>
+              <div style="font-size: 8pt; color: #475569;">
+                <span>Sinh Phù (Ấn, Tỷ): <strong id="prSinhScore" style="color: #065f46;">50%</strong></span> • 
+                <span>Khắc - Hao - Tiết (Quan, Tài, Thương): <strong id="prKhacScore" style="color: #991b1b;">50%</strong></span>
+              </div>
+            </div>
+
+            <div class="print-factors-summary">
+              <div><strong>1. Lệnh Tháng:</strong> <span id="prFactorLenh">-</span></div>
+              <div><strong>2. Thông Căn Địa Chi:</strong> <span id="prFactorDia">-</span></div>
+              <div><strong>3. Ấn Tinh (Sinh Dưỡng):</strong> <span id="prFactorSinh">-</span></div>
+              <div><strong>4. Tỷ Kiếp (Trợ Lực):</strong> <span id="prFactorTro">-</span></div>
+            </div>
+
+            <div class="print-summary-text" id="prDetailedConclusion">
+              <!-- JS Detailed explanation -->
+            </div>
+          </div>
+        </div>
+
+        <!-- III. DỤNG THẦN, HỶ THẦN & KỴ THẦN -->
+        <div class="print-section">
+          <div class="print-section-title">III. DỤNG THẦN, HỶ THẦN &amp; KỴ THẦN CỨU GIẢI</div>
+          <div class="print-dungthan-grid">
+            <div class="print-dungthan-card card-dung">
+              <div class="card-title-sub">🎯 DỤNG THẦN, HỶ THẦN &amp; KỴ THẦN</div>
+              <div id="prDungThanDetail">
+                <!-- JS Fill -->
+              </div>
+            </div>
+            <div class="print-dungthan-card card-ky">
+              <div class="card-title-sub">🧭 PHONG THỦY CẢI MỆNH "THUẬN THEO TỰ NHIÊN"</div>
+              <div id="prPhongThuyAdvice">
+                <!-- JS Fill -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="print-footer">
+          <div>Ứng dụng Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Bản quyền thuộc về Thân Chủ</div>
+          <div id="prPrintTimestamp">In lúc: --/--/---- --:--</div>
         </div>
       </div>
     </div>
@@ -6813,6 +7172,9 @@
           if (target === 'tab-leapyear') {
             const curY = selectedDate ? selectedDate.getFullYear() : (new Date()).getFullYear();
             renderDedicatedLeapTab(curY);
+          }
+          if (target === 'tab-battu') {
+            loadBattuCurrentDateTime();
           }
           try {
             tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
@@ -10291,12 +10653,155 @@
     /**
      * BÁT TỰ TỨ TRỤ ENGINE
      */
+    const TIET_LENH_NAMES = [
+      "Lập Xuân (315°)", "Kinh Trập (345°)", "Thanh Minh (15°)", "Lập Hạ (45°)",
+      "Mang Chủng (75°)", "Tiểu Thử (105°)", "Lập Thu (135°)", "Bạch Lộ (165°)",
+      "Hàn Lộ (195°)", "Lập Đông (225°)", "Đại Tuyết (255°)", "Tiểu Hàn (285°)"
+    ];
+    let currentBattuMeta = null;
+
+    /**
+     * Tự động lấy ngày và giờ hiện tại của hệ thống để lập lá số Bát Tự
+     */
+    function loadBattuCurrentDateTime() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      const dateStr = `${y}-${m}-${d}`;
+
+      const dateEl = document.getElementById('btDate');
+      if (dateEl) {
+        dateEl.value = dateStr;
+      }
+
+      // Khung giờ chi theo giờ hiện tại
+      const currentH = now.getHours();
+      let hourVal = "0";
+      if (currentH >= 23 || currentH < 1) hourVal = "0";
+      else if (currentH < 3) hourVal = "2";
+      else if (currentH < 5) hourVal = "4";
+      else if (currentH < 7) hourVal = "6";
+      else if (currentH < 9) hourVal = "8";
+      else if (currentH < 11) hourVal = "10";
+      else if (currentH < 13) hourVal = "12";
+      else if (currentH < 15) hourVal = "14";
+      else if (currentH < 17) hourVal = "16";
+      else if (currentH < 19) hourVal = "18";
+      else if (currentH < 21) hourVal = "20";
+      else hourVal = "22";
+
+      const hourEl = document.getElementById('btHour');
+      if (hourEl) {
+        hourEl.value = hourVal;
+      }
+
+      const solarRadio = document.getElementById('btTypeSolar');
+      if (solarRadio) solarRadio.checked = true;
+
+      const nameEl = document.getElementById('btName');
+      if (nameEl && (!nameEl.value.trim() || nameEl.value.trim() === "Nguyễn Hoàng Đăng")) {
+        nameEl.value = "Thân Chủ";
+      }
+
+      calculateBattu();
+    }
+
+    /**
+     * Đồng bộ dữ liệu sang Bản In / Lưu Bát Tự A4 Chuyên Biệt
+     */
+    function updateBattuPrintSheet(evalData) {
+      if (!currentBattuMeta) return;
+
+      const setElText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val !== undefined && val !== null ? val : '-';
+      };
+      const setElHtml = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = val || '';
+      };
+
+      // Header Meta
+      setElText('prName', currentBattuMeta.name || 'Thân Chủ');
+      setElText('prGender', currentBattuMeta.gender === 'male' ? 'Nam Mệnh (Dương Nam)' : 'Nữ Mệnh (Âm Nữ)');
+      setElText('prSolarDate', `${String(currentBattuMeta.sDay).padStart(2, '0')}/${String(currentBattuMeta.sMonth).padStart(2, '0')}/${currentBattuMeta.sYear}`);
+      setElText('prLunarDate', `Ngày ${currentBattuMeta.lDay} tháng ${currentBattuMeta.lMonth} năm ${evalData.yearPillar.text}`);
+
+      const hourSelect = document.getElementById('btHour');
+      const hourText = hourSelect ? hourSelect.options[hourSelect.selectedIndex]?.text : `Giờ ${CHI[currentBattuMeta.hourChiIdx]}`;
+      setElText('prBirthHour', hourText);
+      setElText('prSolarTerm', TIET_LENH_NAMES[currentBattuMeta.tietLenhIndex] || 'Tiết Khí Hoàng Đạo');
+
+      // I. Bảng 4 Trụ (Năm, Tháng, Ngày, Giờ)
+      const yP = evalData.yearPillar;
+      const mP = evalData.monthPillar;
+      const dP = evalData.dayPillar;
+      const hP = evalData.hourPillar;
+
+      setElText('prYearThapThan', document.getElementById('btYearCanThapThan')?.textContent || '-');
+      setElText('prMonthThapThan', document.getElementById('btMonthCanThapThan')?.textContent || '-');
+      setElText('prDayThapThan', '🌟 NGUYÊN THẦN');
+      setElText('prHourThapThan', document.getElementById('btHourCanThapThan')?.textContent || '-');
+
+      setElText('prYearCan', `${yP.can} (${CAN_HANH[yP.canIndex]})`);
+      setElText('prMonthCan', `${mP.can} (${CAN_HANH[mP.canIndex]})`);
+      setElText('prDayCan', `${dP.can} (${CAN_HANH[dP.canIndex]})`);
+      setElText('prHourCan', `${hP.can} (${CAN_HANH[hP.canIndex]})`);
+
+      setElText('prYearChi', `${yP.chi} (${CHI_HANH[yP.chiIndex]})`);
+      setElText('prMonthChi', `${mP.chi} (${CHI_HANH[mP.chiIndex]})`);
+      setElText('prDayChi', `${dP.chi} (${CHI_HANH[dP.chiIndex]})`);
+      setElText('prHourChi', `${hP.chi} (${CHI_HANH[hP.chiIndex]})`);
+
+      setElText('prYearNapAm', NAP_AM[`${yP.can} ${yP.chi}`] || '-');
+      setElText('prMonthNapAm', NAP_AM[`${mP.can} ${mP.chi}`] || '-');
+      setElText('prDayNapAm', NAP_AM[`${dP.can} ${dP.chi}`] || '-');
+      setElText('prHourNapAm', NAP_AM[`${hP.can} ${hP.chi}`] || '-');
+
+      setElText('prYearTruongSinh', document.getElementById('btYearChiTruongSinh')?.textContent || '-');
+      setElText('prMonthTruongSinh', document.getElementById('btMonthChiTruongSinh')?.textContent || '-');
+      setElText('prDayTruongSinh', document.getElementById('btDayChiTruongSinh')?.textContent || '-');
+      setElText('prHourTruongSinh', document.getElementById('btHourChiTruongSinh')?.textContent || '-');
+
+      setElText('prYearTangCan', document.getElementById('btYearTangCan')?.textContent?.replace('Tàng: ', '') || '-');
+      setElText('prMonthTangCan', document.getElementById('btMonthTangCan')?.textContent?.replace('Tàng: ', '') || '-');
+      setElText('prDayTangCan', document.getElementById('btDayTangCan')?.textContent?.replace('Tàng: ', '') || '-');
+      setElText('prHourTangCan', document.getElementById('btHourTangCan')?.textContent?.replace('Tàng: ', '') || '-');
+
+      // II. Đánh Giá Sơ Bộ Thân Vượng / Thân Nhược
+      setElText('prMainBadge', evalData.conclusionBadge);
+      setElText('prSinhScore', `${evalData.sinhPhuScore.toFixed(1)} đ (${evalData.pctSinh}%)`);
+      setElText('prKhacScore', `${evalData.khacHaoTietScore.toFixed(1)} đ (${evalData.pctKhac}%)`);
+
+      setElText('prFactorLenh', evalData.dacLenhLevel);
+      setElText('prFactorDia', evalData.dacDiaStatus);
+      setElText('prFactorSinh', evalData.duocSinhStatus);
+      setElText('prFactorTro', evalData.duocTroStatus);
+
+      setElHtml('prDetailedConclusion', evalData.conclusionDetail);
+
+      // III. Dụng Thần, Hỷ Thần & Kỵ Thần
+      setElHtml('prDungThanDetail', evalData.dungThanText);
+      setElHtml('prPhongThuyAdvice', evalData.phongThuyText);
+
+      // Footer timestamp
+      const now = new Date();
+      const timeStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} lúc ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      setElText('prPrintTimestamp', `In lúc: ${timeStr}`);
+    }
+
     function setupBattuForm() {
       document.getElementById('btnCalculateBattu').addEventListener('click', calculateBattu);
+      document.getElementById('btnBattuNow')?.addEventListener('click', () => {
+        loadBattuCurrentDateTime();
+      });
       document.getElementById('btnPrintBattu').addEventListener('click', () => {
+        calculateBattu();
         window.print();
       });
-      calculateBattu(); // Initial run
+      // Khởi tạo luôn luôn lấy thời gian hiện tại
+      loadBattuCurrentDateTime();
     }
 
     function calculateBattu() {
@@ -10365,6 +10870,21 @@
       const hourPillar = getHourCanChi(dayPillar.canIndex, hourChiIdx);
 
       // Hiển thị thông tin tổng quan
+      currentBattuMeta = {
+        name,
+        gender,
+        sDay,
+        sMonth,
+        sYear,
+        lDay,
+        lMonth,
+        lYear,
+        isLeap,
+        birthHourChi,
+        hourChiIdx,
+        tietLenhIndex
+      };
+
       document.getElementById('btResultPerson').textContent = `LÁ SỐ BÁT TỰ: ${name.toUpperCase()} (${gender === 'male' ? 'NAM MỆNH' : 'NỮ MỆNH'})`;
       document.getElementById('btResultInfo').textContent = 
         `Dương lịch: ${sDay}/${sMonth}/${sYear} • Âm lịch: Ngày ${lDay} tháng ${lMonth} năm ${yearPillar.text} • Giờ sinh: ${CHI[hourChiIdx]}`;
@@ -11163,6 +11683,26 @@
       if (oldThanStatus) oldThanStatus.innerHTML = conclusionDetail;
       const oldDungThan = document.getElementById('btDungThan');
       if (oldDungThan) oldDungThan.innerHTML = dungThanText;
+
+      // Cập nhật dữ liệu cho Bản In / Lưu Lá Số Bát Tự A4 Chuyên Biệt
+      updateBattuPrintSheet({
+        conclusionBadge,
+        pctSinh,
+        pctKhac,
+        sinhPhuScore,
+        khacHaoTietScore,
+        dacLenhLevel,
+        dacDiaStatus,
+        duocSinhStatus,
+        duocTroStatus,
+        conclusionDetail,
+        dungThanText,
+        phongThuyText,
+        yearPillar: yP,
+        monthPillar: mP,
+        dayPillar: dP,
+        hourPillar: hP
+      });
     }
 
     /**
@@ -11255,7 +11795,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.20.1";
+    const APP_VERSION = "v1.21.1";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

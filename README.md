@@ -195,6 +195,27 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.21.1] - 2026-09-08
+- **Sửa Lỗi Khởi Tạo Lá Số Bát Tự (ReferenceError: yearPillar is not defined)**:
+  - **Khắc Phục Lỗi Biến**: Sửa lỗi tham chiếu tên biến trụ năm/tháng/ngày/giờ (`yearPillar, monthPillar, dayPillar, hourPillar` thay vì `yP, mP, dP, hP`) trong hàm `evaluateBattuVuongNhuoc` khi truyền dữ liệu sang bảng in `updateBattuPrintSheet`.
+  - **Đảm Bảo Ổn Định Tuyệt Đối**: Kiểm tra và đồng bộ an toàn dữ liệu 4 trụ sang bản in A4, đảm bảo các hàm tính toán Bát Tự và tải thời gian thực chạy trơn tru ngay khi mở ứng dụng.
+  - **Số Hóa Phiên Bản v1.21.1**: Cập nhật số phiên bản lên `v1.21.1` trong `package.json`, `index.html` (`APP_VERSION`, Header badge) và `README.md`.
+
+### [v1.21.0] - 2026-09-08
+- **Tối Ưu Chức Năng In / Lưu Lá Số Bát Tự & Cơ Chế Nạp Dữ Liệu Thời Gian Thực**:
+  - **Bản In / Lưu Lá Số Bát Tự Chuyên Biệt (A4 / PDF Tối Ưu)**:
+    - Sửa đổi toàn diện chức năng nút in/lưu lá số: Khi nhấn *"In Lá Số Bát Tự"* hoặc dùng lệnh in của trình duyệt (`Ctrl+P`), toàn bộ các thành phần giao diện thừa (thanh điều hướng, form nhập liệu, bộ lọc, các tab khác...) được ẩn hoàn toàn.
+    - Bản in chỉ tập trung đúng 3 nội dung cốt lõi theo yêu cầu:
+      1. *Nội dung Bát Tự*: Bảng 4 Trụ (Năm, Tháng, Ngày, Giờ) với đầy đủ Thập Thần, Thiên Can, Địa Chi, Nạp Âm, 12 Cung Trường Sinh và Tàng Can.
+      2. *Đánh giá sơ bộ về Thân Vượng / Thân Nhược*: Kết luận bản mệnh, tỷ lệ điểm Sinh Phù vs Khắc - Hao - Tiết, tóm tắt 4 yếu tố then chốt (Lệnh tháng, Thông căn địa chi, Ấn dưỡng, Tỷ Kiếp trợ lực) và nhận định chi tiết.
+      3. *Dụng Thần, Hỷ Thần & Kỵ Thần*: Chi tiết Dụng thần/Hỷ thần cứu giải, Kỵ thần cần phòng tránh và phương pháp phong thủy cải mệnh thuận theo tự nhiên.
+    - Định dạng bản in chuẩn khổ A4 dọc, phối màu trang nhã, phân chia khung bảng rõ ràng, có thông tin thân chủ và mốc thời gian in.
+  - **Tự Động Nạp Dữ Liệu Hiện Tại (Always Fresh Data)**:
+    - Khi mỗi lần người dùng mở tab *"🔮 Lập Lá Số Bát Tự"*, hệ thống luôn tự động lấy ngày, tháng, năm và khung giờ sinh hiện tại theo thời gian thực thay vì giữ giá trị mặc định cố định trước đây.
+    - Bổ sung nút *"⏱️ Lấy Giờ Hiện Tại"* trong form tùy chỉnh giúp người dùng nhanh chóng đồng bộ lại thời điểm thực tế bất kỳ lúc nào chỉ với một chạm.
+  - **Số Hóa Phiên Bản v1.21.0**:
+    - Cập nhật số phiên bản lên `v1.21.0` trong `package.json`, `index.html` (`APP_VERSION`, Header badge) và `README.md`.
+
 ### [v1.20.1] - 2026-09-08
 - **Khắc Phục & Tối Ưu Toàn Diện Thanh Menu Điều Hướng Trên Giao Diện Máy Tính (Desktop Layout Fix)**:
   - **Khắc Phục Lỗi Thiếu / Tràn Tab Menu Trên Màn Hình Máy Tính**:
