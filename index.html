@@ -3237,7 +3237,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.21.1</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.21.2</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -3687,48 +3687,6 @@
                 <div class="bloc-nghi-ky-body" id="blocNghiKyBody">
                   <!-- Được cập nhật tự động bằng hàm renderNghiKyDungSu() -->
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Astronomical New Moon Card (Chi tiết Điểm Sóc & Cơ sở Mùng 1) -->
-          <div class="card" style="margin-top: 1rem; border-left: 3px solid #b45309; background: #fffcf5;">
-            <div class="card-header" style="padding-bottom: 0.4rem; margin-bottom: 0.5rem; border-bottom: 1px dashed #fed7aa;">
-              <h3 class="card-title" style="font-size: 0.95rem; color: #78350f; display: flex; align-items: center; gap: 0.4rem; margin: 0;">
-                🌑 Điểm Sóc &amp; Khởi Ngày Mùng 1 Âm Lịch
-              </h3>
-              <span class="badge" id="cardMonthTypeBadge" style="background: #fef3c7; color: #92400e; font-size: 0.72rem; font-weight: 700;">Tháng Thiếu (29 ngày)</span>
-            </div>
-            
-            <div style="font-size: 0.83rem; line-height: 1.6; color: #374151;">
-              <div style="background: #fff; border: 1px solid #fed7aa; border-radius: 6px; padding: 0.6rem 0.75rem; margin-bottom: 0.6rem;">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
-                  <span style="color: #6b7280;">Điểm Sóc tháng này:</span>
-                  <strong id="cardSocTime" style="color: #991b1b; font-size: 0.95rem; font-family: monospace;">--:--:-- (UTC+7)</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
-                  <span style="color: #6b7280;">Ngày Dương lịch:</span>
-                  <span id="cardSocDate" style="font-weight: 600;">--/--/----</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                  <span style="color: #6b7280;">Khởi ngày Mùng 1:</span>
-                  <span id="cardSocMung1" style="font-weight: 700; color: #15803d;">00:00:00 ngày --/--/----</span>
-                </div>
-              </div>
-
-              <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.55rem 0.75rem; margin-bottom: 0.6rem;">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
-                  <span style="color: #6b7280;">Điểm Sóc tháng sau:</span>
-                  <strong id="cardSocNextTime" style="color: #4b5563; font-size: 0.9rem; font-family: monospace;">--:--:-- (UTC+7)</strong>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                  <span style="color: #6b7280;">Khởi Mùng 1 tháng sau:</span>
-                  <span id="cardSocNextMung1" style="font-weight: 600; color: #374151;">00:00:00 ngày --/--/----</span>
-                </div>
-              </div>
-
-              <div style="font-size: 0.75rem; color: #6b7280; background: #fffbeb; padding: 0.5rem 0.65rem; border-radius: 4px; border: 1px dashed #fde68a; line-height: 1.5;">
-                ℹ️ <strong>Cơ sở tính Mùng 1:</strong> Ngày chứa thời điểm Sóc được tính trọn vẹn (00:00 - 24:00) là ngày Mùng 1 Âm lịch theo chuẩn múi giờ UTC+7 Việt Nam. Chu kỳ giữa 2 điểm Sóc quy định tháng đủ (30 ngày) hoặc thiếu (29 ngày).
               </div>
             </div>
           </div>
@@ -7598,22 +7556,13 @@
       // Nhóm Nghi Kỵ Dụng Sự (Việc Nên Làm & Kiêng Cữ theo Trạch Nhật)
       renderNghiKyDungSu(lMonth, dayCanChi, dayCanChi.jd);
 
-      // Điểm Sóc và Cơ sở tính Mùng 1 Âm lịch
+      // Điểm Sóc và Cơ sở tính Mùng 1 Âm lịch (hiển thị tóm tắt trên Lịch Ngày)
       const socInfo = getNewMoonDetailsForDate(d, m, y, 7);
       const curH = String(socInfo.currentInstant.hours).padStart(2, '0');
       const curM = String(socInfo.currentInstant.minutes).padStart(2, '0');
       const curS = String(socInfo.currentInstant.seconds).padStart(2, '0');
       const curD = String(socInfo.currentDate[0]).padStart(2, '0');
       const curMo = String(socInfo.currentDate[1]).padStart(2, '0');
-      const curY = socInfo.currentDate[2];
-
-      const nextH = String(socInfo.nextInstant.hours).padStart(2, '0');
-      const nextM = String(socInfo.nextInstant.minutes).padStart(2, '0');
-      const nextS = String(socInfo.nextInstant.seconds).padStart(2, '0');
-      const nextD = String(socInfo.nextDate[0]).padStart(2, '0');
-      const nextMo = String(socInfo.nextDate[1]).padStart(2, '0');
-      const nextY = socInfo.nextDate[2];
-
       const monthTypeName = socInfo.totalDays === 30 ? "Tháng Đủ (30 ngày)" : "Tháng Thiếu (29 ngày)";
 
       // Cập nhật tóm tắt trên Bloc
@@ -7624,41 +7573,6 @@
       const blocSocRuleEl = document.getElementById('blocSocRule');
       if (blocSocRuleEl) {
         blocSocRuleEl.textContent = `Khởi 00:00 ngày ${curD}/${curMo} • ${monthTypeName}`;
-      }
-
-      // Cập nhật Thẻ Thiên Văn Điểm Sóc
-      const cardMonthTypeBadge = document.getElementById('cardMonthTypeBadge');
-      if (cardMonthTypeBadge) {
-        cardMonthTypeBadge.textContent = monthTypeName;
-        if (socInfo.totalDays === 30) {
-          cardMonthTypeBadge.style.background = '#dcfce7';
-          cardMonthTypeBadge.style.color = '#166534';
-        } else {
-          cardMonthTypeBadge.style.background = '#fef3c7';
-          cardMonthTypeBadge.style.color = '#92400e';
-        }
-      }
-
-      const cardSocTimeEl = document.getElementById('cardSocTime');
-      if (cardSocTimeEl) {
-        cardSocTimeEl.textContent = `${curH}:${curM}:${curS} (UTC+7)`;
-      }
-      const cardSocDateEl = document.getElementById('cardSocDate');
-      if (cardSocDateEl) {
-        cardSocDateEl.textContent = `${curD}/${curMo}/${curY} (Ngày ${socInfo.currentDayCanChi} • Giờ ${socInfo.currentHourCanChi})`;
-      }
-      const cardSocMung1El = document.getElementById('cardSocMung1');
-      if (cardSocMung1El) {
-        cardSocMung1El.textContent = `00:00:00 ngày ${curD}/${curMo}/${curY}`;
-      }
-
-      const cardSocNextTimeEl = document.getElementById('cardSocNextTime');
-      if (cardSocNextTimeEl) {
-        cardSocNextTimeEl.textContent = `${nextH}:${nextM}:${nextS} (UTC+7)`;
-      }
-      const cardSocNextMung1El = document.getElementById('cardSocNextMung1');
-      if (cardSocNextMung1El) {
-        cardSocNextMung1El.textContent = `00:00:00 ngày ${nextD}/${nextMo}/${nextY} (${socInfo.nextDayCanChi})`;
       }
 
       // Lễ Tết (hỗ trợ hiển thị nhiều ngày lễ nếu trùng ngày)
@@ -11795,7 +11709,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.21.1";
+    const APP_VERSION = "v1.21.2";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

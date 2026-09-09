@@ -195,7 +195,15 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
-### [v1.21.1] - 2026-09-08
+### [v1.21.2] - 2026-09-08
+- **Tối Giản Giao Diện Lịch Ngày & Tối Ưu Hóa Hiệu Năng Tính Toán (Streamline Daily View & Code Optimization)**:
+  - **Loại Bỏ Thẻ Hiển Thị Điểm Sóc & Khởi Ngày Mùng 1 Trùng Lặp**:
+    - Lược bỏ hoàn toàn khối thẻ riêng *"🌑 Điểm Sóc & Khởi Ngày Mùng 1 Âm Lịch"* nằm trước bảng 12 Canh Giờ để tránh trùng lặp thông tin không cần thiết.
+    - Giữ lại thông tin tóm tắt súc tích ngay trong phần đầu của lịch ngày (Bloc) và toàn bộ dữ liệu chi tiết chuyên sâu trong tab chuyên biệt *"Bảng Tra Cứu Điểm Sóc & Khởi Đầu Mùng 1 Trong Năm"*.
+  - **Tối Ưu Hóa Mã Nguồn & Giữ Nguyên Năng Lực Tính Toán**:
+    - Dọn dẹp các truy vấn DOM và phép gán trạng thái không còn sử dụng khi chọn ngày trên lịch.
+    - Rà soát và đảm bảo 100% thuật toán thiên văn học (tính điểm Sóc chính xác từng giây, tính ngày Mùng 1, độ dài tháng đủ/thiếu 29-30 ngày, phân tích tháng Vô Trung Khí xác định tháng nhuận, công cụ Bát Tự Tứ Trụ) được bảo toàn nguyên vẹn và hoạt động mượt mà.
+  - **Số Hóa Phiên Bản v1.21.2**: Cập nhật số phiên bản lên `v1.21.2` trong `package.json`, `index.html` (`APP_VERSION`, Header badge) và `README.md`.
 - **Sửa Lỗi Khởi Tạo Lá Số Bát Tự (ReferenceError: yearPillar is not defined)**:
   - **Khắc Phục Lỗi Biến**: Sửa lỗi tham chiếu tên biến trụ năm/tháng/ngày/giờ (`yearPillar, monthPillar, dayPillar, hourPillar` thay vì `yP, mP, dP, hP`) trong hàm `evaluateBattuVuongNhuoc` khi truyền dữ liệu sang bảng in `updateBattuPrintSheet`.
   - **Đảm Bảo Ổn Định Tuyệt Đối**: Kiểm tra và đồng bộ an toàn dữ liệu 4 trụ sang bản in A4, đảm bảo các hàm tính toán Bát Tự và tải thời gian thực chạy trơn tru ngay khi mở ứng dụng.
