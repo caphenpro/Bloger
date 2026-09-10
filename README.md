@@ -212,6 +212,17 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.24.1] - 2026-09-10
+- **Tối Ưu Hóa & Tái Cấu Trúc Bố Cục Bản In Bát Tự Tứ Trụ (A4 / PDF)**:
+  - **Khắc Phục Triệt Để Lỗi Mất Cân Bằng & Tràn Trang Khi In / Xuất PDF**:
+    - Di chuyển container `#battuPrintSheet` ra khỏi cấu trúc thẻ con của `#tab-battu` thành phần tử độc lập cấp cao nhất (ngay sau `<footer>`), ngăn ngừa hoàn toàn tình trạng thừa hưởng luồng layout ẩn của trình duyệt.
+    - Đại tu toàn diện stylesheet `@media print`: Thay thế cơ chế ẩn `visibility: hidden` trước đây bằng `display: none !important; height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important;` trên tất cả thành phần giao diện web (`header`, `main`, `footer`, `nav`, `.modal`, `.btn`, `.toast`, `#toastContainer`...).
+    - Loại bỏ hoàn toàn khoảng trắng vô hình ở đầu trang và các trang trắng thừa (pages 3, 4), giải quyết triệt để lỗi phân mảnh bản in.
+  - **Thiết Kế Tỉ Lệ Vàng Cân Đối Trọn Vẹn Trên Duy Nhất 1 Trang A4**:
+    - Chuẩn hóa lề trang in `@page { size: A4 portrait; margin: 8mm 11mm; }` với cơ chế chống ngắt đoạn `page-break-inside: avoid !important; break-inside: avoid !important;` trên từng khối nội dung (Header, Bảng 4 Trụ, Đánh giá Thân Vượng/Nhược, Dụng Thần & Phong Thủy Cải Mệnh, Chân trang).
+    - Tối ưu lưới thông tin thân chủ (`.print-meta-grid`) với tỷ lệ cột `1.15fr 1.15fr 1fr`, đảm bảo thông tin Âm lịch, Dương lịch và Can Chi năm sinh ("Bính Ngọ") hiển thị liền mạch trên một dòng, không bị xô lệch rớt dòng.
+    - Cân chỉnh kích thước font chữ, padding bảng Thập Thần/Can Chi/Nạp Âm/Trường Sinh, và 2 thẻ Dụng Thần - Phong Thủy, giúp toàn bộ lá số Bát Tự Tứ Trụ hiển thị trang trọng, cân xứng và hài hòa tuyệt đối trên 1 trang giấy in hoặc tài liệu PDF.
+
 ### [v1.24.0] - 2026-09-09
 - **Mở Rộng Hệ Thống Ngày Hung Trạch Nhật & Tinh Gọn Hiển Thị Lịch Ngày**:
   - **Bổ Sung Trạng Thái Can Ngày Vào Hệ Thống Vượng Suy**:
