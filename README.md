@@ -41,10 +41,14 @@
   - Kiểm tra hạn **Kim Lâu** (Kim Lâu Thân, Kim Lâu Thê, Kim Lâu Tử, Kim Lâu Lục Súc) theo tuổi mụ cô dâu.
   - Đánh giá tương tác Địa Chi: Tam Hợp, Lục Hợp, Lục Xung, Thái Tuế, Tam Tai giữa năm khảo sát và tuổi hai vợ chồng.
   - Chấm điểm và đưa ra lời khuyên chọn **Năm Tốt Nhất (kèm Can Chi năm)** và năm dự phòng phù hợp nhất.
-- **Phương Pháp Loại Trừ Chọn Tháng Kết Hôn (Khâm Định Hiệp Kỷ Biện Phương Thư)**:
+- **Phương Pháp Loại Trừ & Tiêu Chí Vượng Suy Nguyệt Lệnh Chọn Tháng Kết Hôn (Khâm Định Hiệp Kỷ Biện Phương Thư)**:
   - Áp dụng nghiêm ngặt các bước loại trừ cổ truyền: Loại trừ tháng Lục Xung với tuổi cô dâu, Lục Xung với tuổi chú rể, Nguyệt Phá (xung năm cưới), tháng kỵ Phòng Phu / Phòng Thê / Phòng Phu Mẫu, và Thiên Khắc Địa Xung với bản mệnh hai vợ chồng.
-  - Đưa ra gợi ý trực tiếp các **Tháng có Can Chi gì** phù hợp kết hôn nhất trong năm (Tháng Đại Lợi, Tháng Tiểu Lợi, Tháng Tam Hợp / Lục Hợp).
-  - Bảng tiến trình loại trừ 12 tháng minh bạch từng lý do loại trừ hoặc cát lợi.
+  - **Bổ sung Tiêu Chí Vượng – Tướng – Hưu – Tù – Tử Của Can Chi Tuổi So Với Nguyệt Lệnh Tháng**:
+    - Áp dụng nguyên tắc phong thủy trạch nhật: Đối chiếu Can Chi năm tuổi của Cô Dâu & Chú Rể với Ngũ Hành lệnh tháng (Nguyệt Lệnh).
+    - **Vượng, Tướng là TỐT (Cát Lợi)**: Bản mệnh đắc chính khí đương lệnh hoặc được lệnh tháng sinh dưỡng, khí thế cực thịnh, trợ duyên trăm năm gắn kết hạnh phúc.
+    - **Hưu, Tù, Tử là HUNG (Kiêng Kỵ)**: Trong đó phạm **Tử** (bị lệnh tháng khắc phạt bản mệnh) là Đại kỵ tuyệt khí (tự động loại trừ hoặc liệt vào danh sách hung kỵ); phạm **Hưu, Tù** (thoái khí, bị giam hãm) được cảnh báo chi tiết để gia đình lưu ý chọn ngày vượng tướng bù đắp.
+  - Đưa ra gợi ý trực tiếp các **Tháng có Can Chi gì** phù hợp kết hôn nhất trong năm (Tháng Đại Lợi - Vượng Lệnh, Tháng Tiểu Lợi, Tháng Phù Hợp).
+  - Bảng tiến trình loại trừ 12 tháng minh bạch từng lý do loại trừ, trạng thái Vượng Suy bản mệnh từng người và kết luận trực quan.
 - **Đề Xuất Ngày Cưới Phù Hợp Trong Tháng Đã Chọn (Trạch Nhật Giá Thú Cổ Truyền)**:
   - **Tự động khảo sát toàn bộ ngày trong tháng Âm lịch được chọn**:
     - Đối chiếu can chi từng ngày với tuổi Chú Rể và Cô Dâu, loại trừ các ngày xung bản mệnh (Lục Xung, Thiên Khắc Địa Xung, Trực Thái Tuế).
@@ -228,7 +232,22 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
-### [v1.25.0] - 2026-09-10
+### [v1.26.0] - 2026-09-11
+- **Bổ Sung Tiêu Chí Vượng – Tướng – Hưu – Tù – Tử Cho Can Chi Tuổi So Với Nguyệt Lệnh Khi Chọn Tháng Cưới**:
+  - **Học Thuyết Vượng Suy Bốn Mùa Đối Chiếu Bản Mệnh Vợ Chồng Với Nguyệt Lệnh Tháng Cưới**:
+    - Chuyển giao nguyên lý trạch nhật ngày Vượng Suy (đang áp dụng cho ngày trên Lịch Vạn Niên) sang cấp độ **Tháng Cưới**: Đối chiếu ngũ hành Can Chi năm sinh của Cô Dâu và Chú Rể với ngũ hành của Nguyệt Lệnh tháng (Mộc tháng 1, 2; Hỏa tháng 4, 5; Kim tháng 7, 8; Thủy tháng 10, 11; Thổ tứ quý tháng 3, 6, 9, 12).
+    - **Vượng, Tướng là TỐT (Cát Lợi)**:
+      - Chi/Can năm cùng hành với Nguyệt lệnh ➔ **Vượng** (Đương lệnh cực thịnh).
+      - Chi/Can năm được Nguyệt lệnh sinh ra ➔ **Tướng** (Đắc sinh khí nuôi dưỡng).
+      - Đạt danh hiệu **🌟 Đại Lợi (Vượng Lệnh)** hoặc **🌟 Đại Lợi (Đồng Vượng)**, trợ lực phong thủy vô cùng tốt đẹp cho hôn nhân.
+    - **Hưu, Tù, Tử là HUNG (Kiêng Kỵ)**:
+      - Rơi vào **Tử** (bản mệnh bị Nguyệt lệnh khắc phạt triệt hạ): Là Đại kỵ tuyệt khí, tự động loại trừ tháng này hoặc cảnh báo đại hung sát.
+      - Rơi vào **Hưu** (thoái khí) hoặc **Tù** (bị giam hãm): Cảnh báo rõ ràng để gia chủ lưu ý ưu tiên chọn ngày có khí vượng tướng để trợ lực.
+  - **Tái Cấu Trúc Bảng 12 Tháng & Hộp Gợi Ý Can Chi Phù Hợp**:
+    - Bổ sung cột mới **Vượng Suy Bản Mệnh (Nguyệt Lệnh)** trong bảng 12 tháng với huy hiệu màu sắc tương thích (`badge-vuong`, `badge-tuong`, `badge-huu`, `badge-tu`, `badge-tudead`) hiển thị chi tiết cho cả Cô Dâu và Chú Rể.
+    - Cập nhật Hộp tóm tắt tháng đề xuất hiển thị đối chiếu trực quan ngũ hành và trạng thái Vượng/Tướng của hai vợ chồng.
+- **Đồng Bộ Số Hóa Phiên Bản Ứng Dụng**:
+  - Đồng bộ toàn diện hiển thị số phiên bản `v1.26.0` trên toàn bộ hệ thống: Header trang web, Footer, cửa sổ Modal Giới thiệu biểu trưng Logo, biến `APP_VERSION` và `package.json`.
 - **Đề Xuất Ngày Phù Hợp Cho Cưới Hỏi Từ Tháng Đã Chọn (Trạch Cát Hôn Nhân)**:
   - **Khảo Sát & Lọc Trừ Hung Sát Toàn Diện Cho Từng Ngày Trong Tháng Đã Chọn**:
     - Thuật toán `getMonthDaysForWedding(year, month, groom, bride)` tự động duyệt qua tất cả các ngày của tháng Âm lịch được đề xuất.

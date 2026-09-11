@@ -3011,8 +3011,8 @@
     }
     .wedding-month-row {
       display: grid;
-      grid-template-columns: 90px 120px 140px 1fr 140px;
-      gap: 0.5rem;
+      grid-template-columns: 80px 110px 220px 1fr 140px;
+      gap: 0.6rem;
       align-items: center;
       padding: 0.65rem 0.85rem;
       border-bottom: 1px solid #f3f4f6;
@@ -3472,7 +3472,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.24.1</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.26.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -4174,7 +4174,7 @@
                 <span>🌸</span> 3. Gợi Ý Tháng Có Can Chi Phù Hợp Kết Hôn (Phương Pháp Loại Trừ)
               </h3>
               <span style="font-size: 0.8rem; color: var(--text-muted);">
-                Đang xét trong: <strong id="weddingSelectedYearTitle" style="color: #92400e;">Năm 2026 (Bính Ngọ)</strong> • Dùng phương pháp loại trừ tháng xung địa chi tuổi và Thiên Khắc Địa Xung với hai vợ chồng
+                Đang xét trong: <strong id="weddingSelectedYearTitle" style="color: #92400e;">Năm 2026 (Bính Ngọ)</strong> • Loại trừ xung tuổi, Thiên Khắc Địa Xung &amp; Đánh giá Vượng Tướng Hưu Tù Tử bản mệnh so với Nguyệt lệnh
               </span>
             </div>
             <!-- Bộ chọn nhanh năm đang khảo sát tháng -->
@@ -4201,8 +4201,8 @@
             <div style="background: #fafaf9; border-bottom: 2px solid #e5e7eb; padding: 0.65rem 0.85rem; font-size: 0.78rem; font-weight: 700; color: #6b7280; text-transform: uppercase;" class="wedding-month-row">
               <div>Tháng ÂL</div>
               <div>Can Chi Tháng</div>
-              <div>Trạch Nhật Nghênh Hôn</div>
-              <div>Tiến Trình Loại Trừ (Phương Pháp Loại Trừ)</div>
+              <div>Vượng Suy Bản Mệnh (Nguyệt Lệnh)</div>
+              <div>Tiến Trình Loại Trừ &amp; Luận Giải</div>
               <div>Kết Luận</div>
             </div>
             <div id="weddingMonthsTableBody">
@@ -5033,7 +5033,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.13.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.26.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -5364,7 +5364,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.24.1</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.26.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -11408,7 +11408,67 @@
       }
     }
 
-    // Render phân tích 12 tháng & Áp dụng phương pháp loại trừ theo nguyên lý từ hình ảnh
+    // Đánh giá Vượng - Tướng - Hưu - Tù - Tử của Can Chi năm tuổi (Cô dâu / Chú rể) so với Nguyệt lệnh tháng
+    function getTuoiVuongSuyMonthInfo(lunarMonth, canIdx, chiIdx, label) {
+      const m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      const cIdx = ((parseInt(canIdx, 10) % 10) + 10) % 10;
+      const chIdx = ((parseInt(chiIdx, 10) % 12) + 12) % 12;
+
+      const chiHanh = CHI_NGU_HANH[chIdx] || 'Mộc';
+      const canHanh = CAN_NGU_HANH[cIdx] || 'Mộc';
+
+      let monthHanh = 'Mộc';
+      let seasonName = 'Mùa Xuân (Dần, Mão)';
+      if (m === 1 || m === 2) {
+        monthHanh = 'Mộc';
+        seasonName = 'Mùa Xuân (Dần, Mão)';
+      } else if (m === 4 || m === 5) {
+        monthHanh = 'Hỏa';
+        seasonName = 'Mùa Hạ (Tỵ, Ngọ)';
+      } else if (m === 7 || m === 8) {
+        monthHanh = 'Kim';
+        seasonName = 'Mùa Thu (Thân, Dậu)';
+      } else if (m === 10 || m === 11) {
+        monthHanh = 'Thủy';
+        seasonName = 'Mùa Đông (Hợi, Tý)';
+      } else { // 3, 6, 9, 12
+        monthHanh = 'Thổ';
+        seasonName = 'Tứ Quý (Thìn, Mùi, Tuất, Sửu)';
+      }
+
+      // Đánh giá chi tiết trạng thái Chi và Can tuổi so với ngũ hành lệnh tháng
+      const chiState = evalSingleVuongSuy(chiHanh, monthHanh, `Chi ${CHI[chIdx]}`);
+      const canState = evalSingleVuongSuy(canHanh, monthHanh, `Can ${CAN[cIdx]}`);
+
+      // Vượng, Tướng là Tốt (Cát); Hưu, Tù, Tử là Hung
+      const isChiGood = (chiState.type === 'vuong' || chiState.type === 'tuong');
+      const isCanGood = (canState.type === 'vuong' || canState.type === 'tuong');
+      const isChiBad = !isChiGood;
+      const isCanBad = !isCanGood;
+      const isTuDead = (chiState.type === 'tu_dead');
+      const isBothHung = (!isChiGood && !isCanGood);
+
+      return {
+        month: m,
+        monthHanh,
+        seasonName,
+        canText: CAN[cIdx],
+        chiText: CHI[chIdx],
+        canHanh,
+        chiHanh,
+        chiState,
+        canState,
+        isChiGood,
+        isCanGood,
+        isChiBad,
+        isCanBad,
+        isTuDead,
+        isBothHung,
+        label
+      };
+    }
+
+    // Render phân tích 12 tháng & Áp dụng phương pháp loại trừ theo nguyên lý phong thủy và tiêu chí Vượng Suy Nguyệt Lệnh
     function renderWeddingMonthsAnalysis(year) {
       if (!weddingCurrentAnalysis) return;
 
@@ -11443,9 +11503,11 @@
         });
       }
 
-      // Đánh giá 12 tháng âm lịch theo nguyên lý hình ảnh:
+      // Đánh giá 12 tháng âm lịch theo:
       // 1. Tránh tháng hình xung khắc hại trực tiếp (địa chi xung trực tiếp địa chi tuổi cô dâu hoặc chú rể)
       // 2. Tránh tháng phạm Thiên khắc địa xung với can chi tuổi của hai vợ chồng
+      // 3. Tiêu chí Vượng - Tướng - Hưu - Tù - Tử của Can Chi năm tuổi Cô dâu & Chú rể so với Nguyệt lệnh tháng
+      //    (Vượng, Tướng là TỐT; Hưu, Tù, Tử là HUNG)
       const monthsData = [];
       const recommendedMonths = [];
 
@@ -11454,9 +11516,14 @@
         const mChiIdx = mCanChi.chiIndex;
         const mCanIdx = mCanChi.canIndex;
 
+        // Đánh giá Vượng Suy bản mệnh Cô dâu và Chú rể so với Nguyệt lệnh tháng m
+        const bVuong = getTuoiVuongSuyMonthInfo(m, bCanIdx, bChiIdx, 'Cô Dâu');
+        const gVuong = getTuoiVuongSuyMonthInfo(m, gCanIdx, gChiIdx, 'Chú Rể');
+
         let isEliminated = false;
         let eliminationReasons = [];
         let goodReasons = [];
+        let vuongSuyHungNotes = [];
 
         // 1. Kiểm tra hình xung khắc hại trực tiếp (Lục Xung địa chi cô dâu hoặc chú rể)
         const xungB = isLucXung(mChiIdx, bChiIdx);
@@ -11484,25 +11551,82 @@
           eliminationReasons.push(`Tháng ${mCanChi.text} Thiên Khắc Địa Xung với Can Chi Chú Rể (${gCanChi.text})`);
         }
 
+        // 3. TIÊU CHÍ VƯỢNG TƯỚNG HƯU TÙ TỬ SO VỚI NGUYỆT LỆNH THÁNG:
+        // Vượng, Tướng là TỐT; Hưu, Tù, Tử là HUNG.
+        // Trường hợp phạm TỬ (Tuyệt khí - bị Nguyệt lệnh tháng khắc phạt trực tiếp):
+        if (bVuong.isTuDead) {
+          isEliminated = true;
+          eliminationReasons.push(`Chi tuổi Cô Dâu (${CHI[bChiIdx]} - ${bVuong.chiHanh}) phạm <strong>Tử</strong> trước Nguyệt lệnh tháng ${m} (${bVuong.monthHanh}) — Bị lệnh tháng khắc chế triệt hạ (Đại hung)`);
+        }
+        if (gVuong.isTuDead) {
+          isEliminated = true;
+          eliminationReasons.push(`Chi tuổi Chú Rể (${CHI[gChiIdx]} - ${gVuong.chiHanh}) phạm <strong>Tử</strong> trước Nguyệt lệnh tháng ${m} (${gVuong.monthHanh}) — Bị lệnh tháng khắc chế triệt hạ (Đại hung)`);
+        }
+
+        // Ghi nhận các điểm TỐT (Cát) khi đắc Vượng / Tướng:
+        if (bVuong.isChiGood) {
+          goodReasons.push(`Cô Dâu: Chi tuổi (${CHI[bChiIdx]} - ${bVuong.chiHanh}) đắc <strong>${bVuong.chiState.typeName}</strong> trước Nguyệt lệnh (${bVuong.monthHanh}) — ${bVuong.chiState.role} (Cát)`);
+        }
+        if (gVuong.isChiGood) {
+          goodReasons.push(`Chú Rể: Chi tuổi (${CHI[gChiIdx]} - ${gVuong.chiHanh}) đắc <strong>${gVuong.chiState.typeName}</strong> trước Nguyệt lệnh (${gVuong.monthHanh}) — ${gVuong.chiState.role} (Cát)`);
+        }
+        if (bVuong.isCanGood) {
+          goodReasons.push(`Cô Dâu: Can tuổi (${CAN[bCanIdx]}) đắc <strong>${bVuong.canState.typeName}</strong> trước Nguyệt lệnh (Trợ khí cát)`);
+        }
+        if (gVuong.isCanGood) {
+          goodReasons.push(`Chú Rể: Can tuổi (${CAN[gCanIdx]}) đắc <strong>${gVuong.canState.typeName}</strong> trước Nguyệt lệnh (Trợ khí cát)`);
+        }
+
+        // Ghi nhận ghi chú HUNG nếu không phạm Tử nhưng rơi vào Hưu/Tù (thoái khí / vây hãm):
+        if (!bVuong.isChiGood && !bVuong.isTuDead) {
+          vuongSuyHungNotes.push(`Cô Dâu: Chi ${bVuong.chiText} rơi vào <strong>${bVuong.chiState.typeName}</strong> (${bVuong.chiState.relationText})`);
+        }
+        if (!gVuong.isChiGood && !gVuong.isTuDead) {
+          vuongSuyHungNotes.push(`Chú Rể: Chi ${gVuong.chiText} rơi vào <strong>${gVuong.chiState.typeName}</strong> (${gVuong.chiState.relationText})`);
+        }
+
+        const hasDaiCatVuong = (bVuong.isChiGood || gVuong.isChiGood);
+        const isBothChiGood = (bVuong.isChiGood && gVuong.isChiGood);
         let finalStatus = 'normal';
-        let finalBadge = '<span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">🟢 PHÙ HỢP (NÊN CHỌN)</span>';
+        let finalBadge = '';
 
         if (isEliminated) {
           finalStatus = 'eliminated';
           finalBadge = '<span class="badge" style="background:#fee2e2; color:#b91c1c; border:1px solid #fca5a5; font-weight:700;">🔴 BỊ LOẠI TRỪ</span>';
         } else {
           finalStatus = 'recommended';
-          goodReasons.push('Không phạm xung trực tiếp Địa chi tuổi Cô Dâu & Chú Rể');
-          goodReasons.push('Không phạm Thiên Khắc Địa Xung với Can Chi hai vợ chồng');
-          recommendedMonths.push({ month: m, canChi: mCanChi, reasons: goodReasons });
+          goodReasons.unshift('Không phạm Thiên Khắc Địa Xung với Can Chi hai vợ chồng');
+          goodReasons.unshift('Không phạm xung trực tiếp Địa chi tuổi Cô Dâu & Chú Rể');
+
+          if (isBothChiGood) {
+            finalBadge = '<span class="badge" style="background:#dcfce7; color:#15803d; border:1.5px solid #22c55e; font-weight:800;">🌟 ĐẠI LỢI (ĐỒNG VƯỢNG)</span>';
+          } else if (hasDaiCatVuong) {
+            finalBadge = '<span class="badge" style="background:#ecfdf5; color:#166534; border:1px solid #86efac; font-weight:700;">🌟 ĐẠI LỢI (VƯỢNG LỆNH)</span>';
+          } else {
+            finalBadge = '<span class="badge" style="background:#eff6ff; color:#1d4ed8; border:1px solid #93c5fd; font-weight:700;">🟢 TIỂU LỢI (PHÙ HỢP)</span>';
+          }
+
+          recommendedMonths.push({
+            month: m,
+            canChi: mCanChi,
+            bVuong,
+            gVuong,
+            hasDaiCatVuong,
+            isBothChiGood,
+            vuongSuyHungNotes,
+            reasons: goodReasons
+          });
         }
 
         monthsData.push({
           month: m,
           canChi: mCanChi,
+          bVuong,
+          gVuong,
           isEliminated,
           eliminationReasons,
           goodReasons,
+          vuongSuyHungNotes,
           finalStatus,
           finalBadge
         });
@@ -11525,27 +11649,36 @@
       if (summaryEl) {
         if (recommendedMonths.length === 0) {
           summaryEl.innerHTML = `
-            Trong năm ${year} (${yCanChi.text}), cả 12 tháng đều bị ảnh hưởng bởi tiêu chí loại trừ (xung địa chi tuổi hoặc Thiên khắc địa xung). Quý vị nên xem xét tổ chức vào năm khác phù hợp hơn.
+            Trong năm ${year} (${yCanChi.text}), cả 12 tháng đều bị ảnh hưởng bởi tiêu chí loại trừ (xung địa chi tuổi, Thiên khắc địa xung hoặc bản mệnh phạm Tử trước Nguyệt lệnh). Quý vị nên xem xét tổ chức vào năm khác phù hợp hơn.
           `;
         } else {
           let summaryItems = recommendedMonths.map(rm => {
             const isMonthActive = (rm.month === weddingActiveMonth);
+            
+            // Huy hiệu vượng suy tóm tắt
+            const bBadge = `<span class="badge ${rm.bVuong.chiState.badgeClass}" style="padding: 1px 5px; font-size: 0.72rem;">Chi ${rm.bVuong.chiState.typeName} (${rm.bVuong.isChiGood ? 'Tốt' : 'Hung'})</span>`;
+            const gBadge = `<span class="badge ${rm.gVuong.chiState.badgeClass}" style="padding: 1px 5px; font-size: 0.72rem;">Chi ${rm.gVuong.chiState.typeName} (${rm.gVuong.isChiGood ? 'Tốt' : 'Hung'})</span>`;
+
             return `
               <div style="background: #ffffff; border: 1.5px solid ${isMonthActive ? '#16a34a' : '#86efac'}; border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
                 <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.45rem;">
                   <div>
                     <span style="font-weight: 700; color: #166534; font-size: 0.95rem;">• Tháng ${rm.month} Âm Lịch</span> ➔ 
                     <strong>Can Chi Tháng:</strong> <span class="wedding-can-chi-highlight" style="font-size: 1rem; color: #991b1b;">${rm.canChi.text}</span>
+                    <span style="font-size: 0.8rem; color: #4b5563; margin-left: 0.35rem;">(Lệnh tháng: <strong>${rm.bVuong.monthHanh}</strong> - ${rm.bVuong.seasonName})</span>
                   </div>
                   <div style="display: flex; align-items: center; gap: 0.4rem;">
-                    <span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">🟢 Phù Hợp Kết Hôn</span>
+                    ${rm.isBothChiGood ? '<span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">🌟 Đại Lợi (Đồng Vượng)</span>' : (rm.hasDaiCatVuong ? '<span class="badge" style="background:#ecfdf5; color:#166534; border:1px solid #86efac; font-weight:700;">🌟 Đại Lợi (Vượng Lệnh)</span>' : '<span class="badge" style="background:#eff6ff; color:#1d4ed8; border:1px solid #93c5fd; font-weight:700;">🟢 Phù Hợp Kết Hôn</span>')}
                     <button type="button" class="btn btn-sm ${isMonthActive ? 'btn-primary' : 'btn-outline'} btn-select-wedding-month" data-month="${rm.month}" style="padding: 0.25rem 0.65rem; font-size: 0.8rem; font-weight: 700;">
                       ${isMonthActive ? '✓ Đang xem đề xuất ngày ➔' : '💍 Đề Xuất Ngày Cưới Tháng Này ➔'}
                     </button>
                   </div>
                 </div>
-                <div style="font-size: 0.8rem; color: #4b5563; margin-top: 0.2rem;">
-                  <em>Đã vượt qua loại trừ:</em> Không phạm xung địa chi tuổi cô dâu/chú rể và không phạm Thiên khắc địa xung.
+                <div style="font-size: 0.8rem; color: #374151; margin-top: 0.35rem; display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+                  <span><strong>Vượng Suy Nguyệt Lệnh:</strong> Cô Dâu (${rm.bVuong.chiHanh}): ${bBadge} • Chú Rể (${rm.gVuong.chiHanh}): ${gBadge}</span>
+                </div>
+                <div style="font-size: 0.78rem; color: #4b5563; margin-top: 0.2rem;">
+                  <em>Tiêu chí đạt:</em> Không phạm xung chi tuổi, không phạm Thiên khắc địa xung, bản mệnh không phạm Tử trước Nguyệt lệnh${rm.hasDaiCatVuong ? ', đắc Vượng Tướng sinh khí tốt lành.' : '.'}
                 </div>
               </div>
             `;
@@ -11553,7 +11686,7 @@
 
           summaryEl.innerHTML = `
             <div style="margin-bottom: 0.5rem;">
-              Dựa trên phương pháp loại trừ từ nguyên lý phong thủy, trong năm <strong>${year} (${yCanChi.text})</strong>, dưới đây là danh sách các tháng có <strong>Can Chi phù hợp nhất</strong> để tổ chức kết hôn. Quý vị hãy chọn tháng để xem <strong>danh sách các ngày đẹp phù hợp nhất</strong>:
+              Dựa trên phương pháp loại trừ phong thủy kết hợp đối chiếu <strong>Vượng - Tướng - Hưu - Tù - Tử</strong> của Can Chi tuổi hai vợ chồng với Nguyệt Lệnh, trong năm <strong>${year} (${yCanChi.text})</strong>, dưới đây là danh sách các tháng phù hợp nhất để kết hôn (Vượng Tướng là Tốt, loại trừ tháng phạm Lục Xung, Thiên Khắc Địa Xung và phạm Tử khí). Quý vị hãy chọn tháng để xem <strong>danh sách các ngày đẹp phù hợp nhất</strong>:
             </div>
             ${summaryItems}
           `;
@@ -11568,16 +11701,49 @@
           const row = document.createElement('div');
           row.className = `wedding-month-row ${item.finalStatus === 'recommended' ? 'month-dalloi' : 'month-eliminated'}`;
 
+          // Vượng Suy cell
+          const vuongSuyHtml = `
+            <div style="font-size: 0.78rem; line-height: 1.45;">
+              <div style="margin-bottom: 0.2rem;">
+                <span style="font-weight: 700; color: #991b1b;">Cô Dâu:</span>
+                <span class="badge ${item.bVuong.chiState.badgeClass}" style="padding: 1px 4px; font-size: 0.7rem;">
+                  Chi ${item.bVuong.chiState.typeName} (${item.bVuong.isChiGood ? 'Tốt' : 'Hung'})
+                </span>
+                <span class="badge ${item.bVuong.canState.badgeClass}" style="padding: 1px 4px; font-size: 0.68rem;">
+                  Can ${item.bVuong.canState.typeName}
+                </span>
+              </div>
+              <div>
+                <span style="font-weight: 700; color: #1e3a8a;">Chú Rể:</span>
+                <span class="badge ${item.gVuong.chiState.badgeClass}" style="padding: 1px 4px; font-size: 0.7rem;">
+                  Chi ${item.gVuong.chiState.typeName} (${item.gVuong.isChiGood ? 'Tốt' : 'Hung'})
+                </span>
+                <span class="badge ${item.gVuong.canState.badgeClass}" style="padding: 1px 4px; font-size: 0.68rem;">
+                  Can ${item.gVuong.canState.typeName}
+                </span>
+              </div>
+              <div style="font-size: 0.7rem; color: #6b7280; margin-top: 1px;">
+                Lệnh: <strong>${item.bVuong.monthHanh}</strong> (${item.bVuong.seasonName.split(' ')[0]})
+              </div>
+            </div>
+          `;
+
           let reasonsHtml = '';
           if (item.isEliminated) {
             reasonsHtml = `
-              <span style="color: #b91c1c; font-weight: 600;">❌ Bị loại trừ:</span>
-              <span style="color: #991b1b;">${item.eliminationReasons.join('; ')}</span>
+              <div style="color: #b91c1c; font-weight: 600; margin-bottom: 0.15rem;">❌ Bị loại trừ:</div>
+              <div style="color: #991b1b;">${item.eliminationReasons.join('; ')}</div>
             `;
           } else {
+            let hungNotesHtml = '';
+            if (item.vuongSuyHungNotes && item.vuongSuyHungNotes.length > 0) {
+              hungNotesHtml = `<div style="font-size: 0.75rem; color: #9a3412; margin-top: 0.2rem;">⚠️ <em>Lưu ý:</em> ${item.vuongSuyHungNotes.join('; ')} (thoái khí/vây hãm, nên chọn ngày vượng tướng để trợ lực).</div>`;
+            }
+
             reasonsHtml = `
-              <span style="color: #15803d; font-weight: 600;">✓ Đạt tiêu chuẩn chọn tháng:</span>
-              <span style="color: #374151;">${item.goodReasons.join('; ')}</span>
+              <div style="color: #15803d; font-weight: 600; margin-bottom: 0.15rem;">✓ Đạt tiêu chuẩn chọn tháng:</div>
+              <div style="color: #374151;">${item.goodReasons.join('; ')}</div>
+              ${hungNotesHtml}
             `;
           }
 
@@ -11598,7 +11764,7 @@
             <div>
               <span class="wedding-can-chi-highlight">${item.canChi.text}</span>
             </div>
-            <div>${item.isEliminated ? '<span class="badge" style="background:#fee2e2; color:#b91c1c;">Bị loại trừ</span>' : '<span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">Phù Hợp</span>'}</div>
+            <div>${vuongSuyHtml}</div>
             <div style="font-size: 0.82rem; line-height: 1.45;">${reasonsHtml}</div>
             <div>
               ${item.finalBadge}
@@ -13326,7 +13492,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.23.0";
+    const APP_VERSION = "v1.26.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
