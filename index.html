@@ -3061,6 +3061,140 @@
       display: inline-block;
     }
 
+    /* WEDDING DAYS CUSTOM STYLES */
+    .wedding-days-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+      margin-top: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .wedding-days-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .wedding-day-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      border: 1.5px solid #e5e7eb;
+      padding: 1.1rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .wedding-day-card:hover {
+      box-shadow: 0 6px 18px rgba(180, 83, 9, 0.12);
+      transform: translateY(-2px);
+    }
+    .wedding-day-card.card-daicat {
+      border: 2px solid #16a34a;
+      background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.12);
+    }
+    .wedding-day-card.card-catloi {
+      border: 1.5px solid #86efac;
+      background: #ffffff;
+    }
+    .wedding-day-card.card-binhhoa {
+      border: 1.5px solid #fed7aa;
+      background: #fffdfa;
+    }
+    .wedding-day-card.card-eliminated {
+      border: 1.5px solid #fecaca;
+      background: #fff5f5;
+      opacity: 0.88;
+    }
+    .wedding-day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.65rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+    }
+    .wedding-day-lunar-num {
+      font-size: 1.75rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #991b1b;
+      letter-spacing: -0.5px;
+    }
+    .wedding-day-solar-txt {
+      font-size: 0.82rem;
+      color: #4b5563;
+      margin-top: 0.2rem;
+    }
+    .wedding-day-weekend-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #be123c;
+      background: #ffe4e6;
+      border: 1px solid #fecdd3;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .wedding-hours-box {
+      background: rgba(254, 243, 199, 0.45);
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 0.5rem 0.65rem;
+      margin-top: 0.65rem;
+      font-size: 0.78rem;
+    }
+    .wedding-hours-title {
+      font-weight: 700;
+      color: #92400e;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .wedding-hours-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    .wedding-hour-pill {
+      background: #ffffff;
+      border: 1px solid #fcd34d;
+      color: #78350f;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.74rem;
+      font-weight: 600;
+    }
+    .wedding-month-selector-pill {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 20px;
+      border: 1.5px solid #86efac;
+      background: #f0fdf4;
+      color: #166534;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .wedding-month-selector-pill:hover {
+      background: #dcfce7;
+      border-color: #22c55e;
+    }
+    .wedding-month-selector-pill.active {
+      background: #16a34a;
+      border-color: #15803d;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(22, 163, 74, 0.28);
+    }
+
     /* ============================================================
        STYLING BẢN IN / LƯU LÁ SỐ BÁT TỰ TỨ TRỤ CHUYÊN BIỆT (A4/PDF)
        ============================================================ */
@@ -4077,11 +4211,56 @@
           </div>
         </div>
 
-        <!-- KHỐI 4: NGUYÊN LÝ BÁT TRẠCH & CẨM NANG TRẠCH CÁT HÔN NHÂN -->
+        <!-- KẾT QUẢ 4: ĐỀ XUẤT NHỮNG NGÀY PHÙ HỢP CHO CƯỚI HỎI TRONG THÁNG ĐƯỢC CHỌN -->
+        <div class="card" id="weddingDaysSection" style="margin-top: 1.25rem;">
+          <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem; justify-content: space-between; align-items: center;">
+            <div>
+              <h3 class="card-title" style="font-size: 1.15rem; color: #be123c; display: flex; align-items: center; gap: 0.45rem;">
+                <span>💍</span> 4. Đề Xuất Ngày Đẹp Cho Cưới Hỏi • <span id="weddingDaysMonthTitle" style="color: #991b1b;">Tháng Đề Xuất</span>
+              </h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);" id="weddingDaysSubTitle">
+                Áp dụng trạch nhật giá thú: Âm Dương Bất Tương, Ngày Hoàng Đạo, Trực Cát &amp; Lọc trừ xung khắc bản mệnh hai vợ chồng
+              </span>
+            </div>
+
+            <!-- Thanh chọn nhanh giữa các tháng đề xuất của năm -->
+            <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;" id="weddingMonthSelectorPills">
+              <!-- Render via JS -->
+            </div>
+          </div>
+
+          <!-- BANNER TỔNG KẾT & LỜI KHUYÊN TRẠCH CÁT NGÀY CƯỚI -->
+          <div class="wedding-suggestion-callout" style="background: linear-gradient(135deg, #fff1f2 0%, #fef2f2 100%); border-color: #fca5a5; margin-bottom: 1rem;">
+            <div id="weddingDaysMonthSummary">
+              <!-- Render via JS: Thống kê số ngày đại cát, ngày cuối tuần, lời khuyên -->
+            </div>
+          </div>
+
+          <!-- THANH ĐIỀU KHIỂN BỘ LỌC NGÀY -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1rem; padding: 0.55rem 0.85rem; background: #fafaf9; border-radius: var(--radius-md); border: 1px solid #e5e7eb;">
+            <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span style="font-size: 0.82rem; font-weight: 700; color: #374151;">Bộ lọc ngày:</span>
+              <button type="button" class="btn btn-sm btn-filter-wedding-days active" data-filter="recommended" style="padding: 0.25rem 0.65rem; font-size: 0.78rem;">🟢 Ngày Đề Xuất Phù Hợp</button>
+              <button type="button" class="btn btn-sm btn-filter-wedding-days btn-outline" data-filter="daicat" style="padding: 0.25rem 0.65rem; font-size: 0.78rem;">🌟 Ngày Đại Cát Thượng Đẳng</button>
+              <button type="button" class="btn btn-sm btn-filter-wedding-days btn-outline" data-filter="weekend" style="padding: 0.25rem 0.65rem; font-size: 0.78rem;">🎉 Ngày Cuối Tuần (T7 &amp; CN)</button>
+              <button type="button" class="btn btn-sm btn-filter-wedding-days btn-outline" data-filter="all" style="padding: 0.25rem 0.65rem; font-size: 0.78rem;">📋 Đối Chiếu Toàn Bộ Các Ngày</button>
+            </div>
+            <div style="font-size: 0.78rem; color: #6b7280;" id="weddingDaysCountHint">
+              <!-- Render via JS -->
+            </div>
+          </div>
+
+          <!-- VÙNG HIỂN THỊ CÁC NGÀY (LƯỚI THẺ HOẶC BẢNG ĐỐI CHIẾU) -->
+          <div id="weddingDaysContainer">
+            <!-- Render via JS -->
+          </div>
+        </div>
+
+        <!-- KHỐI 5: NGUYÊN LÝ BÁT TRẠCH & CẨM NANG TRẠCH CÁT HÔN NHÂN -->
         <div class="card" style="margin-top: 1.25rem;">
           <div class="card-header">
             <h4 class="card-title" style="font-size: 1rem; color: #374151; display: flex; align-items: center; gap: 0.4rem;">
-              <span>📖</span> Nguyên Lý Bát Trạch &amp; Quy Tắc Trạch Cát Hôn Nhân Cổ Truyền
+              <span>📖</span> 5. Nguyên Lý Bát Trạch &amp; Quy Tắc Trạch Cát Hôn Nhân Cổ Truyền
             </h4>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; font-size: 0.83rem; color: #4b5563; line-height: 1.6;">
@@ -10768,6 +10947,9 @@
     // Biến trạng thái toàn cục cho tab Cưới hỏi
     let weddingCurrentAnalysis = null;
     let weddingActiveYear = null;
+    let weddingActiveMonth = null;
+    let weddingDaysFilter = 'recommended';
+    let weddingCurrentRecommendedMonths = [];
 
     // Khởi tạo tab Wedding
     function setupWeddingTab() {
@@ -10842,6 +11024,24 @@
       if (surveyInput) {
         surveyInput.value = (new Date()).getFullYear();
       }
+
+      // Các nút bộ lọc ngày cưới
+      document.querySelectorAll('.btn-filter-wedding-days').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const filter = btn.getAttribute('data-filter');
+          weddingDaysFilter = filter;
+          document.querySelectorAll('.btn-filter-wedding-days').forEach(b => {
+            b.classList.remove('active');
+            b.classList.add('btn-outline');
+          });
+          btn.classList.add('active');
+          btn.classList.remove('btn-outline');
+          if (weddingActiveYear && weddingActiveMonth) {
+            renderWeddingDaysListOnly(weddingActiveYear, weddingActiveMonth);
+          }
+        });
+      });
 
       // Khởi chạy phân tích mặc định
       calculateWeddingTime();
@@ -11128,6 +11328,7 @@
       if (!weddingActiveYear || !yearsData.some(y => y.year === weddingActiveYear)) {
         weddingActiveYear = bestYearObj.year;
       }
+      weddingActiveMonth = null;
 
       // Render danh sách 6 năm
       renderWeddingYearsList(yearsData, weddingActiveYear);
@@ -11200,6 +11401,7 @@
     // Chuyển năm khảo sát tháng
     function selectWeddingYear(year) {
       weddingActiveYear = year;
+      weddingActiveMonth = null;
       if (weddingCurrentAnalysis && weddingCurrentAnalysis.yearsData) {
         renderWeddingYearsList(weddingCurrentAnalysis.yearsData, weddingActiveYear);
         renderWeddingMonthsAnalysis(weddingActiveYear);
@@ -11306,6 +11508,18 @@
         });
       }
 
+      // Lưu lại danh sách các tháng đề xuất của năm hiện tại
+      weddingCurrentRecommendedMonths = recommendedMonths;
+
+      // Tự động chọn tháng đề xuất đầu tiên nếu chưa chọn hoặc tháng cũ không có trong danh sách
+      if (recommendedMonths.length > 0) {
+        if (!weddingActiveMonth || !recommendedMonths.some(rm => rm.month === weddingActiveMonth)) {
+          weddingActiveMonth = recommendedMonths[0].month;
+        }
+      } else {
+        weddingActiveMonth = null;
+      }
+
       // Render HỘP GỢI Ý ĐẶC BIỆT THÁNG CÓ CAN CHI PHÙ HỢP
       const summaryEl = document.getElementById('weddingRecommendedMonthsSummary');
       if (summaryEl) {
@@ -11315,14 +11529,20 @@
           `;
         } else {
           let summaryItems = recommendedMonths.map(rm => {
+            const isMonthActive = (rm.month === weddingActiveMonth);
             return `
-              <div style="background: #ffffff; border: 1.5px solid #86efac; border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.45rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.35rem;">
+              <div style="background: #ffffff; border: 1.5px solid ${isMonthActive ? '#16a34a' : '#86efac'}; border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.45rem;">
                   <div>
                     <span style="font-weight: 700; color: #166534; font-size: 0.95rem;">• Tháng ${rm.month} Âm Lịch</span> ➔ 
                     <strong>Can Chi Tháng:</strong> <span class="wedding-can-chi-highlight" style="font-size: 1rem; color: #991b1b;">${rm.canChi.text}</span>
                   </div>
-                  <div><span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">🟢 Phù Hợp Kết Hôn</span></div>
+                  <div style="display: flex; align-items: center; gap: 0.4rem;">
+                    <span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">🟢 Phù Hợp Kết Hôn</span>
+                    <button type="button" class="btn btn-sm ${isMonthActive ? 'btn-primary' : 'btn-outline'} btn-select-wedding-month" data-month="${rm.month}" style="padding: 0.25rem 0.65rem; font-size: 0.8rem; font-weight: 700;">
+                      ${isMonthActive ? '✓ Đang xem đề xuất ngày ➔' : '💍 Đề Xuất Ngày Cưới Tháng Này ➔'}
+                    </button>
+                  </div>
                 </div>
                 <div style="font-size: 0.8rem; color: #4b5563; margin-top: 0.2rem;">
                   <em>Đã vượt qua loại trừ:</em> Không phạm xung địa chi tuổi cô dâu/chú rể và không phạm Thiên khắc địa xung.
@@ -11332,8 +11552,8 @@
           }).join('');
 
           summaryEl.innerHTML = `
-            <div style="margin-bottom: 0.4rem;">
-              Dựa trên phương pháp loại trừ từ nguyên lý phong thủy, trong năm <strong>${year} (${yCanChi.text})</strong>, dưới đây là danh sách các tháng có <strong>Can Chi phù hợp nhất</strong> để tổ chức kết hôn:
+            <div style="margin-bottom: 0.5rem;">
+              Dựa trên phương pháp loại trừ từ nguyên lý phong thủy, trong năm <strong>${year} (${yCanChi.text})</strong>, dưới đây là danh sách các tháng có <strong>Can Chi phù hợp nhất</strong> để tổ chức kết hôn. Quý vị hãy chọn tháng để xem <strong>danh sách các ngày đẹp phù hợp nhất</strong>:
             </div>
             ${summaryItems}
           `;
@@ -11361,6 +11581,18 @@
             `;
           }
 
+          let actionBtnHtml = '';
+          if (item.finalStatus === 'recommended') {
+            const isCurActive = (item.month === weddingActiveMonth);
+            actionBtnHtml = `
+              <div style="margin-top: 0.35rem;">
+                <button type="button" class="btn btn-xs ${isCurActive ? 'btn-primary' : 'btn-outline'} btn-select-wedding-month" data-month="${item.month}" style="padding: 0.15rem 0.5rem; font-size: 0.72rem; font-weight: 700;">
+                  ${isCurActive ? '✓ Đang xem' : 'Xem ngày cưới ➔'}
+                </button>
+              </div>
+            `;
+          }
+
           row.innerHTML = `
             <div style="font-weight: 800; color: #1e293b; font-size: 0.95rem;">Tháng ${item.month}</div>
             <div>
@@ -11368,11 +11600,582 @@
             </div>
             <div>${item.isEliminated ? '<span class="badge" style="background:#fee2e2; color:#b91c1c;">Bị loại trừ</span>' : '<span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">Phù Hợp</span>'}</div>
             <div style="font-size: 0.82rem; line-height: 1.45;">${reasonsHtml}</div>
-            <div>${item.finalBadge}</div>
+            <div>
+              ${item.finalBadge}
+              ${actionBtnHtml}
+            </div>
           `;
 
           tableBody.appendChild(row);
         });
+      }
+
+      // Gắn sự kiện cho các nút chọn tháng
+      document.querySelectorAll('.btn-select-wedding-month').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const m = parseInt(btn.getAttribute('data-month'), 10);
+          if (m) selectWeddingMonth(m, true);
+        });
+      });
+
+      // Render Khối 4 Đề Xuất Ngày Cưới cho tháng được chọn
+      renderWeddingDaysAnalysis(year, weddingActiveMonth, recommendedMonths);
+    }
+
+    // Chọn tháng để xem đề xuất ngày cưới
+    function selectWeddingMonth(month, shouldScroll = false) {
+      weddingActiveMonth = month;
+      if (!weddingCurrentAnalysis) return;
+
+      // Cập nhật lại trạng thái active của các nút chọn tháng
+      document.querySelectorAll('.btn-select-wedding-month').forEach(btn => {
+        const m = parseInt(btn.getAttribute('data-month'), 10);
+        if (m === month) {
+          btn.classList.add('btn-primary');
+          btn.classList.remove('btn-outline');
+          if (btn.textContent.includes('Đề Xuất Ngày Cưới Tháng Này')) {
+            btn.textContent = '✓ Đang xem đề xuất ngày ➔';
+          } else if (btn.textContent.includes('Xem ngày cưới')) {
+            btn.textContent = '✓ Đang xem';
+          }
+        } else {
+          btn.classList.remove('btn-primary');
+          btn.classList.add('btn-outline');
+          if (btn.textContent.includes('Đang xem đề xuất ngày')) {
+            btn.textContent = '💍 Đề Xuất Ngày Cưới Tháng Này ➔';
+          } else if (btn.textContent.includes('Đang xem')) {
+            btn.textContent = 'Xem ngày cưới ➔';
+          }
+        }
+      });
+
+      renderWeddingDaysAnalysis(weddingActiveYear, weddingActiveMonth, weddingCurrentRecommendedMonths);
+
+      if (shouldScroll) {
+        const sec = document.getElementById('weddingDaysSection');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    /**
+     * TÍNH TOÁN DANH SÁCH TẤT CẢ CÁC NGÀY TRONG THÁNG & LỌC TRẠCH CÁT CƯỚI HỎI
+     */
+    function getMonthDaysForWedding(year, month, groom, bride) {
+      const SAT_CHU_CHI = [5, 0, 7, 3, 8, 10, 11, 1, 6, 9, 2, 4];
+      const THO_TU_CHI = [10, 4, 11, 5, 0, 6, 1, 7, 2, 8, 3, 9];
+      const TAM_NUONG_DAYS = [3, 7, 13, 18, 22, 27];
+      const NGUYET_KY_DAYS = [5, 14, 23];
+
+      const mCanChi = getMonthCanChi(year, month);
+      const mChiIdx = mCanChi.chiIndex;
+
+      const gChiIdx = groom.canChi.chiIndex;
+      const gCanIdx = groom.canChi.canIndex;
+      const bChiIdx = bride.canChi.chiIndex;
+      const bCanIdx = bride.canChi.canIndex;
+
+      const days = [];
+
+      for (let lDay = 1; lDay <= 30; lDay++) {
+        const [sD, sM, sY] = convertLunar2Solar(lDay, month, year, 0);
+        if (sD === 0) break; // Kết thúc tháng âm lịch (29 ngày)
+
+        const jd = jdFromDate(sD, sM, sY);
+        const dayCanChi = getDayCanChi(sD, sM, sY);
+        const dateObj = new Date(sY, sM - 1, sD);
+        const dayOfWeek = dateObj.getDay();
+        const dayOfWeekName = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"][dayOfWeek];
+        const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
+
+        const star = getDayHoangDao(month, dayCanChi.chiIndex);
+        const batTuong = getBatTuongInfo(month, dayCanChi.canIndex, dayCanChi.chiIndex);
+        const { truc, sao } = getDayTrucVaSao(month, dayCanChi.chiIndex, jd);
+        const tuDuc = getTuDucInfo(month, dayCanChi.canIndex, dayCanChi.chiIndex);
+        const tuTuyet = getTuTuyetTuLyInfo(sD, sM, sY);
+        const tuPhe = getChinhTuPheInfo(month, dayCanChi.canIndex, dayCanChi.chiIndex);
+        const nguyetPha = getNguyetPhaInfo(month, dayCanChi.chiIndex);
+        const mauThuong = getMauThuongInfo(month, dayCanChi.chiIndex);
+        const vuongSuy = getVuongSuyInfo(month, dayCanChi.canIndex, dayCanChi.chiIndex);
+        const napAm = (typeof NAP_AM !== 'undefined' && NAP_AM[dayCanChi.text]) ? NAP_AM[dayCanChi.text] : '';
+
+        let reasonsBad = [];
+        let reasonsGood = [];
+
+        // 1. Kiểm tra kiêng kỵ cưới hỏi
+        const xungB = isLucXung(dayCanChi.chiIndex, bChiIdx);
+        const xungG = isLucXung(dayCanChi.chiIndex, gChiIdx);
+        const tkdxB = isThienKhacDiaXung(dayCanChi.canIndex, dayCanChi.chiIndex, bCanIdx, bChiIdx);
+        const tkdxG = isThienKhacDiaXung(dayCanChi.canIndex, dayCanChi.chiIndex, gCanIdx, gChiIdx);
+        const trucThaiTueB = (dayCanChi.chiIndex === bChiIdx);
+        const trucThaiTueG = (dayCanChi.chiIndex === gChiIdx);
+
+        if (xungB) reasonsBad.push(`Địa chi ngày (${CHI[dayCanChi.chiIndex]}) lục xung tuổi Cô Dâu (${CHI[bChiIdx]})`);
+        if (xungG) reasonsBad.push(`Địa chi ngày (${CHI[dayCanChi.chiIndex]}) lục xung tuổi Chú Rể (${CHI[gChiIdx]})`);
+        if (tkdxB) reasonsBad.push(`Thiên Khắc Địa Xung với bản mệnh Cô Dâu (${bride.canChi.text})`);
+        if (tkdxG) reasonsBad.push(`Thiên Khắc Địa Xung với bản mệnh Chú Rể (${groom.canChi.text})`);
+        if (trucThaiTueB) reasonsBad.push(`Trực Thái Tuế ngày với Cô Dâu (kỵ giá thú)`);
+        if (trucThaiTueG) reasonsBad.push(`Trực Thái Tuế ngày với Chú Rể`);
+
+        // Âm Dương Bất Tương
+        if (batTuong.code === 2) reasonsBad.push(`Dương Tương (Dương khí thịnh sát nam chủ, hại Chú Rể)`);
+        else if (batTuong.code === 3) reasonsBad.push(`Âm Tương (Âm khí thịnh sát nữ chủ, hại Cô Dâu)`);
+        else if (batTuong.code === 4) reasonsBad.push(`Âm Dương câu Tương (Hình khắc bất lợi cho cả hai vợ chồng)`);
+
+        // Tam Nương & Nguyệt Kỵ
+        if (TAM_NUONG_DAYS.includes(lDay)) reasonsBad.push(`Ngày Tam Nương (Mùng ${lDay} ÂL - kỵ cưới hỏi, xuất hành)`);
+        if (NGUYET_KY_DAYS.includes(lDay)) reasonsBad.push(`Ngày Nguyệt Kỵ (Ngày ${lDay} ÂL - kỵ khởi sự, nghênh hôn)`);
+
+        // Sát Chủ & Thọ Tử
+        if (dayCanChi.chiIndex === SAT_CHU_CHI[(month - 1) % 12]) reasonsBad.push(`Ngày Sát Chủ tháng ${month} (Chi ${CHI[dayCanChi.chiIndex]} - Đại kỵ khởi sự)`);
+        if (dayCanChi.chiIndex === THO_TU_CHI[(month - 1) % 12]) reasonsBad.push(`Ngày Thọ Tử tháng ${month} (Chi ${CHI[dayCanChi.chiIndex]} - Bách sự bất nghi)`);
+
+        // Nguyệt Phá, Tứ Tuyệt, Tứ Phế
+        if (nguyetPha && nguyetPha.isNguyetPha) reasonsBad.push(`Ngày Nguyệt Phá (Chi ngày xung Chi tháng ${mCanChi.chi} - Chủ chia lìa, đổ vỡ)`);
+        if (tuTuyet && (tuTuyet.isTuTuyet || tuTuyet.isTuLy)) reasonsBad.push(`${tuTuyet.badgeTitle} (Khí âm dương suy tuyệt)`);
+        if (tuPhe && tuPhe.isChinhTuPhe) reasonsBad.push(`Ngày Chính Tứ Phế (Thời lệnh suy vi, trăm việc kỵ)`);
+
+        // Trực Hung
+        if (['Phá', 'Nguy', 'Bế'].includes(truc)) {
+          reasonsBad.push(`Trực ${truc} (Hung trực kỵ hôn nhân giá thú)`);
+        }
+
+        // 2. Điểm cát lợi
+        const isBatTuong = (batTuong.code === 1);
+        if (isBatTuong) reasonsGood.push(`Âm Dương Bất Tương: Âm Dương cân bằng hòa hợp, ngày vàng giá thú trăm năm gắn kết.`);
+        if (star.isHoangDao) reasonsGood.push(`Ngày Hoàng Đạo (${star.name}): Cát tinh phò trợ, vạn sự hanh thông.`);
+        if (['Thành', 'Định', 'Khai', 'Mãn'].includes(truc)) {
+          let trucDesc = 'Trực cát chủ hôn nhân thuận buồm xuôi gió';
+          if (truc === 'Thành') trucDesc = 'Khởi sự tất thành, trăm năm hòa hợp viên mãn';
+          else if (truc === 'Định') trucDesc = 'Định vị gia phong, tình cảm sắt son gắn bó';
+          else if (truc === 'Khai') trucDesc = 'Khai hoa kết trái, mở mang phúc lộc tài gia';
+          else if (truc === 'Mãn') trucDesc = 'Viên mãn sung túc, con đàn cháu đống';
+          reasonsGood.push(`Trực ${truc}: ${trucDesc}.`);
+        }
+        if (tuDuc && tuDuc.hasAny) {
+          reasonsGood.push(`Quý Nhân Tứ Đức (${tuDuc.names ? tuDuc.names.join(', ') : 'Thiên Nguyệt Đức'}): Cát thần giải hung, bảo hộ an khang.`);
+        }
+
+        const tamHopB = isTamHop(dayCanChi.chiIndex, bChiIdx);
+        const tamHopG = isTamHop(dayCanChi.chiIndex, gChiIdx);
+        const lucHopB = isLucHop(dayCanChi.chiIndex, bChiIdx);
+        const lucHopG = isLucHop(dayCanChi.chiIndex, gChiIdx);
+
+        if (tamHopB) reasonsGood.push(`Tam Hợp với tuổi Cô Dâu (${CHI[bChiIdx]})`);
+        if (tamHopG) reasonsGood.push(`Tam Hợp với tuổi Chú Rể (${CHI[gChiIdx]})`);
+        if (lucHopB) reasonsGood.push(`Lục Hợp với tuổi Cô Dâu (${CHI[bChiIdx]})`);
+        if (lucHopG) reasonsGood.push(`Lục Hợp với tuổi Chú Rể (${CHI[gChiIdx]})`);
+
+        if (mauThuong && mauThuong.isMauThuong) reasonsGood.push(`Ngày Mẫu Thương: Mẹ sinh dưỡng vạn vật, gia tăng tài phúc.`);
+        if (vuongSuy && vuongSuy.isCat) reasonsGood.push(`Ngày ${vuongSuy.badgeTitle}: Khí vượng hanh thông.`);
+        if (isWeekend) reasonsGood.push(`Rơi vào ${dayOfWeekName}: Cuối tuần rất thuận tiện cho họ hàng đôi bên và khách quý dự tiệc.`);
+
+        // 6 Giờ Hoàng Đạo
+        const hoangDaoHours = getHourHoangDaoList(dayCanChi.chiIndex)
+          .filter(h => h.isHoangDao)
+          .map(h => {
+            const chiIdx = CHI.indexOf(h.chi);
+            const hCC = getHourCanChi(dayCanChi.canIndex, chiIdx);
+            return {
+              chi: h.chi,
+              canChi: hCC.text,
+              time: h.time
+            };
+          });
+
+        // Phân cấp
+        const isEliminated = (reasonsBad.length > 0);
+        let rank = 'eliminated';
+        let rankText = '🔴 BỊ LOẠI TRỪ (HUNG)';
+        let rankClass = 'card-eliminated';
+        let badgeHtml = '<span class="badge" style="background:#fee2e2; color:#b91c1c; border:1px solid #fca5a5; font-weight:700;">🔴 Bị Loại Trừ</span>';
+
+        if (!isEliminated) {
+          if (isBatTuong && star.isHoangDao && (['Thành', 'Định', 'Khai', 'Mãn'].includes(truc) || tamHopB || tamHopG || lucHopB || lucHopG)) {
+            rank = 'daicat';
+            rankText = '🌟 ĐẠI CÁT GIÁ THÚ (THƯỢNG CÁT)';
+            rankClass = 'card-daicat';
+            badgeHtml = '<span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:800; font-size:0.82rem; padding:0.25rem 0.6rem;">🌟 ĐẠI CÁT GIÁ THÚ</span>';
+          } else if (isBatTuong || star.isHoangDao || ['Thành', 'Định', 'Khai', 'Mãn'].includes(truc)) {
+            rank = 'catloi';
+            rankText = '🟢 CÁT LỢI (NÊN CHỌN)';
+            rankClass = 'card-catloi';
+            badgeHtml = '<span class="badge" style="background:#ecfdf5; color:#166534; border:1px solid #a7f3d0; font-weight:700; font-size:0.8rem; padding:0.25rem 0.55rem;">🟢 CÁT LỢI</span>';
+          } else {
+            rank = 'binhhoa';
+            rankText = '🟡 BÌNH HÒA';
+            rankClass = 'card-binhhoa';
+            badgeHtml = '<span class="badge" style="background:#fef3c7; color:#92400e; border:1px solid #fde68a; font-weight:700; font-size:0.8rem; padding:0.25rem 0.55rem;">🟡 BÌNH HÒA</span>';
+          }
+        }
+
+        days.push({
+          lDay,
+          lMonth: month,
+          lYear: year,
+          sDay: sD,
+          sMonth: sM,
+          sYear: sY,
+          dayOfWeek,
+          dayOfWeekName,
+          isWeekend,
+          dayCanChi,
+          napAm,
+          star,
+          batTuong,
+          isBatTuong,
+          truc,
+          sao,
+          tuDuc,
+          tamHopB,
+          tamHopG,
+          lucHopB,
+          lucHopG,
+          reasonsBad,
+          reasonsGood,
+          hoangDaoHours,
+          isEliminated,
+          rank,
+          rankText,
+          rankClass,
+          badgeHtml
+        });
+      }
+
+      return days;
+    }
+
+    /**
+     * RENDER KHỐI 4: ĐỀ XUẤT NGÀY CƯỚI TRONG THÁNG ĐƯỢC CHỌN
+     */
+    function renderWeddingDaysAnalysis(year, month, recommendedMonths) {
+      const section = document.getElementById('weddingDaysSection');
+      if (!section) return;
+
+      if (!weddingCurrentAnalysis || !month || !recommendedMonths || recommendedMonths.length === 0) {
+        section.style.display = 'none';
+        return;
+      }
+      section.style.display = 'block';
+
+      const groom = weddingCurrentAnalysis.groom;
+      const bride = weddingCurrentAnalysis.bride;
+      const yCanChi = getYearCanChi(year);
+      const mCanChi = getMonthCanChi(year, month);
+
+      // Cập nhật tiêu đề
+      const titleEl = document.getElementById('weddingDaysMonthTitle');
+      if (titleEl) {
+        titleEl.textContent = `Tháng ${month} Âm Lịch (${mCanChi.text}) - Năm ${year} (${yCanChi.text})`;
+      }
+
+      const subTitleEl = document.getElementById('weddingDaysSubTitle');
+      if (subTitleEl) {
+        subTitleEl.textContent = `Trạch cát hôn lễ riêng cho Chú rể ${groom.name} (${groom.canChi.text}) & Cô dâu ${bride.name} (${bride.canChi.text}) • Lọc trừ toàn diện hung sát`;
+      }
+
+      // Render thanh chọn nhanh giữa các tháng đề xuất
+      const pillsContainer = document.getElementById('weddingMonthSelectorPills');
+      if (pillsContainer) {
+        pillsContainer.innerHTML = '';
+        const lbl = document.createElement('span');
+        lbl.style.fontSize = '0.78rem';
+        lbl.style.fontWeight = '700';
+        lbl.style.color = '#6b7280';
+        lbl.style.marginRight = '0.2rem';
+        lbl.textContent = 'Tháng đề xuất:';
+        pillsContainer.appendChild(lbl);
+
+        recommendedMonths.forEach(rm => {
+          const pill = document.createElement('button');
+          pill.type = 'button';
+          pill.className = `wedding-month-selector-pill ${rm.month === month ? 'active' : ''}`;
+          pill.setAttribute('data-month', rm.month);
+          pill.innerHTML = `
+            <span>${rm.month === month ? '💍' : '⭐'}</span>
+            <span>Tháng ${rm.month} (${rm.canChi.text})</span>
+          `;
+          pill.addEventListener('click', () => {
+            selectWeddingMonth(rm.month, false);
+          });
+          pillsContainer.appendChild(pill);
+        });
+      }
+
+      // Render danh sách ngày
+      renderWeddingDaysListOnly(year, month);
+    }
+
+    /**
+     * RENDER DANH SÁCH THẺ NGÀY HOẶC BẢNG ĐỐI CHIẾU THEO BỘ LỌC
+     */
+    function renderWeddingDaysListOnly(year, month) {
+      if (!weddingCurrentAnalysis) return;
+      const groom = weddingCurrentAnalysis.groom;
+      const bride = weddingCurrentAnalysis.bride;
+      const mCanChi = getMonthCanChi(year, month);
+
+      const allDays = getMonthDaysForWedding(year, month, groom, bride);
+      const recommendedDays = allDays.filter(d => !d.isEliminated);
+      const daiCatDays = allDays.filter(d => d.rank === 'daicat');
+      const weekendDays = recommendedDays.filter(d => d.isWeekend);
+
+      // Render Banner Tóm Tắt & Lời Khuyên
+      const summaryBox = document.getElementById('weddingDaysMonthSummary');
+      if (summaryBox) {
+        summaryBox.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.65rem;">
+            <span style="font-size: 1.4rem;">💐</span>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #991b1b; margin: 0;">
+              TỔNG KẾT NGÀY CƯỚI ĐẸP THÁNG ${month} ÂM LỊCH (${mCanChi.text}):
+            </h4>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.65rem; margin-bottom: 0.75rem;">
+            <div style="background: #ffffff; border: 1.5px solid #86efac; border-radius: 8px; padding: 0.6rem 0.85rem;">
+              <div style="font-size: 0.76rem; color: #166534; font-weight: 700; text-transform: uppercase;">Ngày Đạt Tiêu Chuẩn Kết Hôn</div>
+              <div style="font-size: 1.35rem; font-weight: 900; color: #15803d;">${recommendedDays.length} <span style="font-size: 0.82rem; font-weight: normal; color: #4b5563;">/ ${allDays.length} ngày</span></div>
+            </div>
+            <div style="background: #ffffff; border: 1.5px solid #facc15; border-radius: 8px; padding: 0.6rem 0.85rem;">
+              <div style="font-size: 0.76rem; color: #854d0e; font-weight: 700; text-transform: uppercase;">Ngày Đại Cát Thượng Đẳng</div>
+              <div style="font-size: 1.35rem; font-weight: 900; color: #b45309;">${daiCatDays.length} <span style="font-size: 0.82rem; font-weight: normal; color: #4b5563;">ngày vàng giá thú</span></div>
+            </div>
+            <div style="background: #ffffff; border: 1.5px solid #fecdd3; border-radius: 8px; padding: 0.6rem 0.85rem;">
+              <div style="font-size: 0.76rem; color: #be123c; font-weight: 700; text-transform: uppercase;">Rơi Vào Cuối Tuần (T7 &amp; CN)</div>
+              <div style="font-size: 1.35rem; font-weight: 900; color: #e11d48;">${weekendDays.length} <span style="font-size: 0.82rem; font-weight: normal; color: #4b5563;">ngày thuận tiện đãi tiệc</span></div>
+            </div>
+          </div>
+          <div style="font-size: 0.84rem; color: #4b5563; line-height: 1.55;">
+            <strong>💡 Lời khuyên trạch cát:</strong> Tháng ${month} ÂL (${mCanChi.text}) có <strong>${recommendedDays.length} ngày tốt</strong> đạt chuẩn trạch cát giá thú cổ truyền (đã loại bỏ hoàn toàn các ngày xung khắc bản mệnh cô dâu chú rể, Tam Nương, Nguyệt Kỵ, Dương Tương, Âm Tương, Sát Chủ, Thọ Tử, Nguyệt Phá). Quý vị nên ưu tiên chọn các <strong>ngày Đại Cát</strong> có sao Hoàng Đạo và Âm Dương Bất Tương kết hợp cuối tuần để tổ chức rước dâu và thiết tiệc linh đình.
+          </div>
+        `;
+      }
+
+      // Lọc danh sách ngày theo bộ lọc
+      let displayDays = [];
+      if (weddingDaysFilter === 'daicat') {
+        displayDays = daiCatDays;
+      } else if (weddingDaysFilter === 'weekend') {
+        displayDays = weekendDays;
+      } else if (weddingDaysFilter === 'all') {
+        displayDays = allDays;
+      } else {
+        // 'recommended'
+        displayDays = recommendedDays;
+      }
+
+      // Cập nhật số lượng
+      const countHint = document.getElementById('weddingDaysCountHint');
+      if (countHint) {
+        countHint.textContent = `Hiển thị ${displayDays.length} ngày`;
+      }
+
+      const container = document.getElementById('weddingDaysContainer');
+      if (!container) return;
+
+      // TH1: Chế độ đối chiếu toàn bộ các ngày (Bảng Table)
+      if (weddingDaysFilter === 'all') {
+        container.innerHTML = `
+          <div style="border: 1px solid #e5e7eb; border-radius: var(--radius-md); overflow-x: auto; background: #fff;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.82rem;">
+              <thead>
+                <tr style="background: #fafaf9; border-bottom: 2px solid #e5e7eb; text-align: left; color: #6b7280; font-size: 0.75rem; text-transform: uppercase;">
+                  <th style="padding: 0.65rem 0.85rem;">Ngày ÂL</th>
+                  <th style="padding: 0.65rem 0.85rem;">Dương Lịch &amp; Thứ</th>
+                  <th style="padding: 0.65rem 0.85rem;">Can Chi &amp; Nạp Âm</th>
+                  <th style="padding: 0.65rem 0.85rem;">Bất Tương / Hoàng Đạo</th>
+                  <th style="padding: 0.65rem 0.85rem;">Phân Tích Trạch Cát (Cát / Hung)</th>
+                  <th style="padding: 0.65rem 0.85rem; text-align: center;">Đánh Giá</th>
+                  <th style="padding: 0.65rem 0.85rem; text-align: center;">Tra Lịch</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${displayDays.map(d => {
+                  const isRec = !d.isEliminated;
+                  const rowBg = isRec ? (d.rank === 'daicat' ? '#f0fdf4' : '#ffffff') : '#fff5f5';
+                  return `
+                    <tr style="background: ${rowBg}; border-bottom: 1px solid #f3f4f6;">
+                      <td style="padding: 0.65rem 0.85rem; font-weight: 800; color: #991b1b; white-space: nowrap;">
+                        Mùng ${d.lDay}/${month} ÂL
+                      </td>
+                      <td style="padding: 0.65rem 0.85rem; white-space: nowrap;">
+                        <strong>${d.sDay}/${d.sMonth}/${d.sYear}</strong>
+                        <div style="font-size: 0.75rem; color: ${d.isWeekend ? '#be123c' : '#6b7280'}; font-weight: ${d.isWeekend ? '700' : 'normal'};">
+                          ${d.dayOfWeekName} ${d.isWeekend ? '🎉' : ''}
+                        </div>
+                      </td>
+                      <td style="padding: 0.65rem 0.85rem; white-space: nowrap;">
+                        <span class="wedding-can-chi-highlight">${d.dayCanChi.text}</span>
+                        <div style="font-size: 0.74rem; color: #0284c7;">${d.napAm}</div>
+                      </td>
+                      <td style="padding: 0.65rem 0.85rem;">
+                        <div style="font-size: 0.78rem;">${d.isBatTuong ? '<span style="color:#15803d; font-weight:700;">💍 Bất Tương</span>' : '<span style="color:#6b7280;">--</span>'}</div>
+                        <div style="font-size: 0.78rem;">${d.star.isHoangDao ? `<span style="color:#b45309; font-weight:600;">✨ ${d.star.name}</span>` : '<span style="color:#991b1b;">Hắc Đạo</span>'}</div>
+                      </td>
+                      <td style="padding: 0.65rem 0.85rem; font-size: 0.78rem; line-height: 1.45;">
+                        ${isRec 
+                          ? `<div style="color: #15803d;">✓ ${d.reasonsGood.slice(0, 2).join('; ')}</div>` 
+                          : `<div style="color: #b91c1c;">❌ ${d.reasonsBad.join('; ')}</div>`}
+                      </td>
+                      <td style="padding: 0.65rem 0.85rem; text-align: center; white-space: nowrap;">
+                        ${d.badgeHtml}
+                      </td>
+                      <td style="padding: 0.65rem 0.85rem; text-align: center; white-space: nowrap;">
+                        <button type="button" class="btn btn-xs btn-outline btn-jump-calendar" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" style="padding: 0.2rem 0.45rem; font-size: 0.72rem;">
+                          Xem 📅
+                        </button>
+                      </td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      } 
+      // TH2: Chế độ danh sách thẻ ngày (Cards Grid)
+      else {
+        if (displayDays.length === 0) {
+          container.innerHTML = `
+            <div style="text-align: center; padding: 2.5rem 1rem; background: #fff; border: 1.5px dashed #e5e7eb; border-radius: var(--radius-md);">
+              <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🔍</div>
+              <h4 style="font-weight: 700; color: #4b5563; margin-bottom: 0.35rem;">Không tìm thấy ngày phù hợp với tiêu chí lọc</h4>
+              <p style="font-size: 0.83rem; color: #6b7280; max-width: 480px; margin: 0 auto;">
+                Trong tháng ${month} ÂL này không có ngày nào thỏa mãn tiêu chí bộ lọc bạn vừa chọn. Vui lòng chuyển sang bộ lọc khác hoặc chọn một trong các tháng đề xuất khác.
+              </p>
+            </div>
+          `;
+        } else {
+          container.innerHTML = `
+            <div class="wedding-days-grid">
+              ${displayDays.map(d => {
+                let badgesList = [];
+                badgesList.push(d.badgeHtml);
+                if (d.isBatTuong) {
+                  badgesList.push('<span class="badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; font-weight:700;">💍 Âm Dương Bất Tương</span>');
+                }
+                if (d.star.isHoangDao) {
+                  badgesList.push(`<span class="badge" style="background:#fef3c7; color:#92400e; border:1px solid #fde68a; font-weight:700;">✨ Hoàng Đạo (${d.star.name})</span>`);
+                }
+                if (d.truc) {
+                  badgesList.push(`<span class="badge" style="background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe;">Trực ${d.truc}</span>`);
+                }
+                if (d.sao) {
+                  badgesList.push(`<span class="badge" style="background:#f3f4f6; color:#374151; border:1px solid #e5e7eb;">Sao ${d.sao}</span>`);
+                }
+                if (d.tamHopB || d.tamHopG) {
+                  badgesList.push('<span class="badge" style="background:#fdf2f8; color:#be185d; border:1px solid #fbcfe8; font-weight:700;">❤️ Tam Hợp Tuổi</span>');
+                }
+                if (d.lucHopB || d.lucHopG) {
+                  badgesList.push('<span class="badge" style="background:#fdf2f8; color:#be185d; border:1px solid #fbcfe8; font-weight:700;">❤️ Lục Hợp Tuổi</span>');
+                }
+                if (d.tuDuc && d.tuDuc.hasAny) {
+                  badgesList.push('<span class="badge" style="background:#fefce8; color:#854d0e; border:1px solid #fef08a;">⭐ Quý Nhân Tứ Đức</span>');
+                }
+
+                const goodReasonsHtml = d.reasonsGood.map(r => `<div>• ${r}</div>`).join('');
+                const hoursHtml = d.hoangDaoHours.map(h => `
+                  <span class="wedding-hour-pill" title="Giờ hoàng đạo nghênh hôn">${h.canChi} (${h.time})</span>
+                `).join('');
+
+                return `
+                  <div class="wedding-day-card ${d.rankClass}">
+                    <div>
+                      <!-- Header ngày -->
+                      <div class="wedding-day-header">
+                        <div>
+                          <div style="display: flex; align-items: baseline; gap: 0.45rem;">
+                            <span class="wedding-day-lunar-num">${d.lDay}</span>
+                            <span style="font-size: 0.95rem; font-weight: 700; color: #991b1b;">Tháng ${month} ÂL</span>
+                          </div>
+                          <div class="wedding-day-solar-txt">
+                            Dương Lịch: <strong>${d.sDay}/${d.sMonth}/${d.sYear}</strong>
+                          </div>
+                          <div style="margin-top: 0.25rem;">
+                            ${d.isWeekend 
+                              ? `<span class="wedding-day-weekend-badge">🎉 Cuối Tuần: ${d.dayOfWeekName}</span>` 
+                              : `<span style="font-size: 0.75rem; color: #6b7280; font-weight: 600;">${d.dayOfWeekName}</span>`}
+                          </div>
+                        </div>
+
+                        <div style="text-align: right;">
+                          <span class="wedding-can-chi-highlight" style="font-size: 1.05rem;">${d.dayCanChi.text}</span>
+                          <div style="font-size: 0.76rem; color: #0284c7; margin-top: 0.25rem; font-weight: 600;">
+                            ${d.napAm}
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Huy hiệu Cát Khí -->
+                      <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.65rem;">
+                        ${badgesList.join('')}
+                      </div>
+
+                      <!-- Chi tiết Cát Lợi -->
+                      <div style="font-size: 0.79rem; color: #374151; line-height: 1.45; background: rgba(255,255,255,0.7); border-radius: 6px; padding: 0.5rem; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 0.5rem;">
+                        ${goodReasonsHtml}
+                      </div>
+
+                      <!-- Giờ Hoàng Đạo Nghênh Hôn -->
+                      <div class="wedding-hours-box">
+                        <div class="wedding-hours-title">
+                          <span>⏰</span> <strong>Giờ Hoàng Đạo Cát Lợi (Đón Dâu, Bái Đường, Đãi Tiệc):</strong>
+                        </div>
+                        <div class="wedding-hours-list">
+                          ${hoursHtml}
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Nút hành động xem trên Lịch Vạn Niên -->
+                    <div style="margin-top: 0.85rem; padding-top: 0.65rem; border-top: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center;">
+                      <span style="font-size: 0.74rem; color: #166534; font-weight: 600;">
+                        ✓ Hợp mệnh đôi uyên ương
+                      </span>
+                      <button type="button" class="btn btn-sm btn-outline btn-jump-calendar" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" style="padding: 0.25rem 0.65rem; font-size: 0.78rem; font-weight: 700;">
+                        Xem trên Lịch Vạn Niên ➔
+                      </button>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          `;
+        }
+      }
+
+      // Gắn sự kiện chuyển tab sang Lịch Vạn Niên
+      container.querySelectorAll('.btn-jump-calendar').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const d = parseInt(btn.getAttribute('data-d'), 10);
+          const m = parseInt(btn.getAttribute('data-m'), 10);
+          const y = parseInt(btn.getAttribute('data-y'), 10);
+          if (d && m && y) {
+            jumpToCalendarDate(d, m, y);
+          }
+        });
+      });
+    }
+
+    /**
+     * CHUYỂN SANG TAB LỊCH VẠN NIÊN ĐẾN ĐÚNG NGÀY ĐƯỢC CHỌN
+     */
+    function jumpToCalendarDate(sDay, sMonth, sYear) {
+      selectedDate = new Date(sYear, sMonth - 1, sDay);
+      renderCalendar(sYear, sMonth - 1);
+      updateBlocView(selectedDate);
+
+      // Kích hoạt tab Lịch Vạn Niên
+      const calTabBtn = document.querySelector('.nav-tab[data-tab="tab-calendar"]');
+      if (calTabBtn) calTabBtn.click();
+
+      // Cuộn lên phần Bloc xem ngày
+      const blocEl = document.getElementById('blocWeekday');
+      if (blocEl) {
+        blocEl.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
 

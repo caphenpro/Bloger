@@ -42,9 +42,25 @@
   - Đánh giá tương tác Địa Chi: Tam Hợp, Lục Hợp, Lục Xung, Thái Tuế, Tam Tai giữa năm khảo sát và tuổi hai vợ chồng.
   - Chấm điểm và đưa ra lời khuyên chọn **Năm Tốt Nhất (kèm Can Chi năm)** và năm dự phòng phù hợp nhất.
 - **Phương Pháp Loại Trừ Chọn Tháng Kết Hôn (Khâm Định Hiệp Kỷ Biện Phương Thư)**:
-  - Áp dụng nghiêm ngặt các bước loại trừ cổ truyền: Loại trừ tháng Lục Xung với tuổi cô dâu, Lục Xung với tuổi chú rể, Nguyệt Phá (xung năm cưới), tháng kỵ Phòng Phu / Phòng Thê / Phòng Phu Mẫu.
+  - Áp dụng nghiêm ngặt các bước loại trừ cổ truyền: Loại trừ tháng Lục Xung với tuổi cô dâu, Lục Xung với tuổi chú rể, Nguyệt Phá (xung năm cưới), tháng kỵ Phòng Phu / Phòng Thê / Phòng Phu Mẫu, và Thiên Khắc Địa Xung với bản mệnh hai vợ chồng.
   - Đưa ra gợi ý trực tiếp các **Tháng có Can Chi gì** phù hợp kết hôn nhất trong năm (Tháng Đại Lợi, Tháng Tiểu Lợi, Tháng Tam Hợp / Lục Hợp).
   - Bảng tiến trình loại trừ 12 tháng minh bạch từng lý do loại trừ hoặc cát lợi.
+- **Đề Xuất Ngày Cưới Phù Hợp Trong Tháng Đã Chọn (Trạch Nhật Giá Thú Cổ Truyền)**:
+  - **Tự động khảo sát toàn bộ ngày trong tháng Âm lịch được chọn**:
+    - Đối chiếu can chi từng ngày với tuổi Chú Rể và Cô Dâu, loại trừ các ngày xung bản mệnh (Lục Xung, Thiên Khắc Địa Xung, Trực Thái Tuế).
+    - Lọc trừ triệt để các ngày đại kỵ giá thú: **Dương Tương** (hại chú rể), **Âm Tương** (hại cô dâu), **Âm Dương câu Tương** (hình khắc đôi bên), **Tam Nương** (mùng 3, 7, 13, 18, 22, 27), **Nguyệt Kỵ** (mùng 5, 14, 23), **Sát Chủ**, **Thọ Tử**, **Nguyệt Phá**, **Tứ Tuyệt**, **Tứ Ly**, **Chính Tứ Phế**, và các **Trực Hung** (Phá, Nguy, Bế).
+  - **Đánh giá & Tôn vinh các yếu tố Cát Lợi Thượng Đẳng**:
+    - Xác định ngày **Âm Dương Bất Tương** (ngày vàng thượng cát giá thú).
+    - Nhận diện ngày **Hoàng Đạo** cát tinh chiếu rọi (Minh Đường, Kim Quỹ, Ngọc Đường, v.v.).
+    - Đánh giá **Thập Nhị Trực cát lợi** (Thành: trăm năm viên mãn; Định: tình cảm sắt son; Khai: khai hoa kết trái; Mãn: viên mãn sung túc).
+    - Tương hợp bản mệnh: **Tam Hợp**, **Lục Hợp** với địa chi tuổi cô dâu và chú rể; đắc **Quý Nhân Tứ Đức** (Thiên Đức, Nguyệt Đức); ngày **Mẫu Thương**; ngày **Vượng - Tướng**.
+  - **Nhận Diện Ngày Cuối Tuần (Thứ Bảy & Chủ Nhật)**:
+    - Đánh dấu nổi bật ngày cát rơi vào cuối tuần giúp gia đình thuận tiện lên kế hoạch lễ cưới và đón tiếp khách mời.
+  - **Cung Cấp 6 Giờ Hoàng Đạo Nghênh Hôn**:
+    - Liệt kê chi tiết 6 giờ Hoàng Đạo cát lợi trong ngày (kèm Can Chi giờ và khung giờ chuẩn) cho lễ dạm ngõ, rước dâu, bái gia tiên và tiệc mừng.
+  - **Bộ Lọc Ngày Thông Minh & Bảng Đối Chiếu Đa Chiều**:
+    - Cho phép lọc xem: *Ngày Đề Xuất (Phù hợp)*, *Chỉ Ngày Đại Cát Thượng Đẳng*, *Ngày Cuối Tuần (T7/CN)*, hoặc *Bảng Đối Chiếu Toàn Bộ Các Ngày Trong Tháng*.
+    - Nút bấm **Xem trên Lịch Vạn Niên ➔** chuyển thẳng sang ngày đó trên Bloc Lịch Vạn Niên để tra cứu vạn sự chi tiết.
 
 ### 5. Bát Tự Tứ Trụ Chuẩn Thiên Văn (Bốn Trụ Năm - Tháng - Ngày - Giờ)
 - **Chuẩn Hóa Tiết Khí**:
@@ -211,6 +227,30 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.25.0] - 2026-09-10
+- **Đề Xuất Ngày Phù Hợp Cho Cưới Hỏi Từ Tháng Đã Chọn (Trạch Cát Hôn Nhân)**:
+  - **Khảo Sát & Lọc Trừ Hung Sát Toàn Diện Cho Từng Ngày Trong Tháng Đã Chọn**:
+    - Thuật toán `getMonthDaysForWedding(year, month, groom, bride)` tự động duyệt qua tất cả các ngày của tháng Âm lịch được đề xuất.
+    - Đối chiếu trực tiếp Can Chi từng ngày với bản mệnh Cô Dâu & Chú Rể: Loại trừ các ngày Địa chi Lục Xung với tuổi Cô Dâu / Chú Rể, các ngày phạm Thiên Khắc Địa Xung, và ngày Trực Thái Tuế với Cô Dâu.
+    - Lọc trừ triệt để toàn bộ ngày đại kỵ giá thú theo *Khâm Định Hiệp Kỷ Biện Phương Thư*:
+      - **Dương Tương** (sát nam chủ, kỵ chú rể), **Âm Tương** (sát nữ chủ, kỵ cô dâu), **Âm Dương câu Tương** (hình khắc đôi bên).
+      - **Ngày Tam Nương** (mùng 3, 7, 13, 18, 22, 27) & **Ngày Nguyệt Kỵ** (mùng 5, 14, 23).
+      - **Ngày Sát Chủ** & **Ngày Thọ Tử** theo từng tháng âm lịch.
+      - **Ngày Nguyệt Phá** (xung chi tháng), **Ngày Tứ Tuyệt - Tứ Ly** (suy kiệt âm dương), **Ngày Chính Tứ Phế** (suy vi thời lệnh).
+      - **Thập Nhị Trực hung**: Loại trừ các trực Phá, Nguy, Bế.
+  - **Đánh Giá Cát Lợi Thượng Đẳng & Phân Cấp Ngày Cưới**:
+    - **🌟 Ngày Đại Cát Giá Thú (Thượng Cát)**: Hội tụ ngày **Âm Dương Bất Tương** (ngày vàng trăm năm hòa hợp) + **Sao Hoàng Đạo** + các trực cát (**Thành, Định, Khai, Mãn**) hoặc đắc **Tam Hợp / Lục Hợp** với tuổi cô dâu chú rể.
+    - **🟢 Ngày Cát Lợi**: Vượt qua toàn bộ vòng lọc trừ hung sát, đắc sao Hoàng Đạo hoặc Âm Dương Bất Tương hoặc Trực cát.
+    - **Quý Nhân Tứ Đức & Cát Tinh Gia Trì**: Tự động nhận diện ngày đắc Thiên Đức, Nguyệt Đức, ngày Mẫu Thương, ngày Vượng - Tướng, tăng cường cát khí bình an.
+  - **Đánh Dấu Nổi Bật Ngày Rơi Vào Cuối Tuần (Thứ 7 & Chủ Nhật)**:
+    - Nhận diện trực quan ngày cát rơi vào cuối tuần bằng huy hiệu nổi bật `🎉 Cuối Tuần: Thứ Bảy / Chủ Nhật`, giúp hai họ thuận tiện sắp xếp lễ vu quy, lễ tân hôn và tổ chức tiệc cưới.
+  - **Gợi Ý 6 Giờ Hoàng Đạo Nghênh Hôn**:
+    - Mỗi thẻ ngày hiển thị đầy đủ 6 khung giờ Hoàng Đạo (kèm Can Chi giờ và khoảng giờ chuẩn) thích hợp cho các nghi thức xuất hành đón dâu, làm lễ gia tiên và khai tiệc.
+  - **Giao Diện Trực Quan Với Bộ Lọc Đa Chiều & Chuyển Nhanh Sang Lịch Vạn Niên**:
+    - Bổ sung Khối 4 mới vào tab Cưới Hỏi với thanh chọn nhanh giữa các tháng đề xuất dạng pills (`💍 Tháng X`).
+    - 4 chế độ lọc linh hoạt: *Tất cả ngày đề xuất*, *Chỉ ngày Đại Cát*, *Chỉ ngày Cuối tuần*, hoặc *Bảng đối chiếu toàn bộ các ngày trong tháng*.
+    - Nút bấm **Xem trên Lịch Vạn Niên ➔** trên từng ngày giúp người dùng chuyển ngay lập tức sang Bloc Lịch Vạn Niên để tra cứu vạn sự chi tiết.
 
 ### [v1.24.1] - 2026-09-10
 - **Tối Ưu Hóa & Tái Cấu Trúc Bố Cục Bản In Bát Tự Tứ Trụ (A4 / PDF)**:
