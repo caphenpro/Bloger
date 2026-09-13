@@ -3061,6 +3061,138 @@
       display: inline-block;
     }
 
+    /* KHUNG ĐÁNH GIÁ HÒA HỢP VỢ CHỒNG THEO 5 TIÊU CHÍ MỆNH LÝ */
+    .wedding-framework-container {
+      background: #ffffff;
+      border: 1.5px solid #fed7aa;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      box-shadow: 0 4px 16px rgba(180, 83, 9, 0.06);
+    }
+    .wedding-preface-box {
+      background: #fffbeb;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.86rem;
+      color: #78350f;
+      line-height: 1.6;
+    }
+    .wedding-criteria-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+    .wedding-criterion-card {
+      background: #ffffff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .wedding-criterion-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .wedding-criterion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .wedding-criterion-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .wedding-criterion-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .wedding-criterion-tag.tag-tot {
+      background: #ecfdf5;
+      color: #065f46;
+      border-color: #a7f3d0;
+    }
+    .wedding-criterion-tag.tag-ratcat {
+      background: #dcfce7;
+      color: #15803d;
+      border-color: #86efac;
+    }
+    .wedding-criterion-tag.tag-luuy {
+      background: #fffbeb;
+      color: #92400e;
+      border-color: #fde68a;
+    }
+    .wedding-criterion-tag.tag-dieuchinh {
+      background: #fef2f2;
+      color: #991b1b;
+      border-color: #fecaca;
+    }
+    .wedding-criterion-tag.tag-trunghung {
+      background: #fff1f2;
+      color: #be123c;
+      border-color: #fecdd3;
+    }
+    .wedding-analysis-desc {
+      font-size: 0.88rem;
+      color: #374151;
+      line-height: 1.65;
+      margin-bottom: 0.65rem;
+    }
+    .wedding-highlight-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 0.75rem 0.95rem;
+      font-size: 0.85rem;
+      color: #1e293b;
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+    .wedding-bridge-box {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      border-radius: 6px;
+      padding: 0.75rem 0.95rem;
+      font-size: 0.85rem;
+      color: #1e40af;
+      line-height: 1.6;
+      margin-top: 0.6rem;
+    }
+    .wedding-environment-box {
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 0.75rem 0.95rem;
+      font-size: 0.85rem;
+      color: #166534;
+      line-height: 1.6;
+      margin-top: 0.6rem;
+    }
+    .wedding-battu-cta-card {
+      background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+      border: 2px solid #d8b4fe;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 16px rgba(147, 51, 234, 0.08);
+    }
+
     /* WEDDING DAYS CUSTOM STYLES */
     .wedding-days-grid {
       display: grid;
@@ -3472,7 +3604,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.26.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.27.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -4073,13 +4205,22 @@
 
       <!-- VÙNG HIỂN THỊ KẾT QUẢ PHÂN TÍCH -->
       <div id="weddingResultContainer" style="margin-top: 1.25rem;">
-        <!-- KẾT QUẢ 1: THÔNG TIN BẢN MỆNH & PHỐI CUNG BÁT TRẠCH HÔN NHÂN -->
+        <!-- KẾT QUẢ 1: KHUNG ĐÁNH GIÁ HÒA HỢP VỢ CHỒNG TOÀN DIỆN (5 TIÊU CHÍ MỆNH LÝ & MÔI TRƯỜNG NUÔI DƯỠNG) -->
         <div class="card" style="margin-bottom: 1.25rem;">
           <div class="card-header">
-            <h3 class="card-title" style="font-size: 1.15rem; color: #1e3a8a; display: flex; align-items: center; gap: 0.4rem;">
-              <span>🧭</span> 1. Bản Mệnh Can Chi &amp; Phối Cung Hôn Nhân Bát Trạch
-            </h3>
-            <span style="font-size: 0.8rem; color: var(--text-muted);">Theo tài liệu Bát Trạch Lạc Thư: 8 Cung Mệnh, Đông/Tây Tứ Mệnh &amp; 8 Trạng Thái Biến Hóa</span>
+            <div>
+              <h3 class="card-title" style="font-size: 1.18rem; color: #1e3a8a; display: flex; align-items: center; gap: 0.45rem;">
+                <span>🧭</span> 1. Khung Đánh Giá Hòa Hợp Vợ Chồng Toàn Diện (5 Tiêu Chí Mệnh Lý &amp; Nếp Sống Gia Đạo)
+              </h3>
+              <span style="font-size: 0.82rem; color: var(--text-muted);">
+                Phân tích chi tiết tiêu chí đánh giá tương quan tính cách, nếp sống gia đạo, chí hướng xã hội, môi trường nuôi dưỡng &amp; không gian sống qua năm sinh (Nghiên cứu Mệnh lý học Đông Phương &amp; Xã hội học hiện đại)
+              </span>
+            </div>
+          </div>
+
+          <!-- Lời tựa nghiên cứu lý học -->
+          <div class="wedding-preface-box">
+            <strong>📜 Lời nói đầu (Nghiên cứu Mệnh lý học &amp; Lý học Phương Đông):</strong> Trong hệ thống lý luận Đông Phương, sự hòa hợp trong hôn nhân không đơn thuần là cảm xúc bộc phát nhất thời mà là sự tương tác sâu sắc giữa trường năng lượng bản mệnh (tiên thiên) và môi trường sống, giáo dục, nếp sống gia đạo (hậu thiên). 5 tiêu chí dưới đây giúp đánh giá nền tảng tính cách và điều kiện nuôi dưỡng giữa vợ chồng dựa trên năm sinh, kết hợp góc nhìn mệnh lý kinh điển và tâm lý học ứng xử hiện đại.
           </div>
 
           <!-- Grid 2 người -->
@@ -4134,6 +4275,45 @@
             </p>
             <div style="background: rgba(255, 255, 255, 0.7); border-radius: 6px; padding: 0.6rem 0.85rem; font-size: 0.84rem; color: #1f2937;" id="wBatTrachAdviceBox">
               <strong>💡 Lời khuyên hôn nhân:</strong> Vợ chồng tâm đầu ý hợp, gia đạo thuận hòa, cùng chí hướng xây dựng tổ ấm vững chắc.
+            </div>
+          </div>
+
+          <!-- KHỐI 5 TIÊU CHÍ ĐÁNH GIÁ CHI TIẾT TỪ TÀI LIỆU -->
+          <div style="margin-top: 1.25rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;">
+              <span style="font-size: 1.2rem;">📊</span>
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #92400e;">
+                CHI TIẾT 5 TIÊU CHÍ TƯƠNG QUAN TÍNH CÁCH &amp; MÔI TRƯỜNG NUÔI DƯỠNG:
+              </h4>
+            </div>
+            <div id="weddingCriteriaContainer" class="wedding-criteria-list">
+              <!-- Rendered dynamically via JS -->
+            </div>
+          </div>
+
+          <!-- KHỐI KẾT LUẬN & TÔN CHỈ ỨNG DỤNG BÁT TỰ TỨ TRỤ -->
+          <div class="wedding-battu-cta-card">
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <span style="font-size: 1.8rem; line-height: 1;">🔮</span>
+              <div style="flex: 1;">
+                <h4 style="font-size: 1.05rem; font-weight: 800; color: #7e22ce; margin-bottom: 0.35rem;">
+                  6. Kết Luận &amp; Tôn Chỉ Ứng Dụng Mệnh Lý: Vai Trò Quyết Định Của Bát Tự Tứ Trụ
+                </h4>
+                <p style="font-size: 0.88rem; color: #4b5563; line-height: 1.65; margin-bottom: 0.65rem;">
+                  Việc đánh giá sự hòa hợp dựa trên năm sinh thông qua <strong>5 tiêu chí trên chỉ mang lại cái nhìn tổng quan cơ bản để tham khảo</strong> về xu hướng tâm lý và điều kiện nuôi dưỡng tiên thiên/hậu thiên của hai vợ chồng. Mệnh lý học Phương Đông luôn nhấn mạnh nguyên lý <em>"Nhân định thắng thiên"</em> — sự thấu hiểu các điểm tương đồng và khác biệt về nạp âm, địa chi, thiên can và cung mệnh chính là chìa khóa để hai cá nhân chủ động điều chỉnh hành vi, tôn trọng sự khác biệt và cùng nhau xây dựng hạnh phúc gia đình bền vững.
+                </p>
+                <div style="background: rgba(255, 255, 255, 0.88); border: 1.5px solid #d8b4fe; border-radius: 6px; padding: 0.85rem 1rem; font-size: 0.86rem; color: #581c87; line-height: 1.65; margin-bottom: 0.85rem;">
+                  <strong>⭐ Yếu Tố Quyết Định Cốt Lõi:</strong> Để có cái nhìn chuẩn xác và thấu đáo nhất về số mệnh hôn nhân, quý vị cần đối chiếu <strong>Lá Số Bát Tự Tứ Trụ Chính Xác (đầy đủ Năm • Tháng • Ngày • Giờ sinh)</strong> của cả hai người. Trong Bát Tự Tử Bình, <strong>Trụ Ngày (Nhật Trụ)</strong> mới chính là đại diện chân thực cho bản thân (Nhật Can) và Cung Phối Ngẫu / Cung Phu Thê (Nhật Chi). Mối quan hệ giữa 2 Trụ Ngày, Thập Thần phu thê (Chính Quan/Thất Sát ở nữ, Chính Tài/Thiên Tài ở nam), cùng cấu trúc cân bằng Hỷ Dụng Thần của toàn bộ 8 chữ mới quyết định gốc rễ vận mệnh, thăng trầm và sự tương hợp thực sự.
+                </div>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                  <button type="button" class="btn btn-outline" id="btnGoBattuGroom" style="background: #ffffff; color: #1e40af; border-color: #93c5fd; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.4rem;">
+                    <span>🤵</span> Xem Lá Số Bát Tự Chi Tiết Chú Rể ➔
+                  </button>
+                  <button type="button" class="btn btn-outline" id="btnGoBattuBride" style="background: #ffffff; color: #be123c; border-color: #fca5a5; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.4rem;">
+                    <span>👰</span> Xem Lá Số Bát Tự Chi Tiết Cô Dâu ➔
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -5033,7 +5213,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.26.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.27.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -5364,7 +5544,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.26.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.27.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -11090,6 +11270,385 @@
       document.getElementById('weddingBrideLunarLeap').checked = (isLeap === 1);
     }
 
+    // --- HỆ THỐNG ĐÁNH GIÁ HÒA HỢP HÔN NHÂN THEO 5 TIÊU CHÍ MỆNH LÝ & MÔI TRƯỜNG SỐNG ---
+    const WEDDING_CAN_ELEMENT_MAP = {
+      'Giáp': 'Mộc', 'Ất': 'Mộc',
+      'Bính': 'Hỏa', 'Đinh': 'Hỏa',
+      'Mậu': 'Thổ', 'Kỷ': 'Thổ',
+      'Canh': 'Kim', 'Tân': 'Kim',
+      'Nhâm': 'Thủy', 'Quý': 'Thủy'
+    };
+
+    const WEDDING_CAN_HOP_MAP = {
+      'Giáp': 'Kỷ', 'Kỷ': 'Giáp',
+      'Ất': 'Canh', 'Canh': 'Ất',
+      'Bính': 'Tân', 'Tân': 'Bính',
+      'Đinh': 'Nhâm', 'Nhâm': 'Đinh',
+      'Mậu': 'Quý', 'Quý': 'Mậu'
+    };
+
+    const WEDDING_CAN_KHAC_MAP = {
+      'Giáp': ['Mậu', 'Canh'], 'Ất': ['Kỷ', 'Tân'],
+      'Bính': ['Canh', 'Nhâm'], 'Đinh': ['Tân', 'Quý'],
+      'Mậu': ['Nhâm', 'Giáp'], 'Kỷ': ['Quý', 'Ất'],
+      'Canh': ['Giáp', 'Bính'], 'Tân': ['Ất', 'Đinh'],
+      'Nhâm': ['Bính', 'Mậu'], 'Quý': ['Đinh', 'Kỷ']
+    };
+
+    // Phân vùng phương vị Địa Chi
+    const WEDDING_CHI_PHUONG_VI = {
+      'Tỵ': { phuong: 'Nam', hanh: 'Hỏa', group: 'Phương Nam (Hỏa)' },
+      'Ngọ': { phuong: 'Nam', hanh: 'Hỏa', group: 'Phương Nam (Hỏa)' },
+      'Thân': { phuong: 'Tây', hanh: 'Kim', group: 'Phương Tây (Kim)' },
+      'Dậu': { phuong: 'Tây', hanh: 'Kim', group: 'Phương Tây (Kim)' },
+      'Hợi': { phuong: 'Bắc', hanh: 'Thủy', group: 'Phương Bắc (Thủy)' },
+      'Tý': { phuong: 'Bắc', hanh: 'Thủy', group: 'Phương Bắc (Thủy)' },
+      'Dần': { phuong: 'Đông', hanh: 'Mộc', group: 'Phương Đông (Mộc)' },
+      'Mão': { phuong: 'Đông', hanh: 'Mộc', group: 'Phương Đông (Mộc)' },
+      'Thìn': { phuong: 'Tứ Quý', hanh: 'Thổ', group: 'Tứ Quý (Thổ)' },
+      'Tuất': { phuong: 'Tứ Quý', hanh: 'Thổ', group: 'Tứ Quý (Thổ)' },
+      'Sửu': { phuong: 'Tứ Quý', hanh: 'Thổ', group: 'Tứ Quý (Thổ)' },
+      'Mùi': { phuong: 'Tứ Quý', hanh: 'Thổ', group: 'Tứ Quý (Thổ)' }
+    };
+
+    function extractElementFromNapAm(napAm) {
+      if (!napAm || typeof napAm !== 'string') return 'Kim';
+      if (napAm.includes('Kim')) return 'Kim';
+      if (napAm.includes('Thủy')) return 'Thủy';
+      if (napAm.includes('Mộc')) return 'Mộc';
+      if (napAm.includes('Hỏa')) return 'Hỏa';
+      if (napAm.includes('Thổ')) return 'Thổ';
+      return 'Kim';
+    }
+
+    function checkNguHanhSinhKhac(h1, h2) {
+      if (h1 === h2) return { type: 'hoa', name: 'Bình Hòa (Đồng Hành)' };
+      const sinhMap = { 'Kim': 'Thủy', 'Thủy': 'Mộc', 'Mộc': 'Hỏa', 'Hỏa': 'Thổ', 'Thổ': 'Kim' };
+      const khacMap = { 'Kim': 'Mộc', 'Mộc': 'Thổ', 'Thổ': 'Thủy', 'Thủy': 'Hỏa', 'Hỏa': 'Kim' };
+      if (sinhMap[h1] === h2) return { type: 'sinh_thuan', name: `${h1} Sinh ${h2}` };
+      if (sinhMap[h2] === h1) return { type: 'sinh_nghich', name: `${h2} Sinh ${h1}` };
+      if (khacMap[h1] === h2) return { type: 'khac_thuan', name: `${h1} Khắc ${h2}` };
+      if (khacMap[h2] === h1) return { type: 'khac_nghich', name: `${h2} Khắc ${h1}` };
+      return { type: 'hoa', name: 'Bình Hòa' };
+    }
+
+    // Điều hướng sang Tab Bát Tự Tứ Trụ với thông tin đã điền sẵn
+    function navigateToBattuTab(name, gender, sYear, sMonth, sDay) {
+      const nameEl = document.getElementById('btName');
+      if (nameEl) nameEl.value = name || '';
+      const genderEl = document.getElementById('btGender');
+      if (genderEl) genderEl.value = gender;
+      const typeSolarEl = document.getElementById('btTypeSolar');
+      if (typeSolarEl) {
+        typeSolarEl.checked = true;
+        const solarWrap = document.getElementById('btSolarInputWrap');
+        const lunarWrap = document.getElementById('btLunarInputWrap');
+        if (solarWrap) solarWrap.style.display = 'block';
+        if (lunarWrap) lunarWrap.style.display = 'none';
+      }
+      const dateEl = document.getElementById('btDate');
+      if (dateEl) {
+        dateEl.value = `${sYear}-${String(sMonth).padStart(2, '0')}-${String(sDay).padStart(2, '0')}`;
+      }
+      const hourEl = document.getElementById('btHour');
+      if (hourEl && !hourEl.value) {
+        hourEl.value = '12'; // Mặc định giờ Ngọ
+      }
+      const tabBattuBtn = document.querySelector('.nav-tab[data-tab="tab-battu"]');
+      if (tabBattuBtn) tabBattuBtn.click();
+      const btnCalc = document.getElementById('btnCalculateBattu');
+      if (btnCalc) btnCalc.click();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Hàm render động Khung 5 Tiêu Chí Đánh Giá Hòa Hợp Vợ Chồng
+    function renderWeddingCompatibilityFramework(groom, bride, marriageState, stateInfo) {
+      const container = document.getElementById('weddingCriteriaContainer');
+      if (!container) return;
+
+      const gHanh = extractElementFromNapAm(groom.napAm);
+      const bHanh = extractElementFromNapAm(bride.napAm);
+      const napAmRel = checkNguHanhSinhKhac(gHanh, bHanh);
+
+      const gCan = groom.canChi.can;
+      const bCan = bride.canChi.can;
+      const gCanHanh = WEDDING_CAN_ELEMENT_MAP[gCan] || 'Kim';
+      const bCanHanh = WEDDING_CAN_ELEMENT_MAP[bCan] || 'Mộc';
+      const canHanhRel = checkNguHanhSinhKhac(gCanHanh, bCanHanh);
+      const isCanHop = (WEDDING_CAN_HOP_MAP[gCan] === bCan);
+      const isCanKhac = ((WEDDING_CAN_KHAC_MAP[gCan] && WEDDING_CAN_KHAC_MAP[gCan].includes(bCan)) || (WEDDING_CAN_KHAC_MAP[bCan] && WEDDING_CAN_KHAC_MAP[bCan].includes(gCan)));
+
+      const gChi = groom.canChi.chi;
+      const bChi = bride.canChi.chi;
+      const gChiIdx = groom.canChi.chiIndex;
+      const bChiIdx = bride.canChi.chiIndex;
+      const isChiTamHop = isTamHop(gChiIdx, bChiIdx);
+      const isChiLucHop = isLucHop(gChiIdx, bChiIdx);
+      const isChiXung = isLucXung(gChiIdx, bChiIdx);
+      const isChiHai = isLucHai(gChiIdx, bChiIdx);
+      const gPhuong = WEDDING_CHI_PHUONG_VI[gChi] || { phuong: '', hanh: '', group: '' };
+      const bPhuong = WEDDING_CHI_PHUONG_VI[bChi] || { phuong: '', hanh: '', group: '' };
+      const isSameChiGroup = (gPhuong.group && gPhuong.group === bPhuong.group);
+
+      const isDongTrach = (groom.cung.group === bride.cung.group);
+      const ageDiff = Math.abs(groom.lYear - bride.lYear);
+
+      let cardsHtml = '';
+
+      // --- TIÊU CHÍ 1: TƯƠNG QUAN NẠP ÂM HOA GIÁP ---
+      let tc1Tag = '';
+      let tc1Desc = '';
+      let tc1BridgeBox = '';
+
+      const hanhPsychology = {
+        'Kim': 'người mệnh Kim thường mang khí chất kỷ luật, đề cao nguyên tắc, tư duy logic cẩn trọng, tỉ mỉ và coi trọng trật tự nề nếp gia phong',
+        'Thủy': 'người mệnh Thủy giàu cảm xúc, tư duy linh hoạt, sâu sắc, trực giác nhạy bén, khéo léo thích nghi và mềm mỏng trong ứng xử',
+        'Mộc': 'người mệnh Mộc coi trọng lòng nhân ái, cầu tiến, ham học hỏi, kiên nhẫn bồi đắp nền tảng bền vững và bao dung với người thân',
+        'Hỏa': 'người mệnh Hỏa tràn đầy năng lượng nhiệt huyết, thẳng thắn, bộc trực, sáng tạo bứt phá nhưng đôi khi dễ nóng giận bốc đồng',
+        'Thổ': 'người mệnh Thổ trầm ổn, thực tế, giữ chữ tín, coi trọng sự bình yên gia đình và luôn là chỗ dựa vững chãi, bảo bọc che chở'
+      };
+
+      if (napAmRel.type === 'sinh_thuan') {
+        tc1Tag = `<span class="wedding-criterion-tag tag-ratcat">Tương Sinh Cát Lợi (${gHanh} Sinh ${bHanh})</span>`;
+        tc1Desc = `Chú Rể nạp âm <strong>${groom.napAm}</strong> (${gHanh}) tương sinh Cô Dâu nạp âm <strong>${bride.napAm}</strong> (${bHanh}). Trong môi trường nuôi dưỡng và khí chất bản cốt, ${hanhPsychology[gHanh]}; trong khi ${hanhPsychology[bHanh]}. Trường năng lượng của người chồng đóng vai trò nuôi dưỡng, cung cấp sự chở che vững chắc cho người vợ. Người vợ đón nhận sinh khí, dung dưỡng và làm mềm hóa các góc cạnh kỷ luật của người chồng, tạo nên bầu không khí gia đình ấm êm, nâng đỡ nhau cùng phát triển.`;
+      } else if (napAmRel.type === 'sinh_nghich') {
+        tc1Tag = `<span class="wedding-criterion-tag tag-ratcat">Tương Sinh Cát Lợi (${bHanh} Sinh ${gHanh})</span>`;
+        tc1Desc = `Cô Dâu nạp âm <strong>${bride.napAm}</strong> (${bHanh}) tương sinh Chú Rể nạp âm <strong>${groom.napAm}</strong> (${gHanh}). Trong môi trường nuôi dưỡng và khí chất bản cốt, ${hanhPsychology[bHanh]}; còn ${hanhPsychology[gHanh]}. Người vợ sở hữu bản năng thấu hiểu, khéo léo chăm sóc và là hậu phương vững chắc, tiếp thêm ngọn lửa tinh thần và động lực để chồng yên tâm lập thân lập nghiệp. Sự hòa quyện giúp gia đạo tích lũy tài lộc và bình an.`;
+      } else if (napAmRel.type === 'hoa') {
+        tc1Tag = `<span class="wedding-criterion-tag tag-tot">Bình Hòa Đồng Hành (Cùng Mệnh ${gHanh})</span>`;
+        tc1Desc = `Cả hai cùng mang bản mệnh ngũ hành <strong>${gHanh}</strong> (${groom.napAm} &amp; ${bride.napAm}). Nền tảng tâm lý và điều kiện nuôi dưỡng có nhiều nét tương đồng, dễ đồng cảm về nhịp sống và thế giới quan gia đình. ${hanhPsychology[gHanh]}. Điểm cần lưu ý là do cùng một trường khí, đôi khi hai bên dễ cạnh tranh cái tôi hoặc cố chấp khi bất đồng quan điểm; chỉ cần học cách lắng nghe và chủ động nhường nhịn thì gia đạo luôn hòa thuận.`;
+      } else {
+        tc1Tag = `<span class="wedding-criterion-tag tag-dieuchinh">Tương Khắc (${napAmRel.name}) — Cần Hóa Giải</span>`;
+        
+        let bridgeElement = '';
+        let bridgeExplanation = '';
+        if ((gHanh === 'Hỏa' && bHanh === 'Kim') || (gHanh === 'Kim' && bHanh === 'Hỏa')) {
+          bridgeElement = 'Thổ';
+          tc1Desc = `Mối quan hệ <strong>Hỏa khắc Kim</strong>: Một bên mang trường khí nhiệt thành, bộc trực, cảm xúc dâng trào (${gHanh === 'Hỏa' ? 'Chú Rể' : 'Cô Dâu'}); bên còn lại trầm lắng, tỉ mỉ, coi trọng trật tự và kỷ luật (${gHanh === 'Kim' ? 'Chú Rể' : 'Cô Dâu'}). Khi xảy ra bất đồng, người mệnh Hỏa dễ nóng nảy lấn át cảm xúc, khiến người mệnh Kim cảm thấy bị tổn thương, sinh ra thu mình hoặc phản ứng ngầm tích tụ.`;
+          bridgeExplanation = `Cần yếu tố hành <strong>Thổ</strong> làm nhịp cầu chuyển hóa năng lượng (nguyên lý <em>"Hỏa sinh Thổ, Thổ sinh Kim"</em>). Trong đời sống gia đình: Không gian nhà ở nên sử dụng gam màu vàng đất, nâu ấm; ưu tiên các kênh đầu tư bất động sản, xây dựng, kiến trúc, gốm sứ; hoặc sinh con hợp mệnh Thổ sẽ đóng vai trò là sợi dây gắn kết yêu thương bền vững trọn đời.`;
+        } else if ((gHanh === 'Kim' && bHanh === 'Mộc') || (gHanh === 'Mộc' && bHanh === 'Kim')) {
+          bridgeElement = 'Thủy';
+          tc1Desc = `Mối quan hệ <strong>Kim khắc Mộc</strong>: Người mệnh Kim cứng nhắc đòi hỏi quy chuẩn kỷ luật khắt khe, dễ gò bó tính phóng khoáng sinh trưởng tự do của người mệnh Mộc; Mộc cảm thấy bị phán xét hoặc kiểm soát quá mức.`;
+          bridgeExplanation = `Cần yếu tố hành <strong>Thủy</strong> làm nhịp cầu chuyển hóa (<em>"Kim sinh Thủy, Thủy sinh Mộc"</em>): Tăng cường sự mềm mỏng, giao tiếp tình cảm, lắng nghe thấu hiểu; trang trí nhà có yếu tố nước/thủy sinh; làm việc trong lĩnh vực thương mại, tài chính, logistics, du lịch hoặc sinh con mệnh Thủy.`;
+        } else if ((gHanh === 'Mộc' && bHanh === 'Thổ') || (gHanh === 'Thổ' && bHanh === 'Mộc')) {
+          bridgeElement = 'Hỏa';
+          tc1Desc = `Mối quan hệ <strong>Mộc khắc Thổ</strong>: Người mệnh Mộc thích đổi mới, thay đổi linh hoạt dễ làm xáo trộn sự bình ổn, an phận của người mệnh Thổ; Thổ cảm thấy bất an trước nhịp sống nhanh của Mộc.`;
+          bridgeExplanation = `Cần yếu tố hành <strong>Hỏa</strong> làm nhịp cầu chuyển hóa (<em>"Mộc sinh Hỏa, Hỏa sinh Thổ"</em>): Tăng cường không gian ánh sáng ấm áp, các hoạt động văn hóa nghệ thuật, ẩm thực, truyền thông, nhiệt huyết sẻ chia hoặc sinh con mệnh Hỏa.`;
+        } else if ((gHanh === 'Thổ' && bHanh === 'Thủy') || (gHanh === 'Thủy' && bHanh === 'Thổ')) {
+          bridgeElement = 'Kim';
+          tc1Desc = `Mối quan hệ <strong>Thổ khắc Thủy</strong>: Người mệnh Thổ kiên định bảo thủ, có xu hướng ngăn chặn dòng chảy linh hoạt tự do của người mệnh Thủy; Thủy thấy ngột ngạt gò ép, trong khi Thổ lo âu trước sự khó lường của Thủy.`;
+          bridgeExplanation = `Cần yếu tố hành <strong>Kim</strong> làm nhịp cầu chuyển hóa (<em>"Thổ sinh Kim, Kim sinh Thủy"</em>): Minh bạch tài chính, xây dựng quy chuẩn phân công rõ ràng, gam màu trắng sáng, trang sức kim khí, công nghệ cao hoặc sinh con mệnh Kim.`;
+        } else {
+          bridgeElement = 'Mộc';
+          tc1Desc = `Mối quan hệ <strong>Thủy khắc Hỏa</strong>: Người mệnh Thủy sâu sắc, trầm tĩnh dễ làm dập tắt sự nhiệt huyết, cảm xúc sôi nổi của người mệnh Hỏa; Hỏa thấy cô đơn thiếu sự nồng ấm, còn Thủy thấy đối phương quá bốc đồng.`;
+          bridgeExplanation = `Cần yếu tố hành <strong>Mộc</strong> làm nhịp cầu chuyển hóa (<em>"Thủy sinh Mộc, Mộc sinh Hỏa"</em>): Tăng cường sự đồng cảm, lòng nhân ái bao dung, tham gia hoạt động giáo dục, thiện nguyện, trồng cây xanh cảnh quan hoặc sinh con mệnh Mộc.`;
+        }
+
+        tc1BridgeBox = `
+          <div class="wedding-bridge-box">
+            <strong>🌉 Giải Pháp Ngũ Hành Cầu Nối (Hóa Giải Xung Khắc):</strong> ${bridgeExplanation}
+          </div>
+        `;
+      }
+
+      cardsHtml += `
+        <div class="wedding-criterion-card">
+          <div class="wedding-criterion-header">
+            <div class="wedding-criterion-title">
+              <span>🌿</span> Tiêu Chí 1: Tương Quan Nạp Âm Hoa Giáp (Khí Chất Bản Cốt &amp; Môi Trường Nuôi Dưỡng)
+            </div>
+            ${tc1Tag}
+          </div>
+          <p class="wedding-analysis-desc">${tc1Desc}</p>
+          <div class="wedding-highlight-box">
+            <strong>So sánh bản mệnh:</strong> Chú Rể (${groom.napAm} - ${gHanh}) đối chiếu Cô Dâu (${bride.napAm} - ${bHanh}) ➔ <em>${napAmRel.name}</em>.
+          </div>
+          ${tc1BridgeBox}
+        </div>
+      `;
+
+      // --- TIÊU CHÍ 2: TƯƠNG QUAN ĐỊA CHI ---
+      let tc2Tag = '';
+      let tc2Desc = '';
+      let tc2Highlight = '';
+
+      if (isChiTamHop) {
+        tc2Tag = `<span class="wedding-criterion-tag tag-ratcat">Tam Hợp Cát Thần (Rất Tốt)</span>`;
+        tc2Desc = `Địa Chi tuổi Chú Rể (<strong>${gChi}</strong>) và Cô Dâu (<strong>${bChi}</strong>) thuộc cách cục <strong>Tam Hợp</strong>. Trong sinh hoạt gia đình, Địa Chi đại diện cho nếp sống gia đạo, nền tảng sinh hoạt thường ngày, đối nội đối ngoại và cách nuôi dạy con cái. Tam Hợp mang lại sự đồng thuận tự nhiên, lối ứng xử ăn ý, vợ chồng dễ dàng chia sẻ việc nhà và thống nhất trong các quyết định tài chính quan trọng.`;
+      } else if (isChiLucHop) {
+        tc2Tag = `<span class="wedding-criterion-tag tag-ratcat">Lục Hợp Quý Nhân (Rất Tốt)</span>`;
+        tc2Desc = `Địa Chi tuổi Chú Rể (<strong>${gChi}</strong>) và Cô Dâu (<strong>${bChi}</strong>) tạo thành cách <strong>Lục Hợp</strong>. Đây là dấu hiệu của sự gắn kết thâm sâu, tình cảm vợ chồng thắm thiết, tương trợ lẫn nhau như đôi bạn tri kỷ. Đời sống gia đạo ít khi xảy ra xung đột lớn, gia đình hai bên hòa thuận ủng hộ.`;
+      } else if (isSameChiGroup) {
+        tc2Tag = `<span class="wedding-criterion-tag tag-tot">Đồng Phương Vị / Hội Cục (${gPhuong.group})</span>`;
+        if (gPhuong.phuong === 'Nam') {
+          // Trực tiếp ví dụ Tỵ gặp Ngọ của người dùng
+          tc2Desc = `Địa chi <strong>Chi ${gChi}</strong> gặp <strong>Chi ${bChi}</strong> cùng thuộc <strong>Phương Nam (Hỏa)</strong>. Nếp sống gia đạo tràn đầy năng lượng, nhiệt thành, cởi mở, hướng ngoại và quyết đoán. Cả hai cùng có xu hướng xông xáo, thích giao lưu bạn bè và dễ cùng nhau tạo dựng các hoạt động gia đình sôi nổi, gắn bó. Tuy nhiên, do cả hai đều mang trường khí Hỏa vượng, khi xảy ra mâu thuẫn sinh hoạt dễ bùng phát nóng nảy tức thì. Cần một bên chủ động hạ hỏa, học cách nhường nhịn và kiên nhẫn để tránh 'cả giận mất khôn'.`;
+        } else if (gPhuong.phuong === 'Tây') {
+          tc2Desc = `Địa chi <strong>Chi ${gChi}</strong> gặp <strong>Chi ${bChi}</strong> cùng thuộc <strong>Phương Tây (Kim)</strong>. Nếp sống gia đạo coi trọng tính ngăn nắp, thực tế, quy củ, minh bạch tài chính và có kế hoạch chi tiêu rõ ràng. Cần tránh quá xét nét những tiểu tiết sinh hoạt để giữ không khí gia đình luôn thoải mái.`;
+        } else if (gPhuong.phuong === 'Bắc') {
+          tc2Desc = `Địa chi <strong>Chi ${gChi}</strong> gặp <strong>Chi ${bChi}</strong> cùng thuộc <strong>Phương Bắc (Thủy)</strong>. Nếp sống gia đạo mềm mỏng, sâu lắng, coi trọng tình cảm gia đình và biết lắng nghe, chia sẻ. Cần tránh sự khép kín nội tâm khi có gánh nặng, hãy cởi mở bộc bạch để đối phương cùng gánh vác.`;
+        } else if (gPhuong.phuong === 'Đông') {
+          tc2Desc = `Địa chi <strong>Chi ${gChi}</strong> gặp <strong>Chi ${bChi}</strong> cùng thuộc <strong>Phương Đông (Mộc)</strong>. Nếp sống gia đạo ấm áp, hiếu học, hướng đến không gian sống chan hòa thiên nhiên, trọng lễ nghĩa và tình thân. Cả hai dễ đồng lòng bồi đắp tri thức cho con cái.`;
+        } else {
+          tc2Desc = `Địa chi <strong>Chi ${gChi}</strong> gặp <strong>Chi ${bChi}</strong> cùng thuộc <strong>Tứ Quý (Thổ)</strong>. Nếp sống gia đạo trầm ổn, coi trọng sự tích lũy điền sản, gia phong truyền thống và tính tiết kiệm. Nền tảng kinh tế gia đình vững chắc theo thời gian.`;
+        }
+      } else if (isChiXung) {
+        tc2Tag = `<span class="wedding-criterion-tag tag-trunghung">Lục Xung Trực Diện (Cần Điều Chỉnh)</span>`;
+        tc2Desc = `Địa Chi tuổi hai người phạm <strong>Lục Xung</strong> (Chi ${gChi} xung Chi ${bChi}). Trong sinh hoạt thường nhật, phong cách giải quyết vấn đề có sự trái ngược: một bên thích đối diện trực tiếp ngay lập tức, bên kia lại có xu hướng né tránh hoặc xử lý theo cảm xúc. Để hóa giải, vợ chồng cần thiết lập quy tắc 'vàng': Tuyệt đối không tranh cãi khi đang nóng giận hoặc trước mặt con cái; dành thời gian để cả hai cùng bình tâm trước khi bàn bạc các vấn đề lớn.`;
+      } else if (isChiHai) {
+        tc2Tag = `<span class="wedding-criterion-tag tag-dieuchinh">Lục Hại (Cần Kiên Nhẫn &amp; Bao Dung)</span>`;
+        tc2Desc = `Địa Chi tuổi hai người phạm <strong>Lục Hại</strong> (Chi ${gChi} hại Chi ${bChi}). Đây là sự bất đồng ngầm về thói quen sinh hoạt và chi tiết nhỏ nhặt, dễ dẫn đến cảm giác thiếu sự ghi nhận công sức từ bạn đời. Cần thường xuyên tâm sự cởi mở, chủ động khen ngợi và ghi nhận sự đóng góp thầm lặng của đối phương.`;
+      } else {
+        tc2Tag = `<span class="wedding-criterion-tag tag-tot">Bình Hòa Tự Nhiên</span>`;
+        tc2Desc = `Địa Chi tuổi Chú Rể (<strong>${gChi}</strong>) và Cô Dâu (<strong>${bChi}</strong>) ở thế Bình Hòa tự nhiên, không phạm xung hại. Mỗi người duy trì được cá tính và thói quen sinh hoạt độc lập một cách tôn trọng lẫn nhau, tạo nền tảng ổn định cho cuộc sống hôn nhân.`;
+      }
+
+      tc2Highlight = `
+        <div class="wedding-highlight-box">
+          <strong>Tương tác Chi:</strong> ${gChi} &amp; ${bChi} ➔ ${isChiTamHop ? 'Tam Hợp' : (isChiLucHop ? 'Lục Hợp' : (isChiXung ? 'Lục Xung' : (isChiHai ? 'Lục Hại' : (isSameChiGroup ? gPhuong.group : 'Bình Hòa'))))}.
+        </div>
+      `;
+
+      cardsHtml += `
+        <div class="wedding-criterion-card">
+          <div class="wedding-criterion-header">
+            <div class="wedding-criterion-title">
+              <span>🏡</span> Tiêu Chí 2: Tương Quan Địa Chi (Nếp Sống Gia Đạo &amp; Ứng Xử Thực Tế)
+            </div>
+            ${tc2Tag}
+          </div>
+          <p class="wedding-analysis-desc">${tc2Desc}</p>
+          ${tc2Highlight}
+        </div>
+      `;
+
+      // --- TIÊU CHÍ 3: TƯƠNG QUAN THIÊN CAN ---
+      let tc3Tag = '';
+      let tc3Desc = '';
+      let tc3Highlight = '';
+
+      if (isCanHop) {
+        tc3Tag = `<span class="wedding-criterion-tag tag-ratcat">Thiên Can Ngũ Hợp (Âm Dương Tương Hợp)</span>`;
+        tc3Desc = `Thiên Can tuổi Chú Rể (<strong>${gCan}</strong>) và Cô Dâu (<strong>${bCan}</strong>) đạt thế <strong>Ngũ Hợp</strong>. Thiên Can phản ánh hình ảnh cá nhân hướng ra ngoài xã hội, chí hướng sự nghiệp, ước mơ hoài bão và cách giao tiếp đối ngoại. Sự kết hợp này mang lại sự tương trợ đắc lực trong công danh: Một người giỏi đối ngoại tạo lập mạng lưới quan hệ xã hội, một người giỏi quản lý hoạch định và xây dựng chiến lược, tạo sức mạnh cộng hưởng to lớn.`;
+      } else if (canHanhRel.type === 'sinh_thuan' || canHanhRel.type === 'sinh_nghich') {
+        tc3Tag = `<span class="wedding-criterion-tag tag-ratcat">Thiên Can Tương Sinh (${gCanHanh} &amp; ${bCanHanh})</span>`;
+        // Kiểm tra đúng ví dụ Mộc gặp Hỏa của người dùng
+        if ((gCanHanh === 'Mộc' && bCanHanh === 'Hỏa') || (gCanHanh === 'Hỏa' && bCanHanh === 'Mộc')) {
+          tc3Desc = `Thiên Can hai người đạt thế <strong>Mộc sinh Hỏa</strong> (${gCan} - ${gCanHanh} &amp; ${bCan} - ${bCanHanh}): Can Mộc đại diện cho đức nhân, sự kiên nhẫn, học thức và tích lũy nền tảng tri thức bền vững; Can Hỏa đại diện cho lòng nhiệt huyết, lễ nghĩa, danh tiếng, sáng tạo bứt phá và tỏa sáng xã hội. Hai vợ chồng kết hợp tạo nên thế tương sinh thúc đẩy công danh sự nghiệp vô cùng tốt đẹp: Một người đóng vai trò hậu thuẫn vững chắc, cung cấp định hướng và nhiên liệu tinh thần; một người thắp sáng lý tưởng, lan tỏa danh tiếng và hiện thực hóa mục tiêu ngoài xã hội.`;
+        } else if ((gCanHanh === 'Hỏa' && bCanHanh === 'Thổ') || (gCanHanh === 'Thổ' && bCanHanh === 'Hỏa')) {
+          tc3Desc = `Thiên Can đạt thế <strong>Hỏa sinh Thổ</strong>: Can Hỏa truyền lửa đam mê nhiệt huyết và uy tín xã hội; Can Thổ giữ vững lập trường, biến các ý tưởng sáng tạo thành của cải, đất đai và tài sản tích lũy thực tế bền vững.`;
+        } else if ((gCanHanh === 'Thổ' && bCanHanh === 'Kim') || (gCanHanh === 'Kim' && bCanHanh === 'Thổ')) {
+          tc3Desc = `Thiên Can đạt thế <strong>Thổ sinh Kim</strong>: Can Thổ mang đến uy tín, lòng trung thực và sự hậu thuẫn kiên định; Can Kim phát huy tối đa năng lực tài chính, tài quản lý lãnh đạo sắc bén ngoài xã hội.`;
+        } else if ((gCanHanh === 'Kim' && bCanHanh === 'Thủy') || (gCanHanh === 'Thủy' && bCanHanh === 'Kim')) {
+          tc3Desc = `Thiên Can đạt thế <strong>Kim sinh Thủy</strong>: Can Kim mang đến kỷ luật, trật tự và định hướng rõ ràng; Can Thủy phát huy khả năng ứng biến thông minh, mở rộng các mối quan hệ giao thương đối ngoại linh hoạt.`;
+        } else {
+          tc3Desc = `Thiên Can đạt thế <strong>Thủy sinh Mộc</strong>: Can Thủy mang lại sự thấu hiểu sâu sắc, nguồn cảm hứng dồi dào; Can Mộc không ngừng học hỏi vươn lên, biến các hoài bão tri thức thành thành tựu công danh nở rộ.`;
+        }
+      } else if (isCanKhac) {
+        tc3Tag = `<span class="wedding-criterion-tag tag-dieuchinh">Thiên Can Tương Khắc (Cần Phân Định Trách Nhiệm)</span>`;
+        tc3Desc = `Thiên Can hai bên ở thế xung khắc (${gCan} khắc ${bCan} hoặc ngược lại). Trong công việc và các mục tiêu xã hội, hai người dễ có quan điểm khác nhau về mức độ chấp nhận rủi ro hoặc định hướng phát triển sự nghiệp. Giải pháp: Phân định rõ quyền quyết định theo lĩnh vực chuyên môn của từng người, tôn trọng không gian sự nghiệp cá nhân và tránh áp đặt tiêu chuẩn thành công của mình lên bạn đời.`;
+      } else {
+        tc3Tag = `<span class="wedding-criterion-tag tag-tot">Thiên Can Bình Hòa</span>`;
+        tc3Desc = `Thiên Can tuổi Chú Rể (<strong>${gCan}</strong>) và Cô Dâu (<strong>${bCan}</strong>) ở trạng thái bình hòa, tôn trọng độc lập. Cả hai cùng có chí hướng phấn đấu rõ ràng, đồng hành và cổ vũ lẫn nhau trong các bước ngoặt sự nghiệp.`;
+      }
+
+      tc3Highlight = `
+        <div class="wedding-highlight-box">
+          <strong>Chi tiết Can:</strong> ${gCan} (${gCanHanh}) &amp; ${bCan} (${bCanHanh}) ➔ ${isCanHop ? 'Ngũ Hợp Cát' : (isCanKhac ? 'Can Xung Khắc' : (canHanhRel.type.includes('sinh') ? 'Tương Sinh Cát' : 'Bình Hòa'))}.
+        </div>
+      `;
+
+      cardsHtml += `
+        <div class="wedding-criterion-card">
+          <div class="wedding-criterion-header">
+            <div class="wedding-criterion-title">
+              <span>🎯</span> Tiêu Chí 3: Tương Quan Thiên Can (Chí Hướng &amp; Mục Tiêu Xã Hội)
+            </div>
+            ${tc3Tag}
+          </div>
+          <p class="wedding-analysis-desc">${tc3Desc}</p>
+          ${tc3Highlight}
+        </div>
+      `;
+
+      // --- TIÊU CHÍ 4: TƯƠNG QUAN CUNG MỆNH BÁT TRẠCH (MÔI TRƯỜNG SỐNG CHI TIẾT) ---
+      let tc4Tag = '';
+      let tc4Desc = '';
+      let tc4EnvironmentBox = '';
+
+      if (isDongTrach) {
+        tc4Tag = `<span class="wedding-criterion-tag tag-ratcat">Đồng Trạch (${groom.cung.group} + ${bride.cung.group}) ➔ Trường Năng Lượng Đồng Điệu</span>`;
+        tc4Desc = `Cả Chú Rể (Cung <strong>${groom.cung.name}</strong> - ${groom.cung.group}) và Cô Dâu (Cung <strong>${bride.cung.name}</strong> - ${bride.cung.group}) đều cùng thuộc <strong>${groom.cung.group}</strong>. Kết quả phối quẻ Bát Trạch đạt cung <strong>${marriageState}</strong> (${stateInfo.title}).`;
+        tc4EnvironmentBox = `
+          <div class="wedding-environment-box">
+            <strong>🏡 Phân tích chi tiết Môi trường sống (Cùng Tứ Trạch):</strong>
+            Trường năng lượng tương đồng mang lại nhịp sống sinh học đồng bộ, sở thích trang trí không gian và cách lựa chọn nơi cư trú tương thích cao. Khi ở chung một mái nhà, hai vợ chồng luôn cảm nhận được sự thoải mái, yên bình và dễ dàng tái tạo năng lượng sau một ngày làm việc. Việc lựa chọn hướng nhà, hướng cửa chính, bố trí ban thờ và phòng ngủ đạt được sự đồng thuận nhanh chóng vì các hướng Cát (Sinh Khí, Thiên Y, Diên Niên, Phục Vị) của hai người hoàn toàn trùng khớp nhau (các hướng ${groom.cung.group === 'Đông Tứ Mệnh' ? 'Đông, Đông Nam, Bắc, Nam' : 'Tây, Tây Bắc, Tây Nam, Đông Bắc'}).
+          </div>
+        `;
+      } else {
+        tc4Tag = `<span class="wedding-criterion-tag tag-dieuchinh">Khác Trạch (${groom.cung.group} + ${bride.cung.group}) ➔ Cần Dung Hòa Không Gian Sống</span>`;
+        tc4Desc = `Chú Rể thuộc <strong>${groom.cung.group}</strong> (Cung ${groom.cung.name}), còn Cô Dâu thuộc <strong>${bride.cung.group}</strong> (Cung ${bride.cung.name}). Kết quả phối quẻ Bát Trạch đạt <strong>${marriageState}</strong> (${stateInfo.title}).`;
+        tc4EnvironmentBox = `
+          <div class="wedding-environment-box">
+            <strong>🏡 Phân tích chi tiết Môi trường sống (Khác Tứ Trạch) &amp; Giải pháp thiết kế không gian:</strong>
+            Xu hướng tâm lý về không gian sống giữa hai người có sự khác biệt rõ nét: Người Đông Tứ Trạch (${groom.cung.group === 'Đông Tứ Mệnh' ? groom.name : bride.name} - Cung ${groom.cung.group === 'Đông Tứ Mệnh' ? groom.cung.name : bride.cung.name}) ưa chuộng sự sôi động, không gian mở thoáng đãng, nhiều ánh sáng tự nhiên và cây xanh. Ngược lại, người Tây Tứ Trạch (${groom.cung.group === 'Tây Tứ Mệnh' ? groom.name : bride.name} - Cung ${groom.cung.group === 'Tây Tứ Mệnh' ? groom.cung.name : bride.cung.name}) lại đề cao tính tĩnh lặng, sự riêng tư, trật tự và quy củ kỷ luật ngăn nắp.<br><br>
+            <strong>Phương pháp dung hòa phong thủy Dương Trạch Tam Yếu:</strong><br>
+            • <em>Phân chia khu vực công năng:</em> Thiết kế phòng làm việc hoặc góc đọc sách có tính tĩnh tại, riêng tư cho người Tây Tứ; đồng thời duy trì không gian phòng khách, phòng sinh hoạt chung mở thoáng đãng, giao hòa thiên nhiên cho người Đông Tứ.<br>
+            • <em>Nguyên tắc 'Tọa Hung Hướng Cát':</em> Hướng nhà chính và bàn thờ có thể ưu tiên chọn theo hướng Cát của người trụ cột kinh tế; đồng thời hướng bếp nấu và hướng kê đầu giường ngủ xoay về hướng Cát của người phối ngẫu để đón sinh khí, trung hòa trường năng lượng và mang lại phúc lộc song toàn cho cả hai.
+          </div>
+        `;
+      }
+
+      cardsHtml += `
+        <div class="wedding-criterion-card">
+          <div class="wedding-criterion-header">
+            <div class="wedding-criterion-title">
+              <span>🧭</span> Tiêu Chí 4: Tương Quan Cung Mệnh Bát Trạch (Không Gian Sống &amp; Trường Năng Lượng)
+            </div>
+            ${tc4Tag}
+          </div>
+          <p class="wedding-analysis-desc">${tc4Desc}</p>
+          <div class="wedding-highlight-box">
+            <strong>Phối quẻ:</strong> Chú Rể (Cung ${groom.cung.name} - ${groom.cung.element}) + Cô Dâu (Cung ${bride.cung.name} - ${bride.cung.element}) ➔ <strong>${marriageState}</strong> • ${stateInfo.desc}
+          </div>
+          ${tc4EnvironmentBox}
+        </div>
+      `;
+
+      // --- TIÊU CHÍ 5: KHOẢNG CÁCH TUỔI TÁC & MÔI TRƯỜNG THẾ HỆ ---
+      let tc5Tag = '';
+      let tc5Desc = '';
+
+      if (ageDiff <= 3) {
+        tc5Tag = `<span class="wedding-criterion-tag tag-ratcat">Đồng Lứa (Cách biệt ${ageDiff} tuổi) ➔ Tri Kỷ Chia Sẻ</span>`;
+        tc5Desc = `Hai vợ chồng thuộc cùng một nhóm thế hệ đồng lứa (Peer generation), cùng lớn lên và trải qua các biến chuyển văn hóa - kinh tế - xã hội tương đồng. Mối quan hệ rất tự nhiên, dễ làm bạn bè tri kỷ, giao tiếp cởi mở và đối thoại bình đẳng. Điểm cần lưu ý: Vì khoảng cách tuổi tác nhỏ, đôi bên dễ so đo vị thế hoặc thiếu sự nhường nhịn nếu cả hai cùng sở hữu cái tôi mạnh mẽ. Lời khuyên: Học cách chủ động lùi một bước khi có tranh luận, xem bạn đời là đồng đội sát cánh hơn là đối thủ thi đua.`;
+      } else if (ageDiff <= 7) {
+        tc5Tag = `<span class="wedding-criterion-tag tag-tot">Khoảng Cách Vàng (${ageDiff} tuổi) ➔ Vững Vàng Điểm Tựa</span>`;
+        tc5Desc = `Khoảng cách ${ageDiff} tuổi được tâm lý học xã hội đánh giá là khoảng cách lý tưởng trong hôn nhân. Người lớn tuổi hơn (${groom.lYear < bride.lYear ? 'Chú Rể' : 'Cô Dâu'}) đã có thời gian tích lũy trải nghiệm sống, sự chín chắn về nghề nghiệp và tài chính, tạo nên chỗ dựa tinh thần an tâm vững chãi. Người nhỏ tuổi hơn mang lại sự tươi trẻ, năng lượng tích cực và sự ấm áp cho tổ ấm gia đình. Mối quan hệ có sự phân định vai trò tự nhiên và hỗ trợ hoàn hảo.`;
+      } else {
+        tc5Tag = `<span class="wedding-criterion-tag tag-luuy">Cách Biệt Thế Hệ (${ageDiff} tuổi) ➔ Cần Lắng Nghe &amp; Thấu Hiểu</span>`;
+        tc5Desc = `Khoảng cách ${ageDiff} tuổi tạo ra sự khác biệt nhất định về môi trường thế hệ (Generation Gap). Thói quen giải trí, góc nhìn xã hội và phong cách tiêu dùng có thể có những điểm chưa tương đồng. Lời khuyên: Người lớn tuổi hơn cần tránh thái độ gia trưởng hoặc áp đặt kinh nghiệm cá nhân; người nhỏ tuổi cần tôn trọng chiều sâu suy nghĩ và sự thận trọng của đối phương. Khi có sự tôn trọng lẫn nhau, sự chênh lệch tuổi tác lại trở thành điểm tựa vững chắc nhất cho hôn nhân.`;
+      }
+
+      cardsHtml += `
+        <div class="wedding-criterion-card">
+          <div class="wedding-criterion-header">
+            <div class="wedding-criterion-title">
+              <span>⏳</span> Tiêu Chí 5: Khoảng Cách Tuổi Tác &amp; Môi Trường Thế Hệ
+            </div>
+            ${tc5Tag}
+          </div>
+          <p class="wedding-analysis-desc">${tc5Desc}</p>
+          <div class="wedding-highlight-box">
+            <strong>Độ tuổi âm lịch:</strong> Chú Rể sinh năm ${groom.lYear} (${groom.canChi.text}), Cô Dâu sinh năm ${bride.lYear} (${bride.canChi.text}) ➔ Chênh lệch <strong>${ageDiff} tuổi</strong>.
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = cardsHtml;
+    }
+
+
     // Thuật toán chính: Tính toán thời gian cưới và đối chiếu Bát Trạch & Can Chi
     function calculateWeddingTime() {
       const groomName = escapeHtml(document.getElementById('weddingGroomName').value.trim()) || 'Chú Rể';
@@ -11193,6 +11752,28 @@
       document.getElementById('wBatTrachAdviceBox').innerHTML = `
         <strong>💡 Lời khuyên hôn nhân &amp; phong thủy:</strong> ${stateInfo.advice}
       `;
+
+      // Render Khung Đánh Giá Hòa Hợp Vợ Chồng Theo 5 Tiêu Chí Mệnh Lý & Môi Trường Nuôi Dưỡng
+      renderWeddingCompatibilityFramework(
+        { name: groomName, sYear: gSYear, sMonth: gSMonth, sDay: gSDay, lYear: gLYear, lMonth: gLMonth, lDay: gLDay, canChi: gCanChi, cung: gCung, napAm: gNapAm },
+        { name: brideName, sYear: bSYear, sMonth: bSMonth, sDay: bSDay, lYear: bLYear, lMonth: bLMonth, lDay: bLDay, canChi: bCanChi, cung: bCung, napAm: bNapAm },
+        marriageState,
+        stateInfo
+      );
+
+      // Gắn sự kiện chuyển tab Bát Tự Tứ Trụ chính xác của 2 người
+      const btnGoGroom = document.getElementById('btnGoBattuGroom');
+      if (btnGoGroom) {
+        btnGoGroom.onclick = () => {
+          navigateToBattuTab(groomName, 'male', gSYear, gSMonth, gSDay);
+        };
+      }
+      const btnGoBride = document.getElementById('btnGoBattuBride');
+      if (btnGoBride) {
+        btnGoBride.onclick = () => {
+          navigateToBattuTab(brideName, 'female', bSYear, bSMonth, bSDay);
+        };
+      }
 
       // 5. Khảo sát 6 năm (Năm hiện tại & 5 năm tới) theo Nguyên lý mới từ hình ảnh
       const surveyStartYear = parseInt(document.getElementById('weddingSurveyYear').value, 10) || (new Date()).getFullYear();
@@ -13492,7 +14073,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.26.0";
+    const APP_VERSION = "v1.27.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

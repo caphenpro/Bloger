@@ -232,6 +232,34 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.27.0] - 2026-09-12
+- **Tích Hợp Khung Đánh Giá Hòa Hợp Vợ Chồng Toàn Diện (5 Tiêu Chí Mệnh Lý & Môi Trường Nuôi Dưỡng)**:
+  - **Mở Rộng Lý Luận Từ Tài Liệu Nghiên Cứu Mệnh Lý Đông Phương & Tâm Lý Xã Hội Học**:
+    - Thiết lập khung phân tích toàn diện 5 tiêu chí cơ bản để đánh giá tính cách, điều kiện nuôi dưỡng và nếp sống gia đạo dựa trên năm sinh của hai vợ chồng tại Mục 1 tab Chọn Thời Gian Cưới Hỏi.
+  - **Chi Tiết 5 Tiêu Chí Tương Quan**:
+    1. **Tương Quan Nạp Âm Hoa Giáp (Khí Chất Bản Cốt & Môi Trường Nuôi Dưỡng)**:
+       - Phân tích tâm lý học ngũ hành: Kim (kỷ luật, nguyên tắc), Thủy (linh hoạt, sâu sắc), Mộc (nhân ái, cầu tiến), Hỏa (nhiệt huyết, bộc trực), Thổ (trầm ổn, thực tế).
+       - Nhận định Tương Sinh (nâng đỡ, dung dưỡng), Bình Hòa (đồng cảm nhịp sống), Tương Khắc (lệch pha cảm xúc).
+       - **Giải Pháp Ngũ Hành Cầu Nối**: Đưa ra chính xác ngũ hành trung gian để hóa giải xung khắc (Hỏa - Kim cần Thổ; Kim - Mộc cần Thủy; Mộc - Thổ cần Hỏa; Thổ - Thủy cần Kim; Thủy - Hỏa cần Mộc) thông qua màu sắc không gian sống, định hướng sự nghiệp và đường con cái.
+    2. **Tương Quan Địa Chi (Nếp Sống Gia Đạo & Ứng Xử Thực Tế)**:
+       - Phân tích nếp sinh hoạt thường nhật, quản lý tài chính, đối nội đối ngoại và nuôi dạy con cái qua Tam Hợp, Lục Hợp, Tứ Hành Xung, Lục Hại.
+       - **Mở rộng tương tác Địa Chi Cùng Phương Vị (như ví dụ Chi Tỵ gặp Chi Ngọ)**: Cùng thuộc Phương Nam (Hỏa) — nếp sống gia đạo nhiệt thành, năng động, gắn kết nhưng khi xung đột dễ bùng nổ nóng giận tức thì; hướng dẫn nguyên tắc bình tĩnh lắng nghe và nhường nhịn để tránh "cả giận mất khôn".
+    3. **Tương Quan Thiên Can (Chí Hướng & Mục Tiêu Xã Hội)**:
+       - Phân tích ước mơ hoài bão, lập trường tư tưởng và đối ngoại xã hội qua Ngũ Hợp, Tương Sinh, Xung Khắc.
+       - **Mở rộng ví dụ Can Mộc gặp Can Hỏa**: Mộc sinh Hỏa — Can Mộc (đức nhân, kiên nhẫn, tích lũy tri thức bền vững) đóng vai trò hậu thuẫn tiếp nhiên liệu; Can Hỏa (nhiệt huyết, sáng tạo bứt phá) thắp sáng lý tưởng, lan tỏa danh tiếng ngoài xã hội, tạo thành cặp đôi hỗ trợ công danh đại cát.
+    4. **Tương Quan Cung Mệnh Bát Trạch (Môi Trường Sống Chi Tiết: Cùng Tứ Trạch vs Khác Tứ Trạch)**:
+       - **Đồng Trạch (Đông Tứ + Đông Tứ hoặc Tây Tứ + Tây Tứ)**: Trường năng lượng đồng điệu, nhịp sinh học tương thích, dễ dàng đồng thuận khi chọn hướng nhà, hướng cửa, phòng ngủ (chung 4 hướng Cát).
+       - **Khác Trạch (Đông Tứ + Tây Tứ)**: Chi tiết tâm lý môi trường sống: Người Đông Tứ ưa không gian mở, sôi động, nhiều ánh sáng tự nhiên; người Tây Tứ đề cao sự tĩnh lặng, riêng tư và trật tự ngăn nắp.
+       - **Giải pháp Dương Trạch Tam Yếu dung hòa**: Phân chia khu vực công năng (góc làm việc riêng tư cho người Tây Tứ, phòng khách thoáng đãng cho người Đông Tứ); phối hướng nhà chính/bàn thờ theo người trụ cột và hướng bếp/giường ngủ xoay về hướng Cát của người phối ngẫu theo nguyên tắc "Tọa hung hướng cát".
+    5. **Khoảng Cách Tuổi Tác & Môi Trường Thế Hệ**:
+       - Phân loại: Đồng lứa (0 - 3 tuổi, tri kỷ bình đẳng, cần hạ cái tôi), Khoảng cách vàng (4 - 7 tuổi, tâm lý học gia đình lý tưởng, điểm tựa vững vàng), Cách biệt thế hệ (8+ tuổi, Generation Gap, cần bao dung lắng nghe).
+  - **Tôn Chỉ Ứng Dụng Mệnh Lý & Liên Kết Trực Tiếp Bát Tự Tứ Trụ**:
+    - Bổ sung khối Kết luận & Lời khuyên khẳng định: *5 tiêu chí trên chỉ là bước cơ bản để tham khảo, cái chính là Bát Tự Tứ Trụ chính xác của 2 người*.
+    - Nhấn mạnh nguyên lý Tử Bình: **Trụ Ngày (Nhật Trụ)** mới là bản mệnh chân thực (Nhật Can là Bản thân, Nhật Chi là Cung Phu Thê / Phối Ngẫu), cùng Thập Thần phu thê và cân bằng Hỷ Dụng Thần 8 chữ mới quyết định số mệnh thực sự.
+    - Cung cấp 2 nút thao tác nhanh: **"Xem Lá Số Bát Tự Chi Tiết Chú Rể ➔"** và **"Xem Lá Số Bát Tự Chi Tiết Cô Dâu ➔"** tự động chuyển tab Bát Tự và lập lá số ngay lập tức.
+- **Đồng Bộ Số Hóa Phiên Bản Hệ Thống**:
+  - Nâng cấp và đồng bộ toàn diện phiên bản `v1.27.0` trên Header, Footer, Modal giới thiệu Logo, `const APP_VERSION` và `package.json`.
+
 ### [v1.26.0] - 2026-09-11
 - **Bổ Sung Tiêu Chí Vượng – Tướng – Hưu – Tù – Tử Cho Can Chi Tuổi So Với Nguyệt Lệnh Khi Chọn Tháng Cưới**:
   - **Học Thuyết Vượng Suy Bốn Mùa Đối Chiếu Bản Mệnh Vợ Chồng Với Nguyệt Lệnh Tháng Cưới**:
