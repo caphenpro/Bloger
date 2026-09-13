@@ -232,6 +232,18 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.27.1] - 2026-09-12
+- **Tối Ưu & Khắc Phục Triệt Để Hiện Tượng Tràn Khung (Layout Overflow) Trên Thiết Bị Di Động & Máy Tính**:
+  - **Khắc phục tràn nội dung Khung Đánh Giá Hòa Hợp Vợ Chồng & Bảng Chọn Ngày Cưới**:
+    - Chuẩn hóa thuộc tính `min-width: 0`, `word-break: break-word`, `overflow-wrap: break-word` cho toàn bộ các cột và ô nội dung trong lưới (`.wedding-compat-framework-grid`, `.wedding-compat-criterion-card`, `.wedding-month-row > div`, `.wedding-day-card`).
+    - Bọc bộ bảng 12 tháng chọn cưới và danh sách đối chiếu ngày cưới vào các container có `overflow-x: auto` và `-webkit-overflow-scrolling: touch`, bổ sung thanh chỉ dẫn cuộn ngang linh hoạt (`.wedding-table-scroll-hint`) trên màn hình điện thoại / máy tính bảng.
+    - Cải tiến toàn diện các nhãn tiêu chí (`.badge`) chuyển sang `white-space: normal`, tự động xuống dòng mượt mà khi nội dung phân tích dài, chấm dứt hoàn toàn hiện tượng đẩy vỡ chiều ngang khung chứa.
+    - Cho phép các nút lọc ngày và nút tác vụ tự ngắt dòng trên màn hình hẹp (`@media (max-width: 600px)`).
+  - **Rà Soát & Đồng Bộ Tràn Khung Toàn Hệ Thống**:
+    - Kiểm tra và đảm bảo các bảng tra cứu lớn (Bát Tự Tứ Trụ, 60 Hoa Giáp Bất Tương, 24 Tiết Khí, Bảng Tháng Nhuận Trung Khí) đều được bọc container cuộn ngang chống tràn và có thiết lập media query co giãn responsive tự nhiên theo kích thước màn hình.
+  - **Đồng Bộ Hóa Số Phiên Bản Hệ Thống**:
+    - Cập nhật và đồng bộ phiên bản `v1.27.1` trên Header, Footer, Modal biểu trưng Logo, hằng số `APP_VERSION`, `package.json` và `README.md`.
+
 ### [v1.27.0] - 2026-09-12
 - **Tích Hợp Khung Đánh Giá Hòa Hợp Vợ Chồng Toàn Diện (5 Tiêu Chí Mệnh Lý & Môi Trường Nuôi Dưỡng)**:
   - **Mở Rộng Lý Luận Từ Tài Liệu Nghiên Cứu Mệnh Lý Đông Phương & Tâm Lý Xã Hội Học**:

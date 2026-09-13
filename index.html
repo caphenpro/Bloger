@@ -388,12 +388,17 @@
     .badge {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       padding: 0.2rem 0.55rem;
       font-size: 0.75rem;
       font-weight: 600;
       border-radius: 9999px;
-      line-height: 1;
-      white-space: nowrap;
+      line-height: 1.25;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
+      text-align: center;
     }
     .badge-hoangdao {
       background-color: #fef3c7;
@@ -2958,14 +2963,14 @@
     }
     .wedding-profile-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1rem;
       margin-bottom: 1.25rem;
+      width: 100%;
     }
-    @media (max-width: 768px) {
-      .wedding-profile-grid {
-        grid-template-columns: 1fr;
-      }
+    .wedding-profile-grid > * {
+      min-width: 0;
+      max-width: 100%;
     }
     .wedding-profile-card {
       background: #fff;
@@ -2973,12 +2978,18 @@
       border-radius: var(--radius-md);
       padding: 1rem;
       box-shadow: var(--shadow-sm);
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-battrach-banner {
       border-radius: var(--radius-md);
       padding: 1.25rem;
       margin-bottom: 1.5rem;
       border: 2px solid;
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-battrach-banner.good-state {
       background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
@@ -2995,6 +3006,9 @@
       padding: 1rem;
       margin-bottom: 0.85rem;
       transition: all 0.2s ease;
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-year-card:hover {
       border-color: #b45309;
@@ -3009,22 +3023,33 @@
       border: 2px solid #16a34a;
       background: #f0fdf4;
     }
+    .wedding-months-table-container {
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      background: #fff;
+      max-width: 100%;
+      position: relative;
+    }
+    .wedding-months-table-inner {
+      min-width: 760px;
+    }
     .wedding-month-row {
       display: grid;
-      grid-template-columns: 80px 110px 220px 1fr 140px;
-      gap: 0.6rem;
+      grid-template-columns: 80px 115px 220px minmax(260px, 1fr) 140px;
+      gap: 0.65rem;
       align-items: center;
-      padding: 0.65rem 0.85rem;
+      padding: 0.7rem 0.85rem;
       border-bottom: 1px solid #f3f4f6;
       font-size: 0.84rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
-    @media (max-width: 820px) {
-      .wedding-month-row {
-        grid-template-columns: 1fr;
-        gap: 0.35rem;
-        border-bottom: 1px solid #e5e7eb;
-        padding: 0.75rem 0.5rem;
-      }
+    .wedding-month-row > div {
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-month-row:nth-child(even) {
       background-color: #fafaf9;
@@ -3042,6 +3067,23 @@
       opacity: 0.85;
       border-left: 4px solid #ef4444;
     }
+    .wedding-table-scroll-hint {
+      display: none;
+      font-size: 0.76rem;
+      color: #b45309;
+      background: #fffbeb;
+      border: 1px dashed #fde68a;
+      border-radius: 6px;
+      padding: 0.35rem 0.65rem;
+      margin-bottom: 0.5rem;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    @media (max-width: 860px) {
+      .wedding-table-scroll-hint {
+        display: flex;
+      }
+    }
     .wedding-suggestion-callout {
       background: linear-gradient(135deg, #fefce8 0%, #fffbeb 100%);
       border: 2px solid #facc15;
@@ -3049,9 +3091,12 @@
       padding: 1.15rem 1.25rem;
       margin-bottom: 1.25rem;
       box-shadow: 0 4px 14px rgba(202, 138, 4, 0.12);
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-can-chi-highlight {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 800;
       color: #991b1b;
       background: #fef2f2;
@@ -3059,6 +3104,8 @@
       padding: 0.15rem 0.45rem;
       border-radius: 4px;
       display: inline-block;
+      white-space: normal;
+      word-break: break-word;
     }
 
     /* KHUNG ĐÁNH GIÁ HÒA HỢP VỢ CHỒNG THEO 5 TIÊU CHÍ MỆNH LÝ */
@@ -3069,6 +3116,10 @@
       padding: 1.25rem;
       margin-top: 1.25rem;
       box-shadow: 0 4px 16px rgba(180, 83, 9, 0.06);
+      min-width: 0;
+      max-width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-preface-box {
       background: #fffbeb;
@@ -3079,11 +3130,16 @@
       font-size: 0.86rem;
       color: #78350f;
       line-height: 1.6;
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-criteria-list {
       display: flex;
       flex-direction: column;
       gap: 1.15rem;
+      min-width: 0;
+      width: 100%;
     }
     .wedding-criterion-card {
       background: #ffffff;
@@ -3092,6 +3148,9 @@
       padding: 1.1rem;
       transition: all 0.2s ease;
       box-shadow: var(--shadow-sm);
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-criterion-card:hover {
       border-color: #cbd5e1;
@@ -3100,20 +3159,26 @@
     .wedding-criterion-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.65rem;
       margin-bottom: 0.75rem;
       padding-bottom: 0.6rem;
       border-bottom: 1px solid #f3f4f6;
+      min-width: 0;
     }
     .wedding-criterion-title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 800;
       color: #1e3a8a;
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      align-items: flex-start;
+      gap: 0.45rem;
+      flex: 1 1 260px;
+      min-width: 0;
+      line-height: 1.4;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-criterion-tag {
       font-size: 0.78rem;
@@ -3121,7 +3186,14 @@
       padding: 0.25rem 0.65rem;
       border-radius: 9999px;
       border: 1px solid transparent;
-      white-space: nowrap;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
+      display: inline-block;
+      line-height: 1.35;
+      text-align: center;
+      flex-shrink: 0;
     }
     .wedding-criterion-tag.tag-tot {
       background: #ecfdf5;
@@ -3153,6 +3225,8 @@
       color: #374151;
       line-height: 1.65;
       margin-bottom: 0.65rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-highlight-box {
       background: #f8fafc;
@@ -3163,6 +3237,9 @@
       color: #1e293b;
       line-height: 1.6;
       margin-top: 0.5rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      min-width: 0;
     }
     .wedding-bridge-box {
       background: #eff6ff;
@@ -3173,6 +3250,9 @@
       color: #1e40af;
       line-height: 1.6;
       margin-top: 0.6rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      min-width: 0;
     }
     .wedding-environment-box {
       background: #f0fdf4;
@@ -3183,6 +3263,9 @@
       color: #166534;
       line-height: 1.6;
       margin-top: 0.6rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      min-width: 0;
     }
     .wedding-battu-cta-card {
       background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
@@ -3191,14 +3274,18 @@
       padding: 1.25rem;
       margin-top: 1.5rem;
       box-shadow: 0 4px 16px rgba(147, 51, 234, 0.08);
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     /* WEDDING DAYS CUSTOM STYLES */
     .wedding-days-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1rem;
       margin-top: 0.85rem;
+      width: 100%;
     }
     @media (max-width: 640px) {
       .wedding-days-grid {
@@ -3216,6 +3303,10 @@
       justify-content: space-between;
       transition: all 0.2s ease;
       position: relative;
+      min-width: 0;
+      max-width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .wedding-day-card:hover {
       box-shadow: 0 6px 18px rgba(180, 83, 9, 0.12);
@@ -3604,7 +3695,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.27.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.27.1</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -4295,21 +4386,21 @@
           <div class="wedding-battu-cta-card">
             <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
               <span style="font-size: 1.8rem; line-height: 1;">🔮</span>
-              <div style="flex: 1;">
-                <h4 style="font-size: 1.05rem; font-weight: 800; color: #7e22ce; margin-bottom: 0.35rem;">
+              <div style="flex: 1; min-width: 0;">
+                <h4 style="font-size: 1.05rem; font-weight: 800; color: #7e22ce; margin-bottom: 0.35rem; word-break: break-word;">
                   6. Kết Luận &amp; Tôn Chỉ Ứng Dụng Mệnh Lý: Vai Trò Quyết Định Của Bát Tự Tứ Trụ
                 </h4>
-                <p style="font-size: 0.88rem; color: #4b5563; line-height: 1.65; margin-bottom: 0.65rem;">
+                <p style="font-size: 0.88rem; color: #4b5563; line-height: 1.65; margin-bottom: 0.65rem; word-break: break-word;">
                   Việc đánh giá sự hòa hợp dựa trên năm sinh thông qua <strong>5 tiêu chí trên chỉ mang lại cái nhìn tổng quan cơ bản để tham khảo</strong> về xu hướng tâm lý và điều kiện nuôi dưỡng tiên thiên/hậu thiên của hai vợ chồng. Mệnh lý học Phương Đông luôn nhấn mạnh nguyên lý <em>"Nhân định thắng thiên"</em> — sự thấu hiểu các điểm tương đồng và khác biệt về nạp âm, địa chi, thiên can và cung mệnh chính là chìa khóa để hai cá nhân chủ động điều chỉnh hành vi, tôn trọng sự khác biệt và cùng nhau xây dựng hạnh phúc gia đình bền vững.
                 </p>
-                <div style="background: rgba(255, 255, 255, 0.88); border: 1.5px solid #d8b4fe; border-radius: 6px; padding: 0.85rem 1rem; font-size: 0.86rem; color: #581c87; line-height: 1.65; margin-bottom: 0.85rem;">
+                <div style="background: rgba(255, 255, 255, 0.88); border: 1.5px solid #d8b4fe; border-radius: 6px; padding: 0.85rem 1rem; font-size: 0.86rem; color: #581c87; line-height: 1.65; margin-bottom: 0.85rem; word-break: break-word;">
                   <strong>⭐ Yếu Tố Quyết Định Cốt Lõi:</strong> Để có cái nhìn chuẩn xác và thấu đáo nhất về số mệnh hôn nhân, quý vị cần đối chiếu <strong>Lá Số Bát Tự Tứ Trụ Chính Xác (đầy đủ Năm • Tháng • Ngày • Giờ sinh)</strong> của cả hai người. Trong Bát Tự Tử Bình, <strong>Trụ Ngày (Nhật Trụ)</strong> mới chính là đại diện chân thực cho bản thân (Nhật Can) và Cung Phối Ngẫu / Cung Phu Thê (Nhật Chi). Mối quan hệ giữa 2 Trụ Ngày, Thập Thần phu thê (Chính Quan/Thất Sát ở nữ, Chính Tài/Thiên Tài ở nam), cùng cấu trúc cân bằng Hỷ Dụng Thần của toàn bộ 8 chữ mới quyết định gốc rễ vận mệnh, thăng trầm và sự tương hợp thực sự.
                 </div>
                 <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                  <button type="button" class="btn btn-outline" id="btnGoBattuGroom" style="background: #ffffff; color: #1e40af; border-color: #93c5fd; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.4rem;">
+                  <button type="button" class="btn btn-outline" id="btnGoBattuGroom" style="background: #ffffff; color: #1e40af; border-color: #93c5fd; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.4rem; white-space: normal; line-height: 1.35; text-align: left; max-width: 100%;">
                     <span>🤵</span> Xem Lá Số Bát Tự Chi Tiết Chú Rể ➔
                   </button>
-                  <button type="button" class="btn btn-outline" id="btnGoBattuBride" style="background: #ffffff; color: #be123c; border-color: #fca5a5; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.4rem;">
+                  <button type="button" class="btn btn-outline" id="btnGoBattuBride" style="background: #ffffff; color: #be123c; border-color: #fca5a5; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.4rem; white-space: normal; line-height: 1.35; text-align: left; max-width: 100%;">
                     <span>👰</span> Xem Lá Số Bát Tự Chi Tiết Cô Dâu ➔
                   </button>
                 </div>
@@ -4377,16 +4468,21 @@
           </div>
 
           <!-- BẢNG CHI TIẾT 12 THÁNG & TIẾN TRÌNH LOẠI TRỪ -->
-          <div style="border: 1px solid #e5e7eb; border-radius: var(--radius-md); overflow: hidden; background: #fff;">
-            <div style="background: #fafaf9; border-bottom: 2px solid #e5e7eb; padding: 0.65rem 0.85rem; font-size: 0.78rem; font-weight: 700; color: #6b7280; text-transform: uppercase;" class="wedding-month-row">
-              <div>Tháng ÂL</div>
-              <div>Can Chi Tháng</div>
-              <div>Vượng Suy Bản Mệnh (Nguyệt Lệnh)</div>
-              <div>Tiến Trình Loại Trừ &amp; Luận Giải</div>
-              <div>Kết Luận</div>
-            </div>
-            <div id="weddingMonthsTableBody">
-              <!-- Render 12 months via JS -->
+          <div class="wedding-table-scroll-hint">
+            <span>👉</span> Vuốt sang trái/phải để xem đầy đủ các cột phân tích của 12 tháng
+          </div>
+          <div class="wedding-months-table-container">
+            <div class="wedding-months-table-inner">
+              <div style="background: #fafaf9; border-bottom: 2px solid #e5e7eb; padding: 0.65rem 0.85rem; font-size: 0.78rem; font-weight: 700; color: #6b7280; text-transform: uppercase;" class="wedding-month-row">
+                <div>Tháng ÂL</div>
+                <div>Can Chi Tháng</div>
+                <div>Vượng Suy Bản Mệnh (Nguyệt Lệnh)</div>
+                <div>Tiến Trình Loại Trừ &amp; Luận Giải</div>
+                <div>Kết Luận</div>
+              </div>
+              <div id="weddingMonthsTableBody">
+                <!-- Render 12 months via JS -->
+              </div>
             </div>
           </div>
         </div>
@@ -5213,7 +5309,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.27.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.27.1</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -5544,7 +5640,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.27.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.27.1</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -11409,16 +11505,16 @@
       };
 
       if (napAmRel.type === 'sinh_thuan') {
-        tc1Tag = `<span class="wedding-criterion-tag tag-ratcat">Tương Sinh Cát Lợi (${gHanh} Sinh ${bHanh})</span>`;
+        tc1Tag = `<span class="wedding-criterion-tag tag-ratcat">Tương Sinh (${gHanh} Sinh ${bHanh})</span>`;
         tc1Desc = `Chú Rể nạp âm <strong>${groom.napAm}</strong> (${gHanh}) tương sinh Cô Dâu nạp âm <strong>${bride.napAm}</strong> (${bHanh}). Trong môi trường nuôi dưỡng và khí chất bản cốt, ${hanhPsychology[gHanh]}; trong khi ${hanhPsychology[bHanh]}. Trường năng lượng của người chồng đóng vai trò nuôi dưỡng, cung cấp sự chở che vững chắc cho người vợ. Người vợ đón nhận sinh khí, dung dưỡng và làm mềm hóa các góc cạnh kỷ luật của người chồng, tạo nên bầu không khí gia đình ấm êm, nâng đỡ nhau cùng phát triển.`;
       } else if (napAmRel.type === 'sinh_nghich') {
-        tc1Tag = `<span class="wedding-criterion-tag tag-ratcat">Tương Sinh Cát Lợi (${bHanh} Sinh ${gHanh})</span>`;
+        tc1Tag = `<span class="wedding-criterion-tag tag-ratcat">Tương Sinh (${bHanh} Sinh ${gHanh})</span>`;
         tc1Desc = `Cô Dâu nạp âm <strong>${bride.napAm}</strong> (${bHanh}) tương sinh Chú Rể nạp âm <strong>${groom.napAm}</strong> (${gHanh}). Trong môi trường nuôi dưỡng và khí chất bản cốt, ${hanhPsychology[bHanh]}; còn ${hanhPsychology[gHanh]}. Người vợ sở hữu bản năng thấu hiểu, khéo léo chăm sóc và là hậu phương vững chắc, tiếp thêm ngọn lửa tinh thần và động lực để chồng yên tâm lập thân lập nghiệp. Sự hòa quyện giúp gia đạo tích lũy tài lộc và bình an.`;
       } else if (napAmRel.type === 'hoa') {
-        tc1Tag = `<span class="wedding-criterion-tag tag-tot">Bình Hòa Đồng Hành (Cùng Mệnh ${gHanh})</span>`;
+        tc1Tag = `<span class="wedding-criterion-tag tag-tot">Bình Hòa (Cùng Mệnh ${gHanh})</span>`;
         tc1Desc = `Cả hai cùng mang bản mệnh ngũ hành <strong>${gHanh}</strong> (${groom.napAm} &amp; ${bride.napAm}). Nền tảng tâm lý và điều kiện nuôi dưỡng có nhiều nét tương đồng, dễ đồng cảm về nhịp sống và thế giới quan gia đình. ${hanhPsychology[gHanh]}. Điểm cần lưu ý là do cùng một trường khí, đôi khi hai bên dễ cạnh tranh cái tôi hoặc cố chấp khi bất đồng quan điểm; chỉ cần học cách lắng nghe và chủ động nhường nhịn thì gia đạo luôn hòa thuận.`;
       } else {
-        tc1Tag = `<span class="wedding-criterion-tag tag-dieuchinh">Tương Khắc (${napAmRel.name}) — Cần Hóa Giải</span>`;
+        tc1Tag = `<span class="wedding-criterion-tag tag-dieuchinh">Tương Khắc (${napAmRel.name})</span>`;
         
         let bridgeElement = '';
         let bridgeExplanation = '';
@@ -11577,7 +11673,7 @@
       let tc4EnvironmentBox = '';
 
       if (isDongTrach) {
-        tc4Tag = `<span class="wedding-criterion-tag tag-ratcat">Đồng Trạch (${groom.cung.group} + ${bride.cung.group}) ➔ Trường Năng Lượng Đồng Điệu</span>`;
+        tc4Tag = `<span class="wedding-criterion-tag tag-ratcat">Đồng Trạch (${groom.cung.group})</span>`;
         tc4Desc = `Cả Chú Rể (Cung <strong>${groom.cung.name}</strong> - ${groom.cung.group}) và Cô Dâu (Cung <strong>${bride.cung.name}</strong> - ${bride.cung.group}) đều cùng thuộc <strong>${groom.cung.group}</strong>. Kết quả phối quẻ Bát Trạch đạt cung <strong>${marriageState}</strong> (${stateInfo.title}).`;
         tc4EnvironmentBox = `
           <div class="wedding-environment-box">
@@ -11586,7 +11682,7 @@
           </div>
         `;
       } else {
-        tc4Tag = `<span class="wedding-criterion-tag tag-dieuchinh">Khác Trạch (${groom.cung.group} + ${bride.cung.group}) ➔ Cần Dung Hòa Không Gian Sống</span>`;
+        tc4Tag = `<span class="wedding-criterion-tag tag-dieuchinh">Khác Trạch (Cần Dung Hòa)</span>`;
         tc4Desc = `Chú Rể thuộc <strong>${groom.cung.group}</strong> (Cung ${groom.cung.name}), còn Cô Dâu thuộc <strong>${bride.cung.group}</strong> (Cung ${bride.cung.name}). Kết quả phối quẻ Bát Trạch đạt <strong>${marriageState}</strong> (${stateInfo.title}).`;
         tc4EnvironmentBox = `
           <div class="wedding-environment-box">
@@ -11620,13 +11716,13 @@
       let tc5Desc = '';
 
       if (ageDiff <= 3) {
-        tc5Tag = `<span class="wedding-criterion-tag tag-ratcat">Đồng Lứa (Cách biệt ${ageDiff} tuổi) ➔ Tri Kỷ Chia Sẻ</span>`;
+        tc5Tag = `<span class="wedding-criterion-tag tag-ratcat">Đồng Lứa (${ageDiff} tuổi) • Tri Kỷ</span>`;
         tc5Desc = `Hai vợ chồng thuộc cùng một nhóm thế hệ đồng lứa (Peer generation), cùng lớn lên và trải qua các biến chuyển văn hóa - kinh tế - xã hội tương đồng. Mối quan hệ rất tự nhiên, dễ làm bạn bè tri kỷ, giao tiếp cởi mở và đối thoại bình đẳng. Điểm cần lưu ý: Vì khoảng cách tuổi tác nhỏ, đôi bên dễ so đo vị thế hoặc thiếu sự nhường nhịn nếu cả hai cùng sở hữu cái tôi mạnh mẽ. Lời khuyên: Học cách chủ động lùi một bước khi có tranh luận, xem bạn đời là đồng đội sát cánh hơn là đối thủ thi đua.`;
       } else if (ageDiff <= 7) {
-        tc5Tag = `<span class="wedding-criterion-tag tag-tot">Khoảng Cách Vàng (${ageDiff} tuổi) ➔ Vững Vàng Điểm Tựa</span>`;
+        tc5Tag = `<span class="wedding-criterion-tag tag-tot">Khoảng Cách Vàng (${ageDiff} tuổi)</span>`;
         tc5Desc = `Khoảng cách ${ageDiff} tuổi được tâm lý học xã hội đánh giá là khoảng cách lý tưởng trong hôn nhân. Người lớn tuổi hơn (${groom.lYear < bride.lYear ? 'Chú Rể' : 'Cô Dâu'}) đã có thời gian tích lũy trải nghiệm sống, sự chín chắn về nghề nghiệp và tài chính, tạo nên chỗ dựa tinh thần an tâm vững chãi. Người nhỏ tuổi hơn mang lại sự tươi trẻ, năng lượng tích cực và sự ấm áp cho tổ ấm gia đình. Mối quan hệ có sự phân định vai trò tự nhiên và hỗ trợ hoàn hảo.`;
       } else {
-        tc5Tag = `<span class="wedding-criterion-tag tag-luuy">Cách Biệt Thế Hệ (${ageDiff} tuổi) ➔ Cần Lắng Nghe &amp; Thấu Hiểu</span>`;
+        tc5Tag = `<span class="wedding-criterion-tag tag-luuy">Cách Biệt Thế Hệ (${ageDiff} tuổi)</span>`;
         tc5Desc = `Khoảng cách ${ageDiff} tuổi tạo ra sự khác biệt nhất định về môi trường thế hệ (Generation Gap). Thói quen giải trí, góc nhìn xã hội và phong cách tiêu dùng có thể có những điểm chưa tương đồng. Lời khuyên: Người lớn tuổi hơn cần tránh thái độ gia trưởng hoặc áp đặt kinh nghiệm cá nhân; người nhỏ tuổi cần tôn trọng chiều sâu suy nghĩ và sự thận trọng của đối phương. Khi có sự tôn trọng lẫn nhau, sự chênh lệch tuổi tác lại trở thành điểm tựa vững chắc nhất cho hôn nhân.`;
       }
 
@@ -12723,8 +12819,11 @@
       // TH1: Chế độ đối chiếu toàn bộ các ngày (Bảng Table)
       if (weddingDaysFilter === 'all') {
         container.innerHTML = `
-          <div style="border: 1px solid #e5e7eb; border-radius: var(--radius-md); overflow-x: auto; background: #fff;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.82rem;">
+          <div class="wedding-table-scroll-hint">
+            <span>👉</span> Vuốt sang trái/phải để xem đầy đủ các cột trạch cát chi tiết từng ngày
+          </div>
+          <div style="border: 1px solid #e5e7eb; border-radius: var(--radius-md); overflow-x: auto; -webkit-overflow-scrolling: touch; background: #fff;">
+            <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 0.82rem;">
               <thead>
                 <tr style="background: #fafaf9; border-bottom: 2px solid #e5e7eb; text-align: left; color: #6b7280; font-size: 0.75rem; text-transform: uppercase;">
                   <th style="padding: 0.65rem 0.85rem;">Ngày ÂL</th>
@@ -12875,11 +12974,11 @@
                     </div>
 
                     <!-- Nút hành động xem trên Lịch Vạn Niên -->
-                    <div style="margin-top: 0.85rem; padding-top: 0.65rem; border-top: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="margin-top: 0.85rem; padding-top: 0.65rem; border-top: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4rem;">
                       <span style="font-size: 0.74rem; color: #166534; font-weight: 600;">
                         ✓ Hợp mệnh đôi uyên ương
                       </span>
-                      <button type="button" class="btn btn-sm btn-outline btn-jump-calendar" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" style="padding: 0.25rem 0.65rem; font-size: 0.78rem; font-weight: 700;">
+                      <button type="button" class="btn btn-sm btn-outline btn-jump-calendar" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" style="padding: 0.25rem 0.65rem; font-size: 0.78rem; font-weight: 700; white-space: normal; text-align: right;">
                         Xem trên Lịch Vạn Niên ➔
                       </button>
                     </div>
@@ -14073,7 +14172,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.27.0";
+    const APP_VERSION = "v1.27.1";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
