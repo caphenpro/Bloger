@@ -3419,9 +3419,10 @@
     }
 
     /* ============================================================
-       STYLING BẢN IN / LƯU LÁ SỐ BÁT TỰ TỨ TRỤ CHUYÊN BIỆT (A4/PDF)
+       STYLING BẢN IN / LƯU LÁ SỐ BÁT TỰ & BẢN ĐÁNH GIÁ HÒA HỢP HÔN NHÂN (A4/PDF)
        ============================================================ */
-    .battu-print-sheet {
+    .battu-print-sheet,
+    .wedding-print-sheet {
       display: none;
     }
 
@@ -3464,8 +3465,8 @@
         overflow: visible !important;
       }
 
-      /* 3. Hiển thị duy nhất Bản In Bát Tự Tứ Trụ với bố cục cân đối trọn vẹn 1 trang A4 */
-      #battuPrintSheet {
+      /* 3. Hiển thị Bản In Bát Tự Tứ Trụ khi in Bát Tự */
+      body:not(.print-wedding-mode) #battuPrintSheet {
         display: block !important;
         position: static !important;
         width: 100% !important;
@@ -3481,6 +3482,291 @@
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      body:not(.print-wedding-mode) #weddingPrintSheet {
+        display: none !important;
+      }
+
+      body.print-wedding-mode #battuPrintSheet {
+        display: none !important;
+      }
+
+      /* 4. Hiển thị Bản In Đánh Giá Hòa Hợp Hôn Nhân khi in 5 Tiêu Chí Cưới */
+      body.print-wedding-mode #weddingPrintSheet {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
+        color: #111827 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        font-size: 8.5pt !important;
+        line-height: 1.38 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      #weddingPrintSheet * {
+        box-sizing: border-box !important;
+      }
+
+      .print-w-header {
+        border-bottom: 2px solid #be123c;
+        padding-bottom: 0.35rem;
+        margin-bottom: 0.45rem;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-w-title {
+        font-size: 14.5pt !important;
+        font-weight: 800 !important;
+        color: #9f1239 !important;
+        text-align: center;
+        margin: 0 0 2px 0;
+        letter-spacing: 0.5px;
+      }
+      .print-w-subtitle {
+        font-size: 7.5pt !important;
+        text-align: center;
+        color: #78350f;
+        margin-bottom: 0.35rem;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+      .print-w-profiles-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        margin-bottom: 0.45rem;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-w-profile-card {
+        border: 1px solid #cbd5e1;
+        border-radius: 5px;
+        padding: 0.35rem 0.6rem;
+        font-size: 8pt;
+        line-height: 1.35;
+        background: #fafafa !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-w-profile-groom {
+        border-left: 3.5px solid #2563eb !important;
+        background: #f8fafc !important;
+      }
+      .print-w-profile-bride {
+        border-left: 3.5px solid #e11d48 !important;
+        background: #fff5f5 !important;
+      }
+      .print-w-profile-title {
+        font-weight: 800;
+        font-size: 9pt;
+        margin-bottom: 0.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px dashed #cbd5e1;
+        padding-bottom: 2px;
+      }
+      .print-w-battrach-banner {
+        border: 1px solid #fcd34d;
+        border-radius: 5px;
+        padding: 0.35rem 0.6rem;
+        margin-bottom: 0.45rem;
+        background: #fffbeb !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-w-battrach-title {
+        font-weight: 800;
+        font-size: 8.8pt;
+        color: #92400e;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.2rem;
+      }
+      .print-w-section-heading {
+        font-size: 8.8pt !important;
+        font-weight: 800 !important;
+        color: #9f1239 !important;
+        border-bottom: 1.5px solid #f43f5e;
+        padding-bottom: 2px;
+        margin-top: 0.4rem;
+        margin-bottom: 0.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-w-criteria-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      .print-w-criterion-card {
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        padding: 0.35rem 0.55rem;
+        background: #ffffff !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        font-size: 7.8pt;
+        line-height: 1.35;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-w-criterion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px dashed #cbd5e1;
+        padding-bottom: 2px;
+        margin-bottom: 0.22rem;
+      }
+      .print-w-criterion-title {
+        font-weight: 800;
+        color: #1e3a8a;
+        font-size: 8pt;
+      }
+      .print-w-criterion-tag {
+        font-weight: 700;
+        font-size: 7.2pt;
+        padding: 1px 5px;
+        border-radius: 3px;
+        display: inline-block;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-w-box {
+        border: 1px solid #e5e7eb;
+        border-radius: 3px;
+        padding: 0.25rem 0.45rem;
+        margin-top: 0.25rem;
+        font-size: 7.4pt;
+        line-height: 1.3;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-w-bridge-box {
+        background: #f0fdf4 !important;
+        border-color: #86efac !important;
+        color: #14532d !important;
+      }
+      .print-w-env-box {
+        background: #eff6ff !important;
+        border-color: #bfdbfe !important;
+        color: #1e3a8a !important;
+      }
+      .print-w-conclusion-card {
+        border: 1.5px solid #d8b4fe;
+        border-radius: 5px;
+        padding: 0.4rem 0.6rem;
+        margin-top: 0.4rem;
+        background: #faf5ff !important;
+        font-size: 7.6pt;
+        line-height: 1.35;
+        color: #581c87;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* Đảm bảo toàn bộ 5 thẻ tiêu chí động hiển thị chuẩn mực và sắc nét khi in */
+      #weddingPrintSheet .wedding-criterion-card {
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 4px !important;
+        padding: 0.35rem 0.55rem !important;
+        margin-bottom: 0.35rem !important;
+        background: #ffffff !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        font-size: 7.8pt !important;
+        line-height: 1.35 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      #weddingPrintSheet .wedding-criterion-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        border-bottom: 1px dashed #cbd5e1 !important;
+        padding-bottom: 2px !important;
+        margin-bottom: 0.22rem !important;
+      }
+      #weddingPrintSheet .wedding-criterion-title {
+        font-weight: 800 !important;
+        color: #1e3a8a !important;
+        font-size: 8.2pt !important;
+      }
+      #weddingPrintSheet .wedding-criterion-tag {
+        font-size: 7.2pt !important;
+        padding: 1px 5px !important;
+        border-radius: 3px !important;
+        font-weight: 700 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      #weddingPrintSheet .wedding-analysis-desc {
+        font-size: 7.6pt !important;
+        line-height: 1.35 !important;
+        color: #1f2937 !important;
+        margin-bottom: 0.25rem !important;
+      }
+      #weddingPrintSheet .wedding-highlight-box {
+        border: 1px solid #e5e7eb !important;
+        border-radius: 3px !important;
+        padding: 0.2rem 0.45rem !important;
+        margin-top: 0.2rem !important;
+        font-size: 7.4pt !important;
+        line-height: 1.3 !important;
+        background: #f9fafb !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      #weddingPrintSheet .wedding-bridge-box {
+        background: #f0fdf4 !important;
+        border: 1px solid #86efac !important;
+        border-radius: 3px !important;
+        padding: 0.2rem 0.45rem !important;
+        margin-top: 0.2rem !important;
+        color: #14532d !important;
+        font-size: 7.4pt !important;
+        line-height: 1.3 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      #weddingPrintSheet .wedding-environment-box {
+        background: #eff6ff !important;
+        border: 1px solid #bfdbfe !important;
+        border-radius: 3px !important;
+        padding: 0.2rem 0.45rem !important;
+        margin-top: 0.2rem !important;
+        color: #1e3a8a !important;
+        font-size: 7.4pt !important;
+        line-height: 1.3 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-w-footer {
+        margin-top: 0.4rem;
+        border-top: 1px solid #cbd5e1;
+        padding-top: 0.25rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 7pt;
+        color: #64748b;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
@@ -3695,7 +3981,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.27.1</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.28.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -4298,14 +4584,19 @@
       <div id="weddingResultContainer" style="margin-top: 1.25rem;">
         <!-- KẾT QUẢ 1: KHUNG ĐÁNH GIÁ HÒA HỢP VỢ CHỒNG TOÀN DIỆN (5 TIÊU CHÍ MỆNH LÝ & MÔI TRƯỜNG NUÔI DƯỠNG) -->
         <div class="card" style="margin-bottom: 1.25rem;">
-          <div class="card-header">
-            <div>
+          <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="flex: 1; min-width: 250px;">
               <h3 class="card-title" style="font-size: 1.18rem; color: #1e3a8a; display: flex; align-items: center; gap: 0.45rem;">
                 <span>🧭</span> 1. Khung Đánh Giá Hòa Hợp Vợ Chồng Toàn Diện (5 Tiêu Chí Mệnh Lý &amp; Nếp Sống Gia Đạo)
               </h3>
               <span style="font-size: 0.82rem; color: var(--text-muted);">
                 Phân tích chi tiết tiêu chí đánh giá tương quan tính cách, nếp sống gia đạo, chí hướng xã hội, môi trường nuôi dưỡng &amp; không gian sống qua năm sinh (Nghiên cứu Mệnh lý học Đông Phương &amp; Xã hội học hiện đại)
               </span>
+            </div>
+            <div>
+              <button type="button" class="btn btn-outline btn-print-wedding-eval" id="btnPrintWeddingEvalTop" style="font-size: 0.84rem; font-weight: 700; color: #1e3a8a; border-color: #93c5fd; background: #eff6ff; display: flex; align-items: center; gap: 0.45rem; padding: 0.42rem 0.9rem; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); cursor: pointer; white-space: nowrap;">
+                <span>🖨️</span> In / Lưu 5 Tiêu Chí Hòa Hợp (PDF)
+              </button>
             </div>
           </div>
 
@@ -4397,6 +4688,9 @@
                   <strong>⭐ Yếu Tố Quyết Định Cốt Lõi:</strong> Để có cái nhìn chuẩn xác và thấu đáo nhất về số mệnh hôn nhân, quý vị cần đối chiếu <strong>Lá Số Bát Tự Tứ Trụ Chính Xác (đầy đủ Năm • Tháng • Ngày • Giờ sinh)</strong> của cả hai người. Trong Bát Tự Tử Bình, <strong>Trụ Ngày (Nhật Trụ)</strong> mới chính là đại diện chân thực cho bản thân (Nhật Can) và Cung Phối Ngẫu / Cung Phu Thê (Nhật Chi). Mối quan hệ giữa 2 Trụ Ngày, Thập Thần phu thê (Chính Quan/Thất Sát ở nữ, Chính Tài/Thiên Tài ở nam), cùng cấu trúc cân bằng Hỷ Dụng Thần của toàn bộ 8 chữ mới quyết định gốc rễ vận mệnh, thăng trầm và sự tương hợp thực sự.
                 </div>
                 <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                  <button type="button" class="btn btn-primary btn-print-wedding-eval" id="btnPrintWeddingEvalBottom" style="background: #1e3a8a; color: #ffffff; border-color: #1e40af; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.45rem; padding: 0.5rem 1rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(30, 58, 138, 0.25); cursor: pointer; white-space: normal; line-height: 1.35; text-align: left; max-width: 100%;">
+                    <span>🖨️</span> In / Lưu Toàn Bộ 5 Tiêu Chí &amp; Đánh Giá Hòa Hợp (PDF)
+                  </button>
                   <button type="button" class="btn btn-outline" id="btnGoBattuGroom" style="background: #ffffff; color: #1e40af; border-color: #93c5fd; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.4rem; white-space: normal; line-height: 1.35; text-align: left; max-width: 100%;">
                     <span>🤵</span> Xem Lá Số Bát Tự Chi Tiết Chú Rể ➔
                   </button>
@@ -5309,7 +5603,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.27.1</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.28.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -5640,7 +5934,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.27.1</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.28.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -5776,6 +6070,90 @@
     <div class="print-footer">
       <div>Ứng dụng Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Bản quyền thuộc về Thân Chủ</div>
       <div id="prPrintTimestamp">In lúc: --/--/---- --:--</div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- BẢN IN / LƯU KHUNG ĐÁNH GIÁ HÒA HỢP HÔN NHÂN THEO 5 TIÊU CHÍ (A4 / PDF)  -->
+  <!-- Thiết kế trang trọng, chuẩn mực in ấn hồ sơ phong thủy hôn nhân gia đạo   -->
+  <!-- ========================================================================= -->
+  <div id="weddingPrintSheet" class="wedding-print-sheet">
+    <!-- Header Bản In -->
+    <div class="print-w-header">
+      <div class="print-w-title">BẢN ĐÁNH GIÁ HÒA HỢP HÔN NHÂN &amp; GIA ĐẠO TOÀN DIỆN</div>
+      <div class="print-w-subtitle">5 TIÊU CHÍ MỆNH LÝ ĐÔNG PHƯƠNG &amp; NỀN TẢNG NẾP SỐNG GIA ĐÌNH • "NHÂN ĐỊNH THẮNG THIÊN"</div>
+      <div style="font-size: 7.2pt; text-align: center; color: #4b5563; font-style: italic; margin-top: 2px;">
+        Đánh giá tương quan tính cách, nếp sống gia đạo, chí hướng xã hội, môi trường nuôi dưỡng &amp; không gian sống
+      </div>
+    </div>
+
+    <!-- I. HỒ SƠ ĐÔI UYÊN ƯƠNG -->
+    <div class="print-w-profiles-grid">
+      <!-- Hồ sơ Chú Rể -->
+      <div class="print-w-profile-card print-w-profile-groom">
+        <div class="print-w-profile-title" style="color: #1e40af;">
+          <span>🤵 CHÚ RỂ (NAM MỆNH): <strong id="prWGroomName">Chú Rể</strong></span>
+          <span style="font-size: 7.2pt; font-weight: normal; color: #1e40af;" id="prWGroomGroupBadge">Đông Tứ Mệnh</span>
+        </div>
+        <div>• <strong>Dương lịch:</strong> <span id="prWGroomSolar">--/--/----</span> | <strong>Âm lịch:</strong> <span id="prWGroomLunar">--/--/----</span></div>
+        <div>• <strong>Năm Can Chi:</strong> <strong id="prWGroomCanChi" style="color: #1e40af;">--</strong></div>
+        <div>• <strong>Nạp Âm Ngũ Hành:</strong> <strong id="prWGroomNapAm" style="color: #0369a1;">--</strong></div>
+        <div>• <strong>Cung Phi Bát Trạch:</strong> <span id="prWGroomCung">--</span> (Hướng <span id="prWGroomDir">--</span>)</div>
+      </div>
+
+      <!-- Hồ sơ Cô Dâu -->
+      <div class="print-w-profile-card print-w-profile-bride">
+        <div class="print-w-profile-title" style="color: #9f1239;">
+          <span>👰 CÔ DÂU (NỮ MỆNH): <strong id="prWBrideName">Cô Dâu</strong></span>
+          <span style="font-size: 7.2pt; font-weight: normal; color: #9f1239;" id="prWBrideGroupBadge">Đông Tứ Mệnh</span>
+        </div>
+        <div>• <strong>Dương lịch:</strong> <span id="prWBrideSolar">--/--/----</span> | <strong>Âm lịch:</strong> <span id="prWBrideLunar">--/--/----</span></div>
+        <div>• <strong>Năm Can Chi:</strong> <strong id="prWBrideCanChi" style="color: #9f1239;">--</strong></div>
+        <div>• <strong>Nạp Âm Ngũ Hành:</strong> <strong id="prWBrideNapAm" style="color: #b45309;">--</strong></div>
+        <div>• <strong>Cung Phi Bát Trạch:</strong> <span id="prWBrideCung">--</span> (Hướng <span id="prWBrideDir">--</span>)</div>
+      </div>
+    </div>
+
+    <!-- II. KẾT QUẢ PHỐI QUẺ BÁT TRẠCH HÔN NHÂN -->
+    <div class="print-w-battrach-banner" id="prWBatTrachBanner">
+      <div class="print-w-battrach-title">
+        <span>✨ PHỐI HỢP CUNG MỆNH BÁT TRẠCH: <strong id="prWBatTrachTitle">Phục Vị (Tiểu Cát)</strong></span>
+        <span style="font-size: 7.2pt; padding: 1px 6px; border-radius: 3px; border: 1px solid #cbd5e1;" id="prWBatTrachGroupText">Đồng Trạch</span>
+      </div>
+      <div style="font-size: 7.6pt; line-height: 1.35; color: #374151;" id="prWBatTrachDesc">
+        Vững vàng, may mắn trong thi cử, tinh thần yên ổn, bản mệnh củng cố bền vững.
+      </div>
+      <div style="margin-top: 3px; font-size: 7.4pt; color: #1e3a8a;" id="prWBatTrachAdvice">
+        <strong>💡 Lời khuyên hôn nhân:</strong> Vợ chồng tâm đầu ý hợp, gia đạo thuận hòa, cùng chí hướng xây dựng tổ ấm.
+      </div>
+    </div>
+
+    <!-- III. CHI TIẾT 5 TIÊU CHÍ ĐÁNH GIÁ HÒA HỢP -->
+    <div class="print-w-section-heading">
+      CHI TIẾT 5 TIÊU CHÍ TƯƠNG QUAN TÍNH CÁCH &amp; MÔI TRƯỜNG NUÔI DƯỠNG
+    </div>
+
+    <div class="print-w-criteria-container" id="prWCriteriaContainer">
+      <!-- Sẽ được điền tự động từ dữ liệu đánh giá 5 tiêu chí mới nhất -->
+    </div>
+
+    <!-- IV. KẾT LUẬN & TÔN CHỈ ỨNG DỤNG BÁT TỰ TỨ TRỤ -->
+    <div class="print-w-conclusion-card">
+      <div style="font-weight: 800; font-size: 8.2pt; color: #6b21a8; margin-bottom: 3px; border-bottom: 1px dashed #d8b4fe; padding-bottom: 2px;">
+        🔮 6. TÔN CHỈ ỨNG DỤNG MỆNH LÝ &amp; VAI TRÒ QUYẾT ĐỊNH CỦA BÁT TỰ TỨ TRỤ
+      </div>
+      <div style="margin-bottom: 4px;">
+        Việc đánh giá sự hòa hợp qua năm sinh theo 5 tiêu chí chỉ mang lại <strong>cái nhìn tổng quan cơ bản để tham khảo</strong> về xu hướng tâm lý và điều kiện nuôi dưỡng tiên thiên/hậu thiên của hai vợ chồng. Mệnh lý học Đông Phương luôn lấy nguyên lý <em>"Nhân định thắng thiên"</em> làm trọng: Sự thấu hiểu các điểm tương đồng và khác biệt chính là chìa khóa vàng để đôi bên chủ động điều chỉnh hành vi, biết lắng nghe, tôn trọng và nhường nhịn nhau để gìn giữ hạnh phúc gia đình bền vững trọn đời.
+      </div>
+      <div>
+        <strong>⭐ Yếu tố quyết định cốt lõi:</strong> Để có cái nhìn chuẩn xác nhất về hôn nhân, cần đối chiếu <strong>Lá Số Bát Tự Tứ Trụ (đầy đủ Năm • Tháng • Ngày • Giờ sinh)</strong>. Trong Bát Tự Tử Bình, <strong>Trụ Ngày (Nhật Trụ)</strong> mới là đại diện chân thực cho bản thân (Nhật Can) và Cung Phối Ngẫu / Cung Phu Thê (Nhật Chi). Mối quan hệ giữa hai Trụ Ngày, Thập Thần phu thê cùng cấu trúc Hỷ Dụng Thần của toàn bộ 8 chữ mới quyết định gốc rễ vận mệnh và sự tương hợp thâm sâu.
+      </div>
+    </div>
+
+    <!-- Footer Bản In -->
+    <div class="print-w-footer">
+      <div>Ứng dụng Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Thuận theo tự nhiên - Đoán biết mệnh số</div>
+      <div id="prWTimestamp">In lúc: --/--/---- --:--</div>
     </div>
   </div>
 
@@ -11319,8 +11697,103 @@
         });
       });
 
+      // Nút in lưu toàn bộ 5 tiêu chí đánh giá hòa hợp hôn nhân (A4 / PDF)
+      const btnPrintTop = document.getElementById('btnPrintWeddingEvalTop');
+      if (btnPrintTop) btnPrintTop.addEventListener('click', printWeddingEvaluation);
+      const btnPrintBottom = document.getElementById('btnPrintWeddingEvalBottom');
+      if (btnPrintBottom) btnPrintBottom.addEventListener('click', printWeddingEvaluation);
+
       // Khởi chạy phân tích mặc định
       calculateWeddingTime();
+    }
+
+    // Hàm in và lưu trữ toàn bộ 5 Tiêu Chí Đánh Giá Hòa Hợp Vợ Chồng & Nếp Sống Gia Đạo (A4 / PDF)
+    function printWeddingEvaluation() {
+      // 1. Luôn đảm bảo dữ liệu mới nhất được tính toán
+      calculateWeddingTime();
+
+      // 2. Điền thông tin vào thẻ #weddingPrintSheet
+      const prGName = document.getElementById('prWGroomName');
+      if (prGName) {
+        // Thông tin Chú Rể
+        prGName.textContent = document.getElementById('wProfGroomName')?.textContent || 'Chú Rể';
+        const gGroupEl = document.getElementById('wProfGroomGroup');
+        if (gGroupEl) document.getElementById('prWGroomGroupBadge').textContent = gGroupEl.textContent || 'Đông Tứ Mệnh';
+        const gSolarEl = document.getElementById('wProfGroomSolarText');
+        if (gSolarEl) document.getElementById('prWGroomSolar').textContent = gSolarEl.textContent || '';
+        const gLunarEl = document.getElementById('wProfGroomLunarText');
+        if (gLunarEl) document.getElementById('prWGroomLunar').textContent = gLunarEl.textContent || '';
+        const gCanChiEl = document.getElementById('wProfGroomCanChi');
+        if (gCanChiEl) document.getElementById('prWGroomCanChi').textContent = gCanChiEl.textContent || '';
+        const gNapAmEl = document.getElementById('wProfGroomNapAm');
+        if (gNapAmEl) document.getElementById('prWGroomNapAm').textContent = gNapAmEl.textContent || '';
+        const gCungEl = document.getElementById('wProfGroomCung');
+        if (gCungEl) document.getElementById('prWGroomCung').textContent = gCungEl.textContent || '';
+        const gDirEl = document.getElementById('wProfGroomDir');
+        if (gDirEl) document.getElementById('prWGroomDir').textContent = gDirEl.textContent || '';
+
+        // Thông tin Cô Dâu
+        const bNameEl = document.getElementById('wProfBrideName');
+        if (bNameEl) document.getElementById('prWBrideName').textContent = bNameEl.textContent || 'Cô Dâu';
+        const bGroupEl = document.getElementById('wProfBrideGroup');
+        if (bGroupEl) document.getElementById('prWBrideGroupBadge').textContent = bGroupEl.textContent || 'Đông Tứ Mệnh';
+        const bSolarEl = document.getElementById('wProfBrideSolarText');
+        if (bSolarEl) document.getElementById('prWBrideSolar').textContent = bSolarEl.textContent || '';
+        const bLunarEl = document.getElementById('wProfBrideLunarText');
+        if (bLunarEl) document.getElementById('prWBrideLunar').textContent = bLunarEl.textContent || '';
+        const bCanChiEl = document.getElementById('wProfBrideCanChi');
+        if (bCanChiEl) document.getElementById('prWBrideCanChi').textContent = bCanChiEl.textContent || '';
+        const bNapAmEl = document.getElementById('wProfBrideNapAm');
+        if (bNapAmEl) document.getElementById('prWBrideNapAm').textContent = bNapAmEl.textContent || '';
+        const bCungEl = document.getElementById('wProfBrideCung');
+        if (bCungEl) document.getElementById('prWBrideCung').textContent = bCungEl.textContent || '';
+        const bDirEl = document.getElementById('wProfBrideDir');
+        if (bDirEl) document.getElementById('prWBrideDir').textContent = bDirEl.textContent || '';
+
+        // Thông tin Phối Quẻ Bát Trạch
+        const stateTitle = document.getElementById('wBatTrachStateTitle')?.textContent || '';
+        const stateDesc = document.getElementById('wBatTrachStateDesc')?.textContent || '';
+        const groupBadge = document.getElementById('wBatTrachGroupBadge')?.textContent.trim() || '';
+        const adviceEl = document.getElementById('wBatTrachAdviceBox');
+
+        const prTitleEl = document.getElementById('prWBatTrachTitle');
+        if (prTitleEl) prTitleEl.textContent = stateTitle;
+        const prGroupEl = document.getElementById('prWBatTrachGroupText');
+        if (prGroupEl) prGroupEl.textContent = groupBadge;
+        const prDescEl = document.getElementById('prWBatTrachDesc');
+        if (prDescEl) prDescEl.textContent = stateDesc;
+        const prAdviceEl = document.getElementById('prWBatTrachAdvice');
+        if (prAdviceEl && adviceEl) prAdviceEl.innerHTML = adviceEl.innerHTML;
+
+        // Sao chép toàn bộ 5 Tiêu chí Đánh giá Hòa hợp
+        const srcCriteria = document.getElementById('weddingCriteriaContainer');
+        const destCriteria = document.getElementById('prWCriteriaContainer');
+        if (srcCriteria && destCriteria) {
+          destCriteria.innerHTML = srcCriteria.innerHTML;
+        }
+
+        // Thời gian in ấn thực tế
+        const now = new Date();
+        const prTime = document.getElementById('prWTimestamp');
+        if (prTime) {
+          const dStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} lúc ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+          prTime.textContent = `In lúc: ${dStr} • Ứng dụng Lịch Âm Dương & Bát Tự Tứ Trụ`;
+        }
+      }
+
+      // 3. Thêm class kích hoạt chế độ in Khung Hòa Hợp Hôn Nhân
+      document.body.classList.add('print-wedding-mode');
+
+      // 4. Kích hoạt hộp thoại in / lưu PDF của trình duyệt
+      window.print();
+
+      // 5. Gỡ bỏ class sau khi in hoàn tất hoặc bị hủy
+      const cleanupWeddingPrint = () => {
+        document.body.classList.remove('print-wedding-mode');
+        window.removeEventListener('afterprint', cleanupWeddingPrint);
+      };
+      window.addEventListener('afterprint', cleanupWeddingPrint);
+      setTimeout(cleanupWeddingPrint, 3000);
     }
 
     function populateWeddingLunarSelects(dayId, monthId, yearId, defaultYear, defaultMonth, defaultDay) {
@@ -14172,7 +14645,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.27.1";
+    const APP_VERSION = "v1.28.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

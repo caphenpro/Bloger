@@ -63,8 +63,12 @@
   - **Cung Cấp 6 Giờ Hoàng Đạo Nghênh Hôn**:
     - Liệt kê chi tiết 6 giờ Hoàng Đạo cát lợi trong ngày (kèm Can Chi giờ và khung giờ chuẩn) cho lễ dạm ngõ, rước dâu, bái gia tiên và tiệc mừng.
   - **Bộ Lọc Ngày Thông Minh & Bảng Đối Chiếu Đa Chiều**:
-    - Cho phép lọc xem: *Ngày Đề Xuất (Phù hợp)*, *Chỉ Ngày Đại Cát Thượng Đẳng*, *Ngày Cuối Tuần (T7/CN)*, hoặc *Bảng Đối Chiếu Toàn Bộ Các Ngày Trong Tháng*.
+    - Cho phép lọc xem: *Ngày Đề Xuất (Phù hợp)*, *Chỉ Ngày Đại Cát Thượng Đẳng*, *Ngày Cuối Tuền (T7/CN)*, hoặc *Bảng Đối Chiếu Toàn Bộ Các Ngày Trong Tháng*.
     - Nút bấm **Xem trên Lịch Vạn Niên ➔** chuyển thẳng sang ngày đó trên Bloc Lịch Vạn Niên để tra cứu vạn sự chi tiết.
+- **In & Lưu Trữ Toàn Bộ 5 Tiêu Chí Đánh Giá Hòa Hợp Hôn Nhân (Khổ Giấy A4 / PDF)**:
+  - Tích hợp nút in chuyên dụng tại cả đầu và cuối khung đánh giá ("🖨️ In / Lưu 5 Tiêu Chí Hòa Hợp (PDF)").
+  - Xuất bản in A4 dọc chuẩn mực bao gồm: Hồ sơ Chú Rể & Cô Dâu (Can Chi, Nạp Âm, Cung Phi Bát Trạch, Đông/Tây Tứ Mệnh, Phương vị), Quẻ Phối Cung Hôn Nhân, toàn bộ 5 Tiêu chí Đánh giá Hòa hợp (Nạp Âm Ngũ Hành & Cầu Nối, Thiên Can, Địa Chi, Bát Trạch, Tuổi Tác & Thế Hệ) và Tổng kết Phương châm xây dựng hôn nhân bền vững.
+  - Cơ chế in riêng biệt tách bạch hoàn toàn với bản in Lá Số Bát Tự Tứ Trụ.
 
 ### 5. Bát Tự Tứ Trụ Chuẩn Thiên Văn (Bốn Trụ Năm - Tháng - Ngày - Giờ)
 - **Chuẩn Hóa Tiết Khí**:
@@ -231,6 +235,28 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.28.0] - 2026-09-13
+- **Bổ Sung Tính Năng In & Lưu Trữ Toàn Bộ 5 Tiêu Chí Đánh Giá Hòa Hợp Hôn Nhân (Khổ Giấy A4 / PDF)**:
+  - **Tích Hợp Nút Thao Tác In Tiện Lợi**:
+    - Bố trí nút "🖨️ In / Lưu 5 Tiêu Chí Hòa Hợp (PDF)" tại cả thanh tiêu đề phần đánh giá (`#btnPrintWeddingEvalTop`) và thẻ hành động tổng kết cuối khung đánh giá (`#btnPrintWeddingEvalBottom`) trong tab Xem Thời Gian Cưới Hỏi.
+    - Thiết kế giao diện nút bấm sang trọng, màu đỏ rượu truyền thống phối viền vàng kim, có hiệu ứng hover và phản hồi nhấn trực quan, tối ưu cho cả máy tính và màn hình cảm ứng di động.
+  - **Bản In & Lưu Trữ PDF Chuẩn Mực Chuyên Sâu Khổ A4 Dọc**:
+    - Xây dựng riêng biệt khung in chuyên dụng `#weddingPrintSheet` tương thích hoàn hảo khổ giấy A4 dọc (`@media print`, lề 8mm/10mm tối ưu trang).
+    - Hiển thị đầy đủ thông tin hồ sơ Chú Rể và Cô Dâu (Họ tên, ngày sinh Dương lịch, Âm lịch, Can Chi, Ngũ hành Nạp Âm, Cung Phi Bát Trạch, Nhóm Mệnh Đông/Tây Tứ Mệnh và Phương vị bản mệnh).
+    - Trình bày trực quan quẻ phối hôn nhân Bát Trạch (Sinh Khí, Diên Niên, Thiên Y, Phục Vị, Tuyệt Mệnh, Ngũ Quỷ, Họa Hại, Lục Sát) kèm phân tích trường năng lượng và lời khuyên phong thủy hóa giải chi tiết.
+    - Sao chép và định dạng sắc nét toàn bộ nội dung phân tích chi tiết của 5 tiêu chí:
+      1. Tương Quan Nạp Âm Hoa Giáp (Ngũ Hành Cầu Nối hóa giải).
+      2. Tương Hợp Thiên Can (Hợp hóa, Tương khắc, Trợ sinh).
+      3. Tương Xung Địa Chi (Tam Hợp, Lục Hợp, Lục Xung, Tương Hại, Tứ Hành Xung).
+      4. Tương Quan Cung Mệnh Bát Trạch (Trường năng lượng & Hóa giải phong thủy).
+      5. Khoảng Cách Tuổi Tác & Môi Trường Thế Hệ.
+    - Bao gồm mục kết luận tổng quan, phương châm sống hòa thuận và dấu ấn thời gian in ấn thực tế.
+  - **Cơ Chế In Động & Chống Xung Đột Trang**:
+    - Cơ chế chuyển đổi chế độ in động (`print-wedding-mode`) tách biệt hoàn toàn giữa bản in Lá Số Bát Tự Tứ Trụ và bản in Đánh Giá Hòa Hợp Hôn Nhân, đảm bảo không bị chồng lấn nội dung hay vỡ trang.
+    - Tự động dọn dẹp class sau khi người dùng in hoặc hủy hộp thoại in (`afterprint` và timeout fallback).
+  - **Đồng Bộ Hóa Số Phiên Bản Hệ Thống**:
+    - Cập nhật và đồng bộ phiên bản `v1.28.0` trên Header, Footer, Modal biểu trưng Logo, hằng số `APP_VERSION`, `package.json` và `README.md`.
 
 ### [v1.27.1] - 2026-09-12
 - **Tối Ưu & Khắc Phục Triệt Để Hiện Tượng Tràn Khung (Layout Overflow) Trên Thiết Bị Di Động & Máy Tính**:
