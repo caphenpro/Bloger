@@ -65,10 +65,13 @@
   - **Bộ Lọc Ngày Thông Minh & Bảng Đối Chiếu Đa Chiều**:
     - Cho phép lọc xem: *Ngày Đề Xuất (Phù hợp)*, *Chỉ Ngày Đại Cát Thượng Đẳng*, *Ngày Cuối Tuền (T7/CN)*, hoặc *Bảng Đối Chiếu Toàn Bộ Các Ngày Trong Tháng*.
     - Nút bấm **Xem trên Lịch Vạn Niên ➔** chuyển thẳng sang ngày đó trên Bloc Lịch Vạn Niên để tra cứu vạn sự chi tiết.
-- **In & Lưu Trữ Toàn Bộ 5 Tiêu Chí Đánh Giá Hòa Hợp Hôn Nhân (Khổ Giấy A4 / PDF)**:
-  - Tích hợp nút in chuyên dụng tại cả đầu và cuối khung đánh giá ("🖨️ In / Lưu 5 Tiêu Chí Hòa Hợp (PDF)").
-  - Xuất bản in A4 dọc chuẩn mực bao gồm: Hồ sơ Chú Rể & Cô Dâu (Can Chi, Nạp Âm, Cung Phi Bát Trạch, Đông/Tây Tứ Mệnh, Phương vị), Quẻ Phối Cung Hôn Nhân, toàn bộ 5 Tiêu chí Đánh giá Hòa hợp (Nạp Âm Ngũ Hành & Cầu Nối, Thiên Can, Địa Chi, Bát Trạch, Tuổi Tác & Thế Hệ) và Tổng kết Phương châm xây dựng hôn nhân bền vững.
-  - Cơ chế in riêng biệt tách bạch hoàn toàn với bản in Lá Số Bát Tự Tứ Trụ.
+- **Lưu Trữ & Tải Về Toàn Bộ 5 Tiêu Chí Đánh Giá Hòa Hợp Hôn Nhân Dạng File Văn Bản (.txt)**:
+  - Tích hợp nút tải về chuyên dụng tại cả đầu và cuối khung đánh giá ("💾 Tải Về 5 Tiêu Chí (.txt)" và "💾 Tải Về Toàn Bộ 5 Tiêu Chí (.txt)").
+  - Tự động kết xuất toàn diện dữ liệu: Hồ sơ Chú Rể & Cô Dâu (Can Chi, Nạp Âm, Cung Phi Bát Trạch, Đông/Tây Tứ Mệnh, Phương vị bản mệnh), Quẻ Phối Cung Hôn Nhân kèm phân tích trường khí & giải pháp phong thủy, toàn bộ nội dung 5 Tiêu chí Đánh giá Hòa hợp (Nạp Âm Ngũ Hành, Thiên Can, Địa Chi, Bát Trạch, Tuổi Tác & Thế Hệ), Kết luận tổng quan và dấu ấn thời gian lập hồ sơ.
+  - Định dạng UTF-8 rõ ràng, cấu trúc ngăn nắp, dễ dàng lưu trữ offline, in ấn hoặc chia sẻ qua Zalo/Email.
+- **Tải Về Toàn Bộ Lá Số Bát Tự Tứ Trụ Dạng File Văn Bản (.txt)**:
+  - Nút bấm "💾 Tải Về Dạng TXT" tại thanh điều khiển Bát Tự cho phép tải ngay lập tức bản báo cáo đầy đủ lá số Tứ Trụ.
+  - Bao gồm: Bảng 4 trụ (Năm, Tháng, Ngày, Giờ) với Thập Thần, Can Chi, Nạp Âm, Cung Trường Sinh, Địa Chi Tàng Can; Thần Sát Tứ Đức; Thẩm định Thân Vượng/Thân Nhược (Đắc Lệnh, Đắc Địa, Được Sinh, Được Trợ, Khắc/Hao/Tiết); Bình giải chi tiết; Định hướng Dụng Thần, Hỷ Thần, Kỵ Thần và Lời khuyên phong thủy thực tiễn.
 
 ### 5. Bát Tự Tứ Trụ Chuẩn Thiên Văn (Bốn Trụ Năm - Tháng - Ngày - Giờ)
 - **Chuẩn Hóa Tiết Khí**:
@@ -235,6 +238,32 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.29.0] - 2026-09-13
+- **Chuyển Đổi Tính Năng In Lưu Quẻ Bát Tự Và In Lưu 5 Tiêu Chí Sang Lưu Tải Về Dạng File Văn Bản (.txt)**:
+  - **Tải Về Toàn Bộ Lá Số Bát Tự Tứ Trụ Dạng File .txt**:
+    - Thay đổi nút chức năng `#btnPrintBattu` thành **"💾 Tải Về Dạng TXT"** với tooltip và biểu tượng đĩa mềm trực quan.
+    - Xây dựng hàm kết xuất chuyên sâu `exportBattuToTxt()`: Tự động tổng hợp đầy đủ các khối dữ liệu thiên văn và luận giải mệnh lý:
+      - I. Thông tin Thân Chủ & Thời khắc sinh (Họ tên, giới tính, ngày sinh Dương lịch, Âm lịch, Can Chi năm, giờ sinh, Tiết lệnh thiên văn, thời điểm lập lá số).
+      - II. Bảng Tứ Trụ chuẩn định dạng bảng ASCII rõ nét gồm cả 4 trụ Năm - Tháng - Ngày - Giờ: Thập Thần Can, Thiên Can ngũ hành, Địa Chi ngũ hành, Nạp Âm Ngũ Hành, 12 Cung Trường Sinh, và Địa Chi Tàng Can chi tiết.
+      - III. Thần Sát Tứ Đức cát tinh phò trợ.
+      - IV. Thẩm định năng lượng Thân Vượng / Thân Nhược: Thước đo Sinh Phù vs Khắc Hao Tiết, chi tiết 4 yếu tố làm Thân Vượng (Đắc Lệnh, Đắc Địa, Được Sinh, Được Trợ) và 3 lực lượng làm Thân Nhược (Khắc, Hao, Tiết) cùng bình giải thể trạng bản mệnh chi tiết.
+      - V. Định hướng Dụng Thần, Hỷ Thần và Kỵ Thần.
+      - VI. Lời khuyên phong thủy thực tiễn cải thiện vận thế và hóa giải.
+    - Tự động đặt tên file tải về thông minh, mang tính cá nhân hóa: `La_So_Bat_Tu_[TenThânChu]_[YYYYMMDD].txt`.
+  - **Tải Về Toàn Bộ 5 Tiêu Chí Đánh Giá Hòa Hợp Hôn Nhân Dạng File .txt**:
+    - Thay đổi 2 nút thao tác `#btnPrintWeddingEvalTop` và `#btnPrintWeddingEvalBottom` thành **"💾 Tải Về 5 Tiêu Chí (.txt)"** và **"💾 Tải Về Toàn Bộ 5 Tiêu Chí (.txt)"**.
+    - Xây dựng hàm kết xuất `exportWeddingEvalToTxt()`:
+      - Xuất trọn vẹn thông tin đối chiếu đôi lứa: Hồ sơ Chú Rể và Cô Dâu (Can Chi, Nạp Âm, Cung Phi Bát Trạch, Đông/Tây Tứ Mệnh, Phương vị cát).
+      - Xuất kết quả Quẻ Bát Trạch Hôn Nhân, phân tích chi tiết trường năng lượng và phương pháp bố trí phong thủy hóa giải (hướng bếp, chọn năm sinh con).
+      - Xuất đầy đủ toàn văn 5 Tiêu chí Hòa hợp: 1. Nạp Âm Hoa Giáp & Ngũ Hành Cầu Nối; 2. Thiên Can; 3. Địa Chi; 4. Cung Phi Bát Trạch; 5. Tuổi Tác & Môi Trường Thế Hệ.
+      - Kèm mục Kết luận phương châm hôn nhân bền vững và dấu ấn thời gian kết xuất báo cáo.
+    - Tự động đặt tên file chuẩn mực: `Danh_Gia_Hoa_Hop_Hon_Nhan_[TenChuRe]_[TenCoDau]_[YYYYMMDD].txt`.
+  - **Tối Ưu Trải Nghiệm Người Dùng (UX/DX)**:
+    - Cơ chế tải file trực tiếp qua Blob và data URI, mã hóa UTF-8 hoàn chỉnh dấu tiếng Việt, tải về nhanh chóng và không yêu cầu mở hộp thoại in của trình duyệt.
+    - Tương thích 100% với mọi hệ điều hành (Windows, macOS, Linux, Android, iOS) và có thể mở đọc bằng mọi ứng dụng văn bản chuẩn (Notepad, TextEdit, Zalo, Drive...).
+  - **Đồng Bộ Phiên Bản Hệ Thống**:
+    - Nâng cấp phiên bản lên `v1.29.0` trên toàn bộ hệ thống: `package.json`, Header, Footer, Modal biểu trưng Logo, hằng số `APP_VERSION`, và `README.md`.
 
 ### [v1.28.0] - 2026-09-13
 - **Bổ Sung Tính Năng In & Lưu Trữ Toàn Bộ 5 Tiêu Chí Đánh Giá Hòa Hợp Hôn Nhân (Khổ Giấy A4 / PDF)**:
