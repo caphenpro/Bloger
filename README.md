@@ -262,6 +262,18 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.33.1] - 2026-09-18
+- **Tối Ưu Giao Diện 12 Canh Giờ Hoàng Đạo / Hắc Đạo Dạng Thẻ Vừa Khung Màn Hình (Cards View)**:
+  - **Chuyển Đổi Mặc Định Sang Dạng Thẻ (Cards Grid View)**:
+    - Bố cục 12 Canh Giờ trong ngày trên Bloc Lịch Vạn Niên được thiết kế lại theo dạng thẻ responsive (`bloc-hours-cards-grid`), hiển thị mặc định và tự động căn chỉnh vừa vặn 100% khung màn hình di động, giải quyết triệt để vấn đề bảng ngang quá rộng làm mất cân đối bố cục.
+    - Mỗi thẻ giờ được viền màu phân định trạng thái trực quan: viền xanh lá cho Hoàng Đạo, viền vàng kim cho Hoàng Đạo Đại Cát (đắc chữ *Đạo* - Thanh Long hoặc *Thông* - Bảo Quang), viền đỏ cảnh báo cho Giờ Phá, và viền xám cho Hắc Đạo.
+    - Hiển thị đầy đủ thông tin: Canh Giờ, Can Chi giờ, Khung thời gian chuẩn (hh:mm), Huy hiệu Hoàng / Hắc Đạo / Giờ Phá / Ngũ Bất Ngộ, Huy hiệu Sao Trực Hiệp Kỷ kèm chữ Khẩu quyết bí truyền, Luận giải sự vụ cổ truyền và Chỉ dẫn cưới hỏi, trạch cát thực tế.
+  - **Tích Hợp Nút Mở Quẻ Kỳ Môn Độn Giáp Cho Từng Canh Giờ**:
+    - Ngay trên mỗi thẻ giờ bổ sung nút bấm nhanh **"🔮 Quẻ Kỳ Môn"**, nhấp vào sẽ tự động thiết lập ngày đang chọn cùng đúng chi của canh giờ đó và chuyển tức thì sang Tab Kỳ Môn để lập quẻ thời bàn nghênh hôn.
+  - **Tích Hợp Bộ Chuyển Đổi Chế Độ Xem (Dạng Thẻ / Dạng Bảng) & Bộ Lọc Canh Giờ**:
+    - Công tắc chuyển đổi linh hoạt: **📱 Dạng Thẻ** (tối ưu vừa khung màn hình) và **📊 Dạng Bảng** (bảng đối chiếu truyền thống kèm chỉ dẫn vuốt ngang).
+    - Bộ lọc tức thì: **Tất cả 12 Canh Giờ** vs **✨ Chỉ Giờ Hoàng Đạo (Cát)**, kèm nhãn thống kê tổng hợp số giờ Hoàng Đạo và số giờ Hắc Đạo / Phá trong ngày.
+
 ### [v1.33.0] - 2026-09-18
 - **Xác Định Lại Giờ Hoàng Đạo / Hắc Đạo & Ý Nghĩa Từng Sao Đối Với Cưới Hỏi Theo Chuẩn Kinh Điển "Hiệp Kỷ Biện Phương Thư"**:
   - **Khẩu Quyết 12 Chữ Bí Truyền**: Chuẩn hóa thuật toán tính sao trực giờ dựa trên 12 chữ khẩu quyết: *"Đạo – Viễn – Cơ – Thời – Thông – Đạt – Lộ – Dao – Hà – Nhật – Hoàn – Hương"*, phân định 6 sao Hoàng Đạo (Thanh Long, Minh Đường, Kim Quỹ, Thiên Đức/Bảo Quang, Ngọc Đường, Tư Mệnh) và 6 sao Hắc Đạo (Thiên Hình, Chu Tước, Bạch Hổ, Thiên Lao, Huyền Vũ, Câu Trần) theo 6 cặp khởi cung địa chi (Tý/Ngọ khởi Thân; Sửu/Mùi khởi Tuất; Dần/Thân khởi Tý; Mão/Dậu khởi Dần; Thìn/Tuất khởi Thìn; Tị/Hợi khởi Ngọ).
