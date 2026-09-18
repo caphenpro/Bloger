@@ -3969,6 +3969,336 @@
         break-inside: avoid !important;
       }
     }
+
+    /* ==================== KỲ MÔN ĐỘN GIÁP HÔN NHÂN ==================== */
+    .km-header-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      align-items: center;
+    }
+    .km-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+    .km-badge-primary {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: #fde68a;
+    }
+    .km-badge-success {
+      background: #dcfce7;
+      color: #166534;
+      border-color: #bbf7d0;
+    }
+    .km-badge-info {
+      background: #e0f2fe;
+      color: #0369a1;
+      border-color: #bae6fd;
+    }
+    .km-badge-danger {
+      background: #fee2e2;
+      color: #991b1b;
+      border-color: #fecaca;
+    }
+    .km-badge-purple {
+      background: #f3e8ff;
+      color: #6b21a8;
+      border-color: #e9d5ff;
+    }
+
+    /* Chuyển đổi 2 chế độ */
+    .km-mode-selector {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      background: #f1f5f9;
+      padding: 0.35rem;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .km-mode-btn {
+      flex: 1;
+      padding: 0.65rem 1rem;
+      border: none;
+      background: transparent;
+      color: #64748b;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .km-mode-btn.active {
+      background: #ffffff;
+      color: #b45309;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Ma trận Kỳ Môn 3x3 Lạc Thư */
+    .km-board-container {
+      margin: 1.5rem 0;
+      background: #fafaf9;
+      border: 2px solid #e7e5e4;
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+    .km-grid-3x3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    @media (max-width: 860px) {
+      .km-grid-3x3 {
+        grid-template-columns: 1fr;
+      }
+    }
+    .km-palace-cell {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+      position: relative;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .km-palace-cell:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .km-palace-cell.highlight-bride {
+      border-color: #f43f5e;
+      background: #fff1f2;
+    }
+    .km-palace-cell.highlight-groom {
+      border-color: #0284c7;
+      background: #f0f9ff;
+    }
+    .km-palace-cell.highlight-love {
+      border-color: #ec4899;
+      background: #fdf2f8;
+    }
+    .km-palace-cell.center-palace {
+      background: #fbfbfa;
+      border: 1.5px dashed #d6d3d1;
+    }
+
+    .km-palace-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .km-palace-name {
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .km-palace-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      justify-content: flex-end;
+    }
+    .km-mini-tag {
+      font-size: 0.68rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .km-tag-star { background: #e0f2fe; color: #0369a1; }
+    .km-tag-gate { background: #fef3c7; color: #92400e; }
+    .km-tag-god { background: #f3e8ff; color: #6b21a8; }
+    .km-tag-kong { background: #f1f5f9; color: #64748b; border: 1px dashed #cbd5e1; }
+    .km-tag-horse { background: #ffedd5; color: #c2410c; }
+    .km-tag-zhifu { background: #fef08a; color: #854d0e; font-weight: 800; border: 1px solid #facc15; }
+    .km-tag-zhishi { background: #fed7aa; color: #9a3412; font-weight: 800; border: 1px solid #fb923c; }
+
+    .km-palace-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      flex-grow: 1;
+    }
+    .km-line-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .km-can-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.45rem 0.25rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      margin: 0.2rem 0;
+    }
+    .km-can-thien {
+      font-size: 1.18rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .km-can-slash {
+      color: #94a3b8;
+      font-weight: 400;
+    }
+    .km-can-dia {
+      font-size: 1.18rem;
+      font-weight: 900;
+      color: #475569;
+    }
+    .km-structure-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #b45309;
+      text-align: center;
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      background: #fef3c7;
+      margin-top: 2px;
+    }
+
+    .km-palace-foot {
+      margin-top: 0.5rem;
+      border-top: 1px dashed #e2e8f0;
+      padding-top: 0.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .km-eval-pill {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 0.25rem 0.45rem;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .km-eval-cat {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+    .km-eval-hung {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .km-eval-binh {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Thẻ Nhận Xét Giờ Hiện Tại */
+    .km-hour-verdict-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .km-verdict-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+    }
+    .km-verdict-banner.great {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border: 1.5px solid #a7f3d0;
+      color: #065f46;
+    }
+    .km-verdict-banner.bad {
+      background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+      border: 1.5px solid #fecaca;
+      color: #991b1b;
+    }
+    .km-verdict-banner.neutral {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1.5px solid #e2e8f0;
+      color: #334155;
+    }
+    .km-pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .km-pillar-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .km-pillar-title {
+      font-weight: 800;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Bảng 8 Hướng Địa Lý */
+    .km-dir-table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .km-dir-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    .km-dir-table th {
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+      padding: 0.75rem 0.85rem;
+      border-bottom: 1.5px solid #cbd5e1;
+    }
+    .km-dir-table td {
+      padding: 0.75rem 0.85rem;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+    .km-dir-table tr:hover td {
+      background: #fafafa;
+    }
   </style>
 </head>
 <body>
@@ -3981,7 +4311,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.29.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.31.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -4005,6 +4335,9 @@
         </button>
         <button type="button" class="nav-tab" data-tab="tab-wedding" id="navTabWedding" title="Chọn Xem Thời Gian Cưới (Khảo sát 6 năm &amp; 12 tháng)">
           💒 Xem Thời Gian Cưới
+        </button>
+        <button type="button" class="nav-tab" data-tab="tab-kymon" id="navTabKyMon" title="Quẻ Kỳ Môn Độn Giáp Hôn Nhân - Xác định cục số theo thời gian hoặc tùy chọn, quẻ hoàn chỉnh &amp; trạch phương cưới hỏi">
+          ⛩️ Quẻ Kỳ Môn
         </button>
         <button type="button" class="nav-tab" data-tab="tab-leapyear" id="navTabLeapYear" title="Xác Định Tháng Nhuận Theo Quy Tắc Trung Khí (NASA JPL / VSOP87)">
           ✨ Xác Định Tháng Nhuận
@@ -4857,6 +5190,170 @@
       </div>
     </div>
 
+    <!-- TAB: QUẺ KỲ MÔN ĐỘN GIÁP HÔN NHÂN -->
+    <div id="tab-kymon" class="tab-content">
+      <div class="card" style="border: 2px solid #fde68a; box-shadow: 0 4px 20px rgba(180, 83, 9, 0.08);">
+        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 class="card-title" style="display: flex; align-items: center; gap: 0.5rem; color: #b45309; font-size: 1.25rem;">
+              <span>⛩️</span> Quẻ Kỳ Môn Độn Giáp • Chuyên Đề Hôn Nhân &amp; Nghênh Hôn Trạch Cát
+            </h2>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Hệ thống lập quẻ Thời Bàn Kỳ Môn Độn Giáp 18 Cục (Trương Tử Phòng - Gia Cát Lượng) chuyên biệt cho chủ đề hôn nhân &amp; nghênh hôn trạch cát. Chuẩn hóa quy tắc Siêu Thần Tiếp Khí &amp; Nhuận Kỳ theo Tiết Khí thiên văn và Phù Đầu Thượng Nguyên cổ bản (lấy Phù Đầu Thượng Nguyên gần Tiết Khí nhất làm chuẩn khởi cục). Khảo sát 9 Cung Lạc Thư, Bát Môn, Cửu Tinh, Bát Thần, đối chiếu tương quan Canh (Nhà Trai) vs Ất (Nhà Gái), Thần Lục Hợp và trạch cát 8 hướng.
+            </p>
+          </div>
+          <!-- Huy hiệu trạng thái -->
+          <div class="km-header-badge-row" id="kmHeaderBadges">
+            <span id="kmBadgeCuc" class="km-badge km-badge-primary">🔮 Đang tải...</span>
+            <span id="kmBadgeTietKhi" class="km-badge km-badge-success">☀️ Tiết khí</span>
+            <span id="kmBadgeSieuThan" class="km-badge km-badge-warning">⚡ Siêu Thần / Tiếp Khí</span>
+            <span id="kmBadgeTamNguyen" class="km-badge km-badge-info">📜 Tam Nguyên</span>
+            <span id="kmBadgeTuanThu" class="km-badge km-badge-purple">⏳ Tuần Thủ</span>
+            <span id="kmBadgeTrucPhuSu" class="km-badge km-badge-primary">⭐ Trực Phù &amp; Trực Sử</span>
+            <span id="kmBadgeNguBatNgo" class="km-badge km-badge-danger" style="display: none;">⚠️ Giờ Ngũ Bất Ngộ</span>
+          </div>
+        </div>
+
+        <!-- KHU VỰC THỜI GIAN LẬP QUẺ THỜI BÀN (THIÊN VĂN SIÊU THẦN TIẾP KHÍ) -->
+        <div id="kmSectionAutoTime">
+          <div style="background: #fffbeb; border: 1px solid #fef3c7; border-radius: 12px; padding: 1rem; margin-bottom: 1.25rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: flex-end;">
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #92400e; margin-bottom: 0.35rem;">
+                  📅 Ngày Dương Lịch (Xem Quẻ)
+                </label>
+                <input type="date" id="kmAutoDate" class="input-control" style="width: 100%;" />
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #92400e; margin-bottom: 0.35rem;">
+                  ⏰ Giờ Dương Lịch (Giờ : Phút)
+                </label>
+                <input type="time" id="kmAutoTime" class="input-control" style="width: 100%;" />
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #92400e; margin-bottom: 0.35rem;">
+                  🏮 Hoặc Chọn Nhanh Giờ Âm Lịch (12 Can Chi Giờ)
+                </label>
+                <select id="kmAutoHourChi" class="input-control" style="width: 100%;">
+                  <option value="0">Giờ Tý (23:00 - 00:59)</option>
+                  <option value="1">Giờ Sửu (01:00 - 02:59)</option>
+                  <option value="2">Giờ Dần (03:00 - 04:59)</option>
+                  <option value="3">Giờ Mão (05:00 - 06:59)</option>
+                  <option value="4">Giờ Thìn (07:00 - 08:59)</option>
+                  <option value="5">Giờ Tỵ (09:00 - 10:59)</option>
+                  <option value="6">Giờ Ngọ (11:00 - 12:59)</option>
+                  <option value="7">Giờ Mùi (13:00 - 14:59)</option>
+                  <option value="8">Giờ Thân (15:00 - 16:59)</option>
+                  <option value="9">Giờ Dậu (17:00 - 18:59)</option>
+                  <option value="10">Giờ Tuất (19:00 - 20:59)</option>
+                  <option value="11">Giờ Hợi (21:00 - 22:59)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Nút bấm tiện ích -->
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; align-items: center;">
+              <button type="button" id="kmBtnNow" class="btn btn-secondary" style="font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="loadKyMonCurrentDateTime()">
+                ⏱️ Lấy Giờ Hiện Tại
+              </button>
+              <button type="button" id="kmBtnSyncCalendar" class="btn btn-secondary" style="font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="syncKyMonFromCalendar()">
+                📅 Đồng Bộ Từ Ngày Đang Xem Lịch
+              </button>
+              <button type="button" class="btn btn-primary" style="background: #b45309; border-color: #b45309; font-size: 0.82rem; padding: 0.45rem 1.15rem; font-weight: 700;" onclick="calculateKyMon()">
+                🔮 Lập Quẻ Kỳ Môn
+              </button>
+              <button type="button" class="btn btn-outline" style="color: #b45309; border-color: #f59e0b; font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="exportKyMonToTxt()">
+                💾 Tải Báo Cáo Quẻ (.txt)
+              </button>
+            </div>
+
+            <!-- Khung phân tích xác định cục Siêu Thần Tiếp Khí & Nhuận Kỳ -->
+            <div id="kmAutoExplainBox" style="margin-top: 0.85rem; padding: 0.85rem 1rem; background: #ffffff; border: 1px dashed #fde68a; border-radius: 10px; font-size: 0.82rem; color: #4b5563; line-height: 1.5;">
+              <span id="kmAutoExplainText">Đang tính toán thiên văn...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KHU VỰC 1: BÀN CỜ QUẺ KỲ MÔN HOÀN CHỈNH (CỬU CUNG 3x3) -->
+        <div class="km-board-container">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+            <h3 style="font-size: 1rem; font-weight: 800; color: #92400e; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+              <span>🀄</span> Bàn Cờ Kỳ Môn Độn Giáp Cửu Cung Lạc Thư
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; font-size: 0.75rem;">
+              <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="color:#0369a1;">●</span> Tinh (Xanh)</span>
+              <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="color:#92400e;">●</span> Môn (Nâu)</span>
+              <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="color:#6b21a8;">●</span> Thần (Tím)</span>
+              <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="color:#f43f5e;">■</span> Nhà Gái (Ất)</span>
+              <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="color:#0284c7;">■</span> Nhà Trai (Canh)</span>
+              <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="color:#ec4899;">■</span> Thần Duyên (Lục Hợp)</span>
+            </div>
+          </div>
+
+          <!-- Ma trận 3x3 -->
+          <div class="km-grid-3x3" id="kmBoardGrid">
+            <!-- 9 Cung render tự động qua JS -->
+          </div>
+        </div>
+
+        <!-- KHU VỰC 2: PHẦN NHẬN XÉT GIỜ HIỆN TẠI (CHUYÊN ĐỀ HÔN NHÂN) -->
+        <div class="km-hour-verdict-card" id="kmHourVerdictBox">
+          <!-- Render tự động bởi renderKyMonMarriageAnalysis -->
+        </div>
+
+        <!-- KHU VỰC 3: CÁC HƯỚNG PHÙ HỢP LÀM THẾ NÀO (CHUYÊN ĐỀ HÔN NHÂN) -->
+        <div style="margin-top: 1.5rem; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: #1e293b; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🧭</span> Trạch Cát 8 Hướng Địa Lý Cho Hôn Nhân • Đón Dâu &amp; Xuất Hành Xe Hoa
+              </h3>
+              <p style="font-size: 0.8rem; color: #64748b; margin-top: 0.2rem;">
+                Đánh giá chi tiết 8 phương vị địa lý theo cấu trúc Bát Môn, Cửu Tinh, Bát Thần và Kỳ Nghi của quẻ hiện tại. Hướng dẫn cụ thể hướng xuất hành đón dâu, rước rể, dạm ngõ, vị trí phòng tân hôn và các hướng hung sát cần tránh.
+              </p>
+            </div>
+          </div>
+
+          <div class="km-dir-table-wrap">
+            <table class="km-dir-table">
+              <thead>
+                <tr>
+                  <th style="width: 14%;">Phương Vị &amp; Cung</th>
+                  <th style="width: 22%;">Cấu Trúc Quẻ (Môn • Tinh • Thần • Can)</th>
+                  <th style="width: 18%;">Đánh Giá Hôn Nhân</th>
+                  <th style="width: 46%;">Chỉ Dẫn Ứng Dụng Hôn Lễ &amp; Nghênh Hôn</th>
+                </tr>
+              </thead>
+              <tbody id="kmDirectionTableBody">
+                <!-- 8 Hướng render tự động qua JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Gợi ý phong thủy cưới hỏi -->
+          <div style="margin-top: 1.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 0.85rem; font-size: 0.82rem; color: #166534; line-height: 1.5;">
+              <h5 style="font-weight: 800; color: #15803d; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.3rem;">
+                <span>🌟</span> Bí Pháp Bối Sinh Hướng Tử (Nghênh Hôn Cổ Truyền)
+              </h5>
+              <p>
+                Khi xuất phát đoàn rước dâu hoặc đặt bàn lễ cưới: Chọn phương vị có <strong>Cửa Sinh (hoặc Cửa Hưu, Khai)</strong> làm phương vị tựa lưng hoặc phương xuất hành đầu tiên. Đi về phía có phúc thần (Lục Hợp, Trực Phù, Cửu Thiên) để nghênh đón vượng khí trăm năm bền chặt.
+              </p>
+            </div>
+            <div style="background: #fff1f2; border: 1px solid #fecdd3; border-radius: 12px; padding: 0.85rem; font-size: 0.82rem; color: #9f1239; line-height: 1.5;">
+              <h5 style="font-weight: 800; color: #be123c; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.3rem;">
+                <span>⚠️</span> Điều Kiêng Kỵ Tuyệt Đối Về Phương Hướng
+              </h5>
+              <p>
+                Tuyệt đối tránh chọn phương vị có <strong>Cửa Thương, Cửa Tử, Cửa Kinh</strong> hoặc có <strong>Bạch Hổ, Lục Nghi Kích Hình</strong> làm hướng đầu tiên khi xe hoa xuất phát hay hướng quay cửa phòng tân hôn. Nếu bắt buộc phải đi hướng đó, nên cho xe hoa đi vòng trước theo hướng Đại Cát rồi mới chuyển hướng.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- TAB 2: LẬP LÁ SỐ BÁT TỰ (TỨ TRỤ) -->
     <div id="tab-battu" class="tab-content">
       <div class="card">
@@ -5603,7 +6100,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.29.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.31.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -5934,7 +6431,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.29.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.31.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -8527,6 +9024,7 @@
       renderDedicatedLeapTab(selectedDate.getFullYear());
       updateBlocView(selectedDate);
       setupWeddingTab();
+      setupKyMonTab();
       setupBattuForm();
       setupConverterForm();
       renderFestivals();
@@ -8609,6 +9107,9 @@
           if (target === 'tab-leapyear') {
             const curY = selectedDate ? selectedDate.getFullYear() : (new Date()).getFullYear();
             renderDedicatedLeapTab(curY);
+          }
+          if (target === 'tab-kymon') {
+            loadKyMonCurrentDateTime();
           }
           if (target === 'tab-battu') {
             loadBattuCurrentDateTime();
@@ -14937,7 +15438,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.29.0";
+    const APP_VERSION = "v1.31.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
@@ -15312,6 +15813,1313 @@
           renderFestivals();
         });
       }
+    }
+
+    /**
+     * =========================================================================
+     * MODULE KỲ MÔN ĐỘN GIÁP • CHUYÊN ĐỀ HÔN NHÂN & GIÁ THÚ (TRƯƠNG TỬ PHÒNG - GIA CÁT LƯỢNG)
+     * =========================================================================
+     */
+    let currentKyMonResult = null;
+
+    // Dữ liệu 9 Cung Lạc Thư
+    const KM_PALACES = {
+      1: { id: 1, name: "Khảm", dir: "Chính Bắc", element: "Thủy", bagua: "☵ Khảm", origStar: "Thiên Bồng", origGate: "Hưu Môn" },
+      2: { id: 2, name: "Khôn", dir: "Tây Nam", element: "Thổ", bagua: "☷ Khôn", origStar: "Thiên Nhuế", origGate: "Tử Môn" },
+      3: { id: 3, name: "Chấn", dir: "Chính Đông", element: "Mộc", bagua: "☳ Chấn", origStar: "Thiên Xung", origGate: "Thương Môn" },
+      4: { id: 4, name: "Tốn", dir: "Đông Nam", element: "Mộc", bagua: "☴ Tốn", origStar: "Thiên Phụ", origGate: "Đỗ Môn" },
+      5: { id: 5, name: "Trung Cung", dir: "Trung Ương", element: "Thổ", bagua: "☯ Thái Cực", origStar: "Thiên Cầm", origGate: "Ký Khôn (Tử Môn)" },
+      6: { id: 6, name: "Càn", dir: "Tây Bắc", element: "Kim", bagua: "☰ Càn", origStar: "Thiên Tâm", origGate: "Khai Môn" },
+      7: { id: 7, name: "Đoài", dir: "Chính Tây", element: "Kim", bagua: "☱ Đoài", origStar: "Thiên Trụ", origGate: "Kinh Môn" },
+      8: { id: 8, name: "Cấn", dir: "Đông Bắc", element: "Thổ", bagua: "☶ Cấn", origStar: "Thiên Nhậm", origGate: "Sinh Môn" },
+      9: { id: 9, name: "Ly", dir: "Chính Nam", element: "Hỏa", bagua: "☲ Ly", origStar: "Thiên Anh", origGate: "Cảnh Môn" }
+    };
+
+    // Vòng 8 cung biên xoay chuyển bàn
+    const KM_RING = [1, 8, 3, 4, 9, 2, 7, 6];
+
+    // Cửu Tinh trên vòng 8 cung biên (Thiên Cầm đồng cung với Thiên Nhuế tại Khôn 2)
+    const KM_STARS_RING = ["Thiên Bồng", "Thiên Nhậm", "Thiên Xung", "Thiên Phụ", "Thiên Anh", "Thiên Nhuế", "Thiên Trụ", "Thiên Tâm"];
+
+    // Bát Môn trên vòng 8 cung biên
+    const KM_GATES_RING = ["Hưu Môn", "Sinh Môn", "Thương Môn", "Đỗ Môn", "Cảnh Môn", "Tử Môn", "Kinh Môn", "Khai Môn"];
+
+    // Bát Thần
+    const KM_GODS = ["Trực Phù", "Đằng Xà", "Thái Âm", "Lục Hợp", "Bạch Hổ", "Huyền Vũ", "Cửu Địa", "Cửu Thiên"];
+
+    // Thứ tự Can an Địa Bàn
+    const KM_CAN_SEQ = ["Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý", "Đinh", "Bính", "Ất"];
+
+    // Bảng chuẩn 24 Tiết Khí Kỳ Môn Độn Giáp (Dương Độn từ Đông Chí -> Mang Chủng; Âm Độn từ Hạ Chí -> Đại Tuyết)
+    const KM_SOLAR_TERMS_TABLE = [
+      { name: "Đông Chí", deg: 270, estDay: 355, type: "Dương", ju: [1, 7, 4] },
+      { name: "Tiểu Hàn", deg: 285, estDay: 5, type: "Dương", ju: [2, 8, 5] },
+      { name: "Đại Hàn", deg: 300, estDay: 20, type: "Dương", ju: [3, 9, 6] },
+      { name: "Lập Xuân", deg: 315, estDay: 35, type: "Dương", ju: [8, 5, 2] },
+      { name: "Vũ Thủy", deg: 330, estDay: 50, type: "Dương", ju: [9, 6, 3] },
+      { name: "Kinh Trập", deg: 345, estDay: 65, type: "Dương", ju: [1, 7, 4] },
+      { name: "Xuân Phân", deg: 0, estDay: 80, type: "Dương", ju: [3, 9, 6] },
+      { name: "Thanh Minh", deg: 15, estDay: 95, type: "Dương", ju: [4, 1, 7] },
+      { name: "Cốc Vũ", deg: 30, estDay: 110, type: "Dương", ju: [5, 2, 8] },
+      { name: "Lập Hạ", deg: 45, estDay: 125, type: "Dương", ju: [4, 1, 7] },
+      { name: "Tiểu Mãn", deg: 60, estDay: 141, type: "Dương", ju: [5, 2, 8] },
+      { name: "Mang Chủng", deg: 75, estDay: 156, type: "Dương", ju: [6, 3, 9] },
+      { name: "Hạ Chí", deg: 90, estDay: 172, type: "Âm", ju: [9, 3, 6] },
+      { name: "Tiểu Thử", deg: 105, estDay: 188, type: "Âm", ju: [8, 2, 5] },
+      { name: "Đại Thử", deg: 120, estDay: 204, type: "Âm", ju: [7, 1, 4] },
+      { name: "Lập Thu", deg: 135, estDay: 219, type: "Âm", ju: [2, 5, 8] },
+      { name: "Xử Thử", deg: 150, estDay: 235, type: "Âm", ju: [1, 4, 7] },
+      { name: "Bạch Lộ", deg: 165, estDay: 250, type: "Âm", ju: [9, 3, 6] },
+      { name: "Thu Phân", deg: 180, estDay: 266, type: "Âm", ju: [7, 1, 4] },
+      { name: "Hàn Lộ", deg: 195, estDay: 281, type: "Âm", ju: [6, 9, 3] },
+      { name: "Sương Giáng", deg: 210, estDay: 296, type: "Âm", ju: [5, 8, 2] },
+      { name: "Lập Đông", deg: 225, estDay: 311, type: "Âm", ju: [6, 9, 3] },
+      { name: "Tiểu Tuyết", deg: 240, estDay: 326, type: "Âm", ju: [5, 8, 2] },
+      { name: "Đại Tuyết", deg: 255, estDay: 341, type: "Âm", ju: [4, 7, 1] }
+    ];
+
+    // Định dạng chuỗi ngày giờ giao tiết thiên văn (giờ VN UTC+7)
+    function formatKmTransitionDateTime(jd) {
+      const localJD = jd + 7.0 / 24.0;
+      const calJD = Math.floor(localJD + 0.5);
+      const [d, m, y] = jdToDate(calJD);
+      const frac = (localJD + 0.5) - calJD;
+      const hours = Math.floor(frac * 24);
+      const minutes = Math.floor((frac * 24 - hours) * 60);
+      return `${String(d).padStart(2, "0")}/${String(m).padStart(2, "0")}/${y} lúc ${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+    }
+
+    /**
+     * THUẬT TOÁN KỲ MÔN ĐỘN GIÁP CỔ BẢN: SIÊU THẦN TIẾP KHÍ & TRÍ NHUẬN
+     * 1. Xác định Tiết Khí thiên văn học qua phương pháp tiếp tuyến Newton-Raphson.
+     * 2. Xác định Phù Đầu Thượng Nguyên gần Tiết Khí nhất làm cơ sở khởi Thượng Nguyên của tiết khí đó.
+     * 3. Lần lượt phân định Trung Nguyên (+5 ngày) và Hạ Nguyên (+10 ngày).
+     * 4. Đánh giá Siêu Thần (Phù Đầu đến trước tiết khí), Tiếp Khí (Phù Đầu đến sau), Chính Thụ (trùng ngày), hoặc Nhuận Kỳ.
+     */
+    function getKyMonSieuThanCuc(d, m, y, hh = 12, mi = 0) {
+      const jdLocal = jdFromDate(d, m, y);
+      const calJD = Math.floor(jdLocal + 0.5);
+
+      // Chỉ số 60 Hoa Giáp của ngày
+      const dayJ60 = ((calJD - 11) % 60 + 60) % 60;
+      const dayCan = CAN[dayJ60 % 10];
+      const dayChi = CHI[dayJ60 % 12];
+
+      // 4 Phù Đầu Thượng Nguyên chuẩn cổ bản: Giáp Tý, Giáp Ngọ, Kỷ Mão, Kỷ Dậu
+      const offset = dayJ60 % 15; // 0..14 (ngày thứ offset tính từ Phù Đầu Thượng Nguyên)
+      const P_calJD = calJD - offset;
+      const P_j60 = ((P_calJD - 11) % 60 + 60) % 60;
+      const phuDauThuongNguyenText = `${CAN[P_j60 % 10]} ${CHI[P_j60 % 12]}`;
+
+      // Tam Nguyên index: 0 = Thượng, 1 = Trung, 2 = Hạ
+      const tamNguyenIdx = Math.floor(offset / 5);
+      const tamNguyenName = ["Thượng Nguyên", "Trung Nguyên", "Hạ Nguyên"][tamNguyenIdx];
+      const dayInNguyen = (offset % 5) + 1; // Ngày thứ 1..5 trong nguyên
+
+      // Can Chi Phù Đầu quản 5 ngày hiện tại (Giáp hoặc Kỷ)
+      const currentNguyenP_calJD = P_calJD + tamNguyenIdx * 5;
+      const currentNguyenP_j60 = ((currentNguyenP_calJD - 11) % 60 + 60) % 60;
+      const phuDauHienTaiText = `${CAN[currentNguyenP_j60 % 10]} ${CHI[currentNguyenP_j60 % 12]}`;
+
+      // Thu thập danh sách thời điểm giao tiết xung quanh năm y
+      let terms = [];
+      for (let yr = y - 1; yr <= y + 1; yr++) {
+        for (let st of KM_SOLAR_TERMS_TABLE) {
+          let tYear = (st.deg >= 285 && st.estDay < 50) ? yr : (st.deg === 270 ? yr - 1 : yr);
+          let transJD = getSolarTermTransitionJD(tYear, st.deg, st.estDay);
+          let tCalJD = Math.floor(transJD + 7.0 / 24.0 + 0.5);
+          terms.push({
+            yr: tYear,
+            name: st.name,
+            deg: st.deg,
+            type: st.type,
+            ju: st.ju,
+            transJD,
+            calJD: tCalJD
+          });
+        }
+      }
+      terms.sort((a, b) => a.calJD - b.calJD);
+
+      // Lọc trùng
+      let uniqueTerms = [];
+      for (let t of terms) {
+        if (uniqueTerms.length === 0 || uniqueTerms[uniqueTerms.length - 1].calJD !== t.calJD || uniqueTerms[uniqueTerms.length - 1].name !== t.name) {
+          uniqueTerms.push(t);
+        }
+      }
+
+      // Tìm tiết khí có ngày giao tiết gần Phù Đầu Thượng Nguyên P_calJD nhất
+      let bestTerm = null;
+      let minDiff = Infinity;
+      for (let t of uniqueTerms) {
+        let diff = Math.abs(t.calJD - P_calJD);
+        if (diff < minDiff) {
+          minDiff = diff;
+          bestTerm = t;
+        }
+      }
+
+      const diffDays = bestTerm.calJD - P_calJD;
+      let sieuThanCategory = "Chính Thụ";
+      let sieuThanStatus = "Chính Thụ (Phù Đầu trùng ngày Tiết Khí)";
+      let sieuThanBadgeText = "🎯 Chính Thụ (0 ngày)";
+      let sieuThanBadgeClass = "km-badge-success";
+      let sieuThanIcon = "🎯";
+      let sieuThanNote = "Phù Đầu Thượng Nguyên đến đúng ngày Tiết Khí thiên văn, khí tiết tương phùng hoàn hảo.";
+      let isRun = false;
+
+      // Kiểm tra Trí Nhuận theo cổ thư:
+      // Nếu tại Mang Chủng hoặc Đại Tuyết mà Siêu Thần >= 9 ngày thì đặt Nhuận (Nhuận Mang Chủng hoặc Nhuận Đại Tuyết)
+      if (diffDays >= 9 && (bestTerm.name === "Mang Chủng" || bestTerm.name === "Đại Tuyết")) {
+        isRun = true;
+        sieuThanCategory = "Nhuận Kỳ";
+        sieuThanStatus = `Nhuận Kỳ (Nhuận ${bestTerm.name} - Siêu Thần vượt ${diffDays} ngày)`;
+        sieuThanBadgeText = `🔄 Nhuận ${bestTerm.name}`;
+        sieuThanBadgeClass = "km-badge-purple";
+        sieuThanIcon = "🔄";
+        sieuThanNote = `Siêu Thần vượt quá 9 ngày trước Tiết Chí, tiến hành Trí Nhuận lặp lại 15 ngày của ${bestTerm.name} để đưa Phù Đầu và Tiết Khí trở lại chu kỳ cân bằng.`;
+      } else if (diffDays > 0) {
+        sieuThanCategory = "Siêu Thần";
+        sieuThanStatus = `Siêu Thần: Phù Đầu đến trước Tiết Khí ${diffDays} ngày`;
+        sieuThanBadgeText = `⚡ Siêu Thần (trước ${diffDays} ngày)`;
+        sieuThanBadgeClass = "km-badge-warning";
+        sieuThanIcon = "⚡";
+        sieuThanNote = `Phù Đầu Thượng Nguyên đến trước ngày Tiết Khí thiên văn nhưng gần tiết khí này nhất (${diffDays} ngày), đã đón nhận trước khí của tiết mới nên khởi dụng cục của ${bestTerm.name}.`;
+      } else if (diffDays < 0) {
+        const absDiff = Math.abs(diffDays);
+        sieuThanCategory = "Tiếp Khí";
+        sieuThanStatus = `Tiếp Khí: Phù Đầu đến sau Tiết Khí ${absDiff} ngày`;
+        sieuThanBadgeText = `🌿 Tiếp Khí (sau ${absDiff} ngày)`;
+        sieuThanBadgeClass = "km-badge-info";
+        sieuThanIcon = "🌿";
+        sieuThanNote = `Tiết Khí thiên văn đã đến trước ${absDiff} ngày, Phù Đầu Thượng Nguyên đến sau tiếp nối chân khí của ${bestTerm.name}.`;
+      }
+
+      const donType = bestTerm.type;
+      const cucSo = bestTerm.ju[tamNguyenIdx];
+      const transDateStr = formatKmTransitionDateTime(bestTerm.transJD);
+
+      return {
+        dayCan,
+        dayChi,
+        dayJ60,
+        phuDauThuongNguyenText,
+        phuDauHienTaiText,
+        offset,
+        tamNguyenIdx,
+        tamNguyenName,
+        dayInNguyen,
+        termName: isRun ? `Nhuận ${bestTerm.name}` : bestTerm.name,
+        termOriginalName: bestTerm.name,
+        termDeg: bestTerm.deg,
+        termTransDateStr: transDateStr,
+        diffDays,
+        sieuThanCategory,
+        sieuThanStatus,
+        sieuThanBadgeText,
+        sieuThanBadgeClass,
+        sieuThanIcon,
+        sieuThanNote,
+        donType,
+        cucSo,
+        juArray: bestTerm.ju
+      };
+    }
+
+    // Khởi tạo tab Kỳ Môn
+    function setupKyMonTab() {
+      // Lắng nghe thay đổi giờ trong select giờ nhanh
+      const selAutoHourChi = document.getElementById('kmAutoHourChi');
+      if (selAutoHourChi) {
+        selAutoHourChi.addEventListener('change', () => {
+          const chiIdx = parseInt(selAutoHourChi.value);
+          const hourEquiv = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22][chiIdx];
+          const timeInput = document.getElementById('kmAutoTime');
+          if (timeInput) {
+            timeInput.value = `${String(hourEquiv).padStart(2, '0')}:00`;
+          }
+          calculateKyMon();
+        });
+      }
+
+      // Lắng nghe thay đổi input ngày giờ
+      document.getElementById('kmAutoDate')?.addEventListener('change', () => calculateKyMon());
+      document.getElementById('kmAutoTime')?.addEventListener('change', () => {
+        const timeVal = document.getElementById('kmAutoTime')?.value;
+        if (timeVal) {
+          const [h] = timeVal.split(':').map(Number);
+          const chiIdx = Math.floor((h + 1) / 2) % 12;
+          const sel = document.getElementById('kmAutoHourChi');
+          if (sel) sel.value = chiIdx;
+        }
+        calculateKyMon();
+      });
+
+      // Tự động nạp thời gian hiện tại
+      loadKyMonCurrentDateTime();
+    }
+
+    // Nạp thời gian hiện tại vào form
+    function loadKyMonCurrentDateTime() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+
+      const dateInput = document.getElementById('kmAutoDate');
+      const timeInput = document.getElementById('kmAutoTime');
+      const hourChiSel = document.getElementById('kmAutoHourChi');
+
+      if (dateInput) dateInput.value = `${y}-${m}-${d}`;
+      if (timeInput) timeInput.value = `${hh}:${mm}`;
+
+      const chiIdx = Math.floor((now.getHours() + 1) / 2) % 12;
+      if (hourChiSel) hourChiSel.value = chiIdx;
+
+      calculateKyMon();
+    }
+
+    // Đồng bộ từ ngày đang xem trên Lịch Vạn Niên
+    function syncKyMonFromCalendar() {
+      if (!selectedDate) return;
+      const y = selectedDate.getFullYear();
+      const m = String(selectedDate.getMonth() + 1).padStart(2, '0');
+      const d = String(selectedDate.getDate()).padStart(2, '0');
+
+      const dateInput = document.getElementById('kmAutoDate');
+      if (dateInput) dateInput.value = `${y}-${m}-${d}`;
+
+      calculateKyMon();
+    }
+
+    // Xác định Phù Đầu của ngày (Giáp hoặc Kỷ quản 5 ngày)
+    function getKyMonPhuDau(dayCanIdx, dayChiIdx) {
+      const daysFromPhuDau = dayCanIdx % 5;
+      const phuDauChiIdx = (dayChiIdx - daysFromPhuDau + 12) % 12;
+      const phuDauCanIdx = (dayCanIdx < 5) ? 0 : 5; // Giáp (0) hoặc Kỷ (5)
+
+      let tamNguyenIdx = 0;
+      let tamNguyenName = "Thượng Nguyên";
+
+      // Tý (0), Ngọ (6), Mão (3), Dậu (9) -> Thượng Nguyên
+      if (phuDauChiIdx === 0 || phuDauChiIdx === 6 || phuDauChiIdx === 3 || phuDauChiIdx === 9) {
+        tamNguyenIdx = 0;
+        tamNguyenName = "Thượng Nguyên";
+      }
+      // Dần (2), Thân (8), Tỵ (5), Hợi (11) -> Trung Nguyên
+      else if (phuDauChiIdx === 2 || phuDauChiIdx === 8 || phuDauChiIdx === 5 || phuDauChiIdx === 11) {
+        tamNguyenIdx = 1;
+        tamNguyenName = "Trung Nguyên";
+      }
+      // Thìn (4), Tuất (10), Sửu (1), Mùi (7) -> Hạ Nguyên
+      else {
+        tamNguyenIdx = 2;
+        tamNguyenName = "Hạ Nguyên";
+      }
+
+      return {
+        phuDauCanIdx,
+        phuDauChiIdx,
+        phuDauText: `${CAN[phuDauCanIdx]} ${CHI[phuDauChiIdx]}`,
+        daysFromPhuDau,
+        tamNguyenIdx,
+        tamNguyenName
+      };
+    }
+
+    // Xác định Tuần Thủ và Không Vong của Giờ
+    function getKyMonTuanThu(hourCanIdx, hourChiIdx) {
+      const diff = (hourChiIdx - hourCanIdx + 12) % 12;
+      const TUAN_MAP = {
+        0:  { name: "Giáp Tý", canAn: "Mậu", chiIdx: 0, xunKongChi: ["Tuất", "Hợi"], xunKongPalaces: [6] },
+        10: { name: "Giáp Tuất", canAn: "Kỷ", chiIdx: 10, xunKongChi: ["Thân", "Dậu"], xunKongPalaces: [2, 7] },
+        8:  { name: "Giáp Thân", canAn: "Canh", chiIdx: 8, xunKongChi: ["Ngọ", "Mùi"], xunKongPalaces: [9, 2] },
+        6:  { name: "Giáp Ngọ", canAn: "Tân", chiIdx: 6, xunKongChi: ["Thìn", "Tỵ"], xunKongPalaces: [4] },
+        4:  { name: "Giáp Thìn", canAn: "Nhâm", chiIdx: 4, xunKongChi: ["Dần", "Mão"], xunKongPalaces: [8, 3] },
+        2:  { name: "Giáp Dần", canAn: "Quý", chiIdx: 2, xunKongChi: ["Tý", "Sửu"], xunKongPalaces: [1, 8] }
+      };
+      return TUAN_MAP[diff] || TUAN_MAP[0];
+    }
+
+    // Tính Dịch Mã của Giờ (Tam hợp chi giờ)
+    function getKyMonDichMa(hourChiIdx) {
+      // Dần (2), Ngọ (6), Tuất (10) -> Thân (Khôn 2)
+      if (hourChiIdx === 2 || hourChiIdx === 6 || hourChiIdx === 10) return { chi: "Thân", palace: 2 };
+      // Thân (8), Tý (0), Thìn (4) -> Dần (Cấn 8)
+      if (hourChiIdx === 8 || hourChiIdx === 0 || hourChiIdx === 4) return { chi: "Dần", palace: 8 };
+      // Tỵ (5), Dậu (9), Sửu (1) -> Hợi (Càn 6)
+      if (hourChiIdx === 5 || hourChiIdx === 9 || hourChiIdx === 1) return { chi: "Hợi", palace: 6 };
+      // Hợi (11), Mão (3), Mùi (7) -> Tỵ (Tốn 4)
+      return { chi: "Tỵ", palace: 4 };
+    }
+
+    // Thuật toán cốt lõi an bàn Thời Bàn Kỳ Môn Độn Giáp
+    function buildKyMonPlate(donType, cucSo, dayCanIdx, dayChiIdx, hourCanIdx, hourChiIdx, metaInfo = {}) {
+      // 1. An Địa Bàn: Bố 9 Can (Mậu -> Ất) vào 9 Cung
+      const diaCan = {};
+      for (let i = 0; i < 9; i++) {
+        let p;
+        if (donType === "Dương") {
+          p = ((cucSo - 1 + i) % 9) + 1;
+        } else {
+          p = ((cucSo - 1 - i + 18) % 9) + 1;
+        }
+        diaCan[p] = KM_CAN_SEQ[i];
+      }
+
+      // 2. Xác định Tuần Thủ & Cung Gốc Trực Phù, Trực Sử
+      const tuanThu = getKyMonTuanThu(hourCanIdx, hourChiIdx);
+      const dichMa = getKyMonDichMa(hourChiIdx);
+
+      // Cung gốc của Tuần Thủ trên Địa bàn (nơi có can ẩn của tuần thủ)
+      let origFuPalace = 1;
+      for (let p = 1; p <= 9; p++) {
+        if (diaCan[p] === tuanThu.canAn) {
+          origFuPalace = p;
+          break;
+        }
+      }
+
+      // Theo cổ bản thông dụng: Trung Cung (5) gởi Khôn (2)
+      const fuBasePalace = (origFuPalace === 5) ? 2 : origFuPalace;
+      const leadStar = (origFuPalace === 5) ? "Thiên Cầm (kèm Nhuế)" : KM_PALACES[fuBasePalace].origStar;
+      const leadGate = KM_PALACES[fuBasePalace].origGate;
+
+      // 3. Chuyển Thiên Bàn (Cửu Tinh & Thiên Can)
+      // Tìm Cung Địa bàn có Can của giờ (nếu giờ Giáp thì lấy Can Tuần Thủ)
+      const targetCan = (hourCanIdx === 0) ? tuanThu.canAn : CAN[hourCanIdx];
+      let targetStarPalace = 1;
+      for (let p = 1; p <= 9; p++) {
+        if (diaCan[p] === targetCan) {
+          targetStarPalace = (p === 5) ? 2 : p;
+          break;
+        }
+      }
+
+      // Xoay vòng 8 cung biên cho Cửu Tinh
+      const idxSourceStar = KM_RING.indexOf(fuBasePalace);
+      const idxTargetStar = KM_RING.indexOf(targetStarPalace);
+      const shiftStars = (idxTargetStar - idxSourceStar + 8) % 8;
+
+      const thienTinh = {};
+      const thienCan = {};
+
+      KM_RING.forEach((pDest, k) => {
+        const srcIdx = (k - shiftStars + 8) % 8;
+        const pSrc = KM_RING[srcIdx];
+
+        if (pSrc === 2) {
+          thienTinh[pDest] = "Thiên Nhuế / Cầm";
+          thienCan[pDest] = `${diaCan[2]} • ${diaCan[5]}`;
+        } else {
+          thienTinh[pDest] = KM_PALACES[pSrc].origStar;
+          thienCan[pDest] = diaCan[pSrc];
+        }
+      });
+
+      // Trung Cung giữ nguyên sao Thiên Cầm gốc & Can Địa bàn
+      thienTinh[5] = "Thiên Cầm (Ký Khôn)";
+      thienCan[5] = diaCan[5];
+
+      // 4. Chuyển Nhân Bàn (Bát Môn)
+      // Bắt đầu từ Cung gốc của Trực Sử (fuBasePalace) tại Chi Tuần Thủ
+      const steps = (hourChiIdx - tuanThu.chiIdx + 12) % 12;
+      let targetGatePalace;
+      if (donType === "Dương") {
+        targetGatePalace = ((origFuPalace - 1 + steps) % 9) + 1;
+      } else {
+        targetGatePalace = ((origFuPalace - 1 - steps + 18) % 9) + 1;
+      }
+      if (targetGatePalace === 5) targetGatePalace = 2; // Gởi Khôn
+
+      const idxSourceGate = KM_RING.indexOf(fuBasePalace);
+      const idxTargetGate = KM_RING.indexOf(targetGatePalace);
+      const shiftGates = (idxTargetGate - idxSourceGate + 8) % 8;
+
+      const nhanMon = {};
+      KM_RING.forEach((pDest, k) => {
+        const srcIdx = (k - shiftGates + 8) % 8;
+        const pSrc = KM_RING[srcIdx];
+        nhanMon[pDest] = KM_PALACES[pSrc].origGate;
+      });
+      nhanMon[5] = "Ký Khôn (Tử Môn)";
+
+      // 5. Chuyển Thần Bàn (Bát Thần)
+      // Thần Trực Phù luôn ở cùng cung với Trực Phù Tinh (targetStarPalace)
+      const batThan = {};
+      const idxGodStart = KM_RING.indexOf(targetStarPalace);
+
+      KM_GODS.forEach((godName, i) => {
+        let pDest;
+        if (donType === "Dương") {
+          pDest = KM_RING[(idxGodStart + i) % 8];
+        } else {
+          pDest = KM_RING[(idxGodStart - i + 8) % 8];
+        }
+        batThan[pDest] = godName;
+      });
+      batThan[5] = "-";
+
+      // 6. Kiểm tra các yếu tố Chuyên Biệt Hôn Nhân
+      // Định vị Cung Nhà Gái (Ất), Nhà Trai (Canh), Thần Hôn Nhân (Lục Hợp), Tình Duyên (Đinh)
+      let bridePalace = 1;
+      let groomPalace = 1;
+      let lovePalace = 1;
+      let dingPalace = 1;
+
+      for (let p = 1; p <= 9; p++) {
+        const tc = thienCan[p] || '';
+        if (tc.includes("Ất")) bridePalace = p;
+        if (tc.includes("Canh")) groomPalace = p;
+        if (batThan[p] === "Lục Hợp") lovePalace = p;
+        if (tc.includes("Đinh")) dingPalace = p;
+      }
+
+      // Kiểm tra Giờ Ngũ Bất Ngộ: Can giờ khắc Can ngày
+      const isNguBatNgo = (
+        (dayCanIdx === 0 && hourCanIdx === 6) || // Giáp gặp Canh
+        (dayCanIdx === 1 && hourCanIdx === 7) || // Ất gặp Tân
+        (dayCanIdx === 2 && hourCanIdx === 8) || // Bính gặp Nhâm
+        (dayCanIdx === 3 && hourCanIdx === 9) || // Đinh gặp Quý
+        (dayCanIdx === 4 && hourCanIdx === 0) || // Mậu gặp Giáp
+        (dayCanIdx === 5 && hourCanIdx === 1) || // Kỷ gặp Ất
+        (dayCanIdx === 6 && hourCanIdx === 2) || // Canh gặp Bính
+        (dayCanIdx === 7 && hourCanIdx === 3) || // Tân gặp Đinh
+        (dayCanIdx === 8 && hourCanIdx === 4) || // Nhâm gặp Mậu
+        (dayCanIdx === 9 && hourCanIdx === 5)    // Quý gặp Kỷ
+      );
+
+      // Phân tích cách cục trên 8 cung
+      const palaceFormations = {};
+      const allFormationsFound = [];
+
+      KM_RING.forEach(p => {
+        const tc = thienCan[p] || '';
+        const dc = diaCan[p] || '';
+        const m = nhanMon[p] || '';
+        const s = thienTinh[p] || '';
+        const g = batThan[p] || '';
+        const forms = [];
+
+        // Cát Cách
+        if (tc.includes("Mậu") && dc === "Bính") {
+          forms.push({ name: "Thanh Long Hồi Thủ", type: "cat", desc: "Cực cát, trăm việc đều hưng thịnh, rể quý dâu hiền, phú quý viên mãn." });
+        }
+        if (tc.includes("Bính") && dc === "Mậu") {
+          forms.push({ name: "Phi Điểu Điệt Huyệt", type: "cat", desc: "Đại cát, trai tài gái sắc, danh gia vọng tộc, hôn sự vẹn toàn." });
+        }
+        if (tc.includes("Đinh") && m === "Hưu Môn" && g === "Thái Âm") {
+          forms.push({ name: "Nhân Độn", type: "cat", desc: "Đại cát, hôn nhân thêm người thêm của, hòa hợp trăm năm." });
+        }
+        if (tc.includes("Bính") && dc === "Đinh" && (m === "Sinh Môn" || m === "Khai Môn")) {
+          forms.push({ name: "Thiên Độn", type: "cat", desc: "Đại cát nghênh hôn, danh chính ngôn thuận, môn đăng hộ đối." });
+        }
+        if (tc.includes("Ất") && dc === "Kỷ" && (m === "Khai Môn" || m === "Sinh Môn")) {
+          forms.push({ name: "Địa Độn", type: "cat", desc: "Cát lợi, gia đạo bình yên, đức hạnh sâu dày, gắn bó keo sơn." });
+        }
+        if (tc.includes("Đinh") && p === targetGatePalace) {
+          forms.push({ name: "Ngọc Nữ Thủ Môn", type: "cat", desc: "Nàng ngọc giữ cửa, hòa hợp âm tư, thê hiền tử hiếu, đại cát hôn nhân." });
+        }
+
+        // Hung Cách
+        if (tc.includes("Ất") && dc === "Tân") {
+          forms.push({ name: "Thanh Long Đào Tẩu", type: "hung", desc: "Hung cho hôn nhân, cô dâu buồn tủi, phòng xa cách ly tán." });
+        }
+        if (tc.includes("Tân") && dc === "Ất") {
+          forms.push({ name: "Bạch Hổ Xướng Cuồng", type: "hung", desc: "Hung, vợ chồng xung khắc dữ dội, cãi vã thương tổn tình cảm." });
+        }
+        if (tc.includes("Quý") && dc === "Đinh") {
+          forms.push({ name: "Đằng Xà Yêu Kiều", type: "hung", desc: "Hung, khẩu thiệt thị phi, nghi kỵ gièm pha, khó an gia đạo." });
+        }
+        if (tc.includes("Đinh") && dc === "Quý") {
+          forms.push({ name: "Chu Tước Đầu Giang", type: "hung", desc: "Hung, tranh chấp bất hòa, tranh quyền đoạt lợi trong gia đình." });
+        }
+        if (tc.includes("Canh") && dc === "Canh") {
+          forms.push({ name: "Thái Bạch Đồng Cung", type: "hung", desc: "Huynh đệ tranh đoạt, chồng vợ cạnh tranh, thiếu nhường nhịn." });
+        }
+
+        // Lục Nghi Kích Hình
+        if ((tc.includes("Mậu") && p === 3) || (tc.includes("Kỷ") && p === 2) || (tc.includes("Canh") && p === 8) || (tc.includes("Tân") && p === 9) || (tc.includes("Nhâm") && p === 4) || (tc.includes("Quý") && p === 4)) {
+          forms.push({ name: "Lục Nghi Kích Hình", type: "hung", desc: "Tổn thương bất hòa, tâm lý căng thẳng, dễ xảy ra mâu thuẫn gia đình." });
+        }
+
+        palaceFormations[p] = forms;
+        forms.forEach(f => allFormationsFound.push({ ...f, palace: p }));
+      });
+
+      return {
+        donType,
+        cucSo,
+        dayCan: CAN[dayCanIdx],
+        dayChi: CHI[dayChiIdx],
+        dayCanIdx,
+        dayChiIdx,
+        hourCan: CAN[hourCanIdx],
+        hourChi: CHI[hourChiIdx],
+        hourCanIdx,
+        hourChiIdx,
+        tuanThu,
+        dichMa,
+        origFuPalace,
+        fuBasePalace,
+        leadStar,
+        leadGate,
+        targetStarPalace,
+        targetGatePalace,
+        diaCan,
+        thienCan,
+        thienTinh,
+        nhanMon,
+        batThan,
+        bridePalace,
+        groomPalace,
+        lovePalace,
+        dingPalace,
+        isNguBatNgo,
+        palaceFormations,
+        allFormationsFound,
+        metaInfo
+      };
+    }
+
+    // Tính toán theo thời gian lịch (Chuẩn hóa Siêu Thần Tiếp Khí & Trí Nhuận thiên văn)
+    function calculateKyMon() {
+      const dateVal = document.getElementById('kmAutoDate')?.value;
+      const timeVal = document.getElementById('kmAutoTime')?.value || "12:00";
+
+      if (!dateVal) return;
+      const [y, m, d] = dateVal.split('-').map(Number);
+      const [hh, mi] = timeVal.split(':').map(Number);
+
+      // 1. Can Chi Ngày & Giờ
+      const dayCanChi = getDayCanChi(d, m, y);
+      const hourChiIdx = Math.floor((hh + 1) / 2) % 12;
+      const hourCanChi = getHourCanChi(dayCanChi.canIndex, hourChiIdx);
+
+      // 2. Xác định Cục Số chuẩn xác theo quy tắc Siêu Thần Tiếp Khí & Nhuận Kỳ
+      const sieuThanInfo = getKyMonSieuThanCuc(d, m, y, hh, mi);
+
+      // 3. Cập nhật giải thích chi tiết trong kmAutoExplainBox
+      const explainEl = document.getElementById('kmAutoExplainText');
+      if (explainEl) {
+        explainEl.innerHTML = `
+          <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; border-bottom: 1px dashed #fde68a; padding-bottom: 0.5rem;">
+              <div style="font-size: 0.95rem; font-weight: 800; color: #b45309; display: flex; align-items: center; gap: 0.4rem;">
+                <span>⛩️</span> CỤC SỐ THỜI BÀN: <span style="background: #fef3c7; color: #92400e; padding: 0.2rem 0.6rem; border-radius: 6px; border: 1px solid #fde68a;">${sieuThanInfo.donType} Độn Cục ${sieuThanInfo.cucSo}</span>
+              </div>
+              <div style="font-size: 0.82rem; font-weight: 700;">
+                <span class="km-badge ${sieuThanInfo.sieuThanBadgeClass}">${sieuThanInfo.sieuThanBadgeText}</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.65rem; font-size: 0.82rem;">
+              <div style="background: #fff; border: 1px solid #fef3c7; border-radius: 8px; padding: 0.55rem 0.75rem;">
+                <div style="color: #92400e; font-weight: 700; margin-bottom: 0.2rem;">☀️ Tiết Khí Thiên Văn Cơ Sở:</div>
+                <div><strong>${sieuThanInfo.termName}</strong> (${sieuThanInfo.termDeg}°)</div>
+                <div style="color: #6b7280; font-size: 0.76rem; margin-top: 0.15rem;">Giao tiết: ${sieuThanInfo.termTransDateStr}</div>
+              </div>
+
+              <div style="background: #fff; border: 1px solid #fef3c7; border-radius: 8px; padding: 0.55rem 0.75rem;">
+                <div style="color: #92400e; font-weight: 700; margin-bottom: 0.2rem;">📜 Phù Đầu Thượng Nguyên:</div>
+                <div><strong>${sieuThanInfo.phuDauThuongNguyenText}</strong> (gần tiết khí nhất)</div>
+                <div style="color: #6b7280; font-size: 0.76rem; margin-top: 0.15rem;">Khởi đầu 15 ngày của tiết khí</div>
+              </div>
+
+              <div style="background: #fff; border: 1px solid #fef3c7; border-radius: 8px; padding: 0.55rem 0.75rem;">
+                <div style="color: #92400e; font-weight: 700; margin-bottom: 0.2rem;">⏳ Phân Định Tam Nguyên:</div>
+                <div><strong>${sieuThanInfo.tamNguyenName}</strong> (Ngày thứ ${sieuThanInfo.dayInNguyen}/5)</div>
+                <div style="color: #6b7280; font-size: 0.76rem; margin-top: 0.15rem;">Phù Đầu quản 5 ngày: <strong>${sieuThanInfo.phuDauHienTaiText}</strong></div>
+              </div>
+
+              <div style="background: #fff; border: 1px solid #fef3c7; border-radius: 8px; padding: 0.55rem 0.75rem;">
+                <div style="color: #92400e; font-weight: 700; margin-bottom: 0.2rem;">⚡ Trạng Thái Siêu Thần - Tiếp Khí:</div>
+                <div style="color: #1e293b; font-weight: 600;">${sieuThanInfo.sieuThanStatus}</div>
+                <div style="color: #6b7280; font-size: 0.76rem; margin-top: 0.15rem;">${sieuThanInfo.sieuThanNote}</div>
+              </div>
+            </div>
+
+            <div style="font-size: 0.78rem; color: #475569; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.45rem 0.65rem; line-height: 1.45;">
+              💡 <strong>Quy tắc cổ bản:</strong> Lấy Phù Đầu Thượng Nguyên gần Tiết Khí nhất làm cơ sở. Sau đó lần lượt định Thượng - Trung - Hạ Nguyên của tiết khí đó. Tiết <strong>${sieuThanInfo.termName}</strong> (${sieuThanInfo.donType} Độn: Thượng = Cục ${sieuThanInfo.juArray[0]}, Trung = Cục ${sieuThanInfo.juArray[1]}, Hạ = Cục ${sieuThanInfo.juArray[2]}) ➔ Khởi cục thời bàn: <strong>${sieuThanInfo.donType} Độn Cục ${sieuThanInfo.cucSo}</strong>.
+            </div>
+          </div>
+        `;
+      }
+
+      // 4. Lập quẻ hoàn chỉnh
+      const result = buildKyMonPlate(sieuThanInfo.donType, sieuThanInfo.cucSo, dayCanChi.canIndex, dayCanChi.chiIndex, hourCanChi.canIndex, hourChiIdx, {
+        solarTermName: sieuThanInfo.termName,
+        solarDegText: `${sieuThanInfo.termDeg}°`,
+        termTransDateStr: sieuThanInfo.termTransDateStr,
+        phuDauThuongNguyenText: sieuThanInfo.phuDauThuongNguyenText,
+        phuDauHienTaiText: sieuThanInfo.phuDauHienTaiText,
+        phuDauText: sieuThanInfo.phuDauHienTaiText,
+        tamNguyenName: sieuThanInfo.tamNguyenName,
+        dayInNguyen: sieuThanInfo.dayInNguyen,
+        sieuThanStatus: sieuThanInfo.sieuThanStatus,
+        sieuThanBadgeText: sieuThanInfo.sieuThanBadgeText,
+        sieuThanBadgeClass: sieuThanInfo.sieuThanBadgeClass,
+        sieuThanIcon: sieuThanInfo.sieuThanIcon,
+        juArray: sieuThanInfo.juArray,
+        dateStr: `${String(d).padStart(2, '0')}/${String(m).padStart(2, '0')}/${y}`,
+        timeStr: `${String(hh).padStart(2, '0')}:${String(mi).padStart(2, '0')}`
+      });
+
+      currentKyMonResult = result;
+      renderKyMonAll(result);
+    }
+
+    // Render toàn bộ giao diện Kỳ Môn
+    function renderKyMonAll(res) {
+      if (!res) return;
+      renderKyMonBadges(res);
+      renderKyMonBoard(res);
+      renderKyMonMarriageAnalysis(res);
+      renderKyMonDirections(res);
+    }
+
+    // Cập nhật các huy hiệu đầu trang
+    function renderKyMonBadges(res) {
+      const badgeCuc = document.getElementById('kmBadgeCuc');
+      const badgeTiet = document.getElementById('kmBadgeTietKhi');
+      const badgeSieuThan = document.getElementById('kmBadgeSieuThan');
+      const badgeTam = document.getElementById('kmBadgeTamNguyen');
+      const badgeTuan = document.getElementById('kmBadgeTuanThu');
+      const badgePhuSu = document.getElementById('kmBadgeTrucPhuSu');
+      const badgeNgu = document.getElementById('kmBadgeNguBatNgo');
+
+      if (badgeCuc) badgeCuc.textContent = `🔮 ${res.donType} Độn Cục ${res.cucSo}`;
+      if (badgeTiet) badgeTiet.textContent = `☀️ ${res.metaInfo.solarTermName || 'Tiết Khí'}`;
+      if (badgeSieuThan && res.metaInfo.sieuThanBadgeText) {
+        badgeSieuThan.textContent = res.metaInfo.sieuThanBadgeText;
+        badgeSieuThan.className = `km-badge ${res.metaInfo.sieuThanBadgeClass || 'km-badge-warning'}`;
+        badgeSieuThan.style.display = 'inline-flex';
+      }
+      if (badgeTam) badgeTam.textContent = `📜 ${res.metaInfo.tamNguyenName || 'Tam Nguyên'}`;
+      if (badgeTuan) badgeTuan.textContent = `⏳ ${res.tuanThu.name} (Tuần Không: ${res.tuanThu.xunKongChi.join(', ')})`;
+      if (badgePhuSu) badgePhuSu.textContent = `⭐ Phù: ${res.leadStar} • 🚪 Sử: ${res.leadGate}`;
+
+      if (badgeNgu) {
+        if (res.isNguBatNgo) {
+          badgeNgu.style.display = 'inline-flex';
+          badgeNgu.textContent = `⚠️ Giờ Ngũ Bất Ngộ (${res.hourCan} khắc ${res.dayCan})`;
+        } else {
+          badgeNgu.style.display = 'none';
+        }
+      }
+    }
+
+    // Render bàn cờ Kỳ Môn 9 Cung Lạc Thư (Layout 3x3)
+    function renderKyMonBoard(res) {
+      const grid = document.getElementById('kmBoardGrid');
+      if (!grid) return;
+
+      // Thứ tự hiển thị 3x3 đúng đồ hình Lạc Thư:
+      // Row 1: Cung 4 (Tốn) | Cung 9 (Ly) | Cung 2 (Khôn)
+      // Row 2: Cung 3 (Chấn) | Cung 5 (Trung) | Cung 7 (Đoài)
+      // Row 3: Cung 8 (Cấn) | Cung 1 (Khảm) | Cung 6 (Càn)
+      const layoutOrder = [4, 9, 2, 3, 5, 7, 8, 1, 6];
+
+      let html = '';
+
+      layoutOrder.forEach(pId => {
+        const pal = KM_PALACES[pId];
+        const isCenter = (pId === 5);
+        const tc = res.thienCan[pId] || '';
+        const dc = res.diaCan[pId] || '';
+        const star = res.thienTinh[pId] || '-';
+        const gate = res.nhanMon[pId] || '-';
+        const god = res.batThan[pId] || '-';
+
+        // Huy hiệu đặc biệt
+        const isZhifu = (pId === res.targetStarPalace);
+        const isZhishi = (pId === res.targetGatePalace);
+        const isKong = res.tuanThu.xunKongPalaces.includes(pId);
+        const isHorse = (res.dichMa.palace === pId);
+
+        const isBride = (pId === res.bridePalace);
+        const isGroom = (pId === res.groomPalace);
+        const isLove = (pId === res.lovePalace);
+
+        // Đánh giá nhanh về cửa (Cát / Hung)
+        let gateClass = "km-tag-gate";
+        let gateEval = "Bình";
+        if (gate.includes("Sinh") || gate.includes("Hưu") || gate.includes("Khai")) {
+          gateEval = "Cát";
+        } else if (gate.includes("Thương") || gate.includes("Tử") || gate.includes("Kinh")) {
+          gateEval = "Hung";
+        }
+
+        // Đánh giá tổng quan cung cho hôn nhân
+        let palaceVerdict = "⚖️ Bình Hòa";
+        let evalClass = "km-eval-binh";
+        if (isBride && isGroom) {
+          palaceVerdict = "🌟 Đồng Cung Hòa Hợp";
+          evalClass = "km-eval-cat";
+        } else if (gate.includes("Sinh") || gate.includes("Hưu") || gate.includes("Khai")) {
+          if (god === "Lục Hợp" || god === "Thái Âm" || god === "Cửu Thiên" || god === "Trực Phù") {
+            palaceVerdict = "🌟 Đại Cát Nghênh Hôn";
+            evalClass = "km-eval-cat";
+          } else {
+            palaceVerdict = "🍀 Cát Lợi";
+            evalClass = "km-eval-cat";
+          }
+        } else if (gate.includes("Thương") || gate.includes("Tử") || gate.includes("Kinh") || god === "Bạch Hổ") {
+          palaceVerdict = "⚠️ Kỵ Nghênh Hôn";
+          evalClass = "km-eval-hung";
+        }
+
+        // Tên cách cục nếu có
+        const forms = res.palaceFormations[pId] || [];
+        const formNames = forms.map(f => f.name).join(', ');
+
+        let cellHighlightClass = '';
+        if (isBride) cellHighlightClass += ' highlight-bride';
+        if (isGroom) cellHighlightClass += ' highlight-groom';
+        if (isLove) cellHighlightClass += ' highlight-love';
+        if (isCenter) cellHighlightClass += ' center-palace';
+
+        html += `
+          <div class="km-palace-cell${cellHighlightClass}">
+            <div class="km-palace-head">
+              <div class="km-palace-name">
+                <span>${pal.id}. ${pal.name}</span>
+                <span style="font-size: 0.72rem; color: #64748b; font-weight: 600;">(${pal.dir})</span>
+              </div>
+              <div class="km-palace-badges">
+                ${isZhifu ? '<span class="km-mini-tag km-tag-zhifu">⭐ Trực Phù</span>' : ''}
+                ${isZhishi ? '<span class="km-mini-tag km-tag-zhishi">🚪 Trực Sử</span>' : ''}
+                ${isKong ? '<span class="km-mini-tag km-tag-kong">⚪ Không</span>' : ''}
+                ${isHorse ? '<span class="km-mini-tag km-tag-horse">🐎 Mã</span>' : ''}
+              </div>
+            </div>
+
+            <div class="km-palace-body">
+              <!-- Thần Bàn -->
+              <div class="km-line-item">
+                <span style="color: #64748b; font-size: 0.75rem;">Bát Thần:</span>
+                <span class="km-mini-tag km-tag-god" style="font-size: 0.78rem;">${god}</span>
+              </div>
+
+              <!-- Cửu Tinh -->
+              <div class="km-line-item">
+                <span style="color: #64748b; font-size: 0.75rem;">Cửu Tinh:</span>
+                <span class="km-mini-tag km-tag-star" style="font-size: 0.78rem;">${star}</span>
+              </div>
+
+              <!-- Can Thiên / Địa -->
+              <div class="km-can-display">
+                <span class="km-can-thien" title="Thiên Can Thiên Bàn">${tc}</span>
+                <span class="km-can-slash">/</span>
+                <span class="km-can-dia" title="Thiên Can Địa Bàn">${dc}</span>
+              </div>
+
+              <!-- Cách Cục nếu có -->
+              ${formNames ? `<div class="km-structure-name" title="${forms.map(f => f.desc).join(' ')}">✨ ${formNames}</div>` : ''}
+
+              <!-- Bát Môn -->
+              <div class="km-line-item" style="margin-top: 2px;">
+                <span style="color: #64748b; font-size: 0.75rem;">Bát Môn:</span>
+                <span class="km-mini-tag km-tag-gate" style="font-size: 0.78rem; font-weight: 800;">${gate}</span>
+              </div>
+
+              <!-- Vai Trò Hôn Nhân Nổi Bật -->
+              <div style="display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.25rem;">
+                ${isBride ? '<span style="background:#ffe4e6; color:#be123c; font-size:0.7rem; padding:0.15rem 0.35rem; border-radius:4px; font-weight:800;">👰 Nhà Gái (Kỳ Ất)</span>' : ''}
+                ${isGroom ? '<span style="background:#e0f2fe; color:#0369a1; font-size:0.7rem; padding:0.15rem 0.35rem; border-radius:4px; font-weight:800;">🤵 Nhà Trai (Can Canh)</span>' : ''}
+                ${isLove ? '<span style="background:#fce7f3; color:#be185d; font-size:0.7rem; padding:0.15rem 0.35rem; border-radius:4px; font-weight:800;">💖 Thần Duyên (Lục Hợp)</span>' : ''}
+                ${(tc.includes("Đinh")) ? '<span style="background:#fef3c7; color:#92400e; font-size:0.7rem; padding:0.15rem 0.35rem; border-radius:4px; font-weight:800;">💎 Kỳ Đinh (Tình Duyên)</span>' : ''}
+              </div>
+            </div>
+
+            <div class="km-palace-foot">
+              <div class="km-eval-pill ${evalClass}">
+                ${palaceVerdict}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    // Render phân tích nhận xét giờ hiện tại (chuyên đề hôn nhân)
+    function renderKyMonMarriageAnalysis(res) {
+      const container = document.getElementById('kmHourVerdictBox');
+      if (!container) return;
+
+      const pBride = KM_PALACES[res.bridePalace];
+      const pGroom = KM_PALACES[res.groomPalace];
+      const pLove = KM_PALACES[res.lovePalace];
+
+      // 1. So sánh tương quan ngũ hành Canh (Nhà Trai) vs Ất (Nhà Gái)
+      const elGroom = pGroom.element;
+      const elBride = pBride.element;
+      let relationText = "";
+      let relationScoreDelta = 0;
+
+      if (res.bridePalace === res.groomPalace) {
+        relationText = "<strong>Đồng Cung Tỷ Hòa:</strong> Nhà trai và nhà gái đồng cung tại " + pBride.name + " (" + pBride.dir + "). Vợ chồng như bóng với hình, tâm đầu ý hợp, đồng vợ đồng chồng cùng chung chí hướng.";
+        relationScoreDelta = 18;
+      } else if (
+        (elGroom === "Kim" && elBride === "Thủy") ||
+        (elGroom === "Thủy" && elBride === "Mộc") ||
+        (elGroom === "Mộc" && elBride === "Hỏa") ||
+        (elGroom === "Hỏa" && elBride === "Thổ") ||
+        (elGroom === "Thổ" && elBride === "Kim")
+      ) {
+        relationText = `<strong>Cung Chú Rể (${pGroom.name} - ${elGroom}) tương sinh Cung Cô Dâu (${pBride.name} - ${elBride}):</strong> Nhà trai chủ động yêu thương, chăm sóc, nâng niu nhà gái. Chú rể tâm lý, tôn trọng ý kiến cô dâu, gia đình nhà chồng quý mến nàng dâu mới.`;
+        relationScoreDelta = 15;
+      } else if (
+        (elBride === "Kim" && elGroom === "Thủy") ||
+        (elBride === "Thủy" && elGroom === "Mộc") ||
+        (elBride === "Mộc" && elGroom === "Hỏa") ||
+        (elBride === "Hỏa" && elGroom === "Thổ") ||
+        (elBride === "Thổ" && elGroom === "Kim")
+      ) {
+        relationText = `<strong>Cung Cô Dâu (${pBride.name} - ${elBride}) tương sinh Cung Chú Rể (${pGroom.name} - ${elGroom}):</strong> Nhà gái hướng về nhà trai, cô dâu hiền thục thảo hiền, khéo léo vun vén tổ ấm, hết lòng chăm lo cho gia đình chồng ấm êm hòa thuận.`;
+        relationScoreDelta = 12;
+      } else if (elGroom === elBride) {
+        relationText = `<strong>Hai Cung Tỷ Hòa (${elGroom}):</strong> Vợ chồng môn đăng hộ đối, bình đẳng tôn trọng lẫn nhau, cùng nhau gánh vác việc gia đình, bền chặt lâu dài.`;
+        relationScoreDelta = 10;
+      } else if (
+        (elGroom === "Kim" && elBride === "Mộc") ||
+        (elGroom === "Mộc" && elBride === "Thổ") ||
+        (elGroom === "Thổ" && elBride === "Thủy") ||
+        (elGroom === "Thủy" && elBride === "Hỏa") ||
+        (elGroom === "Hỏa" && elBride === "Kim")
+      ) {
+        relationText = `<strong>Cung Chú Rể (${pGroom.name} - ${elGroom}) tương khắc Cung Cô Dâu (${pBride.name} - ${elBride}):</strong> Nhà trai có phần áp chế, khắt khe hoặc gia trưởng. Cô dâu chịu nhiều áp lực nếu không có sự bao dung; cần lấy đức nhẫn nhịn và chọn hướng xuất hành cát lợi để hóa giải.`;
+        relationScoreDelta = -14;
+      } else {
+        relationText = `<strong>Cung Cô Dâu (${pBride.name} - ${elBride}) tương khắc Cung Chú Rể (${pGroom.name} - ${elGroom}):</strong> Cô dâu cá tính mạnh, có xu hướng lấn lướt chồng, dễ xảy ra bất đồng khắc khẩu. Cần biết lắng nghe và tôn trọng sự đóng góp của bạn đời.`;
+        relationScoreDelta = -12;
+      }
+
+      // Trạng thái mộ khố của Ất và Canh
+      let tombText = "";
+      if (res.bridePalace === 2) {
+        tombText += "<br/>• <em>Lưu ý:</em> Ất Kỳ nhập Mộ tại Cung Khôn (2), phụ nữ nên chú ý sức khỏe sinh nở, tránh ưu tư.";
+        relationScoreDelta -= 6;
+      }
+      if (res.groomPalace === 8) {
+        tombText += "<br/>• <em>Lưu ý:</em> Canh Kim lâm Cung Cấn (8) phạm Lục Nghi Kích Hình, chú rể cần tiết chế tính nóng nảy.";
+        relationScoreDelta -= 6;
+      }
+
+      // 2. Phân tích Thần Lục Hợp (Duyên Phối)
+      const gateLove = res.nhanMon[res.lovePalace];
+      const isLoveKong = res.tuanThu.xunKongPalaces.includes(res.lovePalace);
+      let loveText = `<strong>Thần Lục Hợp lâm Cung ${pLove.name} (${pLove.dir} - ${pLove.element}):</strong> `;
+      let loveScoreDelta = 0;
+
+      if (isLoveKong) {
+        loveText += `Lâm Không Vong (⚪), báo hiệu duyên phận dễ gặp trắc trở, lời hứa hẹn ban đầu có thể dao động hoặc gia đình hai bên bàn tính chưa dứt khoát.`;
+        loveScoreDelta -= 12;
+      } else if (gateLove.includes("Sinh") || gateLove.includes("Hưu") || gateLove.includes("Khai")) {
+        loveText += `Gặp Cát Môn (${gateLove}), tơ duyên bền chặt, được phúc thần chở che, người se duyên đắc lực, hai họ đồng lòng chúc phúc trăm năm.`;
+        loveScoreDelta += 14;
+      } else if (gateLove.includes("Thương") || gateLove.includes("Tử") || gateLove.includes("Kinh")) {
+        loveText += `Gặp Hung Môn (${gateLove}), hôn sự dễ gặp lời ra tiếng vào, bàn tán ngoài lề hoặc đôi chút thị phi ngăn trở. Cần kiên định lòng tin.`;
+        loveScoreDelta -= 12;
+      } else {
+        loveText += `Gặp ${gateLove}, tình duyên phát triển êm ả, mọi việc tiến hành tuần tự đúng lễ nghi.`;
+        loveScoreDelta += 4;
+      }
+
+      // 3. Phân tích Cửa Trực Sử & Sao Trực Phù
+      let leadGateText = `<strong>Cửa Trực Sử (${res.leadGate}) đóng tại Cung ${KM_PALACES[res.targetGatePalace].name}:</strong> `;
+      let leadGateScoreDelta = 0;
+
+      if (res.leadGate.includes("Sinh")) {
+        leadGateText += "Sinh sôi vượng khí, tài lộc dồi dào, con đàn cháu đống, trăm sự hôn lễ đại cát.";
+        leadGateScoreDelta += 10;
+      } else if (res.leadGate.includes("Hưu")) {
+        leadGateText += "Gia đạo an vui đầm ấm, hỷ khí ngập tràn, yến tiệc vui vẻ, vợ chồng hòa thuận tương kính như tân.";
+        leadGateScoreDelta += 10;
+      } else if (res.leadGate.includes("Khai")) {
+        leadGateText += "Danh chính ngôn thuận, hai họ rạng rỡ gia phong, công danh sự nghiệp sau hôn nhân thăng tiến.";
+        leadGateScoreDelta += 10;
+      } else if (res.leadGate.includes("Cảnh")) {
+        leadGateText += "Đèn hoa rực rỡ, tiệc mừng linh đình, quang minh chính đại, tuy nhiên cần chú ý lời ăn tiếng nói nơi đông người.";
+        leadGateScoreDelta += 5;
+      } else if (res.leadGate.includes("Đỗ")) {
+        leadGateText += "Kín đáo, kín tiếng, việc dạm ngõ hôn lễ nên tiến hành gọn gàng, tránh phô trương rườm rà.";
+        leadGateScoreDelta -= 2;
+      } else if (res.leadGate.includes("Thương")) {
+        leadGateText += "Dễ nảy sinh tổn thương, tranh cãi vặt hoặc chậm trễ giờ giấc đón rước. Cần chuẩn bị chu đáo.";
+        leadGateScoreDelta -= 10;
+      } else if (res.leadGate.includes("Tử")) {
+        leadGateText += "Không khí kém phần tươi vui, dễ có việc phiền lòng gia đình. Kỵ giờ này làm lễ đón dâu.";
+        leadGateScoreDelta -= 14;
+      } else if (res.leadGate.includes("Kinh")) {
+        leadGateText += "Nghi ngờ, lo lắng bất an, lời bàn tán thị phi. Nên bình tĩnh tạo niềm tin cho hai bên.";
+        leadGateScoreDelta -= 10;
+      }
+
+      // 4. Tính điểm cát hung tổng thể (0..100)
+      let totalScore = 70 + relationScoreDelta + loveScoreDelta + leadGateScoreDelta;
+      if (res.isNguBatNgo) totalScore -= 25;
+
+      // Cộng trừ thêm cách cục
+      res.allFormationsFound.forEach(f => {
+        if (f.type === "cat") totalScore += 6;
+        if (f.type === "hung") totalScore -= 8;
+      });
+
+      totalScore = Math.max(15, Math.min(98, totalScore));
+
+      // Phân định cấp bậc
+      let rankText = "Cát Lợi";
+      let rankBannerClass = "great";
+      let summaryAdvice = "";
+
+      if (res.isNguBatNgo) {
+        rankText = "⚠️ Phạm Ngũ Bất Ngộ Thời • Đại Hung Cần Tránh";
+        rankBannerClass = "bad";
+        summaryAdvice = "Giờ này Can giờ khắc Can ngày, là giờ tối tăm 'Nhật Nguyệt tổn quang minh'. Tuyệt đối <strong>kiêng kỵ</strong> làm lễ gia tiên nghênh hôn, đón dâu hay động phòng. Nếu bắt buộc phải dùng, nên chỉ làm thủ tục nhỏ và chọn phương vị Đại Cát xuất hành để hóa giải.";
+      } else if (totalScore >= 85) {
+        rankText = "🌟 Đại Cát Nghênh Hôn • Thượng Đẳng Giá Thú";
+        rankBannerClass = "great";
+        summaryAdvice = "Khung giờ tràn đầy cát khí hỷ khánh! Rất tốt để <strong>xuất phát xe hoa đón dâu, làm lễ gia tiên, trao nhẫn đính hôn, bàn chuyện đại sự hai họ</strong>. Tình duyên thắm thiết, trăm năm hạnh phúc vẹn toàn.";
+      } else if (totalScore >= 72) {
+        rankText = "🍀 Cát Lợi • Thuận Lợi Cưới Hỏi";
+        rankBannerClass = "great";
+        summaryAdvice = "Giờ có nhiều yếu tố tương sinh hòa hợp. Thích hợp cho <strong>lễ ăn hỏi, đón tiếp quan khách, dạm ngõ hoặc xuất hành rước dâu</strong> theo các hướng cát lợi.";
+      } else if (totalScore >= 55) {
+        rankText = "⚖️ Bình Hòa • Dùng Được Nếu Chọn Đúng Hướng";
+        rankBannerClass = "neutral";
+        summaryAdvice = "Khí vận trung bình. Nên kết hợp chọn phương vị xuất phát xe hoa thuộc cung có Cát Môn (Sinh, Hưu, Khai) để kích hoạt thêm vượng khí cho đôi tân lang tân nương.";
+      } else {
+        rankText = "⚠️ Bất Lợi • Nên Cân Nhắc Giờ Khác";
+        rankBannerClass = "bad";
+        summaryAdvice = "Giờ có nhiều hung sát hoặc tương khắc giữa hai bên. <strong>Không nên</strong> chọn giờ này làm giờ xuất phát đón dâu chính thức. Nên đổi sang khung giờ kế tiếp hoặc chỉ tiến hành các việc hành chính.";
+      }
+
+      // Danh sách cách cục hiển thị
+      let formationsHtml = '';
+      if (res.allFormationsFound.length > 0) {
+        formationsHtml = `
+          <div style="margin-top: 1rem; padding: 0.85rem; background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px;">
+            <h5 style="font-weight: 800; color: #92400e; margin-bottom: 0.4rem; font-size: 0.85rem;">
+              📜 Các Cách Cục Kỳ Môn Xuất Hiện Trong Quẻ:
+            </h5>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.82rem; color: #78350f; line-height: 1.55;">
+              ${res.allFormationsFound.map(f => `<li><strong>${f.name}</strong> (Cung ${f.palace}): ${f.desc}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+      }
+
+      container.innerHTML = `
+        <div class="km-verdict-banner ${rankBannerClass}">
+          <div>
+            <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.85;">
+              Nhận Xét Giờ ${res.hourCan} ${res.hourChi} (Ngày ${res.dayCan} ${res.dayChi})
+            </div>
+            <div style="font-size: 1.3rem; font-weight: 900; margin-top: 0.2rem;">
+              ${rankText}
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 2rem; font-weight: 900; line-height: 1;">
+              ${totalScore}<span style="font-size: 1rem; font-weight: 600;">/100</span>
+            </div>
+            <div style="font-size: 0.75rem; font-weight: 700; opacity: 0.85;">
+              Điểm Khí Vận Hôn Nhân
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Trụ Cột Hôn Nhân Cốt Lõi -->
+        <div class="km-pillar-grid">
+          <!-- Trụ 1: Nhà Trai vs Nhà Gái -->
+          <div class="km-pillar-box">
+            <div class="km-pillar-title" style="color: #be123c;">
+              <span>🤵👰</span> Tương Quan Nhà Trai (Canh) &amp; Nhà Gái (Ất)
+            </div>
+            <div style="font-size: 0.82rem; color: #334155; line-height: 1.55;">
+              <p>• <strong>Cung Nhà Trai (Canh):</strong> Cung ${pGroom.id} (${pGroom.name} - ${pGroom.dir}) ngũ hành <strong>${elGroom}</strong>.</p>
+              <p>• <strong>Cung Nhà Gái (Ất):</strong> Cung ${pBride.id} (${pBride.name} - ${pBride.dir}) ngũ hành <strong>${elBride}</strong>.</p>
+              <p style="margin-top: 0.35rem;">• ${relationText}${tombText}</p>
+            </div>
+          </div>
+
+          <!-- Trụ 2: Thần Lục Hợp -->
+          <div class="km-pillar-box">
+            <div class="km-pillar-title" style="color: #be185d;">
+              <span>💖</span> Thần Hôn Nhân &amp; Duyên Phối (Lục Hợp)
+            </div>
+            <div style="font-size: 0.82rem; color: #334155; line-height: 1.55;">
+              <p>${loveText}</p>
+              <p style="margin-top: 0.35rem;">• Cửa đóng tại cung: <strong>${gateLove}</strong> • Trạng thái: ${isLoveKong ? '<span style="color:#ef4444; font-weight:700;">Lâm Không Vong</span>' : '<span style="color:#16a34a; font-weight:700;">Đắc Lực</span>'}.</p>
+            </div>
+          </div>
+
+          <!-- Trụ 3: Trực Sử & Trực Phù -->
+          <div class="km-pillar-box">
+            <div class="km-pillar-title" style="color: #92400e;">
+              <span>🚪⭐</span> Cửa Trực Sử &amp; Sao Trực Phù Của Giờ
+            </div>
+            <div style="font-size: 0.82rem; color: #334155; line-height: 1.55;">
+              <p>• <strong>Sao Trực Phù:</strong> ${res.leadStar} đóng tại Cung ${KM_PALACES[res.targetStarPalace].name} (${KM_PALACES[res.targetStarPalace].dir}).</p>
+              <p>• ${leadGateText}</p>
+            </div>
+          </div>
+        </div>
+
+        ${formationsHtml}
+
+        <!-- Lời khuyên tổng quan -->
+        <div style="margin-top: 1rem; padding: 0.95rem; background: #f8fafc; border-left: 4px solid #b45309; border-radius: 0 10px 10px 0; font-size: 0.85rem; color: #1e293b; line-height: 1.6;">
+          <strong style="color: #b45309;">💡 Lời Khuyên Hành Động Giờ Này:</strong> ${summaryAdvice}
+        </div>
+      `;
+    }
+
+    // Render bảng 8 Hướng Địa Lý Cho Hôn Nhân
+    function renderKyMonDirections(res) {
+      const tbody = document.getElementById('kmDirectionTableBody');
+      if (!tbody) return;
+
+      // 8 Hướng tương ứng 8 cung biên (Khảm 1 -> Bắc, Cấn 8 -> Đông Bắc, Chấn 3 -> Đông, Tốn 4 -> Đông Nam, Ly 9 -> Nam, Khôn 2 -> Tây Nam, Đoài 7 -> Tây, Càn 6 -> Tây Bắc)
+      const dirList = [
+        { palace: 1, dirName: "Chính Bắc", bagua: "Khảm (1) - Thủy" },
+        { palace: 8, dirName: "Đông Bắc", bagua: "Cấn (8) - Thổ" },
+        { palace: 3, dirName: "Chính Đông", bagua: "Chấn (3) - Mộc" },
+        { palace: 4, dirName: "Đông Nam", bagua: "Tốn (4) - Mộc" },
+        { palace: 9, dirName: "Chính Nam", bagua: "Ly (9) - Hỏa" },
+        { palace: 2, dirName: "Tây Nam", bagua: "Khôn (2) - Thổ" },
+        { palace: 7, dirName: "Chính Tây", bagua: "Đoài (7) - Kim" },
+        { palace: 6, dirName: "Tây Bắc", bagua: "Càn (6) - Kim" }
+      ];
+
+      let html = '';
+
+      dirList.forEach(item => {
+        const p = item.palace;
+        const pal = KM_PALACES[p];
+        const m = res.nhanMon[p];
+        const s = res.thienTinh[p];
+        const g = res.batThan[p];
+        const tc = res.thienCan[p];
+        const dc = res.diaCan[p];
+
+        const isKong = res.tuanThu.xunKongPalaces.includes(p);
+        const isHorse = (res.dichMa.palace === p);
+        const forms = res.palaceFormations[p] || [];
+
+        // Đánh giá cát hung
+        let evalTag = "";
+        let advice = "";
+
+        if (m.includes("Sinh") || m.includes("Hưu") || m.includes("Khai")) {
+          if (g === "Lục Hợp" || g === "Thái Âm" || g === "Cửu Thiên" || g === "Trực Phù") {
+            evalTag = `<span class="km-eval-pill km-eval-cat">🌟 Đại Cát Nghênh Hôn</span>`;
+            advice = `<strong>Hướng Thượng Đẳng đón dâu &amp; xuất hành xe hoa.</strong> Đắc Cát Môn (${m}) hợp cát thần (${g}). Khi đoàn rước dâu xuất phát, nên hướng đầu xe về phía <strong>${item.dirName}</strong> trước để đón sinh khí vượng cát. Rất tốt để đặt bàn thờ tơ hồng, bàn gia tiên.`;
+          } else {
+            evalTag = `<span class="km-eval-pill km-eval-cat">🍀 Cát Lợi</span>`;
+            advice = `Hướng thuận hòa, đắc ${m}. Thích hợp đi lại, đưa rước họ hàng đôi bên, mở cổng nghênh đón xe hoa hoặc đặt phòng tân hôn.`;
+          }
+        } else if (m.includes("Cảnh")) {
+          evalTag = `<span class="km-eval-pill km-eval-binh">⚖️ Thứ Cát (Hỷ Khí)</span>`;
+          advice = `Cửa Cảnh mang hỷ khí, tiệc tùng linh đình. Thích hợp bài trí hoa cưới, đón khách, chụp ảnh kỷ niệm. Tuy nhiên tránh đôi co to tiếng.`;
+        } else if (m.includes("Đỗ")) {
+          evalTag = `<span class="km-eval-pill km-eval-binh">⚖️ Bình Hòa (Ẩn Giấu)</span>`;
+          advice = `Cửa Đỗ mang tính bế kín, nên giữ mọi chuyện dạm ngõ, trao đổi sính lễ riêng tư ấm cúng, tránh phô trương lộ liễu.`;
+        } else {
+          evalTag = `<span class="km-eval-pill km-eval-hung">⚠️ Hung Kỵ Nghênh Hôn</span>`;
+          advice = `<strong>Tuyệt đối tránh chọn làm hướng xuất phát đầu tiên của đoàn rước dâu.</strong> Hướng lâm ${m}${g === "Bạch Hổ" ? " + Bạch Hổ" : ""}, dễ sinh trắc trở giờ giấc hoặc khắc khẩu. Nếu lộ trình bắt buộc đi qua, hãy đi vòng qua hướng Đại Cát trước rồi mới chuyển hướng.`;
+        }
+
+        if (isKong) {
+          advice += ` <em style="color:#64748b;">(Lâm Không Vong: Khí lực giảm sút).</em>`;
+        }
+        if (isHorse) {
+          advice += ` <strong style="color:#c2410c;">(Có Dịch Mã: Đoàn xe di chuyển nhanh chóng, thuận lộ).</strong>`;
+        }
+
+        html += `
+          <tr>
+            <td>
+              <div style="font-weight: 800; color: #1e293b; font-size: 0.9rem;">
+                ${item.dirName}
+              </div>
+              <div style="font-size: 0.75rem; color: #64748b;">
+                ${item.bagua}
+              </div>
+            </td>
+            <td>
+              <div style="display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.8rem;">
+                <div><span style="color:#92400e; font-weight:700;">Môn:</span> ${m}</div>
+                <div><span style="color:#0369a1; font-weight:700;">Tinh:</span> ${s}</div>
+                <div><span style="color:#6b21a8; font-weight:700;">Thần:</span> ${g}</div>
+                <div><span style="color:#334155; font-weight:700;">Can:</span> ${tc} / ${dc}</div>
+              </div>
+            </td>
+            <td>
+              ${evalTag}
+            </td>
+            <td style="font-size: 0.82rem; color: #334155; line-height: 1.5;">
+              ${advice}
+            </td>
+          </tr>
+        `;
+      });
+
+      tbody.innerHTML = html;
+    }
+
+    // Xuất báo cáo Quẻ Kỳ Môn Hôn Nhân dạng file .txt
+    function exportKyMonToTxt() {
+      if (!currentKyMonResult) {
+        alert("Chưa có dữ liệu quẻ Kỳ Môn để xuất file!");
+        return;
+      }
+
+      const res = currentKyMonResult;
+      const now = new Date();
+      const timeStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} lúc ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+      let txt = '';
+      txt += '================================================================================\n';
+      txt += '        BÁO CÁO QUẺ KỲ MÔN ĐỘN GIÁP • CHUYÊN ĐỀ HÔN NHÂN & NGHÊNH HÔN TRẠCH CÁT\n';
+      txt += '               Cổ Bản Trương Tử Phòng - Gia Cát Lượng 18 Cục Cổ Truyền\n';
+      txt += '================================================================================\n\n';
+
+      txt += `Thời gian xuất báo cáo: ${timeStr}\n`;
+      txt += `Thời gian xem quẻ: Ngày ${res.metaInfo.dateStr || ''} • Giờ ${res.metaInfo.timeStr || ''}\n`;
+      txt += `Tứ Trụ Ngày Giờ: Ngày ${res.dayCan} ${res.dayChi} • Giờ ${res.hourCan} ${res.hourChi}\n`;
+      txt += `Tiết Khí Thiên Văn Cơ Sở: ${res.metaInfo.solarTermName || ''} (${res.metaInfo.solarDegText || ''})\n`;
+      if (res.metaInfo.termTransDateStr) {
+        txt += `Thời Điểm Giao Tiết Thiên Văn: ${res.metaInfo.termTransDateStr}\n`;
+      }
+      if (res.metaInfo.phuDauThuongNguyenText) {
+        txt += `Phù Đầu Thượng Nguyên (Chuẩn Khởi Khí): ${res.metaInfo.phuDauThuongNguyenText} (gần Tiết Khí nhất)\n`;
+      }
+      if (res.metaInfo.sieuThanStatus) {
+        txt += `Quy Tắc Siêu Thần / Tiếp Khí: ${res.metaInfo.sieuThanStatus}\n`;
+      }
+      txt += `Phân Định Tam Nguyên: ${res.metaInfo.tamNguyenName || ''} (Ngày thứ ${res.metaInfo.dayInNguyen || 1}/5)\n`;
+      txt += `Phù Đầu Quản 5 Ngày Hiện Tại: ${res.metaInfo.phuDauHienTaiText || res.metaInfo.phuDauText || ''}\n`;
+      txt += `Cấu Trúc Khởi Cục: ${res.donType} Độn Cục ${res.cucSo}`;
+      if (res.metaInfo.juArray) {
+        txt += ` [Chu kỳ cục của tiết khí: Thượng=${res.metaInfo.juArray[0]}, Trung=${res.metaInfo.juArray[1]}, Hạ=${res.metaInfo.juArray[2]}]\n`;
+      } else {
+        txt += `\n`;
+      }
+      txt += `Tuần Thủ Của Giờ: ${res.tuanThu.name} (Can Ẩn: ${res.tuanThu.canAn}) • Tuần Không: ${res.tuanThu.xunKongChi.join(', ')}\n`;
+      txt += `Trực Phù: ${res.leadStar} (Cung ${res.targetStarPalace}) • Trực Sử: ${res.leadGate} (Cung ${res.targetGatePalace})\n`;
+      txt += `Dịch Mã: Chi ${res.dichMa.chi} (Cung ${res.dichMa.palace})\n`;
+      if (res.isNguBatNgo) {
+        txt += `CẢNH BÁO: PHẠM GIỜ NGŨ BẤT NGỘ (${res.hourCan} khắc ${res.dayCan}) - KỴ CƯỚI HỎI!\n`;
+      }
+      txt += '\n';
+
+      txt += '--------------------------------------------------------------------------------\n';
+      txt += 'I. BÀN CỜ KỲ MÔN CỬU CUNG 3x3 (LẠC THƯ ĐỒ HÌNH)\n';
+      txt += '--------------------------------------------------------------------------------\n\n';
+
+      const renderPalRow = (pList) => {
+        return pList.map(p => {
+          const pal = KM_PALACES[p];
+          const tc = res.thienCan[p];
+          const dc = res.diaCan[p];
+          const m = res.nhanMon[p];
+          const s = res.thienTinh[p];
+          const g = res.batThan[p];
+          return `[${pal.id}.${pal.name} (${pal.dir}): ${g} | ${s} | ${tc}/${dc} | ${m}]`;
+        }).join('  ');
+      };
+
+      txt += 'HÀNG 1: ' + renderPalRow([4, 9, 2]) + '\n';
+      txt += 'HÀNG 2: ' + renderPalRow([3, 5, 7]) + '\n';
+      txt += 'HÀNG 3: ' + renderPalRow([8, 1, 6]) + '\n\n';
+
+      txt += '--------------------------------------------------------------------------------\n';
+      txt += 'II. NHẬN XÉT GIỜ HIỆN TẠI CHO CHỦ ĐỀ HÔN NHÂN & GIÁ THÚ\n';
+      txt += '--------------------------------------------------------------------------------\n\n';
+
+      const pBride = KM_PALACES[res.bridePalace];
+      const pGroom = KM_PALACES[res.groomPalace];
+      const pLove = KM_PALACES[res.lovePalace];
+
+      txt += `1. TƯƠNG QUAN NHÀ TRAI (CANH) & NHÀ GÁI (ẤT):\n`;
+      txt += `   - Cung Nhà Trai (Can Canh): Cung ${pGroom.id} (${pGroom.name} - ${pGroom.dir}) - Hành ${pGroom.element}\n`;
+      txt += `   - Cung Nhà Gái (Kỳ Ất): Cung ${pBride.id} (${pBride.name} - ${pBride.dir}) - Hành ${pBride.element}\n`;
+      txt += `   - Tương quan ngũ hành: `;
+      if (res.bridePalace === res.groomPalace) {
+        txt += `Đồng cung hòa hợp, vợ chồng như bóng với hình, tâm đầu ý hợp.\n`;
+      } else {
+        txt += `Cung Canh (${pGroom.element}) đối chiếu Cung Ất (${pBride.element}).\n`;
+      }
+
+      txt += `\n2. THẦN HÔN NHÂN (LỤC HỢP):\n`;
+      txt += `   - Đóng tại Cung ${pLove.id} (${pLove.name} - ${pLove.dir}) - Hành ${pLove.element}\n`;
+      txt += `   - Lâm Môn: ${res.nhanMon[res.lovePalace]}\n`;
+      if (res.tuanThu.xunKongPalaces.includes(res.lovePalace)) {
+        txt += `   - Trạng thái: LÂM KHÔNG VONG (Duyên phận dễ gặp trắc trở hoặc dao động).\n`;
+      } else {
+        txt += `   - Trạng thái: Đắc Lực, hòa hợp cát tường.\n`;
+      }
+
+      txt += `\n3. CỬA TRỰC SỬ & SAO TRỰC PHÙ:\n`;
+      txt += `   - Sao Trực Phù: ${res.leadStar} tại Cung ${res.targetStarPalace}\n`;
+      txt += `   - Cửa Trực Sử: ${res.leadGate} tại Cung ${res.targetGatePalace}\n`;
+
+      if (res.allFormationsFound.length > 0) {
+        txt += `\n4. CÁC CÁCH CỤC XUẤT HIỆN TRONG QUẺ:\n`;
+        res.allFormationsFound.forEach(f => {
+          txt += `   - ${f.name} (Cung ${f.palace}): ${f.desc}\n`;
+        });
+      }
+
+      txt += '\n--------------------------------------------------------------------------------\n';
+      txt += 'III. TRẠCH CÁT 8 HƯỚNG ĐỊA LÝ CHO VIỆC NGHÊNH HÔN & RƯỚC DÂU\n';
+      txt += '--------------------------------------------------------------------------------\n\n';
+
+      const dirList = [
+        { palace: 1, dirName: "Chính Bắc", bagua: "Khảm (1)" },
+        { palace: 8, dirName: "Đông Bắc", bagua: "Cấn (8)" },
+        { palace: 3, dirName: "Chính Đông", bagua: "Chấn (3)" },
+        { palace: 4, dirName: "Đông Nam", bagua: "Tốn (4)" },
+        { palace: 9, dirName: "Chính Nam", bagua: "Ly (9)" },
+        { palace: 2, dirName: "Tây Nam", bagua: "Khôn (2)" },
+        { palace: 7, dirName: "Chính Tây", bagua: "Đoài (7)" },
+        { palace: 6, dirName: "Tây Bắc", bagua: "Càn (6)" }
+      ];
+
+      dirList.forEach(item => {
+        const p = item.palace;
+        const m = res.nhanMon[p];
+        const s = res.thienTinh[p];
+        const g = res.batThan[p];
+        const tc = res.thienCan[p];
+        const dc = res.diaCan[p];
+        txt += `• Hướng ${item.dirName} [Cung ${item.bagua}]:\n`;
+        txt += `  - Cấu trúc: Môn: ${m} | Tinh: ${s} | Thần: ${g} | Can: ${tc}/${dc}\n`;
+        if (m.includes("Sinh") || m.includes("Hưu") || m.includes("Khai")) {
+          txt += `  - Đánh giá: ĐẠI CÁT / CÁT LỢI NGHÊNH HÔN. Rất thích hợp xuất phát xe hoa, rước dâu.\n`;
+        } else if (m.includes("Cảnh")) {
+          txt += `  - Đánh giá: THỨ CÁT. Thích hợp yến tiệc, bài trí lễ nghi hoa chúc.\n`;
+        } else if (m.includes("Đỗ")) {
+          txt += `  - Đánh giá: BÌNH HÒA. Thích hợp việc dạm ngõ riêng tư kín đáo.\n`;
+        } else {
+          txt += `  - Đánh giá: HUNG KỴ NGHÊNH HÔN. Kiêng làm hướng xuất phát đầu tiên của đoàn rước dâu!\n`;
+        }
+        txt += '\n';
+      });
+
+      txt += '================================================================================\n';
+      txt += 'Bản quyền: Ứng dụng Lịch Âm Dương & Kỳ Môn Độn Giáp Hôn Nhân\n';
+      txt += '================================================================================\n';
+
+      const filename = `Que_Ky_Mon_Hon_Nhan_${res.dayCan}_${res.dayChi}_Gio_${res.hourChi}.txt`;
+      downloadTextFile(filename, txt);
     }
 
     // Khởi chạy khi load trang

@@ -73,7 +73,27 @@
   - Nút bấm "💾 Tải Về Dạng TXT" tại thanh điều khiển Bát Tự cho phép tải ngay lập tức bản báo cáo đầy đủ lá số Tứ Trụ.
   - Bao gồm: Bảng 4 trụ (Năm, Tháng, Ngày, Giờ) với Thập Thần, Can Chi, Nạp Âm, Cung Trường Sinh, Địa Chi Tàng Can; Thần Sát Tứ Đức; Thẩm định Thân Vượng/Thân Nhược (Đắc Lệnh, Đắc Địa, Được Sinh, Được Trợ, Khắc/Hao/Tiết); Bình giải chi tiết; Định hướng Dụng Thần, Hỷ Thần, Kỵ Thần và Lời khuyên phong thủy thực tiễn.
 
-### 5. Bát Tự Tứ Trụ Chuẩn Thiên Văn (Bốn Trụ Năm - Tháng - Ngày - Giờ)
+### 5. Quẻ Kỳ Môn Độn Giáp • Chuyên Đề Hôn Nhân & Nghênh Hôn Trạch Cát
+- **Lập Quẻ Thời Bàn 18 Cục Cổ Truyền (Trương Tử Phòng - Gia Cát Lượng)**:
+  - **Tự Động Xác Định Cục Theo Lịch Thiên Văn**: Tự động tính toán Tiết Khí hoàng đạo, xác định Phù Đầu của ngày (Giáp/Kỷ quản 5 ngày) để định Thượng Nguyên, Trung Nguyên hay Hạ Nguyên, từ đó suy ra Dương Độn hay Âm Độn và Cục Số chính xác (1 đến 9).
+  - **Chế Độ Tùy Chọn Thủ Công**: Cho phép người dùng tùy chọn Độn (Dương/Âm), Cục Số (1-9), Can Chi Ngày và Can Chi Giờ để lập quẻ theo ý muốn.
+- **Bàn Cờ Cửu Cung Lạc Thư Hoàn Chỉnh (Ma Trận 3x3)**:
+  - Đầy đủ 4 lớp thông tin thiên văn cổ: Địa Bàn Can, Thiên Bàn Can, Cửu Tinh xoay chuyển, Bát Môn nhân sự và Bát Thần thần bàn.
+  - Đánh dấu các vị trí trọng yếu: Trực Phù (⭐), Trực Sử (🚪), Tuần Không (⚪), Dịch Mã (🐎).
+  - Nhận diện chuyên sâu các cung đặc biệt cho hôn nhân: Cung Cô Dâu / Nhà Gái (Kỳ Ất - hồng), Cung Chú Rể / Nhà Trai (Can Canh - lam), Cung Thần Duyên Hôn Phối (Lục Hợp - hồng phấn) và Cung Tình Duyên (Kỳ Đinh).
+  - Tự động phát hiện các Cát Cách / Hung Cách: Long Hồi Thủ, Điểu Điệt Huyệt, Tam Độn (Thiên/Địa/Nhân Độn), Ngọc Nữ Thủ Môn, Thanh Long Đào Tẩu, Bạch Hổ Xướng Cuồng, Đằng Xà Yêu Kiều, Chu Tước Đầu Giang, Lục Nghi Kích Hình...
+- **Nhận Xét Giờ Hiện Tại Chuyên Đề Hôn Nhân**:
+  - Chấm điểm khí vận hôn nhân (0-100) và phân hạng trực quan (Đại Cát Nghênh Hôn, Cát Lợi, Thứ Cát, Bình Hòa, Bất Lợi).
+  - Cảnh báo tức thì **Giờ Ngũ Bất Ngộ** (Can giờ khắc Can ngày) - giờ tối tăm kỵ làm lễ gia tiên nghênh hôn.
+  - Phân tích 3 trụ cột hôn nhân: Tương quan Canh (Nhà Trai) vs Ất (Nhà Gái) về ngũ hành tương sinh/tương khắc/tỷ hòa; Thần Lục Hợp đắc lực hay phạm Tuần Không; và tác động của Cửa Trực Sử / Sao Trực Phù.
+  - Lời khuyên hành động thực tiễn cho từng khung giờ cưới hỏi.
+- **Trạch Cát 8 Hướng Địa Lý Cho Hôn Nhân & Xuất Hành Xe Hoa**:
+  - Bảng tra chi tiết 8 phương vị địa lý (Bắc, Đông Bắc, Đông, Đông Nam, Nam, Tây Nam, Tây, Tây Bắc) đối chiếu với quẻ hiện tại.
+  - Đánh giá mức độ phù hợp cho việc nghênh hôn (Đại Cát, Cát Lợi, Thứ Cát, Bình Hòa, Hung Kỵ).
+  - Chỉ dẫn cụ thể: Hướng xe hoa xuất phát đầu tiên đón vượng khí, hướng rước dâu dâng lễ, hướng đặt bàn lễ tơ hồng, phòng tân hôn và các hướng hung sát cần tránh hoặc đi vòng để hóa giải.
+  - Nút **"💾 Tải Báo Cáo Quẻ (.txt)"** tải toàn bộ quẻ Kỳ Môn, nhận xét giờ và 8 hướng ra file văn bản chuẩn mực.
+
+### 6. Bát Tự Tứ Trụ Chuẩn Thiên Văn (Bốn Trụ Năm - Tháng - Ngày - Giờ)
 - **Chuẩn Hóa Tiết Khí**:
   - **Trụ Năm**: Được tính chuyển năm mới chính xác tại thời khắc **Lập Xuân** ($315^\circ$ kinh độ hoàng đạo Mặt Trời), không phụ thuộc vào mùng 1 Tết Âm lịch.
   - **Trụ Tháng**: Được phân định nghiêm ngặt theo **12 Tiết (Tiết Lệnh)** của thiên văn học (Dần từ Lập Xuân, Mão từ Kinh Trập, Thìn từ Thanh Minh...), kết hợp quy luật khởi Can tháng theo khẩu quyết **Ngũ Hổ Độn**.
@@ -238,6 +258,56 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.31.0] - 2026-09-18
+- **Tối Ưu Chuẩn Hóa Cục Số Kỳ Môn Độn Giáp Theo Siêu Thần Tiếp Khí & Trí Nhuận (Cổ Bản)**:
+  - **Loại Bỏ Chế Độ Tùy Chọn Thủ Công**:
+    - Loại bỏ triệt để giao diện và các input can chi/cục số thủ công, đưa toàn bộ quy trình lập quẻ Kỳ Môn về cơ chế tính toán thiên văn học chính xác và tự động tuyệt đối theo thời gian thực hoặc thời gian chọn trên lịch.
+  - **Thuật Toán Siêu Thần Tiếp Khí & Trí Nhuận Chuẩn Xác**:
+    - Không dùng bảng tra tiết khí tĩnh đơn thuần; hệ thống tính chính xác thời điểm giao tiết thiên văn qua phương pháp tiếp tuyến Newton-Raphson trên kinh độ hoàng đạo Mặt Trời (Jean Meeus / VSOP87).
+    - **Lấy Phù Đầu Thượng Nguyên Gần Tiết Khí Nhất Làm Cơ Sở**: Xác định Phù Đầu Thượng Nguyên (trong 4 cặp Giáp Tý, Giáp Ngọ, Kỷ Mão, Kỷ Dậu) gần thời điểm giao tiết nhất để làm Thượng Nguyên của tiết khí đó.
+    - **Lần Lượt Phân Định Tam Nguyên**: 5 ngày kế tiếp là Thượng Nguyên, 5 ngày sau là Trung Nguyên, 5 ngày cuối là Hạ Nguyên của tiết khí đó.
+    - **Khởi Cục Theo Tiết Khí Cơ Sở**: Áp dụng dãy cục số chuẩn của tiết khí đó (Dương Độn từ Đông Chí đến Mang Chủng, Âm Độn từ Hạ Chí đến Đại Tuyết).
+    - **Nhận Diện 4 Trạng Thái Khí Tiết**:
+      - *Chính Thụ*: Phù Đầu Thượng Nguyên đến đúng ngày giao tiết thiên văn (0 ngày).
+      - *Siêu Thần*: Phù Đầu Thượng Nguyên đến trước ngày giao tiết (đã đón nhận trước khí của tiết mới nên khởi dụng cục của tiết khí đó).
+      - *Tiếp Khí*: Phù Đầu Thượng Nguyên đến sau ngày giao tiết (tiết khí đã đến trước, Phù Đầu tiếp nối chân khí).
+      - *Trí Nhuận (Nhuận Kỳ)*: Khi tại Mang Chủng hoặc Đại Tuyết mà Siêu Thần vượt quá 9 ngày, tiến hành lặp lại 15 ngày của tiết khí đó để đưa chu kỳ Phù Đầu và Tiết Khí trở lại cân bằng.
+  - **Trực Quan Hóa Trạng Thái Siêu Thần / Tiếp Khí**:
+    - Bổ sung huy hiệu `#kmBadgeSieuThan` trên thanh trạng thái quẻ (🎯 Chính Thụ, ⚡ Siêu Thần, 🌿 Tiếp Khí, 🔄 Nhuận Kỳ).
+    - Hộp diễn giải chi tiết hiển thị: Tiết Khí Cơ Sở, Thời điểm giao tiết, Phù Đầu Thượng Nguyên, Phân định Tam Nguyên, Trạng thái Siêu Thần/Tiếp Khí kèm lời giải thích nguyên lý.
+  - **Bổ Sung Dữ Liệu Siêu Thần Tiếp Khí Vào Báo Cáo Xuất File Văn Bản (.txt)**:
+    - Báo cáo file text của quẻ Kỳ Môn nay thể hiện đầy đủ thời điểm giao tiết thiên văn, Phù Đầu Thượng Nguyên, quy tắc Siêu Thần/Tiếp Khí, ngày thứ mấy trong nguyên và chuỗi cục số của tiết khí.
+- **Hoàn Thiện Bộ Ba Tính Năng Tải Về Dạng File .txt**:
+    - Nút chức năng tải về dạng file văn bản (.txt) cho: Lá số Bát Tự Tứ Trụ (`#btnPrintBattu`), Đánh giá 5 Tiêu Chí Hôn Nhân (`#btnPrintWeddingEvalTop`, `#btnPrintWeddingEvalBottom`), và Báo Cáo Quẻ Kỳ Môn (`#btnExportKyMonTxt`). Tải trực tiếp không cần phụ thuộc hộp thoại in trình duyệt.
+
+### [v1.30.0] - 2026-09-18
+- **Bổ Sung Tab Mới Trên Menu: Quẻ Kỳ Môn Độn Giáp Chuyên Đề Hôn Nhân & Nghênh Hôn Trạch Cát**:
+  - **Menu Điều Hướng Chuyên Nghiệp**:
+    - Bổ sung nút bấm **"⛩️ Quẻ Kỳ Môn"** (`#tab-kymon`) trên thanh cuộn menu chính của ứng dụng, đồng bộ chuyển tab mượt mà.
+  - **Hai Chế Độ Xác Định Cục Linh Hoạt**:
+    - *Chế độ Xác Định Theo Thời Gian Lịch (Thiên Văn Tự Động)*: Tự động tính toán Tiết Khí thiên văn học theo kinh độ hoàng đạo Mặt Trời, xác định Phù Đầu của ngày (Giáp/Kỷ quản 5 ngày) để phân Tam Nguyên (Thượng, Trung, Hạ Nguyên), suy ra Dương Độn hay Âm Độn và Cục Số (1-9) theo quy chuẩn 18 cục cổ bản Trương Tử Phòng - Gia Cát Lượng.
+    - *Chế độ Tùy Chọn Cục Số & Can Chi Thủ Công*: Cho phép tùy biến Độn (Dương/Âm), Cục Số (1-9), Can Chi ngày và Can Chi giờ xem quẻ.
+    - Nút tiện ích "⏱️ Lấy Giờ Hiện Tại" và "📅 Đồng Bộ Từ Ngày Đang Xem Lịch".
+  - **Bàn Cờ Cửu Cung Lạc Thư Hoàn Chỉnh (3x3 Layout)**:
+    - Bố cục 9 Cung chuẩn phong thủy Lạc Thư (Tốn 4, Ly 9, Khôn 2; Chấn 3, Trung 5, Đoài 7; Cấn 8, Khảm 1, Càn 6).
+    - Thể hiện đầy đủ 4 tầng thông tin: Thiên Can Địa Bàn, Thiên Can Thiên Bàn, Cửu Tinh thiên văn, Bát Môn nhân sự và Bát Thần hộ trì.
+    - Huy hiệu định vị: Trực Phù (⭐), Trực Sử (🚪), Tuần Không (⚪), Dịch Mã (🐎).
+    - Đánh dấu trực quan các cung chuyên biệt cho hôn nhân: Cung Cô Dâu / Nhà Gái (Kỳ Ất), Cung Chú Rể / Nhà Trai (Can Canh), Cung Thần Hôn Nhân Duyên Phối (Lục Hợp), Cung Tình Duyên (Kỳ Đinh).
+    - Nhận diện các Cát Cách / Hung Cách trong quẻ (Long Hồi Thủ, Điểu Điệt Huyệt, Tam Độn, Ngọc Nữ Thủ Môn, Thanh Long Đào Tẩu, Bạch Hổ Xướng Cuồng, Lục Nghi Kích Hình...).
+  - **Phần Nhận Xét Giờ Hiện Tại Chuyên Biệt Cho Hôn Nhân**:
+    - Thang điểm cát hung hôn nhân (0-100 điểm) và phân cấp danh hiệu trực quan.
+    - Cảnh báo đặc biệt **Giờ Ngũ Bất Ngộ** (Can giờ khắc Can ngày) - giờ đại kỵ giá thú nghênh hôn.
+    - Khảo sát 3 trụ cột hôn nhân: Tương quan Canh (Nhà Trai) vs Ất (Nhà Gái) về sinh khắc tỷ hòa; Thần Lục Hợp đắc lực hay phạm Không Vong; Cửa Trực Sử và Sao Trực Phù quản việc gia đạo.
+    - Lời khuyên hành động thực tiễn cho từng nghi lễ cưới hỏi.
+  - **Trạch Cát 8 Hướng Địa Lý Cho Việc Nghênh Hôn & Xuất Hành Xe Hoa**:
+    - Bảng thẩm định chi tiết 8 hướng địa lý theo Bát Môn, Cửu Tinh, Bát Thần và Kỳ Nghi.
+    - Hướng dẫn cụ thể: Hướng xuất phát xe hoa đón dâu, hướng rước rể, dạm ngõ, đặt phòng tân hôn và các hướng hung kỵ cần tránh.
+    - Cung cấp bí pháp cổ truyền *Bối Sinh Hướng Tử* nghênh đón vượng khí trăm năm.
+  - **Tính Năng Xuất Báo Cáo Quẻ Kỳ Môn Ra File Văn Bản (.txt)**:
+    - Tích hợp nút **"💾 Tải Báo Cáo Quẻ (.txt)"** hỗ trợ lưu trữ toàn bộ dữ liệu quẻ, phân tích giờ và bảng 8 hướng ra file text gọn gàng, định dạng UTF-8 rõ ràng.
+  - **Đồng Bộ Phiên Bản Hệ Thống**:
+    - Cập nhật phiên bản lên `v1.30.0` tại `package.json`, Header, Footer, Modal Logo, biến `APP_VERSION`, và `README.md`.
 
 ### [v1.29.0] - 2026-09-13
 - **Chuyển Đổi Tính Năng In Lưu Quẻ Bát Tự Và In Lưu 5 Tiêu Chí Sang Lưu Tải Về Dạng File Văn Bản (.txt)**:
