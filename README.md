@@ -60,8 +60,9 @@
     - Tương hợp bản mệnh: **Tam Hợp**, **Lục Hợp** với địa chi tuổi cô dâu và chú rể; đắc **Quý Nhân Tứ Đức** (Thiên Đức, Nguyệt Đức); ngày **Mẫu Thương**; ngày **Vượng - Tướng**.
   - **Nhận Diện Ngày Cuối Tuần (Thứ Bảy & Chủ Nhật)**:
     - Đánh dấu nổi bật ngày cát rơi vào cuối tuần giúp gia đình thuận tiện lên kế hoạch lễ cưới và đón tiếp khách mời.
-  - **Cung Cấp 6 Giờ Hoàng Đạo Nghênh Hôn**:
-    - Liệt kê chi tiết 6 giờ Hoàng Đạo cát lợi trong ngày (kèm Can Chi giờ và khung giờ chuẩn) cho lễ dạm ngõ, rước dâu, bái gia tiên và tiệc mừng.
+  - **Cung Cấp Giờ Hoàng Đạo Nghênh Hôn Tinh Tuyển (Hiệp Kỷ Biện Phương Thư)**:
+    - Tự động lọc bỏ triệt để **Giờ Phá (Đại hung)** và **Giờ Lục Xung Tuổi Cô Dâu / Chú Rể**.
+    - Hiển thị tên Thần Sát trực giờ, chữ khẩu quyết kinh điển (Đạo, Viễn, Thông, Đạt, Dao, Hoàn), cảnh báo **Ngũ Bất Ngộ** (Can giờ khắc Can ngày) và phân tích ý nghĩa đối với các nghi lễ đón dâu, bái đường gia tiên và đãi tiệc.
   - **Bộ Lọc Ngày Thông Minh & Bảng Đối Chiếu Đa Chiều**:
     - Cho phép lọc xem: *Ngày Đề Xuất (Phù hợp)*, *Chỉ Ngày Đại Cát Thượng Đẳng*, *Ngày Cuối Tuần (T7/CN)*, hoặc *Bảng Đối Chiếu Toàn Bộ Các Ngày Trong Tháng*.
     - **Nút Bấm "🔮 Quẻ Kỳ Môn ➔" Chuyển Thẳng Sang Tab Kỳ Môn Độn Giáp**: Cho phép chuyển tức thì ngày cưới đã chọn sang tab Kỳ Môn, tự động đồng bộ ngày giờ và lập ngay quẻ thời bàn, thẩm định tương quan Canh - Ất, thần Lục Hợp và bảng Trạch Cát 8 Hướng xuất hành xe hoa/đón dâu.
@@ -260,6 +261,25 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.33.0] - 2026-09-18
+- **Xác Định Lại Giờ Hoàng Đạo / Hắc Đạo & Ý Nghĩa Từng Sao Đối Với Cưới Hỏi Theo Chuẩn Kinh Điển "Hiệp Kỷ Biện Phương Thư"**:
+  - **Khẩu Quyết 12 Chữ Bí Truyền**: Chuẩn hóa thuật toán tính sao trực giờ dựa trên 12 chữ khẩu quyết: *"Đạo – Viễn – Cơ – Thời – Thông – Đạt – Lộ – Dao – Hà – Nhật – Hoàn – Hương"*, phân định 6 sao Hoàng Đạo (Thanh Long, Minh Đường, Kim Quỹ, Thiên Đức/Bảo Quang, Ngọc Đường, Tư Mệnh) và 6 sao Hắc Đạo (Thiên Hình, Chu Tước, Bạch Hổ, Thiên Lao, Huyền Vũ, Câu Trần) theo 6 cặp khởi cung địa chi (Tý/Ngọ khởi Thân; Sửu/Mùi khởi Tuất; Dần/Thân khởi Tý; Mão/Dậu khởi Dần; Thìn/Tuất khởi Thìn; Tị/Hợi khởi Ngọ).
+  - **Hệ Thống Phân Tích Ý Nghĩa Chuyên Biệt Cho Hôn Sự (Cưới Hỏi)**: Xây dựng cơ sở dữ liệu `HIEP_KY_HOUR_STARS` phân tích tường tận ý nghĩa cát hung của từng sao đối với các nghi thức hôn lễ: Nghênh hôn đón dâu, xuất hành xe hoa, bái đường gia tiên, an sàng hoa chúc và nạp lễ đãi tiệc.
+  - **Chỉnh Lý Kinh Điển Khắc Phục Sai Lệch Dân Gian**:
+    - *Loại trừ tuyệt đối Giờ Phá (Đại Hung)*: Dù giờ đó có thuộc sao Hoàng Đạo (như ngày Tý gặp giờ Ngọ là sao Tư Mệnh) nhưng vì lục xung trực tiếp với địa chi của ngày nên phạm Giờ Phá, cổ nhân xếp vào Đại hung, hệ thống tự động loại trừ khỏi danh sách giờ nghênh hôn.
+    - *Nhận diện và cảnh báo Giờ Ngũ Bất Ngộ (Thứ Hung)*: Can giờ khắc Can ngày (Thất Sát), kỵ xuất hành xe hoa rước dâu lộ trình xa.
+    - *Kiểm soát Giờ Xung Tuổi Cô Dâu / Chú Rể*: Tự động loại trừ các giờ có địa chi lục xung với năm sinh của đôi uyên ương.
+  - **Bổ Sung Cửa Sổ Tra Cứu "Cẩm Nang 12 Sao Hoàng Đạo / Hắc Đạo & Thuật Trạch Cát Hôn Nhân (Hiệp Kỷ Biện Phương Thư)"**:
+    - Modal chuyên sâu (`#hiepKyStarsModal`) tích hợp nút mở tại cả Bloc Lịch Vạn Niên (`#btnOpenHiepKyStarsModal`) và Tab Hôn Nhân (`#btnOpenHiepKyWeddingModal`).
+    - Trình bày toàn diện: Khẩu quyết 12 chữ & phép khởi lệ bấm ngón tay; 3 chỉnh lý học thuật then chốt (Giờ Phá, Ngũ Bất Ngộ, Xung Tuổi); và Bảng ma trận 12 Thần Sát chi tiết.
+  - **Nâng Cấp Bảng 12 Canh Giờ Trên Bloc Lịch Vạn Niên & Thẻ Ngày Cưới**:
+    - Bảng 12 Canh Giờ trên Bloc Lịch Vạn Niên được nâng cấp thêm cột *Sao Trực (Hiệp Kỷ)* với huy hiệu khẩu quyết, cột phân loại Hoàng/Hắc Đạo/Giờ Phá, và cột *Ý Nghĩa Cưới Hỏi & Trạch Cát* luận giải từng giờ.
+    - Trên Thẻ Ngày Cưới, các huy hiệu giờ hoàng đạo được tinh tuyển (đã lọc Giờ Phá và Xung Tuổi), hiển thị kèm tên sao, khẩu quyết, cảnh báo Ngũ Bất Ngộ và tooltip hướng dẫn chi tiết.
+- **Khắc Phục Hoàn Toàn Lỗi Mất Cân Đối Giao Diện Trên Di Động Của Bảng Trạch Cát 8 Hướng Kỳ Môn**:
+  - Hoàn thiện chế độ chuyển đổi linh hoạt Dạng Thẻ (Cards View) và Dạng Bảng (Table View) với `min-width: 760px`, cuộn ngang mượt mà chống co ép chữ, đem lại giao diện di động cân đối, trực quan.
+- **Bổ Sung Nút Chuyển Tới Quẻ Kỳ Môn Độn Giáp Cho Ngày Cưới Phù Hợp**:
+  - Tích hợp nút **"🔮 Quẻ Kỳ Môn ➔"** trên từng thẻ ngày cưới và nút **"🔮 Kỳ Môn"** trong bảng đối chiếu toàn bộ các ngày, tự động đồng bộ ngày giờ và chuyển ngay sang quẻ Kỳ Môn thời bàn.
 
 ### [v1.32.0] - 2026-09-18
 - **Bổ Sung Nút Chuyển Tới Quẻ Kỳ Môn Độn Giáp Trong Phần Đề Xuất Ngày Cưới**:
