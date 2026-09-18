@@ -262,6 +262,16 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.33.2] - 2026-09-18
+- **Khắc Phục Lỗi Hiển Thị Nội Dung "Hiệp Kỷ Luận Sự" & "Cưới Hỏi Trạch Cát" Trên Thẻ Giờ**:
+  - **Sửa lỗi thiếu trường dữ liệu trong danh sách Canh Giờ**: Bổ sung đầy đủ 2 thuộc tính `weddingMeaning` (Luận sự bách sự theo thần sát và xung hợp) và `weddingAdvice` (Chỉ dẫn cụ thể cho cưới hỏi, rước dâu, an sàng, bái đường) vào từng đối tượng canh giờ trả về từ hàm `getHourHoangDaoList`.
+  - **Đồng bộ cơ chế phân tích cho từng trường hợp đặc biệt**:
+    - Đối với *Giờ Phá*: Luận giải chi tiết lý do lục xung trực tiếp với địa chi của ngày và khuyến nghị tuyệt đối không sử dụng.
+    - Đối với *Giờ Ngũ Bất Ngộ*: Luận giải lý do can giờ khắc can ngày và khuyến nghị chỉ dùng cho nội bộ gia đình, kỵ đi xe hoa đường xa.
+    - Đối với *Giờ Xung Tuổi Cô Dâu / Chú Rể*: Cảnh báo bản mệnh xung phá.
+    - Đối với các giờ *Hoàng Đạo / Hắc Đạo thông thường*: Trích xuất chính xác ý nghĩa thần sát và lời khuyên ứng dụng cưới hỏi từ cơ sở dữ liệu `HIEP_KY_HOUR_STARS`.
+  - **Tăng cường cơ chế dự phòng (Defensive Fallback)**: Tại template hiển thị dạng thẻ, trang bị cơ chế tự động đọc fallback qua `h.star.weddingMeaning` và `h.weddingNote`, đảm bảo không bao giờ xuất hiện trạng thái `undefined` trên giao diện.
+
 ### [v1.33.1] - 2026-09-18
 - **Tối Ưu Giao Diện 12 Canh Giờ Hoàng Đạo / Hắc Đạo Dạng Thẻ Vừa Khung Màn Hình (Cards View)**:
   - **Chuyển Đổi Mặc Định Sang Dạng Thẻ (Cards Grid View)**:
