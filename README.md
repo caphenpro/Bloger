@@ -259,6 +259,19 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.31.1] - 2026-09-18
+- **Khắc Phục Lỗi Mất Cân Đối Giao Diện Trên Di Động Cho Bảng Trạch Cát 8 Hướng Kỳ Môn**:
+  - **Phân Tích & Xử Lý Triệt Để Lỗi Co Ép Trên Mobile**:
+    - Trước đây, cấu trúc `<table>` 4 cột hiển thị trên màn hình điện thoại (chiều rộng hẹp 360px - 412px) không có kích thước tối thiểu, khiến các cột bị bóp méo, chữ bị ngắt dòng từng từ rời rạc theo chiều dọc ("Phương / Vị & / Cung", "Cấu / Trúc / Quẻ..."), khoảng trống dọc phân bố bất hợp lý khi vuốt ngang.
+  - **Bổ Sung Dạng Thẻ Chi Tiết (Cards View - Tối Ưu Tuyệt Đối Cho Di Động)**:
+    - Bổ sung bộ chuyển đổi chế độ xem linh hoạt giữa **📱 Dạng Thẻ** và **📊 Dạng Bảng** ngay trên đầu mục Trạch Cát 8 Hướng.
+    - Trên màn hình di động (`<= 768px`), hệ thống tự động ưu tiên chế độ xem Dạng Thẻ: Mỗi phương vị là một Thẻ Card độc lập, cân đối tuyệt đối với viền màu nhận diện Cát Hung (Đại Cát, Cát Lợi, Thứ Cát, Bình Hòa, Hung Kỵ).
+    - Cấu trúc Môn - Tinh - Thần - Can được chia thành 4 ô thông số sắc nét, font chữ gọn gàng.
+    - Hộp chỉ dẫn ứng dụng hôn lễ, xe hoa và phong thủy tân hôn hiển thị thoáng đãng, dễ đọc, không cần vuốt ngang màn hình.
+  - **Chuẩn Hóa Dạng Bảng (Table View) Chống Co Rúm Chữ**:
+    - Thiết lập `min-width: 760px` và cố định tiêu đề cột `white-space: nowrap` cho bảng dữ liệu, đảm bảo chữ không bao giờ bị gãy hàng hay ép méo khi xem trên bất kỳ kích cỡ màn hình nào.
+    - Hỗ trợ thanh cuộn ngang mượt mà (`-webkit-overflow-scrolling: touch`) kèm thông báo chỉ dẫn cuộn ngang nhẹ nhàng cho người dùng di động.
+
 ### [v1.31.0] - 2026-09-18
 - **Tối Ưu Chuẩn Hóa Cục Số Kỳ Môn Độn Giáp Theo Siêu Thần Tiếp Khí & Trí Nhuận (Cổ Bản)**:
   - **Loại Bỏ Chế Độ Tùy Chọn Thủ Công**:

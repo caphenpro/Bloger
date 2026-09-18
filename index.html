@@ -4271,25 +4271,187 @@
       gap: 0.4rem;
     }
 
-    /* Bảng 8 Hướng Địa Lý */
+    /* Bảng & Thẻ 8 Hướng Địa Lý Kỳ Môn Hôn Nhân */
+    .km-dir-view-toggle {
+      display: inline-flex;
+      align-items: center;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      gap: 3px;
+    }
+    .km-view-toggle-btn {
+      border: none;
+      background: transparent;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #64748b;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .km-view-toggle-btn:hover {
+      color: #1e293b;
+    }
+    .km-view-toggle-btn.active {
+      background: #ffffff;
+      color: #1e3a8a;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Dạng Thẻ 8 Hướng (Tối ưu hoàn hảo trên Di Động & Màn hình nhỏ) */
+    .km-dir-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 0.85rem;
+      margin-top: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .km-dir-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .km-dir-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.95rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+    }
+    .km-dir-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    }
+    .km-dir-card.card-cat-dai {
+      border-left: 4.5px solid #16a34a;
+      background: #fafdfb;
+    }
+    .km-dir-card.card-cat-loi {
+      border-left: 4.5px solid #22c55e;
+      background: #ffffff;
+    }
+    .km-dir-card.card-thu-cat {
+      border-left: 4.5px solid #0284c7;
+      background: #fafcfe;
+    }
+    .km-dir-card.card-binh-hoa {
+      border-left: 4.5px solid #64748b;
+      background: #fbfbfb;
+    }
+    .km-dir-card.card-hung-ky {
+      border-left: 4.5px solid #ef4444;
+      background: #fffcfc;
+    }
+
+    .km-dir-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .km-dir-card-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .km-dir-card-sub {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 0.1rem;
+    }
+
+    /* 4 Tham số Bát Môn Cửu Tinh Bát Thần Kỳ Nghi */
+    .km-dir-card-params {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.45rem 0.65rem;
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+      border-radius: 8px;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.8rem;
+    }
+    @media (min-width: 460px) and (max-width: 640px) {
+      .km-dir-card-params {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .km-param-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.3rem;
+    }
+    .km-param-label {
+      color: #64748b;
+      font-size: 0.75rem;
+    }
+    .km-param-val {
+      font-weight: 700;
+    }
+
+    .km-dir-card-advice {
+      background: #fafaf9;
+      border: 1px dashed #e7e5e4;
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: #334155;
+    }
+
+    /* Bảng 8 Hướng Địa Lý (Khi xem dạng Table) */
     .km-dir-table-wrap {
       overflow-x: auto;
-      margin-top: 1rem;
+      -webkit-overflow-scrolling: touch;
+      margin-top: 0.85rem;
       border-radius: 12px;
       border: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+    .km-table-scroll-hint {
+      background: #eff6ff;
+      color: #1e40af;
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 0.45rem 0.75rem;
+      border-bottom: 1px dashed #bfdbfe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
     }
     .km-dir-table {
       width: 100%;
+      min-width: 760px; /* Đảm bảo tuyệt đối không bị co ép méo chữ trên màn hình di động */
       border-collapse: collapse;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       text-align: left;
     }
     .km-dir-table th {
-      background: #f1f5f9;
+      background: #f8fafc;
       color: #334155;
       font-weight: 700;
       padding: 0.75rem 0.85rem;
       border-bottom: 1.5px solid #cbd5e1;
+      white-space: nowrap; /* Không ngắt dòng tiêu đề cột */
     }
     .km-dir-table td {
       padding: 0.75rem 0.85rem;
@@ -4311,7 +4473,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.31.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.31.1</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -5303,8 +5465,8 @@
 
         <!-- KHU VỰC 3: CÁC HƯỚNG PHÙ HỢP LÀM THẾ NÀO (CHUYÊN ĐỀ HÔN NHÂN) -->
         <div style="margin-top: 1.5rem; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
-            <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="flex: 1; min-width: 260px;">
               <h3 style="font-size: 1.05rem; font-weight: 800; color: #1e293b; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
                 <span>🧭</span> Trạch Cát 8 Hướng Địa Lý Cho Hôn Nhân • Đón Dâu &amp; Xuất Hành Xe Hoa
               </h3>
@@ -5312,16 +5474,34 @@
                 Đánh giá chi tiết 8 phương vị địa lý theo cấu trúc Bát Môn, Cửu Tinh, Bát Thần và Kỳ Nghi của quẻ hiện tại. Hướng dẫn cụ thể hướng xuất hành đón dâu, rước rể, dạm ngõ, vị trí phòng tân hôn và các hướng hung sát cần tránh.
               </p>
             </div>
+            <!-- Nút chuyển đổi xem Dạng Thẻ / Dạng Bảng -->
+            <div class="km-dir-view-toggle">
+              <button type="button" id="kmBtnViewCards" class="km-view-toggle-btn active" onclick="switchKyMonDirView('cards')" title="Xem dạng thẻ chi tiết (Tối ưu tuyệt đối trên màn hình Di Động)">
+                <span>📱</span> Dạng Thẻ
+              </button>
+              <button type="button" id="kmBtnViewTable" class="km-view-toggle-btn" onclick="switchKyMonDirView('table')" title="Xem dạng bảng tổng hợp (Có thanh cuộn ngang chống ép chữ)">
+                <span>📊</span> Dạng Bảng
+              </button>
+            </div>
           </div>
 
-          <div class="km-dir-table-wrap">
+          <!-- 1. DẠNG THẺ CHI TIẾT (TỐI ƯU CÂN ĐỐI TRÊN DI ĐỘNG & MÀN HÌNH NHỎ) -->
+          <div id="kmDirCardsContainer" class="km-dir-cards-grid">
+            <!-- 8 Thẻ phương vị render tự động qua JS -->
+          </div>
+
+          <!-- 2. DẠNG BẢNG TỔNG HỢP (MIN-WIDTH CHUẨN, KHÔNG BỊ CO ÉP CHỮ) -->
+          <div id="kmDirTableContainer" class="km-dir-table-wrap" style="display: none;">
+            <div class="km-table-scroll-hint">
+              <span>👈</span> Vuốt ngang để xem đủ 8 hướng và chỉ dẫn chi tiết <span>👉</span>
+            </div>
             <table class="km-dir-table">
               <thead>
                 <tr>
-                  <th style="width: 14%;">Phương Vị &amp; Cung</th>
-                  <th style="width: 22%;">Cấu Trúc Quẻ (Môn • Tinh • Thần • Can)</th>
-                  <th style="width: 18%;">Đánh Giá Hôn Nhân</th>
-                  <th style="width: 46%;">Chỉ Dẫn Ứng Dụng Hôn Lễ &amp; Nghênh Hôn</th>
+                  <th style="width: 140px; min-width: 140px;">Phương Vị &amp; Cung</th>
+                  <th style="width: 180px; min-width: 180px;">Cấu Trúc Quẻ (Môn • Tinh • Thần • Can)</th>
+                  <th style="width: 170px; min-width: 170px;">Đánh Giá Hôn Nhân</th>
+                  <th style="min-width: 280px;">Chỉ Dẫn Ứng Dụng Hôn Lễ &amp; Nghênh Hôn</th>
                 </tr>
               </thead>
               <tbody id="kmDirectionTableBody">
@@ -6100,7 +6280,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.31.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.31.1</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -6431,7 +6611,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.31.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.31.1</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -15438,7 +15618,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.31.0";
+    const APP_VERSION = "v1.31.1";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
@@ -16881,10 +17061,32 @@
       `;
     }
 
-    // Render bảng 8 Hướng Địa Lý Cho Hôn Nhân
+    // Chuyển đổi giữa Chế độ xem Dạng Thẻ và Dạng Bảng cho Trạch Cát 8 Hướng
+    window.switchKyMonDirView = function(mode) {
+      window._kyMonDirViewChosen = true;
+      const cardsEl = document.getElementById('kmDirCardsContainer');
+      const tableEl = document.getElementById('kmDirTableContainer');
+      const btnCards = document.getElementById('kmBtnViewCards');
+      const btnTable = document.getElementById('kmBtnViewTable');
+
+      if (mode === 'table') {
+        if (cardsEl) cardsEl.style.display = 'none';
+        if (tableEl) tableEl.style.display = 'block';
+        btnTable?.classList.add('active');
+        btnCards?.classList.remove('active');
+      } else {
+        if (cardsEl) cardsEl.style.display = 'grid';
+        if (tableEl) tableEl.style.display = 'none';
+        btnCards?.classList.add('active');
+        btnTable?.classList.remove('active');
+      }
+    };
+
+    // Render bảng & thẻ 8 Hướng Địa Lý Cho Hôn Nhân
     function renderKyMonDirections(res) {
       const tbody = document.getElementById('kmDirectionTableBody');
-      if (!tbody) return;
+      const cardsWrap = document.getElementById('kmDirCardsContainer');
+      if (!tbody && !cardsWrap) return;
 
       // 8 Hướng tương ứng 8 cung biên (Khảm 1 -> Bắc, Cấn 8 -> Đông Bắc, Chấn 3 -> Đông, Tốn 4 -> Đông Nam, Ly 9 -> Nam, Khôn 2 -> Tây Nam, Đoài 7 -> Tây, Càn 6 -> Tây Bắc)
       const dirList = [
@@ -16898,7 +17100,8 @@
         { palace: 6, dirName: "Tây Bắc", bagua: "Càn (6) - Kim" }
       ];
 
-      let html = '';
+      let tableHtml = '';
+      let cardsHtml = '';
 
       dirList.forEach(item => {
         const p = item.palace;
@@ -16911,29 +17114,34 @@
 
         const isKong = res.tuanThu.xunKongPalaces.includes(p);
         const isHorse = (res.dichMa.palace === p);
-        const forms = res.palaceFormations[p] || [];
 
-        // Đánh giá cát hung
+        // Đánh giá cát hung & phân loại class giao diện
         let evalTag = "";
         let advice = "";
+        let cardClass = "card-binh-hoa";
 
         if (m.includes("Sinh") || m.includes("Hưu") || m.includes("Khai")) {
           if (g === "Lục Hợp" || g === "Thái Âm" || g === "Cửu Thiên" || g === "Trực Phù") {
             evalTag = `<span class="km-eval-pill km-eval-cat">🌟 Đại Cát Nghênh Hôn</span>`;
             advice = `<strong>Hướng Thượng Đẳng đón dâu &amp; xuất hành xe hoa.</strong> Đắc Cát Môn (${m}) hợp cát thần (${g}). Khi đoàn rước dâu xuất phát, nên hướng đầu xe về phía <strong>${item.dirName}</strong> trước để đón sinh khí vượng cát. Rất tốt để đặt bàn thờ tơ hồng, bàn gia tiên.`;
+            cardClass = "card-cat-dai";
           } else {
             evalTag = `<span class="km-eval-pill km-eval-cat">🍀 Cát Lợi</span>`;
             advice = `Hướng thuận hòa, đắc ${m}. Thích hợp đi lại, đưa rước họ hàng đôi bên, mở cổng nghênh đón xe hoa hoặc đặt phòng tân hôn.`;
+            cardClass = "card-cat-loi";
           }
         } else if (m.includes("Cảnh")) {
           evalTag = `<span class="km-eval-pill km-eval-binh">⚖️ Thứ Cát (Hỷ Khí)</span>`;
           advice = `Cửa Cảnh mang hỷ khí, tiệc tùng linh đình. Thích hợp bài trí hoa cưới, đón khách, chụp ảnh kỷ niệm. Tuy nhiên tránh đôi co to tiếng.`;
+          cardClass = "card-thu-cat";
         } else if (m.includes("Đỗ")) {
           evalTag = `<span class="km-eval-pill km-eval-binh">⚖️ Bình Hòa (Ẩn Giấu)</span>`;
           advice = `Cửa Đỗ mang tính bế kín, nên giữ mọi chuyện dạm ngõ, trao đổi sính lễ riêng tư ấm cúng, tránh phô trương lộ liễu.`;
+          cardClass = "card-binh-hoa";
         } else {
           evalTag = `<span class="km-eval-pill km-eval-hung">⚠️ Hung Kỵ Nghênh Hôn</span>`;
           advice = `<strong>Tuyệt đối tránh chọn làm hướng xuất phát đầu tiên của đoàn rước dâu.</strong> Hướng lâm ${m}${g === "Bạch Hổ" ? " + Bạch Hổ" : ""}, dễ sinh trắc trở giờ giấc hoặc khắc khẩu. Nếu lộ trình bắt buộc đi qua, hãy đi vòng qua hướng Đại Cát trước rồi mới chuyển hướng.`;
+          cardClass = "card-hung-ky";
         }
 
         if (isKong) {
@@ -16943,9 +17151,10 @@
           advice += ` <strong style="color:#c2410c;">(Có Dịch Mã: Đoàn xe di chuyển nhanh chóng, thuận lộ).</strong>`;
         }
 
-        html += `
+        // 1. Render hàng dữ liệu cho Bảng (Table)
+        tableHtml += `
           <tr>
-            <td>
+            <td style="white-space: nowrap;">
               <div style="font-weight: 800; color: #1e293b; font-size: 0.9rem;">
                 ${item.dirName}
               </div>
@@ -16964,14 +17173,64 @@
             <td>
               ${evalTag}
             </td>
-            <td style="font-size: 0.82rem; color: #334155; line-height: 1.5;">
+            <td style="font-size: 0.82rem; color: #334155; line-height: 1.55;">
               ${advice}
             </td>
           </tr>
         `;
+
+        // 2. Render thẻ cho Dạng Thẻ (Cards - Tối ưu hoàn hảo cho Điện Thoại Di Động)
+        cardsHtml += `
+          <div class="km-dir-card ${cardClass}">
+            <div class="km-dir-card-header">
+              <div>
+                <div class="km-dir-card-name">
+                  <span>🧭</span> ${item.dirName}
+                </div>
+                <div class="km-dir-card-sub">${item.bagua}</div>
+              </div>
+              <div>
+                ${evalTag}
+              </div>
+            </div>
+
+            <div class="km-dir-card-params">
+              <div class="km-param-box">
+                <span class="km-param-label">🚪 Môn:</span>
+                <span class="km-param-val" style="color: #92400e;">${m}</span>
+              </div>
+              <div class="km-param-box">
+                <span class="km-param-label">⭐ Tinh:</span>
+                <span class="km-param-val" style="color: #0369a1;">${s}</span>
+              </div>
+              <div class="km-param-box">
+                <span class="km-param-label">✨ Thần:</span>
+                <span class="km-param-val" style="color: #6b21a8;">${g}</span>
+              </div>
+              <div class="km-param-box">
+                <span class="km-param-label">📜 Can:</span>
+                <span class="km-param-val" style="color: #334155;">${tc} / ${dc}</span>
+              </div>
+            </div>
+
+            <div class="km-dir-card-advice">
+              <div style="font-weight: 700; color: #1e293b; margin-bottom: 0.25rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.3rem;">
+                <span>💡</span> Chỉ Dẫn Hôn Lễ &amp; Xe Hoa:
+              </div>
+              <div>${advice}</div>
+            </div>
+          </div>
+        `;
       });
 
-      tbody.innerHTML = html;
+      if (tbody) tbody.innerHTML = tableHtml;
+      if (cardsWrap) cardsWrap.innerHTML = cardsHtml;
+
+      // Tự động kích hoạt chế độ xem phù hợp với thiết bị nếu người dùng chưa chọn thủ công
+      if (!window._kyMonDirViewChosen) {
+        const isMobile = window.innerWidth <= 768;
+        window.switchKyMonDirView(isMobile ? 'cards' : 'table');
+      }
     }
 
     // Xuất báo cáo Quẻ Kỳ Môn Hôn Nhân dạng file .txt
