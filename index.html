@@ -3392,6 +3392,21 @@
       border-radius: 4px;
       font-size: 0.74rem;
       font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    .wedding-hour-pill:hover {
+      background: #fef3c7;
+      border-color: #f59e0b;
+      transform: translateY(-1px);
+      box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2);
+    }
+    .btn-jump-kymon:hover {
+      background: #fef3c7 !important;
+      border-color: #d97706 !important;
+      box-shadow: 0 2px 5px rgba(217, 119, 6, 0.18);
     }
     .wedding-month-selector-pill {
       padding: 0.35rem 0.75rem;
@@ -4473,7 +4488,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.31.1</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.32.0</span>
           </div>
           <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
         </div>
@@ -6280,7 +6295,7 @@
           </h4>
           <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.31.1</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.32.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
@@ -6611,7 +6626,7 @@
             "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.31.1</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.32.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -9289,7 +9304,14 @@
             renderDedicatedLeapTab(curY);
           }
           if (target === 'tab-kymon') {
-            loadKyMonCurrentDateTime();
+            if (window._preserveKyMonDate) {
+              window._preserveKyMonDate = false;
+            } else {
+              const dateInput = document.getElementById('kmAutoDate');
+              if (!dateInput || !dateInput.value) {
+                loadKyMonCurrentDateTime();
+              }
+            }
           }
           if (target === 'tab-battu') {
             loadBattuCurrentDateTime();
@@ -14139,7 +14161,7 @@
                   <th style="padding: 0.65rem 0.85rem;">Bất Tương / Hoàng Đạo</th>
                   <th style="padding: 0.65rem 0.85rem;">Phân Tích Trạch Cát (Cát / Hung)</th>
                   <th style="padding: 0.65rem 0.85rem; text-align: center;">Đánh Giá</th>
-                  <th style="padding: 0.65rem 0.85rem; text-align: center;">Tra Lịch</th>
+                  <th style="padding: 0.65rem 0.85rem; text-align: center;">Tra Cứu</th>
                 </tr>
               </thead>
               <tbody>
@@ -14174,9 +14196,14 @@
                         ${d.badgeHtml}
                       </td>
                       <td style="padding: 0.65rem 0.85rem; text-align: center; white-space: nowrap;">
-                        <button type="button" class="btn btn-xs btn-outline btn-jump-calendar" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" style="padding: 0.2rem 0.45rem; font-size: 0.72rem;">
-                          Xem 📅
-                        </button>
+                        <div style="display: inline-flex; gap: 0.3rem; justify-content: center; align-items: center;">
+                          <button type="button" class="btn btn-xs btn-jump-kymon" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" data-hour="${(d.hoangDaoHours && d.hoangDaoHours[0]) ? d.hoangDaoHours[0].chi : ''}" style="padding: 0.2rem 0.45rem; font-size: 0.72rem; background: #fffbeb; color: #92400e; border: 1px solid #f59e0b; border-radius: 4px; font-weight: 700;" title="Lập quẻ Kỳ Môn cho ngày cưới ${d.sDay}/${d.sMonth}/${d.sYear}">
+                            🔮 Kỳ Môn
+                          </button>
+                          <button type="button" class="btn btn-xs btn-outline btn-jump-calendar" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" style="padding: 0.2rem 0.45rem; font-size: 0.72rem;" title="Xem trên Lịch Vạn Niên">
+                            📅 Lịch
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   `;
@@ -14226,9 +14253,19 @@
                   badgesList.push('<span class="badge" style="background:#fefce8; color:#854d0e; border:1px solid #fef08a;">⭐ Quý Nhân Tứ Đức</span>');
                 }
 
+                // Tìm giờ hoàng đạo ban ngày ưu tiên cho lễ cưới (từ Mão 05h đến Dậu 18h)
+                let bestHourChi = '';
+                if (d.hoangDaoHours && d.hoangDaoHours.length > 0) {
+                  const daytimeHour = d.hoangDaoHours.find(h => {
+                    const cIdx = CHI.indexOf(h.chi);
+                    return cIdx >= 3 && cIdx <= 9;
+                  });
+                  bestHourChi = daytimeHour ? daytimeHour.chi : d.hoangDaoHours[0].chi;
+                }
+
                 const goodReasonsHtml = d.reasonsGood.map(r => `<div>• ${r}</div>`).join('');
                 const hoursHtml = d.hoangDaoHours.map(h => `
-                  <span class="wedding-hour-pill" title="Giờ hoàng đạo nghênh hôn">${h.canChi} (${h.time})</span>
+                  <span class="wedding-hour-pill" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" data-chi="${h.chi}" title="Bấm để lập quẻ Kỳ Môn cho giờ ${h.canChi} (${h.time}) ngày ${d.sDay}/${d.sMonth}/${d.sYear}">${h.canChi} (${h.time})</span>
                 `).join('');
 
                 return `
@@ -14280,14 +14317,19 @@
                       </div>
                     </div>
 
-                    <!-- Nút hành động xem trên Lịch Vạn Niên -->
-                    <div style="margin-top: 0.85rem; padding-top: 0.65rem; border-top: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4rem;">
-                      <span style="font-size: 0.74rem; color: #166534; font-weight: 600;">
+                    <!-- Nút hành động xem trên Lịch Vạn Niên & Quẻ Kỳ Môn -->
+                    <div style="margin-top: 0.85rem; padding-top: 0.65rem; border-top: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.45rem;">
+                      <span style="font-size: 0.74rem; color: #166534; font-weight: 600; display: flex; align-items: center; gap: 0.25rem;">
                         ✓ Hợp mệnh đôi uyên ương
                       </span>
-                      <button type="button" class="btn btn-sm btn-outline btn-jump-calendar" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" style="padding: 0.25rem 0.65rem; font-size: 0.78rem; font-weight: 700; white-space: normal; text-align: right;">
-                        Xem trên Lịch Vạn Niên ➔
-                      </button>
+                      <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+                        <button type="button" class="btn btn-sm btn-jump-kymon" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" data-hour="${bestHourChi}" style="padding: 0.28rem 0.65rem; font-size: 0.78rem; font-weight: 700; white-space: nowrap; background: #fffbeb; color: #92400e; border: 1px solid #f59e0b; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer; transition: all 0.15s ease;" title="Chuyển sang tab Kỳ Môn Độn Giáp để lập quẻ &amp; xem Trạch Cát 8 Hướng cho ngày cưới ${d.sDay}/${d.sMonth}/${d.sYear}">
+                          <span>🔮</span> Quẻ Kỳ Môn ➔
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline btn-jump-calendar" data-d="${d.sDay}" data-m="${d.sMonth}" data-y="${d.sYear}" style="padding: 0.28rem 0.65rem; font-size: 0.78rem; font-weight: 700; white-space: nowrap; text-align: right;" title="Xem chi tiết ngày trên Lịch Vạn Niên">
+                          Xem trên Lịch Vạn Niên ➔
+                        </button>
+                      </div>
                     </div>
                   </div>
                 `;
@@ -14309,6 +14351,34 @@
           }
         });
       });
+
+      // Gắn sự kiện chuyển tab sang Kỳ Môn Độn Giáp cho ngày cưới này
+      container.querySelectorAll('.btn-jump-kymon').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const d = parseInt(btn.getAttribute('data-d'), 10);
+          const m = parseInt(btn.getAttribute('data-m'), 10);
+          const y = parseInt(btn.getAttribute('data-y'), 10);
+          const hour = btn.getAttribute('data-hour');
+          if (d && m && y) {
+            jumpToKyMonDate(d, m, y, hour);
+          }
+        });
+      });
+
+      // Gắn sự kiện bấm vào từng giờ hoàng đạo pill để lập quẻ đúng giờ đó
+      container.querySelectorAll('.wedding-hour-pill').forEach(pill => {
+        pill.addEventListener('click', (e) => {
+          e.preventDefault();
+          const d = parseInt(pill.getAttribute('data-d'), 10);
+          const m = parseInt(pill.getAttribute('data-m'), 10);
+          const y = parseInt(pill.getAttribute('data-y'), 10);
+          const chi = pill.getAttribute('data-chi');
+          if (d && m && y) {
+            jumpToKyMonDate(d, m, y, chi);
+          }
+        });
+      });
     }
 
     /**
@@ -14327,6 +14397,69 @@
       const blocEl = document.getElementById('blocWeekday');
       if (blocEl) {
         blocEl.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    /**
+     * CHUYỂN SANG TAB KỲ MÔN ĐỘN GIÁP ĐẾN ĐÚNG NGÀY CƯỚI ĐƯỢC CHỌN
+     */
+    function jumpToKyMonDate(sDay, sMonth, sYear, targetHourChi) {
+      window._preserveKyMonDate = true;
+
+      const yStr = String(sYear);
+      const mStr = String(sMonth).padStart(2, '0');
+      const dStr = String(sDay).padStart(2, '0');
+      const dateVal = `${yStr}-${mStr}-${dStr}`;
+
+      const dateInput = document.getElementById('kmAutoDate');
+      if (dateInput) {
+        dateInput.value = dateVal;
+      }
+
+      // Xử lý giờ: Nếu có truyền targetHourChi (chi hoặc index)
+      const hourChiSel = document.getElementById('kmAutoHourChi');
+      const timeInput = document.getElementById('kmAutoTime');
+
+      if (targetHourChi !== undefined && targetHourChi !== null && targetHourChi !== '') {
+        let chiIdx = -1;
+        if (typeof targetHourChi === 'number') {
+          chiIdx = targetHourChi;
+        } else if (!isNaN(parseInt(targetHourChi, 10))) {
+          chiIdx = parseInt(targetHourChi, 10);
+        } else {
+          chiIdx = CHI.indexOf(targetHourChi);
+        }
+
+        if (chiIdx >= 0 && chiIdx < 12) {
+          if (hourChiSel) hourChiSel.value = String(chiIdx);
+          const hourEquiv = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22][chiIdx];
+          if (timeInput) {
+            timeInput.value = `${String(hourEquiv).padStart(2, '0')}:30`;
+          }
+        }
+      } else {
+        // Mặc định chọn giờ Tỵ (09:00 - 10:59) rất thích hợp làm lễ nghênh hôn
+        if (hourChiSel) {
+          hourChiSel.value = "5";
+          if (timeInput) timeInput.value = "09:30";
+        }
+      }
+
+      // Kích hoạt tab Kỳ Môn Độn Giáp
+      const kymonTabBtn = document.querySelector('.nav-tab[data-tab="tab-kymon"]') || document.getElementById('navTabKyMon');
+      if (kymonTabBtn) {
+        kymonTabBtn.click();
+      }
+
+      // Lập quẻ Kỳ Môn ngay cho ngày cưới này
+      calculateKyMon();
+
+      // Cuộn mượt đến đầu tab Kỳ Môn
+      const kymonTabEl = document.getElementById('tab-kymon');
+      if (kymonTabEl) {
+        kymonTabEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -15618,7 +15751,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.31.1";
+    const APP_VERSION = "v1.32.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

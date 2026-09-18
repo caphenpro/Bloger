@@ -63,7 +63,9 @@
   - **Cung Cấp 6 Giờ Hoàng Đạo Nghênh Hôn**:
     - Liệt kê chi tiết 6 giờ Hoàng Đạo cát lợi trong ngày (kèm Can Chi giờ và khung giờ chuẩn) cho lễ dạm ngõ, rước dâu, bái gia tiên và tiệc mừng.
   - **Bộ Lọc Ngày Thông Minh & Bảng Đối Chiếu Đa Chiều**:
-    - Cho phép lọc xem: *Ngày Đề Xuất (Phù hợp)*, *Chỉ Ngày Đại Cát Thượng Đẳng*, *Ngày Cuối Tuền (T7/CN)*, hoặc *Bảng Đối Chiếu Toàn Bộ Các Ngày Trong Tháng*.
+    - Cho phép lọc xem: *Ngày Đề Xuất (Phù hợp)*, *Chỉ Ngày Đại Cát Thượng Đẳng*, *Ngày Cuối Tuần (T7/CN)*, hoặc *Bảng Đối Chiếu Toàn Bộ Các Ngày Trong Tháng*.
+    - **Nút Bấm "🔮 Quẻ Kỳ Môn ➔" Chuyển Thẳng Sang Tab Kỳ Môn Độn Giáp**: Cho phép chuyển tức thì ngày cưới đã chọn sang tab Kỳ Môn, tự động đồng bộ ngày giờ và lập ngay quẻ thời bàn, thẩm định tương quan Canh - Ất, thần Lục Hợp và bảng Trạch Cát 8 Hướng xuất hành xe hoa/đón dâu.
+    - **Tương Tác Bấm Chọn Từng Giờ Hoàng Đạo**: Người dùng có thể bấm trực tiếp vào bất kỳ huy hiệu giờ hoàng đạo nào (ví dụ: *Tân Mão (05:00 - 06:59)*, *Giáp Ngọ (11:00 - 12:59)*...) để lập quẻ Kỳ Môn chuẩn xác theo đúng canh giờ đó.
     - Nút bấm **Xem trên Lịch Vạn Niên ➔** chuyển thẳng sang ngày đó trên Bloc Lịch Vạn Niên để tra cứu vạn sự chi tiết.
 - **Lưu Trữ & Tải Về Toàn Bộ 5 Tiêu Chí Đánh Giá Hòa Hợp Hôn Nhân Dạng File Văn Bản (.txt)**:
   - Tích hợp nút tải về chuyên dụng tại cả đầu và cuối khung đánh giá ("💾 Tải Về 5 Tiêu Chí (.txt)" và "💾 Tải Về Toàn Bộ 5 Tiêu Chí (.txt)").
@@ -258,6 +260,21 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.32.0] - 2026-09-18
+- **Bổ Sung Nút Chuyển Tới Quẻ Kỳ Môn Độn Giáp Trong Phần Đề Xuất Ngày Cưới**:
+  - **Tích Hợp Nút Điều Hướng Sang Kỳ Môn (Cards View & Table View)**:
+    - Trong mục *Đề Xuất Ngày Phù Hợp Kết Hôn*, tại chân mỗi thẻ ngày cưới (Cards Grid), bổ sung nút bấm nổi bật **"🔮 Quẻ Kỳ Môn ➔"** đặt song song hài hòa cùng nút "Xem trên Lịch Vạn Niên ➔".
+    - Trong chế độ bảng đối chiếu toàn bộ ngày (`weddingDaysFilter === 'all'`), bổ sung nút **"🔮 Kỳ Môn"** ngay tại cột Tra Cứu của từng hàng.
+  - **Tự Động Đồng Bộ Dữ Liệu Ngày & Giờ Nghênh Hôn**:
+    - Khi người dùng bấm **"🔮 Quẻ Kỳ Môn ➔"**, hệ thống tự động:
+      1. Thiết lập giá trị ngày Dương lịch (`#kmAutoDate`) tương ứng với ngày cưới được chọn.
+      2. Tự động ưu tiên chọn giờ Hoàng Đạo ban ngày thích hợp cho lễ nghênh hôn (như Giờ Tỵ, Giờ Thìn, Giờ Ngọ...).
+      3. Chuyển ngay lập tức sang Tab **Kỳ Môn Độn Giáp** (`tab-kymon`) mà không bị tự động reset về ngày giờ hiện tại.
+      4. Kích hoạt tính toán lại toàn bộ Quẻ Kỳ Môn thời bàn, thẩm định tương quan Canh (Nhà Trai) vs Ất (Nhà Gái), trạng thái thần Lục Hợp, Bát Môn và bảng Trạch Cát 8 Hướng.
+      5. Tự động cuộn mượt (smooth scroll) đến đầu phần Kỳ Môn để người dùng xem kết quả tức thì.
+  - **Hỗ Trợ Bấm Trực Tiếp Vào Từng Giờ Hoàng Đạo (Pill Interaction)**:
+    - Các huy hiệu giờ hoàng đạo (*Tân Mão*, *Giáp Ngọ*, *Mậu Tý*...) trên thẻ ngày cưới được trang bị hiệu ứng tương tác (hover sáng màu hổ phách, con trỏ pointer). Khi người dùng bấm trực tiếp vào bất kỳ giờ nào, hệ thống sẽ mở ngay quẻ Kỳ Môn được lập chính xác theo đúng canh giờ hoàng đạo đó.
 
 ### [v1.31.1] - 2026-09-18
 - **Khắc Phục Lỗi Mất Cân Đối Giao Diện Trên Di Động Cho Bảng Trạch Cát 8 Hướng Kỳ Môn**:
