@@ -3648,7 +3648,8 @@
        STYLING BẢN IN / LƯU LÁ SỐ BÁT TỰ & BẢN ĐÁNH GIÁ HÒA HỢP HÔN NHÂN (A4/PDF)
        ============================================================ */
     .battu-print-sheet,
-    .wedding-print-sheet {
+    .wedding-print-sheet,
+    .kymon-print-sheet {
       display: none;
     }
 
@@ -3692,7 +3693,8 @@
       }
 
       /* 3. Hiển thị Bản In Bát Tự Tứ Trụ khi in Bát Tự */
-      body:not(.print-wedding-mode) #battuPrintSheet {
+      body.print-battu-mode #battuPrintSheet,
+      body:not(.print-wedding-mode):not(.print-kymon-mode) #battuPrintSheet {
         display: block !important;
         position: static !important;
         width: 100% !important;
@@ -3715,13 +3717,40 @@
       body:not(.print-wedding-mode) #weddingPrintSheet {
         display: none !important;
       }
+      body:not(.print-kymon-mode) #kymonPrintSheet {
+        display: none !important;
+      }
 
-      body.print-wedding-mode #battuPrintSheet {
+      body.print-wedding-mode #battuPrintSheet,
+      body.print-wedding-mode #kymonPrintSheet {
         display: none !important;
       }
 
       /* 4. Hiển thị Bản In Đánh Giá Hòa Hợp Hôn Nhân khi in 5 Tiêu Chí Cưới */
       body.print-wedding-mode #weddingPrintSheet {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
+        color: #111827 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        font-size: 8.5pt !important;
+        line-height: 1.38 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* 5. Hiển thị Bản In Quẻ Kỳ Môn Độn Giáp khi in Kỳ Môn */
+      body.print-kymon-mode #battuPrintSheet,
+      body.print-kymon-mode #weddingPrintSheet {
+        display: none !important;
+      }
+
+      body.print-kymon-mode #kymonPrintSheet {
         display: block !important;
         position: static !important;
         width: 100% !important;
@@ -4193,6 +4222,78 @@
         color: #64748b;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
+      }
+
+      /* KỲ MÔN ĐỘN GIÁP PRINT STYLING */
+      #kymonPrintSheet * {
+        box-sizing: border-box !important;
+      }
+
+      .print-km-header {
+        border-bottom: 2px solid #b45309;
+        padding-bottom: 0.35rem;
+        margin-bottom: 0.45rem;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-km-title {
+        font-size: 14.5pt !important;
+        font-weight: 800 !important;
+        color: #92400e !important;
+        text-align: center;
+        margin: 0 0 2px 0;
+        letter-spacing: 0.5px;
+      }
+      .print-km-subtitle {
+        font-size: 7.5pt !important;
+        text-align: center;
+        color: #b45309;
+        margin-bottom: 0.35rem;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+      .print-km-meta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.3rem 0.5rem;
+        background: #fffbeb;
+        border: 1px solid #fde68a;
+        border-radius: 5px;
+        padding: 0.35rem 0.6rem;
+        font-size: 7.8pt;
+        line-height: 1.35;
+        margin-bottom: 0.45rem;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-km-section-title {
+        font-size: 8.8pt !important;
+        font-weight: 800 !important;
+        color: #92400e !important;
+        border-bottom: 1.5px solid #f59e0b;
+        padding-bottom: 2px;
+        margin-top: 0.4rem;
+        margin-bottom: 0.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      #kymonPrintSheet .km-palace-cell {
+        padding: 0.25rem 0.35rem !important;
+        font-size: 7.2pt !important;
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+      }
+      #kymonPrintSheet .km-dir-card {
+        padding: 0.28rem 0.45rem !important;
+        font-size: 7.2pt !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
       }
     }
 
@@ -5362,9 +5463,12 @@
                 Phân tích chi tiết tiêu chí đánh giá tương quan tính cách, nếp sống gia đạo, chí hướng xã hội, môi trường nuôi dưỡng &amp; không gian sống qua năm sinh (Nghiên cứu Mệnh lý học Đông Phương &amp; Xã hội học hiện đại)
               </span>
             </div>
-            <div>
-              <button type="button" class="btn btn-outline btn-print-wedding-eval" id="btnPrintWeddingEvalTop" style="font-size: 0.84rem; font-weight: 700; color: #1e3a8a; border-color: #93c5fd; background: #eff6ff; display: flex; align-items: center; gap: 0.45rem; padding: 0.42rem 0.9rem; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); cursor: pointer; white-space: nowrap;" title="Lưu và tải về file văn bản (.txt) 5 tiêu chí hòa hợp">
-                <span>💾</span> Tải Về 5 Tiêu Chí (.txt)
+            <div style="display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center;">
+              <button type="button" class="btn btn-outline" id="btnSaveWeddingTxtTop" style="font-size: 0.82rem; font-weight: 700; color: #1e3a8a; border-color: #93c5fd; background: #eff6ff; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.42rem 0.85rem; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); cursor: pointer; white-space: nowrap;" title="Lưu file văn bản (.txt) 5 tiêu chí hòa hợp">
+                <span>💾</span> Lưu (.txt)
+              </button>
+              <button type="button" class="btn btn-primary" id="btnPrintWeddingEvalTop" style="font-size: 0.82rem; font-weight: 700; color: #ffffff; background: #1e3a8a; border-color: #1e40af; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.42rem 0.95rem; border-radius: 6px; box-shadow: 0 2px 5px rgba(30,58,138,0.25); cursor: pointer; white-space: nowrap;" title="In hoặc lưu file PDF A4 toàn bộ 5 tiêu chí">
+                <span>🖨️</span> In (A4/PDF)
               </button>
             </div>
           </div>
@@ -5456,9 +5560,12 @@
                 <div style="background: rgba(255, 255, 255, 0.88); border: 1.5px solid #d8b4fe; border-radius: 6px; padding: 0.85rem 1rem; font-size: 0.86rem; color: #581c87; line-height: 1.65; margin-bottom: 0.85rem; word-break: break-word;">
                   <strong>⭐ Yếu Tố Quyết Định Cốt Lõi:</strong> Để có cái nhìn chuẩn xác và thấu đáo nhất về số mệnh hôn nhân, quý vị cần đối chiếu <strong>Lá Số Bát Tự Tứ Trụ Chính Xác (đầy đủ Năm • Tháng • Ngày • Giờ sinh)</strong> của cả hai người. Trong Bát Tự Tử Bình, <strong>Trụ Ngày (Nhật Trụ)</strong> mới chính là đại diện chân thực cho bản thân (Nhật Can) và Cung Phối Ngẫu / Cung Phu Thê (Nhật Chi). Mối quan hệ giữa 2 Trụ Ngày, Thập Thần phu thê (Chính Quan/Thất Sát ở nữ, Chính Tài/Thiên Tài ở nam), cùng cấu trúc cân bằng Hỷ Dụng Thần của toàn bộ 8 chữ mới quyết định gốc rễ vận mệnh, thăng trầm và sự tương hợp thực sự.
                 </div>
-                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                  <button type="button" class="btn btn-primary btn-print-wedding-eval" id="btnPrintWeddingEvalBottom" style="background: #1e3a8a; color: #ffffff; border-color: #1e40af; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.45rem; padding: 0.5rem 1rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(30, 58, 138, 0.25); cursor: pointer; white-space: normal; line-height: 1.35; text-align: left; max-width: 100%;" title="Lưu và tải về file văn bản (.txt) toàn bộ 5 tiêu chí hòa hợp">
-                    <span>💾</span> Tải Về Toàn Bộ 5 Tiêu Chí (.txt)
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+                  <button type="button" class="btn btn-outline" id="btnSaveWeddingTxtBottom" style="background: #ffffff; color: #1e3a8a; border-color: #93c5fd; font-weight: 700; font-size: 0.84rem; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 0.95rem; border-radius: 6px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); cursor: pointer; white-space: nowrap;" title="Lưu file văn bản (.txt) toàn bộ 5 tiêu chí hòa hợp">
+                    <span>💾</span> Lưu (.txt)
+                  </button>
+                  <button type="button" class="btn btn-primary" id="btnPrintWeddingEvalBottom" style="background: #1e3a8a; color: #ffffff; border-color: #1e40af; font-weight: 700; font-size: 0.84rem; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 1.05rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(30, 58, 138, 0.25); cursor: pointer; white-space: nowrap;" title="In bản đẹp hoặc lưu file PDF A4 toàn bộ 5 tiêu chí">
+                    <span>🖨️</span> In (A4/PDF)
                   </button>
                   <button type="button" class="btn btn-outline" id="btnGoBattuGroom" style="background: #ffffff; color: #1e40af; border-color: #93c5fd; font-weight: 700; font-size: 0.84rem; display: flex; align-items: center; gap: 0.4rem; white-space: normal; line-height: 1.35; text-align: left; max-width: 100%;">
                     <span>🤵</span> Xem Lá Số Bát Tự Chi Tiết Chú Rể ➔
@@ -5701,8 +5808,11 @@
               <button type="button" class="btn btn-primary" style="background: #b45309; border-color: #b45309; font-size: 0.82rem; padding: 0.45rem 1.15rem; font-weight: 700;" onclick="calculateKyMon()">
                 🔮 Lập Quẻ Kỳ Môn
               </button>
-              <button type="button" class="btn btn-outline" style="color: #b45309; border-color: #f59e0b; font-size: 0.82rem; padding: 0.45rem 0.85rem;" onclick="exportKyMonToTxt()">
-                💾 Tải Báo Cáo Quẻ (.txt)
+              <button type="button" class="btn btn-outline" id="btnSaveKyMonTxt" style="color: #b45309; border-color: #f59e0b; font-size: 0.82rem; padding: 0.45rem 0.85rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;" onclick="exportKyMonToTxt()" title="Lưu file văn bản (.txt) báo cáo quẻ Kỳ Môn">
+                <span>💾</span> Lưu (.txt)
+              </button>
+              <button type="button" class="btn btn-primary" id="btnPrintKyMonPdf" style="background: #b45309; border-color: #b45309; color: #ffffff; font-size: 0.82rem; padding: 0.45rem 0.95rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;" onclick="printKyMon()" title="In hoặc lưu file PDF A4 quẻ Kỳ Môn Độn Giáp">
+                <span>🖨️</span> In (A4/PDF)
               </button>
             </div>
 
@@ -5873,8 +5983,11 @@
           <button type="button" class="btn btn-outline" id="btnBattuNow" title="Lấy ngày và giờ hiện tại của hệ thống để lập lá số">
             ⏱️ Lấy Giờ Hiện Tại
           </button>
-          <button class="btn btn-outline" id="btnPrintBattu" title="Lưu và tải về file văn bản (.txt) lá số Bát Tự Tứ Trụ">
-            💾 Tải Về Dạng TXT
+          <button type="button" class="btn btn-outline" id="btnSaveBattuTxt" style="display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700;" title="Lưu file văn bản (.txt) lá số Bát Tự Tứ Trụ">
+            <span>💾</span> Lưu (.txt)
+          </button>
+          <button type="button" class="btn btn-primary" id="btnPrintBattuPdf" style="background: #1e40af; border-color: #1e40af; color: #ffffff; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700;" title="In hoặc lưu file PDF A4 lá số Bát Tự Tứ Trụ">
+            <span>🖨️</span> In (A4/PDF)
           </button>
         </div>
       </div>
@@ -7219,6 +7332,54 @@
     <div class="print-w-footer">
       <div>Ứng dụng Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Thuận theo tự nhiên - Đoán biết mệnh số</div>
       <div id="prWTimestamp">In lúc: --/--/---- --:--</div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- BẢN IN / LƯU BÁO CÁO QUẺ KỲ MÔN ĐỘN GIÁP (A4 / PDF)                      -->
+  <!-- Thiết kế tối ưu in ấn chuẩn mực A4 chuyên đề hôn nhân & trạch cát         -->
+  <!-- ========================================================================= -->
+  <div id="kymonPrintSheet" class="kymon-print-sheet">
+    <div class="print-km-header">
+      <div class="print-km-title">BÁO CÁO QUẺ KỲ MÔN ĐỘN GIÁP (THỜI BÀN)</div>
+      <div class="print-km-subtitle">CHUYÊN ĐỀ HÔN NHÂN NGHÊNH HÔN &amp; TRẠCH CÁT 8 HƯỚNG • CỔ BẢN TRƯƠNG TỬ PHÒNG - GIA CÁT LƯỢNG</div>
+      <div class="print-km-meta-grid">
+        <div><strong>Thời gian xem quẻ:</strong> <span id="prKmDateTime">--</span></div>
+        <div><strong>Tứ Trụ Ngày Giờ:</strong> <span id="prKmTuTru" style="font-weight: 700; color: #92400e;">--</span></div>
+        <div><strong>Tiết Khí Thiên Văn:</strong> <span id="prKmSolarTerm">--</span></div>
+        <div><strong>Cấu Trúc Khởi Cục:</strong> <span id="prKmCuc" style="font-weight: 700; color: #b45309;">--</span></div>
+        <div><strong>Trực Phù &amp; Trực Sử:</strong> <span id="prKmTrucPhuSu">--</span></div>
+        <div><strong>Tuần Thủ &amp; Tuần Không:</strong> <span id="prKmTuanThu">--</span></div>
+      </div>
+    </div>
+
+    <!-- I. BÀN CỜ QUẺ KỲ MÔN CỬU CUNG -->
+    <div class="print-section" style="margin-bottom: 0.45rem;">
+      <div class="print-km-section-title">I. BÀN CỜ KỲ MÔN CỬU CUNG LẠC THƯ</div>
+      <div class="km-grid-3x3" id="prKmBoardGrid" style="max-width: 520px; margin: 0 auto;">
+        <!-- JS fill -->
+      </div>
+    </div>
+
+    <!-- II. PHÂN TÍCH QUẺ HÔN NHÂN & NGHÊNH HÔN -->
+    <div class="print-section" style="margin-bottom: 0.45rem;">
+      <div class="print-km-section-title">II. PHÂN TÍCH CHUYÊN ĐỀ HÔN NHÂN &amp; NGHÊNH HÔN</div>
+      <div id="prKmHourVerdict">
+        <!-- JS fill -->
+      </div>
+    </div>
+
+    <!-- III. TRẠCH CÁT 8 HƯỚNG ĐỊA LÝ -->
+    <div class="print-section">
+      <div class="print-km-section-title">III. TRẠCH CÁT 8 HƯỚNG ĐỊA LÝ • XUẤT HÀNH XE HOA &amp; ĐÓN DÂU</div>
+      <div id="prKmDirSummary" class="km-dir-cards-grid" style="grid-template-columns: repeat(2, 1fr); gap: 0.35rem;">
+        <!-- JS fill -->
+      </div>
+    </div>
+
+    <div class="print-w-footer" style="margin-top: 0.5rem;">
+      <div>Ứng dụng Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Cổ bản Trương Tử Phòng - Gia Cát Lượng</div>
+      <div id="prKmTimestamp">In lúc: --/--/---- --:--</div>
     </div>
   </div>
 
@@ -13291,11 +13452,16 @@
         });
       });
 
-      // Nút tải về toàn bộ 5 tiêu chí đánh giá hòa hợp hôn nhân (File TXT)
+      // Nút Lưu (.txt) và In (A4/PDF) 5 tiêu chí đánh giá hòa hợp hôn nhân
+      const btnSaveTop = document.getElementById('btnSaveWeddingTxtTop');
+      if (btnSaveTop) btnSaveTop.addEventListener('click', exportWeddingEvalToTxt);
+      const btnSaveBottom = document.getElementById('btnSaveWeddingTxtBottom');
+      if (btnSaveBottom) btnSaveBottom.addEventListener('click', exportWeddingEvalToTxt);
+
       const btnPrintTop = document.getElementById('btnPrintWeddingEvalTop');
-      if (btnPrintTop) btnPrintTop.addEventListener('click', exportWeddingEvalToTxt);
+      if (btnPrintTop) btnPrintTop.addEventListener('click', printWeddingEvaluation);
       const btnPrintBottom = document.getElementById('btnPrintWeddingEvalBottom');
-      if (btnPrintBottom) btnPrintBottom.addEventListener('click', exportWeddingEvalToTxt);
+      if (btnPrintBottom) btnPrintBottom.addEventListener('click', printWeddingEvaluation);
 
       // Khởi chạy phân tích mặc định
       calculateWeddingTime();
@@ -13529,6 +13695,8 @@
       }
 
       // 3. Thêm class kích hoạt chế độ in Khung Hòa Hợp Hôn Nhân
+      document.body.classList.remove('print-battu-mode');
+      document.body.classList.remove('print-kymon-mode');
       document.body.classList.add('print-wedding-mode');
 
       // 4. Kích hoạt hộp thoại in / lưu PDF của trình duyệt
@@ -15514,13 +15682,34 @@
       setElText('prPrintTimestamp', `In lúc: ${timeStr}`);
     }
 
+    function printBattu() {
+      calculateBattu();
+      document.body.classList.remove('print-wedding-mode');
+      document.body.classList.remove('print-kymon-mode');
+      document.body.classList.add('print-battu-mode');
+      window.print();
+      const cleanupBattuPrint = () => {
+        document.body.classList.remove('print-battu-mode');
+        window.removeEventListener('afterprint', cleanupBattuPrint);
+      };
+      window.addEventListener('afterprint', cleanupBattuPrint);
+      setTimeout(cleanupBattuPrint, 3000);
+    }
+
     function setupBattuForm() {
       document.getElementById('btnCalculateBattu').addEventListener('click', calculateBattu);
       document.getElementById('btnBattuNow')?.addEventListener('click', () => {
         loadBattuCurrentDateTime();
       });
-      document.getElementById('btnPrintBattu').addEventListener('click', () => {
+      // Nút Lưu (.txt) và In (A4/PDF) Lá số Bát Tự
+      document.getElementById('btnSaveBattuTxt')?.addEventListener('click', () => {
         exportBattuToTxt();
+      });
+      document.getElementById('btnPrintBattuPdf')?.addEventListener('click', () => {
+        printBattu();
+      });
+      document.getElementById('btnPrintBattu')?.addEventListener('click', () => {
+        printBattu();
       });
       // Khởi tạo luôn luôn lấy thời gian hiện tại
       loadBattuCurrentDateTime();
@@ -18418,6 +18607,81 @@
 
       const filename = `Que_Ky_Mon_Hon_Nhan_${res.dayCan}_${res.dayChi}_Gio_${res.hourChi}.txt`;
       downloadTextFile(filename, txt);
+    }
+
+    // In ấn & Xuất bản PDF chuẩn A4 cho Quẻ Kỳ Môn Độn Giáp
+    function printKyMon() {
+      if (!currentKyMonResult) {
+        calculateKyMon();
+      }
+      if (!currentKyMonResult) {
+        alert("Chưa có dữ liệu quẻ Kỳ Môn để in!");
+        return;
+      }
+
+      const res = currentKyMonResult;
+
+      // 1. Điền thông tin tiêu đề và thông số
+      const prDate = document.getElementById('prKmDateTime');
+      if (prDate) prDate.textContent = `Ngày ${res.metaInfo.dateStr || ''} • Giờ ${res.metaInfo.timeStr || ''}`;
+
+      const prTuTru = document.getElementById('prKmTuTru');
+      if (prTuTru) prTuTru.textContent = `Ngày ${res.dayCan} ${res.dayChi} • Giờ ${res.hourCan} ${res.hourChi}`;
+
+      const prSolar = document.getElementById('prKmSolarTerm');
+      if (prSolar) prSolar.textContent = `${res.metaInfo.solarTermName || ''} (${res.metaInfo.solarDegText || ''})`;
+
+      const prCuc = document.getElementById('prKmCuc');
+      if (prCuc) prCuc.textContent = `${res.donType} Độn Cục ${res.cucSo} (${res.metaInfo.tamNguyenName || ''})`;
+
+      const prPhuSu = document.getElementById('prKmTrucPhuSu');
+      if (prPhuSu) prPhuSu.textContent = `Trực Phù: ${res.leadStar} (Cung ${res.targetStarPalace}) • Trực Sử: ${res.leadGate} (Cung ${res.targetGatePalace})`;
+
+      const prTuanThu = document.getElementById('prKmTuanThu');
+      if (prTuanThu) prTuanThu.textContent = `Tuần: ${res.tuanThu.name} • Không: ${res.tuanThu.xunKongChi.join(', ')}`;
+
+      // 2. Clone bàn cờ 3x3
+      const srcBoard = document.getElementById('kmBoardGrid');
+      const destBoard = document.getElementById('prKmBoardGrid');
+      if (srcBoard && destBoard) {
+        destBoard.innerHTML = srcBoard.innerHTML;
+      }
+
+      // 3. Clone phân tích hôn nhân
+      const srcVerdict = document.getElementById('kmHourVerdictBox');
+      const destVerdict = document.getElementById('prKmHourVerdict');
+      if (srcVerdict && destVerdict) {
+        destVerdict.innerHTML = srcVerdict.innerHTML;
+      }
+
+      // 4. Clone hướng trạch cát 8 hướng
+      const srcDir = document.getElementById('kmDirCardsContainer');
+      const destDir = document.getElementById('prKmDirSummary');
+      if (srcDir && destDir) {
+        destDir.innerHTML = srcDir.innerHTML;
+      }
+
+      // 5. Thời gian in ấn
+      const now = new Date();
+      const prTime = document.getElementById('prKmTimestamp');
+      if (prTime) {
+        const dStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} lúc ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        prTime.textContent = `In lúc: ${dStr} • Ứng dụng Lịch Âm Dương & Kỳ Môn Độn Giáp`;
+      }
+
+      // 6. Kích hoạt chế độ in
+      document.body.classList.remove('print-battu-mode');
+      document.body.classList.remove('print-wedding-mode');
+      document.body.classList.add('print-kymon-mode');
+
+      window.print();
+
+      const cleanupKmPrint = () => {
+        document.body.classList.remove('print-kymon-mode');
+        window.removeEventListener('afterprint', cleanupKmPrint);
+      };
+      window.addEventListener('afterprint', cleanupKmPrint);
+      setTimeout(cleanupKmPrint, 3000);
     }
 
     // Khởi chạy khi load trang

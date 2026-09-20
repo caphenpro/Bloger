@@ -262,7 +262,22 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
-### [v1.33.2] - 2026-09-18
+### [v1.34.0] - 2026-09-19
+- **Chuẩn Hóa Bộ Nút Thao Tác "Lưu, In" Cho Toàn Bộ Ứng Dụng (Bát Tự, Hôn Nhân & Kỳ Môn)**:
+  - **Đổi Tên & Tách Biệt Nhu Cầu "Lưu, In" Toàn Diện**:
+    - Thay thế toàn bộ các nút dán nhãn *"Tải Về"* cũ bằng cặp nút chuyên dụng **💾 Lưu (.txt)** và **🖨️ In (A4/PDF)**, đáp ứng chính xác nhu cầu lưu trữ văn bản nhẹ hoặc in ấn/xuất PDF trực tiếp.
+  - **Phạm Vi Nâng Cấp Chi Tiết**:
+    - **Tab Hôn Nhân (Khung Đánh Giá 5 Tiêu Chí)**:
+      - Nút trên đỉnh: Bổ sung nút **💾 Lưu (.txt)** (`#btnSaveWeddingTxtTop`) và nâng cấp nút in **🖨️ In (A4/PDF)** (`#btnPrintWeddingEvalTop`).
+      - Nút chân trang: Bổ sung nút **💾 Lưu (.txt)** (`#btnSaveWeddingTxtBottom`) và nâng cấp nút in **🖨️ In (A4/PDF)** (`#btnPrintWeddingEvalBottom`).
+    - **Tab Bát Tự Tứ Trụ**:
+      - Bổ sung nút **💾 Lưu (.txt)** (`#btnSaveBattuTxt`) xuất file văn bản chi tiết lá số Bát Tự.
+      - Nâng cấp nút **🖨️ In (A4/PDF)** (`#btnPrintBattuPdf` & `#btnPrintBattu`) kích hoạt bản in A4 lá số Tử Bình hoàn chỉnh.
+    - **Tab Kỳ Môn Độn Giáp Hôn Nhân**:
+      - Nâng cấp nút xuất file text thành **💾 Lưu (.txt)** (`#btnSaveKyMonTxt`).
+      - Xây dựng mới hoàn toàn chức năng **🖨️ In (A4/PDF)** (`#btnPrintKyMonPdf`) cùng Bản In A4 chuyên nghiệp `#kymonPrintSheet` (Bàn cờ 9 cung Lạc Thư, luận đoán nghênh hôn và trạch cát 8 hướng).
+  - **Tối Ưu CSS @media print Chuyên Dụng**:
+    - Thiết lập cơ chế hiển thị độc lập cho từng loại bản in: `body.print-wedding-mode`, `body.print-battu-mode`, `body.print-kymon-mode`, đảm bảo không bị chồng lấn hay vỡ trang khi in hoặc xuất PDF.
 - **Khắc Phục Lỗi Hiển Thị Nội Dung "Hiệp Kỷ Luận Sự" & "Cưới Hỏi Trạch Cát" Trên Thẻ Giờ**:
   - **Sửa lỗi thiếu trường dữ liệu trong danh sách Canh Giờ**: Bổ sung đầy đủ 2 thuộc tính `weddingMeaning` (Luận sự bách sự theo thần sát và xung hợp) và `weddingAdvice` (Chỉ dẫn cụ thể cho cưới hỏi, rước dâu, an sàng, bái đường) vào từng đối tượng canh giờ trả về từ hàm `getHourHoangDaoList`.
   - **Đồng bộ cơ chế phân tích cho từng trường hợp đặc biệt**:
