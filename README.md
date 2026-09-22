@@ -269,6 +269,16 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
+### [v1.35.1] - 2026-09-22
+- **Khắc Phục Toàn Diện Lỗi Hiển Thị Ký Tự Trong Tab Tháng Nhuận (`#tab-leapyear`)**:
+  - **Sửa lỗi hiển thị mã LaTeX thô chưa biên dịch**:
+    - Thay thế `$15^\circ$` thành `15°` trong đoạn giải thích 24 Tiết Khí (Bảng đối chiếu 12 Tiết và 12 Trung Khí).
+    - Thay thế `($a_{11}$ năm trước và $b_{11}$ năm nay)` thành `(kỳ Đông Chí năm trước và kỳ Đông Chí năm nay)` trong Quy tắc 1 (Chu kỳ 2 điểm Đông Chí & 13 lần Trăng Sóc).
+    - Thay thế `$30^\circ$: $0^\circ, 30^\circ, \dots, 330^\circ$` thành `30°: 0°, 30°, ..., 330°` trong Quy tắc 2 (Nguyên lý Vô Trung Khí).
+    - Thay thế `($0^\circ, 30^\circ, \dots, 330^\circ$)` thành `(0°, 30°, ..., 330°)` trong Kết Luận Thiên Văn cho Năm Thường (không có tháng nhuận).
+    - Thay thế mốc chia `$30^\circ$` thành `30°` trong phần Diễn giải khoa học cho Năm Nhuận.
+  - **Đồng Bộ Phiên Bản**: Nâng phiên bản hệ thống lên **v1.35.1** trên `package.json`, `README.md`, giao diện người dùng và mã nguồn JavaScript.
+
 ### [v1.35.0] - 2026-09-22
 - **Định Hướng Lại Nhận Diện Ứng Dụng: Triết Lý Thiết Kế (Design Concept) "Vòng Xoay Duyên Khởi" & Logo Mới**:
   - **Khởi Tạo Biểu Trưng (Logo) Mới & Vector Hóa Hoàn Toàn (`/logo.svg`, `/logo.png`)**:
