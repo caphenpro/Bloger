@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lịch Âm Dương & Bát Tự Tứ Trụ</title>
-  <meta name="description" content="Ứng dụng Lịch Âm Dương, Bát Tự Tứ Trụ, Tra cứu Ngày Giờ Hoàng Đạo, 24 Tiết Khí và Quy tắc Xác định Tháng Nhuận chuẩn Thiên văn học Việt Nam UTC+7." />
+  <title>Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Vòng Xoay Duyên Khởi</title>
+  <meta name="description" content="Lịch Âm Dương, Bát Tự Tứ Trụ &amp; Hôn Nhân Cát Tường. Triết lý thiết kế 'Vòng Xoay Duyên Khởi' - Giao thoa Thời Gian Thiên Văn và Nhân Duyên Cuộc Đời." />
   
-  <!-- Biểu tượng Logo / Favicon & Apple Touch Icon -->
+  <!-- Biểu tượng Logo / Favicon & Apple Touch Icon (SVG Vector & PNG Fallback) -->
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -14,21 +15,21 @@
 
   <!-- Hiển thị khi chia sẻ Link (Open Graph: Facebook, Zalo, Telegram, Messenger) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Lịch Âm Dương & Bát Tự Tứ Trụ" />
-  <meta property="og:description" content="Tra cứu lịch vạn niên, lập lá số Bát Tự Tứ Trụ, 24 tiết khí thời gian thực và phân tích tháng nhuận chuẩn thiên văn Việt Nam." />
+  <meta property="og:title" content="Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Vòng Xoay Duyên Khởi" />
+  <meta property="og:description" content="Lịch Âm Dương, Bát Tự Tứ Trụ &amp; Hôn Nhân Cát Tường. Triết lý 'Vòng Xoay Duyên Khởi' - Giao thoa Thời Gian &amp; Nhân Duyên." />
   <meta property="og:image" content="/og-image.png" />
   <meta property="og:image:secure_url" content="/og-image.png" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1024" />
-  <meta property="og:image:height" content="1024" />
-  <meta property="og:image:alt" content="Logo Lịch Âm Dương & Bát Tự Tứ Trụ" />
-  <meta property="og:site_name" content="Lịch Âm Dương & Bát Tự" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Logo Vòng Xoay Duyên Khởi - Lịch Âm Dương &amp; Bát Tự Tứ Trụ" />
+  <meta property="og:site_name" content="Lịch Âm Dương &amp; Bát Tự" />
   <meta property="og:locale" content="vi_VN" />
 
   <!-- Hiển thị khi chia sẻ Link Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lịch Âm Dương & Bát Tự Tứ Trụ" />
-  <meta name="twitter:description" content="Tra cứu lịch vạn niên, lập lá số Bát Tự Tứ Trụ, 24 tiết khí thời gian thực và phân tích tháng nhuận chuẩn thiên văn Việt Nam." />
+  <meta name="twitter:title" content="Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Vòng Xoay Duyên Khởi" />
+  <meta name="twitter:description" content="Lịch Âm Dương, Bát Tự Tứ Trụ &amp; Hôn Nhân Cát Tường. Triết lý 'Vòng Xoay Duyên Khởi' - Giao thoa Thời Gian &amp; Nhân Duyên." />
   <meta name="twitter:image" content="/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -4796,13 +4797,13 @@
   <header>
     <div class="header-container">
       <div class="brand-wrap" id="btnHeaderLogo" title="Bấm để xem chi tiết biểu trưng Logo">
-        <img src="/logo.png" alt="Logo Lịch Âm Dương Bát Tự" class="brand-logo-img" width="58" height="58" />
+        <img src="/logo.svg" alt="Logo Vòng Xoay Duyên Khởi - Lịch Âm Dương Bát Tự" class="brand-logo-img" width="58" height="58" />
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.33.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.35.0</span>
           </div>
-          <div class="brand-sub">Thuận theo tự nhiên - Đoán biết mệnh số • Tra cứu vạn niên, tiết khí &amp; lễ tết Việt Nam</div>
+          <div class="brand-sub">Triết lý "Vòng Xoay Duyên Khởi" • Giao thoa Thời Gian &amp; Nhân Duyên</div>
         </div>
       </div>
       <div class="realtime-clock" id="liveClock">
@@ -4816,8 +4817,8 @@
     <div class="nav-bar-wrapper">
       <button type="button" class="nav-scroll-btn left" id="btnNavScrollLeft" title="Cuộn menu sang trái" aria-label="Cuộn sang trái">‹</button>
       <div class="nav-container" id="mainNavContainer">
-        <div class="nav-brand-mini" id="btnNavLogoMini" title="Biểu trưng Lịch Âm Dương &amp; Bát Tự (Bấm xem ý nghĩa)">
-          <img src="/logo.png" alt="Logo Lịch Âm Dương" class="nav-brand-mini-img" width="32" height="32" />
+        <div class="nav-brand-mini" id="btnNavLogoMini" title="Biểu trưng Vòng Xoay Duyên Khởi (Bấm xem ý nghĩa)">
+          <img src="/logo.svg" alt="Biểu trưng Vòng Xoay Duyên Khởi" class="nav-brand-mini-img" width="32" height="32" />
         </div>
         <button type="button" class="nav-tab active" data-tab="tab-calendar" title="Lịch Vạn Niên &amp; Tra Cứu Ngày Hoàng Đạo, Quý Nhân, Bất Tương">
           📅 Lịch Vạn Niên
@@ -5164,7 +5165,7 @@
             <div class="bloc-top">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
                 <div style="display: flex; align-items: center; gap: 0.55rem;">
-                  <img src="/logo.png" alt="Logo Lịch Âm Dương" class="bloc-logo-img" id="btnBlocLogo" style="width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.75); box-shadow: 0 2px 6px rgba(0,0,0,0.25); cursor: pointer; background: #fbf8f1;" title="Xem ý nghĩa biểu trưng Logo" />
+                  <img src="/logo.svg" alt="Biểu trưng Vòng Xoay Duyên Khởi" class="bloc-logo-img" id="btnBlocLogo" style="width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.75); box-shadow: 0 2px 6px rgba(0,0,0,0.25); cursor: pointer; background: #19182b;" title="Xem ý nghĩa biểu trưng Vòng Xoay Duyên Khởi" />
                   <span class="bloc-weekday" id="blocWeekday">THỨ TƯ</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -6655,36 +6656,36 @@
 
   <!-- Modal Biểu Trưng & Ý Nghĩa Logo -->
   <div class="modal-overlay" id="logoDetailModal">
-    <div class="modal-box" style="max-width: 540px;">
+    <div class="modal-box" style="max-width: 560px;">
       <div class="modal-head">
         <h3 style="font-size: 1.08rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;" id="logoModalTitle">
-          <span>🏮</span> Ý Nghĩa Biểu Trưng (Logo) Lịch Âm Dương Bát Tự
+          <span>🏮</span> Biểu Trưng &amp; Triết Lý Thiết Kế: "Vòng Xoay Duyên Khởi"
         </h3>
         <button class="close-btn" id="logoModalCloseBtn">&times;</button>
       </div>
       <div class="modal-body" id="logoModalContent">
         <div style="text-align: center; margin-bottom: 1.15rem;">
-          <img src="/logo.png" alt="Biểu trưng Logo Lịch Âm Dương Bát Tự" style="width: 156px; height: 156px; border-radius: 50%; border: 3px solid #f59e0b; box-shadow: 0 6px 20px rgba(0,0,0,0.25); background: #fbf8f1; margin: 0 auto; display: block;" />
-          <h4 style="margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 1.25rem; color: #991b1b; font-weight: 700;">
-            LỊCH ÂM DƯƠNG • BÁT TỰ TỨ TRỤ
+          <img src="/logo.svg" alt="Biểu trưng Vòng Xoay Duyên Khởi" style="width: 156px; height: 156px; border-radius: 50%; border: 3px solid #f59e0b; box-shadow: 0 8px 24px rgba(25, 24, 43, 0.35); background: #19182b; margin: 0 auto; display: block;" />
+          <h4 style="margin-top: 0.85rem; font-family: 'Cinzel', serif; font-size: 1.28rem; color: #991b1b; font-weight: 700; letter-spacing: 0.5px;">
+            VÒNG XOAY DUYÊN KHỞI
           </h4>
-          <p style="font-size: 0.88rem; color: #b45309; font-weight: 700; margin-top: 2px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
-            <span>"Thuận theo tự nhiên - Đoán biết mệnh số"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.33.0</span>
+          <p style="font-size: 0.86rem; color: #b45309; font-weight: 700; margin-top: 3px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span>"Giao Thoa Thời Gian &amp; Nhân Duyên"</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.35.0</span>
           </p>
         </div>
-        <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.84rem; line-height: 1.6; color: #374151;">
-          <p style="margin-bottom: 0.65rem;">
-            <strong>☀️ Âm Dương Nhật Nguyệt:</strong> Vầng Thái Dương rực rỡ cùng Trăng Lưỡi Liềm tỏa sáng giữa bầu trời sao đêm, biểu thị sự hòa hợp nhịp nhàng giữa Lịch Mặt Trời (Dương lịch &amp; 24 Tiết khí) và Lịch Mặt Trăng (Âm lịch &amp; Tuần Trăng Sóc).
+        <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.95rem 1.15rem; font-size: 0.84rem; line-height: 1.65; color: #374151;">
+          <p style="margin-bottom: 0.75rem;">
+            <strong style="color: #991b1b;">🌀 Triết Lý Thiết Kế "Vòng Xoay Duyên Khởi":</strong> Vũ trụ và cuộc đời chuyển vần theo nguyên lý Duyên Khởi — vạn pháp tương sinh, tương duyên mà thành tựu. Ứng dụng là cầu nối khoa học thiên văn và triết học nhân sinh, soi chiếu thời vận để hướng tới an hòa cát tường.
           </p>
-          <p style="margin-bottom: 0.65rem;">
-            <strong>🏛️ Mái Đình Cổ Truyền Việt Nam &amp; La Bàn Kim Chỉ Nam:</strong> Thể hiện truyền thống văn hóa dân tộc ngàn năm, kết hợp cùng la bàn phương vị định hướng cát hung, Tài Thần và Hỷ Thần trong ngày.
+          <p style="margin-bottom: 0.75rem;">
+            <strong style="color: #b45309;">🏮 Vòng Thái Cực (Âm Dương) &amp; Hai Dải Lụa / Sợi Chỉ Hồng Quấn Quýt:</strong> Biểu tượng Âm Dương truyền thống được cách điệu tinh tế thành hai dải lụa mềm mại ôm trọn lấy nhau. Sợi chỉ hồng thắm (Chu Sa - Hỷ Khí) đại diện cho lương duyên lứa đôi, quấn quýt cùng dải lụa hoàng kim (Phúc Trạch - Thời Gian) đại diện cho sự bảo bọc, thịnh vượng của dòng chảy đất trời.
           </p>
-          <p style="margin-bottom: 0.65rem;">
-            <strong>☯️ Vòng Bát Quái &amp; Ngũ Hành:</strong> Các vòng tròn đồng tâm biểu thị Bát Quái (Càn, Khảm, Cấn, Chấn, Tốn, Ly, Khôn, Đoài) cùng 5 biểu tượng Ngũ Hành: Kim, Mộc, Thủy, Hỏa, Thổ – nền tảng khởi sinh của thuật dự đoán Bát Tự Tứ Trụ.
+          <p style="margin-bottom: 0.75rem;">
+            <strong style="color: #d97706;">✨ Tâm Điểm Ngôi Sao / Dấu Ấn Tứ Trụ:</strong> Nơi hai dòng lụa giao hội tại tâm điểm bừng sáng Ngôi sao 4 cánh (Tứ Trụ Ấn Tinh), tượng trưng cho 4 cột mốc bản mệnh của mỗi con người: <em>Năm Sinh • Tháng Sinh • Ngày Sinh • Giờ Sinh</em>. Bốn cánh sao vươn tỏa tứ phương định hướng trạch cát, biến nguy thành an.
           </p>
           <p style="margin-bottom: 0;">
-            <strong>📜 Bát Tự Khởi Nguyên (Giáp Tý, Ất Sửu, Bính Dần, Đinh Mão):</strong> Khởi đầu của chu kỳ Lục Thập Hoa Giáp, hướng dẫn con người ứng xử "Thuận theo tự nhiên" để luôn bình an và hanh thông.
+            <strong style="color: #1e1b4b;">🌌 Nền Vũ Trụ Huyền Vi &amp; Hạt Ngọc Chân Tâm:</strong> Hạt ngọc thuần khiết ở tâm điểm là Chân Tâm an nhiên; vòng tròn vũ trụ huyền bí bao bọc bên ngoài giữ trọn sự viên mãn, nhắc nhở con người thuận theo tự nhiên, trân quý nhân duyên hiện tại.
           </p>
         </div>
         <div style="text-align: center; margin-top: 1.15rem;">
@@ -7103,16 +7104,16 @@
     <div style="max-width: 1200px; margin: 0 auto;">
       <!-- Brand Info & Phiên Bản -->
       <div style="display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
-        <img src="/logo.png" alt="Logo Lịch Âm Dương Bát Tự" style="width: 58px; height: 58px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 2px solid #f59e0b; cursor: pointer; background: #fbf8f1; flex-shrink: 0; transition: transform 0.2s ease;" id="footerLogoImg" title="Bấm để xem ý nghĩa biểu trưng Logo" />
+        <img src="/logo.svg" alt="Biểu trưng Vòng Xoay Duyên Khởi" style="width: 58px; height: 58px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 2px solid #f59e0b; cursor: pointer; background: #19182b; flex-shrink: 0; transition: transform 0.2s ease;" id="footerLogoImg" title="Bấm để xem ý nghĩa biểu trưng Vòng Xoay Duyên Khởi" />
         <div style="text-align: left; max-width: 760px;">
           <p style="font-weight: 700; color: #fef3c7; margin-bottom: 0.25rem; font-size: 0.95rem; letter-spacing: 0.3px;">
-            LỊCH ÂM DƯƠNG &amp; BÁT TỰ TỨ TRỤ VIỆT NAM
+            LỊCH ÂM DƯƠNG &amp; BÁT TỰ TỨ TRỤ • VÒNG XOAY DUYÊN KHỞI
           </p>
           <p style="font-size: 0.8rem; color: #d1d5db; line-height: 1.5;">
-            "Thuận theo tự nhiên - Đoán biết mệnh số" • Thuật toán thiên văn chuyển đổi Lịch Âm Dương chính xác múi giờ Việt Nam (UTC+7:00).
+            Triết lý thiết kế "Vòng Xoay Duyên Khởi" — Giao thoa Thời Gian &amp; Nhân Duyên • Thiên văn học NASA JPL / VSOP87 &amp; Mệnh Lý Tử Bình, Kỳ Môn Độn Giáp Hôn Nhân.
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.33.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.35.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -16846,7 +16847,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.33.0";
+    const APP_VERSION = "v1.35.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

@@ -1,6 +1,13 @@
 # ỨNG DỤNG LỊCH ÂM DƯƠNG & BÁT TỰ THIÊN VĂN CHÍNH XÁC CAO
+## 🌀 TRIẾT LÝ THIẾT KẾ: "VÒNG XOAY DUYÊN KHỞI"
 
-Ứng dụng web toàn diện tra cứu Lịch Vạn Niên, Âm Dương Lịch, Lá số Bát Tự Tứ Trụ, Ngày Giờ Hoàng Đạo, Điểm Sóc và 24 Tiết Khí Thiên Văn học với độ chính xác cao dựa trên các thuật toán cơ học thiên thể (NASA JPL / VSOP87 / Jean Meeus).
+> **"Giao Thoa Thời Gian & Nhân Duyên"**  
+> Ứng dụng kết hợp giữa **Thiên Văn Học Cơ Học Vũ Trụ** (NASA JPL / VSOP87 / Jean Meeus) và **Mệnh Lý Cổ Truyền Phương Đông** (Bát Tự Tứ Trụ, Bát Trạch Lạc Thư, Kỳ Môn Độn Giáp Hôn Nhân).  
+> **Biểu trưng (Logo)** kết hợp **Vòng Thái Cực (Âm Dương)** cách điệu thành **Hai dải lụa / Sợi chỉ hồng quấn quýt**, tâm điểm là **Ngôi sao / Dấu ấn Tứ Trụ** tượng trưng cho sự giao thoa kỳ diệu giữa Thời Gian bất tận và Nhân Duyên nhân thế.
+
+- **Vòng Thái Cực Cách Điệu - Hai Dải Lụa / Sợi Chỉ Hồng Quấn Quýt**: Sợi chỉ hồng thắm (Chu Sa - Hỷ Khí) quấn quýt cùng Dải lụa hoàng kim (Phúc Trạch - Thời Gian), tạo thành dòng chảy âm dương hòa hợp, tương trợ lẫn nhau.
+- **Tâm Điểm Ngôi Sao / Dấu Ấn Tứ Trụ**: Bốn cánh sao vươn tỏa tứ phương đại diện cho Tứ Trụ bản mệnh (Năm • Tháng • Ngày • Giờ), điểm khởi nguyên định mệnh và là ngọn hải đăng định hướng trạch cát, nghênh hôn, an gia.
+- **Hạt Ngọc Chân Tâm**: Điểm sáng tinh khôi tại tâm điểm đại diện cho Chân Tâm — sự bình an, tĩnh tại và chủ động của con người giữa vòng xoay thiên định ("Nhân Định Thắng Thiên").
 
 ---
 
@@ -262,7 +269,22 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
-### [v1.34.0] - 2026-09-19
+### [v1.35.0] - 2026-09-22
+- **Định Hướng Lại Nhận Diện Ứng Dụng: Triết Lý Thiết Kế (Design Concept) "Vòng Xoay Duyên Khởi" & Logo Mới**:
+  - **Khởi Tạo Biểu Trưng (Logo) Mới & Vector Hóa Hoàn Toàn (`/logo.svg`, `/logo.png`)**:
+    - **Vòng Thái Cực (Âm Dương) Cách Điệu Thành Hai Dải Lụa / Sợi Chỉ Hồng Quấn Quýt**: Biểu tượng âm dương biến chuyển thành dòng chảy dải lụa mềm mại. Sợi chỉ hồng thắm (Chu Sa - Hỷ Khí) đại diện cho nhân duyen lứa đôi gắn kết, hòa quyện cùng dải lụa hoàng kim (Phúc Trạch - Thời Gian) đại diện cho sự bảo bọc vững chãi của đất trời.
+    - **Tâm Điểm Ngôi Sao / Dấu Ấn Tứ Trụ**: Nơi hai dòng lụa giao hội tại tâm điểm bừng sáng Ngôi sao 4 cánh (Tứ Trụ Ấn Tinh) tượng trưng cho 4 cột mốc bản mệnh của đời người: *Năm Sinh • Tháng Sinh • Ngày Sinh • Giờ Sinh*.
+    - **Giao Thoa Thời Gian & Nhân Duyên**: Kết hợp ánh sáng hoàng kim và hạt ngọc thuần khiết (Chân Tâm) tại tâm điểm, thể hiện tinh thần "Nhân Định Thắng Thiên" — con người thấu hiểu thiên thời, địa lợi để vun đắp nhân hòa và hạnh phúc trăm năm.
+  - **Đồng Bộ Bộ Nhận Diện Trên Toàn Hệ Thống**:
+    - **Favicon & Apple Touch Icon**: Tích hợp trực tiếp logo vector SVG (`/logo.svg`), kèm icon chất lượng cao 180x180, 192x192, 512x512.
+    - **Header Ứng Dụng**: Thay thế logo mới, cập nhật câu định hướng thương hiệu: *Triết lý "Vòng Xoay Duyên Khởi" • Giao thoa Thời Gian & Nhân Duyên*.
+    - **Thanh Điều Hướng & Bloc Lịch Hàng Ngày**: Cập nhật biểu trưng thu nhỏ sắc nét, tối ưu hiệu ứng hover và hiển thị trên nền tối vũ trụ (`#19182b`).
+    - **Modal Biểu Trưng & Ý Nghĩa Logo (`#logoDetailModal`)**: Thiết kế lại toàn diện giao diện và nội dung thuyết minh triết lý thiết kế "Vòng Xoay Duyên Khởi" với 4 luận điểm phong thủy & nhân sinh sâu sắc.
+    - **Chân Trang (Footer)**: Đồng bộ biểu trưng mới và phần giới thiệu triết lý cốt lõi.
+    - **Open Graph & Social Share Card (`/public/og-image.png`)**: Tạo mới ảnh banner chia sẻ mạng xã hội (Facebook, Zalo, Telegram, Messenger) kích thước 1200x630 hiển thị nổi bật logo Vòng Xoay Duyên Khởi và tiêu đề tinh tế.
+  - **Đồng Bộ Metadata & Quản Lý Phiên Bản**:
+    - Cập nhật `metadata.json`, thẻ `<title>`, `<meta name="description">`, OpenGraph và Twitter Card.
+    - Nâng số phiên bản hệ thống lên **v1.35.0** trên `package.json`, `index.html` và mã nguồn JavaScript.
 - **Chuẩn Hóa Bộ Nút Thao Tác "Lưu, In" Cho Toàn Bộ Ứng Dụng (Bát Tự, Hôn Nhân & Kỳ Môn)**:
   - **Đổi Tên & Tách Biệt Nhu Cầu "Lưu, In" Toàn Diện**:
     - Thay thế toàn bộ các nút dán nhãn *"Tải Về"* cũ bằng cặp nút chuyên dụng **💾 Lưu (.txt)** và **🖨️ In (A4/PDF)**, đáp ứng chính xác nhu cầu lưu trữ văn bản nhẹ hoặc in ấn/xuất PDF trực tiếp.

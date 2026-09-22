@@ -1,6 +1,6 @@
 {
   "name": "Lịch Âm Dương & Bát Tự",
-  "description": "Ứng dụng tra cứu lịch âm dương, bát tự tứ trụ, ngày giờ hoàng đạo và ngày lễ tết truyền thống.",
+  "description": "Ứng dụng Lịch Âm Dương, Bát Tự Tứ Trụ & Hôn Nhân Cát Tường theo triết lý thiết kế 'Vòng Xoay Duyên Khởi' - Giao thoa Thời Gian và Nhân Duyên.",
   "requestFramePermissions": [
     "geolocation"
   ],
