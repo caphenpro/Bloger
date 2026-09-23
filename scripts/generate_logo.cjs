@@ -172,6 +172,25 @@ async function renderPngs() {
   await sharp(svgBuffer).resize(512, 512).png().toFile(path.join(__dirname, '../public/logo.png'));
   console.log('Saved public/logo.png (512x512)');
 
+  // logo.jpg (1024x1024) - Replace old legacy logo.jpg so no scraper or mode gets the old image
+  await sharp(svgBuffer)
+    .resize(1024, 1024)
+    .flatten({ background: '#19182b' })
+    .jpeg({ quality: 95 })
+    .toFile(path.join(__dirname, '../public/logo.jpg'));
+  console.log('Saved public/logo.jpg (1024x1024)');
+
+  // Also replace old src/assets/images/app_logo_1788426698375.jpg
+  const oldSrcLogoPath = path.join(__dirname, '../src/assets/images/app_logo_1788426698375.jpg');
+  if (fs.existsSync(path.dirname(oldSrcLogoPath))) {
+    await sharp(svgBuffer)
+      .resize(1024, 1024)
+      .flatten({ background: '#19182b' })
+      .jpeg({ quality: 95 })
+      .toFile(oldSrcLogoPath);
+    console.log('Saved src/assets/images/app_logo_1788426698375.jpg');
+  }
+
   // icon-512.png
   await sharp(svgBuffer).resize(512, 512).png().toFile(path.join(__dirname, '../public/icon-512.png'));
 
@@ -181,13 +200,17 @@ async function renderPngs() {
   // favicon.png (64x64)
   await sharp(svgBuffer).resize(64, 64).png().toFile(path.join(__dirname, '../public/favicon.png'));
 
+  // favicon.ico (32x32 PNG-in-ICO format supported by all modern browsers/scrapers)
+  await sharp(svgBuffer).resize(32, 32).png().toFile(path.join(__dirname, '../public/favicon.ico'));
+  console.log('Saved public/favicon.ico (32x32)');
+
   // apple-touch-icon.png (180x180)
   await sharp(svgBuffer).resize(180, 180).png().toFile(path.join(__dirname, '../public/apple-touch-icon.png'));
 
   // og-image.png (1200x630 banner with logo centered on elegant background)
   const logoBanner = await sharp(svgBuffer).resize(420, 420).png().toBuffer();
   
-  // SVG background for OG image
+  // SVG background for OG image - Slogan: Vòng Xoay Duyên Khởi (bỏ chữ Triết lý thiết kế)
   const ogSvg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <radialGradient id="ogBg" cx="50%" cy="50%" r="75%">
@@ -205,8 +228,9 @@ async function renderPngs() {
     <circle cx="280" cy="315" r="220" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,6" opacity="0.4"/>
     <text x="560" y="270" font-family="'Cinzel', serif, Arial" font-size="52" font-weight="bold" fill="url(#goldText)">LỊCH ÂM DƯƠNG</text>
     <text x="560" y="335" font-family="'Cinzel', serif, Arial" font-size="44" font-weight="bold" fill="#ffffff">&amp; BÁT TỰ TỨ TRỤ</text>
-    <text x="560" y="395" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#fde68a" letter-spacing="1">TRIẾT LÝ THIẾT KẾ: VÒNG XOAY DUYÊN KHỞI</text>
-    <text x="560" y="440" font-family="Arial, sans-serif" font-size="20" fill="#e5e7eb">Giao Thoa Thời Gian &amp; Nhân Duyên • Bát Tự &amp; Hôn Nhân Cát Tường</text>
+    <rect x="555" y="365" width="410" height="44" rx="8" fill="rgba(245, 158, 11, 0.16)" stroke="#f59e0b" stroke-width="1.8"/>
+    <text x="760" y="396" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#fef08a" letter-spacing="1.5">VÒNG XOAY DUYÊN KHỞI</text>
+    <text x="560" y="445" font-family="Arial, sans-serif" font-size="20" fill="#e5e7eb">Giao Thoa Thời Gian &amp; Nhân Duyên • Bát Tự &amp; Hôn Nhân Cát Tường</text>
   </svg>`;
   
   const ogBgBuffer = Buffer.from(ogSvg);

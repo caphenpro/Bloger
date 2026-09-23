@@ -1,5 +1,5 @@
 # ỨNG DỤNG LỊCH ÂM DƯƠNG & BÁT TỰ THIÊN VĂN CHÍNH XÁC CAO
-## 🌀 TRIẾT LÝ THIẾT KẾ: "VÒNG XOAY DUYÊN KHỞI"
+## 🌀 SLOGAN: "VÒNG XOAY DUYÊN KHỞI"
 
 > **"Giao Thoa Thời Gian & Nhân Duyên"**  
 > Ứng dụng kết hợp giữa **Thiên Văn Học Cơ Học Vũ Trụ** (NASA JPL / VSOP87 / Jean Meeus) và **Mệnh Lý Cổ Truyền Phương Đông** (Bát Tự Tứ Trụ, Bát Trạch Lạc Thư, Kỳ Môn Độn Giáp Hôn Nhân).  
@@ -268,6 +268,47 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.37.0] - 2026-09-23
+- **Chuẩn Hóa Thuật Toán Can Chi Năm & Tháng Theo Tiết Khí Thiên Văn Học (VSOP87 / Jean Meeus)**:
+  - **Năm Can Chi Khởi Từ Tiết Lập Xuân (Kinh Độ Hoàng Đạo Mặt Trời = 315°)**:
+    - Sửa lại toàn diện quy tắc tính Năm Can Chi: Năm Can Chi không chuyển đổi theo mùng 1 Tết Âm lịch dân gian mà căn cứ chính xác vào thời điểm Tiết Lập Xuân thiên văn (thời điểm Mặt Trời đạt kinh độ 315°).
+    - Trước thời điểm Lập Xuân của năm dương lịch `yy`, ngày đó vẫn thuộc năm Can Chi của `yy - 1`. Kể từ thời khắc Lập Xuân trở đi, chính thức bước sang năm Can Chi mới.
+  - **Can Chi Tháng Khởi Từ Tháng Dần Tại Tiết Lập Xuân (Mỗi Tháng Chứa Trọn Vẹn 1 Tiết & 1 Trung Khí)**:
+    - Xây dựng bảng 12 Tháng Can Chi Tiết Khí chuẩn mực theo vòng xoay hoàng đạo 360°:
+      - **Tháng Dần (Chi Dần)**: Từ Tiết Lập Xuân (315°) qua Trung Khí Vũ Thủy (330°) đến trước Tiết Kinh Trập (345°).
+      - **Tháng Mão (Chi Mão)**: Từ Tiết Kinh Trập (345°) qua Trung Khí Xuân Phân (0°) đến trước Tiết Thanh Minh (15°).
+      - **Tháng Thìn (Chi Thìn)**: Từ Tiết Thanh Minh (15°) qua Trung Khí Cốc Vũ (30°) đến trước Tiết Lập Hạ (45°).
+      - **Tháng Tỵ (Chi Tỵ)**: Từ Tiết Lập Hạ (45°) qua Trung Khí Tiểu Mãn (60°) đến trước Tiết Mang Chủng (75°).
+      - **Tháng Ngọ (Chi Ngọ)**: Từ Tiết Mang Chủng (75°) qua Trung Khí Hạ Chí (90°) đến trước Tiết Tiểu Thử (105°).
+      - **Tháng Mùi (Chi Mùi)**: Từ Tiết Tiểu Thử (105°) qua Trung Khí Đại Thử (120°) đến trước Tiết Lập Thu (135°).
+      - **Tháng Thân (Chi Thân)**: Từ Tiết Lập Thu (135°) qua Trung Khí Xử Thử (150°) đến trước Tiết Bạch Lộ (165°).
+      - **Tháng Dậu (Chi Dậu)**: Từ Tiết Bạch Lộ (165°) qua Trung Khí Thu Phân (180°) đến trước Tiết Hàn Lộ (195°).
+      - **Tháng Tuất (Chi Tuất)**: Từ Tiết Hàn Lộ (195°) qua Trung Khí Sương Giáng (210°) đến trước Tiết Lập Đông (225°).
+      - **Tháng Hợi (Chi Hợi)**: Từ Tiết Lập Đông (225°) qua Trung Khí Tiểu Tuyết (240°) đến trước Tiết Đại Tuyết (255°).
+      - **Tháng Tý (Chi Tý)**: Từ Tiết Đại Tuyết (255°) qua Trung Khí Đông Chí (270°) đến trước Tiết Tiểu Hàn (285°).
+      - **Tháng Sửu (Chi Sửu)**: Từ Tiết Tiểu Hàn (285°) qua Trung Khí Đại Hàn (300°) đến trước Tiết Lập Xuân (315°).
+    - Can của tháng được tính chuẩn xác theo quy luật **Ngũ Hổ Độn (五虎遁)** từ Thiên Can của Năm Can Chi (chuẩn Lập Xuân): Giáp/Kỷ khởi Bính Dần, Ất/Canh khởi Mậu Dần, Bính/Tân khởi Canh Dần, Đinh/Nhâm khởi Nhâm Dần, Mậu/Quý khởi Giáp Dần.
+  - **Đồng Bộ Hoàn Toàn Các Mô-đun Ứng Dụng**:
+    - **Bloc Lịch Hàng Ngày (`updateBlocView`)**: Hiển thị Năm Can Chi chuẩn Lập Xuân, Tháng Can Chi kèm cặp Tiết - Trung Khí tương ứng (`Tháng Can Chi [Tiết • Trung Khí]`), và tính toán Nghi Kỵ Dụng Sự (Trạch Nhật) theo đúng Nguyệt Lệnh tiết khí.
+    - **Sao Chép Thông Tin Ngày (`copyDailyBlocInfo`)**: Đồng bộ nội dung Năm Can Chi (chuẩn Lập Xuân) và Tháng Can Chi tiết khí khi người dùng chia sẻ lịch.
+    - **Công Cụ Đổi Ngày Âm - Dương**: Hiển thị Can Chi năm và tháng chuẩn tiết khí cho cả hai chiều chuyển đổi Dương sang Âm và Âm sang Dương.
+    - **Bát Tự Tứ Trụ (`renderBattuChart`)**: Thống nhất dùng chung các hàm `getSolarYearCanChi` và `getSolarMonthCanChi`, đảm bảo Trụ Năm và Trụ Tháng của lá số luôn đạt độ chính xác thiên văn học tối đa.
+    - **Khảo Sát Hôn Nhân Cát Tường**: Các hàm tra cứu tháng cưới tự động kế thừa bảng 12 tháng tiết khí trọn vẹn.
+  - **Quản Lý Phiên Bản**: Nâng phiên bản hệ thống lên **v1.37.0** trên `package.json`, `README.md`, giao diện người dùng và mã nguồn JavaScript.
+
+### [v1.36.0] - 2026-09-23
+- **Hoàn Thiện Bộ Nhận Diện Logo & Đồng Bộ Slogan "Vòng Xoay Duyên Khởi" Toàn Hệ Thống**:
+  - **Khắc Phục Hoàn Toàn Tình Trạng Sót Logo Cũ Khi Chia Sẻ Hoặc Xem Thumbnail**:
+    - Thay thế triệt để các file ảnh cũ còn sót lại từ các phiên bản trước: `public/logo.jpg`, `src/assets/images/app_logo_1788426698375.jpg` (kích thước 1024x1024) và `public/favicon.ico` đều được tạo lại hoàn toàn với logo mới **Vòng Xoay Duyên Khởi**.
+    - Tạo mới banner chia sẻ mạng xã hội `public/og-image.png` (1200x630) loại bỏ dòng chữ *"TRIẾT LÝ THIẾT KẾ:"*, thay thế bằng huy hiệu vàng nổi bật với slogan chuẩn: **"VÒNG XOAY DUYÊN KHỞI"**.
+    - Bổ sung mã kiểm soát phiên bản cache (`?v=1.36.0`) cho toàn bộ các thẻ `<link rel="icon">`, `<link rel="apple-touch-icon">`, `<link rel="image_src">`, `<meta property="og:image">` (cả định dạng banner 1200x630 và thumbnail vuông `logo.jpg`) và `<meta name="twitter:image">`, đảm bảo Zalo, Facebook, Messenger và các nền tảng mạng xã hội luôn lấy hình ảnh và thumbnail mới nhất.
+  - **Đồng Bộ Hóa Slogan "Vòng Xoay Duyên Khởi" (Bỏ Chữ "Triết Lý Thiết Kế")**:
+    - **Header Ứng Dụng**: Thay thế dòng phụ đề thành: `"Vòng Xoay Duyên Khởi" • Giao thoa Thời Gian & Nhân Duyên`.
+    - **Modal Ý Nghĩa Biểu Trưng (`#logoDetailModal`)**: Đổi tiêu đề thành `Biểu Trưng & Slogan: "Vòng Xoay Duyên Khởi"` và cập nhật nội dung mục 1 thành `🌀 Slogan "Vòng Xoay Duyên Khởi"`.
+    - **Chân Trang (Footer)**: Bỏ chữ "Triết lý thiết kế", tinh giản thành `"Vòng Xoay Duyên Khởi" — Giao thoa Thời Gian & Nhân Duyên...`.
+    - **Metadata & OpenGraph**: Chuẩn hóa mô tả trong `metadata.json`, `<meta name="description">`, `og:description`, `twitter:description` và `README.md`.
+  - **Quản Lý Phiên Bản**: Nâng phiên bản hệ thống lên **v1.36.0** trên `package.json`, `metadata.json`, `README.md`, giao diện người dùng và mã nguồn JavaScript.
 
 ### [v1.35.1] - 2026-09-22
 - **Khắc Phục Toàn Diện Lỗi Hiển Thị Ký Tự Trong Tab Tháng Nhuận (`#tab-leapyear`)**:
