@@ -251,6 +251,26 @@
   - Thanh trạng thái thiên văn trực tiếp co giãn tự động theo 2 cột.
   - Hỗ trợ thao tác cảm ứng mượt mà, cỡ chữ và độ tương phản màu sắc đạt chuẩn WCAG AA.
 
+### 14. Tab Chuyên Mục Riêng Tra Cứu Sao & Thần Sát Theo Thời Gian (Hiệp Kỷ Biện Phương Thư & Ngọc Hạp Thông Thư)
+- **Tập Hợp Thần Sát Chung Trong File Dữ Liệu Chuyên Dụng (`thanSatData.js`)**:
+  - Xây dựng kiến trúc module Registry mở rộng chuẩn hóa tập trung cho toàn bộ hệ thống Thần Sát (Cát Tinh & Hung Tinh) hiện tại và tương lai.
+  - Sẵn sàng mở rộng và tiếp nhận toàn bộ các sao: Cát Tinh (Thiên Đức, Nguyệt Đức, Thiên Xá, Sinh Khí, Thiên Hỷ, Mẫu Thương...) và Hung Sát (Nguyệt Yếm, Yếm Đối, Nguyệt Phá, Sát Chủ, Thụ Tử, Tam Nương, Nguyệt Kỵ, Cô Thần, Quả Tú...).
+- **Khởi Đầu Tiêu Điểm: Sao Nguyệt Yếm (Họa Thần / Nguyệt Yểm) & Yếm Đối**:
+  - **Quy luật khởi lệ chuẩn cổ bản**:
+    > *Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất. Sau đó, cứ mỗi tháng tiếp theo thì Nguyệt Yếm di chuyển nghịch hành (lùi 1 vị trí Địa Chi theo chiều ngược kim đồng hồ).*
+  - **Chu kỳ nghịch hành 12 Tháng Âm Lịch**: Tháng 1 tại Tuất, Tháng 2 tại Dậu, Tháng 3 tại Thân, Tháng 4 tại Mùi, Tháng 5 tại Ngọ, Tháng 6 tại Tỵ, Tháng 7 tại Thìn, Tháng 8 tại Mão, Tháng 9 tại Dần, Tháng 10 tại Sửu, Tháng 11 tại Tý, Tháng 12 tại Hợi.
+  - **Sao Yếm Đối**: Nằm tại vị trí Lục Xung đối xứng 180° với Nguyệt Yếm (Tháng 1 tại Thìn, Tháng 2 tại Mão...).
+  - **Học thuyết Dịch lý & Thiên văn cổ**: Giải thích cơ chế đối lập giữa Nguyệt Kiến (thuận hành kim đồng hồ đón dương quang) và Nguyệt Yếm (nghịch hành từ cung Càn đón âm khí). Phân tích việc đại kỵ: giá thú cưới hỏi, xuất hành, động thổ, khai trương, an táng.
+- **Đồng Bộ Thời Gian Toàn Diện Từ Lịch Vạn Niên**:
+  - Tự động đồng bộ với ngày đang chọn trên Lịch Vạn Niên (`selectedDate`) khi mở tab.
+  - Nút bấm *"🔄 Đồng Bộ Từ Lịch Vạn Niên"*, *"📅 Hôm Nay (Thời gian thực)"*, lùi/tiến ngày, lùi/tiến tháng và bộ chọn ngày nhanh (Date Picker).
+  - Nút *"📌 Xem Trên Lịch Vạn Niên ➔"* chuyển ngược lại Lịch Vạn Niên để theo dõi chi tiết.
+- **Giao Diện Trực Quan & Radar Bàn Cờ 12 Địa Chi**:
+  - Thẻ tóm tắt 4 trụ thời gian thực (Dương lịch, Âm lịch, Tứ Trụ Bát Tự, Tiết Khí).
+  - Banner cảnh báo trực nhật: Thông báo rõ ràng ngày hôm nay có phạm sao Nguyệt Yếm hoặc Yếm Đối hay an lành.
+  - Bàn cờ trực quan 12 Địa Chi làm nổi bật Nguyệt Kiến (lam), Nguyệt Yếm (đỏ ⚡), Yếm Đối (cam ⚔️), ngày đang chọn (vàng gold) và chiều nghịch hành.
+  - Bảng tra cứu 12 Tháng Âm Lịch với tính năng chọn nhanh từng tháng và quét toàn bộ các ngày phạm sao trong tháng.
+
 ---
 
 ## 🏷️ QUY TẮC SỐ HOÁ PHIÊN BẢN (SEMANTIC VERSIONING)
@@ -268,6 +288,26 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.38.0] - 2026-09-25
+- **Tạo Tab Chuyên Mục Riêng Tra Cứu Sao & Thần Sát Theo Thời Gian**:
+  - **Khởi Lệ & Thuật Toán Sao Nguyệt Yếm (Khâm Định Hiệp Kỷ Biện Phương Thư & Ngọc Hạp Thông Thư)**:
+    - Hiện thực hóa chính xác quy luật khởi lệ kinh điển: *Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất. Sau đó, cứ mỗi tháng tiếp theo thì Nguyệt Yếm di chuyển nghịch hành (lùi 1 vị trí Địa Chi theo chiều ngược kim đồng hồ).*
+    - Xây dựng trọn vẹn chu kỳ 12 tháng: Tháng 1 Tuất ➔ Tháng 2 Dậu ➔ Tháng 3 Thân ➔ Tháng 4 Mùi ➔ Tháng 5 Ngọ ➔ Tháng 6 Tỵ ➔ Tháng 7 Thìn ➔ Tháng 8 Mão ➔ Tháng 9 Dần ➔ Tháng 10 Sửu ➔ Tháng 11 Tý ➔ Tháng 12 Hợi.
+    - Tích hợp thêm thần sát đối xứng **Yếm Đối** (vị trí Lục Xung 180° với Nguyệt Yếm).
+    - Thẩm định chi tiết các việc đại kỵ: Hôn nhân giá thú cưới hỏi, xuất hành đi xa, động thổ, khai trương, an táng, nhập trạch, v.v.
+  - **Tập Hợp File Dữ Liệu Dùng Chung Cho Tất Cả Thần Sát (`thanSatData.js`)**:
+    - Thiết kế kiến trúc `THAN_SAT_REGISTRY` và `ThanSatEngine` theo cấu trúc module hóa, chuẩn mực dữ liệu phong phú (ID, tên, chữ Hán, phân loại, quy luật khởi lệ, công thức, phương vị phong thủy, trích dẫn cổ thư, hàm thẩm định cát hung).
+    - Đóng vai trò là file dữ liệu gốc tập trung, sẵn sàng tiếp nhận và mở rộng tất cả các Cát Thần và Hung Sát trong tương lai.
+  - **Đồng Bộ Hai Chiều Với Lịch Vạn Niên**:
+    - Tự động lấy ngày giờ đang chọn từ Lịch Vạn Niên (`selectedDate`) khi người dùng chuyển sang Tab Thần Sát.
+    - Cung cấp thanh điều khiển chuyên nghiệp: Nút *"🔄 Đồng bộ từ Lịch Vạn Niên"*, *"📅 Hôm nay (Thời gian thực)"*, các nút tiến/lùi ngày, tiến/lùi tháng, bộ chọn ngày nhanh (Date Picker), và nút *"📌 Xem trên Lịch Vạn Niên ➔"* để nhảy ngược lại Lịch Vạn Niên.
+  - **Giao Diện Trực Quan Bàn Cờ 12 Địa Chi & Quét Lịch Tháng**:
+    - Hiển thị bảng tóm tắt Tứ Trụ, Tiết Khí và Nguyệt Lệnh theo thời gian thực.
+    - Banner cảnh báo trực nhật thông minh: Nhận diện tức thì ngày đang chọn có phạm sao Nguyệt Yếm hay Yếm Đối hay không kèm lời khuyên hành sự.
+    - Bàn cờ tương tác 12 Địa Chi làm nổi bật Nguyệt Kiến, Nguyệt Yếm, Yếm Đối, Địa Chi ngày hiện tại và biểu diễn trực quan chiều luân chuyển nghịch hành.
+    - Bảng ma trận 12 tháng Âm lịch kèm bộ quét toàn bộ các ngày phạm sao trong tháng đã chọn.
+  - **Quản Lý Phiên Bản**: Nâng phiên bản hệ thống lên **v1.38.0** trên `package.json`, `README.md`, `index.html` và giao diện người dùng.
 
 ### [v1.37.0] - 2026-09-23
 - **Chuẩn Hóa Thuật Toán Can Chi Năm & Tháng Theo Tiết Khí Thiên Văn Học (VSOP87 / Jean Meeus)**:

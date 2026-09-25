@@ -7,25 +7,25 @@
   <meta name="description" content="Lịch Âm Dương, Bát Tự Tứ Trụ &amp; Hôn Nhân Cát Tường. Slogan: 'Vòng Xoay Duyên Khởi' - Giao thoa Thời Gian Thiên Văn và Nhân Duyên Cuộc Đời." />
   
   <!-- Biểu tượng Logo / Favicon & Apple Touch Icon (SVG Vector & PNG Fallback) -->
-  <link rel="icon" type="image/svg+xml" href="/logo.svg?v=1.37.0" />
-  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=1.37.0" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=1.37.0" />
-  <link rel="shortcut icon" href="/favicon.ico?v=1.37.0" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1.37.0" />
-  <link rel="image_src" href="/og-image.png?v=1.37.0" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg?v=1.38.0" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=1.38.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=1.38.0" />
+  <link rel="shortcut icon" href="/favicon.ico?v=1.38.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1.38.0" />
+  <link rel="image_src" href="/og-image.png?v=1.38.0" />
 
   <!-- Hiển thị khi chia sẻ Link (Open Graph: Facebook, Zalo, Telegram, Messenger) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Vòng Xoay Duyên Khởi" />
   <meta property="og:description" content="Lịch Âm Dương, Bát Tự Tứ Trụ &amp; Hôn Nhân Cát Tường. Slogan: 'Vòng Xoay Duyên Khởi' - Giao thoa Thời Gian &amp; Nhân Duyên." />
-  <meta property="og:image" content="https://lichamduong-battu.vercel.app/og-image.png?v=1.37.0" />
-  <meta property="og:image:secure_url" content="https://lichamduong-battu.vercel.app/og-image.png?v=1.37.0" />
+  <meta property="og:image" content="https://lichamduong-battu.vercel.app/og-image.png?v=1.38.0" />
+  <meta property="og:image:secure_url" content="https://lichamduong-battu.vercel.app/og-image.png?v=1.38.0" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Logo Vòng Xoay Duyên Khởi - Lịch Âm Dương &amp; Bát Tự Tứ Trụ" />
   <!-- Fallback square image for thumbnail mode (Zalo, Messenger) -->
-  <meta property="og:image" content="https://lichamduong-battu.vercel.app/logo.jpg?v=1.37.0" />
+  <meta property="og:image" content="https://lichamduong-battu.vercel.app/logo.jpg?v=1.38.0" />
   <meta property="og:site_name" content="Lịch Âm Dương &amp; Bát Tự" />
   <meta property="og:locale" content="vi_VN" />
 
@@ -33,7 +33,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Vòng Xoay Duyên Khởi" />
   <meta name="twitter:description" content="Lịch Âm Dương, Bát Tự Tứ Trụ &amp; Hôn Nhân Cát Tường. Slogan: 'Vòng Xoay Duyên Khởi' - Giao thoa Thời Gian &amp; Nhân Duyên." />
-  <meta name="twitter:image" content="https://lichamduong-battu.vercel.app/og-image.png?v=1.37.0" />
+  <meta name="twitter:image" content="https://lichamduong-battu.vercel.app/og-image.png?v=1.38.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -565,7 +565,8 @@
     .btn-lookup-nd,
     .btn-lookup-bt,
     .btn-lookup-vt,
-    .btn-lookup-mt {
+    .btn-lookup-mt,
+    .btn-lookup-ts {
       display: inline-flex;
       align-items: center;
       gap: 0.2rem;
@@ -581,7 +582,8 @@
     .btn-lookup-nd:hover,
     .btn-lookup-bt:hover,
     .btn-lookup-vt:hover,
-    .btn-lookup-mt:hover {
+    .btn-lookup-mt:hover,
+    .btn-lookup-ts:hover {
       color: #78350f;
     }
 
@@ -4792,6 +4794,221 @@
     .km-dir-table tr:hover td {
       background: #fafafa;
     }
+
+    /* ==========================================================================
+       TAB TRA CỨU SAO & THẦN SÁT THEO THỜI GIAN (HIỆP KỶ BIỆN PHƯƠNG THƯ)
+       ========================================================================== */
+    .badge-nguyet-yem {
+      background: linear-gradient(135deg, #fee2e2, #fecaca);
+      color: #991b1b;
+      border: 1.5px solid #f87171;
+      font-weight: 700;
+      box-shadow: 0 1px 4px rgba(220, 38, 38, 0.15);
+    }
+    .badge-yem-doi {
+      background: linear-gradient(135deg, #ffedd5, #fed7aa);
+      color: #9a3412;
+      border: 1.5px solid #fb923c;
+      font-weight: 700;
+      box-shadow: 0 1px 4px rgba(234, 88, 12, 0.15);
+    }
+    .ts-hero-card {
+      background: linear-gradient(145deg, #ffffff 0%, #fffdfa 100%);
+      border: 1.5px solid #fed7aa;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 16px rgba(180, 83, 9, 0.06);
+    }
+    .ts-sync-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .ts-sync-group {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .ts-snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .ts-snapshot-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .ts-snapshot-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    .ts-snapshot-lbl {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .ts-snapshot-val {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .ts-snapshot-sub {
+      font-size: 0.82rem;
+      color: #475569;
+      line-height: 1.35;
+    }
+    .ts-verdict-banner {
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.35rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+    .ts-verdict-banner.danger {
+      background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+      border: 1.5px solid #f87171;
+      color: #7f1d1d;
+    }
+    .ts-verdict-banner.warning {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1.5px solid #f59e0b;
+      color: #78350f;
+    }
+    .ts-verdict-banner.success {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 1.5px solid #4ade80;
+      color: #14532d;
+    }
+    .ts-rule-box {
+      background: #fffdf7;
+      border-left: 4px solid #d97706;
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1.15rem;
+      margin: 0.9rem 0;
+      box-shadow: 0 2px 8px rgba(217, 119, 6, 0.06);
+    }
+    .ts-wheel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+      margin: 1.25rem 0;
+    }
+    @media (max-width: 768px) {
+      .ts-wheel-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 500px) {
+      .ts-wheel-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .ts-chi-cell {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.75rem 0.65rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .ts-chi-cell.active-yem {
+      border-color: #ef4444;
+      background: linear-gradient(145deg, #ffffff 0%, #fee2e2 100%);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+    }
+    .ts-chi-cell.active-doi {
+      border-color: #f97316;
+      background: linear-gradient(145deg, #ffffff 0%, #ffedd5 100%);
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.18);
+    }
+    .ts-chi-cell.active-kien {
+      border-color: #3b82f6;
+      background: linear-gradient(145deg, #ffffff 0%, #eff6ff 100%);
+    }
+    .ts-chi-cell.active-current-day {
+      outline: 2.5px solid #eab308;
+      outline-offset: 2px;
+    }
+    .ts-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .ts-table th {
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 700;
+      padding: 0.7rem 0.85rem;
+      border-bottom: 1.5px solid #cbd5e1;
+      text-align: left;
+    }
+    .ts-table td {
+      padding: 0.7rem 0.85rem;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+    .ts-table tr.highlight-month {
+      background: #fffbeb !important;
+      font-weight: 700;
+      box-shadow: inset 3px 0 0 #d97706;
+    }
+    .ts-table tr:hover td {
+      background: #fafaf9;
+    }
+    .ts-days-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .ts-day-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .ts-day-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: #b45309;
+    }
+    .ts-day-card.card-yem {
+      border-left: 4px solid #ef4444;
+      background: #fffcfc;
+    }
+    .ts-day-card.card-doi {
+      border-left: 4px solid #f97316;
+      background: #fffdfa;
+    }
   </style>
 </head>
 <body>
@@ -4804,7 +5021,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.37.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.38.0</span>
           </div>
           <div class="brand-sub">"Vòng Xoay Duyên Khởi" • Giao thoa Thời Gian &amp; Nhân Duyên</div>
         </div>
@@ -4825,6 +5042,9 @@
         </div>
         <button type="button" class="nav-tab active" data-tab="tab-calendar" title="Lịch Vạn Niên &amp; Tra Cứu Ngày Hoàng Đạo, Quý Nhân, Bất Tương">
           📅 Lịch Vạn Niên
+        </button>
+        <button type="button" class="nav-tab" data-tab="tab-thansat" id="navTabThanSat" title="Tra Cứu Sao &amp; Thần Sát Theo Thời Gian (Hiệp Kỷ Biện Phương Thư &amp; Ngọc Hạp Thông Thư)">
+          ⭐ Tra Cứu Thần Sát
         </button>
         <button type="button" class="nav-tab" data-tab="tab-wedding" id="navTabWedding" title="Chọn Xem Thời Gian Cưới (Khảo sát 6 năm &amp; 12 tháng)">
           💒 Xem Thời Gian Cưới
@@ -6642,6 +6862,226 @@
         </div>
       </div>
     </div>
+
+    <!-- TAB: TRA CỨU SAO & THẦN SÁT THEO THỜI GIAN (HIỆP KỶ BIỆN PHƯƠNG THƯ) -->
+    <div id="tab-thansat" class="tab-content">
+      <div class="card" style="border: 2px solid #fed7aa; box-shadow: 0 4px 20px rgba(180, 83, 9, 0.08);">
+        <!-- Card Header -->
+        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem; border-bottom: 2px solid #fef3c7; background: linear-gradient(135deg, #fffdfa 0%, #fffbeb 100%);">
+          <div>
+            <h2 class="card-title" style="display: flex; align-items: center; gap: 0.5rem; color: #92400e; font-size: 1.25rem;">
+              <span>⭐</span> Tra Cứu Sao &amp; Thần Sát Theo Thời Gian
+            </h2>
+            <p style="font-size: 0.82rem; color: #78350f; margin-top: 0.25rem;">
+              Khảo sát quy luật khởi lệ, chiều nghịch hành thiên thể &amp; thẩm định cát hung (Khâm Định Hiệp Kỷ Biện Phương Thư &amp; Ngọc Hạp Thông Thư)
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="badge badge-hoangdao" style="font-size: 0.78rem; font-weight: 700; padding: 0.35rem 0.65rem; border-radius: 9999px;">
+              📜 Dữ liệu chuẩn: thanSatData.js
+            </span>
+          </div>
+        </div>
+
+        <!-- Thanh Điều Khiển Đồng Bộ Thời Gian (Time Synchronizer Bar) -->
+        <div class="ts-sync-toolbar">
+          <div class="ts-sync-group">
+            <button type="button" class="btn btn-gold btn-sm" id="btnTsSyncFromCal" title="Lấy ngày hiện tại đang được chọn trên Lịch Vạn Niên">
+              🔄 Đồng Bộ Từ Lịch Vạn Niên
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" id="btnTsToday" title="Chuyển về ngày hôm nay theo giờ hệ thống thực">
+              📅 Hôm Nay
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" id="btnTsPrevDay" title="Lùi 1 ngày">◀ Ngày trước</button>
+            <button type="button" class="btn btn-outline btn-sm" id="btnTsNextDay" title="Tiến 1 ngày">Ngày sau ▶</button>
+            <button type="button" class="btn btn-outline btn-sm" id="btnTsPrevMonth" title="Lùi 1 tháng">◀ Tháng trước</button>
+            <button type="button" class="btn btn-outline btn-sm" id="btnTsNextMonth" title="Tiến 1 tháng">Tháng sau ▶</button>
+          </div>
+
+          <div class="ts-sync-group">
+            <label style="font-size: 0.82rem; font-weight: 700; color: #475569;">Chọn ngày:</label>
+            <input type="date" id="tsDatePickerInput" class="form-control" style="width: auto; padding: 0.28rem 0.5rem; font-weight: 700; font-size: 0.85rem;" />
+            <button type="button" class="btn btn-outline btn-sm" id="btnTsJumpToCal" style="border-color: #b45309; color: #92400e; background: #fffbeb; font-weight: 700;" title="Nhảy sang Lịch Vạn Niên để xem chi tiết ngày này">
+              📌 Xem Trên Lịch Vạn Niên ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- Thẻ Tóm Tắt 4 Trụ Thời Gian (Time Snapshot) -->
+        <div class="ts-snapshot-grid">
+          <div class="ts-snapshot-card">
+            <div class="ts-snapshot-lbl"><span>🌞</span> DƯƠNG LỊCH</div>
+            <div class="ts-snapshot-val" id="tsValSolarDate">--/--/----</div>
+            <div class="ts-snapshot-sub" id="tsValSolarWeekday">Thứ ... • --:-- (Giờ Việt Nam)</div>
+          </div>
+          <div class="ts-snapshot-card">
+            <div class="ts-snapshot-lbl"><span>🌙</span> ÂM LỊCH (NGUYỆT LỆNH)</div>
+            <div class="ts-snapshot-val" id="tsValLunarDate">Ngày -- Tháng --</div>
+            <div class="ts-snapshot-sub" id="tsValLunarYear">Năm ... (Âm lịch)</div>
+          </div>
+          <div class="ts-snapshot-card">
+            <div class="ts-snapshot-lbl"><span>📜</span> TỨ TRỤ CAN CHI</div>
+            <div class="ts-snapshot-val" id="tsValCanChiDay" style="color: #991b1b;">Ngày -- --</div>
+            <div class="ts-snapshot-sub" id="tsValCanChiExtra">Tháng -- • Năm --</div>
+          </div>
+          <div class="ts-snapshot-card">
+            <div class="ts-snapshot-lbl"><span>☀️</span> TIẾT KHÍ THIÊN VĂN</div>
+            <div class="ts-snapshot-val" id="tsValSolarTerm" style="color: #b45309;">--</div>
+            <div class="ts-snapshot-sub" id="tsValSolarTermSub">Nguyệt lệnh tiết khí thiên văn</div>
+          </div>
+        </div>
+
+        <!-- Banner Đánh Giá Trực Nhật: Cảnh Báo Thần Sát Ngày Đang Chọn -->
+        <div id="tsDailyVerdictBox">
+          <!-- Dynamic verdict rendered via JS -->
+        </div>
+
+        <!-- KHU VỰC TIÊU ĐIỂM: SAO NGUYỆT YẾM & YẾM ĐỐI -->
+        <div class="ts-hero-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 1.5rem;">⚡</span>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #991b1b; margin: 0;">
+                  TIÊU ĐIỂM THẦN SÁT: SAO NGUYỆT YẾM (NGUYỆT YỂM / HỌA THẦN)
+                </h3>
+                <div style="font-size: 0.8rem; color: #64748b;">
+                  Chữ Hán: 月厭 • Phân loại: Đại Hung Tinh (Nguyệt Thần Nghịch Hành) • Cặp đối xung: Yếm Đối (厭對)
+                </div>
+              </div>
+            </div>
+            <span class="badge badge-nguyet-yem" style="font-size: 0.82rem; padding: 0.3rem 0.65rem;">
+              ⛔ CỰC KỴ GIÁ THÚ &amp; KHỞI TẠO
+            </span>
+          </div>
+
+          <!-- Khẩu Quyết Khởi Lệ Cổ Bản -->
+          <div class="ts-rule-box">
+            <div style="font-size: 0.84rem; font-weight: 700; color: #92400e; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;">
+              <span>📜</span> QUY LUẬT KHỞI LỆ KINH ĐIỂN (KHÂM ĐỊNH HIỆP KỶ BIỆN PHƯƠNG THƯ):
+            </div>
+            <div style="font-size: 0.98rem; font-weight: 800; color: #78350f; line-height: 1.5; font-style: italic;">
+              "Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất. Sau đó, cứ mỗi tháng tiếp theo thì Nguyệt Yếm di chuyển nghịch hành (lùi 1 vị trí Địa Chi theo chiều ngược kim đồng hồ)."
+            </div>
+            <div style="font-size: 0.82rem; color: #4b5563; margin-top: 0.45rem; line-height: 1.45;">
+              <strong>Nguyên lý âm dương Dịch học:</strong> Nguyệt Kiến là nơi Dương khí khởi phát (thuận hành theo chiều kim đồng hồ); Nguyệt Yếm là nơi Âm khí âm thầm dâng lên từ phương Tuất (quẻ Càn - phương vị mặt trời lặn) nghịch hành luân chuyển. Khí u ám này yểm hãm dương quang, vì thế các việc đại sự khai mở dương khí như cưới hỏi, xuất hành, khởi công, khai trương đều đại kỵ gặp ngày Nguyệt Yếm.
+            </div>
+          </div>
+
+          <!-- Radar Bàn Cờ 12 Địa Chi & Chiều Nghịch Hành -->
+          <div style="margin: 1.25rem 0 0.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.65rem;">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: #1e293b; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🧭</span> Vòng Tròn 12 Địa Chi &amp; Vị Trí Nguyệt Yếm Trong Tháng <span id="tsMonthLabelActive" style="color: #991b1b;">(Tháng --)</span>
+              </h4>
+              <div style="font-size: 0.78rem; color: #64748b; display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+                <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #3b82f6;"></span> Nguyệt Kiến</span>
+                <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ef4444;"></span> Nguyệt Yếm (⚡)</span>
+                <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #f97316;"></span> Yếm Đối (⚔️)</span>
+                <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 2px solid #eab308;"></span> Ngày Đang Chọn</span>
+              </div>
+            </div>
+
+            <!-- 12 Cung Địa Chi Grid -->
+            <div class="ts-wheel-grid" id="tsChiWheelGrid">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Mũi Tên Nghịch Hành Minh Họa -->
+            <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 0.65rem 0.85rem; font-size: 0.8rem; color: #475569; text-align: center; margin-top: 0.65rem;">
+              🔄 <strong>Chu trình nghịch hành 12 tháng:</strong> Th.1 (Tuất) ➔ Th.2 (Dậu) ➔ Th.3 (Thân) ➔ Th.4 (Mùi) ➔ Th.5 (Ngọ) ➔ Th.6 (Tỵ) ➔ Th.7 (Thìn) ➔ Th.8 (Mão) ➔ Th.9 (Dần) ➔ Th.10 (Sửu) ➔ Th.11 (Tý) ➔ Th.12 (Hợi).
+            </div>
+          </div>
+        </div>
+
+        <!-- BẢNG ĐỐI CHIẾU 12 THÁNG TOÀN DIỆN CỦA SAO NGUYỆT YẾM -->
+        <div class="card" style="margin-bottom: 1.25rem; border: 1px solid #e2e8f0;">
+          <div class="card-header" style="background: #f8fafc; border-bottom: 1.5px solid #e2e8f0; padding: 0.75rem 1rem;">
+            <div style="font-weight: 700; font-size: 0.95rem; color: #1e293b; display: flex; align-items: center; gap: 0.4rem;">
+              <span>📋</span> Bảng Tra Cứu 12 Tháng Âm Lịch: Vị Trí Nguyệt Yếm &amp; Yếm Đối
+            </div>
+            <div style="font-size: 0.78rem; color: #64748b;">
+              Nhấp vào dòng bất kỳ để xem phân tích của tháng đó
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="ts-table" id="ts12MonthsTable">
+              <thead>
+                <tr>
+                  <th>Tháng Âm Lịch</th>
+                  <th>Nguyệt Kiến</th>
+                  <th>Nguyệt Yếm Đáo</th>
+                  <th>Chiều Nghịch Hành</th>
+                  <th>Yếm Đối (Đối Xung)</th>
+                  <th>Phương Vị Phong Thủy</th>
+                  <th>Trạng Thái</th>
+                </tr>
+              </thead>
+              <tbody id="ts12MonthsTbody">
+                <!-- Filled via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- QUÉT CÁC NGÀY PHẠM NGUYỆT YẾM TRONG THÁNG HIỆN TẠI -->
+        <div class="card" style="margin-bottom: 1.25rem; border: 1px solid #fecaca; background: #fffdfd;">
+          <div class="card-header" style="background: #fef2f2; border-bottom: 1.5px solid #fecaca; padding: 0.75rem 1rem;">
+            <div style="font-weight: 700; font-size: 0.95rem; color: #991b1b; display: flex; align-items: center; gap: 0.4rem;">
+              <span>🔍</span> Danh Sách Các Ngày Phạm Sao Nguyệt Yếm &amp; Yếm Đối Trong Tháng <span id="tsScanMonthLabel">--</span>
+            </div>
+            <div style="font-size: 0.78rem; color: #7f1d1d;" id="tsScanMonthCount">
+              Đang quét dữ liệu...
+            </div>
+          </div>
+          <div style="padding: 1rem;">
+            <div class="ts-days-wrap" id="tsDaysScannerGrid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- KIẾN TRÚC MỞ RỘNG THẦN SÁT TRONG TƯƠNG LAI -->
+        <div class="card" style="border: 1px solid #cbd5e1; background: #fafaf9;">
+          <div style="padding: 1rem 1.25rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.65rem;">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: #334155; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+                <span>📚</span> Hệ Thống Thần Sát Tập Hợp Chung (Kiến Trúc Mở Rộng Dữ Liệu)
+              </h4>
+              <span class="badge" style="background: #e2e8f0; color: #334155; font-size: 0.75rem;">thanSatData.js Architecture</span>
+            </div>
+            <p style="font-size: 0.82rem; color: #475569; line-height: 1.5; margin-bottom: 0.75rem;">
+              Tất cả các sao và thần sát trong hệ thống được quy tụ chung vào file dữ liệu tập trung <code>/public/thanSatData.js</code>. Cấu trúc Registry chuẩn hóa cho phép dễ dàng tích hợp và mở rộng thêm hàng trăm cát tinh, hung tinh theo phân loại:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.75rem;">
+              <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem;">
+                <div style="font-size: 0.82rem; font-weight: 700; color: #15803d; margin-bottom: 0.35rem;">
+                  ✨ Cát Thần (Sao Tốt - Cát Tinh):
+                </div>
+                <div style="font-size: 0.78rem; color: #4b5563; line-height: 1.45;">
+                  • <strong>Thiên Đức &amp; Nguyệt Đức:</strong> Quý nhân cứu giải bách sát.<br>
+                  • <strong>Thiên Xá &amp; Sinh Khí:</strong> Hóa sát giải trừ quan phi.<br>
+                  • <strong>Thiên Hỷ &amp; Tam Hợp:</strong> Cát tinh hỷ sự, trăm năm hòa thuận.<br>
+                  • <strong>Mẫu Thương:</strong> Lệnh tháng sinh ngày, vạn sự phát triển bền vững.
+                </div>
+              </div>
+              <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem;">
+                <div style="font-size: 0.82rem; font-weight: 700; color: #b91c1c; margin-bottom: 0.35rem;">
+                  ⚡ Hung Thần (Sao Xấu - Hung Sát):
+                </div>
+                <div style="font-size: 0.78rem; color: #4b5563; line-height: 1.45;">
+                  • <strong>Nguyệt Yếm &amp; Yếm Đối:</strong> Âm khí nghịch hành, đại kỵ giá thú.<br>
+                  • <strong>Nguyệt Phá &amp; Tuế Phá:</strong> Xung phá chi tháng và chi năm.<br>
+                  • <strong>Sát Chủ &amp; Thụ Tử:</strong> Tứ thời sát phạt, đại hung trạch nhật.<br>
+                  • <strong>Tam Nương &amp; Nguyệt Kỵ:</strong> Kiêng cữ khởi đầu công việc.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </main>
 
   <!-- Modal Chi Tiết Ngày -->
@@ -6674,7 +7114,7 @@
           </h4>
           <p style="font-size: 0.86rem; color: #b45309; font-weight: 700; margin-top: 3px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Giao Thoa Thời Gian &amp; Nhân Duyên"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.37.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.38.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.95rem 1.15rem; font-size: 0.84rem; line-height: 1.65; color: #374151;">
@@ -7116,7 +7556,7 @@
             "Vòng Xoay Duyên Khởi" — Giao thoa Thời Gian &amp; Nhân Duyên • Thiên văn học NASA JPL / VSOP87 &amp; Mệnh Lý Tử Bình, Kỳ Môn Độn Giáp Hôn Nhân.
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.37.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.38.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -7386,6 +7826,9 @@
       <div id="prKmTimestamp">In lúc: --/--/---- --:--</div>
     </div>
   </div>
+
+  <!-- Dedicated Than Sat Data & Algorithm Engine -->
+  <script src="/thanSatData.js"></script>
 
   <!-- Complete Javascript Engine -->
   <script>
@@ -9898,6 +10341,36 @@
         });
       }
 
+      // 4f. Thần Sát: Sao Nguyệt Yếm & Yếm Đối (Khâm Định Hiệp Kỷ Biện Phương Thư)
+      const curLm = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      let blocYemIdx = (10 - (curLm - 1)) % 12;
+      if (blocYemIdx < 0) blocYemIdx += 12;
+      let blocDoiIdx = (blocYemIdx + 6) % 12;
+
+      if (dayCanChi.chiIndex === blocYemIdx) {
+        hungItems.push({
+          badgeClass: "badge-nguyet-yem",
+          badgeTitle: "⚡ Ngày Nguyệt Yếm (Đại Hung)",
+          hungWhat: `Tháng ${curLm} Nguyệt Yếm tại ${CHI[blocYemIdx]}, ngày ${dayCanChi.chi} phạm sao Nguyệt Yếm. Khí âm tà u ám yểm ánh quang minh.`,
+          avoidTag: "Đại kỵ:",
+          avoidText: "Đại kỵ giá thú cưới hỏi, xuất hành xa, động thổ đào móng, khai trương mở hàng, an táng, nhập trạch.",
+          actionTag: null,
+          actionText: null,
+          lookupType: "thanSat"
+        });
+      } else if (dayCanChi.chiIndex === blocDoiIdx) {
+        hungItems.push({
+          badgeClass: "badge-yem-doi",
+          badgeTitle: "⚔️ Ngày Yếm Đối (Đối Xung)",
+          hungWhat: `Yếm Đối là vị trí Lục Xung đối xứng với Nguyệt Yếm trong tháng ${curLm} (đáo tại ${CHI[blocDoiIdx]}).`,
+          avoidTag: "Kiêng cữ:",
+          avoidText: "Kiêng cữ cưới hỏi, xuất hành xe hoa, tranh chấp thị phi, giao dịch hợp đồng lớn.",
+          actionTag: null,
+          actionText: null,
+          lookupType: "thanSat"
+        });
+      }
+
       // 5. Thập Nhị Trực
       const { truc, sao } = getDayTrucVaSao(lunarMonth, dayCanChi.chiIndex, jd);
       const trucDetail = TRUC_DETAILS[truc] || {
@@ -10023,8 +10496,8 @@
                     <span class="badge ${item.badgeClass}">${item.badgeTitle}</span>
                   </span>
                   ${item.lookupType ? `
-                    <button type="button" class="btn-lookup-${item.lookupType === 'nhiDuc' ? 'nd' : (item.lookupType === 'batTuong' ? 'bt' : (item.lookupType === 'vuongTuong' ? 'vt' : 'mt'))}" title="Xem bảng tra cứu">
-                      Tra bảng ➔
+                    <button type="button" class="btn-lookup-${item.lookupType === 'nhiDuc' ? 'nd' : (item.lookupType === 'batTuong' ? 'bt' : (item.lookupType === 'vuongTuong' ? 'vt' : (item.lookupType === 'thanSat' ? 'ts' : 'mt')))}" title="Xem tra cứu">
+                      ${item.lookupType === 'thanSat' ? 'Tra sao' : 'Tra bảng'} ➔
                     </button>
                   ` : ''}
                 </div>
@@ -10053,6 +10526,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding-top: 0.35rem; border-top: 1px dashed #fed7aa; font-size: 0.74rem;">
           <span style="color: #92400e; font-weight: 600;">Tra cứu nguyên lý Trạch Nhật:</span>
           <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <button type="button" class="btn-lookup-ts" title="Tra cứu Sao &amp; Thần Sát theo thời gian (Nguyệt Yếm, Yếm Đối...)">Tra Thần Sát ➔</button>
             <button type="button" class="btn-lookup-nd" title="Bảng tra Quý Nhân Tứ Đức (Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp) 12 tháng">Tra Tứ Đức ➔</button>
             <button type="button" class="btn-lookup-bt" title="Bảng tra Âm Dương Bất Tương 60 Hoa Giáp">Tra Bất Tương ➔</button>
             <button type="button" class="btn-lookup-vt" title="Bảng tra Quy luật Ngày Vượng Suy (Vượng – Tướng – Hưu – Tù – Tử) 12 tháng">Tra Vượng Suy ➔</button>
@@ -10060,6 +10534,15 @@
           </div>
         </div>
       `;
+
+      // Gán sự kiện mở modal cho tất cả các nút bấm tra cứu
+      bodyEl.querySelectorAll('.btn-lookup-ts').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const tabBtn = document.querySelector('.nav-tab[data-tab="tab-thansat"]') || document.getElementById('navTabThanSat');
+          if (tabBtn) tabBtn.click();
+        });
+      });
 
       // Gán sự kiện mở modal cho tất cả các nút bấm tra cứu
       bodyEl.querySelectorAll('.btn-lookup-nd').forEach(btn => {
@@ -10126,6 +10609,7 @@
       setupConverterForm();
       renderFestivals();
       setupFestivalsFilters();
+      setupThanSatTab();
     }
 
     // Modal hiển thị và giải thích ý nghĩa biểu trưng (Logo)
@@ -10276,6 +10760,10 @@
           const target = tab.getAttribute('data-tab');
           const targetEl = document.getElementById(target);
           if (targetEl) targetEl.classList.add('active');
+          if (target === 'tab-thansat') {
+            const targetDate = selectedDate || new Date();
+            renderThanSatTab(targetDate);
+          }
           if (target === 'tab-leapyear') {
             const curY = selectedDate ? selectedDate.getFullYear() : (new Date()).getFullYear();
             renderDedicatedLeapTab(curY);
@@ -16945,7 +17433,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.37.0";
+    const APP_VERSION = "v1.38.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
@@ -17321,6 +17809,427 @@
         });
       }
     }
+
+    /**
+     * =========================================================================
+     * MODULE CHUYÊN BIỆT: TRA CỨU SAO & THẦN SÁT THEO THỜI GIAN
+     * Khởi đầu: SAO NGUYỆT YẾM & YẾM ĐỐI (HIỆP KỶ BIỆN PHƯƠNG THƯ)
+     * =========================================================================
+     */
+    let thanSatActiveDate = new Date();
+
+    function setupThanSatTab() {
+      // 1. Nút đồng bộ từ Lịch Vạn Niên
+      const btnSyncFromCal = document.getElementById('btnTsSyncFromCal');
+      if (btnSyncFromCal) {
+        btnSyncFromCal.addEventListener('click', () => {
+          thanSatActiveDate = new Date(selectedDate || new Date());
+          renderThanSatTab(thanSatActiveDate);
+        });
+      }
+
+      // 2. Nút Về Hôm Nay
+      const btnToday = document.getElementById('btnTsToday');
+      if (btnToday) {
+        btnToday.addEventListener('click', () => {
+          thanSatActiveDate = new Date();
+          renderThanSatTab(thanSatActiveDate);
+        });
+      }
+
+      // 3. Nút Lùi / Tiến Ngày
+      const btnPrevDay = document.getElementById('btnTsPrevDay');
+      if (btnPrevDay) {
+        btnPrevDay.addEventListener('click', () => {
+          thanSatActiveDate.setDate(thanSatActiveDate.getDate() - 1);
+          renderThanSatTab(thanSatActiveDate);
+        });
+      }
+
+      const btnNextDay = document.getElementById('btnTsNextDay');
+      if (btnNextDay) {
+        btnNextDay.addEventListener('click', () => {
+          thanSatActiveDate.setDate(thanSatActiveDate.getDate() + 1);
+          renderThanSatTab(thanSatActiveDate);
+        });
+      }
+
+      // 4. Nút Lùi / Tiến Tháng
+      const btnPrevMonth = document.getElementById('btnTsPrevMonth');
+      if (btnPrevMonth) {
+        btnPrevMonth.addEventListener('click', () => {
+          thanSatActiveDate.setMonth(thanSatActiveDate.getMonth() - 1);
+          renderThanSatTab(thanSatActiveDate);
+        });
+      }
+
+      const btnNextMonth = document.getElementById('btnTsNextMonth');
+      if (btnNextMonth) {
+        btnNextMonth.addEventListener('click', () => {
+          thanSatActiveDate.setMonth(thanSatActiveDate.getMonth() + 1);
+          renderThanSatTab(thanSatActiveDate);
+        });
+      }
+
+      // 5. Ô chọn ngày Date Picker
+      const datePicker = document.getElementById('tsDatePickerInput');
+      if (datePicker) {
+        datePicker.addEventListener('change', (e) => {
+          if (e.target.value) {
+            const parts = e.target.value.split('-');
+            if (parts.length === 3) {
+              thanSatActiveDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10), 12, 0, 0);
+              renderThanSatTab(thanSatActiveDate);
+            }
+          }
+        });
+      }
+
+      // 6. Nút nhảy sang Lịch Vạn Niên
+      const btnJumpToCal = document.getElementById('btnTsJumpToCal');
+      if (btnJumpToCal) {
+        btnJumpToCal.addEventListener('click', () => {
+          jumpToCalendarDate(thanSatActiveDate.getDate(), thanSatActiveDate.getMonth() + 1, thanSatActiveDate.getFullYear());
+        });
+      }
+
+      // Render ban đầu
+      renderThanSatTab(thanSatActiveDate);
+    }
+
+    function renderThanSatTab(targetDate) {
+      if (!targetDate) targetDate = new Date();
+      thanSatActiveDate = new Date(targetDate);
+
+      const d = thanSatActiveDate.getDate();
+      const m = thanSatActiveDate.getMonth() + 1;
+      const y = thanSatActiveDate.getFullYear();
+
+      // Cập nhật DatePicker Input
+      const datePicker = document.getElementById('tsDatePickerInput');
+      if (datePicker) {
+        const yStr = y;
+        const mStr = String(m).padStart(2, '0');
+        const dStr = String(d).padStart(2, '0');
+        datePicker.value = `${yStr}-${mStr}-${dStr}`;
+      }
+
+      // 1. Tính toán lịch & Can Chi
+      const [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(d, m, y);
+      const dayCanChi = getDayCanChi(d, m, y);
+      const monthCanChi = getSolarMonthCanChi(d, m, y, 12);
+      const yearCanChi = getSolarYearCanChi(d, m, y, 12);
+
+      const weekdayNames = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+      const weekdayStr = weekdayNames[thanSatActiveDate.getDay()];
+
+      // 2. Điền Thẻ Tóm Tắt Thời Gian (Snapshot)
+      const elSolarDate = document.getElementById('tsValSolarDate');
+      if (elSolarDate) elSolarDate.textContent = `${String(d).padStart(2, '0')}/${String(m).padStart(2, '0')}/${y}`;
+
+      const elSolarWeekday = document.getElementById('tsValSolarWeekday');
+      if (elSolarWeekday) elSolarWeekday.textContent = `${weekdayStr} • Giờ Việt Nam (UTC+7)`;
+
+      const elLunarDate = document.getElementById('tsValLunarDate');
+      if (elLunarDate) elLunarDate.textContent = `Mùng ${lDay} tháng ${lMonth}${isLeap ? ' (Nhuận)' : ''}`;
+
+      const elLunarYear = document.getElementById('tsValLunarYear');
+      if (elLunarYear) elLunarYear.textContent = `Năm ${yearCanChi.text} (Âm lịch: ${lYear})`;
+
+      const elCanChiDay = document.getElementById('tsValCanChiDay');
+      if (elCanChiDay) elCanChiDay.textContent = `Ngày ${dayCanChi.text}`;
+
+      const elCanChiExtra = document.getElementById('tsValCanChiExtra');
+      if (elCanChiExtra) elCanChiExtra.textContent = `Tháng ${monthCanChi.text} • Năm ${yearCanChi.text}`;
+
+      const elSolarTerm = document.getElementById('tsValSolarTerm');
+      if (elSolarTerm) elSolarTerm.textContent = `${monthCanChi.tiet || 'Tiết Khí'}`;
+
+      const elSolarTermSub = document.getElementById('tsValSolarTermSub');
+      if (elSolarTermSub) elSolarTermSub.textContent = `Trung khí: ${monthCanChi.trungKhi || '--'}`;
+
+      // 3. Tính toán vị trí Nguyệt Yếm & Yếm Đối theo quy luật khởi lệ:
+      // Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất.
+      // Sau đó, cứ mỗi tháng tiếp theo thì Nguyệt Yếm di chuyển nghịch hành (lùi 1 vị trí Địa Chi theo chiều ngược kim đồng hồ).
+      const targetMonth = ((lMonth - 1) % 12 + 12) % 12 + 1;
+      let yemChiIdx = (10 - (targetMonth - 1)) % 12;
+      if (yemChiIdx < 0) yemChiIdx += 12;
+      let doiChiIdx = (yemChiIdx + 6) % 12;
+
+      const yemChiName = CHI[yemChiIdx];
+      const doiChiName = CHI[doiChiIdx];
+      const kienChiIdx = (targetMonth + 1) % 12; // Tháng 1 kiến Dần (2), Tháng 2 kiến Mão (3)...
+      const kienChiName = CHI[kienChiIdx];
+
+      const isNguyetYem = (dayCanChi.chiIndex === yemChiIdx);
+      const isYemDoi = (dayCanChi.chiIndex === doiChiIdx);
+
+      // 4. Render Banner Cảnh Báo Trực Nhật
+      const verdictBox = document.getElementById('tsDailyVerdictBox');
+      if (verdictBox) {
+        if (isNguyetYem) {
+          verdictBox.innerHTML = `
+            <div class="ts-verdict-banner danger">
+              <div style="font-size: 2rem; line-height: 1;">⚡</div>
+              <div style="flex: 1;">
+                <div style="font-size: 1.1rem; font-weight: 800; color: #991b1b; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span>CẢNH BÁO: HÔM NAY PHẠM SAO NGUYỆT YẾM (${dayCanChi.chi})</span>
+                  <span class="badge badge-nguyet-yem" style="font-size: 0.75rem;">ĐẠI HUNG TINH</span>
+                </div>
+                <div style="font-size: 0.86rem; color: #7f1d1d; line-height: 1.5;">
+                  • <strong>Đối chiếu khởi lệ:</strong> Tháng ${targetMonth} (${kienChiName}) Nguyệt Yếm đáo tại <strong>${yemChiName}</strong>. Hôm nay là ngày <strong>${dayCanChi.text} (Địa Chi ${dayCanChi.chi})</strong> nên phạm chính xác sao Nguyệt Yếm!<br>
+                  • <strong>Việc đại kỵ:</strong> Hôn nhân giá thú cưới hỏi (Âm Dương Bất Tương tuyệt đối loại trừ), xuất hành xe hoa, động thổ khởi công, đào móng, khai trương mở cửa hàng, an táng, nhập trạch về nhà mới.<br>
+                  • <strong>Diễn giải Dịch học:</strong> Khí u ám yểm quang minh, mưu việc lớn dễ bất thành, sinh thị phi, trở ngại và tổn hao nguyên khí. Nên dời sang ngày cát tinh khác.
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (isYemDoi) {
+          verdictBox.innerHTML = `
+            <div class="ts-verdict-banner warning">
+              <div style="font-size: 2rem; line-height: 1;">⚔️</div>
+              <div style="flex: 1;">
+                <div style="font-size: 1.1rem; font-weight: 800; color: #9a3412; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span>LƯU Ý: HÔM NAY PHẠM SAO YẾM ĐỐI (${dayCanChi.chi})</span>
+                  <span class="badge badge-yem-doi" style="font-size: 0.75rem;">LỤC XUNG NGUYỆT YẾM</span>
+                </div>
+                <div style="font-size: 0.86rem; color: #78350f; line-height: 1.5;">
+                  • <strong>Đối chiếu khởi lệ:</strong> Yếm Đối là vị trí đối xung 180° với Nguyệt Yếm (Tháng ${targetMonth} Nguyệt Yếm tại ${yemChiName} ➔ Yếm Đối tại <strong>${doiChiName}</strong>). Hôm nay là ngày <strong>${dayCanChi.text} (Địa Chi ${dayCanChi.chi})</strong>.<br>
+                  • <strong>Việc kiêng cữ:</strong> Kỵ cưới hỏi, đính hôn, xuất hành xa, ký kết giao ước quan trọng hoặc đàm phán thương lượng. Tránh xung đột cãi vã.
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          verdictBox.innerHTML = `
+            <div class="ts-verdict-banner success">
+              <div style="font-size: 2rem; line-height: 1;">✅</div>
+              <div style="flex: 1;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #15803d; margin-bottom: 0.35rem;">
+                  AN LÀNH: HÔM NAY KHÔNG PHẠM SAO NGUYỆT YẾM &amp; YẾM ĐỐI
+                </div>
+                <div style="font-size: 0.86rem; color: #166534; line-height: 1.5;">
+                  Trong Tháng ${targetMonth} (${kienChiName}), sao Nguyệt Yếm đóng tại cung <strong>${yemChiName}</strong> và Yếm Đối tại <strong>${doiChiName}</strong>. Hôm nay là ngày <strong>${dayCanChi.text} (Địa Chi ${dayCanChi.chi})</strong>, trường khí bình hòa không bị khí âm u của Nguyệt Yếm xâm phạm. Có thể kết hợp xem Hoàng Đạo, Trực và Sao để dụng sự.
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      // 5. Cập nhật nhãn tháng trên Bàn Cờ 12 Địa Chi
+      const monthLabelActive = document.getElementById('tsMonthLabelActive');
+      if (monthLabelActive) {
+        monthLabelActive.textContent = `(Tháng ${targetMonth} Âm Lịch - Kiến ${kienChiName})`;
+      }
+
+      // 6. Render Bàn Cờ 12 Cung Địa Chi
+      const wheelGrid = document.getElementById('tsChiWheelGrid');
+      if (wheelGrid) {
+        const chiDirectionsMap = {
+          "Tý": "Chính Bắc (0°)", "Sửu": "Đông Bắc (30°)", "Dần": "Đông Bắc (60°)", "Mão": "Chính Đông (90°)",
+          "Thìn": "Đông Nam (120°)", "Tỵ": "Đông Nam (150°)", "Ngọ": "Chính Nam (180°)", "Mùi": "Tây Nam (210°)",
+          "Thân": "Tây Nam (240°)", "Dậu": "Chính Tây (270°)", "Tuất": "Tây Bắc (300°)", "Hợi": "Tây Bắc (330°)"
+        };
+
+        let cellsHtml = '';
+        for (let i = 0; i < 12; i++) {
+          const chiName = CHI[i];
+          const animalName = CHI_ANIMAL[i];
+          const dirText = chiDirectionsMap[chiName] || '';
+
+          const isCellYem = (i === yemChiIdx);
+          const isCellDoi = (i === doiChiIdx);
+          const isCellKien = (i === kienChiIdx);
+          const isCellCurrentDay = (i === dayCanChi.chiIndex);
+
+          let cellClass = 'ts-chi-cell';
+          if (isCellYem) cellClass += ' active-yem';
+          else if (isCellDoi) cellClass += ' active-doi';
+          else if (isCellKien) cellClass += ' active-kien';
+
+          if (isCellCurrentDay) cellClass += ' active-current-day';
+
+          let badgeHtml = '';
+          if (isCellYem) {
+            badgeHtml = `<span class="badge badge-nguyet-yem" style="font-size: 0.72rem; padding: 0.15rem 0.45rem; display: inline-block; margin-top: 0.35rem;">⚡ NGUYỆT YẾM</span>`;
+          } else if (isCellDoi) {
+            badgeHtml = `<span class="badge badge-yem-doi" style="font-size: 0.72rem; padding: 0.15rem 0.45rem; display: inline-block; margin-top: 0.35rem;">⚔️ YẾM ĐỐI</span>`;
+          } else if (isCellKien) {
+            badgeHtml = `<span class="badge" style="background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; font-size: 0.72rem; padding: 0.15rem 0.45rem; display: inline-block; margin-top: 0.35rem;">🌙 Nguyệt Kiến</span>`;
+          }
+
+          let dayMarker = isCellCurrentDay 
+            ? `<div style="font-size: 0.72rem; font-weight: 800; color: #b45309; margin-top: 0.3rem;">📍 Ngày hôm nay</div>` 
+            : '';
+
+          cellsHtml += `
+            <div class="${cellClass}" title="${chiName} (${animalName}) - ${dirText}">
+              <div style="font-size: 1.15rem; font-weight: 800; color: #1e293b;">
+                ${chiName} <span style="font-size: 0.85rem; font-weight: 500; color: #64748b;">(${animalName})</span>
+              </div>
+              <div style="font-size: 0.74rem; color: #64748b; margin-top: 0.15rem;">${dirText}</div>
+              ${badgeHtml}
+              ${dayMarker}
+            </div>
+          `;
+        }
+        wheelGrid.innerHTML = cellsHtml;
+      }
+
+      // 7. Render Bảng 12 Tháng Âm Lịch
+      const tbody = document.getElementById('ts12MonthsTbody');
+      if (tbody) {
+        let rowsHtml = '';
+        const chiDirectionsMap = {
+          "Tý": "Chính Bắc (0°)", "Sửu": "Đông Bắc (30°)", "Dần": "Đông Bắc (60°)", "Mão": "Chính Đông (90°)",
+          "Thìn": "Đông Nam (120°)", "Tỵ": "Đông Nam (150°)", "Ngọ": "Chính Nam (180°)", "Mùi": "Tây Nam (210°)",
+          "Thân": "Tây Nam (240°)", "Dậu": "Chính Tây (270°)", "Tuất": "Tây Bắc (300°)", "Hợi": "Tây Bắc (330°)"
+        };
+
+        for (let mLoop = 1; mLoop <= 12; mLoop++) {
+          const kienIdxLoop = (mLoop + 1) % 12;
+          const kienChiLoop = CHI[kienIdxLoop];
+          let yIdxLoop = (10 - (mLoop - 1)) % 12;
+          if (yIdxLoop < 0) yIdxLoop += 12;
+          const yChiLoop = CHI[yIdxLoop];
+          const dIdxLoop = (yIdxLoop + 6) % 12;
+          const dChiLoop = CHI[dIdxLoop];
+          const dirLoop = chiDirectionsMap[yChiLoop] || '';
+
+          const isCurrentMonthRow = (mLoop === targetMonth);
+          const rowClass = isCurrentMonthRow ? 'highlight-month' : '';
+          const statusText = isCurrentMonthRow 
+            ? `<span class="badge" style="background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; font-weight: 700;">Đang chọn</span>`
+            : `<button type="button" class="btn btn-outline btn-sm btn-select-ts-month" data-month="${mLoop}" style="font-size: 0.75rem; padding: 0.15rem 0.5rem;">Khảo sát</button>`;
+
+          let moveStepDesc = mLoop === 1 
+            ? `Khởi điểm tại Tuất` 
+            : `Lùi ${mLoop - 1} cung (➔ ${yChiLoop})`;
+
+          rowsHtml += `
+            <tr class="${rowClass}">
+              <td><strong>Tháng ${mLoop === 1 ? 'Giêng (Th.1)' : (mLoop === 12 ? 'Chạp (Th.12)' : 'Tháng ' + mLoop)}</strong></td>
+              <td><span class="badge" style="background: #eff6ff; color: #1e40af; border: 1px solid #dbeafe;">Kiến ${kienChiLoop}</span></td>
+              <td><span class="badge badge-nguyet-yem" style="font-size: 0.8rem;">⚡ ${yChiLoop}</span></td>
+              <td style="font-size: 0.8rem; color: #475569;">${moveStepDesc}</td>
+              <td><span class="badge badge-yem-doi" style="font-size: 0.8rem;">⚔️ ${dChiLoop}</span></td>
+              <td style="font-size: 0.8rem; color: #475569;">${dirLoop}</td>
+              <td>${statusText}</td>
+            </tr>
+          `;
+        }
+        tbody.innerHTML = rowsHtml;
+
+        // Gán sự kiện click nút Khảo sát tháng
+        const monthSelectBtns = tbody.querySelectorAll('.btn-select-ts-month');
+        monthSelectBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const mTarget = parseInt(e.target.getAttribute('data-month'), 10);
+            if (!isNaN(mTarget)) {
+              let approxSolarMonth = (mTarget + 1) % 12 + 1;
+              thanSatActiveDate = new Date(y, approxSolarMonth - 1, 15, 12, 0, 0);
+              renderThanSatTab(thanSatActiveDate);
+            }
+          });
+        });
+      }
+
+      // 8. Quét toàn bộ tháng dương lịch hiện tại để tìm các ngày phạm sao
+      renderThanSatMonthScanner(y, m, yemChiIdx, doiChiIdx);
+    }
+
+    function renderThanSatMonthScanner(solarYear, solarMonth, yemChiIdx, doiChiIdx) {
+      const scannerGrid = document.getElementById('tsDaysScannerGrid');
+      const scanMonthLabel = document.getElementById('tsScanMonthLabel');
+      const scanMonthCount = document.getElementById('tsScanMonthCount');
+      if (!scannerGrid) return;
+
+      if (scanMonthLabel) {
+        scanMonthLabel.textContent = `${solarMonth}/${solarYear} (Dương lịch)`;
+      }
+
+      const daysInMonth = new Date(solarYear, solarMonth, 0).getDate();
+      let matchedDays = [];
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const [lDay, lMonth, lYear, isLeap] = convertSolar2Lunar(day, solarMonth, solarYear);
+        const dayCanChi = getDayCanChi(day, solarMonth, solarYear);
+        const chiIndex = dayCanChi.chiIndex;
+
+        // Tính Nguyệt Yếm cho tháng âm lịch của ngày đó
+        let curYemIdx = (10 - (lMonth - 1)) % 12;
+        if (curYemIdx < 0) curYemIdx += 12;
+        let curDoiIdx = (curYemIdx + 6) % 12;
+
+        const isYem = (chiIndex === curYemIdx);
+        const isDoi = (chiIndex === curDoiIdx);
+
+        if (isYem || isDoi) {
+          matchedDays.push({
+            solarDay: day,
+            solarMonth,
+            solarYear,
+            lunarDay: lDay,
+            lunarMonth: lMonth,
+            dayCanChi: dayCanChi.text,
+            dayChi: dayCanChi.chi,
+            isYem,
+            isDoi
+          });
+        }
+      }
+
+      if (scanMonthCount) {
+        scanMonthCount.textContent = `Tìm thấy ${matchedDays.length} ngày phạm sao trong tháng ${solarMonth}/${solarYear}`;
+      }
+
+      if (matchedDays.length === 0) {
+        scannerGrid.innerHTML = `<div style="grid-column: 1 / -1; padding: 1rem; text-align: center; color: #64748b;">Không có ngày nào phạm sao trong tháng này.</div>`;
+        return;
+      }
+
+      let cardsHtml = '';
+      matchedDays.forEach(item => {
+        const cardClass = item.isYem ? 'ts-day-card card-yem' : 'ts-day-card card-doi';
+        const badge = item.isYem 
+          ? `<span class="badge badge-nguyet-yem" style="font-size: 0.75rem;">⚡ Phạm Nguyệt Yếm</span>`
+          : `<span class="badge badge-yem-doi" style="font-size: 0.75rem;">⚔️ Phạm Yếm Đối</span>`;
+
+        cardsHtml += `
+          <div class="${cardClass}" onclick="jumpToThanSatDate(${item.solarDay}, ${item.solarMonth}, ${item.solarYear})" title="Nhấp để xem chi tiết ngày ${item.solarDay}/${item.solarMonth}/${item.solarYear}">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-size: 1rem; font-weight: 800; color: #1e293b;">
+                ${String(item.solarDay).padStart(2, '0')}/${String(item.solarMonth).padStart(2, '0')}
+              </span>
+              ${badge}
+            </div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #991b1b;">
+              Ngày ${item.dayCanChi}
+            </div>
+            <div style="font-size: 0.78rem; color: #64748b;">
+              Âm lịch: ${item.lunarDay}/${item.lunarMonth}
+            </div>
+            <div style="margin-top: 0.25rem; font-size: 0.75rem; color: #b45309; font-weight: 600; text-align: right;">
+              Xem ngày này ➔
+            </div>
+          </div>
+        `;
+      });
+
+      scannerGrid.innerHTML = cardsHtml;
+    }
+
+    // Nhảy tới ngày được chỉ định trong tab Thần Sát
+    function jumpToThanSatDate(sDay, sMonth, sYear) {
+      thanSatActiveDate = new Date(sYear, sMonth - 1, sDay, 12, 0, 0);
+      renderThanSatTab(thanSatActiveDate);
+      const tabEl = document.getElementById('tab-thansat');
+      if (tabEl) {
+        tabEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    window.jumpToThanSatDate = jumpToThanSatDate;
 
     /**
      * =========================================================================
