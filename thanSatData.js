@@ -4,14 +4,20 @@
  * Tác phẩm tham chiếu: Khâm Định Hiệp Kỷ Biện Phương Thư (欽定協紀辨方書)
  *                     & Ngọc Hạp Thông Thư (玉匣通書)
  * 
- * Khởi đầu chuyên đề: SAO NGUYỆT YẾM (Nguyệt Yểm / Họa Thần)
- * - Quy luật khởi lệ: Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất.
- * - Sau đó, cứ mỗi tháng tiếp theo thì Nguyệt Yếm di chuyển nghịch hành
- *   (lùi 1 vị trí Địa Chi theo chiều ngược kim đồng hồ).
- * - Yếm Đối (Lục xung với Nguyệt Yếm): chuyển động nghịch hành đối xứng.
+ * Chuyên đề Thần Sát Khởi Theo Tháng:
+ * 1. SAO NGUYỆT YẾM (Nguyệt Yểm / Họa Thần):
+ *    - Khởi lệ: Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất.
+ *    - Luân chuyển: Mỗi tháng tiếp theo lùi 1 vị trí Địa Chi (nghịch hành).
  * 
- * Cấu trúc File: Registry tập hợp chung, Module hóa & Sẵn sàng mở rộng 
- * cho toàn bộ các Cát Thần và Hung Sát trong tương lai.
+ * 2. SAO NGŨ QUỶ (Ngũ Quỷ Nguyệt Lệnh / Bạch Hổ của Nguyệt Yếm):
+ *    - Khởi lệ: Ngũ Quỷ chính là vị trí Bạch Hổ của Nguyệt Yếm, đóng ở ngay 
+ *      phía sau Nguyệt Yếm đại diện cho tính "âm ở trong âm".
+ *    - Phương vị Bạch Hổ đi sau Nguyệt Yếm trong từng tháng chính là sao Ngũ Quỷ.
+ * 
+ * 3. SAO YẾM ĐỐI (Lục xung với Nguyệt Yếm):
+ *    - Khởi lệ: Nằm ở vị trí đối xung 180° với Nguyệt Yếm.
+ * 
+ * Thiết kế: Registry mở rộng, tập hợp chung cho toàn bộ Thần Sát.
  * ============================================================================
  */
 
@@ -28,10 +34,10 @@
 })(typeof self !== 'undefined' ? self : this, function() {
   'use strict';
 
-  // Danh mục 12 Địa Chi theo chiều thuận (kim đồng hồ: Tý -> Hợi)
+  // 12 Địa Chi theo chiều thuận (kim đồng hồ: Tý -> Hợi)
   const CHI_NAMES = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
   
-  // Tương ứng 12 Nguyệt Kiến của 12 tháng Âm Lịch (Tháng 1 kiến Dần ... Tháng 12 kiến Sửu)
+  // 12 Nguyệt Kiến của 12 tháng Âm Lịch (Tháng 1 kiến Dần ... Tháng 12 kiến Sửu)
   const MONTH_KIEN_CHI = {
     1: { chi: "Dần", chiIndex: 2, name: "Tháng Giêng (Kiến Dần)" },
     2: { chi: "Mão", chiIndex: 3, name: "Tháng 2 (Kiến Mão)" },
@@ -47,7 +53,7 @@
     12: { chi: "Sửu", chiIndex: 1, name: "Tháng Chạp (Kiến Sửu)" }
   };
 
-  // Phương vị Bát Quái / 24 Sơn Hướng tương ứng với 12 Địa Chi
+  // Phương vị tương ứng với 12 Địa Chi
   const CHI_DIRECTIONS = {
     "Tý": "Chính Bắc (Cung Khảm - 0°)",
     "Sửu": "Đông Bắc lệch Bắc (Cung Cấn - 30°)",
@@ -63,16 +69,9 @@
     "Hợi": "Tây Bắc lệch Bắc (Cung Càn - 330°)"
   };
 
-  // Lục xung Địa Chi (đối xung 180 độ)
-  const LUC_XUNG_MAP = {
-    "Tý": "Ngọ", "Sửu": "Mùi", "Dần": "Thân", "Mão": "Dậu",
-    "Thìn": "Tuất", "Tỵ": "Hợi", "Ngọ": "Tý", "Mùi": "Sửu",
-    "Thân": "Dần", "Dậu": "Mão", "Tuất": "Thìn", "Hợi": "Tỵ"
-  };
-
   /**
    * Tính vị trí Địa Chi Nguyệt Yếm cho một tháng Âm Lịch (1 đến 12)
-   * Thuật toán: Tháng 1 khởi Tuất (index 10), mỗi tháng lùi 1 vị trí:
+   * Tháng 1 khởi Tuất (index 10), mỗi tháng lùi 1 vị trí:
    * index = (10 - (month - 1)) mod 12
    */
   function calcNguyetYemChiIndex(lunarMonth) {
@@ -80,6 +79,16 @@
     let idx = (10 - (m - 1)) % 12;
     if (idx < 0) idx += 12;
     return idx;
+  }
+
+  /**
+   * Tính vị trí Địa Chi Ngũ Quỷ (Bạch Hổ của Nguyệt Yếm):
+   * Đóng ở ngay phía sau Nguyệt Yếm đại diện cho tính "âm ở trong âm"
+   * Phương vị Bạch Hổ đi sau Nguyệt Yếm trong từng tháng chính là sao Ngũ Quỷ
+   */
+  function calcNguQuyChiIndex(lunarMonth) {
+    const yemIdx = calcNguyetYemChiIndex(lunarMonth);
+    return (yemIdx + 1) % 12;
   }
 
   /**
@@ -91,17 +100,18 @@
   }
 
   /**
-   * Bảng phân bổ chi tiết 12 Tháng của Sao Nguyệt Yếm
+   * Bảng phân bổ chi tiết 12 Tháng của các sao Thần Sát khởi theo Tháng
    */
-  function generateNguyetYem12MonthsTable() {
+  function generate12MonthsTable() {
     const list = [];
     for (let m = 1; m <= 12; m++) {
       const kien = MONTH_KIEN_CHI[m];
       const yemIdx = calcNguyetYemChiIndex(m);
       const yemChi = CHI_NAMES[yemIdx];
+      const nguQuyIdx = calcNguQuyChiIndex(m);
+      const nguQuyChi = CHI_NAMES[nguQuyIdx];
       const doiIdx = calcYemDoiChiIndex(m);
       const doiChi = CHI_NAMES[doiIdx];
-      const direction = CHI_DIRECTIONS[yemChi];
 
       list.push({
         month: m,
@@ -110,11 +120,13 @@
         monthKienIndex: kien.chiIndex,
         yemChi: yemChi,
         yemChiIndex: yemIdx,
-        yemDoiChi: doiChi,
-        yemDoiIndex: doiIdx,
-        direction: direction,
-        lunarCycleStep: `Nghịch hành bước thứ ${m} (Khởi Tuất tại Th.1 ➔ lùi về ${yemChi})`,
-        summary: `Tháng ${m} (${kien.chi}): Nguyệt Yếm tại ${yemChi}, Yếm Đối tại ${doiChi}`
+        nguQuyChi: nguQuyChi,
+        nguQuyIndex: nguQuyIdx,
+        doiChi: doiChi,
+        doiIndex: doiIdx,
+        yemDirection: CHI_DIRECTIONS[yemChi],
+        nguQuyDirection: CHI_DIRECTIONS[nguQuyChi],
+        summary: `Tháng ${m} (${kien.chi}): Nguyệt Yếm tại ${yemChi}, Ngũ Quỷ tại ${nguQuyChi}, Yếm Đối tại ${doiChi}`
       });
     }
     return list;
@@ -123,8 +135,6 @@
   /**
    * ==========================================================================
    * BỘ TỪ ĐIỂN TẬP TRUNG: THAN_SAT_REGISTRY
-   * Tập hợp tất cả các Thần Sát (Cát Tinh, Hung Tinh) của hệ thống.
-   * Khởi đầu với SAO NGUYỆT YẾM, các sao tiếp theo được bổ sung vào đây.
    * ==========================================================================
    */
   const THAN_SAT_REGISTRY = {
@@ -133,66 +143,83 @@
       name: "Nguyệt Yếm",
       hanzi: "月厭",
       alias: "Nguyệt Yểm, Họa Thần",
-      category: "hung", // 'hung' | 'cat'
+      category: "hung",
       typeLabel: "Hung Thần / Ác Tinh",
       level: "Đại Hung (Cực Kỵ)",
-      scope: "month_day", // Khởi theo tháng chiếu ngày
+      scope: "month_day",
       order: 1,
       badgeClass: "badge-nguyet-yem",
       icon: "⚡",
-      
-      originRule: "Quy luật khởi lệ: Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất. Sau đó, cứ mỗi tháng tiếp theo thì Nguyệt Yếm di chuyển nghịch hành (lùi 1 vị trí Địa Chi theo chiều ngược kim đồng hồ).",
-      
-      formulaSummary: "Tháng 1 tại Tuất ➔ Tháng 2 tại Dậu ➔ Tháng 3 tại Thân ➔ Tháng 4 tại Mùi ➔ Tháng 5 tại Ngọ ➔ Tháng 6 tại Tỵ ➔ Tháng 7 tại Thìn ➔ Tháng 8 tại Mão ➔ Tháng 9 tại Dần ➔ Tháng 10 tại Sửu ➔ Tháng 11 tại Tý ➔ Tháng 12 tại Hợi.",
-      
-      astronomicalMeaning: "Theo Dịch lý và Thiên văn cổ, Nguyệt Kiến là nơi Dương khí và Đẩu chuôi chỉ tới (thuận hành theo chiều kim đồng hồ); trong khi đó Nguyệt Yếm là nơi Âm khí âm thầm dâng lên từ phương Tuất (Càn vị - nơi mặt trời lặn, âm khí khởi sinh) và nghịch hành luân chuyển. Khí u ám này yểm hãm ánh quang minh của nhật nguyệt, nên gọi là Nguyệt Yếm.",
-      
-      classicalCitation: "Khâm Định Hiệp Kỷ Biện Phương Thư (quyển 10 - Nghĩa Lệ): 'Nguyệt Yếm giả, âm khí dĩ khởi, yểm tức dương quang dã. Chính nguyệt kiến Dần khởi Tuất, nghịch hành thập nhị thần, dữ Nguyệt Kiến tương hợp... Bất khả dĩ giá thú, xuất hành, khai trương, động thổ'.",
-      
-      influence: "Chủ về âm tà, yểm bùa, ngăn trở, thị phi, trắc trở ngấm ngầm, bất hòa, bệnh tật và tai ương bất ngờ. Khi gặp ngày Nguyệt Yếm thì mưu sự đại sự dễ rơi vào cảnh dở dang, hao tổn nguyên khí.",
-      
-      tabooWorks: [
-        "Giá thú, hôn nhân cưới hỏi, dạm ngõ, rước dâu (Đại kỵ - Âm Dương Bất Tương tuyệt đối loại trừ)",
-        "Xuất hành đi xa, khởi hành công tác, nghênh đón xe hoa",
-        "Động thổ khởi công, đào móng, đặt đá xây dựng nhà cửa",
-        "Khai trương cửa hàng, ký kết hợp đồng thương mại lớn",
-        "Nhập trạch, về nhà mới, an vị bàn thờ gia tiên",
-        "An táng, cải táng, chôn cất",
-        "Cầu tài, nhậm chức, tế tự cầu phúc"
-      ],
-      
-      suitableWorks: [
-        "Tống quái trừ tà, dẹp bỏ chướng ngại cũ",
-        "Phá dỡ công trình cũ nát, tiêu hủy giấy tờ hư hại",
-        "Tu thân dưỡng tính, tụng kinh sám hối, thiền định",
-        "Nghỉ ngơi, tĩnh dưỡng, tránh tranh chấp khẩu thiệt"
-      ],
-      
-      mitigation: "Nếu buộc phải hành sự sự vụ thông thường vào ngày này: Cần chọn giờ Hoàng Đạo cát tinh đắc lực (Thanh Long, Minh Đường, Kim Quỹ), phối hợp với ngày đắc Quý Nhân Tứ Đức (Thiên Đức, Nguyệt Đức, Thiên Xá) để lấy phúc đức hóa giải hung khí. Riêng việc Hôn Nhân Trăm Năm thì cổ thư tuyệt đối khuyên tránh xa ngày Nguyệt Yếm và Yếm Đối.",
 
-      // Hàm kiểm tra một ngày cụ thể có phạm Nguyệt Yếm hay không
+      originRule: "Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất. Sau đó, cứ mỗi tháng tiếp theo thì Nguyệt Yếm di chuyển nghịch hành (lùi 1 vị trí Địa Chi theo chiều ngược kim đồng hồ).",
+
+      formulaSummary: "Th.1 tại Tuất ➔ Th.2 tại Dậu ➔ Th.3 tại Thân ➔ Th.4 tại Mùi ➔ Th.5 tại Ngọ ➔ Th.6 tại Tỵ ➔ Th.7 tại Thìn ➔ Th.8 tại Mão ➔ Th.9 tại Dần ➔ Th.10 tại Sửu ➔ Th.11 tại Tý ➔ Th.12 tại Hợi.",
+
+      meaning: "Nguyệt Yếm là ác tinh đại biểu cho khí u ám, yểm bùa, ngăn trở, thị phi ngấm ngầm của âm khí chuyển vần. Làm suy giảm ánh sáng dương quang, gây trắc trở cho các việc khởi tạo và phát triển.",
+
+      nghi: "Tống quái trừ tà, dẹp bỏ chướng ngại cũ, phá dỡ công trình hư hỏng, sám hối, thiền định, an phận thủ thường.",
+
+      ky: "Đại kỵ giá thú hôn nhân cưới hỏi (Âm Dương Bất Tương tuyệt đối loại trừ), xuất hành xe hoa, khởi công động thổ, khai trương mở cửa hàng, an táng, nhập trạch về nhà mới.",
+
       checkMatch: function(lunarMonth, dayChiIndex) {
         const targetIdx = calcNguyetYemChiIndex(lunarMonth);
         const isMatch = (parseInt(dayChiIndex, 10) === targetIdx);
-        const yemChi = CHI_NAMES[targetIdx];
-        const dayChi = CHI_NAMES[dayChiIndex];
         return {
           isMatch: isMatch,
           starId: "nguyet_yem",
           starName: "Nguyệt Yếm",
-          targetChi: yemChi,
+          targetChi: CHI_NAMES[targetIdx],
           targetChiIndex: targetIdx,
-          dayChi: dayChi,
+          dayChi: CHI_NAMES[dayChiIndex],
           dayChiIndex: dayChiIndex,
           lunarMonth: lunarMonth,
-          message: isMatch 
-            ? `⚠️ Hôm nay phạm SAO NGUYỆT YẾM (Địa Chi ${dayChi}) - Hung thần yểm phá, đại kỵ cưới hỏi, xuất hành, khởi sự!`
-            : `✅ Không phạm Sao Nguyệt Yếm (Tháng này Nguyệt Yếm tại ${yemChi}, hôm nay là ngày ${dayChi}).`
+          message: isMatch
+            ? `⚠️ Hôm nay phạm SAO NGUYỆT YẾM (Địa Chi ${CHI_NAMES[dayChiIndex]}) - Hung thần u ám, đại kỵ cưới hỏi, xuất hành, khởi sự!`
+            : `✅ Không phạm Sao Nguyệt Yếm.`
         };
-      },
+      }
+    },
 
-      // Lấy toàn bộ 12 tháng
-      getTable12Months: generateNguyetYem12MonthsTable
+    "ngu_quy": {
+      id: "ngu_quy",
+      name: "Ngũ Quỷ",
+      hanzi: "五鬼",
+      alias: "Bạch Hổ của Nguyệt Yếm, Ngũ Quỷ Nguyệt Lệnh",
+      category: "hung",
+      typeLabel: "Hung Thần / Ác Sát",
+      level: "Đại Hung (Cực Kỵ)",
+      scope: "month_day",
+      order: 2,
+      badgeClass: "badge-ngu-quy",
+      icon: "👻",
+
+      originRule: "Ngũ Quỷ (khởi theo Tháng): Ngũ Quỷ chính là vị trí Bạch Hổ của Nguyệt Yếm, đóng ở ngay phía sau Nguyệt Yếm đại diện cho tính 'âm ở trong âm'. Phương vị Bạch Hổ đi sau Nguyệt Yếm trong từng tháng chính là sao Ngũ Quỷ.",
+
+      formulaSummary: "Th.1 tại Hợi ➔ Th.2 tại Tuất ➔ Th.3 tại Dậu ➔ Th.4 tại Thân ➔ Th.5 tại Mùi ➔ Th.6 tại Ngọ ➔ Th.7 tại Tỵ ➔ Th.8 tại Thìn ➔ Th.9 tại Mão ➔ Th.10 tại Dần ➔ Th.11 tại Sửu ➔ Th.12 tại Tý.",
+
+      meaning: "Đại diện cho tính chất 'âm ở trong âm' (u ám tột cùng), đi ngay phía sau Nguyệt Yếm tại phương vị Bạch Hổ. Chủ về tà khí ngấm ngầm, tiểu nhân quấy phá, thị phi kiện tụng, bệnh tật, hao tán tài vật, tai bay vạ gió trên đường đi.",
+
+      nghi: "Trừ tà giải hạn, sám hối, dọn dẹp uế khí, tu thân tích đức, an phận giữ mình, tĩnh dưỡng tránh tranh chấp.",
+
+      ky: "Đại kỵ xuất hành đi xa (đặc biệt kỵ xuất hành - phòng tai nạn, trắc trở, mất của), cưới hỏi giá thú (dễ sinh nghi kỵ, chia rẽ, bất hòa), động thổ đào móng, khai trương mở hàng, ký kết hợp đồng thương mại lớn, an táng, nhập trạch.",
+
+      checkMatch: function(lunarMonth, dayChiIndex) {
+        const targetIdx = calcNguQuyChiIndex(lunarMonth);
+        const isMatch = (parseInt(dayChiIndex, 10) === targetIdx);
+        return {
+          isMatch: isMatch,
+          starId: "ngu_quy",
+          starName: "Ngũ Quỷ",
+          targetChi: CHI_NAMES[targetIdx],
+          targetChiIndex: targetIdx,
+          dayChi: CHI_NAMES[dayChiIndex],
+          dayChiIndex: dayChiIndex,
+          lunarMonth: lunarMonth,
+          message: isMatch
+            ? `⚠️ Hôm nay phạm SAO NGŨ QUỶ (Địa Chi ${CHI_NAMES[dayChiIndex]} - Bạch Hổ sau Nguyệt Yếm) - Đại kỵ xuất hành, cưới hỏi, khởi sự!`
+            : `✅ Không phạm Sao Ngũ Quỷ.`
+        };
+      }
     },
 
     "yem_doi": {
@@ -204,135 +231,77 @@
       typeLabel: "Hung Thần (Đối Xung)",
       level: "Hung (Nên tránh)",
       scope: "month_day",
-      order: 2,
+      order: 3,
       badgeClass: "badge-yem-doi",
       icon: "⚔️",
 
-      originRule: "Quy luật khởi lệ: Yếm Đối là thần sát nằm ở vị trí Lục Xung (đối diện 180°) với sao Nguyệt Yếm. Tháng Giêng khởi tại Thìn (đối xung với Tuất), sau đó cứ mỗi tháng nghịch hành lùi 1 cung Địa Chi.",
+      originRule: "Yếm Đối là vị trí Lục Xung đối xứng 180° với sao Nguyệt Yếm trong tháng. Tháng Giêng khởi tại Thìn, sau đó cứ mỗi tháng nghịch hành lùi 1 vị trí Địa Chi.",
 
-      formulaSummary: "Tháng 1 tại Thìn ➔ Tháng 2 tại Mão ➔ Tháng 3 tại Dần ➔ Tháng 4 tại Sửu ➔ Tháng 5 tại Tý ➔ Tháng 6 tại Hợi ➔ Tháng 7 tại Tuất ➔ Tháng 8 tại Dậu ➔ Tháng 9 tại Thân ➔ Tháng 10 tại Mùi ➔ Tháng 11 tại Ngọ ➔ Tháng 12 tại Tỵ.",
+      formulaSummary: "Th.1 tại Thìn ➔ Th.2 tại Mão ➔ Th.3 tại Dần ➔ Th.4 tại Sửu ➔ Th.5 tại Tý ➔ Th.6 tại Hợi ➔ Th.7 tại Tuất ➔ Th.8 tại Dậu ➔ Th.9 tại Thân ➔ Th.10 tại Mùi ➔ Th.11 tại Ngọ ➔ Th.12 tại Tỵ.",
 
-      astronomicalMeaning: "Thế trực xung trực diện với khí trường u ám của Nguyệt Yếm. Hai luồng khí nghịch hành va đập tạo nên dao động xung tán, bất lợi cho các việc cầu sự ổn định lâu dài.",
+      meaning: "Thế trực xung trực diện với khí trường u ám của Nguyệt Yếm, tạo dao động xung tán bất lợi cho sự hòa hợp và bền lâu.",
 
-      influence: "Chủ về xung đột, chia rẽ, cãi vã, trở ngại trên đường đi, hao tán tài vật. Kỵ cưới hỏi, hòa giải, ký kết hợp tác.",
+      nghi: "Phá dỡ công trình cũ, thanh lý phế liệu, điều trị bệnh tật, giải trừ chướng ngại.",
 
-      tabooWorks: [
-        "Hôn nhân cưới hỏi, đính hôn, nạp thái",
-        "Xuất hành đi xa, giao dịch ký kết",
-        "Khởi công, động thổ"
-      ],
-
-      suitableWorks: [
-        "Phá dỡ, thanh lý đồ cũ, trị bệnh"
-      ],
-
-      mitigation: "Dùng các giờ Lục Hợp, Tam Hợp với chi ngày để hòa giải xung lực.",
+      ky: "Hôn nhân cưới hỏi, đính hôn, xuất hành xe hoa, hòa giải tranh chấp, ký kết hợp tác kinh doanh.",
 
       checkMatch: function(lunarMonth, dayChiIndex) {
         const targetIdx = calcYemDoiChiIndex(lunarMonth);
         const isMatch = (parseInt(dayChiIndex, 10) === targetIdx);
-        const doiChi = CHI_NAMES[targetIdx];
-        const dayChi = CHI_NAMES[dayChiIndex];
         return {
           isMatch: isMatch,
           starId: "yem_doi",
           starName: "Yếm Đối",
-          targetChi: doiChi,
+          targetChi: CHI_NAMES[targetIdx],
           targetChiIndex: targetIdx,
-          dayChi: dayChi,
+          dayChi: CHI_NAMES[dayChiIndex],
           dayChiIndex: dayChiIndex,
           lunarMonth: lunarMonth,
           message: isMatch
-            ? `⚠️ Hôm nay phạm SAO YẾM ĐỐI (Địa Chi ${dayChi} - Đối xung với Nguyệt Yếm) - Cần thận trọng trong giao dịch và hôn nhân.`
+            ? `⚠️ Hôm nay phạm SAO YẾM ĐỐI (Địa Chi ${CHI_NAMES[dayChiIndex]} - Đối xung Nguyệt Yếm). Cần thận trọng trong hôn nhân và giao dịch.`
             : `✅ Không phạm Sao Yếm Đối.`
         };
       }
     }
-
-    /**
-     * CƠ CHẾ SẴN SÀNG TIẾP NHẬN CÁC THẦN SÁT TIẾP THEO:
-     * - thien_duc: Thiên Đức Quý Nhân (Cát thần tháng 1 Đinh, 2 Thân...)
-     * - nguyet_duc: Nguyệt Đức Quý Nhân (Cát thần tháng 1 Bính, 2 Giáp...)
-     * - thien_xa: Thiên Xá Cát Thần (Ngày Mậu Dần mùa xuân, Giáp Ngọ mùa hạ...)
-     * - nguyet_pha: Nguyệt Phá Hung Thần (Chi ngày lục xung chi tháng)
-     * - sat_chu: Sát Chủ Nhật (Theo 4 mùa / 12 tháng)
-     * - thu_tu: Thụ Tử Nhật
-     * - tam_nuong: Tam Nương Sát (Mùng 3, 7, 13, 18, 22, 27)
-     * - nguyet_ky: Nguyệt Kỵ (Mùng 5, 14, 23)
-     */
   };
 
   /**
    * ==========================================================================
-   * CỖ MÁY TÍNH TOÁN & TRA CỨU: ThanSatEngine
-   * Cung cấp các hàm API tra cứu, thẩm định và quét lịch cho toàn bộ ứng dụng
+   * THAN SAT ENGINE
    * ==========================================================================
    */
   const ThanSatEngine = {
     CHI_NAMES: CHI_NAMES,
     MONTH_KIEN_CHI: MONTH_KIEN_CHI,
     CHI_DIRECTIONS: CHI_DIRECTIONS,
-    LUC_XUNG_MAP: LUC_XUNG_MAP,
 
-    // Lấy thông tin Nguyệt Yếm cho một tháng âm lịch
-    getNguyetYemForMonth: function(lunarMonth) {
-      const m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
-      const kien = MONTH_KIEN_CHI[m];
-      const yemIdx = calcNguyetYemChiIndex(m);
-      const yemChi = CHI_NAMES[yemIdx];
-      const doiIdx = calcYemDoiChiIndex(m);
-      const doiChi = CHI_NAMES[doiIdx];
-      const dir = CHI_DIRECTIONS[yemChi];
+    calcNguyetYemChiIndex: calcNguyetYemChiIndex,
+    calcNguQuyChiIndex: calcNguQuyChiIndex,
+    calcYemDoiChiIndex: calcYemDoiChiIndex,
+    generate12MonthsTable: generate12MonthsTable,
 
-      return {
-        month: m,
-        monthName: kien.name,
-        kienChi: kien.chi,
-        kienIndex: kien.chiIndex,
-        yemChi: yemChi,
-        yemChiIndex: yemIdx,
-        yemDoiChi: doiChi,
-        yemDoiIndex: doiIdx,
-        direction: dir,
-        ruleText: `Tháng ${m} (${kien.chi}): Nguyệt Yếm tại ${yemChi}, Yếm Đối tại ${doiChi}`,
-        stepDescription: m === 1 
-          ? "Khởi lệ: Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất."
-          : `Tháng ${m}: Nguyệt Yếm lùi ${m - 1} cung nghịch hành từ Tuất ➔ đóng tại ${yemChi}.`
-      };
-    },
-
-    // Kiểm tra nhanh xem ngày có phạm Nguyệt Yếm không
-    isNguyetYemDay: function(lunarMonth, dayChiIndex) {
-      return THAN_SAT_REGISTRY.nguyet_yem.checkMatch(lunarMonth, dayChiIndex);
-    },
-
-    // Kiểm tra nhanh xem ngày có phạm Yếm Đối không
-    isYemDoiDay: function(lunarMonth, dayChiIndex) {
-      return THAN_SAT_REGISTRY.yem_doi.checkMatch(lunarMonth, dayChiIndex);
-    },
-
-    // Lấy bảng 12 tháng đầy đủ của Nguyệt Yếm
-    getNguyetYem12MonthsTable: function() {
-      return generateNguyetYem12MonthsTable();
-    },
-
-    // Lấy chi tiết thông tin một sao từ registry
     getStarInfo: function(starId) {
       return THAN_SAT_REGISTRY[starId] || null;
     },
 
-    // Lấy danh sách tất cả Thần Sát trong hệ thống
     getAllStars: function() {
       return Object.values(THAN_SAT_REGISTRY);
     },
 
+    isNguyetYemDay: function(lunarMonth, dayChiIndex) {
+      return THAN_SAT_REGISTRY.nguyet_yem.checkMatch(lunarMonth, dayChiIndex);
+    },
+
+    isNguQuyDay: function(lunarMonth, dayChiIndex) {
+      return THAN_SAT_REGISTRY.ngu_quy.checkMatch(lunarMonth, dayChiIndex);
+    },
+
+    isYemDoiDay: function(lunarMonth, dayChiIndex) {
+      return THAN_SAT_REGISTRY.yem_doi.checkMatch(lunarMonth, dayChiIndex);
+    },
+
     /**
-     * Thẩm định toàn diện các Thần Sát có mặt trong ngày được chọn
-     * @param {number} lunarDay - Ngày âm lịch (1..30)
-     * @param {number} lunarMonth - Tháng âm lịch (1..12)
-     * @param {number} lunarYear - Năm âm lịch
-     * @param {number} dayChiIndex - Địa chi của ngày (0..11, 0: Tý)
-     * @param {number} dayCanIndex - Thiên can của ngày (0..9, 0: Giáp)
+     * Thẩm định toàn diện các Thần Sát có mặt trong ngày được tra cứu
      */
     inspectDayThanSat: function(lunarDay, lunarMonth, lunarYear, dayChiIndex, dayCanIndex) {
       const activeStars = [];
@@ -345,31 +314,57 @@
         activeStars.push({
           id: "nguyet_yem",
           name: "Nguyệt Yếm",
+          hanzi: "月厭",
           category: "hung",
           level: "Đại Hung",
           icon: "⚡",
           badgeClass: "badge-nguyet-yem",
-          desc: `Phạm ngày Nguyệt Yếm (Chi ${CHI_NAMES[chIdx]} của tháng ${m}). Đại kỵ giá thú hôn nhân, xuất hành xa, động thổ, khai trương!`,
-          avoid: THAN_SAT_REGISTRY.nguyet_yem.tabooWorks
+          originRule: "Tháng 1 tại Tuất, mỗi tháng lùi 1 vị trí Địa Chi (nghịch hành).",
+          meaning: THAN_SAT_REGISTRY.nguyet_yem.meaning,
+          nghi: THAN_SAT_REGISTRY.nguyet_yem.nghi,
+          ky: THAN_SAT_REGISTRY.nguyet_yem.ky
         });
       }
 
-      // 2. Kiểm tra Yếm Đối
+      // 2. Kiểm tra Ngũ Quỷ (Bạch Hổ của Nguyệt Yếm)
+      const checkNguQuy = THAN_SAT_REGISTRY.ngu_quy.checkMatch(m, chIdx);
+      if (checkNguQuy.isMatch) {
+        activeStars.push({
+          id: "ngu_quy",
+          name: "Ngũ Quỷ",
+          hanzi: "五鬼",
+          category: "hung",
+          level: "Đại Hung",
+          icon: "👻",
+          badgeClass: "badge-ngu-quy",
+          originRule: "Vị trí Bạch Hổ đi sau Nguyệt Yếm trong từng tháng ('âm ở trong âm').",
+          meaning: THAN_SAT_REGISTRY.ngu_quy.meaning,
+          nghi: THAN_SAT_REGISTRY.ngu_quy.nghi,
+          ky: THAN_SAT_REGISTRY.ngu_quy.ky
+        });
+      }
+
+      // 3. Kiểm tra Yếm Đối
       const checkDoi = THAN_SAT_REGISTRY.yem_doi.checkMatch(m, chIdx);
       if (checkDoi.isMatch) {
         activeStars.push({
           id: "yem_doi",
           name: "Yếm Đối",
+          hanzi: "厭對",
           category: "hung",
           level: "Hung (Đối Xung)",
           icon: "⚔️",
           badgeClass: "badge-yem-doi",
-          desc: `Phạm ngày Yếm Đối (Chi ${CHI_NAMES[chIdx]} đối xung với Nguyệt Yếm). Nên thận trọng trong giao dịch và hôn sự.`,
-          avoid: THAN_SAT_REGISTRY.yem_doi.tabooWorks
+          originRule: "Vị trí Lục Xung đối xứng 180° với Nguyệt Yếm.",
+          meaning: THAN_SAT_REGISTRY.yem_doi.meaning,
+          nghi: THAN_SAT_REGISTRY.yem_doi.nghi,
+          ky: THAN_SAT_REGISTRY.yem_doi.ky
         });
       }
 
-      const nguyetYemInfo = ThanSatEngine.getNguyetYemForMonth(m);
+      const yemIdx = calcNguyetYemChiIndex(m);
+      const nguQuyIdx = calcNguQuyChiIndex(m);
+      const doiIdx = calcYemDoiChiIndex(m);
 
       return {
         lunarDay,
@@ -377,80 +372,14 @@
         lunarYear,
         dayChi: CHI_NAMES[chIdx],
         dayChiIndex: chIdx,
-        nguyetYemInfo,
+        yemChi: CHI_NAMES[yemIdx],
+        nguQuyChi: CHI_NAMES[nguQuyIdx],
+        doiChi: CHI_NAMES[doiIdx],
         hasNguyetYem: checkYem.isMatch,
+        hasNguQuy: checkNguQuy.isMatch,
         hasYemDoi: checkDoi.isMatch,
-        activeStars: activeStars,
-        starCount: activeStars.length
+        activeStars: activeStars
       };
-    },
-
-    /**
-     * Tìm tất cả các ngày trong một tháng dương lịch có phạm sao Nguyệt Yếm hoặc Yếm Đối
-     * (Cần truyền vào hàm chuyển đổi convertSolar2Lunar và getDayCanChi)
-     */
-    scanMonthForStarDays: function(solarYear, solarMonth, convertSolar2LunarFn, getDayCanChiFn) {
-      const daysInMonth = new Date(solarYear, solarMonth, 0).getDate();
-      const results = {
-        yemDays: [],
-        doiDays: [],
-        allDays: []
-      };
-
-      for (let d = 1; d <= daysInMonth; d++) {
-        const [lDay, lMonth, lYear] = convertSolar2LunarFn(d, solarMonth, solarYear);
-        const dayCanChi = getDayCanChiFn(d, solarMonth, solarYear);
-        const chiIdx = dayCanChi.chiIndex;
-
-        const isYem = THAN_SAT_REGISTRY.nguyet_yem.checkMatch(lMonth, chiIdx).isMatch;
-        const isDoi = THAN_SAT_REGISTRY.yem_doi.checkMatch(lMonth, chiIdx).isMatch;
-
-        const dayItem = {
-          solarDay: d,
-          solarMonth: solarMonth,
-          solarYear: solarYear,
-          lunarDay: lDay,
-          lunarMonth: lMonth,
-          lunarYear: lYear,
-          dayCanChi: dayCanChi.text,
-          dayChi: dayCanChi.chi,
-          dayChiIndex: chiIdx,
-          isNguyetYem: isYem,
-          isYemDoi: isDoi
-        };
-
-        if (isYem) results.yemDays.push(dayItem);
-        if (isDoi) results.doiDays.push(dayItem);
-        results.allDays.push(dayItem);
-      }
-
-      return results;
-    },
-
-    /**
-     * Dữ liệu đồ họa phục vụ hiển thị Vòng Tròn 12 Cung Địa Chi (12 Zodiac Wheel)
-     * Góc độ: Tý ở trên cùng (270° hoặc 90° tùy chuẩn), xếp theo chiều kim đồng hồ
-     */
-    get12ChiWheelAngles: function() {
-      // 12 cung sắp xếp theo vòng tròn:
-      // Tý (Bắc: 270° / góc trên cùng), Sửu (300°), Dần (330°), Mão (Đông: 0° / 360°),
-      // Thìn (30°), Tỵ (60°), Ngọ (Nam: 90°), Mùi (120°), Thân (150°), Dậu (Tây: 180°),
-      // Tuất (210°), Hợi (240°)
-      const angles = [
-        { chi: "Tý", idx: 0, deg: 270, label: "Tý (Bắc)" },
-        { chi: "Sửu", idx: 1, deg: 300, label: "Sửu" },
-        { chi: "Dần", idx: 2, deg: 330, label: "Dần" },
-        { chi: "Mão", idx: 3, deg: 0, label: "Mão (Đông)" },
-        { chi: "Thìn", idx: 4, deg: 30, label: "Thìn" },
-        { chi: "Tỵ", idx: 5, deg: 60, label: "Tỵ" },
-        { chi: "Ngọ", idx: 6, deg: 90, label: "Ngọ (Nam)" },
-        { chi: "Mùi", idx: 7, idx: 7, deg: 120, label: "Mùi" },
-        { chi: "Thân", idx: 8, deg: 150, label: "Thân" },
-        { chi: "Dậu", idx: 9, deg: 180, label: "Dậu (Tây)" },
-        { chi: "Tuất", idx: 10, deg: 210, label: "Tuất" },
-        { chi: "Hợi", idx: 11, deg: 240, label: "Hợi" }
-      ];
-      return angles;
     }
   };
 

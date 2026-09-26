@@ -255,21 +255,27 @@
 - **Tập Hợp Thần Sát Chung Trong File Dữ Liệu Chuyên Dụng (`thanSatData.js`)**:
   - Xây dựng kiến trúc module Registry mở rộng chuẩn hóa tập trung cho toàn bộ hệ thống Thần Sát (Cát Tinh & Hung Tinh) hiện tại và tương lai.
   - Sẵn sàng mở rộng và tiếp nhận toàn bộ các sao: Cát Tinh (Thiên Đức, Nguyệt Đức, Thiên Xá, Sinh Khí, Thiên Hỷ, Mẫu Thương...) và Hung Sát (Nguyệt Yếm, Yếm Đối, Nguyệt Phá, Sát Chủ, Thụ Tử, Tam Nương, Nguyệt Kỵ, Cô Thần, Quả Tú...).
-- **Khởi Đầu Tiêu Điểm: Sao Nguyệt Yếm (Họa Thần / Nguyệt Yểm) & Yếm Đối**:
+- **Khởi Đầu Tiêu Điểm: Sao Nguyệt Yếm, Ngũ Quỷ (Bạch Hổ của Nguyệt Yếm) & Yếm Đối**:
   - **Quy luật khởi lệ chuẩn cổ bản**:
     > *Tháng Giêng (tháng Dần) khởi Nguyệt Yếm tại Tuất. Sau đó, cứ mỗi tháng tiếp theo thì Nguyệt Yếm di chuyển nghịch hành (lùi 1 vị trí Địa Chi theo chiều ngược kim đồng hồ).*
-  - **Chu kỳ nghịch hành 12 Tháng Âm Lịch**: Tháng 1 tại Tuất, Tháng 2 tại Dậu, Tháng 3 tại Thân, Tháng 4 tại Mùi, Tháng 5 tại Ngọ, Tháng 6 tại Tỵ, Tháng 7 tại Thìn, Tháng 8 tại Mão, Tháng 9 tại Dần, Tháng 10 tại Sửu, Tháng 11 tại Tý, Tháng 12 tại Hợi.
-  - **Sao Yếm Đối**: Nằm tại vị trí Lục Xung đối xứng 180° với Nguyệt Yếm (Tháng 1 tại Thìn, Tháng 2 tại Mão...).
-  - **Học thuyết Dịch lý & Thiên văn cổ**: Giải thích cơ chế đối lập giữa Nguyệt Kiến (thuận hành kim đồng hồ đón dương quang) và Nguyệt Yếm (nghịch hành từ cung Càn đón âm khí). Phân tích việc đại kỵ: giá thú cưới hỏi, xuất hành, động thổ, khai trương, an táng.
+    > *Ngũ Quỷ (khởi theo Tháng): Ngũ Quỷ chính là vị trí Bạch Hổ của Nguyệt Yếm, đóng ở ngay phía sau Nguyệt Yếm đại diện cho tính "âm ở trong âm". Phương vị Bạch Hổ đi sau Nguyệt Yếm trong từng tháng chính là sao Ngũ Quỷ.*
+  - **Chu kỳ nghịch hành 12 Tháng Âm Lịch**:
+    - **Nguyệt Yếm**: Tháng 1 tại Tuất, Tháng 2 tại Dậu, Tháng 3 tại Thân, Tháng 4 tại Mùi, Tháng 5 tại Ngọ, Tháng 6 tại Tỵ, Tháng 7 tại Thìn, Tháng 8 tại Mão, Tháng 9 tại Dần, Tháng 10 tại Sửu, Tháng 11 tại Tý, Tháng 12 tại Hợi.
+    - **Ngũ Quỷ (Bạch Hổ sau Nguyệt Yếm)**: Tháng 1 tại Hợi, Tháng 2 tại Tuất, Tháng 3 tại Dậu, Tháng 4 tại Thân, Tháng 5 tại Mùi, Tháng 6 tại Ngọ, Tháng 7 tại Tỵ, Tháng 8 tại Thìn, Tháng 9 tại Mão, Tháng 10 tại Dần, Tháng 11 tại Sửu, Tháng 12 tại Tý.
+    - **Yếm Đối**: Nằm tại vị trí Lục Xung đối xứng 180° với Nguyệt Yếm (Tháng 1 tại Thìn, Tháng 2 tại Mão...).
+  - **Học thuyết Dịch lý & Nghi kỵ dụng sự**:
+    - Nguyệt Yếm: Khí u ám yểm quang minh, đại kỵ giá thú, xuất hành, động thổ, khai trương, an táng.
+    - Ngũ Quỷ: "Âm ở trong âm", đặc biệt đại kỵ xuất hành đi xa (phòng tai nạn, mất mát tài vật, trắc trở), cưới hỏi (dễ sinh nghi kỵ, chia rẽ), động thổ, khai trương, ký kết lớn.
 - **Đồng Bộ Thời Gian Toàn Diện Từ Lịch Vạn Niên**:
   - Tự động đồng bộ với ngày đang chọn trên Lịch Vạn Niên (`selectedDate`) khi mở tab.
   - Nút bấm *"🔄 Đồng Bộ Từ Lịch Vạn Niên"*, *"📅 Hôm Nay (Thời gian thực)"*, lùi/tiến ngày, lùi/tiến tháng và bộ chọn ngày nhanh (Date Picker).
   - Nút *"📌 Xem Trên Lịch Vạn Niên ➔"* chuyển ngược lại Lịch Vạn Niên để theo dõi chi tiết.
-- **Giao Diện Trực Quan & Radar Bàn Cờ 12 Địa Chi**:
+- **Giao Diện Đơn Giản Hóa: Bảng Biểu & Danh Sách Thần Sát Ngày**:
   - Thẻ tóm tắt 4 trụ thời gian thực (Dương lịch, Âm lịch, Tứ Trụ Bát Tự, Tiết Khí).
-  - Banner cảnh báo trực nhật: Thông báo rõ ràng ngày hôm nay có phạm sao Nguyệt Yếm hoặc Yếm Đối hay an lành.
-  - Bàn cờ trực quan 12 Địa Chi làm nổi bật Nguyệt Kiến (lam), Nguyệt Yếm (đỏ ⚡), Yếm Đối (cam ⚔️), ngày đang chọn (vàng gold) và chiều nghịch hành.
-  - Bảng tra cứu 12 Tháng Âm Lịch với tính năng chọn nhanh từng tháng và quét toàn bộ các ngày phạm sao trong tháng.
+  - Banner cảnh báo trực nhật: Thông báo rõ ràng ngày hôm nay có phạm sao Nguyệt Yếm, Ngũ Quỷ hoặc Yếm Đối hay an lành.
+  - Chuyển đổi linh hoạt giữa **📊 Dạng Bảng Biểu** (5 cột chuyên môn: Tên Thần Sát, Phân Loại & Cấp Độ, Căn Cứ Khởi Lệ, Ý Nghĩa, Nghi Kỵ Dụng Sự) và **📋 Dạng Danh Sách Thẻ**.
+  - Bộ lọc trạng thái thông minh: *Tất Cả*, *Sao Cát*, *Sao Hung* kèm ô tìm kiếm nhanh tên sao theo thời gian thực.
+  - Hộp tra cứu quy luật khởi lệ 12 tháng có thể bật/tắt linh hoạt làm căn cứ học thuật.
 
 ---
 
@@ -288,6 +294,48 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.40.0] - 2026-09-26
+- **Bổ Sung Bộ "Lục Đức" (6 Đại Cát Tinh Tối Tôn) Chuẩn Khâm Định Hiệp Kỷ Biện Phương Thư**:
+  - **Hệ Thống Niên Gia (Theo Can Năm Thái Tuế)**:
+    - **Tuế Đức (歲德)**: Cát thần đại diện cho ân huệ, phúc đức vô biên của Thái Tuế (Vua quản hạt năm).
+      - *Quy luật khởi lệ*: Năm Can Dương (Giáp, Bính, Mậu, Canh, Nhâm) tại chính Thiên can năm đó; Năm Can Âm (Ất, Đinh, Kỷ, Tân, Quý) tại Can Dương tương hợp ngũ hợp của Can năm (Ất tại Canh, Đinh tại Nhâm, Kỷ tại Giáp, Tân tại Bính, Quý tại Mậu).
+      - *Ý nghĩa & Dụng sự*: Hóa giải bách sát hung thần, mang lại đại cát tường, hưng vượng bản mệnh gia đạo. Đại cát cho khởi công động thổ, thượng lương, giá thú cưới hỏi, xuất hành, khai trương mở hàng, nhậm chức, tế tự cầu phúc, an táng.
+    - **Tuế Đức Hợp (歲德合)**: Cát thần tương hợp âm dương ngũ hợp với Tuế Đức.
+      - *Quy luật khởi lệ*: Năm Can Dương tại Can Âm ngũ hợp của Can năm (Giáp tại Kỷ, Bính tại Tân, Mậu tại Quý, Canh tại Ất, Nhâm tại Đinh); Năm Can Âm tại chính Can Âm năm đó (Ất tại Ất, Đinh tại Đinh, Kỷ tại Kỷ, Tân tại Tân, Quý tại Quý).
+      - *Ý nghĩa & Dụng sự*: Chủ về nhân hòa, liên minh hợp tác bền vững, gia đạo an vui, quý nhân phù trợ. Rất tốt cho hôn nhân giá thú, đính hôn kết duyên, ký kết khế ước hợp đồng, khai trương, xuất hành, hòa giải mâu thuẫn.
+  - **Hệ Thống Nguyệt Gia (Theo Tam Hợp Tháng & Thời Khí 12 Tháng)**:
+    - **Nguyệt Đức (月德) & Nguyệt Đức Hợp (月德合)**: Dương can vượng khí của Tam hợp cục tháng và Can ngũ hợp tương sinh.
+      - *Hỏa cục (Dần - Ngọ - Tuất)*: Nguyệt Đức tại Bính ➔ Nguyệt Đức Hợp tại Tân.
+      - *Thủy cục (Thân - Tý - Thìn)*: Nguyệt Đức tại Nhâm ➔ Nguyệt Đức Hợp tại Đinh.
+      - *Mộc cục (Hợi - Mão - Mùi)*: Nguyệt Đức tại Giáp ➔ Nguyệt Đức Hợp tại Kỷ.
+      - *Kim cục (Tỵ - Dậu - Sửu)*: Nguyệt Đức tại Canh ➔ Nguyệt Đức Hợp tại Ất.
+      - *Ý nghĩa & Dụng sự*: Phúc thọ an khang, tiêu tai giải nạn, vạn sự hanh thông, sinh tài nảy nở, cưới hỏi, khai trương, giao thương, an gia định cư.
+    - **Thiên Đức (天德) & Thiên Đức Hợp (天德合)**: Cát thần tối cao theo thời khí thiên đạo 12 tháng.
+      - *Chu kỳ 12 Tháng*: Th.1 Đinh (Hợp Nhâm) ➔ Th.2 Thân (Hợp Tị) ➔ Th.3 Nhâm (Hợp Đinh) ➔ Th.4 Tân (Hợp Bính) ➔ Th.5 Càn (Hợp Tốn) ➔ Th.6 Giáp (Hợp Kỷ) ➔ Th.7 Quý (Hợp Mậu) ➔ Th.8 Cấn (Hợp Khôn) ➔ Th.9 Bính (Hợp Tân) ➔ Th.10 Ất (Hợp Canh) ➔ Th.11 Tốn (Hợp Càn) ➔ Th.12 Canh (Hợp Ất).
+      - *Đặc điểm cốt lõi*: Toàn bộ 6 sao trong bộ Lục Đức đều đi theo Thiên can.
+  - **Tích Hợp Toàn Diện Vào Giao Diện & Thuật Toán Trạch Nhật**:
+    - **Tab Tra Cứu Thần Sát**: Tích hợp Bộ Lục Đức vào bảng biểu và danh sách thẻ ngày tra cứu với huy hiệu vàng hoàng gia (`badge-tue-duc`, `badge-tue-duc-hop`, `badge-thien-duc`, `badge-nguyet-duc`). Khi ngày tra cứu đắc một hoặc nhiều sao trong Bộ Lục Đức, hiển thị Banner Cát Khánh Hoàng Kim chúc mừng và gợi ý khởi sự lớn.
+    - **Cẩm Nang Khởi Lệ Lục Đức**: Bổ sung Bảng Tra Bộ Lục Đức 12 tháng theo Can năm Thái Tuế trong hộp tra cứu tham chiếu (có nút chuyển đổi linh hoạt với tab Nguyệt Yếm & Ngũ Quỷ).
+    - **Tờ Lịch Bloc & Lịch Vạn Niên**: Đồng bộ hiển thị Tuế Đức, Tuế Đức Hợp, Thiên Đức, Nguyệt Đức trong mục "Sao Cát & Vượng Khí" của tờ lịch hàng ngày.
+    - **File Dữ Liệu Dùng Chung (`public/thanSatData.js` & `src/thanSatData.js`)**: Cập nhật đầy đủ thuật toán `calcTueDucCanIndex`, `calcTueDucHopCanIndex`, `generateLucDucReferenceTable`, mở rộng registry thần sát trung tâm.
+  - **Quản Lý Phiên Bản**: Nâng phiên bản hệ thống lên **v1.40.0** trên `package.json`, `README.md`, `index.html` và giao diện người dùng.
+
+### [v1.39.0] - 2026-09-25
+- **Tối Ưu Hóa & Đơn Giản Hóa Tab Tra Cứu Thần Sát Theo Ngày**:
+  - **Tập Trung Hiển Thị Thần Sát Ngày Tra Cứu (Bảng Biểu & Danh Sách)**:
+    - Loại bỏ các thành phần hiển thị phức tạp (bàn cờ radar, quét tháng dàn trải) để tối ưu giao diện theo đúng yêu cầu: Chỉ tập trung hiển thị các sao thần, sao sát lâm chiếu trong ngày được tra cứu, kèm ý nghĩa bản thể và nghi kỵ dụng sự chuẩn mực.
+    - Cung cấp 2 chế độ hiển thị linh hoạt: **Dạng Bảng Biểu (Table View)** rõ ràng theo 5 cột chuyên môn (Tên Thần Sát, Phân Loại & Cấp Độ, Căn Cứ Khởi Lệ, Ý Nghĩa, Nghi Kỵ Dụng Sự) và **Dạng Danh Sách Thẻ (Card List View)** scannable với màu sắc nhận diện Cát/Hung trực quan.
+    - Bổ sung bộ lọc trạng thái thông minh: *Tất cả*, *Sao Cát*, *Sao Hung / Sát* cùng thanh tìm kiếm nhanh tên sao theo thời gian thực.
+  - **Bổ Sung Sao Ngũ Quỷ (Bạch Hổ Của Nguyệt Yếm - Khởi Theo Tháng)**:
+    - Hiện thực hóa quy luật khởi lệ cổ bản: *Ngũ Quỷ (khởi theo Tháng) chính là vị trí Bạch Hổ của Nguyệt Yếm, đóng ở ngay phía sau Nguyệt Yếm đại diện cho tính "âm ở trong âm". Phương vị Bạch Hổ đi sau Nguyệt Yếm trong từng tháng chính là sao Ngũ Quỷ.*
+    - Chu kỳ 12 tháng của sao Ngũ Quỷ: Tháng 1 tại Hợi ➔ Tháng 2 tại Tuất ➔ Tháng 3 tại Dậu ➔ Tháng 4 tại Thân ➔ Tháng 5 tại Mùi ➔ Tháng 6 tại Ngọ ➔ Tháng 7 tại Tỵ ➔ Tháng 8 tại Thìn ➔ Tháng 9 tại Mão ➔ Tháng 10 tại Dần ➔ Tháng 11 tại Sửu ➔ Tháng 12 tại Tý.
+    - Luận giải chi tiết tính chất đại hung của Ngũ Quỷ: Tà khí ngấm ngầm, đặc biệt đại kỵ xuất hành đi xa (phòng tai nạn, trắc trở, mất cắp), giá thú cưới hỏi (dễ sinh nghi kỵ, chia rẽ), động thổ đào móng, khai trương mở hàng, ký kết hợp đồng thương mại lớn.
+  - **Đồng Bộ Dữ Liệu Vào Hệ Thống Trung Tâm (`thanSatData.js`) & Lịch Vạn Niên**:
+    - Cập nhật thuật toán tính vị trí Địa Chi Ngũ Quỷ `calcNguQuyChiIndex(lunarMonth)` và thẩm định ngày trong `ThanSatEngine` vào `thanSatData.js`.
+    - Tích hợp sao Ngũ Quỷ vào phần hiển thị Nghi Kỵ Dụng Sự tại khối Lịch Vạn Niên / Tờ Lịch Bloc (`renderNghiKyDungSu`).
+    - Bổ sung hộp tra cứu quy luật khởi lệ 12 tháng (Nguyệt Yếm, Ngũ Quỷ, Yếm Đối) có thể bật/tắt linh hoạt cho người dùng tham chiếu học thuật.
+  - **Quản Lý Phiên Bản**: Nâng phiên bản hệ thống lên **v1.39.0** trên `package.json`, `README.md`, `index.html` và giao diện người dùng.
 
 ### [v1.38.0] - 2026-09-25
 - **Tạo Tab Chuyên Mục Riêng Tra Cứu Sao & Thần Sát Theo Thời Gian**:
