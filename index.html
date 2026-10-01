@@ -2274,6 +2274,219 @@
       padding: 0.85rem 0.75rem;
     }
 
+    /* ======================================================== */
+    /* HỆ THỐNG ĐẠI VẬN & LƯU NIÊN (THẦY THIỆU VĨ HOA) STYLING */
+    /* ======================================================== */
+    .bt-daivan-section {
+      background: #fff;
+      border: 1.5px solid #fed7aa;
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      box-shadow: 0 4px 16px rgba(180, 83, 9, 0.05);
+    }
+    .bt-daivan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      border-bottom: 1.5px solid #fef3c7;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .bt-daivan-meta-banner {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border: 1px solid #fde68a;
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      font-size: 0.84rem;
+    }
+    .bt-daivan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+    .bt-dv-card {
+      background: #fafaf9;
+      border: 1.5px solid #e7e5e4;
+      border-radius: var(--radius-md);
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .bt-dv-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+      border-color: #d97706;
+    }
+    .bt-dv-card.is-selected {
+      background: #fffdf5;
+      border-color: #d97706;
+      box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.25);
+    }
+    .bt-dv-card.is-current-year {
+      border-color: #b45309;
+    }
+    .bt-dv-order {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #78716c;
+      margin-bottom: 0.25rem;
+    }
+    .bt-dv-age {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #b45309;
+    }
+    .bt-dv-years {
+      font-size: 0.7rem;
+      color: #a8a29e;
+      margin-bottom: 0.35rem;
+    }
+    .bt-dv-canchi {
+      font-size: 1.2rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin: 0.25rem 0;
+    }
+    .bt-dv-quality-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 0.15rem 0.45rem;
+      border-radius: 9999px;
+      margin-top: 0.35rem;
+    }
+    .bt-badge-cat {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #86efac;
+    }
+    .bt-badge-hung {
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1px solid #fca5a5;
+    }
+    .bt-badge-binh {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+    .bt-luunien-selector-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .bt-ln-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .bt-ln-pill {
+      border: 1px solid #cbd5e1;
+      background: #fff;
+      color: #334155;
+      border-radius: 6px;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .bt-ln-pill:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .bt-ln-pill.active {
+      background: #1e40af;
+      color: #fff;
+      border-color: #1e40af;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(30, 64, 175, 0.25);
+    }
+    .bt-verdict-card {
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      margin-bottom: 1.25rem;
+      border: 2px solid;
+    }
+    .bt-verdict-card.verdict-dai-cat {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border-color: #f59e0b;
+    }
+    .bt-verdict-card.verdict-cat {
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      border-color: #22c55e;
+    }
+    .bt-verdict-card.verdict-binh {
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border-color: #38bdf8;
+    }
+    .bt-verdict-card.verdict-hung {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border-color: #fb923c;
+    }
+    .bt-verdict-card.verdict-dai-hung {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-color: #ef4444;
+    }
+    .bt-special-affliction {
+      background: #fff;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-top: 0.75rem;
+      border-left: 4px solid;
+    }
+    .bt-special-tuevan {
+      background: #fdf4ff;
+      border: 1px solid #f0abfc;
+      border-left: 4px solid #c026d3;
+    }
+    .bt-special-xungkhac {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-left: 4px solid #e11d48;
+    }
+    .bt-special-hophoa {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-left: 4px solid #059669;
+    }
+    .bt-domains-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .bt-domain-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.85rem;
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+    .bt-domain-title {
+      font-weight: 800;
+      font-size: 0.88rem;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
     /* Festival / Holidays Table & List */
     .fest-card {
       display: flex;
@@ -5119,7 +5332,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.40.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.41.0</span>
           </div>
           <div class="brand-sub">"Vòng Xoay Duyên Khởi" • Giao thoa Thời Gian &amp; Nhân Duyên</div>
         </div>
@@ -6609,6 +6822,237 @@
             </div>
           </div>
         </div>
+
+        <!-- HỆ THỐNG ĐẠI VẬN (10 NĂM) & LƯU NIÊN (HÀNG NĂM) • ĐỊNH CÁT HUNG CHUYÊN SÂU (THẦY THIỆU VĨ HOA) -->
+        <div class="bt-daivan-section" id="btDaiVanSection">
+          <div class="bt-daivan-header">
+            <div>
+              <div style="font-size: 1.15rem; font-weight: 800; color: #9a3412; display: flex; align-items: center; gap: 0.5rem;">
+                <span>🛣️</span> Vận Trình Cuộc Đời: Đại Vận (10 Năm) &amp; Lưu Niên (Hàng Năm)
+              </div>
+              <div style="font-size: 0.82rem; color: #6b7280; margin-top: 2px;">
+                "Mệnh là khung xe, Đại vận là cung đường, Lưu niên là thời tiết" • Phối hợp Cát - Hung chuẩn hệ thống Thầy Thiệu Vĩ Hoa
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+              <span class="badge" id="btDvDirectionBadge" style="background: #ffedd5; color: #9a3412; border: 1px solid #fed7aa; font-size: 0.78rem; font-weight: 700;">
+                Thuận Hành
+              </span>
+              <span class="badge" id="btDvStartAgeBadge" style="background: #fef3c7; color: #92400e; border: 1px solid #fde68a; font-size: 0.78rem; font-weight: 700;">
+                Khởi vận: -- tuổi
+              </span>
+            </div>
+          </div>
+
+          <!-- Banner Thông Tin Khởi Vận & Triết Lý -->
+          <div class="bt-daivan-meta-banner" id="btDvMetaBanner">
+            <div>
+              <div style="font-weight: 700; color: #9a3412;">🌟 Chiều Hướng Khởi Vận:</div>
+              <div id="btDvDirectionDesc" style="color: #431407; font-size: 0.82rem; margin-top: 2px;">Đang phân tích...</div>
+            </div>
+            <div>
+              <div style="font-weight: 700; color: #9a3412;">⏳ Khoảng Cách Tiết Lệnh (Vận Số):</div>
+              <div id="btDvTietDistanceDesc" style="color: #431407; font-size: 0.82rem; margin-top: 2px;">Đang phân tích...</div>
+            </div>
+            <div>
+              <div style="font-weight: 700; color: #9a3412;">🧭 Quy Luật Vận Số Cổ Nhân:</div>
+              <div style="color: #431407; font-size: 0.82rem; margin-top: 2px;">3 ngày = 1 tuổi • 1 ngày = 4 tháng • 1 giờ = 10 ngày</div>
+            </div>
+          </div>
+
+          <!-- Bảng 10 Đại Vận Cuộc Đời -->
+          <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="font-size: 0.95rem; font-weight: 800; color: #78350f; display: flex; align-items: center; gap: 0.4rem;">
+              <span>📊</span> I. BẢNG 10 ĐẠI VẬN SUỐT ĐỜI (Bấm chọn Đại Vận để xem 10 Lưu Niên chi tiết)
+            </div>
+            <div style="font-size: 0.75rem; color: #6b7280;">
+              💡 <em>Nhấp vào bất kỳ Đại Vận nào để khảo sát chi tiết từng năm của chặng đường đó</em>
+            </div>
+          </div>
+
+          <div class="bt-daivan-grid" id="btDaiVanGrid">
+            <!-- JS dynamic content for 10 Major Cycles -->
+          </div>
+
+          <!-- KHU VỰC KHẢO SÁT LƯU NIÊN & ĐỊNH CÁT HUNG -->
+          <div class="bt-luunien-selector-box" id="btLuuNienBox">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.5rem;">
+              <div>
+                <h4 style="font-size: 0.95rem; font-weight: 800; color: #1e3a8a; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+                  <span>📅</span> II. KHẢO SÁT LƯU NIÊN (THÁI TUẾ HÀNG NĂM) TRÊN NỀN ĐẠI VẬN
+                </h4>
+                <div style="font-size: 0.78rem; color: #475569; margin-top: 2px;" id="btLuuNienGuideText">
+                  Đang xem Đại Vận: <strong id="btSelectedDvTitle">--</strong>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+                <label style="font-size: 0.82rem; font-weight: 700; color: #334155;">Năm khảo sát:</label>
+                <input type="number" id="btSurveyYearInput" class="form-control" style="width: 90px; padding: 0.25rem 0.5rem; font-size: 0.85rem; font-weight: 700; text-align: center;" value="2026" min="1900" max="2150">
+                <button type="button" class="btn btn-primary btn-sm" id="btnBtRunSurveyYear" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">Xem Năm Này</button>
+                <button type="button" class="btn btn-gold btn-sm" id="btnBtSurveyCurrentYear" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">Năm Nay (2026)</button>
+              </div>
+            </div>
+
+            <!-- 10 Pills Năm Trong Đại Vận Đang Chọn -->
+            <div>
+              <div style="font-size: 0.76rem; font-weight: 700; color: #64748b; margin-bottom: 0.25rem;">
+                Chọn nhanh các năm trong Đại Vận:
+              </div>
+              <div class="bt-ln-pills" id="btLuuNienPills">
+                <!-- JS dynamic pills -->
+              </div>
+            </div>
+          </div>
+
+          <!-- KẾT QUẢ ĐỊNH CÁT HUNG TỔNG HỢP (MA TRẬN THẦY THIỆU VĨ HOA) -->
+          <div class="bt-verdict-card" id="btCombinedVerdictCard">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <div>
+                <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: #78350f; letter-spacing: 0.4px;" id="btVerdictSubtitle">
+                  TỔNG HÒA VẬN KHÍ: ĐẠI VẬN [DV] × LƯU NIÊN [LN]
+                </div>
+                <div style="font-size: 1.25rem; font-weight: 900; margin-top: 0.2rem;" id="btVerdictTitle">
+                  ĐANG PHÂN TÍCH...
+                </div>
+              </div>
+              <div id="btVerdictBadgeWrap">
+                <span class="badge" id="btVerdictMainBadge" style="font-size: 0.95rem; padding: 0.35rem 0.8rem; font-weight: 900;">
+                  BÌNH VẬN
+                </span>
+              </div>
+            </div>
+
+            <!-- Mô tả tổng hợp -->
+            <div style="font-size: 0.88rem; line-height: 1.65; color: #374151; background: rgba(255, 255, 255, 0.75); padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);" id="btVerdictSummaryDesc">
+              <!-- JS Fill -->
+            </div>
+
+            <!-- Khu vực cảnh báo các Biến Cục Đặc Biệt (Tuế Vận Cùng Tới, Thiên Khắc Địa Xung...) -->
+            <div id="btSpecialAfflictionsContainer">
+              <!-- JS dynamic special alerts -->
+            </div>
+
+            <!-- Bốn Lĩnh Vực Đời Sống Cụ Thể Trong Năm (Sự Nghiệp, Tài Lộc, Tình Cảm, Sức Khỏe) -->
+            <div class="bt-domains-grid" id="btDomainsGrid">
+              <!-- 1. Sự nghiệp & Công danh -->
+              <div class="bt-domain-card">
+                <div class="bt-domain-title" style="color: #1e40af;">
+                  <span>💼</span> 1. Sự Nghiệp &amp; Công Danh
+                </div>
+                <div id="btDomainCareer" style="color: #374151;">Đang phân tích...</div>
+              </div>
+
+              <!-- 2. Tài lộc & Tiền của -->
+              <div class="bt-domain-card">
+                <div class="bt-domain-title" style="color: #b45309;">
+                  <span>💰</span> 2. Tài Lộc &amp; Đầu Tư
+                </div>
+                <div id="btDomainWealth" style="color: #374151;">Đang phân tích...</div>
+              </div>
+
+              <!-- 3. Tình cảm & Gia đạo -->
+              <div class="bt-domain-card">
+                <div class="bt-domain-title" style="color: #be185d;">
+                  <span>❤️</span> 3. Hôn Nhân &amp; Gia Đạo
+                </div>
+                <div id="btDomainLove" style="color: #374151;">Đang phân tích...</div>
+              </div>
+
+              <!-- 4. Sức khỏe & Bình an -->
+              <div class="bt-domain-card">
+                <div class="bt-domain-title" style="color: #047857;">
+                  <span>🧘</span> 4. Sức Khỏe &amp; Bình An
+                </div>
+                <div id="btDomainHealth" style="color: #374151;">Đang phân tích...</div>
+              </div>
+            </div>
+
+            <!-- Chiến Lược Ứng Xử & Hóa Giải -->
+            <div style="margin-top: 1rem; background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.85rem 1rem;">
+              <div style="font-weight: 800; font-size: 0.88rem; color: #0f172a; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.35rem;">
+                <span>🛡️</span> Lời Khuyên Hành Động &amp; Hóa Giải Năng Lượng (Thuận Khí Đắc Lộc):
+              </div>
+              <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;" id="btAdviceAction">
+                Đang phân tích...
+              </div>
+            </div>
+          </div>
+
+          <!-- Bảng Tham Chiếu Ma Trận Phối Hợp 9 Cấp Độ Cát Hung (Thầy Thiệu Vĩ Hoa) -->
+          <details style="margin-top: 1rem; background: #fafaf9; border: 1px solid #e7e5e4; border-radius: 8px; padding: 0.65rem 0.95rem; font-size: 0.82rem;">
+            <summary style="font-weight: 700; color: #78350f; cursor: pointer;">
+              📖 Xem Bảng Tham Chiếu Quy Tắc Phối Hợp Cát - Hung (Thầy Thiệu Vĩ Hoa)
+            </summary>
+            <div style="margin-top: 0.65rem; overflow-x: auto;">
+              <table class="table" style="font-size: 0.78rem; margin: 0; background: #fff;">
+                <thead>
+                  <tr style="background: #fef3c7; color: #78350f;">
+                    <th>Đại Vận</th>
+                    <th>Lưu Niên</th>
+                    <th>Kết Quả Cát - Hung Tổng Hợp</th>
+                    <th>Ý Nghĩa Vận Trình Thực Tế</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background: #f0fdf4;">
+                    <td><strong style="color: #15803d;">Cát (Hỷ/Dụng)</strong></td>
+                    <td><strong style="color: #15803d;">Cát (Hỷ/Dụng)</strong></td>
+                    <td><span class="badge" style="background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; font-weight: 800;">ĐẠI CÁT</span></td>
+                    <td>Vận trình vô cùng hanh thông, đại phát tài lộc, công danh thăng tiến rực rỡ.</td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color: #15803d;">Cát</strong></td>
+                    <td><strong style="color: #b91c1c;">Hung (Kỵ thần)</strong></td>
+                    <td><span class="badge bt-badge-cat">CÁT NHIỀU HUNG ÍT</span></td>
+                    <td>Được che chở, tổng thể tốt là chính, có trở ngại nhỏ nhưng dễ dàng vượt qua.</td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color: #15803d;">Cát</strong></td>
+                    <td><strong>Bình</strong></td>
+                    <td><span class="badge bt-badge-cat">CÁT VỪA</span></td>
+                    <td>Vận trình êm đềm, duy trì đà phát triển ổn định, tích lũy vững chắc.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bình</strong></td>
+                    <td><strong style="color: #15803d;">Cát</strong></td>
+                    <td><span class="badge bt-badge-cat">TIỂU CÁT</span></td>
+                    <td>Có cơ hội sáng lạn, gặt hái thành quả tốt đẹp nhờ chớp đúng thời cơ năm.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bình</strong></td>
+                    <td><strong style="color: #b91c1c;">Hung</strong></td>
+                    <td><span class="badge bt-badge-hung">TIỂU HUNG</span></td>
+                    <td>Gặp chút trắc trở nhỏ hoặc áp lực, cần cẩn trọng trong chi tiêu và lời ăn tiếng nói.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bình</strong></td>
+                    <td><strong>Bình</strong></td>
+                    <td><span class="badge bt-badge-binh">BÌNH VẬN</span></td>
+                    <td>Vận thế bình ổn, không sóng gió lớn; thích hợp trau dồi nội lực và chăm sóc gia đạo.</td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color: #b91c1c;">Hung (Kỵ thần)</strong></td>
+                    <td><strong style="color: #15803d;">Cát</strong></td>
+                    <td><span class="badge bt-badge-hung">CÁT ÍT HUNG NHIỀU</span></td>
+                    <td>Tuy có điểm sáng trong năm nhưng gốc rễ vận trình còn chông gai, tiềm ẩn rủi ro.</td>
+                  </tr>
+                  <tr style="background: #fef2f2;">
+                    <td><strong style="color: #b91c1c;">Hung</strong></td>
+                    <td><strong style="color: #b91c1c;">Hung</strong></td>
+                    <td><span class="badge" style="background: #fee2e2; color: #991b1b; border: 1px solid #ef4444; font-weight: 800;">ĐẠI HUNG</span></td>
+                    <td>Tai họa nặng nề, cần đặc biệt đề phòng sức khỏe, tài chính, kiện tụng, nên an phận.</td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color: #b91c1c;">Hung</strong></td>
+                    <td><strong>Bình</strong></td>
+                    <td><span class="badge bt-badge-hung">HUNG VỪA</span></td>
+                    <td>Vận khí trầm trệ, tiến thoái lưỡng nan, cần nhẫn nại tích lũy chờ thời chuyển vận.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
 
@@ -7201,7 +7645,7 @@
           </h4>
           <p style="font-size: 0.86rem; color: #b45309; font-weight: 700; margin-top: 3px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Giao Thoa Thời Gian &amp; Nhân Duyên"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.40.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.41.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.95rem 1.15rem; font-size: 0.84rem; line-height: 1.65; color: #374151;">
@@ -7643,7 +8087,7 @@
             "Vòng Xoay Duyên Khởi" — Giao thoa Thời Gian &amp; Nhân Duyên • Thiên văn học NASA JPL / VSOP87 &amp; Mệnh Lý Tử Bình, Kỳ Môn Độn Giáp Hôn Nhân.
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.40.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.41.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -7772,6 +8216,44 @@
           <div id="prPhongThuyAdvice">
             <!-- JS Fill -->
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IV. VẬN TRÌNH: ĐẠI VẬN (10 NĂM) & LƯU NIÊN (ĐỊNH CÁT HUNG) -->
+    <div class="print-section" id="prSectionDaiVan">
+      <div class="print-section-title">IV. VẬN TRÌNH: ĐẠI VẬN (10 NĂM) &amp; LƯU NIÊN (ĐỊNH CÁT HUNG)</div>
+      <div style="font-size: 7.8pt; color: #475569; margin-bottom: 4px; display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <span id="prDvStartInfo">Khởi vận: -- tuổi • Chiều: Thuận hành</span>
+        <span>Hệ thống ma trận phối hợp Cát - Hung Thầy Thiệu Vĩ Hoa</span>
+      </div>
+
+      <!-- Bảng tóm tắt các Đại Vận -->
+      <table class="print-battu-table" style="margin-bottom: 5px;">
+        <thead>
+          <tr id="prDvTableHead">
+            <!-- JS dynamic columns -->
+          </tr>
+        </thead>
+        <tbody id="prDvTableBody">
+          <!-- JS dynamic row -->
+        </tbody>
+      </table>
+
+      <!-- Đánh giá Lưu Niên Khảo Sát -->
+      <div class="print-eval-box" style="margin-top: 4px; padding: 6px 8px;">
+        <div class="print-eval-top" style="margin-bottom: 3px;">
+          <div>
+            <span style="font-weight: 700; color: #475569; margin-right: 0.35rem;">Khảo Sát Lưu Niên:</span>
+            <strong id="prLnSurveyName">Năm 2026 (Bính Ngọ)</strong>
+            <span style="margin-left: 0.5rem;" class="print-badge-than" id="prLnVerdictBadge">ĐẠI CÁT</span>
+          </div>
+          <div style="font-size: 7.8pt; color: #475569;" id="prLnDvMatchNote">
+            Trực thuộc Đại Vận: <strong>--</strong>
+          </div>
+        </div>
+        <div class="print-summary-text" id="prLnSurveyDetail" style="margin-top: 3px; font-size: 7.6pt; line-height: 1.45;">
+          <!-- JS Fill -->
         </div>
       </div>
     </div>
@@ -16437,6 +16919,46 @@
       setElHtml('prDungThanDetail', evalData.dungThanText);
       setElHtml('prPhongThuyAdvice', evalData.phongThuyText);
 
+      // IV. Vận Trình Đại Vận (10 Năm) & Lưu Niên
+      if (currentBattuDaiVanData) {
+        const dvData = currentBattuDaiVanData;
+        setElText('prDvStartInfo', `Khởi vận: ${dvData.startAgeText} • Chiều: ${dvData.directionName}`);
+
+        const thHead = document.getElementById('prDvTableHead');
+        const thBody = document.getElementById('prDvTableBody');
+        if (thHead && thBody) {
+          thHead.innerHTML = `
+            <th style="width: 14%;">HẠNG MỤC</th>
+            ${dvData.daiVanList.map(dv => `<th style="width: 8.6%;">${dv.orderName}</th>`).join('')}
+          `;
+          thBody.innerHTML = `
+            <tr>
+              <td class="tb-label">Can Chi</td>
+              ${dvData.daiVanList.map(dv => `<td style="font-weight: 700; font-size: 7.4pt;">${dv.canchi}<br><small style="font-weight: normal; color: #4338ca;">${dv.thapThan.name}</small></td>`).join('')}
+            </tr>
+            <tr>
+              <td class="tb-label">Tuổi &amp; Năm</td>
+              ${dvData.daiVanList.map(dv => `<td style="font-size: 7pt;">${dv.ageStart}-${dv.ageEnd}t<br><small style="color: #64748b;">${dv.yearStart}-${dv.yearEnd}</small></td>`).join('')}
+            </tr>
+            <tr>
+              <td class="tb-label">Cát / Hung</td>
+              ${dvData.daiVanList.map(dv => `<td style="font-size: 6.8pt; font-weight: 700; color: ${dv.quality === 'cat' ? '#15803d' : (dv.quality === 'hung' ? '#b91c1c' : '#0369a1')};">${dv.quality === 'cat' ? 'Cát Vận' : (dv.quality === 'hung' ? 'Hung Vận' : 'Bình Vận')}</td>`).join('')}
+            </tr>
+          `;
+        }
+
+        const lnYear = currentSurveyLuuNienYear;
+        const lnInfo = getYearCanChi(lnYear);
+        const matchedDv = dvData.daiVanList.find(dv => dv.yearStart <= lnYear && lnYear <= dv.yearEnd) || dvData.daiVanList[currentSelectedDvIndex];
+        const lnQual = evalCanChiQuality(lnInfo.canIndex, lnInfo.chiIndex, dvData.dungHanhList, dvData.kyHanhList, dvData.dP.canIndex);
+        const verdict = combineDaiVanLuuNien(matchedDv.quality, lnQual.quality);
+
+        setElText('prLnSurveyName', `Năm ${lnYear} (${lnInfo.text})`);
+        setElText('prLnVerdictBadge', verdict.badge);
+        setElText('prLnDvMatchNote', `Thuộc ${matchedDv.orderName} (${matchedDv.canchi} • ${matchedDv.ageStart}-${matchedDv.ageEnd}t) • Lưu niên ${lnQual.label}`);
+        setElText('prLnSurveyDetail', verdict.desc);
+      }
+
       // Footer timestamp
       const now = new Date();
       const timeStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} lúc ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
@@ -16472,6 +16994,23 @@
       document.getElementById('btnPrintBattu')?.addEventListener('click', () => {
         printBattu();
       });
+
+      // Điều khiển khảo sát Lưu Niên
+      document.getElementById('btnBtRunSurveyYear')?.addEventListener('click', () => {
+        const val = parseInt(document.getElementById('btSurveyYearInput')?.value, 10);
+        if (!isNaN(val)) surveyLuuNienYear(val);
+      });
+      document.getElementById('btnBtSurveyCurrentYear')?.addEventListener('click', () => {
+        surveyLuuNienYear(new Date().getFullYear());
+      });
+      document.getElementById('btSurveyYearInput')?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const val = parseInt(document.getElementById('btSurveyYearInput')?.value, 10);
+          if (!isNaN(val)) surveyLuuNienYear(val);
+        }
+      });
+
       // Khởi tạo luôn luôn lấy thời gian hiện tại
       loadBattuCurrentDateTime();
     }
@@ -16600,7 +17139,46 @@
       txt += '--------------------------------------------------------------------------------\n';
       txt += `${dungThanText}\n\n`;
 
-      txt += 'VI. LỜI KHUYÊN PHONG THỦY THỰC TIỄN & HÓA GIẢI\n';
+      if (currentBattuDaiVanData) {
+        const dvData = currentBattuDaiVanData;
+        txt += 'VI. VẬN TRÌNH ĐẠI VẬN (10 NĂM) & LƯU NIÊN (HÀNG NĂM) - ĐỊNH CÁT HUNG\n';
+        txt += '--------------------------------------------------------------------------------\n';
+        txt += `• Chiều hướng khởi vận: ${dvData.directionName} (${dvData.directionText})\n`;
+        txt += `• Tuổi khởi vận: ${dvData.startAgeText}\n\n`;
+        txt += 'BẢNG 10 ĐẠI VẬN SUỐT ĐỜI:\n';
+        dvData.daiVanList.forEach(dv => {
+          txt += `   - ${dv.orderName}: Can Chi ${dv.canchi} (${dv.canHanh} - ${dv.chiHanh}) | Độ tuổi: ${dv.ageStart} - ${dv.ageEnd} tuổi (Năm ${dv.yearStart} - ${dv.yearEnd})\n`;
+          txt += `     Thập Thần: ${dv.thapThan.name} | Trường Sinh: ${dv.truongSinh.stageName} | Nạp Âm: ${dv.napAm} | Thuộc tính: ${dv.qualityLabel}\n`;
+        });
+        txt += '\n';
+
+        const lnYear = currentSurveyLuuNienYear;
+        const lnInfo = getYearCanChi(lnYear);
+        const matchedDv = dvData.daiVanList.find(dv => dv.yearStart <= lnYear && lnYear <= dv.yearEnd) || dvData.daiVanList[currentSelectedDvIndex];
+        const lnQual = evalCanChiQuality(lnInfo.canIndex, lnInfo.chiIndex, dvData.dungHanhList, dvData.kyHanhList, dvData.dP.canIndex);
+        const verdict = combineDaiVanLuuNien(matchedDv.quality, lnQual.quality);
+        const surveyAge = lnYear - meta.sYear;
+
+        txt += `KHẢO SÁT LƯU NIÊN NĂM ${lnYear} (${lnInfo.text} - ${surveyAge} TUỔI):\n`;
+        txt += `• Trực thuộc: ${matchedDv.orderName} (${matchedDv.canchi}) - ${matchedDv.qualityLabel}\n`;
+        txt += `• Lưu niên Thái Tuế: Năm ${lnYear} (${lnInfo.text}) - ${lnQual.label}\n`;
+        txt += `• KẾT QUẢ ĐỊNH CÁT HUNG TỔNG HỢP (THIỆU VĨ HOA): [${verdict.badge}] ${verdict.title}\n`;
+        txt += `• Luận giải chi tiết: ${verdict.desc}\n\n`;
+
+        const career = stripHtml(document.getElementById('btDomainCareer')?.innerHTML || '');
+        const wealth = stripHtml(document.getElementById('btDomainWealth')?.innerHTML || '');
+        const love = stripHtml(document.getElementById('btDomainLove')?.innerHTML || '');
+        const health = stripHtml(document.getElementById('btDomainHealth')?.innerHTML || '');
+        const advice = stripHtml(document.getElementById('btAdviceAction')?.innerHTML || '');
+
+        if (career) txt += `1. Sự nghiệp & Công danh:\n   ${career}\n\n`;
+        if (wealth) txt += `2. Tài lộc & Đầu tư:\n   ${wealth}\n\n`;
+        if (love)   txt += `3. Hôn nhân & Tình duyên:\n   ${love}\n\n`;
+        if (health) txt += `4. Sức khỏe & Bình an:\n   ${health}\n\n`;
+        if (advice) txt += `5. Lời khuyên hành động & Hóa giải:\n   ${advice}\n\n`;
+      }
+
+      txt += 'VII. LỜI KHUYÊN PHONG THỦY THỰC TIỄN & HÓA GIẢI\n';
       txt += '--------------------------------------------------------------------------------\n';
       txt += `${phongThuyText}\n\n`;
 
@@ -17475,6 +18053,32 @@
       const oldDungThan = document.getElementById('btDungThan');
       if (oldDungThan) oldDungThan.innerHTML = dungThanText;
 
+      // Xác định danh sách ngũ hành Dụng Thần & Kỵ Thần cho Đại Vận & Lưu Niên
+      let dungHanhList = [];
+      let kyHanhList = [];
+      if (conclusionBadge.includes("VƯỢNG") || conclusionBadge.includes("TRUNG HÒA")) {
+        dungHanhList = [haoHanh, khacHanh, tietHanh];
+        kyHanhList = [sinhHanh, nhatHanh];
+      } else if (conclusionBadge.includes("CỰC NHƯỢC")) {
+        dungHanhList = [khacHanh, haoHanh, tietHanh];
+        kyHanhList = [sinhHanh, nhatHanh];
+      } else {
+        dungHanhList = [sinhHanh, nhatHanh];
+        kyHanhList = [khacHanh, haoHanh, tietHanh];
+      }
+
+      // Khảo sát & Luận giải Đại Vận & Lưu Niên theo Thầy Thiệu Vĩ Hoa
+      calculateAndRenderDaiVanLuuNien(currentBattuMeta, yP, mP, dP, hP, {
+        conclusionBadge,
+        nhatHanh,
+        sinhHanh,
+        tietHanh,
+        haoHanh,
+        khacHanh,
+        dungHanhList,
+        kyHanhList
+      });
+
       // Cập nhật dữ liệu cho Bản In / Lưu Lá Số Bát Tự A4 Chuyên Biệt
       updateBattuPrintSheet({
         conclusionBadge,
@@ -17494,6 +18098,668 @@
         dayPillar: dP,
         hourPillar: hP
       });
+    }
+
+    /**
+     * =========================================================================
+     * HỆ THỐNG ĐẠI VẬN (10 NĂM) & LƯU NIÊN (HÀNG NĂM) • ĐỊNH CÁT HUNG CHUYÊN SÂU
+     * THEO HỆ THỐNG MỆNH LÝ TỨ TRỤ CHÍNH TÔNG & THẦY THIỆU VĨ HOA
+     * =========================================================================
+     */
+    let currentBattuDaiVanData = null;
+    let currentSelectedDvIndex = 0;
+    let currentSurveyLuuNienYear = 2026;
+
+    function calculateAndRenderDaiVanLuuNien(meta, yP, mP, dP, hP, vuongNhuocData) {
+      if (!meta || !yP || !mP || !dP) return;
+
+      const sYear = meta.sYear;
+      const sMonth = meta.sMonth;
+      const sDay = meta.sDay;
+      const birthHourChi = meta.birthHourChi !== undefined ? meta.birthHourChi : 12;
+      const isMale = (meta.gender === 'male');
+      const isYangYear = (yP.canIndex % 2 === 0);
+      const isForward = (isMale && isYangYear) || (!isMale && !isYangYear);
+
+      // Tính JD sinh thực tế
+      const birthDateUtc = new Date(Date.UTC(sYear, sMonth - 1, sDay, Math.max(0, birthHourChi - 7), 0, 0));
+      const birthJD = dateToRealJD(birthDateUtc);
+
+      // Tìm Tiết Lệnh gần nhất trong 12 Tiết
+      const TIET_TERMS = SOLAR_TERMS_MASTER.filter(t => t.type === "Tiết");
+      const tietList = [];
+      for (let yr = sYear - 1; yr <= sYear + 1; yr++) {
+        for (let t of TIET_TERMS) {
+          let jd = getSolarTermTransitionJD(yr, t.deg, t.estDay);
+          tietList.push({ name: t.name, deg: t.deg, year: yr, jd: jd });
+        }
+      }
+      tietList.sort((a, b) => a.jd - b.jd);
+
+      let targetTerm = null;
+      let diffDays = 0;
+      if (isForward) {
+        targetTerm = tietList.find(t => t.jd > birthJD) || tietList[tietList.length - 1];
+        diffDays = Math.max(0.01, targetTerm.jd - birthJD);
+      } else {
+        const prevTerms = tietList.filter(t => t.jd <= birthJD);
+        targetTerm = prevTerms[prevTerms.length - 1] || tietList[0];
+        diffDays = Math.max(0.01, birthJD - targetTerm.jd);
+      }
+
+      // Quy đổi thời gian vận số: 3 ngày = 1 tuổi, 1 ngày = 4 tháng, 1 giờ = 10 ngày
+      const totalYears = diffDays / 3.0;
+      const ageYears = Math.floor(totalYears);
+      const remDayFrac = diffDays - (ageYears * 3);
+      const ageMonths = Math.floor(remDayFrac * 4);
+      const ageSubDays = Math.round((remDayFrac * 4 - ageMonths) * 30);
+
+      let startAge = Math.round(totalYears);
+      if (startAge < 1) startAge = 1;
+      if (startAge > 10) startAge = 10;
+
+      const startAgeDetail = `${ageYears} tuổi ${ageMonths > 0 ? ageMonths + ' tháng ' : ''}${ageSubDays > 0 ? ageSubDays + ' ngày' : ''}`.trim() || `${startAge} tuổi`;
+
+      const dungHanhList = vuongNhuocData.dungHanhList || [];
+      const kyHanhList = vuongNhuocData.kyHanhList || [];
+
+      // Khởi tạo 10 Đại Vận
+      const mCan = mP.canIndex;
+      const mChi = mP.chiIndex;
+      const daiVanList = [];
+
+      for (let step = 1; step <= 10; step++) {
+        let dvCanIdx, dvChiIdx;
+        if (isForward) {
+          dvCanIdx = (mCan + step) % 10;
+          dvChiIdx = (mChi + step) % 12;
+        } else {
+          dvCanIdx = (mCan - (step % 10) + 10) % 10;
+          dvChiIdx = (mChi - (step % 12) + 12) % 12;
+        }
+
+        const ageStart = startAge + (step - 1) * 10;
+        const ageEnd = ageStart + 9;
+        const yearStart = sYear + ageStart;
+        const yearEnd = yearStart + 9;
+
+        const dvCan = CAN[dvCanIdx];
+        const dvChi = CHI[dvChiIdx];
+        const canchi = `${dvCan} ${dvChi}`;
+
+        const tt = getThapThan(dvCanIdx, dP.canIndex);
+        const ts = getTruongSinhStage(dP.canIndex, dvChiIdx);
+        const napAm = NAP_AM[canchi] || '-';
+        const canHanh = CAN_HANH[dvCanIdx].replace(/Dương |Âm /, '');
+        const chiHanh = CHI_HANH[dvChiIdx].replace(/Dương |Âm /, '');
+
+        const qual = evalCanChiQuality(dvCanIdx, dvChiIdx, dungHanhList, kyHanhList, dP.canIndex);
+
+        const yearsList = [];
+        for (let y = yearStart; y <= yearEnd; y++) {
+          yearsList.push(y);
+        }
+
+        daiVanList.push({
+          index: step - 1,
+          orderName: `Đại Vận ${step}`,
+          canIdx: dvCanIdx,
+          chiIdx: dvChiIdx,
+          can: dvCan,
+          chi: dvChi,
+          canchi,
+          ageStart,
+          ageEnd,
+          yearStart,
+          yearEnd,
+          thapThan: tt,
+          truongSinh: ts,
+          napAm,
+          canHanh,
+          chiHanh,
+          quality: qual.quality,
+          qualityLabel: qual.label,
+          qualityBadgeClass: qual.badgeClass,
+          yearsList
+        });
+      }
+
+      currentBattuDaiVanData = {
+        isForward,
+        isMale,
+        isYangYear,
+        directionName: isForward ? "Thuận Hành" : "Nghịch Hành",
+        directionText: isForward 
+          ? `Thuận Hành (${isMale ? 'Dương Nam' : 'Âm Nữ'} - Đếm tiến đến Tiết Lệnh ${targetTerm.name} kế tiếp)`
+          : `Nghịch Hành (${isMale ? 'Âm Nam' : 'Dương Nữ'} - Đếm lùi về Tiết Lệnh ${targetTerm.name} trước đó)`,
+        targetTermName: targetTerm.name,
+        diffDays: diffDays.toFixed(2),
+        startAge,
+        startAgeDetail,
+        startAgeText: `${startAge} tuổi (${startAgeDetail})`,
+        daiVanList,
+        dungHanhList,
+        kyHanhList,
+        yP,
+        mP,
+        dP,
+        hP,
+        vuongNhuocData
+      };
+
+      // Tự động chọn Đại Vận chứa năm khảo sát (mặc định 2026)
+      let foundDvIdx = daiVanList.findIndex(dv => dv.yearStart <= currentSurveyLuuNienYear && currentSurveyLuuNienYear <= dv.yearEnd);
+      if (foundDvIdx !== -1) {
+        currentSelectedDvIndex = foundDvIdx;
+      } else {
+        if (currentSurveyLuuNienYear < daiVanList[0].yearStart) {
+          currentSelectedDvIndex = 0;
+        } else {
+          currentSelectedDvIndex = daiVanList.length - 1;
+        }
+      }
+
+      // Render giao diện Bát Tự
+      renderDaiVanUI();
+      surveyLuuNienYear(currentSurveyLuuNienYear);
+    }
+
+    function evalCanChiQuality(canIdx, chiIdx, dungHanhList, kyHanhList, nhatCanIdx) {
+      const cHanh = CAN_HANH[canIdx].replace(/Dương |Âm /, '');
+      const chHanh = CHI_HANH[chiIdx].replace(/Dương |Âm /, '');
+      const ts = getTruongSinhStage(nhatCanIdx, chiIdx);
+
+      let score = 0;
+      if (dungHanhList.includes(cHanh)) score += 1.5;
+      else if (kyHanhList.includes(cHanh)) score -= 1.5;
+
+      if (dungHanhList.includes(chHanh)) score += 1.5;
+      else if (kyHanhList.includes(chHanh)) score -= 1.5;
+
+      // Gia giảm nhẹ dựa trên Trường Sinh
+      if (ts.isLoc || ts.stageName === "Trường Sinh" || ts.stageName === "Quan Đới") {
+        if (score >= 0) score += 0.5;
+      }
+
+      if (score >= 1.5) {
+        return { quality: "cat", label: "CÁT (Hỷ Thần)", badgeClass: "bt-badge-cat", score };
+      }
+      if (score <= -1.5) {
+        return { quality: "hung", label: "HUNG (Kỵ Thần)", badgeClass: "bt-badge-hung", score };
+      }
+      return { quality: "binh", label: "BÌNH (Trung Hòa)", badgeClass: "bt-badge-binh", score };
+    }
+
+    function renderDaiVanUI() {
+      if (!currentBattuDaiVanData) return;
+
+      const data = currentBattuDaiVanData;
+
+      // Meta banner
+      const dirBadge = document.getElementById('btDvDirectionBadge');
+      if (dirBadge) dirBadge.textContent = data.directionName;
+
+      const ageBadge = document.getElementById('btDvStartAgeBadge');
+      if (ageBadge) ageBadge.textContent = `Khởi vận: ${data.startAge} tuổi`;
+
+      const dirDesc = document.getElementById('btDvDirectionDesc');
+      if (dirDesc) dirDesc.textContent = data.directionText;
+
+      const distDesc = document.getElementById('btDvTietDistanceDesc');
+      if (distDesc) distDesc.textContent = `Cách Tiết ${data.targetTermName}: ${data.diffDays} ngày ➔ Khởi vận năm ${data.startAgeDetail}`;
+
+      // Bảng 10 Đại Vận
+      const grid = document.getElementById('btDaiVanGrid');
+      if (!grid) return;
+
+      const currentYearNow = new Date().getFullYear();
+      let html = '';
+
+      data.daiVanList.forEach((dv, idx) => {
+        const isSelected = (idx === currentSelectedDvIndex);
+        const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+        let cardClass = 'bt-dv-card';
+        if (isSelected) cardClass += ' is-selected';
+        if (isCurrent) cardClass += ' is-current-year';
+
+        const canHanhClass = getHanhClass(CAN_HANH[dv.canIdx]);
+        const chiHanhClass = getHanhClass(CHI_HANH[dv.chiIdx]);
+
+        html += `
+          <div class="${cardClass}" onclick="selectDaiVan(${idx})">
+            <div class="bt-dv-order">${dv.orderName}${isCurrent ? ' <span style="color:#d97706;" title="Đại vận đang ngụ năm hiện tại">⭐</span>' : ''}</div>
+            <div class="bt-dv-age">${dv.ageStart} - ${dv.ageEnd} tuổi</div>
+            <div class="bt-dv-years">${dv.yearStart} - ${dv.yearEnd}</div>
+            <div class="bt-dv-canchi">
+              <span class="${canHanhClass}" style="padding: 1px 3px; border-radius: 4px;">${dv.can}</span> 
+              <span class="${chiHanhClass}" style="padding: 1px 3px; border-radius: 4px;">${dv.chi}</span>
+            </div>
+            <div style="font-size: 0.73rem; font-weight: 700; color: #4338ca; margin-top: 2px;">${dv.thapThan.name}</div>
+            <div style="font-size: 0.68rem; color: #64748b; margin-top: 2px;">${dv.truongSinh.stageName} • ${dv.napAm}</div>
+            <div class="bt-dv-quality-badge ${dv.qualityBadgeClass}">
+              ${dv.quality === 'cat' ? '🟢 Cát Vận' : (dv.quality === 'hung' ? '🔴 Hung Vận' : '🔵 Bình Vận')}
+            </div>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+      updateLuuNienPills();
+    }
+
+    function selectDaiVan(dvIdx) {
+      if (!currentBattuDaiVanData || !currentBattuDaiVanData.daiVanList[dvIdx]) return;
+      currentSelectedDvIndex = dvIdx;
+
+      // Cập nhật class selected trên grid
+      const cards = document.querySelectorAll('.bt-dv-card');
+      cards.forEach((c, idx) => {
+        if (idx === dvIdx) c.classList.add('is-selected');
+        else c.classList.remove('is-selected');
+      });
+
+      const selectedDv = currentBattuDaiVanData.daiVanList[dvIdx];
+      const titleEl = document.getElementById('btSelectedDvTitle');
+      if (titleEl) {
+        titleEl.textContent = `${selectedDv.orderName} (${selectedDv.canchi} • ${selectedDv.ageStart} - ${selectedDv.ageEnd} tuổi • Năm ${selectedDv.yearStart} - ${selectedDv.yearEnd})`;
+      }
+
+      // Nếu năm khảo sát hiện tại không nằm trong Đại Vận mới chọn, chuyển năm khảo sát sang năm đầu của Đại Vận này
+      if (currentSurveyLuuNienYear < selectedDv.yearStart || currentSurveyLuuNienYear > selectedDv.yearEnd) {
+        currentSurveyLuuNienYear = selectedDv.yearStart;
+      }
+
+      updateLuuNienPills();
+      surveyLuuNienYear(currentSurveyLuuNienYear);
+    }
+
+    function updateLuuNienPills() {
+      if (!currentBattuDaiVanData) return;
+      const selectedDv = currentBattuDaiVanData.daiVanList[currentSelectedDvIndex];
+      if (!selectedDv) return;
+
+      const titleEl = document.getElementById('btSelectedDvTitle');
+      if (titleEl) {
+        titleEl.textContent = `${selectedDv.orderName} (${selectedDv.canchi} • ${selectedDv.ageStart} - ${selectedDv.ageEnd} tuổi • Năm ${selectedDv.yearStart} - ${selectedDv.yearEnd})`;
+      }
+
+      const container = document.getElementById('btLuuNienPills');
+      if (!container) return;
+
+      let pillsHtml = '';
+      selectedDv.yearsList.forEach(yr => {
+        const ln = getYearCanChi(yr);
+        const isActive = (yr === currentSurveyLuuNienYear);
+        pillsHtml += `
+          <button type="button" class="bt-ln-pill ${isActive ? 'active' : ''}" onclick="surveyLuuNienYear(${yr})">
+            ${yr} (${ln.text})
+          </button>
+        `;
+      });
+      container.innerHTML = pillsHtml;
+    }
+
+    function combineDaiVanLuuNien(dvQuality, lnQuality) {
+      if (dvQuality === 'cat' && lnQuality === 'cat') {
+        return {
+          key: 'dai_cat',
+          badge: 'ĐẠI CÁT',
+          badgeClass: 'verdict-dai-cat',
+          title: 'ĐẠI CÁT ĐẠI LỢI • VẬN TRÌNH VÔ CÙNG HANH THÔNG PHÁT ĐẠT',
+          desc: 'Đại vận đắc Hỷ/Dụng Thần làm nền móng vững chắc, lại gặp Lưu niên cát tinh bồi đắp khí lành. Đây là thời kỳ hoàng kim rực rỡ nhất của vận trình, vạn sự hanh thông, công danh thăng tiến vượt bậc, tài lộc dồi dào, gia đạo an vui, cầu gì được nấy.',
+          summaryLevel: 'Cát'
+        };
+      }
+      if (dvQuality === 'cat' && lnQuality === 'hung') {
+        return {
+          key: 'cat_nhieu_hung_it',
+          badge: 'CÁT NHIỀU HUNG ÍT',
+          badgeClass: 'verdict-cat',
+          title: 'CÁT NHIỀU HUNG ÍT • TỔNG THỂ TỐT LÀ CHÍNH, TRỞ NGẠI NHỎ',
+          desc: 'Nền tảng Đại vận là Cát thần vững chắc che chở nên dù Lưu niên có Kỵ thần gây nhiễu loạn cũng chỉ như mưa bụi qua thềm. Tổng thể vận trình vẫn thuận lợi là chính, gặp khó có quý nhân tương trợ, tuy có hao tổn nhỏ hoặc trắc trở nhất thời nhưng dễ dàng vượt qua.',
+          summaryLevel: 'Cát'
+        };
+      }
+      if (dvQuality === 'cat' && lnQuality === 'binh') {
+        return {
+          key: 'cat_vua',
+          badge: 'CÁT VỪA',
+          badgeClass: 'verdict-cat',
+          title: 'CÁT VỪA • VẬN TRÌNH ÊM ĐỀM, DUY TRÌ ĐÀ PHÁT TRIỂN ỔN ĐỊNH',
+          desc: 'Đại vận mang trường khí cát tường, Lưu niên bình hòa không xung phá. Đời sống công việc và tài chính duy trì đà phát triển ổn định, tích lũy thêm thành quả, gia đạo yên vui, tinh thần an định.',
+          summaryLevel: 'Cát'
+        };
+      }
+      if (dvQuality === 'binh' && lnQuality === 'cat') {
+        return {
+          key: 'tieu_cat',
+          badge: 'TIỂU CÁT',
+          badgeClass: 'verdict-cat',
+          title: 'TIỂU CÁT • CÓ CƠ HỘI SÁNG LẠN, GẶT HÁI THÀNH CÔNG NHỜ THỜI CƠ',
+          desc: 'Trên nền Đại vận bình ổn, Lưu niên xuất hiện cát thần trợ mệnh. Đây là năm mở ra những cơ hội bất ngờ, rất tốt để khởi xướng các dự án mới, hợp tác đầu tư hoặc thi cử mở rộng danh tiếng.',
+          summaryLevel: 'Cát'
+        };
+      }
+      if (dvQuality === 'binh' && lnQuality === 'hung') {
+        return {
+          key: 'tieu_hung',
+          badge: 'TIỂU HUNG',
+          badgeClass: 'verdict-hung',
+          title: 'TIỂU HUNG • CÓ CHÚT TRẮC TRỞ, THẬN TRỌNG GIỮ GÌN',
+          desc: 'Đại vận ở thế bình hòa nên năng lực che chở có hạn khi Lưu niên gặp Kỵ thần. Trong năm cần thận trọng trong chi tiêu, tránh cho vay mượn lớn, đề phòng thị phi khẩu thiệt hoặc áp lực công việc gia tăng.',
+          summaryLevel: 'Hung'
+        };
+      }
+      if (dvQuality === 'binh' && lnQuality === 'binh') {
+        return {
+          key: 'binh_van',
+          badge: 'BÌNH VẬN',
+          badgeClass: 'verdict-binh',
+          title: 'BÌNH VẬN • VẬN TRÌNH BÌNH ỔN, KHÔNG SÓNG GIÓ LỚN',
+          desc: 'Cả Đại vận và Lưu niên đều duy trì trạng thái trung hòa quân bình. Năm nay thích hợp an cư lạc nghiệp, trau dồi tri thức, chăm sóc sức khỏe và xây dựng nền tảng nội lực, không nên mạo hiểm đầu cơ liều lĩnh.',
+          summaryLevel: 'Bình'
+        };
+      }
+      if (dvQuality === 'hung' && lnQuality === 'cat') {
+        return {
+          key: 'cat_it_hung_nhieu',
+          badge: 'CÁT ÍT HUNG NHIỀU',
+          badgeClass: 'verdict-hung',
+          title: 'CÁT ÍT HUNG NHIỀU • TIỀM ẨN RỦI RO, KHÔNG NÊN CHỦ QUAN',
+          desc: 'Lưu niên tuy có điểm sáng tốt nhưng nền tảng Đại vận đang ở giai đoạn Kỵ thần thử thách nên gốc rễ vẫn chông gai. Tựa như ngày nắng ấm giữa mùa đông giá rét, chớ thấy thuận lợi bước đầu mà chủ quan bung rộng quy mô; cần giữ vững phòng thủ, làm chắc ăn chắc.',
+          summaryLevel: 'Hung'
+        };
+      }
+      if (dvQuality === 'hung' && lnQuality === 'hung') {
+        return {
+          key: 'dai_hung',
+          badge: 'ĐẠI HUNG',
+          badgeClass: 'verdict-dai-hung',
+          title: 'ĐẠI HUNG • TAI HỌA NẶNG NỀ, CẦN ĐẶC BIỆT ĐỀ PHÒNG',
+          desc: 'Cả Đại vận lẫn Lưu niên đều đồng thời bị Kỵ thần bao vây. Vận khí ở mức thấp điểm nhất, dễ gặp biến cố lớn về sức khỏe, hao tán tiền của, kiện tụng hoặc trở ngại sự nghiệp. Tuyệt đối tránh đầu tư mạo hiểm, tránh tranh chấp pháp lý, lấy việc tu dưỡng đạo đức, tích phúc đức và giữ gìn bình an làm trọng!',
+          summaryLevel: 'Hung'
+        };
+      }
+      if (dvQuality === 'hung' && lnQuality === 'binh') {
+        return {
+          key: 'hung_vua',
+          badge: 'HUNG VỪA',
+          badgeClass: 'verdict-hung',
+          title: 'HUNG VỪA • VẬN KHÍ TRẦM TRỆ, CẦN KIÊN NHẪN TÍCH LŨY NỘI LỰC',
+          desc: 'Đại vận Kỵ thần kìm hãm, Lưu niên không có lực lượng giải cứu mạnh. Mọi sự tiến thoái đều có trở ngại nhất định, cần học chữ "Nhẫn", án binh bất động, bảo toàn lực lượng chờ thời cơ chuyển vận.',
+          summaryLevel: 'Hung'
+        };
+      }
+      return {
+        key: 'binh_van',
+        badge: 'BÌNH VẬN',
+        badgeClass: 'verdict-binh',
+        title: 'BÌNH VẬN • VẬN TRÌNH TRUNG HÒA',
+        desc: 'Vận trình trung hòa ổn định.',
+        summaryLevel: 'Bình'
+      };
+    }
+
+    function checkSpecialAfflictions(lnYear, lnCanIdx, lnChiIdx, dvCanIdx, dvChiIdx, yP, dP, dungHanhList, kyHanhList) {
+      const alerts = [];
+
+      // 1. Tuế Vận Cùng Tới (歲運並臨)
+      const isTueVanCungToi = (lnCanIdx === dvCanIdx && lnChiIdx === dvChiIdx);
+      if (isTueVanCungToi) {
+        const lnCanHanh = CAN_HANH[lnCanIdx].replace(/Dương |Âm /, '');
+        const isDung = dungHanhList.includes(lnCanHanh);
+        alerts.push({
+          type: 'tue_van',
+          badgeClass: 'bt-special-tuevan',
+          icon: '⚠️',
+          title: 'TUẾ VẬN CÙNG TỚI (TUẾ VẬN TỊNH LÂM - 歲運並臨)',
+          desc: `Lưu niên ${lnYear} (${CAN[lnCanIdx]} ${CHI[lnChiIdx]}) TRÙNG HỆT với Can Chi Đại Vận (${CAN[dvCanIdx]} ${CHI[dvChiIdx]}).
+          <br>• Cổ nhân đúc kết: <em>"Tuế vận cùng tới, không hại bản thân cũng hại người thân"</em>. Đây là giai đoạn chuyển biến năng lượng cực hạn khi hai tầng vận cùng một khí.
+          <br>• ${isDung 
+            ? '<strong style="color:#059669;">Trường hợp Hỷ/Dụng Thần:</strong> Cặp Can Chi này là Dụng Thần trợ mệnh, do đó sẽ là bước ngoặt bứt phá vang dội, tuy ban đầu có nhiều biến động vất vả nhưng sau đó gặt hái đại thành công!'
+            : '<strong style="color:#b91c1c;">Trường hợp Kỵ Thần:</strong> Cặp Can Chi này thuộc Kỵ Thần, hung hại tăng gấp bội! Cần đặc biệt đề phòng tai nạn, bệnh tật nguy cấp, hao tài nghiêm trọng hoặc biến cố gia đình. Nên đi hiến máu nhân đạo, làm thiện tích đức, kiểm tra sức khỏe tổng quát và tuyệt đối không mạo hiểm kinh doanh lớn.'}`
+        });
+      }
+
+      // 2. Thiên Khắc Địa Xung với Trụ Ngày (Nhật Chủ)
+      const isChiXungDay = isLucXung(lnChiIdx, dP.chiIndex);
+      const dayCanHanhIdx = Math.floor(dP.canIndex / 2); // 0:Mộc, 1:Hỏa, 2:Thổ, 3:Kim, 4:Thủy
+      const lnCanHanhIdx = Math.floor(lnCanIdx / 2);
+      const isDayCanKhacLnCan = ((dayCanHanhIdx + 2) % 5 === lnCanHanhIdx);
+      const isLnCanKhacDayCan = ((lnCanHanhIdx + 2) % 5 === dayCanHanhIdx);
+
+      if (isChiXungDay && (isDayCanKhacLnCan || isLnCanKhacDayCan)) {
+        alerts.push({
+          type: 'tkdx_day',
+          badgeClass: 'bt-special-xungkhac',
+          icon: '⚡',
+          title: isDayCanKhacLnCan ? 'MẠO PHẠM THÁI TUẾ: BẢN THÂN KHẮC THÁI TUẾ (DƯỚI PHẠM THƯỢNG)' : 'THIÊN KHẮC ĐỊA XUNG VỚI TRỤ NGÀY (NHẬT CHỦ)',
+          desc: `Lưu niên ${CAN[lnCanIdx]} ${CHI[lnChiIdx]} Thiên Khắc Địa Xung trực diện với Trụ Ngày (${dP.can} ${dP.chi}).
+          <br>• ${isDayCanKhacLnCan 
+            ? '<strong style="color:#b91c1c;">Cực Hung (Dưới phạm thượng):</strong> Nhật Can khắc Can Thái Tuế, lại gặp Địa Chi xung phá cung Phu Thê / Bản Thể. Thường chủ về tai họa bất ngờ do tự mãn, xung đột pháp luật với cấp trên hoặc hôn nhân gia đạo lung lay dữ dội.' 
+            : '<strong style="color:#c2410c;">Thái Tuế khắc bản thân:</strong> Chịu áp lực nặng nề từ hoàn cảnh khách quan, cấp trên chèn ép hoặc sức khỏe bản thân suy giảm. Cần nhẫn nhịn tu dưỡng, tránh va chạm trực tiếp.'}
+          <br>• <em>Lời khuyên hóa giải:</em> Tránh tu sửa phòng ngủ chính, giữ tâm thế hòa nhã với bạn đời, không bảo lãnh tài chính hay tranh chấp kiện tụng.`
+        });
+      }
+
+      // 3. Thiên Khắc Địa Xung với Trụ Năm (Niên Trụ - Tổ Tiên)
+      const isChiXungYear = isLucXung(lnChiIdx, yP.chiIndex);
+      const yearCanHanhIdx = Math.floor(yP.canIndex / 2);
+      const isYearCanKhacLnCan = ((yearCanHanhIdx + 2) % 5 === lnCanHanhIdx);
+      const isLnCanKhacYearCan = ((lnCanHanhIdx + 2) % 5 === yearCanHanhIdx);
+
+      if (isChiXungYear && (isYearCanKhacLnCan || isLnCanKhacYearCan)) {
+        alerts.push({
+          type: 'tkdx_year',
+          badgeClass: 'bt-special-xungkhac',
+          icon: '⚡',
+          title: 'THIÊN KHẮC ĐỊA XUNG VỚI TRỤ NĂM (TỔ TIÊN / CHA MẸ)',
+          desc: `Lưu niên ${CAN[lnCanIdx]} ${CHI[lnChiIdx]} xung khắc toàn diện với Trụ Năm (${yP.can} ${yP.chi}).
+          <br>• Trụ Năm chủ về cội nguồn, ông bà cha mẹ và nơi chôn rau cắt rốn. Cần quan tâm chu đáo tới sức khỏe của cha mẹ bề trên trong năm nay.
+          <br>• Thường có biến động về nơi ăn chốn ở, chuyển đổi văn phòng, xuất ngoại hoặc công tác xa quê hương.`
+        });
+      }
+
+      // 4. Phục Ngâm Trụ Ngày
+      const isPhucNgamDay = (lnCanIdx === dP.canIndex && lnChiIdx === dP.chiIndex);
+      if (isPhucNgamDay && !isTueVanCungToi) {
+        alerts.push({
+          type: 'phuc_ngam',
+          badgeClass: 'bt-special-tuevan',
+          icon: '💧',
+          title: 'PHỤC NGÂM TRỤ NGÀY (TRÙNG NHẬT TRỤ)',
+          desc: `Lưu niên ${CAN[lnCanIdx]} ${CHI[lnChiIdx]} trùng khít với Nhật Trụ (${dP.text}). Cổ ngữ: <em>"Phục ngâm lệ chảy ròng ròng, không hại bản thân cũng đau buồn trong dạ"</em>. Thường chủ về nội tâm phiền muộn, tình cảm hôn nhân gặp trắc trở, cần học cách thả lỏng tâm trí và chủ động chia sẻ với người thân.`
+        });
+      }
+
+      return alerts;
+    }
+
+    function surveyLuuNienYear(targetYear) {
+      if (!currentBattuDaiVanData) return;
+      targetYear = parseInt(targetYear, 10) || 2026;
+      currentSurveyLuuNienYear = targetYear;
+
+      const inputEl = document.getElementById('btSurveyYearInput');
+      if (inputEl) inputEl.value = targetYear;
+
+      // Tìm Đại Vận bao trùm năm này
+      let matchedDv = currentBattuDaiVanData.daiVanList.find(dv => dv.yearStart <= targetYear && targetYear <= dv.yearEnd);
+      if (matchedDv && matchedDv.index !== currentSelectedDvIndex) {
+        currentSelectedDvIndex = matchedDv.index;
+        renderDaiVanUI();
+      } else {
+        matchedDv = currentBattuDaiVanData.daiVanList[currentSelectedDvIndex];
+      }
+
+      // Đánh dấu active trên các pill năm
+      const pills = document.querySelectorAll('.bt-ln-pill');
+      pills.forEach(p => {
+        if (p.textContent.includes(String(targetYear))) {
+          p.classList.add('active');
+        } else {
+          p.classList.remove('active');
+        }
+      });
+
+      // Dữ liệu Lưu Niên
+      const lnInfo = getYearCanChi(targetYear);
+      const lnCanIdx = lnInfo.canIndex;
+      const lnChiIdx = lnInfo.chiIndex;
+      const lnCan = lnInfo.can;
+      const lnChi = lnInfo.chi;
+      const lnCanChi = `${lnCan} ${lnChi}`;
+      const lnNapAm = NAP_AM[lnCanChi] || '-';
+      const lnTT = getThapThan(lnCanIdx, currentBattuDaiVanData.dP.canIndex);
+      const lnTS = getTruongSinhStage(currentBattuDaiVanData.dP.canIndex, lnChiIdx);
+      const lnQual = evalCanChiQuality(lnCanIdx, lnChiIdx, currentBattuDaiVanData.dungHanhList, currentBattuDaiVanData.kyHanhList, currentBattuDaiVanData.dP.canIndex);
+
+      // Định Cát Hung phối hợp theo Thầy Thiệu Vĩ Hoa
+      const verdict = combineDaiVanLuuNien(matchedDv.quality, lnQual.quality);
+
+      // Cảnh báo các biến cục đặc biệt
+      const afflictions = checkSpecialAfflictions(
+        targetYear, lnCanIdx, lnChiIdx,
+        matchedDv.canIdx, matchedDv.chiIdx,
+        currentBattuDaiVanData.yP, currentBattuDaiVanData.dP,
+        currentBattuDaiVanData.dungHanhList, currentBattuDaiVanData.kyHanhList
+      );
+
+      // Tính tuổi thân chủ trong năm khảo sát
+      const surveyAge = targetYear - currentBattuDaiVanData.meta?.sYear || (targetYear - currentBattuDaiVanData.daiVanList[0].yearStart + currentBattuDaiVanData.startAge);
+
+      // Cập nhật DOM
+      const cardEl = document.getElementById('btCombinedVerdictCard');
+      if (cardEl) {
+        cardEl.className = `bt-verdict-card ${verdict.badgeClass}`;
+      }
+
+      const subTitleEl = document.getElementById('btVerdictSubtitle');
+      if (subTitleEl) {
+        subTitleEl.textContent = `VẬN TRÌNH NĂM ${targetYear} (${lnCanChi} • ${surveyAge} TUỔI) • ${matchedDv.orderName.toUpperCase()} (${matchedDv.canchi})`;
+      }
+
+      const titleEl = document.getElementById('btVerdictTitle');
+      if (titleEl) {
+        titleEl.textContent = `NĂM ${targetYear} (${lnCanChi}): ${verdict.title}`;
+      }
+
+      const badgeEl = document.getElementById('btVerdictMainBadge');
+      if (badgeEl) {
+        badgeEl.textContent = verdict.badge;
+      }
+
+      const summaryEl = document.getElementById('btVerdictSummaryDesc');
+      if (summaryEl) {
+        summaryEl.innerHTML = `
+          <strong>Tổng quan vận thế:</strong> ${verdict.desc}
+          <div style="margin-top: 0.45rem; font-size: 0.82rem; color: #4b5563;">
+            • <strong>Đại Vận hiện hành:</strong> ${matchedDv.orderName} (${matchedDv.canchi} • ${matchedDv.ageStart}-${matchedDv.ageEnd} tuổi) ➔ <em>${matchedDv.qualityLabel}</em>. Can lộ ${matchedDv.thapThan.name}, Chi tọa ${matchedDv.truongSinh.stageName}, Nạp âm ${matchedDv.napAm}.<br>
+            • <strong>Lưu Niên Thái Tuế:</strong> Năm ${targetYear} (${lnCanChi}) ➔ <em>${lnQual.label}</em>. Thiên can đáo ${lnTT.name}, Địa chi cung ${lnTS.stageName}, Nạp âm ${lnNapAm}.
+          </div>
+        `;
+      }
+
+      // Render cảnh báo biến cục
+      const alertContainer = document.getElementById('btSpecialAfflictionsContainer');
+      if (alertContainer) {
+        if (afflictions.length > 0) {
+          alertContainer.innerHTML = afflictions.map(a => `
+            <div class="bt-special-affliction ${a.badgeClass}">
+              <div style="font-weight: 800; font-size: 0.88rem; margin-bottom: 0.25rem;">
+                ${a.icon} ${a.title}
+              </div>
+              <div style="font-size: 0.82rem; line-height: 1.55;">
+                ${a.desc}
+              </div>
+            </div>
+          `).join('');
+        } else {
+          alertContainer.innerHTML = '';
+        }
+      }
+
+      // 4 Lĩnh vực cụ thể
+      const isCat = (verdict.summaryLevel === 'Cát');
+      const isHung = (verdict.summaryLevel === 'Hung');
+      const isVuong = currentBattuDaiVanData.vuongNhuocData?.conclusionBadge.includes("VƯỢNG");
+
+      // 1. Sự nghiệp
+      let careerTxt = "";
+      if (isCat) {
+        careerTxt = `Năm nay công danh sự nghiệp đắc thời đắc thế! Thập Thần <strong>${lnTT.name}</strong> mang lại nhiều cơ hội thăng tiến, mở rộng quy mô, được cấp trên tín nhiệm hoặc đối tác tin cậy chung tay. Rất thuận lợi cho thi cử, chuyển vị trí tốt hơn hoặc khởi sự kinh doanh.`;
+      } else if (isHung) {
+        careerTxt = `Sự nghiệp gặp áp lực cạnh tranh gay gắt hoặc khối lượng công việc quá tải. Dưới ảnh hưởng của Kỵ thần ${lnTT.name}, cần cẩn trọng trong từng quyết định, tránh thay đổi công việc bốc đồng, giữ mối quan hệ hòa nhã với đồng nghiệp và cấp trên.`;
+      } else {
+        careerTxt = `Công việc duy trì ổn định theo kế hoạch sẵn có. Năm thích hợp để trau dồi chuyên môn, tích lũy kinh nghiệm, không nên nóng vội nhảy việc hay mở rộng vượt quá khả năng kiểm soát.`;
+      }
+      document.getElementById('btDomainCareer').innerHTML = careerTxt;
+
+      // 2. Tài lộc
+      let wealthTxt = "";
+      if (isCat) {
+        wealthTxt = `Tài vận sáng sủa, dòng tiền luân chuyển dồi dào. Có cơ hội thu về lợi nhuận bất ngờ từ đầu tư, kinh doanh hoặc tăng lương thưởng. Thích hợp mua sắm tài sản lớn hoặc đầu tư mở rộng có tính toán bài bản.`;
+      } else if (isHung) {
+        wealthTxt = `Đề phòng hao tài tốn của, chi phí phát sinh ngoài dự kiến. Tuyệt đối không tham gia các kênh đầu tư mạo hiểm, tiền ảo, cờ bạc hay cho người khác vay mượn lớn không có bảo đảm. Cần thắt chặt chi tiêu.`;
+      } else {
+        wealthTxt = `Tài chính ở mức thu chi cân bằng, tiền bạc đủ dùng cho các nhu cầu sinh hoạt gia đình. Tránh vay nợ để tiêu dùng xa xỉ; nên trích một phần tích lũy cho quỹ dự phòng.`;
+      }
+      document.getElementById('btDomainWealth').innerHTML = wealthTxt;
+
+      // 3. Tình cảm
+      let loveTxt = "";
+      const isChiXungDay = isLucXung(lnChiIdx, currentBattuDaiVanData.dP.chiIndex);
+      const isChiHopDay = isLucHop(lnChiIdx, currentBattuDaiVanData.dP.chiIndex) || isTamHop(lnChiIdx, currentBattuDaiVanData.dP.chiIndex);
+
+      if (isChiXungDay) {
+        loveTxt = `Địa Chi lưu niên (${lnChi}) xung phá cung Phu Thê (${currentBattuDaiVanData.dP.chi}). Gia đạo dễ nảy sinh bất đồng quan điểm, vợ chồng cần nhẫn nhịn, tránh chuyện bé xé ra to. Người độc thân dễ có duyên đến rồi đi chóng vánh.`;
+      } else if (isChiHopDay) {
+        loveTxt = `Địa Chi lưu niên (${lnChi}) tương hợp với cung Phu Thê (${currentBattuDaiVanData.dP.chi}). Tình cảm vợ chồng thắm thiết, gia đạo an vui, có tin vui về hôn sự hoặc con cái. Người độc thân dễ tìm được ý trung nhân tâm đầu ý hợp.`;
+      } else {
+        loveTxt = isCat 
+          ? `Gia đạo êm ấm, thuận hòa, các thành viên chia sẻ động viên nhau. Tình cảm đôi lứa gắn bó bền chặt.`
+          : `Đời sống tình cảm bình lặng. Đôi lúc có chút hiểu lầm nhỏ nhưng nếu chủ động lắng nghe tâm sự thì mọi sự sẽ nhanh chóng êm xuôi.`;
+      }
+      document.getElementById('btDomainLove').innerHTML = loveTxt;
+
+      // 4. Sức khỏe
+      let healthTxt = "";
+      if (isHung) {
+        healthTxt = `Cần lưu ý đặc biệt tới sức khỏe! Cung Trường Sinh ${lnTS.stageName} kết hợp Kỵ thần cảnh báo nguy cơ suy nhược, bệnh mãn tính tái phát hoặc va chạm giao thông. Cần chú trọng ăn uống điều độ, ngủ đủ giấc và thăm khám định kỳ.`;
+      } else if (isCat) {
+        healthTxt = `Khí lực dồi dào, tinh thần phấn chấn, ít đau ốm vặt. Nếu có bệnh cũ cũng dễ gặp thầy gặp thuốc chữa lành, thể chất phục hồi nhanh chóng.`;
+      } else {
+        healthTxt = `Sức khỏe ở mức trung bình ổn định. Nên duy trì thói quen tập luyện thể dục thể thao nhẹ nhàng, cân bằng giữa công việc và nghỉ ngơi để tái tạo năng lượng.`;
+      }
+      document.getElementById('btDomainHealth').innerHTML = healthTxt;
+
+      // Lời khuyên hành động & Hóa giải
+      let actionAdvice = "";
+      const dungListStr = currentBattuDaiVanData.dungHanhList.join(', ');
+      if (isCat) {
+        actionAdvice = `
+          • <strong>Chiến lược chủ đạo:</strong> <em>"Thời đến cờ mở, mạnh dạn tiến bước"</em>. Hãy tận dụng tối đa vận khí hanh thông để hiện thực hóa các kế hoạch ấp ủ.<br>
+          • <strong>Bổ trợ ngũ hành:</strong> Tăng cường hành <strong>${dungListStr}</strong> (Dụng Thần) qua màu sắc trang phục, hướng xuất hành và đối tác làm ăn.<br>
+          • <strong>Đạo lý:</strong> Khi thành công đắc ý chớ quên khiêm nhường, thường xuyên làm việc thiện để bồi đắp phúc báo dài lâu.
+        `;
+      } else if (isHung) {
+        actionAdvice = `
+          • <strong>Chiến lược chủ đạo:</strong> <em>"Lấy tĩnh chế động, phòng thủ làm gốc"</em>. Tránh đầu tư mạo hiểm, không tranh chấp hơn thua, giữ chữ Tín hàng đầu.<br>
+          • <strong>Hóa giải vận hạn:</strong> Chủ động làm các việc hao tiền có ý nghĩa (tu sửa nhà cửa, mua bảo hiểm, hiến máu nhân đạo, từ thiện) để ứng nghiệm việc xuất tiền.<br>
+          • <strong>Năng lượng bổ trợ:</strong> Ưu tiên gam màu và môi trường thuộc hành <strong>${dungListStr}</strong> để giảm thiểu xung sát.
+        `;
+      } else {
+        actionAdvice = `
+          • <strong>Chiến lược chủ đạo:</strong> <em>"Tùy cơ ứng biến, vững vàng từng bước"</em>. Duy trì sự ổn định, hoàn thành tốt các mục tiêu hiện tại.<br>
+          • <strong>Tu dưỡng:</strong> Dành thời gian học tập nâng cao trình độ, bồi dưỡng các mối quan hệ chất lượng để chuẩn bị cho thời kỳ bứt phá tiếp theo.
+        `;
+      }
+      document.getElementById('btAdviceAction').innerHTML = actionAdvice;
+
+      // Cập nhật Bản In Bát Tự
+      if (currentBattuEvalData) {
+        updateBattuPrintSheet(currentBattuEvalData);
+      }
     }
 
     /**
@@ -17588,7 +18854,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.40.0";
+    const APP_VERSION = "v1.41.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

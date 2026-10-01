@@ -295,7 +295,50 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
 
-### [v1.40.0] - 2026-09-26
+### [v1.41.0] - 2026-09-30
+- **Bổ Sung Kết Quả Đại Vận & Lưu Niên Vào Lá Số Bát Tự Tứ Trụ Để Định Cát Hung (Hệ Thống Thầy Thiệu Vĩ Hoa)**:
+  - **Triết Lý Vận Trình Cốt Lõi**:
+    - *Mệnh (Bát Tự Nguyên Cục)*: Khung xe, bản thể cơ bản của con người (phú quý thọ yểu).
+    - *Đại Vận (Chặng đường 10 năm)*: Địa hình con đường mà chiếc xe di chuyển qua; quản lý xu thế Cát - Hung tổng thể trong từng khoảng thời gian 10 năm. Cả Thiên can và Địa chi Đại Vận đều ảnh hưởng xuyên suốt 10 năm (Can thể hiện bề nổi, Chi là gốc rễ bối cảnh nội tại phối hợp sinh-khắc-hình-xung-hợp).
+    - *Lưu Niên (Thái Tuế Hàng Năm)*: Thời tiết và biến cố cụ thể; chủ tể một năm quyết định thời điểm bộc phát sự việc Cát hay Hung trên nền của Đại Vận.
+  - **Thuật Toán Tính Đại Vận Chuẩn Thiên Văn (VSOP87 & 12 Tiết Lệnh)**:
+    - *Nguyên tắc Thuận - Nghịch hành*:
+      - Thuận hành: Nam sinh năm Dương (Giáp, Bính, Mậu, Canh, Nhâm) và Nữ sinh năm Âm (Ất, Đinh, Kỷ, Tân, Quý) ➔ Đếm tiến từ thời điểm sinh đến Tiết Lệnh kế tiếp.
+      - Nghịch hành: Nam sinh năm Âm và Nữ sinh năm Dương ➔ Đếm lùi từ thời điểm sinh về Tiết Lệnh trước đó.
+    - *Quy đổi Tuổi khởi vận (Vận số)*:
+      - 3 ngày = 1 tuổi (1 năm vận), 1 ngày = 4 tháng, 1 giờ = 10 ngày.
+      - Xác định chính xác tuổi khởi vận, tháng lẻ, ngày lẻ và năm khởi vận đầu tiên.
+    - *Khởi tạo 10 Đại Vận Cuộc Đời*:
+      - Liệt kê đủ 10 Đại Vận từ tuổi khởi vận đến 100 tuổi.
+      - Mỗi Đại Vận cung cấp đầy đủ: Thứ tự, Can Chi, Thập Thần của Can, Ngũ Hành, Nạp Âm, Cung Trường Sinh của Chi so với Nhật Can, và Đánh giá thuộc tính Vận (Cát / Hung / Bình) theo tương quan với Dụng Thần & Kỵ Thần bản mệnh.
+  - **Khảo Sát Lưu Niên (Thái Tuế) & Ma Trận Phối Hợp 9 Cấp Độ Định Cát Hung**:
+    - Tích hợp bộ chọn nhanh 10 năm Lưu Niên trong Đại Vận đang chọn và công cụ tra cứu Lưu Niên tùy ý (mặc định chọn năm hiện tại 2026 Bính Ngọ).
+    - Thực thi trọn vẹn Ma Trận 9 Mức Độ Phối Hợp Cát - Hung (Thầy Thiệu Vĩ Hoa):
+      - *Cát + Cát*: **ĐẠI CÁT** (Vận trình vô cùng hanh thông, phát đạt).
+      - *Cát + Hung*: **CÁT NHIỀU HUNG ÍT** (Tốt là chính, có trở ngại nhỏ).
+      - *Cát + Bình*: **CÁT VỪA** (Vận trình êm đềm, duy trì đà phát triển).
+      - *Bình + Cát*: **TIỂU CÁT** (Có cơ hội sáng lạn, gặt hái thành quả tốt).
+      - *Bình + Hung*: **TIỂU HUNG** (Gặp chút trắc trở nhỏ, đề phòng hao tài).
+      - *Bình + Bình*: **BÌNH VẬN** (Vận thế bình ổn, an cư lạc nghiệp).
+      - *Hung + Cát*: **CÁT ÍT HUNG NHIỀU** (Vẫn tiềm ẩn rủi ro, không chủ quan).
+      - *Hung + Hung*: **ĐẠI HUNG** (Tai họa nặng nề, cần đặc biệt đề phòng sức khỏe, sự nghiệp).
+      - *Hung + Bình*: **HUNG VỪA** (Vận khí trầm trệ, cần nhẫn nại tích lũy nội lực).
+  - **Phát Hiện & Cảnh Báo Sâu Sắc Các Biến Cục Đặc Biệt**:
+    - **Tuế Vận Cùng Tới (Tuế Vận Tịnh Lâm - 歲運並臨)**: Khi Can Chi Lưu Niên trùng hệt với Can Chi Đại Vận. Cảnh báo năng lượng cực hạn; phân biệt rõ trường hợp ngộ Dụng Thần (bứt phá thành công sau biến động) và ngộ Kỵ Thần (tai họa nhân đôi, cần tu thiện tích đức).
+    - **Mạo Phạm Thái Tuế & Thiên Khắc Địa Xung**:
+      - Phân biệt rõ *Bản thân khắc Thái Tuế (Dưới phạm thượng / Nhật can khắc Can lưu niên)*: Cực hung, tai họa bất ngờ do tự mãn; và *Thái Tuế khắc bản thân (Trên quản dưới)*.
+      - Thiên Khắc Địa Xung với Trụ Năm (tổ tiên, cha mẹ, dời đổi nhà cửa).
+      - *Phục Ngâm Trụ Ngày* (trùng Nhật Trụ): Buồn phiền nội tâm, gia đạo trắc trở.
+  - **Bình Giải Chi Tiết 4 Lĩnh Vực Đời Sống & Lời Khuyên Hành Động Hóa Giải**:
+    - 💼 *Sự nghiệp & Công danh*
+    - 💰 *Tài lộc & Đầu tư*
+    - ❤️ *Hôn nhân & Tình duyên*
+    - 🧘 *Sức khỏe & Bình an*
+    - 🛡️ *Lời khuyên hành động & Hóa giải phong thủy theo Dụng Thần*.
+  - **Đồng Bộ Hoàn Toàn Với Bản In (A4/PDF) & Xuất File Text (.txt)**:
+    - Bản In Lá Số Bát Tự A4 bổ sung mục IV: Bảng tóm tắt 10 Đại Vận và kết quả định Cát Hung Lưu Niên khảo sát.
+    - File `.txt` xuất toàn văn bao gồm bảng 10 Đại Vận và luận giải chuyên sâu từng lĩnh vực.
+  - **Quản Lý Phiên Bản**: Nâng phiên bản hệ thống lên **v1.41.0** trên `package.json`, `index.html`, `README.md` và giao diện người dùng.
 - **Bổ Sung Bộ "Lục Đức" (6 Đại Cát Tinh Tối Tôn) Chuẩn Khâm Định Hiệp Kỷ Biện Phương Thư**:
   - **Hệ Thống Niên Gia (Theo Can Năm Thái Tuế)**:
     - **Tuế Đức (歲德)**: Cát thần đại diện cho ân huệ, phúc đức vô biên của Thái Tuế (Vua quản hạt năm).
