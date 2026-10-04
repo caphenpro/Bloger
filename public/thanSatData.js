@@ -19,6 +19,19 @@
  * 2. Sao Ngũ Quỷ (Bạch Hổ của Nguyệt Yếm / "Âm ở trong âm")
  * 3. Sao Yếm Đối (Lục xung đối xứng 180° với Nguyệt Yếm)
  * 
+ * CHUYÊN ĐỀ 3: BỘ SAO CÔ THẦN & QUẢ TÚ (THỜI LỆNH & NIÊN CHI / TUỔI SINH)
+ * 1. Khởi lệ theo Mùa (Thời Lệnh):
+ *    - Mùa Xuân (tháng Dần, Mão, Thìn - Phương Đông): Cô Thần tại Tị (tiến 1 cung); Quả Tú tại Sửu (lùi 1 cung).
+ *    - Mùa Hạ (tháng Tị, Ngọ, Mùi - Phương Nam): Cô Thần tại Thân; Quả Tú tại Thìn.
+ *    - Mùa Thu (tháng Thân, Dậu, Tuất - Phương Tây): Cô Thần tại Hợi; Quả Tú tại Mùi.
+ *    - Mùa Đông (tháng Hợi, Tý, Sửu - Phương Bắc): Cô Thần tại Dần; Quả Tú tại Tuất.
+ * 2. Khởi lệ theo Niên Chi / Tuổi Sinh:
+ *    - Tuổi Dần, Mão, Thìn: Gặp ngày/tháng Tị là Cô Thần, gặp Sửu là Quả Tú.
+ *    - Tuổi Tị, Ngọ, Mùi: Gặp ngày/tháng Thân là Cô Thần, gặp Thìn là Quả Tú.
+ *    - Tuổi Thân, Dậu, Tuất: Gặp ngày/tháng Hợi là Cô Thần, gặp Mùi là Quả Tú.
+ *    - Tuổi Hợi, Tý, Sửu: Gặp ngày/tháng Dần là Cô Thần, gặp Tuất là Quả Tú.
+ * *Đặc điểm cốt lõi: Nam kỵ Cô Thần, Nữ kỵ Quả Tú — tuyệt đối loại trừ trong trạch cát cưới hỏi hôn nhân.
+ * 
  * Thiết kế: Registry tập hợp chung toàn bộ Thần Sát trong hệ thống, phục vụ tra cứu
  * trực nhật trong ngày theo dạng bảng biểu hoặc danh sách chuẩn mực.
  * ============================================================================
@@ -295,6 +308,178 @@
       tueDucCan: tueDucCan,
       tueDucHopCan: tueDucHopCan,
       months: months
+    };
+  }
+
+  /**
+   * ==========================================================================
+   * THUẬT TOÁN BỘ SAO CÔ THẦN & QUẢ TÚ (THỜI LỆNH & NIÊN CHI / TUỔI SINH)
+   * ==========================================================================
+   */
+
+  /**
+   * 1. Xác định vị trí Cô Thần & Quả Tú theo THỜI LỆNH (Mùa / Tháng Âm Lịch)
+   * - Mùa Xuân (tháng 1, 2, 3 - chi Dần, Mão, Thìn - Phương Đông):
+   *     Cô thần: Chi Tị (tiến trước một vị trí: index 5).
+   *     Quả tú: Chi Sửu (lùi sau một vị trí: index 1).
+   * - Mùa Hạ (tháng 4, 5, 6 - chi Tị, Ngọ, Mùi - Phương Nam):
+   *     Cô thần: Chi Thân (index 8).
+   *     Quả tú: Chi Thìn (index 4).
+   * - Mùa Thu (tháng 7, 8, 9 - chi Thân, Dậu, Tuất - Phương Tây):
+   *     Cô thần: Chi Hợi (index 11).
+   *     Quả tú: Chi Mùi (index 7).
+   * - Mùa Đông (tháng 10, 11, 12 - chi Hợi, Tý, Sửu - Phương Bắc):
+   *     Cô thần: Chi Dần (index 2).
+   *     Quả tú: Chi Tuất (index 10).
+   */
+  function calcCoThanQuaTuThoiLenh(lunarMonth) {
+    const m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+    let seasonName = "";
+    let seasonChis = "";
+    let seasonMonths = "";
+    let coThanChiIdx = -1;
+    let quaTuChiIdx = -1;
+
+    if (m === 1 || m === 2 || m === 3) {
+      seasonName = "Xuân";
+      seasonMonths = "Tháng 1, 2, 3 (Dần, Mão, Thìn - Phương Đông)";
+      seasonChis = "Dần, Mão, Thìn";
+      coThanChiIdx = 5; // Tỵ (tiến trước 1 vị trí)
+      quaTuChiIdx = 1;  // Sửu (lùi sau 1 vị trí)
+    } else if (m === 4 || m === 5 || m === 6) {
+      seasonName = "Hạ";
+      seasonMonths = "Tháng 4, 5, 6 (Tỵ, Ngọ, Mùi - Phương Nam)";
+      seasonChis = "Tỵ, Ngọ, Mùi";
+      coThanChiIdx = 8; // Thân
+      quaTuChiIdx = 4;  // Thìn
+    } else if (m === 7 || m === 8 || m === 9) {
+      seasonName = "Thu";
+      seasonMonths = "Tháng 7, 8, 9 (Thân, Dậu, Tuất - Phương Tây)";
+      seasonChis = "Thân, Dậu, Tuất";
+      coThanChiIdx = 11; // Hợi
+      quaTuChiIdx = 7;  // Mùi
+    } else {
+      seasonName = "Đông";
+      seasonMonths = "Tháng 10, 11, 12 (Hợi, Tý, Sửu - Phương Bắc)";
+      seasonChis = "Hợi, Tý, Sửu";
+      coThanChiIdx = 2; // Dần
+      quaTuChiIdx = 10; // Tuất
+    }
+
+    return {
+      seasonName,
+      seasonMonths,
+      seasonChis,
+      coThanChiIdx,
+      quaTuChiIdx,
+      coThanChiName: CHI_NAMES[coThanChiIdx],
+      quaTuChiName: CHI_NAMES[quaTuChiIdx]
+    };
+  }
+
+  /**
+   * 2. Xác định vị trí Cô Thần & Quả Tú theo NIÊN CHI / TUỔI SINH
+   * - Người tuổi Dần, Mão, Thìn: Gặp ngày/tháng Tị là Cô thần, gặp Sửu là Quả tú.
+   * - Người tuổi Tị, Ngọ, Mùi: Gặp ngày/tháng Thân là Cô thần, gặp Thìn là Quả tú.
+   * - Người tuổi Thân, Dậu, Tuất: Gặp ngày/tháng Hợi là Cô thần, gặp Mùi là Quả tú.
+   * - Người tuổi Hợi, Tý, Sửu: Gặp ngày/tháng Dần là Cô thần, gặp Tuất là Quả tú.
+   */
+  function calcCoThanQuaTuTheoTuoi(chiIndex) {
+    const chIdx = ((parseInt(chiIndex, 10) % 12) + 12) % 12;
+    let groupName = "";
+    let coThanChiIdx = -1;
+    let quaTuChiIdx = -1;
+
+    if (chIdx === 2 || chIdx === 3 || chIdx === 4) {
+      // Dần, Mão, Thìn
+      groupName = "Dần - Mão - Thìn (Phương Đông)";
+      coThanChiIdx = 5; // Tỵ
+      quaTuChiIdx = 1;  // Sửu
+    } else if (chIdx === 5 || chIdx === 6 || chIdx === 7) {
+      // Tỵ, Ngọ, Mùi
+      groupName = "Tỵ - Ngọ - Mùi (Phương Nam)";
+      coThanChiIdx = 8; // Thân
+      quaTuChiIdx = 4;  // Thìn
+    } else if (chIdx === 8 || chIdx === 9 || chIdx === 10) {
+      // Thân, Dậu, Tuất
+      groupName = "Thân - Dậu - Tuất (Phương Tây)";
+      coThanChiIdx = 11; // Hợi
+      quaTuChiIdx = 7;  // Mùi
+    } else {
+      // Hợi (11), Tý (0), Sửu (1)
+      groupName = "Hợi - Tý - Sửu (Phương Bắc)";
+      coThanChiIdx = 2; // Dần
+      quaTuChiIdx = 10; // Tuất
+    }
+
+    return {
+      groupName,
+      chiIndex: chIdx,
+      chiName: CHI_NAMES[chIdx],
+      coThanChiIdx,
+      quaTuChiIdx,
+      coThanChiName: CHI_NAMES[coThanChiIdx],
+      quaTuChiName: CHI_NAMES[quaTuChiIdx]
+    };
+  }
+
+  /**
+   * 3. Bảng đối chiếu Cô Thần & Quả Tú theo Thời Lệnh (12 Tháng) và theo 12 Tuổi Sinh
+   */
+  function generateCoThanQuaTuReferenceTable() {
+    const seasons = [];
+    for (let m = 1; m <= 12; m++) {
+      const kien = MONTH_KIEN_CHI[m];
+      const thoiLenh = calcCoThanQuaTuThoiLenh(m);
+      seasons.push({
+        month: m,
+        monthName: kien.name,
+        monthKienChi: kien.chi,
+        seasonName: thoiLenh.seasonName,
+        coThanChi: thoiLenh.coThanChiName,
+        quaTuChi: thoiLenh.quaTuChiName,
+        ruleText: `Mùa ${thoiLenh.seasonName} (${kien.chi}): Cô Thần tại ${thoiLenh.coThanChiName}, Quả Tú tại ${thoiLenh.quaTuChiName}`
+      });
+    }
+
+    const ageGroups = [
+      {
+        groupName: "Tuổi Dần, Mão, Thìn (Phương Đông)",
+        chis: ["Dần", "Mão", "Thìn"],
+        coThanChi: "Tỵ",
+        quaTuChi: "Sửu",
+        direction: "Đông Phương tiến Tỵ (Cô Thần) • thoái Sửu (Quả Tú)",
+        note: "Nam kỵ ngày/tháng Tỵ (Cô Thần), Nữ kỵ ngày/tháng Sửu (Quả Tú)"
+      },
+      {
+        groupName: "Tuổi Tị, Ngọ, Mùi (Phương Nam)",
+        chis: ["Tỵ", "Ngọ", "Mùi"],
+        coThanChi: "Thân",
+        quaTuChi: "Thìn",
+        direction: "Nam Phương tiến Thân (Cô Thần) • thoái Thìn (Quả Tú)",
+        note: "Nam kỵ ngày/tháng Thân (Cô Thần), Nữ kỵ ngày/tháng Thìn (Quả Tú)"
+      },
+      {
+        groupName: "Tuổi Thân, Dậu, Tuất (Phương Tây)",
+        chis: ["Thân", "Dậu", "Tuất"],
+        coThanChi: "Hợi",
+        quaTuChi: "Mùi",
+        direction: "Tây Phương tiến Hợi (Cô Thần) • thoái Mùi (Quả Tú)",
+        note: "Nam kỵ ngày/tháng Hợi (Cô Thần), Nữ kỵ ngày/tháng Mùi (Quả Tú)"
+      },
+      {
+        groupName: "Tuổi Hợi, Tý, Sửu (Phương Bắc)",
+        chis: ["Hợi", "Tý", "Sửu"],
+        coThanChi: "Dần",
+        quaTuChi: "Tuất",
+        direction: "Bắc Phương tiến Dần (Cô Thần) • thoái Tuất (Quả Tú)",
+        note: "Nam kỵ ngày/tháng Dần (Cô Thần), Nữ kỵ ngày/tháng Tuất (Quả Tú)"
+      }
+    ];
+
+    return {
+      seasons,
+      ageGroups
     };
   }
 
@@ -578,6 +763,133 @@
             : `✅ Không phạm Sao Yếm Đối.`
         };
       }
+    },
+
+    // ------------------------------------------------------------------------
+    // NHÓM SAO CÔ THẦN & QUẢ TÚ (THỜI LỆNH & NIÊN CHI / TUỔI SINH)
+    // ------------------------------------------------------------------------
+    "co_than": {
+      id: "co_than",
+      name: "Cô Thần",
+      hanzi: "孤神",
+      alias: "Cô Thần Hung Sát",
+      category: "hung",
+      typeLabel: "Thời Lệnh & Niên Mệnh Hung Sát",
+      level: "Đại Hung (Đại Kỵ Cưới Hỏi)",
+      scope: "season_day / year_day",
+      order: 10,
+      badgeClass: "badge-co-than",
+      icon: "🌑",
+
+      originRule: "Cổ nhân định lệ khởi sao Cô Thần theo Tam hội phương vị: Mùa Xuân (tháng Dần, Mão, Thìn - Phương Đông) tiến trước 1 ngôi là Chi Tị; Mùa Hạ (tháng Tị, Ngọ, Mùi - Phương Nam) tiến 1 ngôi là Chi Thân; Mùa Thu (tháng Thân, Dậu, Tuất - Phương Tây) tiến 1 ngôi là Chi Hợi; Mùa Đông (tháng Hợi, Tý, Sửu - Phương Bắc) tiến 1 ngôi là Chi Dần. Theo tuổi sinh: Người tuổi Dần, Mão, Thìn gặp ngày/tháng Tị là Cô Thần; tuổi Tị, Ngọ, Mùi gặp Thân; tuổi Thân, Dậu, Tuất gặp Hợi; tuổi Hợi, Tý, Sửu gặp Dần.",
+
+      formulaSummary: "Xuân tại Tị • Hạ tại Thân • Thu tại Hợi • Đông tại Dần. Khẩu quyết: 'Hợi Tý Sửu kiến Dần, Dần Mão Thìn kiến Tị, Tị Ngọ Mùi kiến Thân, Thân Dậu Tuất kiến Hợi'. Nam kỵ Cô Thần chủ cô độc hình thê.",
+
+      meaning: "Đại diện cho khí cô dương bất sinh, lẻ loi đơn độc, tính tình cô độc lập dị, khắc vợ khắc con, âm dương bất điều hòa, làm việc dễ đứt gánh giữa đường hoặc trắc trở lương duyên.",
+
+      nghi: "Tĩnh dưỡng tu tâm, thiền định an thần, an cư tu nghiệp, làm việc thường nhật theo bổn phận.",
+
+      ky: "Tuyệt đối đại kỵ hôn nhân giá thú, cưới hỏi, rước dâu, đính hôn, nhập phòng hoa chúc, kết nghĩa huynh đệ, liên minh hợp tác làm ăn.",
+
+      checkMatchThoiLenh: function(lunarMonth, dayChiIndex) {
+        const info = calcCoThanQuaTuThoiLenh(lunarMonth);
+        const isMatch = (parseInt(dayChiIndex, 10) === info.coThanChiIdx);
+        return {
+          isMatch,
+          starId: "co_than",
+          starName: "Cô Thần",
+          targetChi: info.coThanChiName,
+          targetChiIndex: info.coThanChiIdx,
+          dayChi: CHI_NAMES[dayChiIndex],
+          dayChiIndex: dayChiIndex,
+          lunarMonth: lunarMonth,
+          seasonName: info.seasonName,
+          message: isMatch
+            ? `⚠️ Hôm nay phạm SAO CÔ THẦN theo thời lệnh Mùa ${info.seasonName} (Địa Chi ${CHI_NAMES[dayChiIndex]}) - Đại kỵ cưới hỏi hôn nhân!`
+            : `✅ Không phạm Sao Cô Thần theo thời lệnh.`
+        };
+      },
+
+      checkMatchTuoi: function(personChiIndex, dayChiIndex) {
+        const info = calcCoThanQuaTuTheoTuoi(personChiIndex);
+        const isMatch = (parseInt(dayChiIndex, 10) === info.coThanChiIdx);
+        return {
+          isMatch,
+          starId: "co_than",
+          starName: "Cô Thần",
+          targetChi: info.coThanChiName,
+          targetChiIndex: info.coThanChiIdx,
+          dayChi: CHI_NAMES[dayChiIndex],
+          dayChiIndex: dayChiIndex,
+          personChi: info.chiName,
+          groupName: info.groupName,
+          message: isMatch
+            ? `⚠️ Ngày ${CHI_NAMES[dayChiIndex]} phạm SAO CÔ THẦN theo tuổi ${info.chiName} (${info.groupName}) - Nam kỵ Cô Thần, chủ hình thê cô độc!`
+            : `✅ Không phạm Sao Cô Thần theo tuổi.`
+        };
+      }
+    },
+
+    "qua_tu": {
+      id: "qua_tu",
+      name: "Quả Tú",
+      hanzi: "寡宿",
+      alias: "Quả Tú Hung Sát",
+      category: "hung",
+      typeLabel: "Thời Lệnh & Niên Mệnh Hung Sát",
+      level: "Đại Hung (Đại Kỵ Cưới Hỏi)",
+      scope: "season_day / year_day",
+      order: 11,
+      badgeClass: "badge-qua-tu",
+      icon: "🌘",
+
+      originRule: "Cổ nhân định lệ khởi sao Quả Tú theo Tam hội phương vị: Mùa Xuân (tháng Dần, Mão, Thìn - Phương Đông) lùi sau 1 ngôi là Chi Sửu; Mùa Hạ (tháng Tị, Ngọ, Mùi - Phương Nam) lùi 1 ngôi là Chi Thìn; Mùa Thu (tháng Thân, Dậu, Tuất - Phương Tây) lùi 1 ngôi là Chi Mùi; Mùa Đông (tháng Hợi, Tý, Sửu - Phương Bắc) lùi 1 ngôi là Chi Tuất. Theo tuổi sinh: Người tuổi Dần, Mão, Thìn gặp ngày/tháng Sửu là Quả Tú; tuổi Tị, Ngọ, Mùi gặp Thìn; tuổi Thân, Dậu, Tuất gặp Mùi; tuổi Hợi, Tý, Sửu gặp Tuất.",
+
+      formulaSummary: "Xuân tại Sửu • Hạ tại Thìn • Thu tại Mùi • Đông tại Tuất. Khẩu quyết: 'Hợi Tý Sửu kiến Tuất, Dần Mão Thìn kiến Sửu, Tị Ngọ Mùi kiến Thìn, Thân Dậu Tuất kiến Mùi'. Nữ kỵ Quả Tú chủ cô quả khắc phu.",
+
+      meaning: "Đại diện cho khí cô âm bất trưởng, phòng không chiếc bóng, quạnh quẽ thê lương, hình khắc chồng, thiếu vắng hòa khí phu thê, dễ sinh cảnh ly tán lạnh lẽo.",
+
+      nghi: "Tế tự sám hối, phóng sinh cứu tế, làm việc thiện nguyện tích đức, bồi bổ nguyên khí tâm an.",
+
+      ky: "Tuyệt đối đại kỵ cưới hỏi nghênh hôn, đón dâu nhập phòng, xuất hành xe hoa, mưu cầu việc hòa hợp lương duyên trăm năm.",
+
+      checkMatchThoiLenh: function(lunarMonth, dayChiIndex) {
+        const info = calcCoThanQuaTuThoiLenh(lunarMonth);
+        const isMatch = (parseInt(dayChiIndex, 10) === info.quaTuChiIdx);
+        return {
+          isMatch,
+          starId: "qua_tu",
+          starName: "Quả Tú",
+          targetChi: info.quaTuChiName,
+          targetChiIndex: info.quaTuChiIdx,
+          dayChi: CHI_NAMES[dayChiIndex],
+          dayChiIndex: dayChiIndex,
+          lunarMonth: lunarMonth,
+          seasonName: info.seasonName,
+          message: isMatch
+            ? `⚠️ Hôm nay phạm SAO QUẢ TÚ theo thời lệnh Mùa ${info.seasonName} (Địa Chi ${CHI_NAMES[dayChiIndex]}) - Đại kỵ cưới hỏi hôn nhân!`
+            : `✅ Không phạm Sao Quả Tú theo thời lệnh.`
+        };
+      },
+
+      checkMatchTuoi: function(personChiIndex, dayChiIndex) {
+        const info = calcCoThanQuaTuTheoTuoi(personChiIndex);
+        const isMatch = (parseInt(dayChiIndex, 10) === info.quaTuChiIdx);
+        return {
+          isMatch,
+          starId: "qua_tu",
+          starName: "Quả Tú",
+          targetChi: info.quaTuChiName,
+          targetChiIndex: info.quaTuChiIdx,
+          dayChi: CHI_NAMES[dayChiIndex],
+          dayChiIndex: dayChiIndex,
+          personChi: info.chiName,
+          groupName: info.groupName,
+          message: isMatch
+            ? `⚠️ Ngày ${CHI_NAMES[dayChiIndex]} phạm SAO QUẢ TÚ theo tuổi ${info.chiName} (${info.groupName}) - Nữ kỵ Quả Tú, chủ cô quả khắc phu!`
+            : `✅ Không phạm Sao Quả Tú theo tuổi.`
+        };
+      }
     }
   };
 
@@ -605,6 +917,10 @@
     calcYemDoiChiIndex: calcYemDoiChiIndex,
     generate12MonthsTable: generate12MonthsTable,
 
+    calcCoThanQuaTuThoiLenh: calcCoThanQuaTuThoiLenh,
+    calcCoThanQuaTuTheoTuoi: calcCoThanQuaTuTheoTuoi,
+    generateCoThanQuaTuReferenceTable: generateCoThanQuaTuReferenceTable,
+
     getStarInfo: function(starId) {
       return THAN_SAT_REGISTRY[starId] || null;
     },
@@ -623,6 +939,22 @@
 
     isYemDoiDay: function(lunarMonth, dayChiIndex) {
       return THAN_SAT_REGISTRY.yem_doi.checkMatch(lunarMonth, dayChiIndex);
+    },
+
+    isCoThanThoiLenhDay: function(lunarMonth, dayChiIndex) {
+      return THAN_SAT_REGISTRY.co_than.checkMatchThoiLenh(lunarMonth, dayChiIndex);
+    },
+
+    isQuaTuThoiLenhDay: function(lunarMonth, dayChiIndex) {
+      return THAN_SAT_REGISTRY.qua_tu.checkMatchThoiLenh(lunarMonth, dayChiIndex);
+    },
+
+    isCoThanTuoiDay: function(personChiIndex, dayChiIndex) {
+      return THAN_SAT_REGISTRY.co_than.checkMatchTuoi(personChiIndex, dayChiIndex);
+    },
+
+    isQuaTuTuoiDay: function(personChiIndex, dayChiIndex) {
+      return THAN_SAT_REGISTRY.qua_tu.checkMatchTuoi(personChiIndex, dayChiIndex);
     },
 
     /**
@@ -858,6 +1190,47 @@
       }
 
       // ----------------------------------------------------------------------
+      // 2b. KIỂM TRA BỘ SAO CÔ THẦN & QUẢ TÚ THEO THỜI LỆNH (MÙA / THÁNG)
+      // ----------------------------------------------------------------------
+      const coThanThoiLenh = calcCoThanQuaTuThoiLenh(m);
+      const isCoThanMatch = (chIdx === coThanThoiLenh.coThanChiIdx);
+      const isQuaTuMatch = (chIdx === coThanThoiLenh.quaTuChiIdx);
+
+      if (isCoThanMatch) {
+        activeStars.push({
+          id: "co_than",
+          name: "Cô Thần",
+          hanzi: "孤神",
+          category: "hung",
+          typeLabel: "Thời Lệnh Hung Sát / Cô Quả Sát",
+          level: "Đại Hung (Đại Kỵ Cưới Hỏi)",
+          icon: "🌑",
+          badgeClass: "badge-co-than",
+          originRule: `Mùa ${coThanThoiLenh.seasonName} (${coThanThoiLenh.seasonMonths}): Cô Thần đáo tại Chi ${coThanThoiLenh.coThanChiName} (tiến trước 1 cung tam hội). Hôm nay ngày ${CHI_NAMES[chIdx]} phạm SAO CÔ THẦN theo thời lệnh.`,
+          meaning: THAN_SAT_REGISTRY.co_than.meaning,
+          nghi: THAN_SAT_REGISTRY.co_than.nghi,
+          ky: THAN_SAT_REGISTRY.co_than.ky
+        });
+      }
+
+      if (isQuaTuMatch) {
+        activeStars.push({
+          id: "qua_tu",
+          name: "Quả Tú",
+          hanzi: "寡宿",
+          category: "hung",
+          typeLabel: "Thời Lệnh Hung Sát / Cô Quả Sát",
+          level: "Đại Hung (Đại Kỵ Cưới Hỏi)",
+          icon: "🌘",
+          badgeClass: "badge-qua-tu",
+          originRule: `Mùa ${coThanThoiLenh.seasonName} (${coThanThoiLenh.seasonMonths}): Quả Tú đáo tại Chi ${coThanThoiLenh.quaTuChiName} (lùi sau 1 cung tam hội). Hôm nay ngày ${CHI_NAMES[chIdx]} phạm SAO QUẢ TÚ theo thời lệnh.`,
+          meaning: THAN_SAT_REGISTRY.qua_tu.meaning,
+          nghi: THAN_SAT_REGISTRY.qua_tu.nghi,
+          ky: THAN_SAT_REGISTRY.qua_tu.ky
+        });
+      }
+
+      // ----------------------------------------------------------------------
       // 3. TÍCH HỢP CÁC SAO TỪ HỆ THỐNG ỨNG DỤNG NẾU CÓ HELPER
       // ----------------------------------------------------------------------
       if (appHelpers) {
@@ -1062,6 +1435,12 @@
         hasNguyetYem: checkYem.isMatch,
         hasNguQuy: checkNguQuy.isMatch,
         hasYemDoi: checkDoi.isMatch,
+        hasCoThan: isCoThanMatch,
+        hasQuaTu: isQuaTuMatch,
+        coThanChi: coThanThoiLenh.coThanChiName,
+        quaTuChi: coThanThoiLenh.quaTuChiName,
+        coThanChiIndex: coThanThoiLenh.coThanChiIdx,
+        quaTuChiIndex: coThanThoiLenh.quaTuChiIdx,
         lucDucMatches: lucDucMatches,
         hasLucDuc: lucDucMatches.length > 0,
         activeStars: activeStars,

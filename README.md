@@ -24,7 +24,7 @@
   - Hướng xuất hành đón Hỷ Thần, Tài Thần (theo thiên can ngày).
   - **Nhóm Phân Định Ngày Cát Hung (Sao Cát & Sao Hung Trong Ngày)**: Tổ chức lại toàn diện phần dụng sự nghi kỵ thành 2 nhóm chuyên biệt, khoa học và trực quan:
     - *Nhóm Ngày Cát (Sao Cát & Vượng Khí)*: Tập hợp toàn bộ yếu tố cát tinh, quý nhân và vượng khí (Hoàng Đạo, Quý Nhân Tứ Đức gồm Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp, Âm Dương Bất Tương, Ngày Vượng - Tướng, Ngày Mẫu Thương, Thập Nhị Trực cát lợi, Nhị Thập Bát Tú cát tú) kèm diễn giải ngắn gọn "Hợp làm gì".
-    - *Nhóm Ngày Hung (Sao Hung & Kỵ Khí)*: Tập hợp toàn bộ yếu tố hắc đạo, tương xung và hung sát (Hắc Đạo, Ngày Hưu - Tù - Tử, Ngày Chính Tứ Phế, Ngày Nguyệt Phá, Ngày Tứ Tuyệt - Tứ Ly, Ngày Xung Niên Tuế, Dương Tương / Âm Tương / Âm Dương câu Tương, Trực hung như Phá/Nguy/Bế, Nhị Thập Bát Tú hung tú) kèm diễn giải ngắn gọn "Hung gì" và "Kiêng cữ".
+    - *Nhóm Ngày Hung (Sao Hung & Kỵ Khí)*: Tập hợp toàn bộ yếu tố hắc đạo, tương xung và hung sát (Hắc Đạo, Ngày Hưu - Tù - Tử, Ngày Chính Tứ Phế, Ngày Nguyệt Phá, Ngày Tứ Tuyệt - Tứ Ly, Ngày Xung Niên Tuế, Dương Tương / Âm Tương / Âm Dương câu Tương, Thần sát Nguyệt Yếm, Ngũ Quỷ, Yếm Đối, Thần sát thời lệnh Cô Thần & Quả Tú, Trực hung như Phá/Nguy/Bế, Nhị Thập Bát Tú hung tú) kèm diễn giải ngắn gọn "Hung gì" và "Kiêng cữ".
     - *Thanh Tra Cứu Nguyên Lý Trạch Nhật*: Tích hợp các nút tra cứu nhanh Quý Nhân Tứ Đức 12 tháng, Bảng ma trận Bất Tương 60 Hoa Giáp, và Bảng quy luật Ngày Vượng Tướng - Vượng Suy 12 tháng.
 - **Điều Hướng Linh Hoạt**: Chọn nhanh Hôm nay, nút Lùi/Tiến tháng, lướt chọn nhanh Năm (1900 - 2100) và Tháng trực quan.
 
@@ -59,7 +59,7 @@
 - **Đề Xuất Ngày Cưới Phù Hợp Trong Tháng Đã Chọn (Trạch Nhật Giá Thú Cổ Truyền)**:
   - **Tự động khảo sát toàn bộ ngày trong tháng Âm lịch được chọn**:
     - Đối chiếu can chi từng ngày với tuổi Chú Rể và Cô Dâu, loại trừ các ngày xung bản mệnh (Lục Xung, Thiên Khắc Địa Xung, Trực Thái Tuế).
-    - Lọc trừ triệt để các ngày đại kỵ giá thú: **Dương Tương** (hại chú rể), **Âm Tương** (hại cô dâu), **Âm Dương câu Tương** (hình khắc đôi bên), **Tam Nương** (mùng 3, 7, 13, 18, 22, 27), **Nguyệt Kỵ** (mùng 5, 14, 23), **Sát Chủ**, **Thọ Tử**, **Nguyệt Phá**, **Tứ Tuyệt**, **Tứ Ly**, **Chính Tứ Phế**, và các **Trực Hung** (Phá, Nguy, Bế).
+    - Lọc trừ triệt để các ngày đại kỵ giá thú: Ngày **Cô Thần & Quả Tú** (theo Niên Chi tuổi Chú Rể/Cô Dâu và theo Thời Lệnh 4 mùa), **Dương Tương** (hại chú rể), **Âm Tương** (hại cô dâu), **Âm Dương câu Tương** (hình khắc đôi bên), **Tam Nương** (mùng 3, 7, 13, 18, 22, 27), **Nguyệt Kỵ** (mùng 5, 14, 23), **Sát Chủ**, **Thọ Tử**, **Nguyệt Phá**, **Tứ Tuyệt**, **Tứ Ly**, **Chính Tứ Phế**, và các **Trực Hung** (Phá, Nguy, Bế).
   - **Đánh giá & Tôn vinh các yếu tố Cát Lợi Thượng Đẳng**:
     - Xác định ngày **Âm Dương Bất Tương** (ngày vàng thượng cát giá thú).
     - Nhận diện ngày **Hoàng Đạo** cát tinh chiếu rọi (Minh Đường, Kim Quỹ, Ngọc Đường, v.v.).
@@ -294,6 +294,34 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.42.0] - 2026-10-04
+- **Bổ Sung Bộ Sao Cô Thần & Quả Tú (Theo Thời Lệnh & Niên Chi Tuổi Sinh) Vào Lịch Ngày Cát Hung, Tra Cứu Thần Sát & Loại Trừ Khi Chọn Thời Gian Cưới**:
+  - **1. Phân Định Ngày Cát Hung (Lịch Ngày Cát Hung - Nhóm Ngày Hung)**:
+    - Bổ sung sao **Cô Thần** và sao **Quả Tú** khởi theo **Thời Lệnh (Mùa Của Tháng)** (Hiệp Kỷ Biện Phương Thư) vào Nhóm ngày hung của Bloc lịch và Lịch ngày cát hung.
+    - Khởi lệ theo 4 mùa:
+      - *Mùa Xuân (tháng 1, 2, 3 - Dần, Mão, Thìn)*: Cô Thần tại **Tị**, Quả Tú tại **Sửu**.
+      - *Mùa Hạ (tháng 4, 5, 6 - Tị, Ngọ, Mùi)*: Cô Thần tại **Thân**, Quả Tú tại **Thìn**.
+      - *Mùa Thu (tháng 7, 8, 9 - Thân, Dậu, Tuất)*: Cô Thần tại **Hợi**, Quả Tú tại **Mùi**.
+      - *Mùa Đông (tháng 10, 11, 12 - Hợi, Tý, Sửu)*: Cô Thần tại **Dần**, Quả Tú tại **Tuất**.
+    - Huy hiệu nhận diện chuyên biệt (`badge-co-than`, `badge-qua-tu`), nêu bật cơ chế lý luận: *"Khí cô dương bất sinh"* và *"Khí cô âm bất trưởng"*, đại kỵ hôn nhân giá thú, rước dâu, đính hôn, nhập phòng hoa chúc.
+  - **2. Tra Cứu Thần Sát (Tab Tra Cứu Thần Sát)**:
+    - Đăng ký `co_than` và `qua_tu` vào `THAN_SAT_REGISTRY` và `ThanSatEngine` với đầy đủ nguồn gốc điển tích, quy luật khởi lệ theo mùa và theo tuổi, bảng tra chi tiết và phân loại hung tinh.
+    - Banner phán định tự động cảnh báo ngày tra cứu phạm sao Cô Thần hoặc Quả Tú theo thời lệnh của tháng.
+    - Bổ sung tab cẩm nang chuyên đề "🌑 Cô Thần & Quả Tú" trong Khung Hướng Dẫn & Điển Tịch với 2 bảng tra cứu: Bảng 12 tháng theo thời lệnh mùa và Bảng theo 4 nhóm Tam Hội / Tam Hợp của Niên Chi tuổi sinh.
+    - Tích hợp sao Cô Thần & Quả Tú vào cả 2 chế độ hiển thị Bảng biểu và Thẻ sao (`row-co-than`, `row-qua-tu`, `card-co-than`, `card-qua-tu`).
+  - **3. Xem Thời Gian Cưới & Loại Trừ Khi Chọn Ngày Cưới (Tab Hôn Nhân & Nghênh Hôn)**:
+    - Thêm Card thứ 4 vào Banner Nguyên Lý Trạch Cát Cổ Truyền: *"4. Loại Trừ Ngày Cô Thần & Quả Tú (Theo Tuổi & Thời Lệnh)"*.
+    - **Áp dụng theo Niên Chi Tuổi Sinh (Tuổi Chú Rể & Cô Dâu)**:
+      - Cổ ngữ trạch cát: *"Nam kỵ Cô Thần, Nữ kỵ Quả Tú"*.
+      - Tuổi Dần - Mão - Thìn: Kỵ ngày Tị (Cô Thần), Sửu (Quả Tú).
+      - Tuổi Tị - Ngọ - Mùi: Kỵ ngày Thân (Cô Thần), Thìn (Quả Tú).
+      - Tuổi Thân - Dậu - Tuất: Kỵ ngày Hợi (Cô Thần), Mùi (Quả Tú).
+      - Tuổi Hợi - Tý - Sửu: Kỵ ngày Dần (Cô Thần), Tuất (Quả Tú).
+    - **Cơ chế tự động loại trừ triệt để**:
+      - Nếu ngày cưới rơi vào ngày Cô Thần của Chú Rể, ngày Quả Tú của Cô Dâu, hoặc ngày Cô Thần/Quả Tú theo thời lệnh tháng cưới thì hệ thống tự động đưa vào danh sách loại trừ (`isEliminated = true`, xếp hạng `🔴 BỊ LOẠI TRỪ (HUNG)`).
+      - Ghi rõ nguyên nhân loại trừ cụ thể (ví dụ: *"Ngày Cô Thần theo tuổi Chú Rể (Tý gặp Dần - Nam kỵ Cô Thần, chủ hình thê cô độc, đại kỵ cưới hỏi)"*, *"Ngày Quả Tú theo tuổi Cô Dâu (Dần gặp Sửu - Nữ kỵ Quả Tú, chủ khắc phu cô quả, đại kỵ cưới hỏi)"*).
+      - Lọc bỏ hoàn toàn các ngày phạm Cô Thần, Quả Tú khỏi danh sách ngày đề xuất kết hôn.
 
 ### [v1.41.0] - 2026-09-30
 - **Bổ Sung Kết Quả Đại Vận & Lưu Niên Vào Lá Số Bát Tự Tứ Trụ Để Định Cát Hung (Hệ Thống Thầy Thiệu Vĩ Hoa)**:

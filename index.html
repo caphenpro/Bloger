@@ -5063,6 +5063,20 @@
       border: 1.5px solid #fca5a5;
       font-weight: 700;
     }
+    .badge-co-than {
+      background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+      color: #581c87;
+      border: 1.5px solid #c084fc;
+      font-weight: 700;
+      box-shadow: 0 1px 4px rgba(147, 51, 234, 0.15);
+    }
+    .badge-qua-tu {
+      background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+      color: #312e81;
+      border: 1.5px solid #818cf8;
+      font-weight: 700;
+      box-shadow: 0 1px 4px rgba(67, 56, 202, 0.15);
+    }
     .ts-sync-toolbar {
       display: flex;
       align-items: center;
@@ -5299,6 +5313,26 @@
     .ts-star-card.card-yem-doi {
       border-left: 5px solid #ea580c;
     }
+    .ts-star-card.card-co-than {
+      border-left: 6px solid #9333ea;
+      background: #fdfaff;
+    }
+    .ts-star-card.card-qua-tu {
+      border-left: 6px solid #4f46e5;
+      background: #f8faff;
+    }
+    .ts-star-table tr.row-co-than {
+      background: #faf5ff;
+    }
+    .ts-star-table tr.row-co-than:hover td {
+      background: #f3e8ff;
+    }
+    .ts-star-table tr.row-qua-tu {
+      background: #f5f7ff;
+    }
+    .ts-star-table tr.row-qua-tu:hover td {
+      background: #e0e7ff;
+    }
     .ts-table {
       width: 100%;
       border-collapse: collapse;
@@ -5332,7 +5366,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.41.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.42.0</span>
           </div>
           <div class="brand-sub">"Vòng Xoay Duyên Khởi" • Giao thoa Thời Gian &amp; Nhân Duyên</div>
         </div>
@@ -6265,6 +6299,18 @@
               <p>• <strong>Tránh tháng hình xung khắc hại trực tiếp:</strong> Loại trừ tháng có địa chi xung trực tiếp địa chi tuổi cô dâu hoặc chú rể (ví dụ: tuổi Tý tránh tháng Ngọ).</p>
               <p>• <strong>Tránh tháng Thiên khắc địa xung:</strong> Loại trừ tháng phạm Thiên khắc địa xung với Can Chi tuổi của hai vợ chồng.</p>
               <p>• <strong>Gợi ý chọn tháng:</strong> Tháng vượt qua các tiêu chí loại trừ được xuất kết quả kèm Can Chi tương ứng để tiến hành hôn lễ.</p>
+            </div>
+            <div style="background: #fafaf9; border: 1.5px solid #fed7aa; border-radius: 8px; padding: 0.85rem;">
+              <h5 style="font-weight: 700; color: #7c2d12; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;">
+                <span>🌑</span> 4. Loại Trừ Ngày Cô Thần &amp; Quả Tú (Theo Tuổi &amp; Thời Lệnh)
+              </h5>
+              <p>• <strong>Nguyên lý cổ truyền:</strong> <em>"Nam kỵ Cô Thần, Nữ kỵ Quả Tú"</em>. Cô Thần lâm nhật chủ hình thê phân ly, Quả Tú lâm nhật khắc phu cô quả tang chế; ngày cưới phạm vào là đại hung cho hạnh phúc gia đạo trăm năm.</p>
+              <p>• <strong>Khởi lệ theo Niên Chi (Tuổi Sinh):</strong><br>
+                &nbsp;&nbsp;- Tuổi Dần, Mão, Thìn: Kỵ ngày Tị (Cô Thần) &amp; Sửu (Quả Tú).<br>
+                &nbsp;&nbsp;- Tuổi Tị, Ngọ, Mùi: Kỵ ngày Thân (Cô Thần) &amp; Thìn (Quả Tú).<br>
+                &nbsp;&nbsp;- Tuổi Thân, Dậu, Tuất: Kỵ ngày Hợi (Cô Thần) &amp; Mùi (Quả Tú).<br>
+                &nbsp;&nbsp;- Tuổi Hợi, Tý, Sửu: Kỵ ngày Dần (Cô Thần) &amp; Tuất (Quả Tú).</p>
+              <p>• <strong>Khởi lệ theo Thời Lệnh 4 Mùa:</strong> Mùa Xuân kỵ Tị &amp; Sửu; Mùa Hạ kỵ Thân &amp; Thìn; Mùa Thu kỵ Hợi &amp; Mùi; Mùa Đông kỵ Dần &amp; Tuất. Hệ thống tự động nhận diện và loại trừ triệt để.</p>
             </div>
           </div>
         </div>
@@ -7528,6 +7574,9 @@
                   <button type="button" class="btn btn-sm ts-view-btn" id="btnTsGuideTabYemQuy" style="font-size: 0.76rem; padding: 0.2rem 0.55rem;">
                     ⚡ Nguyệt Yếm, Ngũ Quỷ &amp; Yếm Đối
                   </button>
+                  <button type="button" class="btn btn-sm ts-view-btn" id="btnTsGuideTabCoQua" style="font-size: 0.76rem; padding: 0.2rem 0.55rem;">
+                    🌑 Cô Thần &amp; Quả Tú
+                  </button>
                 </div>
               </div>
               <button type="button" class="close-btn" id="btnTsCloseRefGuide" style="font-size: 1.1rem; color: #92400e;">&times;</button>
@@ -7603,6 +7652,82 @@
                 </table>
               </div>
             </div>
+
+            <!-- TAB 3: BỘ SAO CÔ THẦN & QUẢ TÚ -->
+            <div id="tsGuideViewCoQua" style="padding: 0.85rem 1rem; display: none;">
+              <div style="background: #faf5ff; border: 1.5px solid #d8b4fe; border-radius: 8px; padding: 0.75rem 0.95rem; margin-bottom: 0.85rem; font-size: 0.83rem; line-height: 1.6; color: #581c87;">
+                <div style="font-weight: 800; font-size: 0.92rem; color: #6b21a8; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem;">
+                  <span>🌑</span> BỘ SAO CÔ THẦN &amp; QUẢ TÚ (Khởi Theo Thời Lệnh Mùa &amp; Niên Chi Tuổi Sinh):
+                </div>
+                • <strong>Khởi lệ theo Thời Lệnh (Mùa):</strong><br>
+                &nbsp;&nbsp;- <em>Mùa Xuân (tháng Dần, Mão, Thìn - Phương Đông):</em> Cô Thần tại <strong>Tị</strong> (tiến trước 1 vị trí); Quả Tú tại <strong>Sửu</strong> (lùi sau 1 vị trí).<br>
+                &nbsp;&nbsp;- <em>Mùa Hạ (tháng Tị, Ngọ, Mùi - Phương Nam):</em> Cô Thần tại <strong>Thân</strong>; Quả Tú tại <strong>Thìn</strong>.<br>
+                &nbsp;&nbsp;- <em>Mùa Thu (tháng Thân, Dậu, Tuất - Phương Tây):</em> Cô Thần tại <strong>Hợi</strong>; Quả Tú tại <strong>Mùi</strong>.<br>
+                &nbsp;&nbsp;- <em>Mùa Đông (tháng Hợi, Tý, Sửu - Phương Bắc):</em> Cô Thần tại <strong>Dần</strong>; Quả Tú tại <strong>Tuất</strong>.<br>
+                • <strong>Khởi lệ theo Niên Chi / Tuổi Sinh:</strong><br>
+                &nbsp;&nbsp;- <em>Người tuổi Dần, Mão, Thìn:</em> Gặp ngày/tháng <strong>Tị</strong> là Cô Thần, gặp <strong>Sửu</strong> là Quả Tú.<br>
+                &nbsp;&nbsp;- <em>Người tuổi Tị, Ngọ, Mùi:</em> Gặp ngày/tháng <strong>Thân</strong> là Cô Thần, gặp <strong>Thìn</strong> là Quả Tú.<br>
+                &nbsp;&nbsp;- <em>Người tuổi Thân, Dậu, Tuất:</em> Gặp ngày/tháng <strong>Hợi</strong> là Cô Thần, gặp <strong>Mùi</strong> là Quả Tú.<br>
+                &nbsp;&nbsp;- <em>Người tuổi Hợi, Tý, Sửu:</em> Gặp ngày/tháng <strong>Dần</strong> là Cô Thần, gặp <strong>Tuất</strong> là Quả Tú.<br>
+                • <strong>Tôn chỉ trạch cát hôn nhân:</strong> Cổ nhân đúc kết: <em>"Nam kỵ Cô Thần, Nữ kỵ Quả Tú"</em>. Cô Thần lâm nhật chủ hình thê phân ly, Quả Tú lâm nhật khắc phu cô quả tang chế. Cả hai sao đều là hung sát tối kỵ trong hôn nhân cưới hỏi giá thú. Trong trạch cát hôn lễ, hệ thống tự động loại trừ triệt để ngày phạm Cô Thần &amp; Quả Tú của cả hai bên cô dâu chú rể.
+              </div>
+
+              <!-- Bảng 1: Theo Thời Lệnh 12 Tháng -->
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem; flex-wrap: wrap; gap: 0.5rem;">
+                <div style="font-size: 0.84rem; font-weight: 700; color: #1e293b;">
+                  📅 1. Bảng Khảo Sát Cô Thần &amp; Quả Tú Theo Thời Lệnh 12 Tháng (Khởi Theo Mùa)
+                </div>
+                <div style="font-size: 0.76rem; color: #64748b;">
+                  Tháng Âm Lịch • Quy luật Tam Hội Phương Vị tiến/thoái 1 cung
+                </div>
+              </div>
+
+              <div style="overflow-x: auto; margin-bottom: 1.25rem;">
+                <table class="ts-table" style="font-size: 0.8rem;">
+                  <thead>
+                    <tr>
+                      <th>Tháng ÂL</th>
+                      <th>Nguyệt Kiến</th>
+                      <th>Mùa (Phương Vị)</th>
+                      <th>Sao Cô Thần (🌑 Tiến 1 Cung)</th>
+                      <th>Sao Quả Tú (🌘 Lùi 1 Cung)</th>
+                      <th>Đặc Tính &amp; Kiêng Cữ Hôn Nhân</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tsCoQuaThoiLenhTbody">
+                    <!-- Filled via JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Bảng 2: Theo Tuổi Sinh (12 Con Giáp) -->
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem; flex-wrap: wrap; gap: 0.5rem;">
+                <div style="font-size: 0.84rem; font-weight: 700; color: #1e293b;">
+                  👥 2. Bảng Tra Cứu Cô Thần &amp; Quả Tú Theo Niên Chi / Tuổi Sinh (12 Con Giáp)
+                </div>
+                <div style="font-size: 0.76rem; color: #b91c1c; font-weight: 700;">
+                  Ứng dụng trực tiếp vào xem ngày cưới hỏi để loại trừ
+                </div>
+              </div>
+
+              <div style="overflow-x: auto;">
+                <table class="ts-table" style="font-size: 0.8rem;">
+                  <thead>
+                    <tr>
+                      <th>Nhóm Tuổi Sinh (Niên Chi)</th>
+                      <th>Phương Vị Tam Hội</th>
+                      <th>Sao Cô Thần (Nam Kỵ)</th>
+                      <th>Sao Quả Tú (Nữ Kỵ)</th>
+                      <th>Phương Vị Thiên Thể</th>
+                      <th>Nguyên Lý Loại Trừ Khi Cưới Hỏi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tsCoQuaTuoiTbody">
+                    <!-- Filled via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -7645,7 +7770,7 @@
           </h4>
           <p style="font-size: 0.86rem; color: #b45309; font-weight: 700; margin-top: 3px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Giao Thoa Thời Gian &amp; Nhân Duyên"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.41.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.42.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.95rem 1.15rem; font-size: 0.84rem; line-height: 1.65; color: #374151;">
@@ -8087,7 +8212,7 @@
             "Vòng Xoay Duyên Khởi" — Giao thoa Thời Gian &amp; Nhân Duyên • Thiên văn học NASA JPL / VSOP87 &amp; Mệnh Lý Tử Bình, Kỳ Môn Độn Giáp Hôn Nhân.
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.41.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.42.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -11004,6 +11129,59 @@
           avoidText: "Kiêng cữ cưới hỏi, xuất hành xe hoa, tranh chấp thị phi, giao dịch hợp đồng lớn.",
           actionTag: null,
           actionText: null,
+          lookupType: "thanSat"
+        });
+      }
+
+      // 4g. Thần Sát Thời Lệnh: Cô Thần & Quả Tú (Hiệp Kỷ Biện Phương Thư & Mệnh Lý Cổ Truyền)
+      let seasonName = "";
+      let seasonMonths = "";
+      let seasonCoThanChi = -1;
+      let seasonQuaTuChi = -1;
+
+      if ([1, 2, 3].includes(curLm)) {
+        seasonName = "Xuân";
+        seasonMonths = "Tháng 1, 2, 3 (Dần, Mão, Thìn - Phương Đông)";
+        seasonCoThanChi = 5; // Tỵ (tiến trước 1 vị trí)
+        seasonQuaTuChi = 1;  // Sửu (lùi sau 1 vị trí)
+      } else if ([4, 5, 6].includes(curLm)) {
+        seasonName = "Hạ";
+        seasonMonths = "Tháng 4, 5, 6 (Tỵ, Ngọ, Mùi - Phương Nam)";
+        seasonCoThanChi = 8; // Thân
+        seasonQuaTuChi = 4;  // Thìn
+      } else if ([7, 8, 9].includes(curLm)) {
+        seasonName = "Thu";
+        seasonMonths = "Tháng 7, 8, 9 (Thân, Dậu, Tuất - Phương Tây)";
+        seasonCoThanChi = 11; // Hợi
+        seasonQuaTuChi = 7;  // Mùi
+      } else {
+        seasonName = "Đông";
+        seasonMonths = "Tháng 10, 11, 12 (Hợi, Tý, Sửu - Phương Bắc)";
+        seasonCoThanChi = 2; // Dần
+        seasonQuaTuChi = 10; // Tuất
+      }
+
+      if (dayCanChi.chiIndex === seasonCoThanChi) {
+        hungItems.push({
+          badgeClass: "badge-co-than",
+          badgeTitle: `🌑 Ngày Cô Thần (Thời Lệnh Mùa ${seasonName})`,
+          hungWhat: `Mùa ${seasonName} (Tháng ${curLm}) Cô Thần đáo tại ${CHI[seasonCoThanChi]}. Cổ nhân khởi lệ: Tam hội phương vị tiến 1 ngôi là Cô Thần (chủ cô dương bất sinh, lẻ loi đơn chiếc, âm dương bất giao, tổn hại lương duyên).`,
+          avoidTag: "Đại kỵ:",
+          avoidText: "Đặc biệt đại kỵ hôn nhân giá thú, cưới hỏi, rước dâu, đính hôn, nhập phòng hoa chúc; kiêng kết nghĩa liên minh, bái yết cầu thân.",
+          actionTag: "Nên làm:",
+          actionText: "Tĩnh dưỡng tu tâm, thiền định an thần, an cư lạc nghiệp, làm việc thường nhật theo bổn phận.",
+          lookupType: "thanSat"
+        });
+      }
+      if (dayCanChi.chiIndex === seasonQuaTuChi) {
+        hungItems.push({
+          badgeClass: "badge-qua-tu",
+          badgeTitle: `🌘 Ngày Quả Tú (Thời Lệnh Mùa ${seasonName})`,
+          hungWhat: `Mùa ${seasonName} (Tháng ${curLm}) Quả Tú đáo tại ${CHI[seasonQuaTuChi]}. Cổ nhân khởi lệ: Tam hội phương vị lùi 1 ngôi là Quả Tú (chủ cô âm bất trưởng, phòng không chiếc bóng, quạnh quẽ khắc phu, chia ly cách biệt).`,
+          avoidTag: "Đại kỵ:",
+          avoidText: "Đặc biệt đại kỵ cưới hỏi nghênh hôn, rước dâu đón dâu, xuất hành xe hoa; kiêng mưu cầu việc hòa hợp vợ chồng, nạp thiếp.",
+          actionTag: "Nên làm:",
+          actionText: "Làm việc thiện nguyện cứu tế, phóng sinh tu đức, sám hối giải trừ chướng ngại, an phận tĩnh tại.",
           lookupType: "thanSat"
         });
       }
@@ -14596,6 +14774,32 @@
       return false;
     }
 
+    /**
+     * Xác định Cô Thần & Quả Tú theo Niên Chi / Tuổi Sinh
+     * - Tuổi Dần, Mão, Thìn: Cô Thần tại Tị, Quả Tú tại Sửu
+     * - Tuổi Tị, Ngọ, Mùi: Cô Thần tại Thân, Quả Tú tại Thìn
+     * - Tuổi Thân, Dậu, Tuất: Cô Thần tại Hợi, Quả Tú tại Mùi
+     * - Tuổi Hợi, Tý, Sửu: Cô Thần tại Dần, Quả Tú tại Tuất
+     */
+    function getCoThanQuaTuByChi(chiIdx) {
+      const c = ((parseInt(chiIdx, 10) % 12) + 12) % 12;
+      if ([2, 3, 4].includes(c)) return { coThan: 5, quaTu: 1, group: "Dần - Mão - Thìn" }; // Mùa Xuân -> Tỵ tiến, Sửu thoái
+      if ([5, 6, 7].includes(c)) return { coThan: 8, quaTu: 4, group: "Tỵ - Ngọ - Mùi" };   // Mùa Hạ -> Thân tiến, Thìn thoái
+      if ([8, 9, 10].includes(c)) return { coThan: 11, quaTu: 7, group: "Thân - Dậu - Tuất" }; // Mùa Thu -> Hợi tiến, Mùi thoái
+      return { coThan: 2, quaTu: 10, group: "Hợi - Tý - Sửu" }; // Mùa Đông -> Dần tiến, Tuất thoái
+    }
+
+    /**
+     * Xác định Cô Thần & Quả Tú theo Thời Lệnh (Mùa của Tháng)
+     */
+    function getCoThanQuaTuThoiLenh(lunarMonth) {
+      const m = ((parseInt(lunarMonth, 10) - 1) % 12 + 12) % 12 + 1;
+      if ([1, 2, 3].includes(m)) return { coThan: 5, quaTu: 1, seasonName: "Xuân" };
+      if ([4, 5, 6].includes(m)) return { coThan: 8, quaTu: 4, seasonName: "Hạ" };
+      if ([7, 8, 9].includes(m)) return { coThan: 11, quaTu: 7, seasonName: "Thu" };
+      return { coThan: 2, quaTu: 10, seasonName: "Đông" };
+    }
+
     // Biến trạng thái toàn cục cho tab Cưới hỏi
     let weddingCurrentAnalysis = null;
     let weddingActiveYear = null;
@@ -16215,6 +16419,30 @@
           reasonsBad.push(`Trực ${truc} (Hung trực kỵ hôn nhân giá thú)`);
         }
 
+        // Cô Thần & Quả Tú (Theo Tuổi Chú Rể, Cô Dâu & Thời Lệnh - Đại Kỵ Giá Thú Cổ Truyền, Cần Loại Trừ)
+        const gCoThanInfo = getCoThanQuaTuByChi(gChiIdx);
+        const bCoThanInfo = getCoThanQuaTuByChi(bChiIdx);
+        const sCoThanInfo = getCoThanQuaTuThoiLenh(month);
+
+        if (dayCanChi.chiIndex === gCoThanInfo.coThan) {
+          reasonsBad.push(`Ngày Cô Thần theo tuổi Chú Rể (${CHI[gChiIdx]} gặp ${CHI[dayCanChi.chiIndex]} - Nam kỵ Cô Thần, chủ hình thê cô độc, đại kỵ cưới hỏi)`);
+        }
+        if (dayCanChi.chiIndex === gCoThanInfo.quaTu) {
+          reasonsBad.push(`Ngày Quả Tú theo tuổi Chú Rể (${CHI[gChiIdx]} gặp ${CHI[dayCanChi.chiIndex]} - Kỵ cưới hỏi, bất lợi gia đạo)`);
+        }
+        if (dayCanChi.chiIndex === bCoThanInfo.quaTu) {
+          reasonsBad.push(`Ngày Quả Tú theo tuổi Cô Dâu (${CHI[bChiIdx]} gặp ${CHI[dayCanChi.chiIndex]} - Nữ kỵ Quả Tú, chủ khắc phu cô quả, đại kỵ cưới hỏi)`);
+        }
+        if (dayCanChi.chiIndex === bCoThanInfo.coThan) {
+          reasonsBad.push(`Ngày Cô Thần theo tuổi Cô Dâu (${CHI[bChiIdx]} gặp ${CHI[dayCanChi.chiIndex]} - Kỵ cưới hỏi, phòng trắc trở lương duyên)`);
+        }
+        if (dayCanChi.chiIndex === sCoThanInfo.coThan) {
+          reasonsBad.push(`Ngày Cô Thần theo thời lệnh tháng ${month} (Mùa ${sCoThanInfo.seasonName}, Chi ${CHI[dayCanChi.chiIndex]} - Khí cô dương bất sinh, kỵ giá thú)`);
+        }
+        if (dayCanChi.chiIndex === sCoThanInfo.quaTu) {
+          reasonsBad.push(`Ngày Quả Tú theo thời lệnh tháng ${month} (Mùa ${sCoThanInfo.seasonName}, Chi ${CHI[dayCanChi.chiIndex]} - Khí cô âm bất trưởng, kỵ giá thú)`);
+        }
+
         // 2. Điểm cát lợi
         const isBatTuong = (batTuong.code === 1);
         if (isBatTuong) reasonsGood.push(`Âm Dương Bất Tương: Âm Dương cân bằng hòa hợp, ngày vàng giá thú trăm năm gắn kết.`);
@@ -16425,7 +16653,7 @@
             </div>
           </div>
           <div style="font-size: 0.84rem; color: #4b5563; line-height: 1.55;">
-            <strong>💡 Lời khuyên trạch cát:</strong> Tháng ${month} ÂL (${mCanChi.text}) có <strong>${recommendedDays.length} ngày tốt</strong> đạt chuẩn trạch cát giá thú cổ truyền (đã loại bỏ hoàn toàn các ngày xung khắc bản mệnh cô dâu chú rể, Tam Nương, Nguyệt Kỵ, Dương Tương, Âm Tương, Sát Chủ, Thọ Tử, Nguyệt Phá). Quý vị nên ưu tiên chọn các <strong>ngày Đại Cát</strong> có sao Hoàng Đạo và Âm Dương Bất Tương kết hợp cuối tuần để tổ chức rước dâu và thiết tiệc linh đình.
+            <strong>💡 Lời khuyên trạch cát:</strong> Tháng ${month} ÂL (${mCanChi.text}) có <strong>${recommendedDays.length} ngày tốt</strong> đạt chuẩn trạch cát giá thú cổ truyền (đã loại bỏ hoàn toàn các ngày xung khắc bản mệnh cô dâu chú rể, ngày Cô Thần &amp; Quả Tú theo tuổi và thời lệnh, Tam Nương, Nguyệt Kỵ, Dương Tương, Âm Tương, Sát Chủ, Thọ Tử, Nguyệt Phá). Quý vị nên ưu tiên chọn các <strong>ngày Đại Cát</strong> có sao Hoàng Đạo và Âm Dương Bất Tương kết hợp cuối tuần để tổ chức rước dâu và thiết tiệc linh đình.
           </div>
         `;
       }
@@ -18854,7 +19082,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.41.0";
+    const APP_VERSION = "v1.42.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');
@@ -19393,26 +19621,26 @@
         });
       }
 
-      // 10b. Chuyển đổi tab cẩm nang: Bộ Lục Đức / Nguyệt Yếm & Ngũ Quỷ
+      // 10b. Chuyển đổi tab cẩm nang: Bộ Lục Đức / Nguyệt Yếm & Ngũ Quỷ / Cô Thần & Quả Tú
       const btnGuideTabLucDuc = document.getElementById('btnTsGuideTabLucDuc');
       const btnGuideTabYemQuy = document.getElementById('btnTsGuideTabYemQuy');
+      const btnGuideTabCoQua = document.getElementById('btnTsGuideTabCoQua');
       const guideViewLucDuc = document.getElementById('tsGuideViewLucDuc');
       const guideViewYemQuy = document.getElementById('tsGuideViewYemQuy');
+      const guideViewCoQua = document.getElementById('tsGuideViewCoQua');
 
-      if (btnGuideTabLucDuc && btnGuideTabYemQuy) {
-        btnGuideTabLucDuc.addEventListener('click', () => {
-          btnGuideTabLucDuc.classList.add('active');
-          btnGuideTabYemQuy.classList.remove('active');
-          if (guideViewLucDuc) guideViewLucDuc.style.display = 'block';
-          if (guideViewYemQuy) guideViewYemQuy.style.display = 'none';
-        });
-        btnGuideTabYemQuy.addEventListener('click', () => {
-          btnGuideTabYemQuy.classList.add('active');
-          btnGuideTabLucDuc.classList.remove('active');
-          if (guideViewLucDuc) guideViewLucDuc.style.display = 'none';
-          if (guideViewYemQuy) guideViewYemQuy.style.display = 'block';
-        });
+      function switchTsGuideTab(tabKey) {
+        if (btnGuideTabLucDuc) btnGuideTabLucDuc.classList.toggle('active', tabKey === 'lucduc');
+        if (btnGuideTabYemQuy) btnGuideTabYemQuy.classList.toggle('active', tabKey === 'yemquy');
+        if (btnGuideTabCoQua) btnGuideTabCoQua.classList.toggle('active', tabKey === 'coqua');
+        if (guideViewLucDuc) guideViewLucDuc.style.display = (tabKey === 'lucduc' ? 'block' : 'none');
+        if (guideViewYemQuy) guideViewYemQuy.style.display = (tabKey === 'yemquy' ? 'block' : 'none');
+        if (guideViewCoQua) guideViewCoQua.style.display = (tabKey === 'coqua' ? 'block' : 'none');
       }
+
+      if (btnGuideTabLucDuc) btnGuideTabLucDuc.addEventListener('click', () => switchTsGuideTab('lucduc'));
+      if (btnGuideTabYemQuy) btnGuideTabYemQuy.addEventListener('click', () => switchTsGuideTab('yemquy'));
+      if (btnGuideTabCoQua) btnGuideTabCoQua.addEventListener('click', () => switchTsGuideTab('coqua'));
 
       // Render ban đầu
       renderThanSatTab(thanSatActiveDate);
@@ -19590,6 +19818,40 @@
               </div>
             </div>
           `;
+        } else if (tsInspectedData && tsInspectedData.hasCoThan) {
+          verdictBox.innerHTML = `
+            <div class="ts-verdict-banner danger" style="border: 2px solid #c084fc; background: linear-gradient(135deg, #faf5ff, #f3e8ff);">
+              <div style="font-size: 2.3rem; line-height: 1;">🌑</div>
+              <div style="flex: 1;">
+                <div style="font-size: 1.15rem; font-weight: 800; color: #581c87; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span>CẢNH BÁO: HÔM NAY PHẠM NGÀY CÔ THẦN (${dayCanChi.chi})</span>
+                  <span class="badge badge-co-than" style="font-size: 0.75rem;">THỜI LỆNH HUNG SÁT • ĐẠI KỴ CƯỚI HỎI</span>
+                </div>
+                <div style="font-size: 0.86rem; color: #4c1d95; line-height: 1.55;">
+                  • <strong>Quy luật khởi lệ:</strong> Khởi theo Tam hội phương vị tiến trước 1 vị trí (Mùa Xuân tháng Dần-Mão-Thìn tiến Tị; Mùa Hạ tháng Tị-Ngọ-Mùi tiến Thân; Mùa Thu tháng Thân-Dậu-Tuất tiến Hợi; Mùa Đông tháng Hợi-Tý-Sửu tiến Dần). Tháng ${targetMonth} (${kienChiName}) Cô Thần tại <strong>${tsInspectedData.coThanChi || dayCanChi.chi}</strong>. Hôm nay là ngày <strong>${dayCanChi.text} (Địa Chi ${dayCanChi.chi})</strong> nên phạm SAO CÔ THẦN theo thời lệnh!<br>
+                  • <strong>Việc đại kỵ:</strong> Tuyệt đối đại kỵ <strong>hôn nhân giá thú, cưới hỏi, rước dâu, đính hôn, nhập phòng hoa chúc</strong> (Cổ ngữ: <em>"Nam kỵ Cô Thần"</em>, chủ hình thê phân ly, cô độc lẻ bóng). Kiêng kết nghĩa liên minh, bái yết cầu thân.<br>
+                  • <strong>Lời khuyên:</strong> Tĩnh tu dưỡng tính, làm việc thiện nguyện tích đức, an cư tu nghiệp theo kế hoạch thường nhật.
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (tsInspectedData && tsInspectedData.hasQuaTu) {
+          verdictBox.innerHTML = `
+            <div class="ts-verdict-banner danger" style="border: 2px solid #818cf8; background: linear-gradient(135deg, #f5f7ff, #e0e7ff);">
+              <div style="font-size: 2.3rem; line-height: 1;">🌘</div>
+              <div style="flex: 1;">
+                <div style="font-size: 1.15rem; font-weight: 800; color: #312e81; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span>CẢNH BÁO: HÔM NAY PHẠM NGÀY QUẢ TÚ (${dayCanChi.chi})</span>
+                  <span class="badge badge-qua-tu" style="font-size: 0.75rem;">THỜI LỆNH HUNG SÁT • ĐẠI KỴ CƯỚI HỎI</span>
+                </div>
+                <div style="font-size: 0.86rem; color: #1e1b4b; line-height: 1.55;">
+                  • <strong>Quy luật khởi lệ:</strong> Khởi theo Tam hội phương vị lùi sau 1 vị trí (Mùa Xuân lùi Sửu; Mùa Hạ lùi Thìn; Mùa Thu lùi Mùi; Mùa Đông lùi Tuất). Tháng ${targetMonth} (${kienChiName}) Quả Tú tại <strong>${tsInspectedData.quaTuChi || dayCanChi.chi}</strong>. Hôm nay là ngày <strong>${dayCanChi.text} (Địa Chi ${dayCanChi.chi})</strong> nên phạm SAO QUẢ TÚ theo thời lệnh!<br>
+                  • <strong>Việc đại kỵ:</strong> Tuyệt đối đại kỵ <strong>giá thú cưới hỏi, xuất hành xe hoa, rước dâu, giao hòa phu thê</strong> (Cổ ngữ: <em>"Nữ kỵ Quả Tú"</em>, chủ cô quả quạnh quẽ, khắc phu tang chế).<br>
+                  • <strong>Lời khuyên:</strong> Phóng sinh cứu tế, tế tự sám hối, tu tâm tích đức, an dưỡng tinh thần tĩnh tại.
+                </div>
+              </div>
+            </div>
+          `;
         } else if (tsInspectedData && tsInspectedData.hasLucDuc && tsInspectedData.lucDucMatches.length > 0) {
           const names = tsInspectedData.lucDucMatches.map(s => s.name).join(', ');
           verdictBox.innerHTML = `
@@ -19613,10 +19875,10 @@
               <div style="font-size: 2rem; line-height: 1;">✅</div>
               <div style="flex: 1;">
                 <div style="font-size: 1.05rem; font-weight: 800; color: #15803d; margin-bottom: 0.35rem;">
-                  AN LÀNH: HÔM NAY KHÔNG PHẠM SAO NGUYỆT YẾM, NGŨ QUỶ &amp; YẾM ĐỐI
+                  AN LÀNH: HÔM NAY KHÔNG PHẠM CÔ THẦN, QUẢ TÚ, NGUYỆT YẾM, NGŨ QUỶ &amp; YẾM ĐỐI
                 </div>
                 <div style="font-size: 0.86rem; color: #166534; line-height: 1.5;">
-                  Trong Tháng ${targetMonth} (${kienChiName}), sao Nguyệt Yếm đóng tại <strong>${yemChiName}</strong>, sao Ngũ Quỷ (Bạch Hổ đi sau Nguyệt Yếm) đóng tại <strong>${nguQuyChiName}</strong>, và sao Yếm Đối tại <strong>${doiChiName}</strong>. Hôm nay là ngày <strong>${dayCanChi.text} (Địa Chi ${dayCanChi.chi})</strong>, trường khí bình hòa không bị khí âm u hoặc sát khí của Nguyệt Lệnh xâm phạm.
+                  Trong Tháng ${targetMonth} (${kienChiName}), sao Cô Thần tại <strong>${tsInspectedData?.coThanChi || '--'}</strong>, sao Quả Tú tại <strong>${tsInspectedData?.quaTuChi || '--'}</strong>, sao Nguyệt Yếm tại <strong>${yemChiName}</strong>, sao Ngũ Quỷ tại <strong>${nguQuyChiName}</strong>, và sao Yếm Đối tại <strong>${doiChiName}</strong>. Hôm nay là ngày <strong>${dayCanChi.text} (Địa Chi ${dayCanChi.chi})</strong>, trường khí bình hòa không bị khí âm u hoặc sát khí của Nguyệt Lệnh xâm phạm.
                 </div>
               </div>
             </div>
@@ -19627,6 +19889,7 @@
       // 6. Điền Bảng Quy Luật Khởi Lệ Bộ Lục Đức & Thần Sát 12 Tháng
       renderTsLucDucRefTable(yearCanChi.canIndex, targetMonth);
       renderTsRefGuideTable(targetMonth);
+      renderTsCoQuaRefTable(targetMonth);
 
       // 7. Render danh sách / bảng biểu các sao có trong ngày tra cứu
       renderTsStarsDisplay();
@@ -19707,6 +19970,110 @@
       tbody.innerHTML = rowsHtml;
     }
 
+    function renderTsCoQuaRefTable(currentActiveMonth) {
+      const thoiLenhTbody = document.getElementById('tsCoQuaThoiLenhTbody');
+      const tuoiTbody = document.getElementById('tsCoQuaTuoiTbody');
+
+      if (thoiLenhTbody) {
+        let rowsHtml = '';
+        for (let m = 1; m <= 12; m++) {
+          const kienIdx = (m + 1) % 12;
+          const kienChi = CHI[kienIdx];
+          let sName = "", sCoThan = "", sQuaTu = "", sNote = "";
+
+          if (m === 1 || m === 2 || m === 3) {
+            sName = "Xuân (Đông)";
+            sCoThan = "Tỵ";
+            sQuaTu = "Sửu";
+            sNote = "Phương Đông Dần-Mão-Thìn tiến Tị (Cô Thần) • lùi Sửu (Quả Tú). Kỵ cưới hỏi.";
+          } else if (m === 4 || m === 5 || m === 6) {
+            sName = "Hạ (Nam)";
+            sCoThan = "Thân";
+            sQuaTu = "Thìn";
+            sNote = "Phương Nam Tị-Ngọ-Mùi tiến Thân (Cô Thần) • lùi Thìn (Quả Tú). Kỵ cưới hỏi.";
+          } else if (m === 7 || m === 8 || m === 9) {
+            sName = "Thu (Tây)";
+            sCoThan = "Hợi";
+            sQuaTu = "Mùi";
+            sNote = "Phương Tây Thân-Dậu-Tuất tiến Hợi (Cô Thần) • lùi Mùi (Quả Tú). Kỵ cưới hỏi.";
+          } else {
+            sName = "Đông (Bắc)";
+            sCoThan = "Dần";
+            sQuaTu = "Tuất";
+            sNote = "Phương Bắc Hợi-Tý-Sửu tiến Dần (Cô Thần) • lùi Tuất (Quả Tú). Kỵ cưới hỏi.";
+          }
+
+          const isHighlight = (m === currentActiveMonth);
+          const trStyle = isHighlight ? 'background: #faf5ff; font-weight: 700;' : '';
+          const marker = isHighlight ? ' <span class="badge" style="background: #9333ea; color: #fff; font-size: 0.7rem;">Tháng đang chọn</span>' : '';
+
+          rowsHtml += `
+            <tr style="${trStyle}">
+              <td>Tháng ${m === 1 ? 'Giêng (Th.1)' : (m === 12 ? 'Chạp (Th.12)' : 'Tháng ' + m)}${marker}</td>
+              <td><span class="badge" style="background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe;">Kiến ${kienChi}</span></td>
+              <td><span class="badge" style="background: #f1f5f9; color: #334155; font-weight: 600;">Mùa ${sName}</span></td>
+              <td><span class="badge badge-co-than" style="font-size: 0.78rem;">🌑 Chi ${sCoThan}</span></td>
+              <td><span class="badge badge-qua-tu" style="font-size: 0.78rem;">🌘 Chi ${sQuaTu}</span></td>
+              <td style="color: #6b21a8; font-size: 0.8rem;">${sNote}</td>
+            </tr>
+          `;
+        }
+        thoiLenhTbody.innerHTML = rowsHtml;
+      }
+
+      if (tuoiTbody) {
+        const groups = [
+          {
+            name: "Dần – Mão – Thìn",
+            dir: "Phương Đông (Mộc)",
+            coThan: "Tỵ (tiến trước 1 cung)",
+            quaTu: "Sửu (lùi sau 1 cung)",
+            celestial: "Đông Phương Mộc cục tiến Tỵ Hỏa, lùi Sửu Thổ",
+            rule: "Người tuổi Dần, Mão, Thìn: Nam kỵ ngày/tháng Tỵ (Cô Thần), Nữ kỵ ngày/tháng Sửu (Quả Tú) — Loại trừ khi cưới hỏi"
+          },
+          {
+            name: "Tỵ – Ngọ – Mùi",
+            dir: "Phương Nam (Hỏa)",
+            coThan: "Thân (tiến trước 1 cung)",
+            quaTu: "Thìn (lùi sau 1 cung)",
+            celestial: "Nam Phương Hỏa cục tiến Thân Kim, lùi Thìn Thổ",
+            rule: "Người tuổi Tị, Ngọ, Mùi: Nam kỵ ngày/tháng Thân (Cô Thần), Nữ kỵ ngày/tháng Thìn (Quả Tú) — Loại trừ khi cưới hỏi"
+          },
+          {
+            name: "Thân – Dậu – Tuất",
+            dir: "Phương Tây (Kim)",
+            coThan: "Hợi (tiến trước 1 cung)",
+            quaTu: "Mùi (lùi sau 1 cung)",
+            celestial: "Tây Phương Kim cục tiến Hợi Thủy, lùi Mùi Thổ",
+            rule: "Người tuổi Thân, Dậu, Tuất: Nam kỵ ngày/tháng Hợi (Cô Thần), Nữ kỵ ngày/tháng Mùi (Quả Tú) — Loại trừ khi cưới hỏi"
+          },
+          {
+            name: "Hợi – Tý – Sửu",
+            dir: "Phương Bắc (Thủy)",
+            coThan: "Dần (tiến trước 1 cung)",
+            quaTu: "Tuất (lùi sau 1 cung)",
+            celestial: "Bắc Phương Thủy cục tiến Dần Mộc, lùi Tuất Thổ",
+            rule: "Người tuổi Hợi, Tý, Sửu: Nam kỵ ngày/tháng Dần (Cô Thần), Nữ kỵ ngày/tháng Tuất (Quả Tú) — Loại trừ khi cưới hỏi"
+          }
+        ];
+
+        let rowsHtml = '';
+        groups.forEach(g => {
+          rowsHtml += `
+            <tr>
+              <td style="font-weight: 700; color: #1e293b;">${g.name}</td>
+              <td><span class="badge" style="background: #f8fafc; color: #475569; border: 1px solid #cbd5e1;">${g.dir}</span></td>
+              <td><span class="badge badge-co-than" style="font-size: 0.78rem;">🌑 ${g.coThan}</span></td>
+              <td><span class="badge badge-qua-tu" style="font-size: 0.78rem;">🌘 ${g.quaTu}</span></td>
+              <td style="color: #64748b; font-size: 0.8rem;">${g.celestial}</td>
+              <td style="color: #991b1b; font-size: 0.8rem; font-weight: 600;">${g.rule}</td>
+            </tr>
+          `;
+        });
+        tuoiTbody.innerHTML = rowsHtml;
+      }
+    }
+
     function renderTsStarsDisplay() {
       const container = document.getElementById('tsStarsDisplayArea');
       if (!container || !tsInspectedData) return;
@@ -19746,11 +20113,13 @@
         let rowsHtml = '';
         stars.forEach(star => {
           const isHung = (star.category === 'hung');
-          const isDanger = (star.id === 'ngu_quy' || star.id === 'nguyet_yem');
+          const isDanger = (star.id === 'ngu_quy' || star.id === 'nguyet_yem' || star.id === 'co_than' || star.id === 'qua_tu');
           const isRoyal = (star.id === 'tue_duc' || star.id === 'tue_duc_hop' || star.id === 'thien_duc' || star.id === 'nguyet_duc');
           let rowClass = isHung ? 'row-hung' : 'row-cat';
           if (isDanger) rowClass += ' row-danger-star';
           if (isRoyal) rowClass += ' row-royal-star';
+          if (star.id === 'co_than') rowClass += ' row-co-than';
+          else if (star.id === 'qua_tu') rowClass += ' row-qua-tu';
 
           rowsHtml += `
             <tr class="${rowClass}">
@@ -19816,6 +20185,8 @@
           if (star.id === 'ngu_quy') cardClass += ' card-ngu-quy';
           else if (star.id === 'nguyet_yem') cardClass += ' card-nguyet-yem';
           else if (star.id === 'yem_doi') cardClass += ' card-yem-doi';
+          else if (star.id === 'co_than') cardClass += ' card-co-than';
+          else if (star.id === 'qua_tu') cardClass += ' card-qua-tu';
           else if (star.id === 'tue_duc') cardClass += ' card-tue-duc';
           else if (star.id === 'tue_duc_hop') cardClass += ' card-tue-duc-hop';
           else if (star.id === 'thien_duc' || star.id === 'thien_duc_hop' || star.id === 'nguyet_duc' || star.id === 'nguyet_duc_hop') cardClass += ' card-luc-duc';
