@@ -151,7 +151,7 @@
 - **Chế Độ Xem Theo Tháng Linh Hoạt**: Cho phép lọc nhanh sự kiện của từng tháng riêng biệt (Tháng 1 đến Tháng 12) hoặc xem toàn bộ cả năm. Hỗ trợ nút điều hướng *◀ Tháng trước*, *Tháng sau ▶* và *Tháng Hiện Tại*.
 - **Phân Nhóm & Thống Kê**: Tự động nhóm các ngày lễ theo từng tháng, có tiêu đề và số lượng sự kiện rõ ràng.
 - **Bộ Lọc Đa Năng & Tìm Kiếm**: Lọc nhanh theo Lễ Tết Âm lịch cổ truyền, Ngày lễ Dương lịch & Quốc tế, hoặc gõ từ khóa tìm kiếm sự kiện bất kỳ (ví dụ: *Hà Nội, Phụ nữ, Doanh nhân, 10/10*).
-- **Hệ Thống Huy Hiệu Nhận Diện**: Phân biệt trực quan giữa Ngày lễ Việt Nam (🇻🇳), Sự kiện Quốc tế (🌐), và Lễ hội Âm lịch Cổ truyền (🏮).
+- **Hệ Thống Huy Hiệu Nhận Diện**: Phân biệt trực quan giữa Ngày lễ Việt Nam (🇻🇳), Sự kiện Quốc tế (🌐), Lễ hội Âm lịch Cổ truyền (🏮), và Lễ hội Dân tộc Khmer Nam Bộ (🪷 Lễ Sene Dolta báo hiếu tổ tiên).
 - **Đồng Bộ Phiên Bản Tự Động**: Hiển thị số phiên bản cập nhật thời gian thực trên thanh Header, Footer và cửa sổ Logo.
 
 ### 9. Hệ Thống Nhóm Ngày Vượng Suy Bốn Mùa: Vượng – Tướng – Hưu – Tù – Tử (Khâm Định Hiệp Kỷ Biện Phương Thư)
@@ -294,6 +294,20 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.43.0] - 2026-10-06
+- **Bổ Sung Đại Lễ Sene Dolta (Sen Đôn-ta) Của Đồng Bào Dân Tộc Khmer Vào Hệ Thống Lịch & Tra Cứu Sự Kiện**:
+  - **Ý Nghĩa Văn Hóa & Phong Tục Truyền Thống**:
+    - Tích hợp ngày lễ **Sene Dolta (hay Sen Đôn-ta)** — lễ hội cổ truyền lớn và thiêng liêng nhất trong năm của đồng bào dân tộc Khmer Nam Bộ, mang ý nghĩa tri ân, báo hiếu công đức sinh thành dưỡng dục của ông bà, cha mẹ và cửu huyền thất tổ (tương tự như đại lễ Vu Lan báo hiếu của người Kinh).
+  - **Thời Gian Diễn Ra 3 Ngày Trọn Vẹn Chuẩn Xác Thiên Văn**:
+    - Tự động nhận diện cấu trúc lịch theo quy luật truyền thống: Lễ hội diễn ra trong 3 ngày, từ ngày 29 tháng 8 đến mùng 1 tháng 9 Âm lịch hằng năm (Sen Tiêp Đôn-ta cúng tiếp đón, cúng tại chùa và Sen Đuôn Đôn-ta cúng tiễn đưa).
+    - *Xử lý chuẩn xác theo số ngày của tháng 8 Âm lịch*:
+      - **Năm tháng 8 ÂL đủ (30 ngày)**: Ngày 1 (29/8 ÂL - Lễ tiếp đón tại gia đình), Ngày 2 (30/8 ÂL - Lễ cúng ông bà tại chùa, dâng cơm chư tăng và cầu siêu), Ngày 3 (01/9 ÂL - Lễ tiễn đưa tổ tiên và thả thuyền bẹ chuối).
+      - **Năm tháng 8 ÂL thiếu (29 ngày)**: Ngày 1 (28/8 ÂL - Khởi lễ cúng tiếp đón), Ngày 2 (29/8 ÂL - Cúng ông bà tại chùa), Ngày 3 (01/9 ÂL - Lễ tiễn đưa tổ tiên).
+  - **Đồng Bộ Đa Nền Tảng Trong Ứng Dụng**:
+    - *Lưới Lịch Tháng (Calendar Grid)*: Đánh dấu chấm lễ hội `fest-dot` màu đỏ nổi bật, hiển thị tên lễ hội trên tooltip khi di chuột hoặc xem ngày.
+    - *Bloc Lịch Hàng Ngày (Daily Bloc)*: Hiển thị thanh thông tin lễ hội nổi bật `🏮 Lễ Sene Dolta (Sen Đôn-ta)` khi người dùng chọn trúng các ngày diễn ra lễ hội.
+    - *Tab Tra Cứu Sự Kiện & Lễ Hội*: Thẻ sự kiện trang trọng kèm huy hiệu riêng biệt `🪷 Lễ Hội Dân Tộc Khmer`, đối chiếu chính xác ngày Dương lịch tương ứng từng năm, hỗ trợ tìm kiếm linh hoạt theo các từ khóa (*Sene Dolta*, *Sen Đôn-ta*, *Khmer*, *Báo hiếu*, *Vu Lan*).
 
 ### [v1.42.0] - 2026-10-04
 - **Bổ Sung Bộ Sao Cô Thần & Quả Tú (Theo Thời Lệnh & Niên Chi Tuổi Sinh) Vào Lịch Ngày Cát Hung, Tra Cứu Thần Sát & Loại Trừ Khi Chọn Thời Gian Cưới**:
