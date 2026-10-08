@@ -151,7 +151,7 @@
 - **Chế Độ Xem Theo Tháng Linh Hoạt**: Cho phép lọc nhanh sự kiện của từng tháng riêng biệt (Tháng 1 đến Tháng 12) hoặc xem toàn bộ cả năm. Hỗ trợ nút điều hướng *◀ Tháng trước*, *Tháng sau ▶* và *Tháng Hiện Tại*.
 - **Phân Nhóm & Thống Kê**: Tự động nhóm các ngày lễ theo từng tháng, có tiêu đề và số lượng sự kiện rõ ràng.
 - **Bộ Lọc Đa Năng & Tìm Kiếm**: Lọc nhanh theo Lễ Tết Âm lịch cổ truyền, Ngày lễ Dương lịch & Quốc tế, hoặc gõ từ khóa tìm kiếm sự kiện bất kỳ (ví dụ: *Hà Nội, Phụ nữ, Doanh nhân, 10/10*).
-- **Hệ Thống Huy Hiệu Nhận Diện**: Phân biệt trực quan giữa Ngày lễ Việt Nam (🇻🇳), Sự kiện Quốc tế (🌐), Lễ hội Âm lịch Cổ truyền (🏮), và Lễ hội Dân tộc Khmer Nam Bộ (🪷 Lễ Sene Dolta báo hiếu tổ tiên).
+- **Hệ Thống Huy Hiệu Nhận Diện**: Phân biệt trực quan giữa Ngày lễ Việt Nam (🇻🇳), Sự kiện Quốc tế (🌐), Lễ hội Âm lịch Cổ truyền (🏮), Lễ hội Dân tộc Khmer Nam Bộ (🪷 Lễ Sene Dolta báo hiếu tổ tiên), và Lễ hội Tôn vinh Anh hùng Dân tộc (⚔️ Lễ giỗ Anh hùng dân tộc Nguyễn Trung Trực tại Rạch Giá).
 - **Đồng Bộ Phiên Bản Tự Động**: Hiển thị số phiên bản cập nhật thời gian thực trên thanh Header, Footer và cửa sổ Logo.
 
 ### 9. Hệ Thống Nhóm Ngày Vượng Suy Bốn Mùa: Vượng – Tướng – Hưu – Tù – Tử (Khâm Định Hiệp Kỷ Biện Phương Thư)
@@ -294,6 +294,20 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.44.0] - 2026-10-08
+- **Bổ Sung Lễ Hội Truyền Thống / Lễ Giỗ Anh Hùng Dân Tộc Nguyễn Trung Trực (26, 27 & 28 Tháng 8 Âm Lịch)**:
+  - **Ý Nghĩa Lịch Sử & Di Sản Văn Hóa Quốc Gia**:
+    - Tích hợp trọn vẹn 3 ngày Lễ hội truyền thống - Lễ giỗ Anh hùng dân tộc Nguyễn Trung Trực diễn ra hằng năm vào các ngày **26, 27 và 28 tháng 8 Âm lịch** tại Khu di tích lịch sử - văn hóa Mộ và Đình Nguyễn Trung Trực (phường Vĩnh Thanh / thành phố Rạch Giá, tỉnh Kiên Giang).
+    - Tôn vinh cuộc đời, sự nghiệp và hai chiến công hiển hách lẫy lừng non sông: đốt cháy tàu chiến Espérance của thực dân Pháp trên sông Nhật Tảo (1861), đánh úp chiếm đồn Rạch Giá (1868), cùng khí tiết bất khuất với câu nói lưu danh thiên cổ: *"Bao giờ người Tây nhổ hết cỏ nước Nam thì mới hết người Nam đánh Tây"*.
+  - **Chi Tiết 3 Ngày Lễ Hội Truyền Thống**:
+    - **Ngày 26/8 ÂL (Khai hội)**: Lễ thượng cờ, lễ thỉnh sắc thần từ Đình thần về đền thờ, khai mạc các hoạt động lễ hội và đón tiếp nhân dân, phật tử tứ phương.
+    - **Ngày 27/8 ÂL (Chính giỗ)**: Chính lễ giỗ tưởng niệm ngày hy sinh oanh liệt của cụ Nguyễn Trung Trực (1868), tổ chức lễ dâng hương và tế cổ truyền trang nghiêm, trọng thể.
+    - **Ngày 28/8 ÂL (Tạ lễ & Bế mạc)**: Nghi lễ tế tạ thần, dâng hương tri ân công đức tiền nhân và bế mạc lễ hội.
+  - **Đồng Bộ Hệ Thống Lịch & Tra Cứu Sự Kiện**:
+    - *Lưới Lịch Tháng (Calendar Grid)*: Đánh dấu chấm lễ hội `fest-dot` màu đỏ nổi bật, hiển thị tên ngày lễ giỗ trên tooltip khi di chuột hoặc xem ngày.
+    - *Bloc Lịch Hàng Ngày (Daily Bloc)*: Hiển thị thanh thông báo lễ hội nổi bật `🏮 Lễ Hội Truyền Thống Anh Hùng Dân Tộc Nguyễn Trung Trực` khi xem các ngày 26, 27, 28 tháng 8 Âm lịch.
+    - *Tab Tra Cứu Sự Kiện & Lễ Hội*: Thẻ sự kiện trang nghiêm kèm huy hiệu chuyên biệt `⚔️ Anh Hùng Dân Tộc`, tự động quy đổi chính xác ngày Dương lịch theo từng năm (ví dụ năm 2026: 06/10, 07/10 và 08/10 Dương lịch), hỗ trợ tìm kiếm nhanh theo từ khóa (*Nguyễn Trung Trực*, *Rạch Giá*, *Kiên Giang*, *Nhật Tảo*).
 
 ### [v1.43.0] - 2026-10-06
 - **Bổ Sung Đại Lễ Sene Dolta (Sen Đôn-ta) Của Đồng Bào Dân Tộc Khmer Vào Hệ Thống Lịch & Tra Cứu Sự Kiện**:
