@@ -2275,6 +2275,108 @@
     }
 
     /* ======================================================== */
+    /* DÃY ĐẠI VẬN TRỰC TIẾP TRÊN LÁ SỐ BÁT TỰ TỨ TRỤ STYLING    */
+    /* ======================================================== */
+    .bt-la-so-daivan-section {
+      background: linear-gradient(180deg, #fffdfa 0%, #ffffff 100%);
+      border: 1.5px solid #fed7aa;
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1rem;
+      margin-top: 1.15rem;
+      box-shadow: 0 2px 10px rgba(217, 119, 6, 0.06);
+    }
+    .bt-la-so-daivan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.65rem;
+      border-bottom: 1px dashed #fde68a;
+      padding-bottom: 0.5rem;
+    }
+    .bt-la-so-daivan-meta {
+      font-size: 0.82rem;
+      color: #7c2d12;
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .bt-la-so-daivan-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+    }
+    .bt-la-so-daivan-table {
+      width: 100%;
+      min-width: 820px;
+      margin: 0;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .bt-la-so-daivan-table th {
+      background: #fef3c7;
+      color: #78350f;
+      font-weight: 800;
+      padding: 0.5rem 0.35rem;
+      border: 1px solid #fde68a;
+      white-space: nowrap;
+      font-size: 0.78rem;
+      transition: background 0.15s ease;
+    }
+    .bt-la-so-daivan-table th:hover {
+      background: #fde047;
+    }
+    .bt-la-so-daivan-table td {
+      padding: 0.45rem 0.35rem;
+      border: 1px solid #f1f5f9;
+      vertical-align: middle;
+      font-size: 0.78rem;
+      transition: background 0.15s ease;
+    }
+    .bt-la-so-daivan-table tr:hover td {
+      background-color: #fdfbf7;
+    }
+    .bt-la-so-daivan-table .tb-head-label {
+      background: #fff7ed;
+      color: #9a3412;
+      font-weight: 800;
+      text-align: left;
+      padding-left: 0.65rem;
+      white-space: nowrap;
+      width: 110px;
+    }
+    .bt-la-so-daivan-table td.is-current-dv {
+      background: #fffbeb !important;
+      border-left: 1.5px solid #f59e0b;
+      border-right: 1.5px solid #f59e0b;
+    }
+    .bt-la-so-daivan-table th.is-current-dv {
+      background: #fde68a !important;
+      color: #78350f !important;
+      border-left: 1.5px solid #f59e0b;
+      border-right: 1.5px solid #f59e0b;
+    }
+    .bt-la-so-daivan-table td.is-selected-dv {
+      box-shadow: inset 0 0 0 1.5px #d97706;
+      background-color: #fffdf5;
+    }
+    .bt-la-so-daivan-table th.is-selected-dv {
+      box-shadow: inset 0 0 0 1.5px #d97706;
+      border-color: #d97706;
+    }
+
+    /* ======================================================== */
     /* HỆ THỐNG ĐẠI VẬN & LƯU NIÊN (THẦY THIỆU VĨ HOA) STYLING */
     /* ======================================================== */
     .bt-daivan-section {
@@ -5366,7 +5468,7 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.44.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.45.0</span>
           </div>
           <div class="brand-sub">"Vòng Xoay Duyên Khởi" • Giao thoa Thời Gian &amp; Nhân Duyên</div>
         </div>
@@ -6651,6 +6753,52 @@
           </div>
         </div>
 
+        <!-- BẢNG DÃY ĐẠI VẬN BÁT TỰ TỨ TRỤ (10 BƯỚC ĐẠI VẬN SUỐT ĐỜI) NGAY TRÊN LÁ SỐ -->
+        <div class="bt-la-so-daivan-section" id="btLaSoDaiVanSection">
+          <div class="bt-la-so-daivan-header">
+            <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #9a3412; margin: 0; display: flex; align-items: center; gap: 0.45rem;">
+                <span>🛣️</span> DÃY ĐẠI VẬN LÁ SỐ BÁT TỰ (10 CHẶNG ĐƯỜNG ĐỜI)
+              </h4>
+              <span id="btLaSoDvDirBadge" class="badge" style="background: #ffedd5; color: #9a3412; border: 1px solid #fed7aa; font-size: 0.76rem; font-weight: 700;">
+                Thuận Hành
+              </span>
+              <span id="btLaSoDvStartAgeBadge" class="badge" style="background: #fef3c7; color: #92400e; border: 1px solid #fde68a; font-size: 0.76rem; font-weight: 700;">
+                Khởi vận: -- tuổi
+              </span>
+            </div>
+            <div style="font-size: 0.78rem; color: #64748b; font-style: italic;">
+              💡 <em>Bấm vào từng Đại Vận để xem Lưu Niên chi tiết bên dưới ➔</em>
+            </div>
+          </div>
+
+          <!-- Thông tin tóm tắt quy luật khởi vận & xuất xứ lệnh tháng -->
+          <div class="bt-la-so-daivan-meta" id="btLaSoDvMeta">
+            <div>
+              <span style="font-weight: 700; color: #9a3412;">🌟 Quy Luật Khởi Vận:</span>
+              <span id="btLaSoDvMetaDirectionText" style="color: #431407; font-weight: 600;">Đang tính toán...</span>
+            </div>
+            <div>
+              <span style="font-weight: 700; color: #9a3412;">⏳ Vận Số:</span>
+              <span id="btLaSoDvMetaTietText" style="color: #431407; font-weight: 600;">Cách Tiết Lệnh...</span>
+            </div>
+          </div>
+
+          <!-- Bảng 10 Cột Đại Vận Liền Kề Với Tứ Trụ (Ma Trận Dãy Đại Vận) -->
+          <div class="bt-la-so-daivan-table-wrap">
+            <table class="table bt-la-so-daivan-table" id="btLaSoDaiVanTable">
+              <thead>
+                <tr id="btLaSoDvTableHead">
+                  <!-- Header các cột Vận 1 -> 10 -->
+                </tr>
+              </thead>
+              <tbody id="btLaSoDvTableBody">
+                <!-- Hàng: Thập Thần, Can, Chi, Nạp Âm, Trường Sinh, Tàng Can, Độ Tuổi, Năm DL, Đánh Giá Cát/Hung -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <!-- Thần Sát Quý Nhân: Tứ Đức (Thiên Đức, Thiên Đức Hợp, Nguyệt Đức, Nguyệt Đức Hợp) trong Bát Tự -->
         <div class="card" id="btThanSatNhiDucCard" style="background: linear-gradient(135deg, #fffdf5, #fefce8); border: 1px solid #fde68a; margin-top: 1rem; padding: 0.85rem 1rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.45rem;">
@@ -7770,7 +7918,7 @@
           </h4>
           <p style="font-size: 0.86rem; color: #b45309; font-weight: 700; margin-top: 3px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Giao Thoa Thời Gian &amp; Nhân Duyên"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.44.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.45.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.95rem 1.15rem; font-size: 0.84rem; line-height: 1.65; color: #374151;">
@@ -8212,7 +8360,7 @@
             "Vòng Xoay Duyên Khởi" — Giao thoa Thời Gian &amp; Nhân Duyên • Thiên văn học NASA JPL / VSOP87 &amp; Mệnh Lý Tử Bình, Kỳ Môn Độn Giáp Hôn Nhân.
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.44.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.45.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -17226,12 +17374,28 @@
           `;
           thBody.innerHTML = `
             <tr>
+              <td class="tb-label">Thập Thần</td>
+              ${dvData.daiVanList.map(dv => `<td style="font-weight: 700; font-size: 6.8pt; color: #4338ca;">${dv.thapThan.name}</td>`).join('')}
+            </tr>
+            <tr>
               <td class="tb-label">Can Chi</td>
-              ${dvData.daiVanList.map(dv => `<td style="font-weight: 700; font-size: 7.4pt;">${dv.canchi}<br><small style="font-weight: normal; color: #4338ca;">${dv.thapThan.name}</small></td>`).join('')}
+              ${dvData.daiVanList.map(dv => `<td style="font-weight: 700; font-size: 7.4pt;">${dv.canchi}</td>`).join('')}
+            </tr>
+            <tr>
+              <td class="tb-label">Nạp Âm</td>
+              ${dvData.daiVanList.map(dv => `<td style="font-size: 6.5pt; color: #475569;">${dv.napAm}</td>`).join('')}
+            </tr>
+            <tr>
+              <td class="tb-label">Trường Sinh</td>
+              ${dvData.daiVanList.map(dv => `<td style="font-size: 6.8pt;">${dv.truongSinh.stageName}</td>`).join('')}
+            </tr>
+            <tr>
+              <td class="tb-label">Tàng Can</td>
+              ${dvData.daiVanList.map(dv => `<td style="font-size: 6.4pt; color: #64748b;">${(TANG_CAN[dv.chi] || []).join(', ')}</td>`).join('')}
             </tr>
             <tr>
               <td class="tb-label">Tuổi &amp; Năm</td>
-              ${dvData.daiVanList.map(dv => `<td style="font-size: 7pt;">${dv.ageStart}-${dv.ageEnd}t<br><small style="color: #64748b;">${dv.yearStart}-${dv.yearEnd}</small></td>`).join('')}
+              ${dvData.daiVanList.map(dv => `<td style="font-size: 6.8pt;">${dv.ageStart}-${dv.ageEnd}t<br><small style="color: #64748b;">${dv.yearStart}-${dv.yearEnd}</small></td>`).join('')}
             </tr>
             <tr>
               <td class="tb-label">Cát / Hung</td>
@@ -17439,11 +17603,14 @@
         txt += `• Chiều hướng khởi vận: ${dvData.directionName} (${dvData.directionText})\n`;
         txt += `• Tuổi khởi vận: ${dvData.startAgeText}\n\n`;
         txt += 'BẢNG 10 ĐẠI VẬN SUỐT ĐỜI:\n';
+        txt += '+---------+------------+-------------+--------------------+--------------+----------------+------------+-------------+---------------+\n';
+        txt += '| ĐẠI VẬN | CAN CHI    | THẬP THẦN   | NẠP ÂM             | TRƯỜNG SINH  | TÀNG CAN       | ĐỘ TUỔI    | NĂM DL      | CÁT / HUNG    |\n';
+        txt += '+---------+------------+-------------+--------------------+--------------+----------------+------------+-------------+---------------+\n';
         dvData.daiVanList.forEach(dv => {
-          txt += `   - ${dv.orderName}: Can Chi ${dv.canchi} (${dv.canHanh} - ${dv.chiHanh}) | Độ tuổi: ${dv.ageStart} - ${dv.ageEnd} tuổi (Năm ${dv.yearStart} - ${dv.yearEnd})\n`;
-          txt += `     Thập Thần: ${dv.thapThan.name} | Trường Sinh: ${dv.truongSinh.stageName} | Nạp Âm: ${dv.napAm} | Thuộc tính: ${dv.qualityLabel}\n`;
+          const tcStr = (TANG_CAN[dv.chi] || []).join(',');
+          txt += `| ${(dv.orderName).padEnd(7)} | ${(dv.canchi).padEnd(10)} | ${(dv.thapThan.name).padEnd(11)} | ${(dv.napAm).padEnd(18)} | ${(dv.truongSinh.stageName).padEnd(12)} | ${(tcStr).padEnd(14)} | ${(`${dv.ageStart}-${dv.ageEnd}t`).padEnd(10)} | ${(`${dv.yearStart}-${dv.yearEnd}`).padEnd(11)} | ${(dv.qualityLabel).padEnd(13)} |\n`;
         });
-        txt += '\n';
+        txt += '+---------+------------+-------------+--------------------+--------------+----------------+------------+-------------+---------------+\n\n';
 
         const lnYear = currentSurveyLuuNienYear;
         const lnInfo = getYearCanChi(lnYear);
@@ -18583,10 +18750,212 @@
       return { quality: "binh", label: "BÌNH (Trung Hòa)", badgeClass: "bt-badge-binh", score };
     }
 
+    function selectDaiVanAndScroll(dvIdx) {
+      selectDaiVan(dvIdx);
+      const targetEl = document.getElementById('btLuuNienBox') || document.getElementById('btDaiVanSection');
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function renderLaSoDaiVanTable(data) {
+      if (!data) return;
+
+      const dirBadge = document.getElementById('btLaSoDvDirBadge');
+      if (dirBadge) dirBadge.textContent = data.directionName;
+
+      const ageBadge = document.getElementById('btLaSoDvStartAgeBadge');
+      if (ageBadge) ageBadge.textContent = `Khởi vận: ${data.startAge} tuổi`;
+
+      const metaDir = document.getElementById('btLaSoDvMetaDirectionText');
+      if (metaDir) metaDir.textContent = data.directionText;
+
+      const metaTiet = document.getElementById('btLaSoDvMetaTietText');
+      if (metaTiet) metaTiet.textContent = `Cách Tiết Lệnh ${data.targetTermName}: ${data.diffDays} ngày ➔ Khởi vận ${data.startAgeDetail} (Năm ${data.startAge + (currentBattuMeta ? currentBattuMeta.sYear : 2000)})`;
+
+      const thHead = document.getElementById('btLaSoDvTableHead');
+      const thBody = document.getElementById('btLaSoDvTableBody');
+      if (!thHead || !thBody) return;
+
+      const currentYearNow = new Date().getFullYear();
+
+      thHead.innerHTML = `
+        <th class="tb-head-label" style="width: 110px;">HẠNG MỤC</th>
+        ${data.daiVanList.map((dv, idx) => {
+          const isSelected = (idx === currentSelectedDvIndex);
+          const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+          return `
+            <th class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                style="cursor: pointer;" 
+                onclick="selectDaiVan(${idx})" 
+                title="Bấm để chọn Đại Vận ${idx + 1} (${dv.canchi})">
+              ${dv.orderName}
+              ${isCurrent ? '<br><span style="color:#b45309; font-size: 0.65rem; font-weight:800; background:#fef3c7; padding:1px 4px; border-radius:3px;">⭐ Năm Nay</span>' : ''}
+            </th>
+          `;
+        }).join('')}
+      `;
+
+      thBody.innerHTML = `
+        <tr>
+          <td class="tb-head-label">Thập Thần</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                  style="font-weight: 700; color: #4338ca; cursor: pointer;" 
+                  onclick="selectDaiVan(${idx})">
+                ${dv.thapThan.name}
+              </td>
+            `;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="tb-head-label">Thiên Can</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            const canHanhClass = getHanhClass(CAN_HANH[dv.canIdx]);
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                  style="font-weight: 900; font-size: 1.05rem; cursor: pointer;" 
+                  onclick="selectDaiVan(${idx})">
+                <span class="${canHanhClass}" style="padding: 2px 6px; border-radius: 4px;">${dv.can}</span>
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: normal; margin-top: 1px;">${CAN_HANH[dv.canIdx]}</div>
+              </td>
+            `;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="tb-head-label">Địa Chi</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            const chiHanhClass = getHanhClass(CHI_HANH[dv.chiIdx]);
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                  style="font-weight: 900; font-size: 1.05rem; cursor: pointer;" 
+                  onclick="selectDaiVan(${idx})">
+                <span class="${chiHanhClass}" style="padding: 2px 6px; border-radius: 4px;">${dv.chi}</span>
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: normal; margin-top: 1px;">${CHI_HANH[dv.chiIdx]}</div>
+              </td>
+            `;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="tb-head-label">Nạp Âm</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                  style="font-size: 0.72rem; color: #475569; font-weight: 600; cursor: pointer;" 
+                  onclick="selectDaiVan(${idx})">
+                ${dv.napAm}
+              </td>
+            `;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="tb-head-label">Trường Sinh</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                  style="cursor: pointer;" 
+                  onclick="selectDaiVan(${idx})">
+                <span class="bt-truongsinh-badge ${dv.truongSinh.isVuong ? 'is-vuong' : ''}" style="font-size: 0.68rem; padding: 2px 5px;">${dv.truongSinh.stageName}</span>
+              </td>
+            `;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="tb-head-label">Tàng Can</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            const tcList = TANG_CAN[dv.chi] || [];
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                  style="font-size: 0.7rem; color: #64748b; cursor: pointer;" 
+                  onclick="selectDaiVan(${idx})">
+                ${tcList.join(', ')}
+              </td>
+            `;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="tb-head-label">Độ Tuổi</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                  style="font-weight: 700; color: #b45309; cursor: pointer;" 
+                  onclick="selectDaiVan(${idx})">
+                ${dv.ageStart} - ${dv.ageEnd}t
+              </td>
+            `;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="tb-head-label">Năm DL</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                  style="font-size: 0.72rem; color: #64748b; cursor: pointer;" 
+                  onclick="selectDaiVan(${idx})">
+                ${dv.yearStart} - ${dv.yearEnd}
+              </td>
+            `;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="tb-head-label">Vận Cát Hung</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}" 
+                  style="cursor: pointer;" 
+                  onclick="selectDaiVan(${idx})">
+                <span class="bt-dv-quality-badge ${dv.qualityBadgeClass}">
+                  ${dv.quality === 'cat' ? '🟢 Cát' : (dv.quality === 'hung' ? '🔴 Hung' : '🔵 Bình')}
+                </span>
+              </td>
+            `;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="tb-head-label">Lưu Niên</td>
+          ${data.daiVanList.map((dv, idx) => {
+            const isSelected = (idx === currentSelectedDvIndex);
+            const isCurrent = (dv.yearStart <= currentYearNow && currentYearNow <= dv.yearEnd);
+            return `
+              <td class="${isCurrent ? 'is-current-dv' : ''} ${isSelected ? 'is-selected-dv' : ''}">
+                <button type="button" class="btn btn-outline btn-sm" 
+                        style="padding: 2px 6px; font-size: 0.68rem; font-weight: 700; white-space: nowrap; ${isSelected ? 'background:#1e40af; color:#fff; border-color:#1e40af;' : ''}" 
+                        onclick="selectDaiVanAndScroll(${idx})">
+                  ${isSelected ? 'Đang xem' : 'Khảo sát ➔'}
+                </button>
+              </td>
+            `;
+          }).join('')}
+        </tr>
+      `;
+    }
+
     function renderDaiVanUI() {
       if (!currentBattuDaiVanData) return;
 
       const data = currentBattuDaiVanData;
+
+      // Render bảng Dãy Đại Vận Bát Tự ngay trên lá số
+      renderLaSoDaiVanTable(data);
 
       // Meta banner
       const dirBadge = document.getElementById('btDvDirectionBadge');
@@ -18601,7 +18970,7 @@
       const distDesc = document.getElementById('btDvTietDistanceDesc');
       if (distDesc) distDesc.textContent = `Cách Tiết ${data.targetTermName}: ${data.diffDays} ngày ➔ Khởi vận năm ${data.startAgeDetail}`;
 
-      // Bảng 10 Đại Vận
+      // Bảng 10 Đại Vận (Card Grid)
       const grid = document.getElementById('btDaiVanGrid');
       if (!grid) return;
 
@@ -18643,6 +19012,9 @@
     function selectDaiVan(dvIdx) {
       if (!currentBattuDaiVanData || !currentBattuDaiVanData.daiVanList[dvIdx]) return;
       currentSelectedDvIndex = dvIdx;
+
+      // Cập nhật lại Bảng Dãy Đại Vận trên lá số để đánh dấu cột được chọn
+      renderLaSoDaiVanTable(currentBattuDaiVanData);
 
       // Cập nhật class selected trên grid
       const cards = document.querySelectorAll('.bt-dv-card');
@@ -19147,7 +19519,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.44.0";
+    const APP_VERSION = "v1.45.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

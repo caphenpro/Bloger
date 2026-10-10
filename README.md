@@ -79,9 +79,13 @@
   - Tích hợp nút tải về chuyên dụng tại cả đầu và cuối khung đánh giá ("💾 Tải Về 5 Tiêu Chí (.txt)" và "💾 Tải Về Toàn Bộ 5 Tiêu Chí (.txt)").
   - Tự động kết xuất toàn diện dữ liệu: Hồ sơ Chú Rể & Cô Dâu (Can Chi, Nạp Âm, Cung Phi Bát Trạch, Đông/Tây Tứ Mệnh, Phương vị bản mệnh), Quẻ Phối Cung Hôn Nhân kèm phân tích trường khí & giải pháp phong thủy, toàn bộ nội dung 5 Tiêu chí Đánh giá Hòa hợp (Nạp Âm Ngũ Hành, Thiên Can, Địa Chi, Bát Trạch, Tuổi Tác & Thế Hệ), Kết luận tổng quan và dấu ấn thời gian lập hồ sơ.
   - Định dạng UTF-8 rõ ràng, cấu trúc ngăn nắp, dễ dàng lưu trữ offline, in ấn hoặc chia sẻ qua Zalo/Email.
+- **Dãy Đại Vận Trực Tiếp Trên Lá Số Bát Tự (10 Chặng Đường Đời)**:
+  - Tích hợp Bảng Dãy Đại Vận (10 bước Đại Vận suốt đời) hiển thị trực tiếp và liền kề ngay bên dưới 4 Trụ trên Lá Số Bát Tự Tứ Trụ.
+  - Cung cấp đầy đủ 10 thuộc tính chuyên sâu: Thứ tự Đại Vận, Thập Thần của Can, Thiên Can, Địa Chi (kèm màu ngũ hành chuẩn), Nạp Âm, Cung Trường Sinh, Tàng Can, Độ tuổi khởi/kết thúc, Năm Dương Lịch tương ứng, và Đánh giá thuộc tính Vận (Cát / Hung / Bình theo Dụng Thần & Kỵ Thần).
+  - Đánh dấu nổi bật Đại Vận hiện tại đang quản năm nay (`⭐ Đang Hành Vận / Năm Nay`) và hỗ trợ tương tác 1 chạm để chuyển ngay đến khảo sát 10 năm Lưu Niên chi tiết.
 - **Tải Về Toàn Bộ Lá Số Bát Tự Tứ Trụ Dạng File Văn Bản (.txt)**:
   - Nút bấm "💾 Tải Về Dạng TXT" tại thanh điều khiển Bát Tự cho phép tải ngay lập tức bản báo cáo đầy đủ lá số Tứ Trụ.
-  - Bao gồm: Bảng 4 trụ (Năm, Tháng, Ngày, Giờ) với Thập Thần, Can Chi, Nạp Âm, Cung Trường Sinh, Địa Chi Tàng Can; Thần Sát Tứ Đức; Thẩm định Thân Vượng/Thân Nhược (Đắc Lệnh, Đắc Địa, Được Sinh, Được Trợ, Khắc/Hao/Tiết); Bình giải chi tiết; Định hướng Dụng Thần, Hỷ Thần, Kỵ Thần và Lời khuyên phong thủy thực tiễn.
+  - Bao gồm: Bảng 4 trụ (Năm, Tháng, Ngày, Giờ) với Thập Thần, Can Chi, Nạp Âm, Cung Trường Sinh, Địa Chi Tàng Can; Bảng Dãy 10 Đại Vận dạng bảng ASCII ngăn nắp; Thần Sát Tứ Đức; Thẩm định Thân Vượng/Thân Nhược (Đắc Lệnh, Đắc Địa, Được Sinh, Được Trợ, Khắc/Hao/Tiết); Bình giải chi tiết; Định hướng Dụng Thần, Hỷ Thần, Kỵ Thần và Lời khuyên phong thủy thực tiễn.
 
 ### 5. Quẻ Kỳ Môn Độn Giáp • Chuyên Đề Hôn Nhân & Nghênh Hôn Trạch Cát
 - **Lập Quẻ Thời Bàn 18 Cục Cổ Truyền (Trương Tử Phòng - Gia Cát Lượng)**:
@@ -294,6 +298,28 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.45.0] - 2026-10-10
+- **Bổ Sung Dãy Đại Vận Trực Tiếp Vào Lá Số Bát Tự Tứ Trụ (Ma Trận 10 Bước Đại Vận Toàn Diện)**:
+  - **Tích Hợp Bảng Dãy Đại Vận Liền Kề Với 4 Trụ Ngay Trên Lá Số**:
+    - Chuẩn hóa cấu trúc Lá Số Bát Tự Tứ Trụ truyền thống: Sau 4 Trụ (Năm • Tháng • Ngày • Giờ), hiển thị ngay lập tức khối **Dãy Đại Vận Bát Tự (10 Chặng Đường Đời)** tạo nên một lá số bản mệnh hoàn chỉnh, trực quan và chuẩn mực cổ thư.
+    - Banner khởi vận nêu rõ: Chiều khởi vận (Thuận hành / Nghịch hành, Dương Nam / Âm Nữ), Tiết lệnh tiếp giáp và Vận số chi tiết (ngày, tháng, năm khởi vận).
+  - **Ma Trận Đại Vận Đầy Đủ 10 Cột & 10 Hàng Thuộc Tính Chuyên Sâu**:
+    - *Hàng 1 - Thứ tự Đại Vận*: Vận 1 ➔ Vận 10.
+    - *Hàng 2 - Thập Thần của Can*: Chính Ấn, Thiên Ấn, Tỷ Kiên, Kiếp Tài, Thực Thần, Thương Quan, Chính Tài, Thiên Tài, Chính Quan, Thất Sát.
+    - *Hàng 3 - Thiên Can Đại Vận*: Hiển thị Can kèm màu ngũ hành chuẩn hóa (Mộc, Hỏa, Thổ, Kim, Thủy) và âm dương ngũ hành.
+    - *Hàng 4 - Địa Chi Đại Vận*: Hiển thị Chi kèm màu ngũ hành và thuộc tính.
+    - *Hàng 5 - Nạp Âm Ngũ Hành*: Xác định chính xác hoa giáp nạp âm của từng Đại Vận.
+    - *Hàng 6 - Cung Trường Sinh*: Vị trí của Nhật Can trên Chi Đại Vận (Trường Sinh, Mộc Dục, Quan Đới, Lâm Quan, Đế Vượng, Suy, Bệnh, Tử, Mộ, Tuyệt, Thai, Dưỡng).
+    - *Hàng 7 - Địa Chi Tàng Can*: Các can ẩn tàng nuôi dưỡng khí tiết trong Chi.
+    - *Hàng 8 - Độ Tuổi Đại Vận*: Khoảng tuổi 10 năm của từng chặng (ví dụ: 8 - 17t, 18 - 27t...).
+    - *Hàng 9 - Năm Dương Lịch*: Năm bắt đầu đến năm kết thúc tương ứng.
+    - *Hàng 10 - Đánh Giá Cát / Hung*: Phân định chuẩn xác Cát Vận (Hỷ/Dụng Thần), Hung Vận (Kỵ Thần), Bình Vận (Trung Hòa).
+    - *Hàng 11 - Khảo Sát & Tương Tác Đồng Bộ*: Đánh dấu nổi bật Đại Vận hiện tại (`⭐ Năm Nay`), nút *"Chi tiết ➔"* cho phép một chạm chọn Đại Vận và cuộn mượt xuống khu vực Khảo Sát Lưu Niên (Thái Tuế hàng năm) bên dưới.
+  - **Đồng Bộ Hoàn Hảo Vào Bản In A4 & Xuất File Văn Bản (.txt)**:
+    - *Bản in A4 / PDF*: Mở rộng bảng Đại Vận đầy đủ các hàng Thập Thần, Can Chi, Nạp Âm, Trường Sinh, Tàng Can, Tuổi & Năm, Cát/Hung.
+    - *Xuất File .txt*: Tự động định dạng Bảng 10 Đại Vận thành bảng ASCII có khung kẻ ngăn nắp, rõ ràng, dễ dàng đọc trên mọi thiết bị và ứng dụng văn bản.
+  - **Quản Lý Phiên Bản**: Nâng phiên bản hệ thống lên **v1.45.0** trên `package.json`, Header, Footer, Modal Logo và file `index.html`.
 
 ### [v1.44.0] - 2026-10-08
 - **Bổ Sung Lễ Hội Truyền Thống / Lễ Giỗ Anh Hùng Dân Tộc Nguyễn Trung Trực (26, 27 & 28 Tháng 8 Âm Lịch)**:
