@@ -281,6 +281,33 @@
   - Bộ lọc trạng thái thông minh: *Tất Cả*, *Sao Cát*, *Sao Hung* kèm ô tìm kiếm nhanh tên sao theo thời gian thực.
   - Hộp tra cứu quy luật khởi lệ 12 tháng có thể bật/tắt linh hoạt làm căn cứ học thuật.
 
+### 15. Hồ Sơ Bản Mệnh Cá Nhân & Lời Khuyên Tối Ưu Hóa Năng Lượng Hằng Ngày (Bảo Mật Cục Bộ 100%)
+- **Trải Nghiệm Onboarding Chào Mừng Cho Trình Duyệt Mới**:
+  - Tự động nhận diện người dùng truy cập lần đầu trên trình duyệt mới (kiểm tra an toàn qua `localStorage`).
+  - Hướng dẫn thiết lập bản mệnh rõ ràng, văn phong trang trọng:
+    - *Nhập đầy đủ Giờ, Ngày, Tháng, Năm sinh*: Để hệ thống tính toán chính xác 4 Trụ, Thập Thần, Ngũ Hành Vượng Suy và Thần Sát.
+    - *Tùy chọn linh hoạt nếu không nhớ*: Cho phép chuyển sang chế độ *"Tôi chỉ nhớ Năm sinh"*, hệ thống tự động suy xuất theo Trụ Năm, Nạp Âm Bản Mệnh và Cung Phi Bát Trạch Lạc Thư.
+- **Cam Kết Bảo Mật Tuyệt Đối 100% Cục Bộ (Privacy First)**:
+  - Toàn bộ thông tin bản mệnh được lưu độc quyền trong bộ nhớ trình duyệt của người dùng (`Local Storage`).
+  - Cam kết không gửi, không lưu trữ và không truyền tải bất kỳ dữ liệu cá nhân nào lên máy chủ bên ngoài.
+- **Động Cơ Luận Giải Cá Nhân Hóa Hằng Ngày (Mỗi Lần Mở Lại Trang)**:
+  - **1. Những Gì Bạn Gặp Hôm Nay (Thời Vận & Nhân Duyên)**:
+    - Đối chiếu Thiên Can ngày với bản mệnh: Ngũ Hợp (quý nhân, hòa thuận), Tương Xung (áp lực, bất đồng), Tương Sinh (che chở), Tương Khắc (thử thách).
+    - Đối chiếu Địa Chi ngày với tuổi: Lục Hợp, Tam Hợp, Lục Xung, Tương Hại, Tương Hình, Tương Phá.
+    - Chiếu mệnh Thần Sát: Thiên Ất Quý Nhân, Đào Hoa, Dịch Mã, Văn Xương, Hoa Cái, Kình Dương.
+    - Thập Thần ngày: Chính Quan, Thất Sát, Chính Tài, Thiên Tài, Chính Ấn, Thiên Ấn, Thực Thần, Thương Quan, Tỷ Kiên, Kiếp Tài.
+    - Điểm số vận thế ngày (0 - 100) và xếp hạng Cát Hung trực quan.
+  - **2. Cần Làm Gì Để Tối Ưu Hóa Năng Lượng**:
+    - Chiến lược công việc & sự nghiệp, tài chính & dòng tiền, giao tiếp & ứng xử, sức khỏe & điều hòa tạng phủ theo ngũ hành.
+    - Khung giờ hoàng đạo vàng tối ưu cho bản thân (loại trừ giờ phá / xung tuổi).
+    - Màu sắc may mắn hộ mệnh và hướng xuất hành vượng tài.
+    - Danh sách cụ thể Việc Nên Làm (Cát) và Việc Cần Tránh (Kiêng cữ).
+- **Tích Hợp Tiện Ích Đa Chiều**:
+  - Banner nổi bật tại đầu trang Lịch Vạn Niên; nút hồ sơ người dùng trên Header (với đèn hiệu xanh báo trạng thái).
+  - Modal chi tiết hồ sơ cho phép xem lời khuyên của bất kỳ ngày nào được chọn.
+  - Nút *"🔮 Lập Lá Số Bát Tự Đầy Đủ"* tự động điền toàn bộ thông tin cá nhân và chuyển sang Tab Bát Tự với 1 cú nhấp chuột.
+  - Cho phép chỉnh sửa thông tin hoặc xóa dữ liệu bất kỳ lúc nào.
+
 ---
 
 ## 🏷️ QUY TẮC SỐ HOÁ PHIÊN BẢN (SEMANTIC VERSIONING)
@@ -298,6 +325,23 @@ $$\text{Phiên bản} = \text{MAJOR}.\text{MINOR}.\text{PATCH}$$
 ---
 
 ## 📜 LỊCH SỬ CẬP NHẬT (CHANGELOG)
+
+### [v1.46.0] - 2026-10-11
+- **Hồ Sơ Bản Mệnh Cá Nhân Cho Người Dùng Mới & Lời Khuyên Tối Ưu Hóa Hằng Ngày (Bảo Mật Cục Bộ 100%)**:
+  - **Trải Nghiệm Khởi Tạo Bản Mệnh Trên Trình Duyệt Mới (Onboarding Modal)**:
+    - Tự động nhận diện thiết bị/trình duyệt mới chưa có thông tin bản mệnh; hiển thị Modal chào mừng và hướng dẫn thiết lập chu đáo.
+    - Cam kết bảo mật tuyệt đối 100%: Dữ liệu lưu độc quyền trên máy cục bộ người dùng (Local Storage), không lưu máy chủ, không thu thập thông tin.
+    - Hướng dẫn nhập thông tin sinh chuẩn mực: Giờ, ngày, tháng, năm sinh phải chính xác; nếu người dùng không nhớ rõ giờ hoặc ngày tháng thì chỉ cần nhập Năm sinh (chế độ "Tôi chỉ nhớ Năm sinh").
+    - Hỗ trợ đầy đủ Dương lịch và Âm lịch, xem trước Can Chi năm, Nạp Âm bản mệnh và Cung Phi Bát Trạch (Đông/Tây Tứ Mệnh).
+  - **Động Cơ Luận Giải Tương Tác Thiên Văn & Mệnh Lý Mỗi Lần Mở Trang**:
+    - Tự động cập nhật và phân tích mỗi khi mở lại ứng dụng:
+      - **1. Những Gì Bạn Gặp Hôm Nay**: Bức tranh thời vận, điểm số hòa hợp ngày (0 - 100), tương tác Thiên Can (Ngũ Hợp, Xung, Sinh, Khắc), tương tác Địa Chi (Lục Hợp, Tam Hợp, Lục Xung, Tương Hại, Tương Hình, Tương Phá), Thần Sát chiếu mệnh (Thiên Ất Quý Nhân, Đào Hoa, Dịch Mã, Văn Xương, Hoa Cái, Kình Dương) và Thập Thần ngày.
+      - **2. Cần Làm Gì Để Tối Ưu Hôm Nay**: Hướng dẫn hành động cụ thể cho Công việc & Sự nghiệp, Quản lý tài chính, Giao tiếp dĩ hòa vi quý, Sức khỏe tạng phủ ngũ hành, Khung giờ hoàng đạo vàng cho bản thân, Màu sắc hộ mệnh, Hướng xuất hành, cùng bảng đối chiếu Việc Nên Làm vs Việc Cần Tránh.
+  - **Giao Diện Banner & Nút Hồ Sơ Tiện Ích Đa Năng**:
+    - Tích hợp Card Lời khuyên nổi bật tại đầu tab Lịch Vạn Niên (`#userDailyAdviceWrapper`), hỗ trợ xem hôm nay hoặc chuyển đổi theo ngày đang chọn trên lịch.
+    - Bổ sung nút truy cập hồ sơ nhanh trên Header (`#btnUserProfileHeader`) kèm đèn trạng thái thông minh.
+    - Modal tra cứu chuyên sâu (`#userProfileDetailModal`) hỗ trợ kiểm tra vận trình bất kỳ ngày nào, nút *"🔮 Xem Lá Số Bát Tự Đầy Đủ"* tự động điền dữ liệu và phân tích ngay lập tức.
+  - **Quản Lý Phiên Bản**: Nâng phiên bản hệ thống lên **v1.46.0** trên `package.json`, Header, Footer, Modal Logo và file `index.html`.
 
 ### [v1.45.0] - 2026-10-10
 - **Bổ Sung Dãy Đại Vận Trực Tiếp Vào Lá Số Bát Tự Tứ Trụ (Ma Trận 10 Bước Đại Vận Toàn Diện)**:
