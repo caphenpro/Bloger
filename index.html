@@ -20429,11 +20429,54 @@
       ];
       howToOptimizeBullets.push(`<strong>Về Sức Khỏe:</strong> ${NGU_HANH_TANG_PHU[canTodayElem]}`);
 
-      // E. Khung Giờ Hoàng Đạo Tối Ưu Cho Bạn
+      // E. Khung giờ cát cá nhân: loại giờ Hắc Đạo, Giờ Phá, Ngũ Bất Ngộ,
+      // giờ lục xung với Chi năm sinh và giờ có Nạp Âm tương khắc với Nạp Âm năm sinh.
       const hourList = getHourHoangDaoList(todayChiIdx, todayCanIdx);
-      const goodPersonalHours = hourList.filter(h => h.isHoangDao && !h.isGioPha && (Math.abs(h.chiIndex - uYearChiIdx) !== 6));
-      let goodHourText = goodPersonalHours.slice(0, 3).map(h => `${h.chiName} (${h.timeRange})`).join(' • ');
-      if (!goodHourText) goodHourText = "Giờ Tỵ (09h-11h) • Giờ Thân (15h-17h)";
+      const ELEMENT_GENERATES = { "Mộc": "Hỏa", "Hỏa": "Thổ", "Thổ": "Kim", "Kim": "Thủy", "Thủy": "Mộc" };
+      const ELEMENT_CONTROLS = { "Mộc": "Thổ", "Thổ": "Thủy", "Thủy": "Hỏa", "Hỏa": "Kim", "Kim": "Mộc" };
+      const getNaYinElement = (value) => (String(value || "").match(/(Mộc|Hỏa|Thổ|Kim|Thủy)$/) || [])[1] || null;
+      const personalNaYinElement = getNaYinElement(userNapAm);
+
+      const goodPersonalHours = hourList
+        .filter(h => {
+          if (!h.isHoangDao || h.isGioPha || h.isNguBatNgo) return false;
+          // Lục xung Chi năm sinh: khoảng cách 6 cung trên vòng 12 Địa Chi.
+          if (Number.isInteger(uYearChiIdx) && uYearChiIdx >= 0 &&
+              ((h.chiIndex - uYearChiIdx + 12) % 12 === 6)) return false;
+          // Dùng Nạp Âm của đủ Can-Chi giờ, không suy diễn ngũ hành chỉ từ Chi giờ.
+          const hourNaYin = h.canChi ? NAP_AM[h.canChi.text] : null;
+          const hourElement = getNaYinElement(hourNaYin);
+          if (personalNaYinElement && hourElement &&
+              (ELEMENT_CONTROLS[hourElement] === personalNaYinElement ||
+               ELEMENT_CONTROLS[personalNaYinElement] === hourElement)) return false;
+          return true;
+        })
+        .map(h => {
+          const hourNaYin = h.canChi ? NAP_AM[h.canChi.text] : null;
+          const hourElement = getNaYinElement(hourNaYin);
+          let score = 1;
+          let relation = "không trực tiếp tương khắc";
+          if (personalNaYinElement && hourElement) {
+            if (hourElement === personalNaYinElement) {
+              score = 3;
+              relation = "đồng hành Nạp Âm";
+            } else if (ELEMENT_GENERATES[hourElement] === personalNaYinElement) {
+              score = 4;
+              relation = "Nạp Âm giờ tương sinh bản mệnh";
+            } else if (ELEMENT_GENERATES[personalNaYinElement] === hourElement) {
+              score = 2;
+              relation = "bản mệnh sinh Nạp Âm giờ";
+            }
+          }
+          return { hour: h, score, relation };
+        })
+        .sort((a, b) => b.score - a.score || a.hour.chiIndex - b.hour.chiIndex);
+
+      const goodHourText = goodPersonalHours.length
+        ? goodPersonalHours.slice(0, 3).map(item =>
+            `${item.hour.chi} (${item.hour.time}) – ${item.relation}`
+          ).join(' • ')
+        : "Hôm nay không có giờ đạt đủ tiêu chí: Hoàng Đạo, không Phá, không Ngũ Bất Ngộ, không lục xung tuổi và không khắc Nạp Âm. Không tự động thay bằng giờ mặc định.";
 
       // F. Màu sắc may mắn & Hướng xuất hành
       const COLOR_BY_HANH = {
