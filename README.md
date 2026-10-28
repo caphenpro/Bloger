@@ -6,7 +6,7 @@
 
 - **Ứng dụng trực tuyến:** https://lichamduong-battu.vercel.app/
 - **Mã nguồn:** https://github.com/caphenpro/Bloger
-- **Phiên bản hiện tại:** `1.46.0` (theo `package.json`)
+- **Phiên bản hiện tại:** `1.47.0` (theo `package.json`)
 
 ## Chức năng chính
 
@@ -92,5 +92,11 @@ Phiên bản ứng dụng được khai báo trong `package.json`. Khi thay đ�
 - **MAJOR** (`X.0.0`): thay đổi lớn có thể ảnh hưởng đến cách sử dụng.
 
 ### Lịch sử cập nhật
+
+### [v1.47.0] - 2026-10-28
+- **Hợp nhất và chuẩn hóa mục Tra Cứu Cát Hung**:
+  - Hợp nhất mục tra cứu Thần Sát và Ngày Cát Hung trong lịch ngày (thẻ bloc lịch ngày) thành một mục duy nhất.
+  - Đổi tên chuẩn hóa thành **Tra Cứu Cát Hung** trên thanh điều hướng chính, thẻ tóm tắt bloc lịch ngày và module khảo sát chi tiết.
+  - Tối ưu hóa các nút chuyển đổi và tra cứu nhanh giúp đối chiếu trực tiếp giữa lịch ngày và bảng thẩm định cát hung chi tiết theo thời gian.
 
 - **v1.46.0 — 2026-10-11:** phiên bản được khai báo hiện tại trong `package.json`. README được biên tập lại để mô tả ngắn gọn mục đích, nhóm chức năng, công nghệ và cách chạy/triển khai dự án. Bản sửa tài liệu này không thay đổi mã ứng dụng hay số phiên bản.
