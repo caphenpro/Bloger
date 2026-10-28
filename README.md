@@ -93,6 +93,14 @@ Phiên bản ứng dụng được khai báo trong `package.json`. Khi thay đ�
 
 ### Lịch sử cập nhật
 
+### [v1.47.1] - 2026-10-29
+- **Sửa tận gốc tính năng giờ Hoàng Đạo cá nhân**:
+  - Sửa lỗi dùng sai tên thuộc tính giờ; lấy đúng Địa Chi và khung giờ từ dữ liệu giờ thực.
+  - Loại giờ Hắc Đạo, giờ Phá, giờ Ngũ Bất Ngộ và giờ lục xung với Chi năm sinh.
+  - Đối chiếu Nạp Âm Can-Chi giờ với Nạp Âm năm sinh; loại quan hệ tương khắc và ưu tiên tương sinh.
+  - Bỏ giờ mặc định giả khi không có giờ đạt tiêu chí; hiển thị rõ khi không tìm được giờ phù hợp.
+
+
 ### [v1.47.0] - 2026-10-28
 - **Hợp nhất và chuẩn hóa mục Tra Cứu Cát Hung**:
   - Hợp nhất mục tra cứu Thần Sát và Ngày Cát Hung trong lịch ngày (thẻ bloc lịch ngày) thành một mục duy nhất.
