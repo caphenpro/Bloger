@@ -23,6 +23,14 @@ Các nhóm chức năng được phát triển trong ứng dụng gồm:
 
 > Phạm vi hiển thị và kết quả cụ thể có thể thay đổi theo phiên bản triển khai. Các thuật ngữ như “cát”, “hung”, “hợp” hay “kỵ” thuộc hệ thống quy ước truyền thống, không phải dự báo chắc chắn về sự kiện thực tế.
 
+## Ứng dụng Android (Kotlin)
+
+Dự án có module Android tại thư mục `android/`. Mã nguồn Android được viết bằng Kotlin, đóng gói giao diện và lõi JavaScript hiện có trong tài nguyên cục bộ để mở ứng dụng không cần máy chủ Vercel. Các chức năng lịch pháp và tra cứu được thực thi trên thiết bị; các yêu cầu Gemini/AI hoặc dịch vụ từ xa vẫn cần Internet và cấu hình khóa riêng.
+
+- Mở `android/` bằng Android Studio hoặc chạy `gradle -p android assembleDebug` với JDK 17 và Android SDK 35.
+- GitHub Actions workflow `.github/workflows/android.yml` tạo APK và AAB.
+- APK debug dùng để cài thử; AAB phát hành Google Play cần khóa ký phát hành do chủ dự án quản lý (GitHub Secrets).
+
 ## Công nghệ
 
 - **Giao diện / công cụ build:** Vite
@@ -90,6 +98,13 @@ Phiên bản ứng dụng được khai báo trong `package.json`. Khi thay đ�
 - **PATCH** (`x.y.Z`): sửa lỗi hoặc điều chỉnh nhỏ.
 - **MINOR** (`x.Y.0`): bổ sung tính năng tương thích ngược.
 - **MAJOR** (`X.0.0`): thay đổi lớn có thể ảnh hưởng đến cách sử dụng.
+
+### [v1.48.0] - 2026-10-30
+- **Khởi tạo dự án Android Kotlin**:
+  - Thêm cấu trúc Gradle Kotlin DSL, Android Manifest và ứng dụng Android.
+  - Đóng gói giao diện lịch và dữ liệu thần sát vào tài nguyên cục bộ để sử dụng ngoại tuyến.
+  - Bổ sung cầu nối chia sẻ kết quả và điều hướng quay lại trên Android.
+  - Thêm GitHub Actions build APK và AAB; AAB phát hành cần cấu hình khóa ký riêng.
 
 ### Lịch sử cập nhật
 
