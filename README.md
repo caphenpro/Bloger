@@ -4,9 +4,9 @@
 
 Ứng dụng web tra cứu lịch âm dương Việt Nam, tiết khí và các hệ thống mệnh lý phương Đông. Dự án hướng tới việc đặt lịch pháp và các phương pháp truyền thống trong một giao diện thống nhất; kết quả mệnh lý nên được xem là thông tin tham khảo văn hóa, không phải kết luận khoa học hay lời khuyên thay thế cho quyết định cá nhân.
 
-- **Ứng dụng trực tuyến:** https://lichamduong-battu.vercel.app/
+- **Ứng dụng web:** https://lichamduong-battu.vercel.app/ (có thể cài như PWA và dùng ngoại tuyến sau lần truy cập đầu tiên)
 - **Mã nguồn:** https://github.com/caphenpro/Bloger
-- **Phiên bản hiện tại:** `1.47.0` (theo `package.json`)
+- **Phiên bản hiện tại:** `1.49.0` (theo `package.json`)
 
 ## Chức năng chính
 
@@ -61,6 +61,12 @@ npm run dev
 
 Vite sẽ khởi chạy máy chủ phát triển tại cổng `3000` theo cấu hình hiện tại.
 
+### Dùng ứng dụng web ngoại tuyến
+
+Bản web lưu giao diện và dữ liệu cần thiết vào bộ nhớ đệm sau lần truy cập đầu tiên. Cần mở ứng dụng qua HTTPS hoặc `localhost` (không mở trực tiếp tệp HTML), chờ trang tải xong khi còn mạng, sau đó có thể ngắt mạng và mở lại. Khi trạng thái trên đầu trang báo **Đã lưu để dùng ngoại tuyến**, Chrome/Edge sẽ hiện nút **Cài ứng dụng**; bấm nút đó để thêm webapp vào máy. Trên iPhone/iPad, mở trang bằng Safari, chọn **Chia sẻ → Thêm vào Màn hình chính**. Sau khi cài, mở từ biểu tượng ứng dụng. Dữ liệu hồ sơ vẫn được lưu cục bộ trên thiết bị.
+
+Bản Android chạy từ các tài nguyên được đóng gói trong APK nên không cần mạng để dùng các chức năng lịch pháp và tra cứu. Việc chia sẻ có thể mở ứng dụng ngoài; nội dung ứng dụng chính không tải dữ liệu từ máy chủ.
+
 ### Kiểm tra bản build
 
 ```bash
@@ -98,6 +104,13 @@ Phiên bản ứng dụng được khai báo trong `package.json`. Khi thay đ�
 - **PATCH** (`x.y.Z`): sửa lỗi hoặc điều chỉnh nhỏ.
 - **MINOR** (`x.Y.0`): bổ sung tính năng tương thích ngược.
 - **MAJOR** (`X.0.0`): thay đổi lớn có thể ảnh hưởng đến cách sử dụng.
+
+### [v1.49.0] - 2026-11-01
+- **Hỗ trợ chạy ngoại tuyến trên trình duyệt:**
+  - Thêm nút cài webapp, trạng thái báo khi bộ nhớ ngoại tuyến sẵn sàng, manifest và service worker lưu giao diện, dữ liệu thần sát, biểu tượng cùng tài nguyên cần thiết.
+  - Bỏ Google Fonts từ xa, dùng phông hệ thống để giao diện không cần gọi máy chủ bên ngoài.
+  - Ứng dụng Android tiếp tục chạy từ bộ tài nguyên đã đóng gói trong APK.
+  - Bản web cần được mở qua HTTPS hoặc localhost; cần kết nối mạng ở lần mở đầu tiên để lưu ứng dụng.
 
 ### [v1.48.0] - 2026-10-30
 - **Khởi tạo dự án Android Kotlin**:

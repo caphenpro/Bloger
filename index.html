@@ -34,9 +34,10 @@
   <meta name="twitter:title" content="Lịch Âm Dương &amp; Bát Tự Tứ Trụ • Vòng Xoay Duyên Khởi" />
   <meta name="twitter:description" content="Lịch Âm Dương, Bát Tự Tứ Trụ &amp; Hôn Nhân Cát Tường. Slogan: 'Vòng Xoay Duyên Khởi' - Giao thoa Thời Gian &amp; Nhân Duyên." />
   <meta name="twitter:image" content="https://lichamduong-battu.vercel.app/og-image.png?v=1.39.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#7f1d1d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Lịch Âm Dương" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <style>
     :root {
       --primary: #991b1b;
@@ -70,7 +71,7 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--bg-page);
       color: var(--text-main);
       line-height: 1.5;
@@ -123,7 +124,7 @@
       box-shadow: 0 6px 16px rgba(245, 158, 11, 0.45);
     }
     .brand-title {
-      font-family: 'Cinzel', serif;
+      font-family: Georgia, 'Times New Roman', serif;
       font-size: 1.45rem;
       font-weight: 700;
       letter-spacing: 0.5px;
@@ -134,7 +135,7 @@
       line-height: 1.25;
     }
     .brand-sub {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: system-ui, sans-serif;
       font-size: 0.8rem;
       color: #fecaca;
       font-weight: 400;
@@ -161,6 +162,26 @@
     .nav-brand-mini:hover .nav-brand-mini-img {
       transform: scale(1.1);
     }
+    .offline-status {
+      border: 1px solid rgba(167, 243, 208, 0.5);
+      border-radius: 9999px;
+      padding: 0.35rem 0.7rem;
+      color: #d1fae5;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+    .pwa-install-btn {
+      border: 1px solid #fbbf24;
+      border-radius: 9999px;
+      padding: 0.4rem 0.75rem;
+      color: #7f1d1d;
+      background: #fef3c7;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .pwa-install-btn[hidden] { display: none; }
     .realtime-clock {
       background: rgba(0, 0, 0, 0.25);
       border: 1px solid rgba(251, 191, 36, 0.4);
@@ -944,7 +965,7 @@
       color: #7f1d1d;
       line-height: 1;
       margin: 0.2rem 0;
-      font-family: 'Cinzel', serif;
+      font-family: Georgia, 'Times New Roman', serif;
     }
     .bloc-lunar-box {
       background: #fef2f2;
@@ -5773,6 +5794,59 @@
 </head>
 <body>
 
+  <script>
+    let pendingInstallPrompt = null;
+    let offlineCacheReady = false;
+    if ('serviceWorker' in navigator && window.isSecureContext) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })
+          .then(() => navigator.serviceWorker.ready)
+          .then(() => {
+            offlineCacheReady = true;
+            const status = document.getElementById('offlineStatus');
+            if (status && navigator.onLine) status.textContent = '✓ Đã lưu để dùng ngoại tuyến';
+            const installButton = document.getElementById('installPwaButton');
+            if (installButton && pendingInstallPrompt) installButton.hidden = false;
+          })
+          .catch(() => {
+            const status = document.getElementById('offlineStatus');
+            if (status) status.textContent = 'Chưa bật được chế độ ngoại tuyến';
+          });
+      });
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        pendingInstallPrompt = event;
+        const installButton = document.getElementById('installPwaButton');
+        if (installButton && offlineCacheReady) installButton.hidden = false;
+      });
+      window.addEventListener('appinstalled', () => {
+        const installButton = document.getElementById('installPwaButton');
+        if (installButton) installButton.hidden = true;
+      });
+    }
+    window.addEventListener('offline', () => {
+      const status = document.getElementById('offlineStatus');
+      if (status) status.textContent = '◉ Đang dùng ngoại tuyến';
+    });
+    window.addEventListener('online', () => {
+      const status = document.getElementById('offlineStatus');
+      if (status) status.textContent = offlineCacheReady ? '✓ Đã lưu để dùng ngoại tuyến' : 'Đang chuẩn bị dùng ngoại tuyến…';
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      const installButton = document.getElementById('installPwaButton');
+      if (installButton) installButton.addEventListener('click', async () => {
+        if (!pendingInstallPrompt) return;
+        pendingInstallPrompt.prompt();
+        await pendingInstallPrompt.userChoice;
+        pendingInstallPrompt = null;
+        installButton.hidden = true;
+      });
+      const status = document.getElementById('offlineStatus');
+      if (status && !navigator.onLine) status.textContent = '◉ Đang dùng ngoại tuyến';
+      else if (status && (!('serviceWorker' in navigator) || !window.isSecureContext)) status.textContent = 'Cần HTTPS để lưu ứng dụng ngoại tuyến';
+    });
+  </script>
+
   <!-- Header -->
   <header>
     <div class="header-container">
@@ -5781,12 +5855,14 @@
         <div>
           <div class="brand-title">
             <span>Lịch Âm Dương &amp; Bát Tự Tứ Trụ</span>
-            <span class="app-version-badge" id="appVersionHeader">v1.47.0</span>
+            <span class="app-version-badge" id="appVersionHeader">v1.49.0</span>
           </div>
           <div class="brand-sub">"Vòng Xoay Duyên Khởi" • Giao thoa Thời Gian &amp; Nhân Duyên</div>
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+        <span class="offline-status" id="offlineStatus" role="status" aria-live="polite">Đang chuẩn bị dùng ngoại tuyến…</span>
+        <button type="button" class="pwa-install-btn" id="installPwaButton" hidden>Cài ứng dụng</button>
         <button type="button" class="btn-user-profile-header" id="btnUserProfileHeader" title="Hồ sơ bản mệnh cá nhân & Lời khuyên tối ưu hôm nay">
           <span class="user-pulse-dot not-set" id="userProfileDot"></span>
           <span id="userProfileHeaderLabel">👤 Bản Mệnh Của Tôi</span>
@@ -8237,12 +8313,12 @@
       <div class="modal-body" id="logoModalContent">
         <div style="text-align: center; margin-bottom: 1.15rem;">
           <img src="/logo.svg" alt="Biểu trưng Vòng Xoay Duyên Khởi" style="width: 156px; height: 156px; border-radius: 50%; border: 3px solid #f59e0b; box-shadow: 0 8px 24px rgba(25, 24, 43, 0.35); background: #19182b; margin: 0 auto; display: block;" />
-          <h4 style="margin-top: 0.85rem; font-family: 'Cinzel', serif; font-size: 1.28rem; color: #991b1b; font-weight: 700; letter-spacing: 0.5px;">
+          <h4 style="margin-top: 0.85rem; font-family: Georgia, 'Times New Roman', serif; font-size: 1.28rem; color: #991b1b; font-weight: 700; letter-spacing: 0.5px;">
             VÒNG XOAY DUYÊN KHỞI
           </h4>
           <p style="font-size: 0.86rem; color: #b45309; font-weight: 700; margin-top: 3px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
             <span>"Giao Thoa Thời Gian &amp; Nhân Duyên"</span>
-            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.47.0</span>
+            <span class="app-version-badge" id="appVersionModal" style="background: #fef3c7; color: #92400e; border-color: #f59e0b;">v1.49.0</span>
           </p>
         </div>
         <div style="background: #faf8f5; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.95rem 1.15rem; font-size: 0.84rem; line-height: 1.65; color: #374151;">
@@ -8847,7 +8923,7 @@
             "Vòng Xoay Duyên Khởi" — Giao thoa Thời Gian &amp; Nhân Duyên • Thiên văn học NASA JPL / VSOP87 &amp; Mệnh Lý Tử Bình, Kỳ Môn Độn Giáp Hôn Nhân.
           </p>
           <p style="margin-top: 0.45rem; font-size: 0.72rem; color: #9ca3af;">
-            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.47.0</span>
+            <span class="app-version-badge" id="appVersionFooter" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); color: #fef3c7;">Phiên bản v1.49.0</span>
             • Chuẩn hóa Thiên văn học NASA JPL / VSOP87 &amp; Jean Meeus
           </p>
         </div>
@@ -20012,7 +20088,7 @@
     /**
      * QUẢN LÝ PHIÊN BẢN HỆ THỐNG
      */
-    const APP_VERSION = "v1.47.0";
+    const APP_VERSION = "v1.49.0";
 
     function initAppVersion() {
       const hEl = document.getElementById('appVersionHeader');

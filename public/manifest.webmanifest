@@ -1,0 +1,16 @@
+{
+  "id": "/",
+  "name": "Lịch Âm Dương & Bát Tự Tứ Trụ",
+  "short_name": "Lịch Âm Dương",
+  "description": "Lịch vạn niên và công cụ tra cứu lịch pháp Việt Nam, dùng được ngoại tuyến sau lần mở đầu tiên.",
+  "lang": "vi",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf8f5",
+  "theme_color": "#7f1d1d",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
